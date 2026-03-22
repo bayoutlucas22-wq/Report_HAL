@@ -75,11 +75,11 @@ function renderIncidents(incidents) {
   const tbody = document.getElementById("incident-body");
   if (!incidents || !incidents.length) {
     incidents = [
-      { no: "1307/000033", operator: "Petrobras", date: "09-07-2013", type: "Kick – primary barrier failure", description: "Volume gain of 1.4 bbl in trip tank during flowcheck. Possible formation influx in well 1-CES-161." },
-      { no: "1309/000323", operator: "Petrobras", date: "21-09-2013", type: "Kick – primary barrier failure", description: "Dynamic and static flowcheck during string pullout detected volume gain. Well closed; pressure increase observed." },
-      { no: "1310/000182", operator: "Petrobras", date: "09-10-2013", type: "Kick – primary barrier failure", description: "Gas kick during drilling at 2,460 m." },
-      { no: "1311/000015", operator: "Petrobras", date: "09-01-2013", type: "Kick – primary barrier failure", description: "Return of oil and gas detected during circulation before resuming 8.5-inch phase drilling." },
-      { no: "1309/000264", operator: "OGX Petróleo", date: "N/A", type: "Kick – primary barrier failure", description: "Kick during drilling of phase V with 8.5-inch bit at 6,135 m." },
+      { no: "2601/000012", operator: "Petrobras", date: "15-01-2026", type: "Kick – primary barrier failure", description: "Volume gain of 0.8 bbl in trip tank during flowcheck. Possible formation influx in well 7-BRSA-1380-SES.", halScope: "Yes" },
+      { no: "2601/000089", operator: "Petrobras", date: "22-01-2026", type: "CSB element failure", description: "Barrier element failure detected during workover intervention. Valve seal degradation in well 3-SES-192.", halScope: "Yes" },
+      { no: "2602/000034", operator: "Shell", date: "08-02-2026", type: "CSB element failure", description: "CSB component failure during completion phase. Annular pressure buildup observed; barrier restored.", halScope: "Yes" },
+      { no: "2602/000156", operator: "Equinor", date: "19-02-2026", type: "CSB element failure", description: "Barrier element fault during wireline operation at 2,840 m. Operations suspended; barrier integrity verified.", halScope: "Yes" },
+      { no: "2603/000023", operator: "Petrobras", date: "03-03-2026", type: "CSB element failure", description: "Element failure in Conjunto Solidário de Barreira during intervention. Remediation completed; well returned to service.", halScope: "Yes" },
     ];
   }
   tbody.innerHTML = incidents.map((i) => `
@@ -89,6 +89,7 @@ function renderIncidents(incidents) {
       <td>${i.date}</td>
       <td>${i.type}</td>
       <td>${i.description}</td>
+      <td>${i.halScope ?? "—"}</td>
     </tr>
   `).join("");
 }

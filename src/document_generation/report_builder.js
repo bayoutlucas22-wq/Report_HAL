@@ -130,7 +130,7 @@ function buildReportSections() {
 
       // --- SECTION 4: SAMPLE INCIDENTS -----------------------------------------
       h1("4. Sample Incidents from ANP Open Dataset"),
-      p("The following incidents are drawn directly from the ANP SISO-Incidentes open database and are representative of the failure modes relevant to this operation. All records are publicly citable under Lei nº 12.527/2011."),
+      p("The following incidents are drawn directly from the ANP SISO-Incidentes open database and are representative of the failure modes relevant to this operation. All records are publicly citable under Lei nº 12.527/2011. HAL scope indicates operators that use Halliburton well services (inferred from ANP client relationships; ANP does not list service companies)."),
       spacer(),
       makeIncidentTable(),
       spacer(),
