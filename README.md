@@ -1,6 +1,6 @@
-# HAL Tejas Incident Report — Web App
+# HAL Tejas Incident Report — Bureau Veritas & ANP
 
-A professional web application for the HAL Tejas Incident Report, providing Bureau Veritas compliance and ANP well integrity analysis. Browse report data and generate DOCX exports.
+Open source research into ANP open data. A web application for the HAL Tejas Incident Report, providing Bureau Veritas compliance and ANP well integrity analysis. Browse report data and generate DOCX exports.
 
 ## Quick Start
 
