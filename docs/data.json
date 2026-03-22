@@ -1,0 +1,63 @@
+{
+  "metrics": [
+    { "label": "Total incidents (dataset)", "value": "30,054", "color": "1F4E79" },
+    { "label": "Well integrity incidents", "value": "2,291", "color": "C00000" },
+    { "label": "CSB failures (2023–26)", "value": "762", "color": "C55A11" },
+    { "label": "Kicks reported (primary barrier)", "value": "193", "color": "375623" }
+  ],
+  "trends": [
+    { "year": "2013", "kicks": "5", "csb": "0", "structural": "0", "loss": "0", "highlight": false },
+    { "year": "2014", "kicks": "7", "csb": "0", "structural": "1", "loss": "0", "highlight": false },
+    { "year": "2015", "kicks": "18", "csb": "0", "structural": "0", "loss": "0", "highlight": false },
+    { "year": "2016", "kicks": "13", "csb": "1", "structural": "5", "loss": "0", "highlight": false },
+    { "year": "2017", "kicks": "6", "csb": "8", "structural": "2", "loss": "0", "highlight": false },
+    { "year": "2018", "kicks": "20", "csb": "12", "structural": "2", "loss": "1", "highlight": false },
+    { "year": "2019", "kicks": "7", "csb": "5", "structural": "0", "loss": "1", "highlight": false },
+    { "year": "2020", "kicks": "5", "csb": "30", "structural": "0", "loss": "0", "highlight": false },
+    { "year": "2021", "kicks": "0", "csb": "485", "structural": "0", "loss": "0", "highlight": true },
+    { "year": "2022", "kicks": "6", "csb": "395", "structural": "0", "loss": "0", "highlight": true },
+    { "year": "2023", "kicks": "12", "csb": "255", "structural": "7", "loss": "3", "highlight": true },
+    { "year": "2024", "kicks": "32", "csb": "326", "structural": "4", "loss": "4", "highlight": true },
+    { "year": "2025", "kicks": "31", "csb": "391", "structural": "3", "loss": "0", "highlight": true },
+    { "year": "2026*", "kicks": "1", "csb": "45", "structural": "0", "loss": "0", "highlight": false }
+  ],
+  "incidents": [
+    { "no": "1307/000033", "operator": "Petrobras", "date": "09-07-2013", "type": "Kick – primary barrier failure", "description": "Volume gain of 1.4 bbl in trip tank during flowcheck. Possible formation influx in well 1-CES-161." },
+    { "no": "1309/000323", "operator": "Petrobras", "date": "21-09-2013", "type": "Kick – primary barrier failure", "description": "Dynamic and static flowcheck during string pullout detected volume gain. Well closed; pressure increase observed." },
+    { "no": "1310/000182", "operator": "Petrobras", "date": "09-10-2013", "type": "Kick – primary barrier failure", "description": "Gas kick during drilling at 2,460 m." },
+    { "no": "1311/000015", "operator": "Petrobras", "date": "09-01-2013", "type": "Kick – primary barrier failure", "description": "Return of oil and gas detected during circulation before resuming 8.5-inch phase drilling." },
+    { "no": "1309/000264", "operator": "OGX Petróleo", "date": "N/A", "type": "Kick – primary barrier failure", "description": "Kick during drilling of phase V with 8.5-inch bit at 6,135 m." }
+  ],
+  "regulations": [
+    ["Resolução ANP nº 46/2016 (SGIP)", "Well integrity management", "Halliburton & Tejas equipment in barrier systems", "gov.br/anp"],
+    ["Resolução ANP nº 43/2007 (SGSO)", "Operational safety management", "All E&P service operations", "gov.br/anp"],
+    ["BV NR 445", "Classification of offshore units", "Units where services are performed", "marine-offshore.bureauveritas.com"],
+    ["BV NR 459", "Process systems on offshore units", "Completion & well control systems", "marine-offshore.bureauveritas.com"],
+    ["NR-37 (MTE)", "Health & safety on offshore platforms", "All personnel on licensed installations", "trabalho.gov.br"],
+    ["NORMAM-01/DPC", "Maritime safety – vessels & crew", "Marine vessels supporting operations", "marinha.mil.br/dpc"],
+    ["ISO 9001 / ISO 17025", "QA/QC & laboratory accreditation", "Equipment certification & testing", "iso.org"]
+  ],
+  "sources": {
+    "anp": [
+      { "name": "SISO-Incidentes Dataset", "description": "dados.gov.br/organization/anp — 30,054 records (2013–2026), published under Lei nº 12.527/2011", "url": "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" },
+      { "name": "Resolução ANP nº 46/2016 (SGIP)", "description": "gov.br/anp — Well Integrity Management System; mandatory for all E&P licensees", "url": "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" },
+      { "name": "Resolução ANP nº 43/2007 (SGSO)", "description": "gov.br/anp — Operational Safety Management System for drilling and production", "url": "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" },
+      { "name": "Resolução ANP nº 41/2015", "description": "gov.br/anp — Subsea systems safety management", "url": "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos" }
+    ],
+    "bureauVeritas": [
+      { "name": "NR 445 — Classification of Offshore Units", "description": "marine-offshore.bureauveritas.com/nr445 — Free download; governs structural, machinery, and safety systems on all BV-classed units", "url": "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" },
+      { "name": "NR 459 — Process Systems on Offshore Units", "description": "marine-offshore.bureauveritas.com — Applies to completion and well control process systems", "url": "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" },
+      { "name": "NR 493 — Mooring Systems", "description": "marine-offshore.bureauveritas.com — Applicable to floating units", "url": "https://marine-offshore.bureauveritas.com/rules-guidelines" },
+      { "name": "IVBS-BRA Notation", "description": "marine-offshore.bureauveritas.com — Brazil-specific independent verification bridging ANP, DPC, NR-37, and IBAMA requirements", "url": "https://marine-offshore.bureauveritas.com/" }
+    ],
+    "mteDpc": [
+      { "name": "NR-37 (MTE)", "description": "trabalho.gov.br — Health and safety standard for all personnel on offshore platforms", "url": "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf" },
+      { "name": "NR-33 / NR-35 (MTE)", "description": "trabalho.gov.br — Confined space and work-at-height", "url": "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf" },
+      { "name": "NORMAM-01/DPC", "description": "marinha.mil.br/dpc — Maritime Authority safety regulations for vessels and crew", "url": "https://www.marinha.mil.br/dpc/normam" }
+    ],
+    "international": [
+      { "name": "BSEE Offshore Incident Statistics (US)", "description": "bsee.gov/stats-facts/offshore-incident-statistics — Global precedent for analogous failure modes", "url": "https://www.bsee.gov/stats-facts/offshore-incident-statistics" },
+      { "name": "HSE UK Hydrocarbon Release Database", "description": "hse.gov.uk/offshore/hydrocarbon-releases — International benchmark for leak and well control events", "url": "https://www.hse.gov.uk/offshore/hydrocarbon-releases.htm" }
+    ]
+  }
+}

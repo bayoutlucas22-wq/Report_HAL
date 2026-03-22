@@ -1,5 +1,6 @@
 node_modules/
 *.docx
+!docs/HAL_Tejas_Incident_Report.docx
 *.zip
 .DS_Store
 .env
