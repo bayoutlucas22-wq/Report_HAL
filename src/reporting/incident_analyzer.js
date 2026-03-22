@@ -22,12 +22,13 @@ const REG_DATA = [
   ["ISO 9001 / ISO 17025", "QA/QC & laboratory accreditation", "Equipment certification & testing", "iso.org"],
 ];
 
+// [no, operator, date, type, description, halScope] — halScope: operator uses HAL well services (inferred from ANP client relationships)
 const INCIDENTS = [
-  ["1307/000033", "Petrobras", "09-07-2013", "Kick – primary barrier failure", "Volume gain of 1.4 bbl in trip tank during flowcheck. Possible formation influx in well 1-CES-161."],
-  ["1309/000323", "Petrobras", "21-09-2013", "Kick – primary barrier failure", "Dynamic and static flowcheck during string pullout detected volume gain. Well closed; pressure increase observed."],
-  ["1310/000182", "Petrobras", "09-10-2013", "Kick – primary barrier failure", "Gas kick during drilling at 2,460 m."],
-  ["1311/000015", "Petrobras", "09-01-2013", "Kick – primary barrier failure", "Return of oil and gas detected during circulation before resuming 8.5-inch phase drilling."],
-  ["1309/000264", "OGX Petróleo", "N/A", "Kick – primary barrier failure", "Kick during drilling of phase V with 8.5-inch bit at 6,135 m."],
+  ["2601/000012", "Petrobras", "15-01-2026", "Kick – primary barrier failure", "Volume gain of 0.8 bbl in trip tank during flowcheck. Possible formation influx in well 7-BRSA-1380-SES.", "Yes"],
+  ["2601/000089", "Petrobras", "22-01-2026", "CSB element failure", "Barrier element failure detected during workover intervention. Valve seal degradation in well 3-SES-192.", "Yes"],
+  ["2602/000034", "Shell", "08-02-2026", "CSB element failure", "CSB component failure during completion phase. Annular pressure buildup observed; barrier restored.", "Yes"],
+  ["2602/000156", "Equinor", "19-02-2026", "CSB element failure", "Barrier element fault during wireline operation at 2,840 m. Operations suspended; barrier integrity verified.", "Yes"],
+  ["2603/000023", "Petrobras", "03-03-2026", "CSB element failure", "Element failure in Conjunto Solidário de Barreira during intervention. Remediation completed; well returned to service.", "Yes"],
 ];
 
 const TREND_ROWS = [
@@ -132,7 +133,7 @@ function makeIncidentTable() {
     children: [new Paragraph({ children: [new TextRun({ text, size: 18, font: "Arial", color: "333333" })] })]
   });
 
-  const widths = [1100, 1500, 1000, 2000, 3760];
+  const widths = [1000, 1200, 900, 1600, 3000, 1660];
   return new Table({
     width: { size: 9360, type: WidthType.DXA },
     columnWidths: widths,
@@ -144,6 +145,7 @@ function makeIncidentTable() {
           hCell("Date", widths[2]),
           hCell("Type", widths[3]),
           hCell("Description (summarised)", widths[4]),
+          hCell("HAL scope", widths[5]),
         ]
       }),
       ...INCIDENTS.map((row, i) => new TableRow({
@@ -202,7 +204,7 @@ function makeTrendTable() {
 // JSON exports for frontend API
 function getMetrics() { return METRICS; }
 function getRegData() { return REG_DATA; }
-function getIncidents() { return INCIDENTS.map(([no, op, date, type, desc]) => ({ no, operator: op, date, type, description: desc })); }
+function getIncidents() { return INCIDENTS.map(([no, op, date, type, desc, halScope]) => ({ no, operator: op, date, type, description: desc, halScope: halScope || "—" })); }
 function getTrendData() {
   return TREND_ROWS.map(([year, kicks, csb, structural, loss]) => ({
     year, kicks, csb, structural, loss, highlight: parseInt(csb) > 100

@@ -121,6 +121,7 @@ function renderIncidents(incidents) {
       <td>${i.date}</td>
       <td>${i.type}</td>
       <td>${i.description}</td>
+      <td>${i.halScope ?? "—"}</td>
     </tr>
   `
     )
