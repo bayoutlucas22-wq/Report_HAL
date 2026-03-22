@@ -42,6 +42,18 @@ Then open **http://localhost:3333** in your browser.
 - `GET /api/data` — JSON data for metrics, trends, incidents, regulations, sources
 - `GET /api/generate-report` — Download HAL_Tejas_Incident_Report.docx
 
+## GitHub Pages (Static)
+
+The `docs/` folder is configured for GitHub Pages. To deploy:
+
+1. Push to GitHub
+2. Repo → **Settings** → **Pages** → Source: **Deploy from a branch**
+3. Branch: **main**, Folder: **/docs** → Save
+
+Site will be at: `https://<username>.github.io/HAL_Tejas_Bveritas/`
+
+To refresh the DOCX in docs: `npm run build:static`
+
 ## Data Sources
 
 All findings are traceable to official open sources:
