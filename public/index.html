@@ -24,21 +24,14 @@
 
     <!-- ── Sidebar ── -->
     <aside class="sidebar">
-      <div class="sidebar-logo">
-        <div class="sidebar-logo-mark">
-          <!-- Shield icon (Lucide) instead of hardcoded HAL -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.89 0 4.7 1 6.88 2a1 1 0 0 1 .11 1.76l-1.99 1.1"/></svg>
-        </div>
-        <div class="sidebar-logo-text">
-          <strong>Tejas Case Study</strong>
-          <span>ANP · Bureau Veritas</span>
-        </div>
+      <div class="sidebar-logo" style="justify-content: center; padding: 24px 16px;">
+        <img src="logo.png" alt="CIS Logo" style="height: 48px; width: auto; object-fit: contain;">
       </div>
 
       <nav class="sidebar-nav">
         <a href="#" class="nav-link active" data-section="overview" id="nav-overview">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          Overview
+          Case Study
         </a>
         <a href="#" class="nav-link" data-section="timeline" id="nav-timeline">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -53,10 +46,7 @@
           Incident Registry
         </a>
 
-        <a href="#" class="nav-link" data-section="casestudy" id="nav-casestudy">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          Case Study
-        </a>
+
       </nav>
 
       <!-- Filter Panel -->
@@ -110,7 +100,7 @@
       <!-- Top Bar -->
       <header class="topbar">
         <div class="topbar-left">
-          <h1 class="brand-gradient-text">Cortex <span style="font-weight:600; font-size:16px; color:var(--text); background:none;-webkit-text-fill-color:initial; margin-left:8px; letter-spacing: normal;">Compliance Intelligence System</span></h1>
+          <h1 class="brand-gradient-text" style="font-size: 22px;">Halliburton and Tejas compliance status report.</h1>
           <p>Tejas &amp; Halliburton · Incident Analysis (Open Data)</p>
         </div>
         <div class="topbar-right">
@@ -125,189 +115,7 @@
 
         <!-- ── OVERVIEW SECTION ── -->
         <section id="section-overview" class="dash-section active">
-          <div class="kpi-grid" id="kpiGrid"></div>
 
-          <div class="charts-row">
-            <!-- Stacked bar: year breakdown by category -->
-            <div class="panel chart-panel-wide">
-              <div class="panel-header">
-                <div>
-                  <div class="panel-title">Failures Over Time — by Category</div>
-                  <div class="panel-subtitle">HAL/Tejas service domain: CSB · Kick · Structural · Well Control (2013–2026)</div>
-                </div>
-                <div class="legend-chips" id="overviewLegend"></div>
-              </div>
-              <div class="panel-body">
-                <canvas id="overviewChart"></canvas>
-              </div>
-            </div>
-
-            <!-- Donut: category distribution -->
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <div class="panel-title">Failure Distribution</div>
-                  <div class="panel-subtitle">Proportional breakdown by type</div>
-                </div>
-              </div>
-              <div class="panel-body chart-center">
-                <canvas id="donutChart" style="max-width:220px;max-height:220px;"></canvas>
-                <div class="donut-labels" id="donutLabels"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── TIMELINE SECTION ── -->
-        <section id="section-timeline" class="dash-section">
-          <div class="section-header">
-            <h2>Timeline Analysis</h2>
-            <p>CSB barrier element failures rose <strong>+39,000%</strong> from 2016 to 2025 — the dominant well-integrity risk in Brazilian E&amp;P</p>
-          </div>
-
-          <div class="charts-row">
-            <div class="panel chart-panel-wide">
-              <div class="panel-header">
-                <div>
-                  <div class="panel-title">Annual CSB Failure Trend</div>
-                  <div class="panel-subtitle">Conjunto Solidário de Barreira — exponential growth from 2020</div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <canvas id="csbTrendChart"></canvas>
-              </div>
-            </div>
-
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <div class="panel-title">Monthly Pattern</div>
-                  <div class="panel-subtitle">Incident frequency by month</div>
-                </div>
-              </div>
-              <div class="panel-body chart-center">
-                <canvas id="monthChart" style="max-width:260px;max-height:260px;"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Multi-Category Year-by-Year Comparison</div>
-                <div class="panel-subtitle">All HAL/Tejas-relevant failure modes tracked simultaneously</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <canvas id="multiLineChart" style="max-height:260px;"></canvas>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── FAILURE TYPES SECTION ── -->
-        <section id="section-breakdown" class="dash-section">
-          <div class="section-header">
-            <h2>Failure Type Deep-Dive</h2>
-            <p>Correlation between ANP incident classification and HAL/Tejas barrier systems</p>
-          </div>
-
-          <div class="breakdown-grid">
-            <div class="panel breakdown-card" id="card-csb">
-              <div class="breakdown-icon csb-icon">⚙️</div>
-              <div class="breakdown-title">CSB Barrier Element Failures</div>
-              <div class="breakdown-count" id="cnt-csb">—</div>
-              <div class="breakdown-desc">Falha de elemento do Conjunto Solidário de Barreira. HAL provides BOP, wellhead, and completion barrier elements directly within this classification.</div>
-              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 445</div>
-            </div>
-            <div class="panel breakdown-card" id="card-kick">
-              <div class="breakdown-icon kick-icon">🔴</div>
-              <div class="breakdown-title">Primary Barrier Loss (Kicks)</div>
-              <div class="breakdown-count" id="cnt-kick">—</div>
-              <div class="breakdown-desc">Falha da barreira primária (kick). Influx of formation fluid — directly linked to mud weight management and BOP response systems supplied by Halliburton.</div>
-              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 459</div>
-            </div>
-            <div class="panel breakdown-card" id="card-struct">
-              <div class="breakdown-icon struct-icon">🏗️</div>
-              <div class="breakdown-title">Structural Well Failures</div>
-              <div class="breakdown-count" id="cnt-struct">—</div>
-              <div class="breakdown-desc">Falha estrutural em poço. Casing, tubing, and liner failures — Tejas specializes in flow control and completion equipment within this failure mode.</div>
-              <div class="breakdown-reg">BV NR 445 · NR-37</div>
-            </div>
-            <div class="panel breakdown-card" id="card-wc">
-              <div class="breakdown-icon wc-icon">💥</div>
-              <div class="breakdown-title">Loss of Well Control</div>
-              <div class="breakdown-count" id="cnt-wc">—</div>
-              <div class="breakdown-desc">Perda de controle de poço (menor, significante, maior). The most severe category — involves complete failure of both primary and secondary barrier systems.</div>
-              <div class="breakdown-reg">ANP Res. 46/2016 · NORMAM-01</div>
-            </div>
-          </div>
-
-          <!-- Severity breakdown -->
-          <div class="charts-row">
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <div class="panel-title">Severity Distribution</div>
-                  <div class="panel-subtitle">Per BV / ANP classification</div>
-                </div>
-              </div>
-              <div class="panel-body chart-center">
-                <canvas id="severityChart" style="max-width:240px;max-height:240px;"></canvas>
-              </div>
-            </div>
-
-            <div class="panel chart-panel-wide">
-              <div class="panel-header">
-                <div>
-                  <div class="panel-title">Type × Severity Correlation Matrix</div>
-                  <div class="panel-subtitle">Cross-reference failure category with severity level</div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div class="matrix-table" id="matrixTable"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── REGISTRY SECTION ── -->
-        <section id="section-registry" class="dash-section">
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Incident Registry</div>
-                <div class="panel-subtitle">HAL/Tejas-relevant ANP records — filterable &amp; searchable</div>
-              </div>
-            </div>
-            <div class="table-toolbar">
-              <div class="search-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search incident number…">
-              </div>
-              <div class="table-count" id="tableCount">— incidents</div>
-            </div>
-            <div style="overflow-x:auto;">
-              <table class="data-table" id="incTable">
-                <thead>
-                  <tr>
-                    <th>Incident #</th>
-                    <th>Year</th>
-                    <th>Category</th>
-                    <th>Failure Type (ANP)</th>
-                    <th>Severity</th>
-                    <th>Event Class</th>
-                    <th>Regulation</th>
-                  </tr>
-                </thead>
-                <tbody id="tableBody"></tbody>
-              </table>
-            </div>
-            <div class="pagination" id="pagination"></div>
-          </div>
-        </section>
-
-        <!-- ── CASE STUDY SECTION ── -->
-        <section id="section-casestudy" class="dash-section">
 
           <!-- Report Header -->
           <div class="cs-header">
@@ -503,7 +311,191 @@
             </div>
           </div>
 
+        
+
+          <div class="kpi-grid" id="kpiGrid"></div>
+
+          <div class="charts-row">
+            <!-- Stacked bar: year breakdown by category -->
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Failures Over Time — by Category</div>
+                  <div class="panel-subtitle">HAL/Tejas service domain: CSB · Kick · Structural · Well Control (2013–2026)</div>
+                </div>
+                <div class="legend-chips" id="overviewLegend"></div>
+              </div>
+              <div class="panel-body">
+                <canvas id="overviewChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Donut: category distribution -->
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Failure Distribution</div>
+                  <div class="panel-subtitle">Proportional breakdown by type</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="donutChart" style="max-width:220px;max-height:220px;"></canvas>
+                <div class="donut-labels" id="donutLabels"></div>
+              </div>
+            </div>
+          </div>
         </section>
+
+        <!-- ── TIMELINE SECTION ── -->
+        <section id="section-timeline" class="dash-section">
+          <div class="section-header">
+            <h2>Timeline Analysis</h2>
+            <p>CSB barrier element failures rose <strong>+39,000%</strong> from 2016 to 2025 — the dominant well-integrity risk in Brazilian E&amp;P</p>
+          </div>
+
+          <div class="charts-row">
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Annual CSB Failure Trend</div>
+                  <div class="panel-subtitle">Conjunto Solidário de Barreira — exponential growth from 2020</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <canvas id="csbTrendChart"></canvas>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Monthly Pattern</div>
+                  <div class="panel-subtitle">Incident frequency by month</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="monthChart" style="max-width:260px;max-height:260px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Multi-Category Year-by-Year Comparison</div>
+                <div class="panel-subtitle">All HAL/Tejas-relevant failure modes tracked simultaneously</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <canvas id="multiLineChart" style="max-height:260px;"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── FAILURE TYPES SECTION ── -->
+        <section id="section-breakdown" class="dash-section">
+          <div class="section-header">
+            <h2>Failure Type Deep-Dive</h2>
+            <p>Correlation between ANP incident classification and HAL/Tejas barrier systems</p>
+          </div>
+
+          <div class="breakdown-grid">
+            <div class="panel breakdown-card" id="card-csb">
+              <div class="breakdown-icon csb-icon">⚙️</div>
+              <div class="breakdown-title">CSB Barrier Element Failures</div>
+              <div class="breakdown-count" id="cnt-csb">—</div>
+              <div class="breakdown-desc">Falha de elemento do Conjunto Solidário de Barreira. HAL provides BOP, wellhead, and completion barrier elements directly within this classification.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 445</div>
+            </div>
+            <div class="panel breakdown-card" id="card-kick">
+              <div class="breakdown-icon kick-icon">🔴</div>
+              <div class="breakdown-title">Primary Barrier Loss (Kicks)</div>
+              <div class="breakdown-count" id="cnt-kick">—</div>
+              <div class="breakdown-desc">Falha da barreira primária (kick). Influx of formation fluid — directly linked to mud weight management and BOP response systems supplied by Halliburton.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 459</div>
+            </div>
+            <div class="panel breakdown-card" id="card-struct">
+              <div class="breakdown-icon struct-icon">🏗️</div>
+              <div class="breakdown-title">Structural Well Failures</div>
+              <div class="breakdown-count" id="cnt-struct">—</div>
+              <div class="breakdown-desc">Falha estrutural em poço. Casing, tubing, and liner failures — Tejas specializes in flow control and completion equipment within this failure mode.</div>
+              <div class="breakdown-reg">BV NR 445 · NR-37</div>
+            </div>
+            <div class="panel breakdown-card" id="card-wc">
+              <div class="breakdown-icon wc-icon">💥</div>
+              <div class="breakdown-title">Loss of Well Control</div>
+              <div class="breakdown-count" id="cnt-wc">—</div>
+              <div class="breakdown-desc">Perda de controle de poço (menor, significante, maior). The most severe category — involves complete failure of both primary and secondary barrier systems.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · NORMAM-01</div>
+            </div>
+          </div>
+
+          <!-- Severity breakdown -->
+          <div class="charts-row">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Severity Distribution</div>
+                  <div class="panel-subtitle">Per BV / ANP classification</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="severityChart" style="max-width:240px;max-height:240px;"></canvas>
+              </div>
+            </div>
+
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Type × Severity Correlation Matrix</div>
+                  <div class="panel-subtitle">Cross-reference failure category with severity level</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="matrix-table" id="matrixTable"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── REGISTRY SECTION ── -->
+        <section id="section-registry" class="dash-section">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Incident Registry</div>
+                <div class="panel-subtitle">HAL/Tejas-relevant ANP records — filterable &amp; searchable</div>
+              </div>
+            </div>
+            <div class="table-toolbar">
+              <div class="search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search incident number…">
+              </div>
+              <div class="table-count" id="tableCount">— incidents</div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="incTable">
+                <thead>
+                  <tr>
+                    <th>Incident #</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Failure Type (ANP)</th>
+                    <th>Severity</th>
+                    <th>Event Class</th>
+                    <th>Regulation</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="pagination"></div>
+          </div>
+        </section>
+
+        <!-- ── CASE STUDY SECTION ── -->
+        
 
       </div><!-- /page-content -->
     </div><!-- /main-content -->
