@@ -133,6 +133,7 @@ const PORT = process.env.PORT || 3333;
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "login.html")));
 app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
 
+
 // Static assets (CSS, JS, images) — index:false prevents auto-serving index.html
 app.use(express.static(path.join(__dirname, "public"), { index: false }));
 

@@ -25,7 +25,10 @@
     <!-- ── Sidebar ── -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <div class="sidebar-logo-mark">HAL</div>
+        <div class="sidebar-logo-mark">
+          <!-- Shield icon (Lucide) instead of hardcoded HAL -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.89 0 4.7 1 6.88 2a1 1 0 0 1 .11 1.76l-1.99 1.1"/></svg>
+        </div>
         <div class="sidebar-logo-text">
           <strong>Tejas Case Study</strong>
           <span>ANP · Bureau Veritas</span>
@@ -49,6 +52,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
           Incident Registry
         </a>
+
         <a href="#" class="nav-link" data-section="casestudy" id="nav-casestudy">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           Case Study
@@ -106,8 +110,8 @@
       <!-- Top Bar -->
       <header class="topbar">
         <div class="topbar-left">
-          <h1>Halliburton &amp; Tejas — ANP Failure Intelligence</h1>
-          <p>SGIP · Resolução ANP 46/2016 · Bureau Veritas NR 445 · Open Data (Lei 12.527/2011)</p>
+          <h1 class="brand-gradient-text">Cortex <span style="font-weight:600; font-size:16px; color:var(--text); background:none;-webkit-text-fill-color:initial; margin-left:8px; letter-spacing: normal;">Compliance Intelligence System</span></h1>
+          <p>Tejas &amp; Halliburton · Incident Analysis (Open Data)</p>
         </div>
         <div class="topbar-right">
           <div class="data-badge" id="liveBadge">
