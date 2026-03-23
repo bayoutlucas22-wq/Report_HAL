@@ -74,13 +74,8 @@ function renderTrends(trends) {
 function renderIncidents(incidents) {
   const tbody = document.getElementById("incident-body");
   if (!incidents || !incidents.length) {
-    incidents = [
-      { no: "2601/000012", operator: "Petrobras", date: "15-01-2026", type: "Kick – primary barrier failure", description: "Volume gain of 0.8 bbl in trip tank during flowcheck. Possible formation influx in well 7-BRSA-1380-SES.", halScope: "Yes" },
-      { no: "2601/000089", operator: "Petrobras", date: "22-01-2026", type: "CSB element failure", description: "Barrier element failure detected during workover intervention. Valve seal degradation in well 3-SES-192.", halScope: "Yes" },
-      { no: "2602/000034", operator: "Shell", date: "08-02-2026", type: "CSB element failure", description: "CSB component failure during completion phase. Annular pressure buildup observed; barrier restored.", halScope: "Yes" },
-      { no: "2602/000156", operator: "Equinor", date: "19-02-2026", type: "CSB element failure", description: "Barrier element fault during wireline operation at 2,840 m. Operations suspended; barrier integrity verified.", halScope: "Yes" },
-      { no: "2603/000023", operator: "Petrobras", date: "03-03-2026", type: "CSB element failure", description: "Element failure in Conjunto Solidário de Barreira during intervention. Remediation completed; well returned to service.", halScope: "Yes" },
-    ];
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center">No incidents available.</td></tr>`;
+    return;
   }
   tbody.innerHTML = incidents.map((i) => `
     <tr>

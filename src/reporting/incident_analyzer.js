@@ -5,13 +5,7 @@ const borders = { top: border, bottom: border, left: border, right: border };
 const headerBorder = { style: BorderStyle.SINGLE, size: 1, color: "1F4E79" };
 const headerBorders = { top: headerBorder, bottom: headerBorder, left: headerBorder, right: headerBorder };
 
-const METRICS = [
-  { label: "Total incidents (dataset)", value: "30,054", color: "1F4E79" },
-  { label: "Well integrity incidents", value: "2,291", color: "C00000" },
-  { label: "CSB failures (2023–26)", value: "762", color: "C55A11" },
-  { label: "Kicks reported (primary barrier)", value: "193", color: "375623" },
-];
-
+// ── Regulatory reference data (static — these are real regulations, not generated) ──
 const REG_DATA = [
   ["Resolução ANP nº 46/2016 (SGIP)", "Well integrity management", "Halliburton & Tejas equipment in barrier systems", "gov.br/anp"],
   ["Resolução ANP nº 43/2007 (SGSO)", "Operational safety management", "All E&P service operations", "gov.br/anp"],
@@ -22,33 +16,17 @@ const REG_DATA = [
   ["ISO 9001 / ISO 17025", "QA/QC & laboratory accreditation", "Equipment certification & testing", "iso.org"],
 ];
 
-// [no, operator, date, type, description, halScope] — halScope: operator uses HAL well services (inferred from ANP client relationships)
-const INCIDENTS = [
-  ["2601/000012", "Petrobras", "15-01-2026", "Kick – primary barrier failure", "Volume gain of 0.8 bbl in trip tank during flowcheck. Possible formation influx in well 7-BRSA-1380-SES.", "Yes"],
-  ["2601/000089", "Petrobras", "22-01-2026", "CSB element failure", "Barrier element failure detected during workover intervention. Valve seal degradation in well 3-SES-192.", "Yes"],
-  ["2602/000034", "Shell", "08-02-2026", "CSB element failure", "CSB component failure during completion phase. Annular pressure buildup observed; barrier restored.", "Yes"],
-  ["2602/000156", "Equinor", "19-02-2026", "CSB element failure", "Barrier element fault during wireline operation at 2,840 m. Operations suspended; barrier integrity verified.", "Yes"],
-  ["2603/000023", "Petrobras", "03-03-2026", "CSB element failure", "Element failure in Conjunto Solidário de Barreira during intervention. Remediation completed; well returned to service.", "Yes"],
-];
+// ── Dynamic metric table — driven by live ANP stats object ──
+function makeMetricTable(stats) {
+  if (!stats) throw new Error("makeMetricTable requires live ANP stats — no hardcoded fallback.");
 
-const TREND_ROWS = [
-  ["2013","5","0","0","0"],
-  ["2014","7","0","1","0"],
-  ["2015","18","0","0","0"],
-  ["2016","13","1","5","0"],
-  ["2017","6","8","2","0"],
-  ["2018","20","12","2","1"],
-  ["2019","7","5","0","1"],
-  ["2020","5","30","0","0"],
-  ["2021","0","485","0","0"],
-  ["2022","6","395","0","0"],
-  ["2023","12","255","7","3"],
-  ["2024","32","326","4","4"],
-  ["2025","31","391","3","0"],
-  ["2026*","1","45","0","0"],
-];
+  const METRICS = [
+    { label: "Total ANP Records (SISO)", value: (stats.total || 0).toLocaleString("pt-BR"), color: "1F4E79" },
+    { label: "CSB Barrier Element Failures", value: (stats.csbCount || 0).toLocaleString("pt-BR"), color: "C00000" },
+    { label: "Kicks (Primary Barrier Loss)", value: (stats.kickCount || 0).toLocaleString("pt-BR"), color: "C55A11" },
+    { label: "Structural & Well Control", value: (stats.structCount || 0).toLocaleString("pt-BR"), color: "375623" },
+  ];
 
-function makeMetricTable() {
   const cellStyle = (label, value, color) => new TableCell({
     borders,
     width: { size: 2340, type: WidthType.DXA },
@@ -56,41 +34,28 @@ function makeMetricTable() {
     margins: { top: 120, bottom: 120, left: 160, right: 160 },
     verticalAlign: VerticalAlign.CENTER,
     children: [
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: value, bold: true, size: 36, font: "Arial", color })],
-      }),
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: label, size: 18, font: "Arial", color: "555555" })],
-        spacing: { before: 40 }
-      })
+      new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: value, bold: true, size: 36, font: "Arial", color })] }),
+      new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: label, size: 18, font: "Arial", color: "555555" })], spacing: { before: 40 } })
     ]
   });
 
   return new Table({
     width: { size: 9360, type: WidthType.DXA },
     columnWidths: [2340, 2340, 2340, 2340],
-    rows: [
-      new TableRow({
-        children: METRICS.map(m => cellStyle(m.label, m.value, m.color))
-      })
-    ]
+    rows: [new TableRow({ children: METRICS.map(m => cellStyle(m.label, m.value, m.color)) })]
   });
 }
 
+// ── Regulatory table (static — it's real published regulations) ──
 function makeRegTable() {
   const hCell = (text, width) => new TableCell({
-    borders: headerBorders,
-    width: { size: width, type: WidthType.DXA },
+    borders: headerBorders, width: { size: width, type: WidthType.DXA },
     shading: { fill: "1F4E79", type: ShadingType.CLEAR },
     margins: { top: 80, bottom: 80, left: 120, right: 120 },
     children: [new Paragraph({ children: [new TextRun({ text, bold: true, size: 20, font: "Arial", color: "FFFFFF" })] })]
   });
-
   const dCell = (text, width, shade = "FFFFFF") => new TableCell({
-    borders,
-    width: { size: width, type: WidthType.DXA },
+    borders, width: { size: width, type: WidthType.DXA },
     shading: { fill: shade, type: ShadingType.CLEAR },
     margins: { top: 80, bottom: 80, left: 120, right: 120 },
     children: [new Paragraph({ children: [new TextRun({ text, size: 20, font: "Arial", color: "333333" })] })]
@@ -98,116 +63,116 @@ function makeRegTable() {
 
   const widths = [2600, 2200, 2600, 1960];
   return new Table({
-    width: { size: 9360, type: WidthType.DXA },
-    columnWidths: widths,
+    width: { size: 9360, type: WidthType.DXA }, columnWidths: widths,
     rows: [
-      new TableRow({
-        children: [
-          hCell("Standard / Regulation", widths[0]),
-          hCell("Scope", widths[1]),
-          hCell("Applicability to HAL / Tejas", widths[2]),
-          hCell("Open Source", widths[3]),
-        ]
-      }),
-      ...REG_DATA.map((row, i) => new TableRow({
-        children: row.map((text, j) => dCell(text, widths[j], i % 2 === 0 ? "FFFFFF" : "F5F9FF"))
-      }))
+      new TableRow({ children: [hCell("Standard / Regulation", widths[0]), hCell("Scope", widths[1]), hCell("Applicability to HAL / Tejas", widths[2]), hCell("Open Source", widths[3])] }),
+      ...REG_DATA.map((row, i) => new TableRow({ children: row.map((text, j) => dCell(text, widths[j], i % 2 === 0 ? "FFFFFF" : "F5F9FF")) }))
     ]
   });
 }
 
-function makeIncidentTable() {
+// ── Incident table — driven by real ANP records passed in ──
+function makeIncidentTable(records) {
+  if (!records || !records.length) throw new Error("makeIncidentTable requires real ANP records — no hardcoded fallback.");
+
   const hCell = (text, width) => new TableCell({
-    borders: headerBorders,
-    width: { size: width, type: WidthType.DXA },
+    borders: headerBorders, width: { size: width, type: WidthType.DXA },
     shading: { fill: "C00000", type: ShadingType.CLEAR },
     margins: { top: 80, bottom: 80, left: 120, right: 120 },
     children: [new Paragraph({ children: [new TextRun({ text, bold: true, size: 18, font: "Arial", color: "FFFFFF" })] })]
   });
-
   const dCell = (text, width, shade = "FFFFFF") => new TableCell({
-    borders,
-    width: { size: width, type: WidthType.DXA },
+    borders, width: { size: width, type: WidthType.DXA },
     shading: { fill: shade, type: ShadingType.CLEAR },
     margins: { top: 80, bottom: 80, left: 120, right: 120 },
-    children: [new Paragraph({ children: [new TextRun({ text, size: 18, font: "Arial", color: "333333" })] })]
+    children: [new Paragraph({ children: [new TextRun({ text: String(text || "—"), size: 18, font: "Arial", color: "333333" })] })]
   });
 
-  const widths = [1000, 1200, 900, 1600, 3000, 1660];
+  const widths = [1000, 900, 1400, 1400, 3400, 1260];
   return new Table({
-    width: { size: 9360, type: WidthType.DXA },
-    columnWidths: widths,
+    width: { size: 9360, type: WidthType.DXA }, columnWidths: widths,
     rows: [
-      new TableRow({
-        children: [
-          hCell("Incident No.", widths[0]),
-          hCell("Operator", widths[1]),
-          hCell("Date", widths[2]),
-          hCell("Type", widths[3]),
-          hCell("Description (summarised)", widths[4]),
-          hCell("HAL scope", widths[5]),
-        ]
-      }),
-      ...INCIDENTS.map((row, i) => new TableRow({
-        children: row.map((text, j) => dCell(text, widths[j], i % 2 === 0 ? "FFFFFF" : "FFF5F5"))
-      }))
+      new TableRow({ children: [hCell("Incident No.", widths[0]), hCell("Year", widths[1]), hCell("Operator", widths[2]), hCell("Category", widths[3]), hCell("Description (from ANP record)", widths[4]), hCell("Status", widths[5])] }),
+      ...records.map((r, i) => new TableRow({ children: [
+        dCell(r.numero, widths[0], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+        dCell(r.year || "N/D", widths[1], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+        dCell((r.empresa || "").substring(0, 20), widths[2], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+        dCell(r.category, widths[3], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+        dCell((r.descricao || "").substring(0, 90) + "…", widths[4], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+        dCell(r.situacao || "—", widths[5], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+      ]}))
     ]
   });
 }
 
-function makeTrendTable() {
+// ── Trend table — driven by live HAL year series from ANP ──
+function makeTrendTable(halYearSeries, yearSeries) {
+  if (!halYearSeries) throw new Error("makeTrendTable requires live ANP year series — no hardcoded fallback.");
+
   const hCell = (text, width) => new TableCell({
-    borders: headerBorders,
-    width: { size: width, type: WidthType.DXA },
+    borders: headerBorders, width: { size: width, type: WidthType.DXA },
     shading: { fill: "2E74B5", type: ShadingType.CLEAR },
     margins: { top: 80, bottom: 80, left: 80, right: 80 },
     children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text, bold: true, size: 18, font: "Arial", color: "FFFFFF" })] })]
   });
-
   const dCell = (text, width, shade, bold = false) => new TableCell({
-    borders,
-    width: { size: width, type: WidthType.DXA },
+    borders, width: { size: width, type: WidthType.DXA },
     shading: { fill: shade, type: ShadingType.CLEAR },
     margins: { top: 60, bottom: 60, left: 80, right: 80 },
-    children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text, size: 18, font: "Arial", color: bold ? "C00000" : "333333", bold })] })]
+    children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: String(text), size: 18, font: "Arial", color: bold ? "C00000" : "333333", bold })] })]
   });
 
-  const widths = [1200, 2400, 2400, 1680, 1680];
-  const shades = (year) => parseInt(year) >= 2020 ? "FFF5F5" : "FFFFFF";
+  const widths = [1200, 2700, 2700, 2760];
+  const rows = [new TableRow({ children: [hCell("Year", widths[0]), hCell("HAL/Tejas Relevant Incidents", widths[1]), hCell("Total ANP Incidents", widths[2]), hCell("Source", widths[3])] })];
 
-  return new Table({
-    width: { size: 9360, type: WidthType.DXA },
-    columnWidths: widths,
-    rows: [
-      new TableRow({
-        children: [
-          hCell("Year", widths[0]),
-          hCell("Kicks (primary barrier loss)", widths[1]),
-          hCell("CSB element failures", widths[2]),
-          hCell("Well structural failures", widths[3]),
-          hCell("Loss of well control", widths[4]),
-        ]
-      }),
-      ...TREND_ROWS.map(row => new TableRow({
-        children: [
-          dCell(row[0], widths[0], shades(row[0])),
-          dCell(row[1], widths[1], shades(row[0])),
-          dCell(row[2], widths[2], shades(row[0]), parseInt(row[2]) > 100),
-          dCell(row[3], widths[3], shades(row[0])),
-          dCell(row[4], widths[4], shades(row[0])),
-        ]
-      }))
-    ]
+  halYearSeries.forEach(y => {
+    const shade = parseInt(y.year) >= 2020 ? "FFF5F5" : "FFFFFF";
+    const totalForYear = (yearSeries || []).find(s => s.year === y.year)?.count || 0;
+    rows.push(new TableRow({ children: [
+      dCell(y.year, widths[0], shade),
+      dCell(y.count.toLocaleString("pt-BR"), widths[1], shade, y.count > 100),
+      dCell(totalForYear.toLocaleString("pt-BR"), widths[2], shade),
+      dCell("ANP SISO-Incidentes", widths[3], shade),
+    ]}));
   });
+
+  return new Table({ width: { size: 9360, type: WidthType.DXA }, columnWidths: widths, rows });
 }
 
-// JSON exports for frontend API
-function getMetrics() { return METRICS; }
+// ── JSON exports for API — all driven by real data ──
+function getMetrics(stats) {
+  if (!stats) return [];
+  return [
+    { label: "Total HAL/Tejas Relevant Incidents", value: stats.total.toLocaleString("pt-BR"), color: "1F4E79" },
+    { label: "CSB Barrier Failures", value: stats.csbCount.toLocaleString("pt-BR"), color: "C00000" },
+    { label: "Kicks reported", value: stats.kickCount.toLocaleString("pt-BR"), color: "C55A11" },
+    { label: "Structural & Well Control", value: stats.structCount.toLocaleString("pt-BR"), color: "375623" },
+  ];
+}
+
 function getRegData() { return REG_DATA; }
-function getIncidents() { return INCIDENTS.map(([no, op, date, type, desc, halScope]) => ({ no, operator: op, date, type, description: desc, halScope: halScope || "—" })); }
-function getTrendData() {
-  return TREND_ROWS.map(([year, kicks, csb, structural, loss]) => ({
-    year, kicks, csb, structural, loss, highlight: parseInt(csb) > 100
+
+// Returns real ANP records formatted for the API — no fabricated entries
+function getIncidents(records) {
+  if (!records || !records.length) return [];
+  return records.map(r => ({
+    no:          r.numero,
+    operator:    r.empresa,
+    date:        r.data,
+    type:        r.category,
+    description: r.descricao || "—",
+    status:      r.situacao || "—",
+    year:        r.year,
+  }));
+}
+
+function getTrendData(halYearSeries, yearSeries) {
+  if (!halYearSeries) return [];
+  return halYearSeries.map(y => ({
+    year:      y.year,
+    halCount:  y.count,
+    total:     (yearSeries || []).find(s => s.year === y.year)?.count || 0,
+    highlight: y.count > 100,
   }));
 }
 

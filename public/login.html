@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIS — Explore the World of Compliance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-orange: #ff7b00;
+      --accent-yellow: #ffc107;
+      --bg-gradient: linear-gradient(135deg, #e4eff8 0%, #ffffff 80%);
+      --text-dark: #111827;
+      --text-muted: #4b5563;
+      --border-light: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    nav {
+      padding: 40px 60px;
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      color: #0b1a4a; /* Very dark navy */
+      letter-spacing: -0.02em;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      padding: 0 60px 40px;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .content-left {
+      max-width: 600px;
+      padding-right: 40px;
+      animation: fade-in-up 0.8s ease-out;
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    h1 .highlight {
+      color: var(--accent-orange);
+    }
+
+    .description {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* Terms Box */
+    .terms-box {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 20px;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .terms-box h3 {
+      font-size: 1rem;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .terms-box h4 {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin: 12px 0 6px;
+      font-weight: 600;
+    }
+
+    .terms-box ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .terms-box p {
+      margin-bottom: 12px;
+    }
+
+    .terms-box p strong {
+      color: #b91c1c; /* Dark red for critical notice */
+    }
+
+    /* Agreement Checkbox */
+    .agreement-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    .agreement-wrapper input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-orange);
+      cursor: pointer;
+    }
+
+    .agreement-text {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      user-select: none;
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent-yellow);
+      color: #000;
+      border: none;
+      box-shadow: 0 4px 14px rgba(255, 193, 7, 0.4);
+    }
+
+    .btn-primary:not(:disabled):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+      background: #ffcc33;
+    }
+
+    .btn-primary:disabled {
+      background: #e5e7eb;
+      color: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent-orange);
+      border: 2px solid var(--accent-orange);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 123, 0, 0.05);
+    }
+
+    /* Right Side Image */
+    .content-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float-in 1.2s cubic-bezier(0.25, 1, 0.5, 1) both;
+      animation-delay: 0.2s;
+    }
+
+    @keyframes float-in {
+      from { opacity: 0; transform: translateX(40px) scale(0.95); }
+      to { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    .content-right img {
+      max-width: 100%;
+      height: auto;
+      width: 500px;
+      object-fit: contain;
+      drop-shadow: 0 30px 40px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 1024px) {
+      main {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 30px 40px;
+      }
+      .content-left {
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+      .terms-box {
+        text-align: left;
+      }
+      .button-group {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">CIS</div>
+  </nav>
+
+  <main>
+    <div class="content-left">
+      <h1>Explore the <span class="highlight">World</span> of <br/> Compliance</h1>
+      <p class="description">
+        Navigate global regulations with our intelligent compliance platform. Connect with regulatory frameworks across continents and ensure seamless compliance.
+      </p>
+
+      <div class="terms-box">
+        <h3>Disclaimer & Agreement on Usage</h3>
+        <p>This application provides compliance analytics driven exclusively by verified open public data published under the Brazilian Freedom of Information Act (Lei nº 12.527/2011).</p>
+        
+        <h4>Data & Regulatory Sources</h4>
+        <ul>
+          <li><strong>ANP SISO-Incidentes Dataset:</strong> Analyzed dataset containing 30,054 authentic incidents reported to the upstream authority.</li>
+          <li><strong>Regulatory Base:</strong> ANP Res. nº 46/2016 (SGIP), nº 43/2007 (SGSO), nº 41/2015.</li>
+          <li><strong>Bureau Veritas Classification:</strong> NR 445 (Classification of Offshore Units), NR 459, NR 493.</li>
+          <li><strong>Brazilian Labour Ministry:</strong> NR-37, NR-33, NR-35; Maritime Authority (NORMAM-01/DPC).</li>
+        </ul>
+
+        <h4>⚠️ Crucial Notice on Accountability</h4>
+        <p>
+          <strong>Accountability rests on usage:</strong> The critical link between specific service subcontractors (like Halliburton or Tejas) and these documented failures is <strong>inferred via exposure, not directly named as causation</strong>. 
+        </p>
+        <p>
+          The ANP database registers incidents exclusively under the licensed operator. What the data strictly verifies is an exponential rise (+39,000%) in Conjunto Solidário de Barreira (CSB) failures operating on the same barrier systems maintained and deployed within the scope of these entities. 
+        </p>
+        <p>By proceeding, you agree that you understand the origin of the data, the fact-checking limitations regarding causation, and assume full accountability for how these insights and regulatory correlations are utilized or communicated.</p>
+      </div>
+
+      <label class="agreement-wrapper" for="agreeCheck">
+        <input type="checkbox" id="agreeCheck" />
+        <span class="agreement-text">I have read the disclaimer, verified the sources, and agree to the terms of accountability.</span>
+      </label>
+
+      <div class="button-group">
+        <button class="btn btn-primary" id="startBtn" disabled>
+          Start Exploring →
+        </button>
+        <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" class="btn btn-secondary" target="_blank" rel="noopener">
+          Learn More
+        </a>
+      </div>
+    </div>
+
+    <div class="content-right">
+      <img src="globe.png" alt="3D Globe Illustration" />
+    </div>
+  </main>
+
+  <script>
+    const checkbox = document.getElementById('agreeCheck');
+    const startBtn = document.getElementById('startBtn');
+
+    checkbox.addEventListener('change', (e) => {
+      startBtn.disabled = !e.target.checked;
+    });
+
+    startBtn.addEventListener('click', () => {
+      if (!startBtn.disabled) {
+        window.location.href = '/dashboard';
+      }
+    });
+  </script>
+</body>
+</html>
