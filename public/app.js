@@ -611,3 +611,34 @@ async function init() {
 }
 
 init();
+
+// ── Action Items Progress ──────────────────────────────────────────────────────
+window.updateAIProgress = function() {
+  const all   = document.querySelectorAll('.ai-check');
+  const done  = document.querySelectorAll('.ai-check:checked');
+  const total = all.length;
+  const count = done.length;
+  const pct   = total ? Math.round(count / total * 100) : 0;
+
+  const barEl   = document.getElementById('aiProgressBar');
+  const doneEl  = document.getElementById('aiDoneCount');
+  const totalEl = document.getElementById('aiTotalCount');
+  const pctEl   = document.getElementById('aiPct');
+
+  if (barEl)   barEl.style.width   = pct + '%';
+  if (doneEl)  doneEl.textContent  = count;
+  if (totalEl) totalEl.textContent = total;
+  if (pctEl)   pctEl.textContent   = pct + '%';
+
+  // Per-pillar counters
+  [1, 2, 3, 4].forEach(p => {
+    const items    = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check`);
+    const checked  = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check:checked`);
+    const el       = document.getElementById(`pp${p}`);
+    if (el) el.textContent = `${checked.length} / ${items.length}`;
+  });
+};
+
+// Initialize counters on page load
+document.addEventListener('DOMContentLoaded', () => updateAIProgress());
+
