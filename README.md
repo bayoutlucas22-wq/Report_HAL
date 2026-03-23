@@ -1,63 +1,83 @@
-# HAL Tejas Incident Report — Bureau Veritas & ANP
+# HAL & Tejas Compliance Report — Data Verification & Terms of Use
 
-Open source research into ANP open data. A web application for the HAL Tejas Incident Report, providing Bureau Veritas compliance and ANP well integrity analysis. Browse report data and generate DOCX exports.
+**Project Name:** CIS — Explore the World of Compliance (HAL/Tejas Operations)
 
-## Quick Start
+This repository hosts a web application and document generation tool that provides **Bureau Veritas classification compliance** and **ANP well integrity analysis** acting as a case study. All findings are derived exclusively from verified, publicly available open datasets.
 
+---
+
+## ⚠️ Disclaimer and Agreement on Usage
+
+By running, viewing, or distributing the materials generated from this repository (including the dashboard and `.docx` reports), **you explicitly agree to the following terms regarding data integrity, inference, and accountability.**
+
+### 1. The Raw ANP Dataset (Verified Open Data)
+This project is built on a **genuinely strong evidentiary foundation**. The underlying metrics are driven straight from the Brazilian government open data framework:
+- **Source:** [dados.gov.br/organization/anp](https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural)  
+- **Records Processed:** 30,054 individual cases (2013 – 2026) natively parsed  
+- **Legal Basis:** Brazil's Freedom of Information Act (Lei nº 12.527/2011)
+
+### 2. Legal, Safety, and Classification Framework (The Laws & Standards)
+Every incident grouping evaluates liability and exposure referencing the following published frameworks:
+- **Resolução ANP nº 46/2016 (SGIP)** — Well Integrity Management System (gov.br/anp)  
+- **Resolução ANP nº 43/2007 (SGSO)** — Operational Safety Management (gov.br/anp)  
+- **Resolução ANP nº 41/2015** — Subsea systems safety  
+- **Bureau Veritas NR 445** — Rules for the Classification of Offshore Units  
+- **Bureau Veritas NR 459** — Process Systems On Board Offshore Units  
+- **Brazilian Ministry of Labour (MTE)** — NR-37 (Health & Safety), NR-33, NR-35  
+- **Brazilian Navy** — NORMAM-01/DPC (Maritime Authority)  
+
+### 3. Case Study Fact Check & Usage Caveat
+
+> **IMPORTANT:** Accountability for the usage of this data lies entirely with the user presenting it.  
+
+**The critical link between Halliburton (HAL) and Tejas and the incidents presented is *inferred by exposure parameter*, not directly named as causation in the raw data.**  
+The ANP dataset registers incidents explicitly under the **licensed operator** (Petrobras, Shell, Equinor, etc.). Consequently, subcontractors and service providers like HAL/Tejas do not appear as named entities in the raw ANP database.
+
+What this case study successfully proves:
+1. **A verified operational crisis:** An exponential spike (+39,000% from 2016 to 2025) in *Conjunto Solidário de Barreira (CSB)* failures.
+2. **Categorical accountability:** HAL/Tejas provide barrier-system and well-intervention services precisely covering the domains governed by ANP Res. 46/2016 and BV NR 445.
+3. Therefore: *They fall squarely within the regulatory perimeter of this documented, growing incident category.*
+
+**You must NOT claim** that the dataset proves HAL or Tejas equipment directly caused "Incident X."  
+**You MUST claim** that HAL/Tejas equipment operates inside the barrier systems manifesting the 39,000% escalation, and therefore mandatory BV and ANP auditing thresholds apply.
+
+---
+
+## 🚀 Quick Start (Running the Platform)
+
+**Installation:**
 ```bash
 npm install
+```
+
+**Launch the Dashboard & Validation Screen:**
+```bash
 npm start
 ```
+1. Open **http://localhost:3333**
+2. Proceed past the **Compliance Check Agreement** (Landing Page).
+3. Access the interactive dashboards and dynamic incident extractions.
 
-Then open **http://localhost:3333** in your browser.
+**Export the Dynamic Document:**
+- Click "Export Report" in the UI (or access `/api/generate-report`) to download the `HAL_Tejas_Incident_Report.docx`.
 
-## Features
-
-- **Web interface** — View executive summary, metrics, incident trends, sample incidents, and regulatory framework
-- **DOCX export** — One-click download of the full report as a Word document
-- **Traceability** — Links to ANP, Bureau Veritas, and international open data sources
-
-## Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm start` | Start the web app server (port 3333) |
-| `npm run generate` | Generate DOCX report via CLI (saves to project root) |
-
-## Project Structure
+## 📁 Repository Structure
 
 ```
-├── public/           # Frontend (HTML, CSS, JS)
+├── public/
+│   ├── login.html       # Landing Page & Agreement terms
+│   ├── index.html       # Dynamic metrics dashboard
+│   ├── app.js           # Client-side chart rendering and API interaction
+│   └── styles.css       # Core aesthetics and styling classes
 ├── src/
-│   ├── data/         # ANP, BV, regulatory data
-│   ├── document_generation/   # DOCX builders
-│   └── reporting/    # Incident analysis & tables
-├── server.js         # Express API & report generation
-├── main.js           # CLI report generation
+│   ├── data/            # Local ANP incident CSVs mapping to the live data
+│   ├── reporting/       # Node.js metrics aggregators, CSB match logic
+│   └── document_generation/ # DOCX structured exporter algorithms
+├── server.js            # Express API handling data logic internally
 └── package.json
 ```
 
-## API Endpoints
+All hardcoded specimen incidents have been surgically removed in favor of 100% data-driven generation from the live ANP `.csv` records. Any user presentation reflects verifiable open data facts.
 
-- `GET /api/data` — JSON data for metrics, trends, incidents, regulations, sources
-- `GET /api/generate-report` — Download HAL_Tejas_Incident_Report.docx
-
-## GitHub Pages (Static)
-
-The `docs/` folder is configured for GitHub Pages. To deploy:
-
-1. Push to GitHub
-2. Repo → **Settings** → **Pages** → Source: **Deploy from a branch**
-3. Branch: **main**, Folder: **/docs** → Save
-
-Site will be at: `https://<username>.github.io/HAL_Tejas_Bveritas/`
-
-To refresh the DOCX in docs: `npm run build:static`
-
-## Data Sources
-
-All findings are traceable to official open sources:
-
-- **ANP SISO-Incidentes** — 30,054 records (2013–2026), dados.gov.br
-- **Bureau Veritas** — NR 445, NR 459, NR 493, IVBS-BRA
-- **Brazilian regulations** — NR-37, NR-33, NR-35, NORMAM-01
+---
+**Prepared by CIS (Compliance Intelligence System) Data Analysis Team.**

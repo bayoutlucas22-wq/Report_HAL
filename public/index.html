@@ -1,131 +1,509 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HAL Tejas Incident Report — BV & ANP Compliance</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL / Tejas — ANP Incident Intelligence Dashboard</title>
+  <meta name="description" content="Case study analytics: Halliburton & Tejas failure mapping across 2,654 ANP incident records (2013–2026).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <h1>HAL Tejas Incident Report</h1>
-      <p class="subtitle">Bureau Veritas Compliance & ANP Well Integrity Analysis</p>
-      <a href="/api/generate-report" class="btn btn-primary" download="HAL_Tejas_Incident_Report.docx">
-        <span class="btn-icon">↓</span> Download DOCX Report
-      </a>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loader-inner">
+      <div class="spinner"></div>
+      <p>Loading HAL/Tejas incident database…</p>
     </div>
-  </header>
+  </div>
 
-  <nav class="nav">
-    <a href="#summary" class="nav-link">Summary</a>
-    <a href="#metrics" class="nav-link">Metrics</a>
-    <a href="#trends" class="nav-link">Trends</a>
-    <a href="#incidents" class="nav-link">Incidents</a>
-    <a href="#regulations" class="nav-link">Regulations</a>
-    <a href="#sources" class="nav-link">Sources</a>
-  </nav>
+  <div class="app-layout">
 
-  <main class="main">
-    <section id="summary" class="section">
-      <h2>Executive Summary</h2>
-      <p>This report establishes the regulatory and operational compliance framework applicable to Halliburton and Tejas operations in Brazil, and provides evidence-based justification for the identified risk exposure, grounded entirely in publicly available open data from official Brazilian government sources.</p>
-      <p>The analysis draws on the ANP's SISO-Incidentes database — 30,054 registered incidents from 2013 to 2026, published under Brazil's Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable Brazilian regulatory instruments.</p>
-      <div class="findings">
-        <h3>Key Findings</h3>
-        <ul>
-          <li>CSB (Conjunto Solidário de Barreira) barrier element failures rose from 1 incident in 2016 to 391 in 2025 — a 39,000% increase — constituting the dominant well integrity risk category in Brazilian E&P.</li>
-          <li>193 primary barrier loss events (kicks) were recorded between 2013 and 2026 on ANP-licensed installations.</li>
-          <li>2,291 critical well integrity incidents in total are documented in the open dataset.</li>
-          <li>Halliburton's well services and Tejas's completion/flow-control equipment operate within the barrier systems captured by these statistics, making compliance with Resolução ANP nº 46/2016 and BV NR 445 directly applicable.</li>
-        </ul>
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-mark">HAL</div>
+        <div class="sidebar-logo-text">
+          <strong>Tejas Case Study</strong>
+          <span>ANP · Bureau Veritas</span>
+        </div>
       </div>
-    </section>
 
-    <section id="metrics" class="section">
-      <h2>ANP Incident Data — Key Metrics</h2>
-      <p class="section-desc">Metrics derived from ANP open datasets (incidentes.csv and incidentes-tipo.csv), available at dados.gov.br/organization/anp.</p>
-      <div id="metrics-grid" class="metrics-grid"></div>
-      <p class="note">Halliburton and Tejas do not appear as named entities in the ANP dataset because ANP registers incidents under the licensed operator (e.g., Petrobras, Shell, Equinor).</p>
-    </section>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-section="overview" id="nav-overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Overview
+        </a>
+        <a href="#" class="nav-link" data-section="timeline" id="nav-timeline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Timeline
+        </a>
+        <a href="#" class="nav-link" data-section="breakdown" id="nav-breakdown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Failure Types
+        </a>
+        <a href="#" class="nav-link" data-section="registry" id="nav-registry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          Incident Registry
+        </a>
+        <a href="#" class="nav-link" data-section="casestudy" id="nav-casestudy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Case Study
+        </a>
+      </nav>
 
-    <section id="trends" class="section">
-      <h2>Well Integrity Incident Trend (2013–2026)</h2>
-      <p class="section-desc">Year-by-year breakdown of the most critical incident types. Shaded rows (2020 onwards) highlight the acceleration period for CSB failures.</p>
-      <div class="table-wrapper">
-        <table id="trend-table" class="data-table">
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Kicks (primary barrier loss)</th>
-              <th>CSB element failures</th>
-              <th>Well structural failures</th>
-              <th>Loss of well control</th>
-            </tr>
-          </thead>
-          <tbody id="trend-body"></tbody>
-        </table>
+      <!-- Filter Panel -->
+      <div class="sidebar-filters">
+        <div class="filter-label">FILTERS</div>
+
+        <div class="filter-group">
+          <label for="filterYear">Year</label>
+          <select id="filterYear">
+            <option value="">All Years</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterCategory">Failure Type</label>
+          <select id="filterCategory">
+            <option value="">All Types</option>
+            <option value="CSB Failure">CSB Failure</option>
+            <option value="Kick (Primary Barrier)">Kick (Primary Barrier)</option>
+            <option value="Structural Failure">Structural Failure</option>
+            <option value="Loss of Well Control">Loss of Well Control</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterSeverity">Severity</label>
+          <select id="filterSeverity">
+            <option value="">All Severities</option>
+            <option value="SSO">SSO (System Safety)</option>
+            <option value="Minor">Minor (LEVE)</option>
+            <option value="Moderate">Moderate (MODERADO)</option>
+            <option value="Severe">Severe (GRAVE)</option>
+          </select>
+        </div>
+
+        <button class="btn-apply" id="btnApply">Apply Filters</button>
+        <button class="btn-clear" id="btnClear">Clear</button>
       </div>
-      <p class="note">* 2026 data is partial — dataset covers through early Q1 2026.</p>
-    </section>
 
-    <section id="incidents" class="section">
-      <h2>Sample Incidents from ANP Open Dataset</h2>
-      <p class="section-desc">Incidents drawn from the ANP SISO-Incidentes open database. HAL scope: operator uses Halliburton well services (inferred from ANP client relationships; ANP does not list service companies).</p>
-      <div class="table-wrapper">
-        <table id="incident-table" class="data-table">
-          <thead>
-            <tr>
-              <th>Incident No.</th>
-              <th>Operator</th>
-              <th>Date</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th>HAL scope</th>
-            </tr>
-          </thead>
-          <tbody id="incident-body"></tbody>
-        </table>
+      <div class="sidebar-footer">
+        <a href="/api/generate-report" class="btn-download" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export DOCX Report
+        </a>
       </div>
-    </section>
+    </aside>
 
-    <section id="regulations" class="section">
-      <h2>Applicable BV Standards & Brazilian Regulations</h2>
-      <p class="section-desc">Mapping of each standard to its scope and relevance to HAL/Tejas operations.</p>
-      <div class="table-wrapper">
-        <table id="reg-table" class="data-table">
-          <thead>
-            <tr>
-              <th>Standard / Regulation</th>
-              <th>Scope</th>
-              <th>Applicability to HAL / Tejas</th>
-              <th>Open Source</th>
-            </tr>
-          </thead>
-          <tbody id="reg-body"></tbody>
-        </table>
-      </div>
-    </section>
+    <!-- ── Main ── -->
+    <div class="main-content">
 
-    <section id="sources" class="section">
-      <h2>Open Data Sources — Traceability Map</h2>
-      <p class="section-desc">All findings are traceable to official open sources suitable for audits and regulatory submissions.</p>
-      <div id="sources-content" class="sources-grid"></div>
-    </section>
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1>Halliburton &amp; Tejas — ANP Failure Intelligence</h1>
+          <p>SGIP · Resolução ANP 46/2016 · Bureau Veritas NR 445 · Open Data (Lei 12.527/2011)</p>
+        </div>
+        <div class="topbar-right">
+          <div class="data-badge" id="liveBadge">
+            <span class="badge-dot"></span>
+            <span id="liveCount">Loading…</span>
+          </div>
+        </div>
+      </header>
 
-    <section id="justification" class="section highlight-section">
-      <h2>Recommended Justification Language</h2>
-      <p>Use the following text verbatim in regulatory submissions, audit responses, or project risk assessments:</p>
-      <blockquote id="justification-text" class="blockquote"></blockquote>
-    </section>
-  </main>
+      <div class="page-content">
 
-  <footer class="footer">
-    <p>Source: ANP SISO-Incidentes Open Data (dados.gov.br) | Bureau Veritas Rules (marine-offshore.bureauveritas.com)</p>
-  </footer>
+        <!-- ── OVERVIEW SECTION ── -->
+        <section id="section-overview" class="dash-section active">
+          <div class="kpi-grid" id="kpiGrid"></div>
+
+          <div class="charts-row">
+            <!-- Stacked bar: year breakdown by category -->
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Failures Over Time — by Category</div>
+                  <div class="panel-subtitle">HAL/Tejas service domain: CSB · Kick · Structural · Well Control (2013–2026)</div>
+                </div>
+                <div class="legend-chips" id="overviewLegend"></div>
+              </div>
+              <div class="panel-body">
+                <canvas id="overviewChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Donut: category distribution -->
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Failure Distribution</div>
+                  <div class="panel-subtitle">Proportional breakdown by type</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="donutChart" style="max-width:220px;max-height:220px;"></canvas>
+                <div class="donut-labels" id="donutLabels"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── TIMELINE SECTION ── -->
+        <section id="section-timeline" class="dash-section">
+          <div class="section-header">
+            <h2>Timeline Analysis</h2>
+            <p>CSB barrier element failures rose <strong>+39,000%</strong> from 2016 to 2025 — the dominant well-integrity risk in Brazilian E&amp;P</p>
+          </div>
+
+          <div class="charts-row">
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Annual CSB Failure Trend</div>
+                  <div class="panel-subtitle">Conjunto Solidário de Barreira — exponential growth from 2020</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <canvas id="csbTrendChart"></canvas>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Monthly Pattern</div>
+                  <div class="panel-subtitle">Incident frequency by month</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="monthChart" style="max-width:260px;max-height:260px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Multi-Category Year-by-Year Comparison</div>
+                <div class="panel-subtitle">All HAL/Tejas-relevant failure modes tracked simultaneously</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <canvas id="multiLineChart" style="max-height:260px;"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── FAILURE TYPES SECTION ── -->
+        <section id="section-breakdown" class="dash-section">
+          <div class="section-header">
+            <h2>Failure Type Deep-Dive</h2>
+            <p>Correlation between ANP incident classification and HAL/Tejas barrier systems</p>
+          </div>
+
+          <div class="breakdown-grid">
+            <div class="panel breakdown-card" id="card-csb">
+              <div class="breakdown-icon csb-icon">⚙️</div>
+              <div class="breakdown-title">CSB Barrier Element Failures</div>
+              <div class="breakdown-count" id="cnt-csb">—</div>
+              <div class="breakdown-desc">Falha de elemento do Conjunto Solidário de Barreira. HAL provides BOP, wellhead, and completion barrier elements directly within this classification.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 445</div>
+            </div>
+            <div class="panel breakdown-card" id="card-kick">
+              <div class="breakdown-icon kick-icon">🔴</div>
+              <div class="breakdown-title">Primary Barrier Loss (Kicks)</div>
+              <div class="breakdown-count" id="cnt-kick">—</div>
+              <div class="breakdown-desc">Falha da barreira primária (kick). Influx of formation fluid — directly linked to mud weight management and BOP response systems supplied by Halliburton.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 459</div>
+            </div>
+            <div class="panel breakdown-card" id="card-struct">
+              <div class="breakdown-icon struct-icon">🏗️</div>
+              <div class="breakdown-title">Structural Well Failures</div>
+              <div class="breakdown-count" id="cnt-struct">—</div>
+              <div class="breakdown-desc">Falha estrutural em poço. Casing, tubing, and liner failures — Tejas specializes in flow control and completion equipment within this failure mode.</div>
+              <div class="breakdown-reg">BV NR 445 · NR-37</div>
+            </div>
+            <div class="panel breakdown-card" id="card-wc">
+              <div class="breakdown-icon wc-icon">💥</div>
+              <div class="breakdown-title">Loss of Well Control</div>
+              <div class="breakdown-count" id="cnt-wc">—</div>
+              <div class="breakdown-desc">Perda de controle de poço (menor, significante, maior). The most severe category — involves complete failure of both primary and secondary barrier systems.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · NORMAM-01</div>
+            </div>
+          </div>
+
+          <!-- Severity breakdown -->
+          <div class="charts-row">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Severity Distribution</div>
+                  <div class="panel-subtitle">Per BV / ANP classification</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="severityChart" style="max-width:240px;max-height:240px;"></canvas>
+              </div>
+            </div>
+
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Type × Severity Correlation Matrix</div>
+                  <div class="panel-subtitle">Cross-reference failure category with severity level</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="matrix-table" id="matrixTable"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── REGISTRY SECTION ── -->
+        <section id="section-registry" class="dash-section">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Incident Registry</div>
+                <div class="panel-subtitle">HAL/Tejas-relevant ANP records — filterable &amp; searchable</div>
+              </div>
+            </div>
+            <div class="table-toolbar">
+              <div class="search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search incident number…">
+              </div>
+              <div class="table-count" id="tableCount">— incidents</div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="incTable">
+                <thead>
+                  <tr>
+                    <th>Incident #</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Failure Type (ANP)</th>
+                    <th>Severity</th>
+                    <th>Event Class</th>
+                    <th>Regulation</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="pagination"></div>
+          </div>
+        </section>
+
+        <!-- ── CASE STUDY SECTION ── -->
+        <section id="section-casestudy" class="dash-section">
+
+          <!-- Report Header -->
+          <div class="cs-header">
+            <div class="cs-header-left">
+              <div class="cs-badge">BV · ANP · SGIP</div>
+              <h2>HAL Tejas Incident Report</h2>
+              <p class="cs-subtitle">Bureau Veritas Compliance Framework &amp; ANP Well Integrity Incident Analysis</p>
+            </div>
+            <div class="cs-meta">
+              <div class="cs-meta-item"><span>Operation</span>Halliburton &amp; Tejas — Brazil</div>
+              <div class="cs-meta-item"><span>Jurisdiction</span>ANP — Agência Nacional do Petróleo</div>
+              <div class="cs-meta-item"><span>Classification Society</span>Bureau Veritas (BV)</div>
+              <div class="cs-meta-item"><span>Report Date</span>March 2026</div>
+              <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 30,054 records</div>
+            </div>
+          </div>
+
+          <!-- Section 1: Executive Summary -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Executive Summary</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">This report establishes the regulatory and operational compliance framework applicable to <strong>Halliburton</strong> and <strong>Tejas</strong> operations in Brazil, and provides evidence-based justification for identified risk exposure, grounded entirely in publicly available open data from official Brazilian government sources.</p>
+              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>30,054 registered incidents from 2013 to 2026</strong>, published under Brazil's Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable Brazilian regulatory instruments.</p>
+
+              <div class="cs-findings">
+                <div class="cs-finding-title">Key Findings</div>
+                <div class="cs-finding-list">
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent"></div>
+                    <div>
+                      <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 391 in 2025 — constituting the dominant well integrity risk category in Brazilian E&amp;P.
+                    </div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--kick-color)"></div>
+                    <div>
+                      <strong>193 primary barrier loss events (kicks)</strong> recorded between 2013 and 2026 on ANP-licensed installations.
+                    </div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--blue)"></div>
+                    <div>
+                      <strong>2,291 critical well integrity incidents</strong> in total are documented in the open dataset.
+                    </div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--purple)"></div>
+                    <div>
+                      Halliburton's well services and Tejas's completion/flow-control equipment operate within the barrier systems captured by these statistics, making compliance with <strong>Resolução ANP nº 46/2016</strong> and <strong>BV NR 445</strong> directly applicable.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: ANP Key Metrics -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">ANP Incident Data — Key Metrics</div>
+                <div class="panel-subtitle">Derived from full ANP open dataset (30,054 cross-referenced records)</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="cs-metrics-grid">
+                <div class="cs-metric"><div class="cs-metric-val">30,054</div><div class="cs-metric-label">Total Incidentes (SISO)</div></div>
+                <div class="cs-metric" style="--m-accent:var(--csb-color)"><div class="cs-metric-val" style="color:var(--csb-color)">2,884</div><div class="cs-metric-label">Falhas CSB (Todas)</div></div>
+                <div class="cs-metric" style="--m-accent:var(--kick-color)"><div class="cs-metric-val" style="color:var(--kick-color)">221</div><div class="cs-metric-label">Kicks registrados</div></div>
+                <div class="cs-metric" style="--m-accent:var(--blue)"><div class="cs-metric-val" style="color:var(--blue)">91</div><div class="cs-metric-label">Falhas Estruturais/Poço</div></div>
+              </div>
+              <p class="cs-note">⚠ HAL and Tejas do not appear as named entities in the ANP dataset because the agency records incidents under the licensed operator (e.g. Petrobras, Shell, Equinor). Service companies operate within those operators' facilities and are therefore captured in the incident statistics for the barrier systems they service.</p>
+            </div>
+          </div>
+
+          <!-- Section 3: Trend Table -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">03</div>
+                <div class="panel-title">Well Integrity Trend — Year-by-Year</div>
+                <div class="panel-subtitle">CSB, Kick, Structural &amp; Well Control failure aggregates vs. total ANP incidents</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <table class="cs-table">
+                <thead><tr><th>Year</th><th>Well Integrity Total (CSB, Kick…)</th><th>Total ANP</th><th>% Share</th></tr></thead>
+                <tbody>
+                  <tr><td>2013</td><td>22</td><td>1,654</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1.3%"></div>1.3%</div></td></tr>
+                  <tr><td>2014</td><td>16</td><td>1,811</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:0.9%"></div>0.9%</div></td></tr>
+                  <tr><td>2015</td><td>20</td><td>2,197</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:0.9%"></div>0.9%</div></td></tr>
+                  <tr><td>2016</td><td>18</td><td>2,881</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:0.6%"></div>0.6%</div></td></tr>
+                  <tr><td>2017</td><td>20</td><td>2,090</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1.0%"></div>1.0%</div></td></tr>
+                  <tr><td>2018</td><td>30</td><td>1,984</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1.5%"></div>1.5%</div></td></tr>
+                  <tr><td>2019</td><td>24</td><td>2,325</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1.0%"></div>1.0%</div></td></tr>
+                  <tr><td>2020</td><td>79</td><td>1,846</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:4.3%"></div>4.3%</div></td></tr>
+                  <tr class="cs-row-highlight"><td>2021</td><td><strong>957</strong></td><td>2,697</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:35.5%"></div><strong>35.5%</strong></div></td></tr>
+                  <tr class="cs-row-highlight"><td>2022</td><td><strong>756</strong></td><td>2,415</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:31.3%"></div><strong>31.3%</strong></div></td></tr>
+                  <tr class="cs-row-highlight"><td>2023</td><td><strong>369</strong></td><td>2,414</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:15.3%"></div><strong>15.3%</strong></div></td></tr>
+                  <tr class="cs-row-highlight"><td>2024</td><td><strong>388</strong></td><td>2,686</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:14.4%"></div><strong>14.4%</strong></div></td></tr>
+                  <tr class="cs-row-highlight"><td>2025</td><td><strong>447</strong></td><td>2,715</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:16.5%"></div><strong>16.5%</strong></div></td></tr>
+                  <tr><td>2026*</td><td>50</td><td>339</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:14.7%"></div>14.7%</div></td></tr>
+                </tbody>
+              </table>
+              <p class="cs-note" style="margin-top:10px">* 2026 data is partial (Q1 only). Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover activity.</p>
+            </div>
+          </div>
+
+          <!-- Section 4: Regulatory Framework -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">05</div>
+                <div class="panel-title">Applicable BV Standards &amp; Brazilian Regulations</div>
+                <div class="panel-subtitle">Each standard mapped to its scope and direct relevance to HAL/Tejas operations</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <table class="cs-table">
+                <thead><tr><th>Standard / Regulation</th><th>Scope</th><th>Applicability to HAL / Tejas</th><th>Source</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Resolução ANP nº 46/2016 (SGIP)</strong></td><td>Well integrity management</td><td>Halliburton &amp; Tejas equipment in barrier systems</td><td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td></tr>
+                  <tr><td><strong>Resolução ANP nº 43/2007 (SGSO)</strong></td><td>Operational safety management</td><td>All E&amp;P service operations</td><td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td></tr>
+                  <tr><td><strong>BV NR 445</strong></td><td>Classification of offshore units</td><td>Units where services are performed</td><td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" class="cs-link">bureauveritas.com</a></td></tr>
+                  <tr><td><strong>BV NR 459</strong></td><td>Process systems on offshore units</td><td>Completion &amp; well control systems</td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" class="cs-link">bureauveritas.com</a></td></tr>
+                  <tr><td><strong>NR-37 (MTE)</strong></td><td>Health &amp; safety on offshore platforms</td><td>All personnel on licensed installations</td><td><a href="https://www.gov.br/trabalho-e-emprego" target="_blank" class="cs-link">trabalho.gov.br</a></td></tr>
+                  <tr><td><strong>NORMAM-01/DPC</strong></td><td>Maritime safety – vessels &amp; crew</td><td>Marine vessels supporting operations</td><td><a href="https://www.marinha.mil.br/dpc/normam" target="_blank" class="cs-link">marinha.mil.br</a></td></tr>
+                  <tr><td><strong>ISO 9001 / ISO 17025</strong></td><td>QA/QC &amp; laboratory accreditation</td><td>Equipment certification &amp; testing</td><td><a href="https://www.iso.org" target="_blank" class="cs-link">iso.org</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 5: Sources & Justification Language -->
+          <div class="charts-row">
+            <div class="panel cs-panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">06</div>
+                  <div class="panel-title">Open Data — Traceability Map</div>
+                  <div class="panel-subtitle">All findings traceable to official open-access sources</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="cs-sources">
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">ANP — Agência Nacional do Petróleo</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">SISO-Incidentes</span>30,054 records (2013–2026) — <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" class="cs-link">dados.gov.br/organization/anp</a></div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. 46/2016</span>SGIP — Well Integrity Management System; mandatory for all E&amp;P licensees</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. 43/2007</span>SGSO — Operational Safety Management for drilling and production</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. 41/2015</span>Subsea systems safety management</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">Bureau Veritas</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">NR 445</span>Classification of Offshore Units — structural, machinery &amp; safety systems</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">NR 459</span>Process Systems — completion and well control</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">NR 493</span>Mooring Systems — applicable to floating units</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">IVBS-BRA</span>Brazil-specific independent verification bridging ANP, DPC, NR-37 &amp; IBAMA</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">International Cross-References</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">BSEE (US)</span>Offshore Incident Statistics — global precedent for analogous failure modes</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">HSE UK</span>Hydrocarbon Release Database — international benchmark for well control events</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel cs-panel">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">07</div>
+                  <div class="panel-title">Recommended Justification Language</div>
+                  <div class="panel-subtitle">For regulatory submissions &amp; audits</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <blockquote class="cs-quote">
+                  "The failure modes identified in this analysis are documented in the ANP's public E&amp;P incident database (SISO-Incidentes, 30,054 records, 2013–2026 — available at dados.gov.br/organization/anp under Lei de Acesso à Informação, Lei nº 12.527/2011). CSB barrier element failures rose from 1 incident in 2016 to 391 in 2025, representing the dominant well integrity risk category in Brazilian E&amp;P. Since Halliburton and Tejas operate as service companies on installations licensed to ANP operators, their equipment and services fall within the barrier systems captured by these statistics, making compliance with Resolução ANP nº 46/2016 (SGIP) and Bureau Veritas NR 445 directly and mandatorily applicable."
+                </blockquote>
+                <div class="cs-quote-source">— HAL Tejas Incident Report, March 2026</div>
+                <a href="/api/generate-report" download class="cs-download-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download Full DOCX Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div><!-- /page-content -->
+    </div><!-- /main-content -->
+  </div><!-- /app-layout -->
 
   <script src="app.js"></script>
 </body>
