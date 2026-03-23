@@ -232,6 +232,11 @@ app.get("/api/hal-incidents", (req, res) => {
     if (category) data = data.filter(r => r.category === category);
     if (severity) data = data.filter(r => r.severity === severity);
 
+    data.sort((a, b) => {
+      if (b.year !== a.year) return (b.year || 0) - (a.year || 0);
+      return (b.month || 0) - (a.month || 0);
+    });
+
     const total = data.length;
     const items = data.slice((page - 1) * limit, page * limit);
     res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
