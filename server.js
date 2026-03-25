@@ -289,6 +289,32 @@ app.get("/api/hal-stats", (req, res) => {
   }
 });
 
+// API: HAL contracts from CSV
+app.get("/api/hal-contracts", (req, res) => {
+  try {
+    const contractPath = path.join(__dirname, 'hal-contracts-pbr.csv');
+    if (!fs.existsSync(contractPath)) return res.json({ total: 0, items: [] });
+    const content = fs.readFileSync(contractPath, 'utf8');
+    const lines = content.split('\n').filter(l => l.trim());
+    const PBR_CONTRACTS = lines.slice(1).map(line => {
+      const cols = line.split(';');
+      return {
+        numero: cols[3]?.trim(),
+        obj:    cols[9]?.trim(),
+        proc:   cols[6]?.trim(), // modalidade
+        inicio: cols[11]?.trim(),
+        fim:    cols[12]?.trim(),
+        value:  cols[13]?.trim(),
+        cur:    cols[13]?.includes('$') ? 'USD' : 'BRL',
+        status: cols[16]?.trim()
+      };
+    });
+    res.json({ total: PBR_CONTRACTS.length, items: PBR_CONTRACTS });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // API: Real ANP incidents — paginated
 app.get("/api/incidents", (req, res) => {
   const page  = Math.max(1, parseInt(req.query.page) || 1);
