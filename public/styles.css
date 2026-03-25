@@ -758,7 +758,7 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
   }
   .app-layout.sidebar-open .sidebar-overlay { opacity: 1; pointer-events: auto; }
   
-  .page-content { padding: 14px 12px; }
+  .page-content { padding: 14px 12px 80px 12px; }
   
   /* Grids to 1 column */
   .kpi-grid, .breakdown-grid, .cs-metrics-grid, .ai-iso-grid {
