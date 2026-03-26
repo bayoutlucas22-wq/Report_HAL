@@ -1,8 +1,25 @@
+# Dependencies
 node_modules/
-*.docx
-!docs/HAL_Tejas_Incident_Report.docx
-*.zip
-.DS_Store
+
+# Environment
 .env
 .env.local
-.vercel
+.env.*.local
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Build / deploy
+.vercel/
+
+# Large raw data files (tracked separately or via Git LFS)
+data/incidentes.csv
+src/data/incidentes.csv
+
+# Generated binary exports (re-generated on demand via /api/generate-report)
+*.docx
+*.zip
+
+# Keep the versioned report artifact
+!docs/reports/HAL_Tejas_Incident_Report.docx
