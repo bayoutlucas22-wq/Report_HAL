@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CIS — Compliance Intelligence System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       /* CIS Theme Tokens */
@@ -23,8 +25,12 @@
       --font-geist-sans: 'Inter', system-ui, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: var(--font-geist-sans);
       background: var(--bg-main);
@@ -43,18 +49,23 @@
     }
 
     .logo-mark {
-      width: 40px; height: 40px; border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       background: var(--primary-blue);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
     }
+
     .logo-text {
       font-size: 1.5rem;
       font-weight: 900;
       letter-spacing: -0.025em;
       color: var(--text-dark);
     }
-    
+
     .brand-gradient-text {
       background: var(--brand-gradient);
       -webkit-background-clip: text;
@@ -80,8 +91,15 @@
     }
 
     @keyframes fade-in-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
@@ -141,7 +159,8 @@
     }
 
     .terms-box p strong {
-      color: #ef4444; /* Danger red */
+      color: #ef4444;
+      /* Danger red */
     }
 
     /* Agreement Checkbox */
@@ -211,11 +230,13 @@
     .btn-secondary {
       background: transparent;
       color: var(--text-muted);
-      border: 1px solid #d1d5db; /* gray-300 */
+      border: 1px solid #d1d5db;
+      /* gray-300 */
     }
 
     .btn-secondary:hover {
-      background: #f3f4f6; /* gray-100 */
+      background: #f3f4f6;
+      /* gray-100 */
       color: var(--text-dark);
     }
 
@@ -230,14 +251,22 @@
     }
 
     @keyframes float-in {
-      from { opacity: 0; transform: translateX(40px) scale(0.95); }
-      to { opacity: 1; transform: translateX(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateX(40px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
     }
 
     .content-right img {
       max-width: 100%;
       height: auto;
-      width: 450px; /* Sized for logo */
+      width: 450px;
+      /* Sized for logo */
       object-fit: contain;
     }
 
@@ -247,66 +276,85 @@
         text-align: center;
         padding: 0 30px 40px;
       }
+
       .content-left {
         padding-right: 0;
         margin-bottom: 40px;
       }
+
       .terms-box {
         text-align: left;
       }
+
       .button-group {
         justify-content: center;
       }
+
       .content-right img {
         width: 300px;
       }
     }
   </style>
 </head>
+
 <body>
 
 
 
   <main>
     <div class="content-left">
-      <h1>Halliburton &amp; Tejas<br/><span class="brand-gradient-text">Compliance Overview</span></h1>
+      <h1>Halliburton &amp; Tejas<br /><span class="brand-gradient-text">Compliance Overview</span></h1>
       <p class="description">
-        Independent evidentiary analysis of comprehensive incident data from the Brazilian Agência Nacional do Petróleo (ANP) spanning 2013 to March 26, 2026. This study verifies Halliburton and Tejas operational safety risks mapped strictly against Bureau Veritas offshore classification standards.
+        Independent evidentiary analysis of comprehensive incident data from the Brazilian Agência Nacional do Petróleo
+        (ANP) spanning 2013 to March 26, 2026. This study infers Halliburton and Tejas operational safety risks mapped
+        strictly against Bureau Veritas offshore classification standards.
       </p>
 
       <div class="terms-box">
         <h3>Disclaimer & Agreement on Usage</h3>
-        <p>This application provides compliance analytics driven exclusively by verified open public data published under the Brazilian Freedom of Information Act (Lei nº 12.527/2011).</p>
-        
+        <p>This application provides compliance analytics driven exclusively by verified open public data published
+          under the Brazilian Freedom of Information Act (Lei nº 12.527/2011).</p>
+
         <h4>Data & Regulatory Sources</h4>
         <ul>
-          <li><strong>Data Cut-off Limit:</strong> March 26, 2026. All statistics, incidents, and contracts analyzed are strictly bounded to this cut-off timestamp.</li>
-          <li><strong>ANP SISO-Incidentes Dataset:</strong> Analyzed dataset containing 30,054 authentic incidents reported to the upstream authority up to the cut-off date.</li>
+          <li><strong>Data Cut-off Limit:</strong> March 26, 2026. All statistics, incidents, and contracts analyzed are
+            strictly bounded to this cut-off timestamp.</li>
+          <li><strong>ANP SISO-Incidentes Dataset:</strong> Analyzed dataset containing 30,054 authentic incidents
+            reported to the upstream authority up to the cut-off date.</li>
           <li><strong>Regulatory Base:</strong> ANP Res. nº 46/2016 (SGIP), nº 43/2007 (SGSO), nº 41/2015.</li>
-          <li><strong>Bureau Veritas Classification:</strong> NR 445 (Classification of Offshore Units), NR 459, NR 493.</li>
+          <li><strong>Bureau Veritas Classification:</strong> NR 445 (Classification of Offshore Units), NR 459, NR 493.
+          </li>
           <li><strong>Brazilian Labour Ministry:</strong> NR-37, NR-33, NR-35; Maritime Authority (NORMAM-01/DPC).</li>
         </ul>
 
         <h4>⚠️ Crucial Notice on Accountability</h4>
         <p>
-          <strong>Accountability rests on usage:</strong> The critical link between specific service subcontractors (like Halliburton or Tejas) and these documented failures is <strong>inferred via exposure, not directly named as causation</strong>. 
+          <strong>Accountability rests on usage:</strong> The critical link between specific service subcontractors
+          (like Halliburton or Tejas) and these documented failures is <strong>inferred via exposure, not directly named
+            as causation</strong>.
         </p>
         <p>
-          The ANP database registers incidents exclusively under the licensed operator. What the data strictly verifies is an exponential rise (+39,000%) in Conjunto Solidário de Barreira (CSB) failures operating on the same barrier systems maintained and deployed within the scope of these entities. 
+          The ANP database registers incidents exclusively under the licensed operator. What the data strictly verifies
+          is an exponential rise (+39,000%) in Conjunto Solidário de Barreira (CSB) failures operating on the same
+          barrier systems maintained and deployed within the scope of these entities.
         </p>
-        <p>By proceeding, you agree that you understand the origin of the data, the fact-checking limitations regarding causation, and assume full accountability for how these insights and regulatory correlations are utilized or communicated.</p>
+        <p>By proceeding, you agree that you understand the origin of the data, the fact-checking limitations regarding
+          causation, and assume full accountability for how these insights and regulatory correlations are utilized or
+          communicated.</p>
       </div>
 
       <label class="agreement-wrapper" for="agreeCheck">
         <input type="checkbox" id="agreeCheck" />
-        <span class="agreement-text">I have read the disclaimer, verified the sources, and agree to the terms of accountability.</span>
+        <span class="agreement-text">I have read the disclaimer, verified the sources, and agree to the terms of
+          accountability.</span>
       </label>
 
       <div class="button-group">
         <button class="btn btn-primary" id="startBtn" disabled>
           Start Exploring →
         </button>
-        <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" class="btn btn-secondary" target="_blank" rel="noopener">
+        <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+          class="btn btn-secondary" target="_blank" rel="noopener">
           Learn More
         </a>
       </div>
@@ -334,4 +382,5 @@
     });
   </script>
 </body>
+
 </html>
