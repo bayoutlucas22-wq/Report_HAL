@@ -7,8 +7,8 @@ const headerBorders = { top: headerBorder, bottom: headerBorder, left: headerBor
 
 // ── Regulatory reference data (static — these are real regulations, not generated) ──
 const REG_DATA = [
-  ["Resolução ANP nº 46/2016 (SGIP)", "Well integrity management", "Halliburton & Tejas equipment in barrier systems", "gov.br/anp"],
-  ["Resolução ANP nº 43/2007 (SGSO)", "Operational safety management", "All E&P service operations", "gov.br/anp"],
+  ["ANP Resolution No. 46/2016 (SGIP)", "Well integrity management", "Halliburton & Tejas equipment in barrier systems", "gov.br/anp"],
+  ["ANP Resolution No. 43/2007 (SGSO)", "Operational safety management", "All E&P service operations", "gov.br/anp"],
   ["BV NR 445", "Classification of offshore units", "Units where services are performed", "marine-offshore.bureauveritas.com"],
   ["BV NR 459", "Process systems on offshore units", "Completion & well control systems", "marine-offshore.bureauveritas.com"],
   ["NR-37 (MTE)", "Health & safety on offshore platforms", "All personnel on licensed installations", "trabalho.gov.br"],
