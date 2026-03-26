@@ -64,7 +64,7 @@
         </a>
         <a href="#" class="nav-link" data-section="wells" id="nav-wells">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          Poços Ativos
+          Active Wells
         </a>
 
 
@@ -97,9 +97,9 @@
           <select id="filterSeverity">
             <option value="">All Severities</option>
             <option value="SSO">SSO (System Safety)</option>
-            <option value="Minor">Minor (LEVE)</option>
-            <option value="Moderate">Moderate (MODERADO)</option>
-            <option value="Severe">Severe (GRAVE)</option>
+            <option value="Minor">Minor (MINOR)</option>
+            <option value="Moderate">Moderate (MODERATE)</option>
+            <option value="Severe">Severe (SEVERE)</option>
           </select>
         </div>
 
@@ -108,9 +108,9 @@
       </div>
 
       <div class="sidebar-footer">
-        <a href="/api/generate-report" class="btn-download" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Export DOCX Report
+        <a href="/" class="btn-download" style="background:var(--bg2);color:var(--text);border:1px solid var(--border);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Back to Disclaimer
         </a>
       </div>
     </aside>
@@ -125,7 +125,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
           <div>
-            <h1 class="brand-gradient-text" style="font-size: 22px;">Petrobras ➔ Halliburton and Tejas Compliance Informatics report.</h1>
+            <h1 class="brand-gradient-text" style="font-size: 22px;">Petrobras &amp; Tejas - Halliburton Study case</h1>
             <p>Tejas &amp; Halliburton · Incident Analysis (Open Data)</p>
           </div>
         </div>
@@ -152,9 +152,9 @@
             </div>
             <div class="cs-meta">
               <div class="cs-meta-item"><span>Operation</span>Halliburton &amp; Tejas — Brazil</div>
-              <div class="cs-meta-item"><span>Jurisdiction</span>ANP — Agência Nacional do Petróleo</div>
+              <div class="cs-meta-item"><span>Jurisdiction</span>ANP — National Petroleum Agency</div>
               <div class="cs-meta-item"><span>Classification Society</span>Bureau Veritas (BV)</div>
-              <div class="cs-meta-item"><span>Report Date</span>March 2026</div>
+              <div class="cs-meta-item"><span>Data Cut-off</span>March 26, 2026</div>
               <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 30,054 records</div>
             </div>
           </div>
@@ -169,7 +169,7 @@
             </div>
             <div class="panel-body">
               <p class="cs-body">This report establishes the regulatory and operational compliance framework applicable to <strong>Halliburton</strong> and <strong>Tejas</strong> operations in Brazil, and provides evidence-based justification for identified risk exposure, grounded entirely in publicly available open data from official Brazilian government sources.</p>
-              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>30,054 registered incidents from 2013 to 2026</strong>, published under Brazil's Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable Brazilian regulatory instruments.</p>
+              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>30,054 registered incidents from 2013 to March 26, 2026</strong>, published under Brazil's Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable Brazilian regulatory instruments.</p>
 
               <div class="cs-findings">
                 <div class="cs-finding-title">Key Findings</div>
@@ -214,10 +214,10 @@
             </div>
             <div class="panel-body">
               <div class="cs-metrics-grid">
-                <div class="cs-metric"><div class="cs-metric-val">30,054</div><div class="cs-metric-label">Total Incidentes (SISO)</div></div>
-                <div class="cs-metric" style="--m-accent:var(--csb-color)"><div class="cs-metric-val" style="color:var(--csb-color)">2,884</div><div class="cs-metric-label">Falhas CSB (Todas)</div></div>
-                <div class="cs-metric" style="--m-accent:var(--kick-color)"><div class="cs-metric-val" style="color:var(--kick-color)">221</div><div class="cs-metric-label">Kicks registrados</div></div>
-                <div class="cs-metric" style="--m-accent:var(--blue)"><div class="cs-metric-val" style="color:var(--blue)">91</div><div class="cs-metric-label">Falhas Estruturais/Poço</div></div>
+                <div class="cs-metric"><div class="cs-metric-val">30,054</div><div class="cs-metric-label">Total Incidents (SISO)</div></div>
+                <div class="cs-metric" style="--m-accent:var(--csb-color)"><div class="cs-metric-val" style="color:var(--csb-color)">2,884</div><div class="cs-metric-label">CSB Failures (All)</div></div>
+                <div class="cs-metric" style="--m-accent:var(--kick-color)"><div class="cs-metric-val" style="color:var(--kick-color)">221</div><div class="cs-metric-label">Registered Kicks</div></div>
+                <div class="cs-metric" style="--m-accent:var(--blue)"><div class="cs-metric-val" style="color:var(--blue)">91</div><div class="cs-metric-label">Structural/Well Failures</div></div>
               </div>
               <p class="cs-note">⚠ HAL and Tejas do not appear as named entities in the ANP dataset because the agency records incidents under the licensed operator (e.g. Petrobras, Shell, Equinor). Service companies operate within those operators' facilities and are therefore captured in the incident statistics for the barrier systems they service.</p>
             </div>
@@ -252,7 +252,7 @@
                   <tr><td>2026*</td><td>50</td><td>339</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:14.7%"></div>14.7%</div></td></tr>
                 </tbody>
               </table>
-              <p class="cs-note" style="margin-top:10px">* 2026 data is partial (Q1 only). Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover activity.</p>
+              <p class="cs-note" style="margin-top:10px">* 2026 data is partial bounded at March 26, 2026 (Q1). Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover activity.</p>
             </div>
           </div>
 
@@ -269,8 +269,8 @@
               <table class="cs-table">
                 <thead><tr><th>Standard / Regulation</th><th>Scope</th><th>Applicability to HAL / Tejas</th><th>Source</th></tr></thead>
                 <tbody>
-                  <tr><td><strong>Resolução ANP nº 46/2016 (SGIP)</strong></td><td>Well integrity management</td><td>Halliburton &amp; Tejas equipment in barrier systems</td><td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td></tr>
-                  <tr><td><strong>Resolução ANP nº 43/2007 (SGSO)</strong></td><td>Operational safety management</td><td>All E&amp;P service operations</td><td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td></tr>
+                  <tr><td><strong>ANP Resolution No. 46/2016 (SGIP)</strong></td><td>Well integrity management</td><td>Halliburton &amp; Tejas equipment in barrier systems</td><td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td></tr>
+                  <tr><td><strong>ANP Resolution No. 43/2007 (SGSO)</strong></td><td>Operational safety management</td><td>All E&amp;P service operations</td><td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td></tr>
                   <tr><td><strong>BV NR 445</strong></td><td>Classification of offshore units</td><td>Units where services are performed</td><td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" class="cs-link">bureauveritas.com</a></td></tr>
                   <tr><td><strong>BV NR 459</strong></td><td>Process systems on offshore units</td><td>Completion &amp; well control systems</td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" class="cs-link">bureauveritas.com</a></td></tr>
                   <tr><td><strong>NR-37 (MTE)</strong></td><td>Health &amp; safety on offshore platforms</td><td>All personnel on licensed installations</td><td><a href="https://www.gov.br/trabalho-e-emprego" target="_blank" class="cs-link">trabalho.gov.br</a></td></tr>
@@ -294,7 +294,7 @@
               <div class="panel-body">
                 <div class="cs-sources">
                   <div class="cs-source-group">
-                    <div class="cs-source-head">ANP — Agência Nacional do Petróleo</div>
+                    <div class="cs-source-head">ANP — National Petroleum Agency</div>
                     <div class="cs-source-item"><span class="cs-src-tag">SISO-Incidentes</span>30,054 records (2013–2026) — <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" class="cs-link">dados.gov.br/organization/anp</a></div>
                     <div class="cs-source-item"><span class="cs-src-tag">Res. 46/2016</span>SGIP — Well Integrity Management System; mandatory for all E&amp;P licensees</div>
                     <div class="cs-source-item"><span class="cs-src-tag">Res. 43/2007</span>SGSO — Operational Safety Management for drilling and production</div>
@@ -326,12 +326,12 @@
               </div>
               <div class="panel-body">
                 <blockquote class="cs-quote">
-                  "The failure modes identified in this analysis are documented in the ANP's public E&amp;P incident database (SISO-Incidentes, 30,054 records, 2013–2026 — available at dados.gov.br/organization/anp under Lei de Acesso à Informação, Lei nº 12.527/2011). CSB barrier element failures rose from 1 incident in 2016 to 391 in 2025, representing the dominant well integrity risk category in Brazilian E&amp;P. Since Halliburton and Tejas operate as service companies on installations licensed to ANP operators, their equipment and services fall within the barrier systems captured by these statistics, making compliance with Resolução ANP nº 46/2016 (SGIP) and Bureau Veritas NR 445 directly and mandatorily applicable."
+                  "The failure modes identified in this analysis are documented in the ANP's public E&amp;P incident database (SISO-Incidentes, 30,054 records, 2013 – March 26, 2026 — available at dados.gov.br/organization/anp under Freedom of Information Law, Lei nº 12.527/2011). CSB barrier element failures rose from 1 incident in 2016 to 391 in 2025, representing the dominant well integrity risk category in Brazilian E&amp;P. Since Halliburton and Tejas operate as service companies on installations licensed to ANP operators, their equipment and services fall within the barrier systems captured by these statistics, making compliance with ANP Resolution No. 46/2016 (SGIP) and Bureau Veritas NR 445 directly and mandatorily applicable."
                 </blockquote>
-                <div class="cs-quote-source">— HAL Tejas Incident Report, March 2026</div>
-                <a href="/api/generate-report" download class="cs-download-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  Download Full DOCX Report
+                <div class="cs-quote-source">— HAL Tejas Incident Report, March 26, 2026</div>
+                <a href="/" class="cs-download-btn" style="background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                  Return to Disclaimer
                 </a>
               </div>
             </div>
@@ -384,7 +384,7 @@
               <div class="panel-header">
                 <div>
                   <div class="panel-title">Annual CSB Failure Trend</div>
-                  <div class="panel-subtitle">Conjunto Solidário de Barreira — exponential growth from 2020</div>
+                  <div class="panel-subtitle">Solidary Barrier Assembly — exponential growth from 2020</div>
                 </div>
               </div>
               <div class="panel-body">
@@ -430,28 +430,28 @@
               <div class="breakdown-icon csb-icon">⚙️</div>
               <div class="breakdown-title">CSB Barrier Element Failures</div>
               <div class="breakdown-count" id="cnt-csb">—</div>
-              <div class="breakdown-desc">Falha de elemento do Conjunto Solidário de Barreira. HAL provides BOP, wellhead, and completion barrier elements directly within this classification.</div>
+              <div class="breakdown-desc">Failure of Solidary Barrier Assembly element. HAL provides BOP, wellhead, and completion barrier elements directly within this classification.</div>
               <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 445</div>
             </div>
             <div class="panel breakdown-card" id="card-kick">
               <div class="breakdown-icon kick-icon">🔴</div>
               <div class="breakdown-title">Primary Barrier Loss (Kicks)</div>
               <div class="breakdown-count" id="cnt-kick">—</div>
-              <div class="breakdown-desc">Falha da barreira primária (kick). Influx of formation fluid — directly linked to mud weight management and BOP response systems supplied by Halliburton.</div>
+              <div class="breakdown-desc">Primary barrier failure (kick). Influx of formation fluid — directly linked to mud weight management and BOP response systems supplied by Halliburton.</div>
               <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 459</div>
             </div>
             <div class="panel breakdown-card" id="card-struct">
               <div class="breakdown-icon struct-icon">🏗️</div>
               <div class="breakdown-title">Structural Well Failures</div>
               <div class="breakdown-count" id="cnt-struct">—</div>
-              <div class="breakdown-desc">Falha estrutural em poço. Casing, tubing, and liner failures — Tejas specializes in flow control and completion equipment within this failure mode.</div>
+              <div class="breakdown-desc">Structural failure in well. Casing, tubing, and liner failures — Tejas specializes in flow control and completion equipment within this failure mode.</div>
               <div class="breakdown-reg">BV NR 445 · NR-37</div>
             </div>
             <div class="panel breakdown-card" id="card-wc">
               <div class="breakdown-icon wc-icon">💥</div>
               <div class="breakdown-title">Loss of Well Control</div>
               <div class="breakdown-count" id="cnt-wc">—</div>
-              <div class="breakdown-desc">Perda de controle de poço (menor, significante, maior). The most severe category — involves complete failure of both primary and secondary barrier systems.</div>
+              <div class="breakdown-desc">Loss of well control (minor, significant, major). The most severe category — involves complete failure of both primary and secondary barrier systems.</div>
               <div class="breakdown-reg">ANP Res. 46/2016 · NORMAM-01</div>
             </div>
           </div>
@@ -868,9 +868,9 @@
               <div style="font-size:15px;font-weight:800;color:var(--text);">Ready to activate the Cortex CIS platform?</div>
               <div style="font-size:13px;color:var(--text2);margin-top:4px;">Partner with CIS LLC to transform your compliance posture from reactive to active intelligence — governing 18 jurisdictions, 1,130+ regulations, zero noise.</div>
             </div>
-            <a href="/api/generate-report" download class="cs-download-btn" style="flex-shrink:0;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Export Full Report
+            <a href="/" class="cs-download-btn" style="flex-shrink:0; background:#f1f5f9; color:#334155; border:1px solid #cbd5e1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              Close Dashboard
             </a>
           </div>
 
@@ -883,13 +883,52 @@
           <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);">
             <div class="cs-header-left">
               <div class="cs-badge" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);">ANP · SISO · Open Data</div>
-              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Poços Exploratórios em Atividade</h2>
+              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Active Exploratory Wells</h2>
               <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">34 active exploratory wells registered with ANP, cross-mapped against 30,054 SISO incident records to surface operational risk exposure by basin, intervention type, and environment.</p>
             </div>
             <div class="ai-hero-stats">
-              <div class="ai-stat"><div class="ai-stat-val">34</div><div class="ai-stat-label">Poços Ativos</div></div>
-              <div class="ai-stat"><div class="ai-stat-val">7</div><div class="ai-stat-label">Operadores</div></div>
-              <div class="ai-stat"><div class="ai-stat-val">7</div><div class="ai-stat-label">Bacias</div></div>
+              <div class="ai-stat"><div class="ai-stat-val">34</div><div class="ai-stat-label">Active Wells</div></div>
+              <div class="ai-stat"><div class="ai-stat-val">7</div><div class="ai-stat-label">Operators</div></div>
+              <div class="ai-stat"><div class="ai-stat-val">7</div><div class="ai-stat-label">Basins</div></div>
+            </div>
+          </div>
+
+          <!-- ANP Context & Official Sources -->
+          <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 8px; margin: 16px 20px 0; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                Data Context &amp; Official Sources
+              </h3>
+              <p style="font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 12px;">
+                The information provided originates from the National Agency of Petroleum, Natural Gas and Biofuels (ANP) of Brazil.
+                The specific source for these data is the Public Data Consultation (CDP) dashboard, specifically the section on active exploratory wells.
+                The listed wells are exploratory wells where there has been recent or ongoing intervention (drilling, testing, or restoration) as registered by the ANP in early 2026.
+              </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px;">
+              <a href="https://www.gov.br/anp/pt-br/centrais-de-conteudo/paineis-dinamicos-da-anp/paineis-dinamicos-de-exploracao-e-producao-de-oleo-e-gas" target="_blank" rel="noopener" style="display: block; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--blue);">ANP - Public Data Consultation (CDP) ↗</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 4px;">Official dashboard with the real-time list of active exploratory wells.</div>
+              </a>
+              <a href="https://dados.gov.br/dados/organizacoes/visualizar/agencia-nacional-do-petroleo-gas-natural-e-biocombustiveis-anp" target="_blank" rel="noopener" style="display: block; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--blue);">ANP - Open Data (E&amp;P) ↗</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 4px;">Portal providing the inventory of exploration and production data.</div>
+              </a>
+              <a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/dados-es-p" target="_blank" rel="noopener" style="display: block; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--blue);">ANP - E&amp;P Data ↗</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 4px;">Institutional page with links to active and completed wells tables.</div>
+              </a>
+            </div>
+
+            <div style="padding: 12px; background: rgba(59, 130, 246, 0.05); border: 1px dashed rgba(59, 130, 246, 0.3); border-radius: 6px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px;">Key Data Elements Captured:</div>
+              <ul style="font-size: 12px; color: var(--text2); margin: 0; padding-left: 20px; line-height: 1.6;">
+                <li><strong>Operator:</strong> Petrobras, Alvopetro, Origem Alagoas, among others.</li>
+                <li><strong>Environment:</strong> Identifies whether the operation is Onshore (TERRA) or Offshore (MAR).</li>
+                <li><strong>Drilling Start:</strong> Dates confirming the currency of the records (many in 2025 and early 2026).</li>
+              </ul>
             </div>
           </div>
 
@@ -927,7 +966,7 @@
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">01</div>
-                  <div class="panel-title">Objetivo da Intervenção → Failure Mode Mapping</div>
+                  <div class="panel-title">Intervention Objective → Failure Mode Mapping</div>
                   <div class="panel-subtitle">Each active well's operation type maps directly to a dominant ANP incident category</div>
                 </div>
               </div>
@@ -945,28 +984,28 @@
                     <tr class="cs-row-highlight">
                       <td><strong style="color:#f59e0b">Completação</strong></td>
                       <td>13</td>
-                      <td>SSO - Falha de elemento do CSB</td>
+                      <td>SSO - CSB element failure</td>
                       <td><div class="cs-bar-cell"><div class="cs-bar" style="width:72%;background:#f59e0b"></div>1,233</div></td>
                       <td>Tejas — Packers, Safety Valves, Wellheads</td>
                     </tr>
                     <tr class="cs-row-highlight">
                       <td><strong style="color:#ef4444">Restauração</strong></td>
                       <td>13</td>
-                      <td>SSO - Perda de contenção primária (óleo)</td>
+                      <td>SSO - Primary containment loss (oil)</td>
                       <td><div class="cs-bar-cell"><div class="cs-bar" style="width:52%;background:#ef4444"></div>887</div></td>
                       <td>HAL + Tejas — Barrier element systems</td>
                     </tr>
                     <tr>
                       <td><strong style="color:#6b7280">Abandono</strong></td>
                       <td>3</td>
-                      <td>SSO - Descarga menor de óleo</td>
+                      <td>SSO - Minor oil discharge</td>
                       <td><div class="cs-bar-cell"><div class="cs-bar" style="width:61%;background:#6b7280"></div>1,037</div></td>
                       <td>HAL — Cementing, P&amp;A operations</td>
                     </tr>
                     <tr>
                       <td><strong style="color:#0d9488">Avaliação</strong></td>
                       <td>1</td>
-                      <td>SSO - Quase acidente de alto potencial</td>
+                      <td>SSO - High potential near miss</td>
                       <td><div class="cs-bar-cell"><div class="cs-bar" style="width:100%;background:#0d9488"></div>2,478</div></td>
                       <td>HAL — Wireline, Formation Evaluation</td>
                     </tr>
@@ -1008,7 +1047,7 @@
               <div>
                 <div class="cs-section-num">03</div>
                 <div class="panel-title">Well Registry — All 34 Active Exploratory Wells</div>
-                <div class="panel-subtitle">Source: ANP — Resultado de Poços Exploratórios em Atividade (Open Data)</div>
+                <div class="panel-subtitle">Source: ANP — Resultado de Active Exploratory Wells (Open Data)</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <input type="text" id="wellSearch" class="search-input" placeholder="Search well name, operator…" style="width:200px;" oninput="filterWells()">
@@ -1083,10 +1122,10 @@
                   <tbody>
                     <tr class="cs-row-highlight"><td><strong>SSO - Falha no Blowout Preventer (BOP)</strong></td><td>1,215</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:73%;background:#7c3aed"></div>73.5%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
                     <tr><td>Falha no Blowout Preventer (BOP)</td><td>193</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:12%;background:#7c3aed88"></div>11.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Falha da barreira primária — kick</strong></td><td>193</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:12%;background:#7c3aed"></div>11.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>Falha da barreira primária — kick</td><td>30</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:2%;background:#7c3aed88"></div>1.8%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>Perda de controle de poço (menor / significante / maior)</td><td>13</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1%;background:#7c3aed88"></div>0.8%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Falha no riser de perfuração ou intervenção</td><td>9</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1%;background:#7c3aed88"></div>0.5%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" rel="noopener" class="reg-link">BV NR 445 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - Primary barrier failure — kick</strong></td><td>193</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:12%;background:#7c3aed"></div>11.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>Primary barrier failure — kick</td><td>30</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:2%;background:#7c3aed88"></div>1.8%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>Perda de well control (menor / significante / maior)</td><td>13</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1%;background:#7c3aed88"></div>0.8%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Failure in drilling or intervention riser</td><td>9</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1%;background:#7c3aed88"></div>0.5%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" rel="noopener" class="reg-link">BV NR 445 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1098,7 +1137,7 @@
                     <div style="width:4px;height:40px;background:#ef4444;border-radius:2px;flex-shrink:0;"></div>
                     <div>
                       <div style="font-size:13px;font-weight:800;color:var(--text);">Cementing &amp; Barrier Systems (CSB)</div>
-                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Primary Cementing · Zonal Isolation · Conjunto Solidário de Barreira · Well Integrity</div>
+                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Primary Cementing · Zonal Isolation · Solidary Barrier Assembly · Well Integrity</div>
                     </div>
                   </div>
                   <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
@@ -1112,11 +1151,11 @@
                 <table class="cs-table" style="margin:0;">
                   <thead><tr><th>ANP Incident Type</th><th>Count</th><th>Share of Domain</th><th>Regulation</th><th>Open Source</th></tr></thead>
                   <tbody>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Falha de elemento do CSB</strong></td><td>1,233</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:42%;background:#ef4444"></div>42.2%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr class="cs-row-highlight"><td><strong>Falha de elemento do CSB</strong></td><td>1,153</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:39%;background:#ef4444aa"></div>39.5%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>Parâmetro de monitoramento de CSB fora do limite de projeto</td><td>452</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:15%;background:#ef444466"></div>15.5%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Parâmetro de monitoramento de CSB fora do limite</td><td>52</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:2%;background:#ef444466"></div>1.8%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Falha estrutural em poço / Falha estrutural em poço</td><td>32</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1%;background:#ef444466"></div>1.1%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" rel="noopener" class="reg-link">BV NR 445 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - CSB element failure</strong></td><td>1,233</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:42%;background:#ef4444"></div>42.2%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>CSB element failure</strong></td><td>1,153</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:39%;background:#ef4444aa"></div>39.5%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>CSB monitoring parameter outside design limit</td><td>452</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:15%;background:#ef444466"></div>15.5%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - CSB monitoring parameter outside limit</td><td>52</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:2%;background:#ef444466"></div>1.8%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Falha structural em poço / Falha structural em poço</td><td>32</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:1%;background:#ef444466"></div>1.1%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" rel="noopener" class="reg-link">BV NR 445 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1142,11 +1181,11 @@
                 <table class="cs-table" style="margin:0;">
                   <thead><tr><th>ANP Incident Type</th><th>Count</th><th>Share of Domain</th><th>Regulation</th><th>Open Source</th></tr></thead>
                   <tbody>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Perda de circulação</strong></td><td>252</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:26%;background:#0d9488"></div>25.9%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Perda de contenção primária significante de fluido de perfuração</strong></td><td>214</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:22%;background:#0d9488"></div>22.0%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Descarga menor/significante/maior — fluido de perfuração</td><td>365</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:38%;background:#0d948888"></div>37.6%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Aprisionamento de coluna</td><td>52</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:5%;background:#0d948866"></div>5.4%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>Perda de circulação / Descarte fora de especificação de fluidos</td><td>36</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:4%;background:#0d948866"></div>3.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - Circulation loss</strong></td><td>252</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:26%;background:#0d9488"></div>25.9%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - Significant loss of primary containment of drilling fluid</strong></td><td>214</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:22%;background:#0d9488"></div>22.0%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Minor/significant/major discharge — drilling fluid</td><td>365</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:38%;background:#0d948888"></div>37.6%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Pipe sticking</td><td>52</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:5%;background:#0d948866"></div>5.4%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>Circulation loss / Fluid disposal out of specification</td><td>36</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:4%;background:#0d948866"></div>3.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1172,11 +1211,11 @@
                 <table class="cs-table" style="margin:0;">
                   <thead><tr><th>ANP Incident Type</th><th>Count</th><th>Share of Domain</th><th>Regulation</th><th>Open Source</th></tr></thead>
                   <tbody>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Parada emergencial de nível menor</strong></td><td>5,660</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:66%;background:#f59e0b"></div>65.8%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Parada emergencial ESD (planta de processo)</strong></td><td>1,945</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:23%;background:#f59e0b"></div>22.6%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Parada emergencial de nível intermediário</td><td>598</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:7%;background:#f59e0b88"></div>7.0%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Falha na demanda de sistema crítico de segurança operacional</td><td>248</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:3%;background:#f59e0b66"></div>2.9%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Desconexão de emergência / Parada de nível maior / Falha de sistema crítico</td><td>149</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:2%;background:#f59e0b66"></div>1.7%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - Minor level emergency shutdown</strong></td><td>5,660</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:66%;background:#f59e0b"></div>65.8%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - ESD emergency shutdown (process plant)</strong></td><td>1,945</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:23%;background:#f59e0b"></div>22.6%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Intermediate level emergency shutdown</td><td>598</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:7%;background:#f59e0b88"></div>7.0%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Failure on demand of critical operational safety system</td><td>248</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:3%;background:#f59e0b66"></div>2.9%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Emergency disconnection / Major level shutdown / Critical system failure</td><td>149</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:2%;background:#f59e0b66"></div>1.7%</div></td><td><a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1202,9 +1241,9 @@
                 <table class="cs-table" style="margin:0;">
                   <thead><tr><th>ANP Incident Type</th><th>Count</th><th>Share of Domain</th><th>Regulation</th><th>Open Source</th></tr></thead>
                   <tbody>
-                    <tr class="cs-row-highlight"><td><strong>SSO - Aprisionamento de coluna</strong></td><td>52</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:59%;background:#3b82f6"></div>59.1%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>Aprisionamento de coluna</td><td>16</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:18%;background:#3b82f688"></div>18.2%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
-                    <tr><td>SSO - Perda de fonte radioativa / Perda de fonte radioativa</td><td>20</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:23%;background:#3b82f666"></div>22.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr class="cs-row-highlight"><td><strong>SSO - Pipe sticking</strong></td><td>52</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:59%;background:#3b82f6"></div>59.1%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>Pipe sticking</td><td>16</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:18%;background:#3b82f688"></div>18.2%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
+                    <tr><td>SSO - Loss of radioactive source / Loss of radioactive source</td><td>20</td><td><div class="cs-bar-cell"><div class="cs-bar" style="width:23%;background:#3b82f666"></div>22.7%</div></td><td><a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td><td><a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1241,7 +1280,7 @@
             <div class="panel-body" style="padding:18px 20px;">
               <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;">🔗 Evidence Chain: Poços → Operation Type → HAL Service Domain → ANP Incidents → Compliance Liability</div>
               <p class="cs-body" style="font-size:13px;margin-bottom:10px;">Of the <strong>30,054 incidents</strong> in the <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural" target="_blank" rel="noopener" class="cs-link">ANP SISO-Incidentes open dataset (dados.gov.br)</a>, <strong>14,182 incidents — 40.9%</strong> — fall within Halliburton's declared service portfolio in Brazil. The five service domains that generate this exposure are all active on ANP-licensed installations on which the 34 wells in this registry operate.</p>
-              <p class="cs-body" style="font-size:13px;">The applicable regulatory instruments are <a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="cs-link">Resolução ANP nº 46/2016 (SGIP)</a>, <a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="cs-link">Resolução ANP nº 43/2007 (SGSO)</a>, <a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" rel="noopener" class="cs-link">Bureau Veritas NR 445</a>, and <a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="cs-link">BV NR 459</a>. All incident data is published under <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank" rel="noopener" class="cs-link">Lei nº 12.527/2011 (Lei de Acesso à Informação)</a>.</p>
+              <p class="cs-body" style="font-size:13px;">The applicable regulatory instruments are <a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip" target="_blank" rel="noopener" class="cs-link">ANP Resolution No. 46/2016 (SGIP)</a>, <a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso" target="_blank" rel="noopener" class="cs-link">ANP Resolution No. 43/2007 (SGSO)</a>, <a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units" target="_blank" rel="noopener" class="cs-link">Bureau Veritas NR 445</a>, and <a href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations" target="_blank" rel="noopener" class="cs-link">BV NR 459</a>. All incident data is published under <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank" rel="noopener" class="cs-link">Lei nº 12.527/2011 (Freedom of Information Law)</a>.</p>
             </div>
           </div>
 
@@ -1569,7 +1608,7 @@
             </div>
           </div>
 
-          <!-- ── CONTRACT-LEVEL EVIDENCE TABLE ── -->
+          <!-- ── CONTRACT-MINORL EVIDENCE TABLE ── -->
           <div class="panel cs-panel" style="margin-top:14px;">
             <div class="panel-header">
               <div>
@@ -1721,7 +1760,7 @@
                 <div class="cs-finding-list">
                   <div class="cs-finding">
                     <div class="cs-finding-accent"></div>
-                    <div><strong>The CSB Epidemic:</strong> Between 2016 and 2025, failures of the <em>Conjunto Solidário de Barreira (CSB)</em> skyrocketed to an extraordinary <strong>+39,000% spike</strong> (391 failures in a single peak year).</div>
+                    <div><strong>The CSB Epidemic:</strong> Between 2016 and 2025, failures of the <em>Solidary Barrier Assembly (CSB)</em> skyrocketed to an extraordinary <strong>+39,000% spike</strong> (391 failures in a single peak year).</div>
                   </div>
                   <div class="cs-finding">
                     <div class="cs-finding-accent" style="background:var(--kick-color)"></div>
@@ -1754,7 +1793,7 @@
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">03</div>
-                <div class="panel-title">The Solution: Lastro Umbrella Compliance Shield</div>
+                <div class="panel-title">The Solution: Ballast Umbrella Compliance Shield</div>
               </div>
             </div>
             <div class="panel-body">
@@ -1762,9 +1801,9 @@
               
               <div style="padding: 18px; background: linear-gradient(to right, rgba(37,99,235,0.05), rgba(13,148,136,0.05)); border: 1px solid var(--border); border-radius: 8px; margin-top: 16px;">
                 <h4 style="font-size: 14px; color: var(--text); font-weight: 800; margin-bottom: 8px;">Mitigating the Compliance Friction</h4>
-                <p class="cs-body" style="margin-bottom: 0;">The friction created by Tejas's manufacturing supply chains intersecting with extreme offshore compliance environments cannot be resolved through standard operational procedures alone. <strong>The only way to proactively avoid this friction and shield both the service provider (HAL/Tejas) and the operator (Petrobras) from escalating regulatory liability is through our Umbrella Contract with Lastro.</strong></p>
+                <p class="cs-body" style="margin-bottom: 0;">The friction created by Tejas's manufacturing supply chains intersecting with extreme offshore compliance environments cannot be resolved through standard operational procedures alone. <strong>The only way to proactively avoid this friction and shield both the service provider (HAL/Tejas) and the operator (Petrobras) from escalating regulatory liability is through our Umbrella Contract with Ballast.</strong></p>
                 <br>
-                <p class="cs-body" style="margin-bottom: 0;">By structuring a formalized, independent compliance shield around these operations via Lastro, we transform this raw, exposed vulnerability into a managed, legally defensible framework that insulates against audit flags.</p>
+                <p class="cs-body" style="margin-bottom: 0;">By structuring a formalized, independent compliance shield around these operations via Ballast, we transform this raw, exposed vulnerability into a managed, legally defensible framework that insulates against audit flags.</p>
               </div>
             </div>
           </div>

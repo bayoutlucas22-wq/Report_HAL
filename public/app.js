@@ -33,9 +33,9 @@ const CAT_REGS = {
 // Severity → BV classification link
 const SEV_REGS = {
   "SSO":      { label: "BV NR 445 — safety system",       url: LINKS.BV_NR445 },
-  "Minor":    { label: "BV NR 445 — LEVE classification",  url: LINKS.BV_NR445 },
-  "Moderate": { label: "BV NR 459 — MODERADO event",       url: LINKS.BV_NR459 },
-  "Severe":   { label: "BV NR 459 — GRAVE event",          url: LINKS.BV_NR459 },
+  "Minor":    { label: "BV NR 445 — MINOR classification",  url: LINKS.BV_NR445 },
+  "Moderate": { label: "BV NR 459 — MODERATE event",       url: LINKS.BV_NR459 },
+  "Severe":   { label: "BV NR 459 — SEVERE event",          url: LINKS.BV_NR459 },
 };
 
 // ── Colour palette ────────────────────────────────────────────────────────────
@@ -44,7 +44,7 @@ const CAT_COLORS = {
   "Kick (Primary Barrier)":  "#e67e22",
   "Structural Failure":      "#1a56a0",
   "Loss of Well Control":    "#7c3aed",
-  "Outros":                  "#8896ab",
+  "Other":                  "#8896ab",
 };
 const SEV_COLORS = {
   "SSO":      "#8896ab",
@@ -224,7 +224,7 @@ function renderOverviewChart(stats) {
 // ── Donut Chart ───────────────────────────────────────────────────────────────
 function renderDonut(stats) {
   destroyChart("donutChart");
-  const cats = Object.keys(stats.categoryBreakdown).filter(c => c !== "Outros");
+  const cats = Object.keys(stats.categoryBreakdown).filter(c => c !== "Other");
   const vals = cats.map(c => stats.categoryBreakdown[c]);
   const total = vals.reduce((a, b) => a + b, 0);
 
@@ -549,11 +549,22 @@ function renderBadge(total) {
 }
 
 // ── Section navigation ────────────────────────────────────────────────────────
-function switchSection(section) {
+function switchSection(section, skipHistory = false) {
   document.querySelectorAll(".dash-section").forEach(s => s.classList.remove("active"));
   document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
-  document.getElementById(`section-${section}`).classList.add("active");
-  document.getElementById(`nav-${section}`).classList.add("active");
+  
+  const secEl = document.getElementById(`section-${section}`);
+  const navEl = document.getElementById(`nav-${section}`);
+  if (secEl) secEl.classList.add("active");
+  if (navEl) navEl.classList.add("active");
+  
+  if (!skipHistory) {
+    if (history.pushState) {
+      history.pushState(null, null, `#${section}`);
+    } else {
+      location.hash = `#${section}`;
+    }
+  }
   
   closeMobileSidebar();
 }
@@ -620,6 +631,20 @@ async function init() {
     document.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", e => { e.preventDefault(); switchSection(link.dataset.section); });
     });
+    
+    // Check URL hash for initial tab
+    const hash = window.location.hash.slice(1);
+    if (hash && document.getElementById(`section-${hash}`)) {
+      switchSection(hash, true);
+    }
+    
+    window.addEventListener("hashchange", () => {
+      const h = window.location.hash.slice(1);
+      if (h && document.getElementById(`section-${h}`)) {
+        switchSection(h, true);
+      }
+    });
+
     document.getElementById("btnApply").addEventListener("click", applyFilters);
     document.getElementById("btnClear").addEventListener("click", clearFilters);
 
@@ -694,7 +719,7 @@ window.updateAIProgress = function() {
 // Initialize counters on page load
 document.addEventListener('DOMContentLoaded', () => updateAIProgress());
 
-// ── Poços Ativos Data & Table ─────────────────────────────────────────────────
+// ── Active Wells Data & Table ─────────────────────────────────────────────────
 const POCOS_DATA = [
   { nome:"1-AG-1-SE",         operador:"Carmo",           bacia:"Sergipe",        campo:"AGUILHADA",          objetivo:"Abandono",      sonda:"SONDA CONVENCIONAL 59",                              lamina:"",     inicio:"20/04/1966", env:"TERRA" },
   { nome:"1-ALV-6D-BA",       operador:"Alvopetro",       bacia:"Recôncavo",      campo:"MURUCUTUTU",          objetivo:"Completação",   sonda:"RAPID RIG Sonda Conv. Perfuração KM",               lamina:"0",    inicio:"27/07/2014", env:"TERRA" },

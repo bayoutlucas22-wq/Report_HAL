@@ -47,8 +47,11 @@ function parseIncidentesCSV() {
     const tipoStr = tipos.join(' | ').toLowerCase();
     
     // HAL/Tejas specific categorization
-    let category = "Outros";
+    if (tipoStr.includes('reclassificação') || tipoStr.includes('queda de objetos') || tipoStr.includes('princípio de incêndio') || tipoStr.includes('ferimento grave')) return null;
+
+    let category = "Other";
     if (tipoStr.includes('csb') || tipoStr.includes('conjunto solidário')) category = "CSB Failure";
+    else if (tipoStr.includes('bop') || tipoStr.includes('blowout')) category = "BOP Failure";
     else if (tipoStr.includes('kick')) category = "Kick";
     else if (tipoStr.includes('estrutural')) category = "Structural";
     else if (tipoStr.includes('controle de poço')) category = "Well Control";
@@ -69,13 +72,13 @@ function parseIncidentesCSV() {
       tipos:         tipos,
       category:      category
     };
-  });
+  }).filter(Boolean);
 
   // Pre-aggregate stats
   const yearMapObj = {}, halYearMap = {}, categoryMap = {}, companyMap = {};
   let totalFatal = 0, totalInj = 0;
   
-  let csbCount = 0, kickCount = 0, structCount = 0;
+  let csbCount = 0, bopCount = 0, kickCount = 0, structCount = 0;
 
   ANP_RECORDS.forEach(r => {
     if (r.year && r.year >= '2013' && r.year <= '2026') yearMapObj[r.year] = (yearMapObj[r.year] || 0) + 1;
@@ -86,10 +89,11 @@ function parseIncidentesCSV() {
     companyMap[r.empresa] = (companyMap[r.empresa] || 0) + 1;
     
     if (r.category === "CSB Failure") csbCount++;
+    if (r.category === "BOP Failure") bopCount++;
     if (r.category === "Kick") kickCount++;
     if (r.category === "Structural" || r.category === "Well Control") structCount++;
     
-    if (r.category !== "Outros") {
+    if (r.category !== "Other") {
       categoryMap[r.category] = (categoryMap[r.category] || 0) + 1;
       if (r.year && r.year >= '2013' && r.year <= '2026') {
          halYearMap[r.year] = (halYearMap[r.year] || 0) + 1;
@@ -114,6 +118,7 @@ function parseIncidentesCSV() {
     fatalidades: totalFatal,
     feridos:     totalInj,
     csbCount,
+    bopCount,
     kickCount,
     structCount,
     yearSeries,
@@ -139,9 +144,9 @@ app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
 const SOURCE_LABELS = {
   sisoIncidentes: "SISO-Incidentes Dataset",
-  resolucao46: "Resolução ANP nº 46/2016 (SGIP)",
-  resolucao43: "Resolução ANP nº 43/2007 (SGSO)",
-  resolucao41: "Resolução ANP nº 41/2015",
+  resolucao46: "ANP Resolution No. 46/2016 (SGIP)",
+  resolucao43: "ANP Resolution No. 43/2007 (SGSO)",
+  resolucao41: "ANP Resolution No. 41/2015",
   nr445: "NR 445 — Classification of Offshore Units",
   nr459: "NR 459 — Process Systems on Offshore Units",
   nr493: "NR 493 — Mooring Systems",
@@ -164,7 +169,7 @@ function formatSources(obj) {
 // API: Get report data for frontend — all driven by live ANP CSV data
 app.get("/api/data", (req, res) => {
   if (!ANP_STATS) return res.status(503).json({ error: 'ANP data not loaded' });
-  const sampleRecords = ANP_RECORDS.filter(r => r.category !== "Outros").slice(0, 10);
+  const sampleRecords = ANP_RECORDS.filter(r => r.category !== "Other").slice(0, 10);
   res.json({
     metrics: getMetrics(ANP_STATS),
     regulations: getRegData(),
@@ -199,23 +204,26 @@ function parseHalIncidents() {
     const tipo = rawTipo.replace(/^SSO - /, "").trim();
 
     // Category bucket
-    let category = "Outros";
     const t = tipo.toLowerCase();
+    if (t.includes('reclassificação') || t.includes('queda de objetos') || t.includes('princípio de incêndio') || t.includes('ferimento grave')) return null;
+
+    let category = "Other";
     if (t.includes("csb") || t.includes("conjunto solidário")) category = "CSB Failure";
+    else if (t.includes("bop") || t.includes("blowout"))         category = "BOP Failure";
     else if (t.includes("kick"))                                 category = "Kick (Primary Barrier)";
     else if (t.includes("estrutural"))                          category = "Structural Failure";
     else if (t.includes("controle de poço"))                    category = "Loss of Well Control";
 
     // Severity normalisation
     let severity = "SSO"; // system-safety-only (no gravity label)
-    if (grav === "LEVE")    severity = "Minor";
-    else if (grav === "MODERADO") severity = "Moderate";
-    else if (grav === "GRAVE")    severity = "Severe";
+    if (grav === "MINOR")    severity = "Minor";
+    else if (grav === "MODERATE") severity = "Moderate";
+    else if (grav === "SEVERE")    severity = "Severe";
     else if (grav)          severity = grav;
 
     return { numero, tipo, rawTipo, category, severity,
              gravidade: grav, evento: evt, year, month };
-  });
+  }).filter(Boolean);
 }
 
 // API: Get complete Halliburton incidents from CSV (enriched)
@@ -268,7 +276,7 @@ app.get("/api/hal-stats", (req, res) => {
     });
 
     const years = Object.keys(yearCat).sort();
-    const categories = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
+    const categories = ["CSB Failure", "BOP Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
 
     const yearSeries = years.map(y => ({
       year: parseInt(y),
@@ -369,7 +377,7 @@ app.get("/api/generate-report", async (req, res) => {
           }
         ]
       },
-      sections: [buildReportSections(ANP_STATS, ANP_RECORDS.filter(r => r.category !== "Outros").slice(0, 15))],
+      sections: [buildReportSections(ANP_STATS, ANP_RECORDS.filter(r => r.category !== "Other").slice(0, 15))],
     });
 
     const buffer = await Packer.toBuffer(doc);
