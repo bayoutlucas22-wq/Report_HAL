@@ -12,7 +12,7 @@ let ANP_STATS = null;
 
 function parseIncidentesCSV() {
   const csvPath = path.join(__dirname, "src/data/incidentes.csv");
-  const typeCsvPath = path.join(__dirname, "src/data/incidentes-tipo.csv"); // Used for join
+  const typeCsvPath = path.join(__dirname, "data/incidentes-tipo.csv"); // Canonical location
   
   if (!fs.existsSync(csvPath) || !fs.existsSync(typeCsvPath)) return;
   
@@ -300,7 +300,7 @@ app.get("/api/hal-stats", (req, res) => {
 // API: HAL contracts from CSV
 app.get("/api/hal-contracts", (req, res) => {
   try {
-    const contractPath = path.join(__dirname, 'hal-contracts-pbr.csv');
+    const contractPath = path.join(__dirname, 'data', 'hal-contracts-pbr.csv');
     if (!fs.existsSync(contractPath)) return res.json({ total: 0, items: [] });
     const content = fs.readFileSync(contractPath, 'utf8');
     const lines = content.split('\n').filter(l => l.trim());
