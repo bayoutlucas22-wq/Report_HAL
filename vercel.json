@@ -1,16 +1,15 @@
 {
-  "name": "mvp-dev",
+  "name": "hal-tejas-analysis",
   "version": 2,
-  "builds": [
-    { "src": "server.js", "use": "@vercel/node" },
-    { "src": "public/**/*", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/server.js" },
-    { "src": "/dashboard", "dest": "/public/index.html" },
-    { "src": "/(.*\\.html)", "dest": "/public/$1" },
-    { "src": "/(.*\\.(css|js|png|jpg|svg))", "dest": "/public/$1" },
-    { "src": "/", "dest": "/public/login.html" },
-    { "src": "/(.*)", "dest": "/server.js" }
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/server.js" },
+    { "source": "/dashboard", "destination": "/public/index.html" },
+    { "source": "/(.+\\.css)", "destination": "/public/$1" },
+    { "source": "/(.+\\.js)", "destination": "/public/$1" },
+    { "source": "/(.+\\.png)", "destination": "/public/$1" },
+    { "source": "/(.+\\.jpg)", "destination": "/public/$1" },
+    { "source": "/(.+\\.svg)", "destination": "/public/$1" },
+    { "source": "/(.*\\.html)", "destination": "/public/$1" },
+    { "source": "/", "destination": "/public/login.html" }
   ]
 }
