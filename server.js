@@ -11,10 +11,22 @@ let ANP_RECORDS = [];
 let ANP_STATS = null;
 
 function parseIncidentesCSV() {
-  const csvPath = path.join(__dirname, "src/data/incidentes.csv");
-  const typeCsvPath = path.join(__dirname, "data/incidentes-tipo.csv"); // Canonical location
-  
-  if (!fs.existsSync(csvPath) || !fs.existsSync(typeCsvPath)) return;
+  // Robust pathing for Vercel: try local then relative to cwd
+  const locate = (rel) => {
+    const p1 = path.join(__dirname, rel);
+    if (fs.existsSync(p1)) return p1;
+    const p2 = path.join(process.cwd(), rel);
+    if (fs.existsSync(p2)) return p2;
+    return null;
+  };
+
+  const csvPath = locate("src/data/incidentes.csv");
+  const typeCsvPath = locate("data/incidentes-tipo.csv");
+
+  if (!csvPath || !typeCsvPath) {
+    console.error("CRITICAL: CSV data files missing from filesystem:", { csvPath, typeCsvPath });
+    return;
+  }
   
   // 1. Load Types
   const typeContent = fs.readFileSync(typeCsvPath, 'latin1');
@@ -134,11 +146,11 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 
 // Explicit page routes come FIRST — before static middleware
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
-app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "dashboard.html")));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
+app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "public", "dashboard.html")));
 
 // Static assets (CSS, JS, images) — index:false prevents auto-serving index.html
-app.use(express.static(__dirname, { index: false }));
+app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
 const SOURCE_LABELS = {
   sisoIncidentes: "SISO-Incidentes Dataset",
