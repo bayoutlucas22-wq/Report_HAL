@@ -118,6 +118,7 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .nav-link svg { width: 18px; height: 18px; flex-shrink: 0; }
 .nav-link:hover { background: var(--bg3); color: var(--text); }
 .nav-link.active { background: var(--blue3); color: var(--blue); border: 1px solid #bfdbfe; font-weight: 600; }
+#nav-action, #nav-actionitems, #nav-fullreport { opacity: 0.65; font-weight: 400; }
 
 /* Sidebar Filters */
 .sidebar-filters {
