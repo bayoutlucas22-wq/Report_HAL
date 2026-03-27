@@ -2,9 +2,9 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const { Document, Packer } = require("docx");
-const { buildReportSections } = require("./src/document_generation/report_builder");
-const { getMetrics, getRegData, getIncidents, getTrendData } = require("./src/reporting/incident_analyzer");
-const { anpData, bureauVeritasData, mteDpcData, internationalRefs } = require("./src/data/anp_data");
+const { buildReportSections } = require("../src/document_generation/report_builder");
+const { getMetrics, getRegData, getIncidents, getTrendData } = require("../src/reporting/incident_analyzer");
+const { anpData, bureauVeritasData, mteDpcData, internationalRefs } = require("../src/data/anp_data");
 
 // ── Real ANP dataset (incidentes.csv + incidentes-tipo.csv) ──────────────
 let ANP_RECORDS = [];
@@ -13,10 +13,15 @@ let ANP_STATS = null;
 function parseIncidentesCSV() {
   // Robust pathing for Vercel: try local then relative to cwd
   const locate = (rel) => {
-    const p1 = path.join(__dirname, rel);
+    // 1. Try relative to the app root (via process.cwd)
+    const p1 = path.join(process.cwd(), rel);
     if (fs.existsSync(p1)) return p1;
-    const p2 = path.join(process.cwd(), rel);
+    // 2. Try one level up (if running inside api/ on Vercel)
+    const p2 = path.join(__dirname, "..", rel);
     if (fs.existsSync(p2)) return p2;
+    // 3. Try direct (local run fallback)
+    const p3 = path.join(__dirname, rel);
+    if (fs.existsSync(p3)) return p3;
     return null;
   };
 
@@ -146,11 +151,11 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 
 // Explicit page routes come FIRST — before static middleware
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
-app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "public", "dashboard.html")));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "..", "public", "index.html")));
+app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "..", "public", "dashboard.html")));
 
 // Static assets (CSS, JS, images) — index:false prevents auto-serving index.html
-app.use(express.static(path.join(__dirname, "public"), { index: false }));
+app.use(express.static(path.join(__dirname, "..", "public"), { index: false }));
 
 const SOURCE_LABELS = {
   sisoIncidentes: "SISO-Incidentes Dataset",
