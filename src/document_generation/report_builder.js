@@ -25,12 +25,14 @@ function buildReportSections(stats, sampleIncidents) {
     });
     return new Table({
       width: { size: 9360, type: WidthType.DXA }, columnWidths: [2340, 2340, 2340, 2340],
-      rows: [new TableRow({ children: [
-        cellStyle("Total Incidents (SISO)", fmt(stats.total), "1F4E79"),
-        cellStyle("CSB Failures (All)", fmt(stats.csbCount), "C00000"),
-        cellStyle("Registered Kicks", fmt(stats.kickCount), "C55A11"),
-        cellStyle("Structural/Well Failures", fmt(stats.structCount), "375623")
-      ]})]
+      rows: [new TableRow({
+        children: [
+          cellStyle("Total Incidents (SISO)", fmt(stats.total), "1F4E79"),
+          cellStyle("CSB Failures (All)", fmt(stats.csbCount), "C00000"),
+          cellStyle("Registered Kicks", fmt(stats.kickCount), "C55A11"),
+          cellStyle("Structural/Well Failures", fmt(stats.structCount), "375623")
+        ]
+      })]
     });
   }
 
@@ -48,18 +50,20 @@ function buildReportSections(stats, sampleIncidents) {
 
     const widths = [1200, 2400, 2400, 1680, 1680];
     const rows = [new TableRow({ children: [hCell("Ano", widths[0]), hCell("Integridade Total (CSB, Kick...)", widths[1]), hCell("Total Geral ANP", widths[2])] })];
-    
+
     stats.halYearSeries.forEach(y => {
       const yearStr = y.year;
       const countHal = fmt(y.count);
       const countTotal = fmt(stats.yearSeries.find(s => s.year === yearStr)?.count || 0);
       const shade = parseInt(yearStr) >= 2020 ? "FFF5F5" : "FFFFFF";
-      
-      rows.push(new TableRow({ children: [
-        dCell(yearStr, widths[0], shade),
-        dCell(countHal, widths[1], shade, y.count > 100),
-        dCell(countTotal, widths[2], shade)
-      ]}));
+
+      rows.push(new TableRow({
+        children: [
+          dCell(yearStr, widths[0], shade),
+          dCell(countHal, widths[1], shade, y.count > 100),
+          dCell(countTotal, widths[2], shade)
+        ]
+      }));
     });
     return new Table({ width: { size: 9360, type: WidthType.DXA }, columnWidths: widths, rows });
   }
@@ -78,16 +82,18 @@ function buildReportSections(stats, sampleIncidents) {
 
     const widths = [1000, 1200, 1000, 1400, 2800, 1960];
     const rows = [new TableRow({ children: [hCell("Incidente", widths[0]), hCell("Ano", widths[1]), hCell("Empresa", widths[2]), hCell("Modo Falha", widths[3]), hCell("Descrição", widths[4]), hCell("Status", widths[5])] })];
-    
+
     sampleIncidents.forEach((r, i) => {
-      rows.push(new TableRow({ children: [
-        dCell(r.numero, widths[0], i%2===0?"FFFFFF":"FFF5F5"),
-        dCell(r.year || "N/D", widths[1], i%2===0?"FFFFFF":"FFF5F5"),
-        dCell(r.empresa.substring(0,15), widths[2], i%2===0?"FFFFFF":"FFF5F5"),
-        dCell(r.category, widths[3], i%2===0?"FFFFFF":"FFF5F5"),
-        dCell((r.descricao || "").substring(0, 80) + "...", widths[4], i%2===0?"FFFFFF":"FFF5F5"),
-        dCell(r.situacao, widths[5], i%2===0?"FFFFFF":"FFF5F5")
-      ]}));
+      rows.push(new TableRow({
+        children: [
+          dCell(r.numero, widths[0], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+          dCell(r.year || "N/D", widths[1], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+          dCell(r.empresa.substring(0, 15), widths[2], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+          dCell(r.category, widths[3], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+          dCell((r.descricao || "").substring(0, 80) + "...", widths[4], i % 2 === 0 ? "FFFFFF" : "FFF5F5"),
+          dCell(r.situacao, widths[5], i % 2 === 0 ? "FFFFFF" : "FFF5F5")
+        ]
+      }));
     });
     return new Table({ width: { size: 9360, type: WidthType.DXA }, columnWidths: widths, rows });
   }
@@ -104,7 +110,7 @@ function buildReportSections(stats, sampleIncidents) {
         children: [
           new Paragraph({
             children: [
-              new TextRun({ text: "HAL Tejas Incident Report — BV Compliance & ANP Incident Analysis", size: 18, font: "Arial", color: "1F4E79", bold: true }),
+              new TextRun({ text: "Industry Incident Report — BV Compliance & ANP Incident Analysis", size: 18, font: "Arial", color: "1F4E79", bold: true }),
               new TextRun({ text: "    |    CONFIDENTIAL", size: 18, font: "Arial", color: "C00000" }),
             ],
             border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "1F4E79", space: 1 } },
@@ -139,7 +145,7 @@ function buildReportSections(stats, sampleIncidents) {
       }),
       new Paragraph({
         alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: "HAL TEJAS INCIDENT REPORT", bold: true, size: 52, font: "Arial", color: "1F4E79" })],
+        children: [new TextRun({ text: "INDUSTRY INCIDENT REPORT", bold: true, size: 52, font: "Arial", color: "1F4E79" })],
         spacing: { before: 480, after: 200 }
       }),
       new Paragraph({
@@ -155,7 +161,7 @@ function buildReportSections(stats, sampleIncidents) {
       }),
       new Paragraph({
         alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: "Operation: Halliburton & Tejas — Brazil", size: 26, font: "Arial", color: "333333", bold: true })],
+        children: [new TextRun({ text: "Operation: Industry Incidence Rport — Brazil", size: 26, font: "Arial", color: "333333", bold: true })],
         spacing: { before: 200, after: 80 }
       }),
       new Paragraph({
@@ -192,7 +198,7 @@ function buildReportSections(stats, sampleIncidents) {
       p("The analysis draws on the ANP\'s SISO-Incidentes database — 30,054 registered incidents from 2013 to March 26, 2026, published under Brazil\'s Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable Brazilian regulatory instruments."),
       spacer(),
       h3("Key Findings"),
-      bullet("CSB (Conjunto Solidário de Barreira) barrier element failures rose from 1 incident in 2016 to 391 in 2025 — a 39,000% increase — constituting the dominant well integrity risk category in Brazilian E&P."),
+      bullet("CSB (Conjunto Solidário de Barreira) barrier element failures rose from 1 incident in 2016 to 391 in 2025 — a 39,000% increase — constituting the dominant well integrity risk category in Brazilian E&P. Incidents are not adjusted for historical market penetration of supplier equipment, such as valves."),
       bullet("193 primary barrier loss events (kicks) were recorded between 2013 and March 26, 2026 on ANP-licensed installations."),
       bullet("2,291 critical well integrity incidents in total are documented in the open dataset."),
       bullet("Halliburton\'s well services and Tejas\'s completion/flow-control equipment operate within the barrier systems captured by these statistics, making compliance with Resolução ANP nº 46/2016 and BV NR 445 directly applicable."),
