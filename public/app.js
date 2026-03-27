@@ -3,68 +3,68 @@
 
 // ── Official source URLs ─────────────────────────────────────────────────────
 const LINKS = {
-  ANP_DATASET:   "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
-  ANP_SGIP:      "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip",
-  ANP_SGSO:      "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso",
-  ANP_SUBSEA:    "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos",
-  ANP_PORTAL:    "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional",
-  BV_NR445:      "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units",
-  BV_NR459:      "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations",
-  BV_RULES:      "https://marine-offshore.bureauveritas.com/rules-guidelines",
-  NR37:          "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf",
-  NR33:          "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
-  NR35:          "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
-  NORMAM:        "https://www.marinha.mil.br/dpc/normam",
-  ISO9001:       "https://www.iso.org/standard/62085.html",
-  ISO17025:      "https://www.iso.org/standard/66912.html",
-  BSEE:          "https://www.bsee.gov/stats-facts/offshore-incident-statistics",
-  HSE_UK:        "https://www.hse.gov.uk/offshore/hydrocarbon-releases.htm",
-  LEI_12527:     "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
+  ANP_DATASET: "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
+  ANP_SGIP: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip",
+  ANP_SGSO: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso",
+  ANP_SUBSEA: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos",
+  ANP_PORTAL: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional",
+  BV_NR445: "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units",
+  BV_NR459: "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations",
+  BV_RULES: "https://marine-offshore.bureauveritas.com/rules-guidelines",
+  NR37: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf",
+  NR33: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
+  NR35: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
+  NORMAM: "https://www.marinha.mil.br/dpc/normam",
+  ISO9001: "https://www.iso.org/standard/62085.html",
+  ISO17025: "https://www.iso.org/standard/66912.html",
+  BSEE: "https://www.bsee.gov/stats-facts/offshore-incident-statistics",
+  HSE_UK: "https://www.hse.gov.uk/offshore/hydrocarbon-releases.htm",
+  LEI_12527: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
 };
 
 // Regulation links per category — maps failure type → primary regulation
 const CAT_REGS = {
-  "CSB Failure":            { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
+  "CSB Failure": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
   "Kick (Primary Barrier)": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
-  "Structural Failure":     { label: "BV NR 445",               url: LINKS.BV_NR445 },
-  "Loss of Well Control":   { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
+  "Structural Failure": { label: "BV NR 445", url: LINKS.BV_NR445 },
+  "Loss of Well Control": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
 };
 
 // Severity → BV classification link
 const SEV_REGS = {
-  "SSO":      { label: "BV NR 445 — safety system",       url: LINKS.BV_NR445 },
-  "Minor":    { label: "BV NR 445 — MINOR classification",  url: LINKS.BV_NR445 },
-  "Moderate": { label: "BV NR 459 — MODERATE event",       url: LINKS.BV_NR459 },
-  "Severe":   { label: "BV NR 459 — SEVERE event",          url: LINKS.BV_NR459 },
+  "SSO": { label: "BV NR 445 — safety system", url: LINKS.BV_NR445 },
+  "Minor": { label: "BV NR 445 — MINOR classification", url: LINKS.BV_NR445 },
+  "Moderate": { label: "BV NR 459 — MODERATE event", url: LINKS.BV_NR459 },
+  "Severe": { label: "BV NR 459 — SEVERE event", url: LINKS.BV_NR459 },
 };
 
 // ── Colour palette ────────────────────────────────────────────────────────────
 const CAT_COLORS = {
-  "CSB Failure":             "#c0392b",
-  "Kick (Primary Barrier)":  "#e67e22",
-  "Structural Failure":      "#1a56a0",
-  "Loss of Well Control":    "#7c3aed",
-  "Other":                  "#8896ab",
+  "CSB Failure": "#c0392b",
+  "Kick (Primary Barrier)": "#e67e22",
+  "Structural Failure": "#1a56a0",
+  "Loss of Well Control": "#7c3aed",
+  "Other": "#8896ab",
 };
 const SEV_COLORS = {
-  "SSO":      "#8896ab",
-  "Minor":    "#16a34a",
+  "SSO": "#8896ab",
+  "Minor": "#16a34a",
   "Moderate": "#e67e22",
-  "Severe":   "#c0392b",
+  "Severe": "#c0392b",
 };
 const CAT_CSS = {
-  "CSB Failure":            "bc-csb",
+  "CSB Failure": "bc-csb",
   "Kick (Primary Barrier)": "bc-kick",
-  "Structural Failure":     "bc-struct",
-  "Loss of Well Control":   "bc-wc",
+  "Structural Failure": "bc-struct",
+  "Loss of Well Control": "bc-wc",
 };
 const SEV_CSS = {
-  "SSO":      "bs-sso",
-  "Minor":    "bs-minor",
+  "SSO": "bs-sso",
+  "Minor": "bs-minor",
   "Moderate": "bs-moderate",
-  "Severe":   "bs-severe",
+  "Severe": "bs-severe",
 };
-const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // ── Utility: external link ────────────────────────────────────────────────────
 const extLink = (href, label, cls = "") =>
@@ -72,8 +72,8 @@ const extLink = (href, label, cls = "") =>
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let chartInstances = {};
-let halStats    = null;
-let tableState  = { page: 1, total: 0, pages: 0, items: [] };
+let halStats = null;
+let tableState = { page: 1, total: 0, pages: 0, items: [] };
 let activeFilters = { year: "", category: "", severity: "" };
 
 // ── Destroy chart helper ──────────────────────────────────────────────────────
@@ -89,7 +89,7 @@ async function fetchHalStats() {
 async function fetchHalIncidents(page = 1) {
   const { year, category, severity } = activeFilters;
   const params = new URLSearchParams({ page, limit: 50 });
-  if (year)     params.set("year", year);
+  if (year) params.set("year", year);
   if (category) params.set("category", category);
   if (severity) params.set("severity", severity);
   return (await fetch("/api/hal-incidents?" + params)).json();
@@ -104,7 +104,7 @@ async function fetchHalContracts() {
 }
 
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
-window.copyToClipboard = function(text, btn) {
+window.copyToClipboard = function (text, btn) {
   navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
     btn.textContent = "✓";
@@ -115,37 +115,37 @@ window.copyToClipboard = function(text, btn) {
 
 // ── KPI Cards (with linked badges) ───────────────────────────────────────────
 function renderKPIs(stats) {
-  const total  = stats.total;
-  const csb    = stats.categoryBreakdown["CSB Failure"] || 0;
-  const kick   = stats.categoryBreakdown["Kick (Primary Barrier)"] || 0;
-  const sev    = (stats.severityBreakdown["Severe"] || 0) + (stats.severityBreakdown["Moderate"] || 0);
+  const total = stats.total;
+  const csb = stats.categoryBreakdown["CSB Failure"] || 0;
+  const kick = stats.categoryBreakdown["Kick (Primary Barrier)"] || 0;
+  const sev = (stats.severityBreakdown["Severe"] || 0) + (stats.severityBreakdown["Moderate"] || 0);
 
   const cards = [
     {
-      label: "Total HAL/Tejas Incidents", value: total.toLocaleString(),
+      label: "Total Industry Incidents", value: total.toLocaleString(),
       sub: "ANP SISO-Incidentes · 2013–2026",
       accent: "#1a56a0",
       badge: "Open Data · Lei 12.527/2011",
       badgeUrl: LINKS.LEI_12527,
-      srcUrl:   LINKS.ANP_DATASET,
+      srcUrl: LINKS.ANP_DATASET,
       srcLabel: "dados.gov.br/anp",
     },
     {
       label: "CSB Barrier Element Failures", value: csb.toLocaleString(),
-      sub: "Conjunto Solidário de Barreira",
+      sub: "Barreira Solidarity Group",
       accent: "#c0392b",
       badge: "+39,000% since 2016",
       badgeUrl: LINKS.ANP_SGIP,
-      srcUrl:   LINKS.ANP_SGIP,
+      srcUrl: LINKS.ANP_SGIP,
       srcLabel: "ANP Res. 46/2016 (SGIP)",
     },
     {
       label: "Primary Barrier Loss (Kicks)", value: kick.toLocaleString(),
-      sub: "Influxo de formação — perfuração/intervenção",
+      sub: "Formation influx — drilling/intervention",
       accent: "#e67e22",
       badge: "ANP Res. 46/2016",
       badgeUrl: LINKS.ANP_SGIP,
-      srcUrl:   LINKS.ANP_PORTAL,
+      srcUrl: LINKS.ANP_PORTAL,
       srcLabel: "ANP Segurança Operacional",
     },
     {
@@ -154,7 +154,7 @@ function renderKPIs(stats) {
       accent: "#7c3aed",
       badge: "BV NR 445 scope",
       badgeUrl: LINKS.BV_NR445,
-      srcUrl:   LINKS.BV_NR445,
+      srcUrl: LINKS.BV_NR445,
       srcLabel: "BV NR 445",
     },
   ];
@@ -207,10 +207,10 @@ function renderOverviewChart(stats) {
 
   // Legend with regulation links
   const catLinks = {
-    "CSB Failure":            LINKS.ANP_SGIP,
+    "CSB Failure": LINKS.ANP_SGIP,
     "Kick (Primary Barrier)": LINKS.ANP_SGIP,
-    "Structural Failure":     LINKS.BV_NR445,
-    "Loss of Well Control":   LINKS.ANP_SGIP,
+    "Structural Failure": LINKS.BV_NR445,
+    "Loss of Well Control": LINKS.ANP_SGIP,
   };
   const leg = document.getElementById("overviewLegend");
   leg.innerHTML = cats.map(c => `
@@ -237,9 +237,13 @@ function renderDonut(stats) {
     },
     options: {
       responsive: true, maintainAspectRatio: true, cutout: "68%",
-      plugins: { legend: { display: false }, tooltip: { callbacks: {
-        label: ctx => ` ${ctx.label}: ${ctx.parsed} (${Math.round(ctx.parsed/total*100)}%)`
-      }}}
+      plugins: {
+        legend: { display: false }, tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.label}: ${ctx.parsed} (${Math.round(ctx.parsed / total * 100)}%)`
+          }
+        }
+      }
     }
   });
 
@@ -247,7 +251,7 @@ function renderDonut(stats) {
   labDiv.innerHTML = cats.map((c, i) => `
     <a href="${CAT_REGS[c]?.url || LINKS.ANP_PORTAL}" target="_blank" rel="noopener" class="dl-row dl-row-link" title="Regulation: ${CAT_REGS[c]?.label}">
       <span class="dl-name"><span class="dl-dot" style="background:${CAT_COLORS[c]}"></span>${c.replace(" (Primary Barrier)", " (Kick)")}</span>
-      <span class="dl-pct">${Math.round(vals[i]/total*100)}%</span>
+      <span class="dl-pct">${Math.round(vals[i] / total * 100)}%</span>
     </a>
   `).join("");
 }
@@ -302,18 +306,22 @@ function renderMonthChart(stats) {
     type: "radar",
     data: {
       labels: MONTH_NAMES,
-      datasets: [{ label: "Incidents", data: vals,
+      datasets: [{
+        label: "Incidents", data: vals,
         borderColor: "#c0392b", backgroundColor: "rgba(192,57,43,0.12)",
-        pointBackgroundColor: "#c0392b", pointRadius: 3 }]
+        pointBackgroundColor: "#c0392b", pointRadius: 3
+      }]
     },
     options: {
       responsive: true, maintainAspectRatio: true,
       plugins: { legend: { display: false } },
-      scales: { r: {
-        angleLines: { color: "#dde3ee" }, grid: { color: "#dde3ee" },
-        pointLabels: { color: "#4a5568", font: { size: 10 } },
-        ticks: { display: false }
-      }}
+      scales: {
+        r: {
+          angleLines: { color: "#dde3ee" }, grid: { color: "#dde3ee" },
+          pointLabels: { color: "#4a5568", font: { size: 10 } },
+          ticks: { display: false }
+        }
+      }
     }
   });
 }
@@ -323,8 +331,8 @@ function renderMultiLine(stats) {
   destroyChart("multiLineChart");
   const ctx = document.getElementById("multiLineChart").getContext("2d");
   const series = stats.yearSeries;
-  const years  = series.map(y => y.year);
-  const cats   = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
+  const years = series.map(y => y.year);
+  const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
 
   chartInstances["multiLineChart"] = new Chart(ctx, {
     type: "line",
@@ -353,7 +361,7 @@ function renderSeverityChart(stats) {
   destroyChart("severityChart");
   const ctx = document.getElementById("severityChart").getContext("2d");
   const order = ["SSO", "Minor", "Moderate", "Severe"];
-  const vals  = order.map(s => stats.severityBreakdown[s] || 0);
+  const vals = order.map(s => stats.severityBreakdown[s] || 0);
 
   chartInstances["severityChart"] = new Chart(ctx, {
     type: "bar",
@@ -384,17 +392,17 @@ function renderSeverityChart(stats) {
 // ── Breakdown counts ──────────────────────────────────────────────────────────
 function renderBreakdownCounts(stats) {
   const bd = stats.categoryBreakdown;
-  document.getElementById("cnt-csb").textContent    = (bd["CSB Failure"] || 0).toLocaleString();
-  document.getElementById("cnt-kick").textContent   = (bd["Kick (Primary Barrier)"] || 0).toLocaleString();
+  document.getElementById("cnt-csb").textContent = (bd["CSB Failure"] || 0).toLocaleString();
+  document.getElementById("cnt-kick").textContent = (bd["Kick (Primary Barrier)"] || 0).toLocaleString();
   document.getElementById("cnt-struct").textContent = (bd["Structural Failure"] || 0).toLocaleString();
-  document.getElementById("cnt-wc").textContent     = (bd["Loss of Well Control"] || 0).toLocaleString();
+  document.getElementById("cnt-wc").textContent = (bd["Loss of Well Control"] || 0).toLocaleString();
 
   // Inject linked regulation refs into each breakdown card
   const regMap = {
-    "card-csb":    [{ l: "ANP Res. 46/2016 (SGIP)", u: LINKS.ANP_SGIP }, { l: "BV NR 459", u: LINKS.BV_NR459 }],
-    "card-kick":   [{ l: "ANP Res. 46/2016 (SGIP)", u: LINKS.ANP_SGIP }, { l: "BV NR 445", u: LINKS.BV_NR445 }],
-    "card-struct": [{ l: "BV NR 445",               u: LINKS.BV_NR445 }, { l: "NR-37 (MTE)", u: LINKS.NR37 }],
-    "card-wc":     [{ l: "ANP Res. 46/2016 (SGIP)", u: LINKS.ANP_SGIP }, { l: "NORMAM-01/DPC", u: LINKS.NORMAM }],
+    "card-csb": [{ l: "ANP Res. 46/2016 (SGIP)", u: LINKS.ANP_SGIP }, { l: "BV NR 459", u: LINKS.BV_NR459 }],
+    "card-kick": [{ l: "ANP Res. 46/2016 (SGIP)", u: LINKS.ANP_SGIP }, { l: "BV NR 445", u: LINKS.BV_NR445 }],
+    "card-struct": [{ l: "BV NR 445", u: LINKS.BV_NR445 }, { l: "NR-37 (MTE)", u: LINKS.NR37 }],
+    "card-wc": [{ l: "ANP Res. 46/2016 (SGIP)", u: LINKS.ANP_SGIP }, { l: "NORMAM-01/DPC", u: LINKS.NORMAM }],
   };
   Object.entries(regMap).forEach(([id, regs]) => {
     const el = document.getElementById(id)?.querySelector(".breakdown-reg");
@@ -415,10 +423,10 @@ function renderMatrix(items) {
 
   const maxVal = Math.max(...cats.flatMap(c => sevs.map(s => table[c][s])));
   const sevLinks = {
-    "SSO":      LINKS.BV_NR445,
-    "Minor":    LINKS.BV_NR445,
+    "SSO": LINKS.BV_NR445,
+    "Minor": LINKS.BV_NR445,
     "Moderate": LINKS.BV_NR459,
-    "Severe":   LINKS.BV_NR459,
+    "Severe": LINKS.BV_NR459,
   };
 
   const html = `
@@ -433,24 +441,24 @@ function renderMatrix(items) {
       </thead>
       <tbody>
         ${cats.map(c => {
-          const rowTotal = sevs.reduce((a, s) => a + table[c][s], 0);
-          const reg = CAT_REGS[c];
-          return `<tr>
+    const rowTotal = sevs.reduce((a, s) => a + table[c][s], 0);
+    const reg = CAT_REGS[c];
+    return `<tr>
             <td style="text-align:left;font-weight:600;color:var(--text)">
               <a href="${reg?.url}" target="_blank" rel="noopener" class="cat-link" style="color:${CAT_COLORS[c]}">
                 ${c.replace(" (Primary Barrier)", "")}
               </a>
             </td>
             ${sevs.map(s => {
-              const v = table[c][s];
-              if (!v) return `<td><span class="matrix-cell mc-0">–</span></td>`;
-              const color = SEV_COLORS[s];
-              return `<td><span class="matrix-cell" style="background:${color}22;color:${color}">${v}</span></td>`;
-            }).join("")}
+      const v = table[c][s];
+      if (!v) return `<td><span class="matrix-cell mc-0">–</span></td>`;
+      const color = SEV_COLORS[s];
+      return `<td><span class="matrix-cell" style="background:${color}22;color:${color}">${v}</span></td>`;
+    }).join("")}
             <td style="font-weight:700;color:var(--text)">${rowTotal}</td>
             <td>${reg ? `<a href="${reg.url}" target="_blank" rel="noopener" class="reg-link">${reg.label} ↗</a>` : "—"}</td>
           </tr>`;
-        }).join("")}
+  }).join("")}
       </tbody>
     </table>
   `;
@@ -471,7 +479,7 @@ function renderTable(data) {
   }
 
   tbody.innerHTML = data.items.map(r => {
-    const reg   = CAT_REGS[r.category];
+    const reg = CAT_REGS[r.category];
     const sevReg = SEV_REGS[r.severity];
     // ANP lookup: best public URL is the dataset page (no per-incident permalink in public portal)
     const incUrl = `${LINKS.ANP_DATASET}`;
@@ -516,7 +524,7 @@ function renderPagination() {
 
   let btns = `<button class="page-btn" ${page <= 1 ? "disabled" : ""} onclick="goPage(${page - 1})">‹</button>`;
   const start = Math.max(1, page - 2);
-  const end   = Math.min(pages, page + 2);
+  const end = Math.min(pages, page + 2);
   if (start > 1) btns += `<button class="page-btn" onclick="goPage(1)">1</button>${start > 2 ? '<span class="pg-ellipsis">…</span>' : ""}`;
   for (let i = start; i <= end; i++) {
     btns += `<button class="page-btn ${i === page ? "active" : ""}" onclick="goPage(${i})">${i}</button>`;
@@ -526,7 +534,7 @@ function renderPagination() {
   pg.innerHTML = btns;
 }
 
-window.goPage = async function(p) {
+window.goPage = async function (p) {
   const data = await fetchHalIncidents(p);
   renderTable(data);
 };
@@ -552,12 +560,12 @@ function renderBadge(total) {
 function switchSection(section, skipHistory = false) {
   document.querySelectorAll(".dash-section").forEach(s => s.classList.remove("active"));
   document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
-  
+
   const secEl = document.getElementById(`section-${section}`);
   const navEl = document.getElementById(`nav-${section}`);
   if (secEl) secEl.classList.add("active");
   if (navEl) navEl.classList.add("active");
-  
+
   if (!skipHistory) {
     if (history.pushState) {
       history.pushState(null, null, `#${section}`);
@@ -565,7 +573,7 @@ function switchSection(section, skipHistory = false) {
       location.hash = `#${section}`;
     }
   }
-  
+
   closeMobileSidebar();
 }
 
@@ -575,7 +583,7 @@ function initMobileMenu() {
   const overlay = document.getElementById('sidebarOverlay');
   const sidebar = document.querySelector('.sidebar');
   const layout = document.querySelector('.app-layout');
-  
+
   if (menuBtn && sidebar && overlay && layout) {
     menuBtn.addEventListener('click', () => {
       sidebar.classList.toggle('open');
@@ -596,7 +604,7 @@ function closeMobileSidebar() {
 
 // ── Filters ───────────────────────────────────────────────────────────────────
 async function applyFilters() {
-  activeFilters.year     = document.getElementById("filterYear").value;
+  activeFilters.year = document.getElementById("filterYear").value;
   activeFilters.category = document.getElementById("filterCategory").value;
   activeFilters.severity = document.getElementById("filterSeverity").value;
   const data = await fetchHalIncidents(1);
@@ -606,7 +614,7 @@ async function applyFilters() {
 }
 
 function clearFilters() {
-  document.getElementById("filterYear").value     = "";
+  document.getElementById("filterYear").value = "";
   document.getElementById("filterCategory").value = "";
   document.getElementById("filterSeverity").value = "";
   activeFilters = { year: "", category: "", severity: "" };
@@ -631,13 +639,13 @@ async function init() {
     document.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", e => { e.preventDefault(); switchSection(link.dataset.section); });
     });
-    
+
     // Check URL hash for initial tab
     const hash = window.location.hash.slice(1);
     if (hash && document.getElementById(`section-${hash}`)) {
       switchSection(hash, true);
     }
-    
+
     window.addEventListener("hashchange", () => {
       const h = window.location.hash.slice(1);
       if (h && document.getElementById(`section-${h}`)) {
@@ -690,28 +698,28 @@ async function init() {
 init();
 
 // ── Action Items Progress ──────────────────────────────────────────────────────
-window.updateAIProgress = function() {
-  const all   = document.querySelectorAll('.ai-check');
-  const done  = document.querySelectorAll('.ai-check:checked');
+window.updateAIProgress = function () {
+  const all = document.querySelectorAll('.ai-check');
+  const done = document.querySelectorAll('.ai-check:checked');
   const total = all.length;
   const count = done.length;
-  const pct   = total ? Math.round(count / total * 100) : 0;
+  const pct = total ? Math.round(count / total * 100) : 0;
 
-  const barEl   = document.getElementById('aiProgressBar');
-  const doneEl  = document.getElementById('aiDoneCount');
+  const barEl = document.getElementById('aiProgressBar');
+  const doneEl = document.getElementById('aiDoneCount');
   const totalEl = document.getElementById('aiTotalCount');
-  const pctEl   = document.getElementById('aiPct');
+  const pctEl = document.getElementById('aiPct');
 
-  if (barEl)   barEl.style.width   = pct + '%';
-  if (doneEl)  doneEl.textContent  = count;
+  if (barEl) barEl.style.width = pct + '%';
+  if (doneEl) doneEl.textContent = count;
   if (totalEl) totalEl.textContent = total;
-  if (pctEl)   pctEl.textContent   = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
 
   // Per-pillar counters
   [1, 2, 3, 4].forEach(p => {
-    const items    = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check`);
-    const checked  = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check:checked`);
-    const el       = document.getElementById(`pp${p}`);
+    const items = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check`);
+    const checked = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check:checked`);
+    const el = document.getElementById(`pp${p}`);
     if (el) el.textContent = `${checked.length} / ${items.length}`;
   });
 };
@@ -721,48 +729,48 @@ document.addEventListener('DOMContentLoaded', () => updateAIProgress());
 
 // ── Active Wells Data & Table ─────────────────────────────────────────────────
 const POCOS_DATA = [
-  { nome:"1-AG-1-SE",         operador:"Carmo",           bacia:"Sergipe",        campo:"AGUILHADA",          objetivo:"Abandono",      sonda:"SONDA CONVENCIONAL 59",                              lamina:"",     inicio:"20/04/1966", env:"TERRA" },
-  { nome:"1-ALV-6D-BA",       operador:"Alvopetro",       bacia:"Recôncavo",      campo:"MURUCUTUTU",          objetivo:"Completação",   sonda:"RAPID RIG Sonda Conv. Perfuração KM",               lamina:"0",    inicio:"27/07/2014", env:"TERRA" },
-  { nome:"1-BRSA-1146-RJS",   operador:"Petrobras",       bacia:"Santos",         campo:"ATAPU",               objetivo:"Restauração",   sonda:"Cerrado",                                            lamina:"2266", inicio:"18/12/2012", env:"MAR"   },
-  { nome:"1-BRSA-1404DC-RJS", operador:"Petrobras",       bacia:"Campos",         campo:"",                    objetivo:"Perfuração",    sonda:"",                                                   lamina:"2979", inicio:"22/12/2025", env:"MAR"   },
-  { nome:"1-BRSA-1405-APS",   operador:"Petrobras",       bacia:"Foz do Amazonas",campo:"",                    objetivo:"Perfuração",    sonda:"",                                                   lamina:"2887", inicio:"20/10/2025", env:"MAR"   },
-  { nome:"1-LV-2-RN",         operador:"PetroRecôncavo",  bacia:"Potiguar",       campo:"LIVRAMENTO",          objetivo:"Completação",   sonda:"SONDA CONVENCIONAL 97",                              lamina:"0",    inicio:"25/01/1986", env:"TERRA" },
-  { nome:"1-MM-1-BA",         operador:"Petrobras",       bacia:"Recôncavo",      campo:"RIO DO BU",           objetivo:"Restauração",   sonda:"",                                                   lamina:"",     inicio:"25/10/1984", env:"TERRA" },
-  { nome:"1-PSY-18-BA",       operador:"Petrosynergy",    bacia:"Recôncavo",      campo:"TROVOADA",            objetivo:"Restauração",   sonda:"SONDA PIONEIRA BRASIL",                              lamina:"0",    inicio:"17/02/2010", env:"TERRA" },
-  { nome:"1-SES-114-SE",      operador:"Petrobras",       bacia:"Sergipe",        campo:"GUARICEMA",           objetivo:"Abandono",      sonda:"NORTH STAR I",                                       lamina:"38",   inicio:"04/06/1997", env:"MAR"   },
-  { nome:"3-AR-3-BA",         operador:"Petrobras",       bacia:"Recôncavo",      campo:"ARAÇÁS",              objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 34",                              lamina:"",     inicio:"28/06/1965", env:"TERRA" },
-  { nome:"3-BRSA-1039D-BA",   operador:"3R Bahia",        bacia:"Recôncavo",      campo:"CEXIS",               objetivo:"Restauração",   sonda:"Terra Invader 350",                                  lamina:"0",    inicio:"13/01/2012", env:"TERRA" },
-  { nome:"3-BRSA-1397-RJS",   operador:"Petrobras",       bacia:"Campos",         campo:"MARLIM SUL",          objetivo:"Perfuração",    sonda:"DEEPWATER AQUILA",                                   lamina:"1179", inicio:"25/12/2024", env:"MAR"   },
-  { nome:"3-BRSA-813-RN",     operador:"PetroRecôncavo",  bacia:"Potiguar",       campo:"JUAZEIRO",            objetivo:"Completação",   sonda:"SONDA CONVENCIONAL 114",                             lamina:"0",    inicio:"07/03/2010", env:"TERRA" },
-  { nome:"3-BR-6-RJS",        operador:"Petrobras",       bacia:"Campos",         campo:"BARRACUDA",           objetivo:"Restauração",   sonda:"PARAGON DPDS1",                                      lamina:"882",  inicio:"10/10/1993", env:"MAR"   },
-  { nome:"3-JA-2-AL",         operador:"Petrosynergy",    bacia:"Alagoas",        campo:"JEQUIÁ",              objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 41",                              lamina:"",     inicio:"20/10/1957", env:"TERRA" },
-  { nome:"3-ORGM-1D-AL",      operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"PILAR",               objetivo:"Completação",   sonda:"FAXE-2",                                             lamina:"0",    inicio:"16/08/2024", env:"TERRA" },
-  { nome:"3-ORGM-13D-AL",     operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"PILAR",               objetivo:"Completação",   sonda:"",                                                   lamina:"0",    inicio:"16/11/2025", env:"TERRA" },
-  { nome:"3-ORGM-14D-AL",     operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"PILAR",               objetivo:"Perfuração",    sonda:"",                                                   lamina:"0",    inicio:"31/01/2026", env:"TERRA" },
-  { nome:"3-ORGM-3D-AL (a)",  operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"PILAR",               objetivo:"Completação",   sonda:"National Oilwell Varco - 750",                       lamina:"0",    inicio:"17/05/2025", env:"TERRA" },
-  { nome:"3-ORGM-3D-AL (b)",  operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"PILAR",               objetivo:"Completação",   sonda:"FAXE-2",                                             lamina:"0",    inicio:"17/05/2025", env:"TERRA" },
-  { nome:"3-ORGM-4DP-AL",     operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"PILAR",               objetivo:"Completação",   sonda:"",                                                   lamina:"0",    inicio:"20/11/2025", env:"TERRA" },
-  { nome:"3-RSP-5-BA (a)",    operador:"PetroRecôncavo",  bacia:"Recôncavo",      campo:"RIACHO SÃO PEDRO",    objetivo:"Completação",   sonda:"SONDA CONVENCIONAL 47",                              lamina:"",     inicio:"14/03/1978", env:"TERRA" },
-  { nome:"3-RSP-5-BA (b)",    operador:"PetroRecôncavo",  bacia:"Recôncavo",      campo:"RIACHO SÃO PEDRO",    objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 47",                              lamina:"",     inicio:"14/03/1978", env:"TERRA" },
-  { nome:"3-RSP-6-BA",        operador:"PetroRecôncavo",  bacia:"Recôncavo",      campo:"RIACHO SÃO PEDRO",    objetivo:"Completação",   sonda:"SONDA CONVENCIONAL 35",                              lamina:"",     inicio:"22/10/1979", env:"TERRA" },
-  { nome:"3-RSP-7-BA",        operador:"PetroRecôncavo",  bacia:"Recôncavo",      campo:"RIACHO SÃO PEDRO",    objetivo:"Completação",   sonda:"SONDA CONVENCIONAL 35",                              lamina:"",     inicio:"24/05/1979", env:"TERRA" },
-  { nome:"3-STAR-28-RN",      operador:"PetroRecôncavo",  bacia:"Potiguar",       campo:"SABIÁ BICO-DE-OSSO",  objetivo:"Completação",   sonda:"IMETAME_ENERGIA_01",                                 lamina:"0",    inicio:"28/05/2012", env:"TERRA" },
-  { nome:"3-TM-2-AL",         operador:"Petrosynergy",    bacia:"Alagoas",        campo:"TABULEIRO MARTINS",   objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 59",                              lamina:"",     inicio:"05/01/1962", env:"TERRA" },
-  { nome:"3-VR-6-RN",         operador:"PetroRecôncavo",  bacia:"Potiguar",       campo:"BREJINHO RN",         objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 82",                              lamina:"0",    inicio:"25/09/1994", env:"TERRA" },
-  { nome:"4-BRSA-1292D-BA",   operador:"Petrobras",       bacia:"Recôncavo",      campo:"ARAÇÁS",              objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 105",                             lamina:"",     inicio:"14/01/2015", env:"TERRA" },
-  { nome:"4-BRSA-1395-SPS",   operador:"Petrobras",       bacia:"Santos",         campo:"",                    objetivo:"Avaliação",     sonda:"Valaris DS-4",                                       lamina:"1758", inicio:"15/12/2024", env:"MAR"   },
-  { nome:"4-CRT-2-RJS",       operador:"Petrobras",       bacia:"Campos",         campo:"CARATINGA",           objetivo:"Abandono",      sonda:"",                                                   lamina:"998",  inicio:"14/06/1994", env:"MAR"   },
-  { nome:"4-MDU-3-BA",        operador:"Petrobras",       bacia:"Recôncavo",      campo:"ARAÇÁS",              objetivo:"Restauração",   sonda:"SONDA CONVENCIONAL 72",                              lamina:"",     inicio:"10/05/1981", env:"TERRA" },
-  { nome:"4-SMC-19-AL",       operador:"Origem Alagoas",  bacia:"Alagoas",        campo:"FURADO",              objetivo:"Completação",   sonda:"SONDA CONVENCIONAL 26",                              lamina:"0",    inicio:"15/06/1980", env:"TERRA" },
-  { nome:"6-BRSA-1138-RN",    operador:"PetroRecôncavo",  bacia:"Potiguar",       campo:"RIACHO DA FORQUILHA", objetivo:"Restauração",   sonda:"SAIPEM-2",                                           lamina:"0",    inicio:"09/12/2012", env:"TERRA" },
+  { nome: "1-AG-1-SE", operador: "Carmo", bacia: "Sergipe", campo: "AGUILHADA", objetivo: "Abandono", sonda: "SONDA CONVENCIONAL 59", lamina: "", inicio: "20/04/1966", env: "TERRA" },
+  { nome: "1-ALV-6D-BA", operador: "Alvopetro", bacia: "Recôncavo", campo: "MURUCUTUTU", objetivo: "Completação", sonda: "RAPID RIG Sonda Conv. Perfuração KM", lamina: "0", inicio: "27/07/2014", env: "TERRA" },
+  { nome: "1-BRSA-1146-RJS", operador: "Petrobras", bacia: "Santos", campo: "ATAPU", objetivo: "Restauração", sonda: "Cerrado", lamina: "2266", inicio: "18/12/2012", env: "MAR" },
+  { nome: "1-BRSA-1404DC-RJS", operador: "Petrobras", bacia: "Campos", campo: "", objetivo: "Perfuração", sonda: "", lamina: "2979", inicio: "22/12/2025", env: "MAR" },
+  { nome: "1-BRSA-1405-APS", operador: "Petrobras", bacia: "Foz do Amazonas", campo: "", objetivo: "Perfuração", sonda: "", lamina: "2887", inicio: "20/10/2025", env: "MAR" },
+  { nome: "1-LV-2-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "LIVRAMENTO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 97", lamina: "0", inicio: "25/01/1986", env: "TERRA" },
+  { nome: "1-MM-1-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "RIO DO BU", objetivo: "Restauração", sonda: "", lamina: "", inicio: "25/10/1984", env: "TERRA" },
+  { nome: "1-PSY-18-BA", operador: "Petrosynergy", bacia: "Recôncavo", campo: "TROVOADA", objetivo: "Restauração", sonda: "SONDA PIONEIRA BRASIL", lamina: "0", inicio: "17/02/2010", env: "TERRA" },
+  { nome: "1-SES-114-SE", operador: "Petrobras", bacia: "Sergipe", campo: "GUARICEMA", objetivo: "Abandono", sonda: "NORTH STAR I", lamina: "38", inicio: "04/06/1997", env: "MAR" },
+  { nome: "3-AR-3-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "ARAÇÁS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 34", lamina: "", inicio: "28/06/1965", env: "TERRA" },
+  { nome: "3-BRSA-1039D-BA", operador: "3R Bahia", bacia: "Recôncavo", campo: "CEXIS", objetivo: "Restauração", sonda: "Terra Invader 350", lamina: "0", inicio: "13/01/2012", env: "TERRA" },
+  { nome: "3-BRSA-1397-RJS", operador: "Petrobras", bacia: "Campos", campo: "MARLIM SUL", objetivo: "Perfuração", sonda: "DEEPWATER AQUILA", lamina: "1179", inicio: "25/12/2024", env: "MAR" },
+  { nome: "3-BRSA-813-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "JUAZEIRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 114", lamina: "0", inicio: "07/03/2010", env: "TERRA" },
+  { nome: "3-BR-6-RJS", operador: "Petrobras", bacia: "Campos", campo: "BARRACUDA", objetivo: "Restauração", sonda: "PARAGON DPDS1", lamina: "882", inicio: "10/10/1993", env: "MAR" },
+  { nome: "3-JA-2-AL", operador: "Petrosynergy", bacia: "Alagoas", campo: "JEQUIÁ", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 41", lamina: "", inicio: "20/10/1957", env: "TERRA" },
+  { nome: "3-ORGM-1D-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "FAXE-2", lamina: "0", inicio: "16/08/2024", env: "TERRA" },
+  { nome: "3-ORGM-13D-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "", lamina: "0", inicio: "16/11/2025", env: "TERRA" },
+  { nome: "3-ORGM-14D-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Perfuração", sonda: "", lamina: "0", inicio: "31/01/2026", env: "TERRA" },
+  { nome: "3-ORGM-3D-AL (a)", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "National Oilwell Varco - 750", lamina: "0", inicio: "17/05/2025", env: "TERRA" },
+  { nome: "3-ORGM-3D-AL (b)", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "FAXE-2", lamina: "0", inicio: "17/05/2025", env: "TERRA" },
+  { nome: "3-ORGM-4DP-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "", lamina: "0", inicio: "20/11/2025", env: "TERRA" },
+  { nome: "3-RSP-5-BA (a)", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 47", lamina: "", inicio: "14/03/1978", env: "TERRA" },
+  { nome: "3-RSP-5-BA (b)", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 47", lamina: "", inicio: "14/03/1978", env: "TERRA" },
+  { nome: "3-RSP-6-BA", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 35", lamina: "", inicio: "22/10/1979", env: "TERRA" },
+  { nome: "3-RSP-7-BA", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 35", lamina: "", inicio: "24/05/1979", env: "TERRA" },
+  { nome: "3-STAR-28-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "SABIÁ BICO-DE-OSSO", objetivo: "Completação", sonda: "IMETAME_ENERGIA_01", lamina: "0", inicio: "28/05/2012", env: "TERRA" },
+  { nome: "3-TM-2-AL", operador: "Petrosynergy", bacia: "Alagoas", campo: "TABULEIRO MARTINS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 59", lamina: "", inicio: "05/01/1962", env: "TERRA" },
+  { nome: "3-VR-6-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "BREJINHO RN", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 82", lamina: "0", inicio: "25/09/1994", env: "TERRA" },
+  { nome: "4-BRSA-1292D-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "ARAÇÁS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 105", lamina: "", inicio: "14/01/2015", env: "TERRA" },
+  { nome: "4-BRSA-1395-SPS", operador: "Petrobras", bacia: "Santos", campo: "", objetivo: "Avaliação", sonda: "Valaris DS-4", lamina: "1758", inicio: "15/12/2024", env: "MAR" },
+  { nome: "4-CRT-2-RJS", operador: "Petrobras", bacia: "Campos", campo: "CARATINGA", objetivo: "Abandono", sonda: "", lamina: "998", inicio: "14/06/1994", env: "MAR" },
+  { nome: "4-MDU-3-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "ARAÇÁS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 72", lamina: "", inicio: "10/05/1981", env: "TERRA" },
+  { nome: "4-SMC-19-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "FURADO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 26", lamina: "0", inicio: "15/06/1980", env: "TERRA" },
+  { nome: "6-BRSA-1138-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "RIACHO DA FORQUILHA", objetivo: "Restauração", sonda: "SAIPEM-2", lamina: "0", inicio: "09/12/2012", env: "TERRA" },
 ];
 
 const OBJ_COLORS = {
-  "Perfuração":  "#7c3aed",
+  "Perfuração": "#7c3aed",
   "Completação": "#f59e0b",
   "Restauração": "#ef4444",
-  "Abandono":    "#6b7280",
-  "Avaliação":   "#0d9488",
+  "Abandono": "#6b7280",
+  "Avaliação": "#0d9488",
 };
 
 function renderWellTable(data) {
@@ -798,12 +806,12 @@ function renderWellTable(data) {
   if (countEl) countEl.textContent = `${data.length} of ${POCOS_DATA.length} wells`;
 }
 
-window.filterWells = function() {
-  const q   = (document.getElementById('wellSearch')?.value || '').toLowerCase();
+window.filterWells = function () {
+  const q = (document.getElementById('wellSearch')?.value || '').toLowerCase();
   const env = document.getElementById('wellFilterEnv')?.value || '';
   const filtered = POCOS_DATA.filter(w => {
-    const matchEnv  = !env || w.env === env;
-    const matchText = !q   || [w.nome, w.operador, w.bacia, w.campo, w.objetivo, w.sonda].join(' ').toLowerCase().includes(q);
+    const matchEnv = !env || w.env === env;
+    const matchText = !q || [w.nome, w.operador, w.bacia, w.campo, w.objetivo, w.sonda].join(' ').toLowerCase().includes(q);
     return matchEnv && matchText;
   });
   renderWellTable(filtered);
@@ -837,16 +845,16 @@ function processIncomingContracts(rawItems) {
     return {
       numero: c.numero,
       domain: domain,
-      obj:    c.obj,
-      value:  c.value,
+      obj: c.obj,
+      value: c.value,
       periodo: `${c.inicio?.split('-')[2] || '?'}–${c.fim?.split('-')[2] || '?'}`,
-      proc:   c.proc || "LICITAÇÃO",
+      proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
-      score:   getInferenceScore(domain),
-      scoreC:  domain === "G&G Software" ? "#6b7280" : "#c0392b"
+      score: getInferenceScore(domain),
+      scoreC: domain === "G&G Software" ? "#6b7280" : "#c0392b"
     };
   });
-  
+
   filteredContracts = [...ALL_CONTRACTS];
 }
 
@@ -882,20 +890,20 @@ const CONTRACT_PAGE_SIZE = 10;
 
 // Domain display labels map
 const DOMAIN_MAP = {
-  'Cementing':        '🔩 Cementing',
-  'Stimulation':      '⚡ Stimulation',
-  'Fluids':           '💧 Fluid Services',
-  'Completion':       '🔒 Completion / DHSV',
-  'MPD':              '🎛 MPD',
-  'Well Construction':'🏗 Well Construction',
-  'Workover':         '🔧 Workover',
-  'G&G Software':     '🧠 G&G Software',
+  'Cementing': '🔩 Cementing',
+  'Stimulation': '⚡ Stimulation',
+  'Fluids': '💧 Fluid Services',
+  'Completion': '🔒 Completion / DHSV',
+  'MPD': '🎛 MPD',
+  'Well Construction': '🏗 Well Construction',
+  'Workover': '🔧 Workover',
+  'G&G Software': '🧠 G&G Software',
 };
 
 const PROC_COLORS = {
   'INEXIGIBIL': '#8b5cf6',
-  'LICITAÇÃO':  '#3b82f6',
-  'CONVITE':    '#0d9488',
+  'LICITAÇÃO': '#3b82f6',
+  'CONVITE': '#0d9488',
 };
 
 function renderContractTable(data) {
@@ -911,11 +919,11 @@ function renderContractTable(data) {
 
   tbody.innerHTML = slice.map(c => {
     const procColor = PROC_COLORS[c.proc] || '#6b7280';
-    const domLabel  = DOMAIN_MAP[c.domain] || c.domain;
+    const domLabel = DOMAIN_MAP[c.domain] || c.domain;
     return `<tr>
       <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
-      <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0,130)}${c.obj.length>130?'…':''}</td>
+      <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
       <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
       <td style="font-size:11px;white-space:nowrap;">${c.periodo}</td>
       <td><span class="ai-tag" style="--t-c:${procColor};">${c.proc}</span></td>
@@ -937,25 +945,25 @@ function renderContractPagination(total) {
   const pages = Math.ceil(total / CONTRACT_PAGE_SIZE);
   if (pages <= 1) { pg.innerHTML = ''; return; }
 
-  let btns = `<button class="page-btn" ${contractPage<=1?'disabled':''} onclick="contractGoPage(${contractPage-1})">‹</button>`;
+  let btns = `<button class="page-btn" ${contractPage <= 1 ? 'disabled' : ''} onclick="contractGoPage(${contractPage - 1})">‹</button>`;
   for (let i = 1; i <= pages; i++) {
-    btns += `<button class="page-btn ${i===contractPage?'active':''}" onclick="contractGoPage(${i})">${i}</button>`;
+    btns += `<button class="page-btn ${i === contractPage ? 'active' : ''}" onclick="contractGoPage(${i})">${i}</button>`;
   }
-  btns += `<button class="page-btn" ${contractPage>=pages?'disabled':''} onclick="contractGoPage(${contractPage+1})">›</button>`;
+  btns += `<button class="page-btn" ${contractPage >= pages ? 'disabled' : ''} onclick="contractGoPage(${contractPage + 1})">›</button>`;
   pg.innerHTML = btns;
 }
 
-window.contractGoPage = function(p) {
+window.contractGoPage = function (p) {
   contractPage = p;
   renderContractTable(filteredContracts);
 };
 
-window.filterContractTable = function() {
-  const q      = (document.getElementById('contractSearch')?.value || '').toLowerCase();
+window.filterContractTable = function () {
+  const q = (document.getElementById('contractSearch')?.value || '').toLowerCase();
   const domain = (document.getElementById('contractDomainFilter')?.value || '').toLowerCase();
   filteredContracts = ALL_CONTRACTS.filter(c => {
     const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
-    const matchQ      = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
+    const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
     return matchDomain && matchQ;
   });
   contractPage = 1;
@@ -968,34 +976,36 @@ function renderTemporalOverlapChart() {
   if (!ctx) return;
 
   // CSB failures by year (from existing dashboard data)
-  const csbByYear = [0,1,2,0,5,14,18,79,957,756,369,388,447,50]; // 2013-2026
-  const years     = [2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
+  const csbByYear = [0, 1, 2, 0, 5, 14, 18, 79, 957, 756, 369, 388, 447, 50]; // 2013-2026
+  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
   // Contract activity bands (1 = active, 0 = not)
-  const cementing    = [0,0,0,0,0,1,1,1,1,1,0,0,0,0];
-  const fluids       = [0,0,0,0,0,0,1,1,1,1,0,0,0,0];
-  const stimulation  = [0,0,0,0,0,0,0,1,1,1,1,1,1,0];
-  const mpd          = [0,0,0,0,0,0,0,1,1,1,1,1,1,1];
-  const completion   = [0,0,0,0,0,0,0,0,1,1,1,1,1,0];
-  const wellConst    = [0,0,0,0,0,0,0,1,1,1,1,1,1,1];
-  const workover     = [0,0,0,0,0,0,0,0,0,0,0,1,1,1];
+  const cementing = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0];
+  const fluids = [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0];
+  const stimulation = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0];
+  const mpd = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
+  const completion = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0];
+  const wellConst = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
+  const workover = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1];
 
   chartInstances['temporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
     type: 'bar',
     data: {
       labels: years,
       datasets: [
-        { label: 'CSB Failures (ANP)', data: csbByYear, type: 'line',
+        {
+          label: 'CSB Failures (ANP)', data: csbByYear, type: 'line',
           borderColor: '#c0392b', backgroundColor: 'rgba(192,57,43,0.12)',
           fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#c0392b',
-          yAxisID: 'y', order: 0 },
-        { label: 'Cementing Contracts', data: cementing.map(v=>v*20), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Fluid Services',       data: fluids.map(v=>v*18),     backgroundColor: 'rgba(13,148,136,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Stimulation',          data: stimulation.map(v=>v*15),backgroundColor: 'rgba(239,68,68,0.55)',  yAxisID: 'y2', order: 1 },
-        { label: 'MPD',                  data: mpd.map(v=>v*12),        backgroundColor: 'rgba(124,58,237,0.55)',yAxisID: 'y2', order: 1 },
-        { label: 'Completion / DHSV',    data: completion.map(v=>v*10), backgroundColor: 'rgba(245,158,11,0.55)',yAxisID: 'y2', order: 1 },
-        { label: 'Well Construction',    data: wellConst.map(v=>v*8),   backgroundColor: 'rgba(30,64,175,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Workover',             data: workover.map(v=>v*6),    backgroundColor: 'rgba(139,92,246,0.55)',yAxisID: 'y2', order: 1 },
+          yAxisID: 'y', order: 0
+        },
+        { label: 'Cementing Contracts', data: cementing.map(v => v * 20), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Fluid Services', data: fluids.map(v => v * 18), backgroundColor: 'rgba(13,148,136,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Stimulation', data: stimulation.map(v => v * 15), backgroundColor: 'rgba(239,68,68,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'MPD', data: mpd.map(v => v * 12), backgroundColor: 'rgba(124,58,237,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV', data: completion.map(v => v * 10), backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Well Construction', data: wellConst.map(v => v * 8), backgroundColor: 'rgba(30,64,175,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Workover', data: workover.map(v => v * 6), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
       ]
     },
     options: {
@@ -1005,11 +1015,15 @@ function renderTemporalOverlapChart() {
         tooltip: { mode: 'index', intersect: false },
       },
       scales: {
-        x:  { ticks: { color: '#4a5568', font: { size: 10 } }, grid: { display: false }, stacked: true },
-        y:  { position: 'left', title: { display: true, text: 'CSB Failures', color: '#c0392b', font: { size: 10 } },
-              ticks: { color: '#4a5568', font: { size: 10 } }, grid: { color: '#dde3ee' }, beginAtZero: true },
-        y2: { position: 'right', title: { display: true, text: 'Contract Activity (index)', color: '#6b7280', font: { size: 10 } },
-              stacked: true, ticks: { display: false }, grid: { display: false }, beginAtZero: true },
+        x: { ticks: { color: '#4a5568', font: { size: 10 } }, grid: { display: false }, stacked: true },
+        y: {
+          position: 'left', title: { display: true, text: 'CSB Failures', color: '#c0392b', font: { size: 10 } },
+          ticks: { color: '#4a5568', font: { size: 10 } }, grid: { color: '#dde3ee' }, beginAtZero: true
+        },
+        y2: {
+          position: 'right', title: { display: true, text: 'Contract Activity (index)', color: '#6b7280', font: { size: 10 } },
+          stacked: true, ticks: { display: false }, grid: { display: false }, beginAtZero: true
+        },
       }
     }
   });
@@ -1021,7 +1035,7 @@ function renderContractMethodChart() {
   if (!ctx) return;
 
   // Count from CSV: INEXIGIBIL=16, LICITAÇÃO=136, CONVITE/Pregão/Convênio=21
-  const data   = [16, 136, 21];
+  const data = [16, 136, 21];
   const labels = ['Inexigibilidade', 'Licitação', 'Convite / Convênio'];
   const colors = ['#8b5cf6', '#3b82f6', '#0d9488'];
 
@@ -1035,9 +1049,11 @@ function renderContractMethodChart() {
       responsive: true, maintainAspectRatio: true, cutout: '65%',
       plugins: {
         legend: { display: false },
-        tooltip: { callbacks: {
-          label: ctx => ` ${ctx.label}: ${ctx.parsed} contracts (${Math.round(ctx.parsed/173*100)}%)`
-        }}
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.label}: ${ctx.parsed} contracts (${Math.round(ctx.parsed / 173 * 100)}%)`
+          }
+        }
       }
     }
   });
