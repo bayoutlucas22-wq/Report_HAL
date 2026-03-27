@@ -76,11 +76,9 @@
     main {
       flex: 1;
       display: flex;
-      padding: 0 60px 40px;
+      padding: 0 8% 40px;
       align-items: center;
       justify-content: space-between;
-      max-width: 1400px;
-      margin: 0 auto;
       width: 100%;
     }
 
@@ -103,12 +101,13 @@
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2.2rem, 3.4vw, 4rem);
       font-weight: 900;
-      line-height: 1.1;
+      line-height: 1.15;
       letter-spacing: -0.025em;
-      margin-bottom: 32px; /* Increased from 24px */
+      margin-bottom: 24px;
       color: var(--text-dark);
+      white-space: nowrap;
     }
 
     .description {
@@ -242,7 +241,8 @@
 
     /* Right Side Image */
     .content-right {
-      flex: 1;
+      flex: 0 0 33.333%;
+      max-width: 33.333%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -263,10 +263,11 @@
     }
 
     .content-right img {
-      max-width: 100%;
+      width: 80%;
       height: auto;
-      width: 320px; /* Reduced from 450px */
       object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+      margin: 0 auto;
     }
 
     @media (max-width: 1024px) {
@@ -301,8 +302,8 @@
 
 
   <main>
-    <div class="content-left">
-      <h1>CSB Compliance Incidence Case Study<br /><span class="brand-gradient-text">For Halliburton</span></h1>
+    <div class="content-left" style="flex: 0 0 66.666%; max-width: 1200px;">
+      <h1>CSB Compliance Incidence Case Study<br /><span class="brand-gradient-text" style="font-size: clamp(2.8rem, 4.4vw, 5rem);">For Halliburton</span></h1>
       <p class="description">
         Independent evidentiary analysis of comprehensive incident data from the Brazilian Agência Nacional do Petróleo
         (ANP) spanning 2013 to March 26, 2026. This study infers HAL-related operational safety incidents
@@ -362,9 +363,7 @@
     </div>
 
     <div class="content-right">
-      <div style="text-align: center;">
-        <img src="logo.png" alt="CIS Logo Mark" />
-      </div>
+      <img src="logo.png" alt="CIS Logo" />
     </div>
   </main>
 
@@ -378,6 +377,8 @@
 
     startBtn.addEventListener('click', () => {
       if (!startBtn.disabled) {
+        // Enforce acceptance before proceeding
+        sessionStorage.setItem('disclaimerAccepted', 'true');
         window.location.href = '/dashboard';
       }
     });
