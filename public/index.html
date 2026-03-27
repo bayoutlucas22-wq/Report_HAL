@@ -12,6 +12,12 @@
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    // Enforce disclaimer acceptance before allowing access
+    if (sessionStorage.getItem('disclaimerAccepted') !== 'true') {
+      window.location.href = '/';
+    }
+  </script>
 </head>
 
 <body>
@@ -29,8 +35,8 @@
 
     <!-- ── Sidebar ── -->
     <aside class="sidebar">
-      <div class="sidebar-logo" style="justify-content: center; padding: 24px 16px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <img src="logo.png" alt="CIS Logo" style="height: 96px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
+      <div class="sidebar-logo" style="justify-content: center; padding: 32px 16px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <img src="logo.png" alt="CIS Logo" style="width: 220px; height: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
       </div>
 
       <nav class="sidebar-nav">
