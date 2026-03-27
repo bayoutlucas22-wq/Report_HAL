@@ -3,7 +3,7 @@
 
 // ── Official source URLs ─────────────────────────────────────────────────────
 const LINKS = {
-  ANP_DATASET: "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
+  ANP_DATASET: "https://atosoficiais.com.br/anp",
   ANP_SGIP: "https://atosoficiais.com.br/anp",
   ANP_SGSO: "https://atosoficiais.com.br/anp",
   ANP_SUBSEA: "https://atosoficiais.com.br/anp",
@@ -128,7 +128,7 @@ function renderKPIs(stats) {
       badge: "Open Data · Lei 12.527/2011",
       badgeUrl: LINKS.LEI_12527,
       srcUrl: LINKS.ANP_DATASET,
-      srcLabel: "dados.gov.br/anp",
+      srcLabel: "atosoficiais.com.br/anp",
     },
     {
       label: "CSB Barrier Element Failures", value: csb.toLocaleString(),
