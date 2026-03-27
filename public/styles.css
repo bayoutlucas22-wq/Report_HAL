@@ -580,12 +580,32 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
   background: #fff; border: 1px solid var(--border);
   border-radius: var(--r); overflow: hidden;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
 }
 .ai-pillar-header {
   display: flex; align-items: center; gap: 16px;
   padding: 14px 20px; background: var(--bg3);
   border-bottom: 1px solid var(--border);
   position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.ai-pillar-header:hover {
+  background: #f1f5f9;
+}
+.ai-pillar-header::after {
+  content: '▼';
+  font-size: 10px;
+  color: var(--text3);
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+.ai-pillar.collapsed .ai-pillar-header::after {
+  transform: rotate(-90deg);
+}
+.ai-pillar.collapsed .ai-pillar-header {
+  border-bottom: none;
 }
 .ai-pillar-header::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
@@ -599,14 +619,26 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .ai-pillar-title { font-size: 14px; font-weight: 800; color: var(--text); }
 .ai-pillar-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
 .ai-pillar-progress {
-  margin-left: auto; flex-shrink: 0;
+  margin-left: 12px; flex-shrink: 0;
   font-size: 11px; font-weight: 700;
   padding: 3px 10px; border-radius: 20px;
   background: rgba(0,0,0,0.06); color: var(--text3);
 }
 
 /* Checklist */
-.ai-checklist { display: flex; flex-direction: column; }
+.ai-checklist {
+  display: flex;
+  flex-direction: column;
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: auto; /* Allow checking boxes maybe? "allow so the people can try opening, folding" */
+  transition: max-height 0.4s ease-in-out, filter 0.3s;
+  max-height: 2000px;
+}
+.ai-pillar.collapsed .ai-checklist {
+  max-height: 0;
+  overflow: hidden;
+}
 .ai-item {
   display: flex; gap: 14px; align-items: flex-start;
   padding: 14px 20px; cursor: pointer;
@@ -615,6 +647,13 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 }
 .ai-item:last-child { border-bottom: none; }
 .ai-item:hover { background: var(--bg3); }
+
+.cross-analysis-blur-content {
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: none;
+  transition: filter 0.3s;
+}
 .ai-check {
   width: 18px; height: 18px; flex-shrink: 0;
   margin-top: 1px; accent-color: var(--blue);

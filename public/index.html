@@ -807,7 +807,7 @@
         </section>
 
         <!-- ── ACTION PLAN SECTION ── -->
-        <section id="section-action" class="dash-section">
+        <section id="section-action" class="dash-section cross-analysis-blur-content">
           <div class="cs-header" style="background: linear-gradient(135deg, var(--teal) 0%, #064e3b 100%);">
             <div class="cs-header-left">
               <div class="cs-badge" style="background: rgba(255,255,255,0.2);">CIS LLC · ESG · ISO 37301</div>
@@ -937,7 +937,7 @@
         <!-- ── CASE STUDY SECTION ── -->
 
         <!-- ── ACTION ITEMS SECTION ── -->
-        <section id="section-actionitems" class="dash-section">
+        <section id="section-actionitems" class="dash-section cross-analysis-blur-content">
 
           <!-- Header -->
           <div class="ai-hero">
@@ -1005,7 +1005,7 @@
 
           <!-- Pillar 1 -->
           <div class="ai-pillar">
-            <div class="ai-pillar-header" style="--ph-c:#2563eb">
+            <div class="ai-pillar-header" style="--ph-c:#2563eb" onclick="togglePillar(this)">
               <div class="ai-pillar-num">01</div>
               <div>
                 <div class="ai-pillar-title">Regulatory Ontologies &amp; Maps</div>
@@ -1064,7 +1064,7 @@
 
           <!-- Pillar 2 -->
           <div class="ai-pillar">
-            <div class="ai-pillar-header" style="--ph-c:#0d9488">
+            <div class="ai-pillar-header" style="--ph-c:#0d9488" onclick="togglePillar(this)">
               <div class="ai-pillar-num">02</div>
               <div>
                 <div class="ai-pillar-title">Workspace Encapsulation</div>
@@ -1124,7 +1124,7 @@
 
           <!-- Pillar 3 -->
           <div class="ai-pillar">
-            <div class="ai-pillar-header" style="--ph-c:#7c3aed">
+            <div class="ai-pillar-header" style="--ph-c:#7c3aed" onclick="togglePillar(this)">
               <div class="ai-pillar-num">03</div>
               <div>
                 <div class="ai-pillar-title">Audit Verification &amp; Umbrella Contracts</div>
@@ -1196,7 +1196,7 @@
 
           <!-- Pillar 4 -->
           <div class="ai-pillar">
-            <div class="ai-pillar-header" style="--ph-c:#f59e0b">
+            <div class="ai-pillar-header" style="--ph-c:#f59e0b" onclick="togglePillar(this)">
               <div class="ai-pillar-num">04</div>
               <div>
                 <div class="ai-pillar-title">Interactive Cortex Intelligence</div>
@@ -2274,6 +2274,8 @@
             </div>
           </div>
 
+
+
           <!-- KPI Strip -->
           <div class="cs-metrics-grid" style="margin-top:14px;">
             <div class="cs-metric" style="--m-accent:#8b5cf6">
@@ -2328,7 +2330,7 @@
                         style="font-weight:400;font-size:10px;color:var(--text3);">220 events</span></th>
                     <th>Contract Type<br>(Petrobras)</th>
                     <th>Peak Overlap<br>Period</th>
-                    <th>Validation<br>Score</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -2361,11 +2363,7 @@
                         style="font-size:10px;color:var(--text3);">Sole-source, 2018–2022</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2018–2022 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">Peak CSB growth phase</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:95%;--cx-c:#c0392b;">
-                        <div class="cx-fill"></div><span>95%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 2: Fluid Services -->
                   <tr class="cs-row-highlight">
@@ -2395,11 +2393,7 @@
                         style="font-size:10px;color:var(--text3);">2019–2022</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2019–2022 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">Kick peak alignment</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:88%;--cx-c:#e67e22;">
-                        <div class="cx-fill"></div><span>88%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 3: Well Stimulation -->
                   <tr class="cs-row-highlight">
@@ -2429,11 +2423,7 @@
                         style="font-size:10px;color:var(--text3);">2020–2024 active</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2020–2024 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">CSB exponential phase</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:93%;--cx-c:#c0392b;">
-                        <div class="cx-fill"></div><span>93%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 4: Managed Pressure Drilling -->
                   <tr>
@@ -2464,11 +2454,7 @@
                         style="font-size:10px;color:var(--text3);">2020–2028 running</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2020–2028 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">Full overlap window</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:91%;--cx-c:#7c3aed;">
-                        <div class="cx-fill"></div><span>91%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 5: Intelligent Completion / DHSV -->
                   <tr class="cs-row-highlight">
@@ -2500,11 +2486,7 @@
                         style="font-size:10px;color:var(--text3);">2021–2026 active</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2021–2026 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">Sustained CSB elevation</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:98%;--cx-c:#c0392b;">
-                        <div class="cx-fill"></div><span>98%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 6: G&G Software -->
                   <tr>
@@ -2533,11 +2515,7 @@
                         style="font-size:10px;color:var(--text3);">2018–2025</span></td>
                     <td><span style="font-weight:700;color:#6b7280;">Indirect</span><br><span
                         style="font-size:10px;color:var(--text3);">Advisory chain only</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:42%;--cx-c:#6b7280;">
-                        <div class="cx-fill"></div><span>42%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 7: Well Construction (Integrated) -->
                   <tr class="cs-row-highlight">
@@ -2571,11 +2549,7 @@
                         style="font-size:10px;color:var(--text3);">2020–2029 active</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2020–2029 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">Entire peak period</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:100%;--cx-c:#c0392b;">
-                        <div class="cx-fill"></div><span>100%</span>
-                      </div>
-                    </td>
+
                   </tr>
                   <!-- Row 8: Workover & Abandonment -->
                   <tr>
@@ -2607,11 +2581,7 @@
                         style="font-size:10px;color:var(--text3);">2024–2029 active</span></td>
                     <td><span style="font-weight:700;color:#ef4444;">2024–2029 ✓</span><br><span
                         style="font-size:10px;color:var(--text3);">Current + future risk</span></td>
-                    <td>
-                      <div class="cx-score" style="--cx-pct:96%;--cx-c:#c0392b;">
-                        <div class="cx-fill"></div><span>96%</span>
-                      </div>
-                    </td>
+
                   </tr>
                 </tbody>
               </table>
@@ -2711,10 +2681,7 @@
                     <th>Service Domain</th>
                     <th>Object (Excerpt)</th>
                     <th>Value</th>
-                    <th>Period</th>
-                    <th>Procurement</th>
                     <th>CSB Link</th>
-                    <th>Validation</th>
                   </tr>
                 </thead>
                 <tbody id="contractEvidenceBody"></tbody>
@@ -2829,10 +2796,11 @@
             </div>
           </div>
 
+
         </section>
 
         <!-- ── FORMAL REPORT SECTION ── -->
-        <section id="section-fullreport" class="dash-section">
+        <section id="section-fullreport" class="dash-section cross-analysis-blur-content">
           <div class="cs-header">
             <div class="cs-header-left">
               <div class="cs-badge">ANALYTICAL REPORT</div>
@@ -2877,7 +2845,7 @@
                 <div class="panel-title">Convergence Methodology: Spotting the Exposure</div>
               </div>
             </div>
-            <div class="panel-body">
+            <div class="panel-body cross-analysis-blur-content">
               <p class="cs-body">To find this compliance liability, we utilized a "Cross-Domain Matrix" to pierce the
                 veil of operator exclusivity. The raw public data is vast and noisy; our methodology isolated the exact
                 intersection between service supply and regulatory failure through three convergence factors:</p>
@@ -2916,7 +2884,7 @@
             </div>
           </div>
 
-          <div class="panel cs-panel">
+          <div class="panel cs-panel cross-analysis-blur-content">
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">02</div>
@@ -2943,7 +2911,7 @@
             </div>
           </div>
 
-          <div class="panel cs-panel">
+          <div class="panel cs-panel cross-analysis-blur-content">
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">03</div>
