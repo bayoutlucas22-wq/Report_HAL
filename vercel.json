@@ -1,15 +1,11 @@
 {
   "name": "hal-tejas-analysis",
   "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/api/:path*", "destination": "/server.js" },
-    { "source": "/dashboard", "destination": "/public/dashboard.html" },
-    { "source": "/(.+\\.css)", "destination": "/public/$1" },
-    { "source": "/(.+\\.js)", "destination": "/public/$1" },
-    { "source": "/(.+\\.png)", "destination": "/public/$1" },
-    { "source": "/(.+\\.jpg)", "destination": "/public/$1" },
-    { "source": "/(.+\\.svg)", "destination": "/public/$1" },
-    { "source": "/(.*\\.html)", "destination": "/public/$1" },
-    { "source": "/", "destination": "/public/login.html" }
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/", "destination": "/index.html" }
   ]
 }

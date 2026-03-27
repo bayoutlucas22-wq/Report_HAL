@@ -134,12 +134,11 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 
 // Explicit page routes come FIRST — before static middleware
-// so express.static doesn't hijack "/" with index.html
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "login.html")));
-app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "public", "dashboard.html")));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
+app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "dashboard.html")));
 
 // Static assets (CSS, JS, images) — index:false prevents auto-serving index.html
-app.use(express.static(path.join(__dirname, "public"), { index: false }));
+app.use(express.static(__dirname, { index: false }));
 
 const SOURCE_LABELS = {
   sisoIncidentes: "SISO-Incidentes Dataset",
