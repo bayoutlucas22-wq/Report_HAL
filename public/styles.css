@@ -269,18 +269,60 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .chart-center { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
 
 /* ── Breakdown Grid ───────────────────────────────────────────────────── */
-.breakdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.breakdown-card { padding: 20px; transition: all .2s; cursor: default; }
-.breakdown-card:hover { border-color: var(--border2); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-.breakdown-icon { font-size: 24px; margin-bottom: 12px; }
-.breakdown-title { font-size: 14px; font-weight: 800; color: var(--text); line-height: 1.3; margin-bottom: 8px; }
-.breakdown-count { font-size: 32px; font-weight: 900; line-height: 1; margin-bottom: 12px; letter-spacing: -1px; }
+.breakdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; }
+.breakdown-card { 
+  padding: 24px; 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  cursor: pointer; 
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r);
+}
+.breakdown-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  transition: all 0.3s;
+}
+#card-csb::before    { background: var(--csb-color); }
+#card-kick::before   { background: var(--kick-color); }
+#card-struct::before { background: var(--struct-color); }
+#card-wc::before     { background: var(--wc-color); }
+
+.breakdown-card:hover { 
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0,0,0,0.05);
+}
+.breakdown-card:hover::before { height: 5px; }
+
+.breakdown-icon { 
+  font-size: 26px; 
+  margin-bottom: 16px; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #f1f5f9;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.7), 0 2px 5px rgba(0,0,0,0.05);
+}
+#card-csb .breakdown-icon    { background: rgba(239, 68, 68, 0.1); }
+#card-kick .breakdown-icon   { background: rgba(245, 158, 11, 0.1); }
+#card-struct .breakdown-icon { background: rgba(37, 99, 235, 0.1); }
+#card-wc .breakdown-icon     { background: rgba(124, 58, 237, 0.1); }
+
+.breakdown-title { font-size: 15px; font-weight: 800; color: var(--text); line-height: 1.3; margin-bottom: 10px; }
+.breakdown-count { font-size: 38px; font-weight: 900; line-height: 1; margin-bottom: 14px; letter-spacing: -1.5px; }
 #card-csb    .breakdown-count { color: var(--csb-color); }
 #card-kick   .breakdown-count { color: var(--kick-color); }
 #card-struct .breakdown-count { color: var(--struct-color); }
 #card-wc     .breakdown-count { color: var(--wc-color); }
-.breakdown-desc { font-size: 11px; color: var(--text2); line-height: 1.65; margin-bottom: 10px; }
-.breakdown-reg { font-size: 10px; color: var(--text3); font-weight: 600; letter-spacing: 0.3px; }
+.breakdown-desc { font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; }
+.breakdown-reg { font-size: 10px; color: var(--text3); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
 
 /* ── Legend Chips ────────────────────────────────────────────────────── */
 .legend-chips { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }

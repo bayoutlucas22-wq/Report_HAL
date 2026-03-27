@@ -4,10 +4,10 @@
 // ── Official source URLs ─────────────────────────────────────────────────────
 const LINKS = {
   ANP_DATASET: "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
-  ANP_SGIP: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip",
-  ANP_SGSO: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso",
-  ANP_SUBSEA: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos",
-  ANP_PORTAL: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional",
+  ANP_SGIP: "https://atosoficiais.com.br/anp",
+  ANP_SGSO: "https://atosoficiais.com.br/anp",
+  ANP_SUBSEA: "https://atosoficiais.com.br/anp",
+  ANP_PORTAL: "https://atosoficiais.com.br/anp",
   BV_NR445: "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units",
   BV_NR459: "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations",
   BV_RULES: "https://marine-offshore.bureauveritas.com/rules-guidelines",
