@@ -685,6 +685,12 @@ async function init() {
     if (contractData && contractData.items) {
       // Map raw CSV contracts to the cross-analysis domain mapping
       processIncomingContracts(contractData.items);
+      // Immediately render if on cross-analysis tab
+      if (window.location.hash === '#crossanalysis') {
+        renderContractTable(filteredContracts);
+        renderTemporalOverlapChart();
+        renderContractMethodChart();
+      }
     }
 
   } catch (err) {
@@ -698,6 +704,10 @@ async function init() {
 init();
 
 // ── Action Items Progress ──────────────────────────────────────────────────────
+window.togglePillar = function (header) {
+  header.parentElement.classList.toggle('collapsed');
+};
+
 window.updateAIProgress = function () {
   const all = document.querySelectorAll('.ai-check');
   const done = document.querySelectorAll('.ai-check:checked');
@@ -847,7 +857,7 @@ function processIncomingContracts(rawItems) {
       domain: domain,
       obj: c.obj,
       value: c.value,
-      periodo: `${c.inicio?.split('-')[2] || '?'}–${c.fim?.split('-')[2] || '?'}`,
+      periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
       score: getInferenceScore(domain),
@@ -913,7 +923,7 @@ function renderContractTable(data) {
   const slice = data.slice(start, start + CONTRACT_PAGE_SIZE);
 
   if (!slice.length) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
     return;
   }
 
@@ -925,14 +935,7 @@ function renderContractTable(data) {
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
       <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
-      <td style="font-size:11px;white-space:nowrap;">${c.periodo}</td>
-      <td><span class="ai-tag" style="--t-c:${procColor};">${c.proc}</span></td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
-      <td>
-        <div class="cx-score" style="--cx-pct:${c.score};--cx-c:${c.scoreC};min-width:80px;">
-          <div><div class="cx-fill"></div></div><span>${c.score}</span>
-        </div>
-      </td>
     </tr>`;
   }).join('');
 
