@@ -5,3 +5,12 @@ node_modules
 *.md
 .DS_Store
 .vercel
+data/*.zip
+data/compranet_historico*.csv
+data/PRODUCCION_*.csv
+data/POZOS_*.csv
+data/og_contracts_summary.csv
+data/mexico_*.csv
+tejas_exposure_proxy.csv
+output/hal_mex_*.csv
+*.py
