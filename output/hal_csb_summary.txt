@@ -1,0 +1,150 @@
+======================================================================
+  HALLIBURTON × CSB FAILURE ANALYSIS — BRAZIL (ANP) + ARGENTINA
+  Generated: 2026-04-01 20:37:50
+======================================================================
+
+──────────────────────────────────────────────────────────────────────
+  1. HALLIBURTON — PETROBRAS CONTRACT PORTFOLIO
+──────────────────────────────────────────────────────────────────────
+  Total contracts:       172
+  Currently active:      62
+  Total USD value:       US$ 2,041,491,037
+  Total BRL value:       R$ 14,323,460,390
+
+  By service line:
+    Other                                74 contracts  US$    709,407,003  R$    6,593,593,471
+    Fluids & Chemicals                   36 contracts  US$     54,582,886  R$      598,022,379
+    Stimulation                          18 contracts  US$     62,908,511  R$    1,550,746,663
+    Well Construction                    14 contracts  US$    645,516,689  R$    4,647,464,672
+    Formation Evaluation                  8 contracts  US$     16,855,845  R$      168,245,871
+    DHSV / Safety Valve                   6 contracts  US$    105,914,776  R$       29,759,985
+    Pumping / ESP                         6 contracts  US$     66,438,894  R$      550,497,873
+    Completions Supply                    4 contracts  US$    263,316,432  R$       87,530,860
+    R&D / Innovation                      4 contracts  R$       97,598,616
+    Smart Completions                     2 contracts  US$    116,550,000
+
+  Key CSB-linked contracts (DHSV / Safety Valve supply):
+    — Válvulas de Segurança de Subsuperfície (DHSV)   US$   6,578,577
+    — Fornecimento DHSV + Linhas de Controle          US$  73,030,737
+    — Completação Inteligente + DHSV Lote A           US$ 103,750,537
+    — Materiais de Completação — Lote E               US$ 204,243,565
+    — DHSV Installation/Maintenance services          R$    4,042,600
+
+──────────────────────────────────────────────────────────────────────
+  2. CSB FAILURES (ANP — Conjunto Solidário de Barreira)
+──────────────────────────────────────────────────────────────────────
+  Total CSB-related incidents (hal_incidents.csv):   2,818
+  Of which classified as SSO (serious occurrences):  1,577
+  Fatalities in CSB events:                          0
+  Serious injuries in CSB events:                    12
+
+  Incident type breakdown:
+     1315  SSO - Falha de elemento do conjunto solidário de barreira (CSB)
+     1182  Falha de elemento do conjunto solidário de barreira (CSB)
+      207  SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)
+       38  SSO - Falha estrutural em poço
+       35  Falha da barreira primária na perfuração ou intervenção em poços (kick)
+       10  Falha estrutural em poço
+        8  SSO - Perda significante de controle de poço
+        7  Perda significante de controle de poço
+        7  Perda maior de controle de poço
+        5  SSO - Perda menor de controle de poço
+        4  SSO - Perda maior de controle de poço
+
+  Incidents where 'Halliburton' is in the description: 14
+  (These are under Petrobras concessions — HAL is the subcontractor)
+
+  Peak month for CSB incidents: 2021-07 — 81 events
+  (Active HAL contracts that month: 79)
+
+──────────────────────────────────────────────────────────────────────
+  3. WHAT IS THE CSB? (Conjunto Solidário de Barreira)
+──────────────────────────────────────────────────────────────────────
+  The CSB (Well Barrier Envelope) is Brazil's ANP concept for the set
+  of elements that isolate reservoir pressure from the surface:
+
+    PRIMARY BARRIER (inside tubing string):
+      • DHSV — Downhole Safety Valve (surface-controlled subsurface valve)
+        → Halliburton supplies and installs these (see contracts above)
+        → Tejas Gas/Tejas valves are one DHSV brand in this category
+      • Tubing string integrity
+      • Wellhead seals
+
+    SECONDARY BARRIER (annulus + casing):
+      • Cement job (Halliburton is a major cementing contractor for Petrobras)
+      • Casing strings + hangers
+      • Production packer
+
+  A 'CSB element failure' means one component of either barrier
+  lost its sealing/isolation function. At the extreme end, this
+  escalates to a kick (primary barrier loss) or blowout.
+
+──────────────────────────────────────────────────────────────────────
+  4. TEJAS VALVES — WHY THEY DON'T APPEAR IN ARGENTINA OPEN DATA
+──────────────────────────────────────────────────────────────────────
+  Argentina SESCO (datos.energia.gob.ar) records:
+    ✓ Operator company, well ID, production volumes, fracking parameters
+    ✗ Equipment vendor names, valve brands, completion tool manufacturers
+
+  The 'tejas' keyword search across 20 datasets returned 0 matches.
+  This is expected — SESCO is a production registry, not an equipment log.
+
+  To map Tejas valve exposure in Argentina you would need:
+    → Petrobras Argentina / PAE / YPF completion reports (non-public)
+    → IADC well records for the Neuquina basin wells
+    → Halliburton's Argentina completion receipts (proprietary)
+
+  What we CAN see in Argentina data:
+    Halliburton matches in producción data:  0
+    Halliburton matches in fractura data:    0
+    Total fractura jobs (all operators):     3642
+
+    Top fractura operators (HAL likely services ALL of these):
+       1765  YPF S.A.
+        501  TECPETROL S.A.
+        212  COMPAÑÍA GENERAL DE COMBUSTIBLES S.A.
+        147  SHELL ARGENTINA S.A.
+        132  VISTA ENERGY ARGENTINA SAU
+        130  PAMPA ENERGIA S.A.
+        127  PAN AMERICAN ENERGY SL
+        123  TOTAL AUSTRAL S.A.
+
+    Top formations being fractured (Tejas valves used at surface):
+       2467  vaca muerta
+        235  lajas
+        197  magallanes
+        183  mina el carmen
+        126  mulichinco
+        103  los molles
+         78  punta rosada
+         68  comodoro rivadavia
+
+──────────────────────────────────────────────────────────────────────
+  5. HOW TO BUILD A COMPLETE TEJAS + HAL FAILURE MAP
+──────────────────────────────────────────────────────────────────────
+  Step 1 — Brazil (this dataset gives the most coverage):
+    a) hal_csb_incidents_full.csv  → CSB failures with lat/lon
+    b) Filter severity >= '2 - Primary barrier / kick' for high-risk events
+    c) Join with hal-contracts-pbr.csv on contract periods to flag
+       which failures occurred while a DHSV/valve contract was active
+    d) The 14 HAL-mentioned incidents are direct Halliburton attribution
+
+  Step 2 — Argentina (requires additional data sources):
+    a) Cross-reference report_fractura.csv well IDs (sigla) with
+       Petrobras Argentina / YPF completion manifests
+    b) Look up IADC/SPE well control reports for Neuquina basin
+    c) Argentine OSH (SRT) database for work-related incidents
+
+  Step 3 — Global attribution:
+    a) US BSEE MWCS database (Mechanically Well Control System) — public
+    b) UK NSTA well integrity database — public
+    c) Cross-reference Tejas/Cameron/Baker Hughes DHSV model numbers
+       against ANP incident descriptions (free-text field: 'descricao')
+
+======================================================================
+  Output files in ./output/:
+    hal_contracts_classified.csv      — Contracts with service_line tag
+    hal_csb_incidents_full.csv        — CSB incidents + lat/lon + severity
+    hal_csb_analysis.csv              — Monthly timeline: contracts × incidents
+    hal_csb_summary.txt               — This report
+======================================================================

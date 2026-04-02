@@ -830,7 +830,137 @@ window.filterWells = function () {
 // Render wells on page load
 document.addEventListener('DOMContentLoaded', () => {
   renderWellTable(POCOS_DATA);
+  renderArgentinaTables();
 });
+
+// ── HAL Argentina Study ────────────────────────────────────────────────────
+
+const ARG_TREND = [
+  { year:2015, jobs:344,  stages:1933,  psi:8310,  hp:17935, lateral:176,  unconv:78.8, neuquina:82.6 },
+  { year:2016, jobs:266,  stages:2508,  psi:8205,  hp:18576, lateral:570,  unconv:79.7, neuquina:84.2 },
+  { year:2017, jobs:293,  stages:3990,  psi:8601,  hp:17307, lateral:861,  unconv:88.4, neuquina:82.6 },
+  { year:2018, jobs:349,  stages:5330,  psi:8691,  hp:17480, lateral:1053, unconv:89.4, neuquina:84.5 },
+  { year:2019, jobs:321,  stages:6683,  psi:9220,  hp:20472, lateral:1313, unconv:87.5, neuquina:80.4 },
+  { year:2020, jobs:118,  stages:3232,  psi:9901,  hp:18119, lateral:1582, unconv:93.2, neuquina:82.2 },
+  { year:2021, jobs:353,  stages:10242, psi:10157, hp:23074, lateral:1674, unconv:91.5, neuquina:85.8 },
+  { year:2022, jobs:426,  stages:12799, psi:9927,  hp:21827, lateral:1715, unconv:82.4, neuquina:80.0 },
+  { year:2023, jobs:420,  stages:14210, psi:11078, hp:24337, lateral:2048, unconv:85.7, neuquina:79.3 },
+  { year:2024, jobs:354,  stages:15380, psi:11651, hp:32562, lateral:2624, unconv:98.9, neuquina:95.2 },
+  { year:2025, jobs:383,  stages:19692, psi:11965, hp:35319, lateral:3038, unconv:99.5, neuquina:99.5 },
+  { year:2026, jobs:15,   stages:796,   psi:12128, hp:42133, lateral:3123, unconv:100,  neuquina:100  },
+];
+
+const ARG_OPERATORS = [
+  { op:"YPF S.A.",                                           basin:"NEUQUINA",         jobs:1765, stages:51760, psi:10940, tier:"HIGH" },
+  { op:"TECPETROL S.A.",                                     basin:"NEUQUINA",         jobs:272,  stages:8601,  psi:10250, tier:"HIGH" },
+  { op:"TECPETROL S.A.",                                     basin:"GOLFO SAN JORGE",  jobs:229,  stages:566,   psi:7048,  tier:"MEDIUM" },
+  { op:"COMPAÑÍA GENERAL DE COMBUSTIBLES S.A.",              basin:"AUSTRAL",          jobs:212,  stages:592,   psi:3027,  tier:"LOW" },
+  { op:"SHELL ARGENTINA S.A.",                               basin:"NEUQUINA",         jobs:147,  stages:5284,  psi:11672, tier:"HIGH" },
+  { op:"VISTA ENERGY ARGENTINA SAU",                         basin:"NEUQUINA",         jobs:132,  stages:6350,  psi:13163, tier:"HIGH" },
+  { op:"PAMPA ENERGIA S.A.",                                 basin:"NEUQUINA",         jobs:130,  stages:3262,  psi:8500,  tier:"HIGH" },
+  { op:"PAN AMERICAN ENERGY SL",                             basin:"NEUQUINA",         jobs:127,  stages:4652,  psi:11598, tier:"HIGH" },
+  { op:"TOTAL AUSTRAL S.A.",                                 basin:"NEUQUINA",         jobs:123,  stages:3715,  psi:10880, tier:"HIGH" },
+  { op:"PLUSPETROL S.A.",                                    basin:"NEUQUINA",         jobs:116,  stages:4915,  psi:11411, tier:"HIGH" },
+  { op:"CAPEX S.A.",                                         basin:"NEUQUINA",         jobs:103,  stages:321,   psi:4999,  tier:"HIGH" },
+  { op:"VISTA OIL & GAS ARGENTINA SAU",                      basin:"NEUQUINA",         jobs:62,   stages:2930,  psi:12322, tier:"HIGH" },
+  { op:"CGC ENERGIA SAU",                                    basin:"GOLFO SAN JORGE",  jobs:48,   stages:96,    psi:5625,  tier:"MEDIUM" },
+  { op:"CHEVRON ARGENTINA S.R.L.",                           basin:"NEUQUINA",         jobs:36,   stages:1453,  psi:10461, tier:"HIGH" },
+  { op:"EXXONMOBIL EXPLORATION ARGENTINA S.R.L.",            basin:"NEUQUINA",         jobs:23,   stages:1027,  psi:13368, tier:"HIGH" },
+];
+
+const ARG_FORMATIONS = [
+  { form:"vaca muerta",      jobs:2467, psi:11823, shale:99.8, hazard:"High-pressure frac, H2S, wellhead integrity" },
+  { form:"lajas",            jobs:235,  psi:7140,  shale:0,    hazard:"Tight sand, proppant flowback risk" },
+  { form:"magallanes",       jobs:197,  psi:2888,  shale:0,    hazard:"Conventional workover, well integrity" },
+  { form:"mina el carmen",   jobs:183,  psi:7133,  shale:0,    hazard:"Mature field, aging completion equipment" },
+  { form:"mulichinco",       jobs:126,  psi:5642,  shale:0,    hazard:"Tight sand, stimulation fluid returns" },
+  { form:"los molles",       jobs:103,  psi:5013,  shale:6.8,  hazard:"Deep shale, ultra-high pressure, CO₂" },
+  { form:"punta rosada",     jobs:78,   psi:10568, shale:0,    hazard:"Golfo San Jorge mature field ops" },
+  { form:"comodoro rivadavia",jobs:68,  psi:5187,  shale:0,    hazard:"Oldest Argentine province, heavy WO" },
+  { form:"agrio",            jobs:55,   psi:4423,  shale:1.8,  hazard:"Tight carbonate, acid stimulation" },
+  { form:"cañadon seco",     jobs:37,   psi:6374,  shale:0,    hazard:"Standard oilfield operations" },
+];
+
+const ARG_REGULATIONS = [
+  { reg:"Res. SE 25/2004 — Integridad de Pozos",               scope:"Mandatory well integrity management",                      domains:"All 4 domains",            br:"ANP Res. 46/2016 SGIP" },
+  { reg:"Res. SE 317/2021 — Operaciones No Convencionales",     scope:"Safety for unconventional (shale/tight) operations",       domains:"Domain 1 — Fracking",      br:"ANP Res. 43/2007 SGSO" },
+  { reg:"Ley 24.051 — Residuos Peligrosos",                    scope:"Hazardous waste: drilling fluids, produced water",          domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011" },
+  { reg:"Ley 25.675 — Ley General del Ambiente",               scope:"Environmental liability for all E&P service operations",    domains:"All 4 domains",            br:"Lei 9.605/1998" },
+  { reg:"Res. SRT 559/2009 — Seguridad en Perforación",        scope:"OHS for drilling, completion, and workover personnel",      domains:"All 4 domains",            br:"NR-37 (MTE)" },
+  { reg:"Ley Neuquén 2615 — Código de Aguas",                  scope:"Water use and produced water disposal — Neuquina basin",   domains:"Domain 1 — water sourcing", br:"N/A (offshore in Brazil)" },
+  { reg:"Ley Neuquén 3004 — Regulación Fracking",              scope:"Environmental controls specific to hydraulic fracturing",    domains:"Domain 1 — Fracking",      br:"N/A" },
+  { reg:"Decreto 1122/97 — EIA Upstream",                      scope:"Environmental impact assessment for E&P operations",        domains:"All domains",              br:"Res. CONAMA 001/1986" },
+];
+
+const TIER_STYLES = {
+  HIGH:   { bg:"#fef2f2", color:"#dc2626", border:"#fecaca" },
+  MEDIUM: { bg:"#fffbeb", color:"#d97706", border:"#fde68a" },
+  LOW:    { bg:"#f0fdf4", color:"#16a34a", border:"#bbf7d0" },
+};
+
+function renderArgentinaTables() {
+  // Annual trend
+  const trendBody = document.getElementById('argTrendBody');
+  if (trendBody) {
+    trendBody.innerHTML = ARG_TREND.map(r => {
+      const isEscalating = r.year >= 2021;
+      const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
+      return `<tr style="${rowStyle}">
+        <td style="font-weight:700;">${r.year}${r.year===2026?' <span style="font-size:10px;color:var(--text3);">YTD</span>':''}</td>
+        <td>${r.jobs.toLocaleString()}</td>
+        <td>${r.stages.toLocaleString()}</td>
+        <td>${r.psi.toLocaleString()}</td>
+        <td>${r.hp.toLocaleString()}</td>
+        <td style="${r.lateral>=2500?'color:#dc2626;font-weight:700;':''}">${r.lateral.toLocaleString()}</td>
+        <td>${r.unconv}%</td>
+        <td>${r.neuquina}%</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Operator exposure
+  const opBody = document.getElementById('argOperatorBody');
+  if (opBody) {
+    opBody.innerHTML = ARG_OPERATORS.map(r => {
+      const ts = TIER_STYLES[r.tier] || TIER_STYLES.LOW;
+      const badge = `<span style="font-size:10px;font-weight:700;background:${ts.bg};color:${ts.color};border:1px solid ${ts.border};padding:2px 7px;border-radius:20px;">${r.tier}</span>`;
+      return `<tr>
+        <td style="font-weight:600;font-size:11px;">${r.op}</td>
+        <td style="font-size:11px;">${r.basin}</td>
+        <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
+        <td>${r.stages.toLocaleString()}</td>
+        <td>${r.psi.toLocaleString()}</td>
+        <td>${badge}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Formation risk
+  const formBody = document.getElementById('argFormationBody');
+  if (formBody) {
+    formBody.innerHTML = ARG_FORMATIONS.map(r => {
+      const isVM = r.form === 'vaca muerta';
+      return `<tr style="${isVM?'background:#fef2f2;':''}">
+        <td style="font-weight:${isVM?'700':'500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
+        <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
+        <td>${r.psi.toLocaleString()}</td>
+        <td style="${r.shale>=90?'color:#dc2626;font-weight:700;':''}">${r.shale}%</td>
+        <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Regulatory framework
+  const regBody = document.getElementById('argRegulatoryBody');
+  if (regBody) {
+    regBody.innerHTML = ARG_REGULATIONS.map(r => `<tr>
+      <td style="font-weight:600;font-size:11px;">${r.reg}</td>
+      <td style="font-size:11px;color:var(--text2);">${r.scope}</td>
+      <td style="font-size:11px;"><span class="ai-tag" style="--t-c:#2563eb">${r.domains}</span></td>
+      <td style="font-size:11px;color:var(--text3);">${r.br}</td>
+    </tr>`).join('');
+  }
+}
 
 // ── Cross-Analysis Tab ─────────────────────────────────────────────────────
 
