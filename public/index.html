@@ -1,386 +1,2998 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CIS — Compliance Intelligence System</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <style>
-    :root {
-      /* CIS Theme Tokens */
-      --primary-blue: #2563eb;
-      --primary-hover: #1d4ed8;
-      --accent-indigo: #6366f1;
-      --accent-purple: #7c3aed;
-      --bg-main: #f9fafb;
-      --bg-card: #ffffff;
-      --text-dark: #111827;
-      --text-muted: #6b7280;
-      --border-light: #e5e7eb;
-      --brand-gradient: linear-gradient(to right, #2563eb, #6366f1, #7c3aed);
-      --font-geist-sans: 'Inter', system-ui, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: var(--font-geist-sans);
-      background: var(--bg-main);
-      color: var(--text-dark);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
-
-    nav {
-      padding: 40px 60px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: var(--primary-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
-
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: -0.025em;
-      color: var(--text-dark);
-    }
-
-    .brand-gradient-text {
-      background: var(--brand-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      padding: 0 8% 40px;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .content-left {
-      max-width: 620px;
-      padding-right: 40px;
-      animation: fade-in-up 0.8s ease-out;
-    }
-
-    @keyframes fade-in-up {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      margin-bottom: 24px;
-      color: var(--text-dark);
-    }
-
-    .description {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 32px;
-      font-weight: 400;
-    }
-
-    /* Terms Box - CIS Style */
-    .terms-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 24px;
-      max-height: 220px;
-      overflow-y: auto;
-      margin-bottom: 24px;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      font-size: 0.875rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    .terms-box h3 {
-      font-size: 1.125rem;
-      color: var(--text-dark);
-      margin-bottom: 12px;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-    }
-
-    .terms-box h4 {
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      margin: 16px 0 8px;
-      font-weight: 700;
-    }
-
-    .terms-box ul {
-      margin-left: 20px;
-      margin-bottom: 12px;
-    }
-
-    .terms-box p {
-      margin-bottom: 12px;
-    }
-
-    .terms-box p strong {
-      color: #ef4444;
-      /* Danger red */
-    }
-
-    /* Agreement Checkbox */
-    .agreement-wrapper {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 32px;
-      cursor: pointer;
-    }
-
-    .agreement-wrapper input[type="checkbox"] {
-      margin-top: 3px;
-      width: 18px;
-      height: 18px;
-      accent-color: var(--primary-blue);
-      cursor: pointer;
-    }
-
-    .agreement-text {
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      font-weight: 500;
-      user-select: none;
-    }
-
-    /* Buttons */
-    .button-group {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: var(--primary-blue);
-      color: #fff;
-      border: none;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    }
-
-    .btn-primary:not(:disabled):hover {
-      background: var(--primary-hover);
-    }
-
-    .btn-primary:disabled {
-      background: #e5e7eb;
-      color: #9ca3af;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid #d1d5db;
-      /* gray-300 */
-    }
-
-    .btn-secondary:hover {
-      background: #f3f4f6;
-      /* gray-100 */
-      color: var(--text-dark);
-    }
-
-    /* Right Side Image */
-    .content-right {
-      flex: 0 0 33.333%;
-      max-width: 33.333%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: float-in 1.2s cubic-bezier(0.25, 1, 0.5, 1) both;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes float-in {
-      from {
-        opacity: 0;
-        transform: translateX(40px) scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-      }
-    }
-
-    .content-right img {
-      width: 80%;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
-      margin: 0 auto;
-    }
-
-    @media (max-width: 1024px) {
-      main {
-        flex-direction: column;
-        text-align: center;
-        padding: 0 30px 40px;
-      }
-
-      .content-left {
-        padding-right: 0;
-        margin-bottom: 40px;
-      }
-
-      .terms-box {
-        text-align: left;
-      }
-
-      .button-group {
-        justify-content: center;
-      }
-
-      .content-right img {
-        width: 300px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL / Tejas — ANP Incident Intelligence Dashboard</title>
+  <meta name="description"
+    content="Case study analytics: Halliburton & Tejas failure mapping across 2,654 ANP incident records (2013–2026).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loader-inner">
+      <div class="spinner"></div>
+      <p>Loading HAL/Tejas incident database…</p>
+    </div>
+  </div>
 
+  <div class="app-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <main>
-    <div class="content-left" style="flex: 0 0 66.666%; max-width: 1200px; padding-right: 2%;">
-      <h1 style="white-space: nowrap;"><span style="font-size: clamp(1.8rem, 2.7vw, 3.5rem);">CSB Compliance Incidence Case Study</span><br /><span class="brand-gradient-text" style="font-size: clamp(2.5rem, 4.2vw, 5.5rem);">For Halliburton</span></h1>
-      <p class="description">
-        Independent evidentiary analysis of comprehensive incident data from the Brazilian Agência Nacional do Petróleo
-        (ANP) spanning 2013 to March 26, 2026. This study infers HAL-related operational safety incidents
-        mapped
-        strictly against Bureau Veritas offshore classification standards.
-      </p>
-
-      <div class="terms-box">
-        <h3>Disclaimer & Agreement on Usage</h3>
-        <p>This application provides compliance analytics driven exclusively by verified open public data published
-          under the Brazilian Freedom of Information Act (Lei nº 12.527/2011).</p>
-
-        <h4>Data & Regulatory Sources</h4>
-        <ul>
-          <li><strong>Data Cut-off Limit:</strong> March 26, 2026. All statistics, incidents, and contracts analyzed are
-            strictly bounded to this cut-off timestamp.</li>
-          <li><strong>ANP SISO-Incidentes Dataset:</strong> Analyzed dataset containing 30,054 authentic incidents
-            reported to the upstream authority up to the cut-off date.</li>
-          <li><strong>Regulatory Base:</strong> ANP Res. nº 46/2016 (SGIP), nº 43/2007 (SGSO), nº 41/2015.</li>
-          <li><strong>Bureau Veritas Classification:</strong> NR 445 (Classification of Offshore Units), NR 459, NR 493.
-          </li>
-          <li><strong>Brazilian Labour Ministry:</strong> NR-37, NR-33, NR-35; Maritime Authority (NORMAM-01/DPC).</li>
-        </ul>
-
-        <h4>⚠️ Critical Notice on Accountability</h4>
-        <p>
-          <strong>Accountability rests on usage:</strong> The critical link between specific service subcontractors
-          (like Halliburton or Tejas) and these documented events are inferred <strong>via exposure, not directly
-            named
-            as causation</strong>.
-        </p>
-        <p>
-          The ANP database registers incidents exclusively under the licensed operator. What the data strictly verifies
-          is an exponential rise (+39,000%) in Conjunto Solidário de Barreira (CSB) failures operating on the same
-          barrier systems maintained and deployed within the scope of these entities.
-        </p>
-        <p>By proceeding, you agree that you understand the origin of the data, the fact-checking limitations regarding
-          causation, and assume full accountability for how these insights and regulatory correlations are utilized or
-          communicated.</p>
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-logo" style="justify-content: center; padding: 24px 16px;">
+        <img src="logo.png" alt="CIS Logo" style="height: 48px; width: auto; object-fit: contain;">
       </div>
 
-      <label class="agreement-wrapper" for="agreeCheck">
-        <input type="checkbox" id="agreeCheck" />
-        <span class="agreement-text">I have read the disclaimer, acknowledge the sources, and agree to the terms of
-          accountability.</span>
-      </label>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-section="overview" id="nav-overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          Case Study
+        </a>
+        <a href="#" class="nav-link" data-section="timeline" id="nav-timeline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Timeline
+        </a>
+        <a href="#" class="nav-link" data-section="breakdown" id="nav-breakdown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4l3 3" />
+          </svg>
+          Failure Types
+        </a>
+        <a href="#" class="nav-link" data-section="registry" id="nav-registry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+          </svg>
+          Incident Registry
+        </a>
+        <a href="#" class="nav-link" data-section="action" id="nav-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          Action Plan
+        </a>
+        <a href="#" class="nav-link" data-section="actionitems" id="nav-actionitems">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+          </svg>
+          Action Items
+        </a>
+        <a href="#" class="nav-link" data-section="crossanalysis" id="nav-crossanalysis">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+            <line x1="21" y1="3" x2="3" y2="21" />
+          </svg>
+          Cross-Analysis
+        </a>
+        <a href="#" class="nav-link" data-section="fullreport" id="nav-fullreport">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Formal Report
+        </a>
+        <a href="#" class="nav-link" data-section="wells" id="nav-wells">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+          </svg>
+          Active Wells
+        </a>
 
-      <div class="button-group">
-        <button class="btn btn-primary" id="startBtn" disabled>
-          Start Exploring →
-        </button>
-        <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
-          class="btn btn-secondary" target="_blank" rel="noopener">
-          Learn More
+
+      </nav>
+
+      <!-- Filter Panel -->
+      <div class="sidebar-filters">
+        <div class="filter-label">FILTERS</div>
+
+        <div class="filter-group">
+          <label for="filterYear">Year</label>
+          <select id="filterYear">
+            <option value="">All Years</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterCategory">Failure Type</label>
+          <select id="filterCategory">
+            <option value="">All Types</option>
+            <option value="CSB Failure">CSB Failure</option>
+            <option value="Kick (Primary Barrier)">Kick (Primary Barrier)</option>
+            <option value="Structural Failure">Structural Failure</option>
+            <option value="Loss of Well Control">Loss of Well Control</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterSeverity">Severity</label>
+          <select id="filterSeverity">
+            <option value="">All Severities</option>
+            <option value="SSO">SSO (System Safety)</option>
+            <option value="Minor">Minor (MINOR)</option>
+            <option value="Moderate">Moderate (MODERATE)</option>
+            <option value="Severe">Severe (SEVERE)</option>
+          </select>
+        </div>
+
+        <button class="btn-apply" id="btnApply">Apply Filters</button>
+        <button class="btn-clear" id="btnClear">Clear</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="/" class="btn-download"
+          style="background:var(--bg2);color:var(--text);border:1px solid var(--border);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Back to Disclaimer
         </a>
       </div>
-    </div>
+    </aside>
 
-    <div class="content-right">
-      <img src="logo.png" alt="CIS Logo" />
-    </div>
-  </main>
+    <!-- ── Main ── -->
+    <div class="main-content">
 
-  <script>
-    const checkbox = document.getElementById('agreeCheck');
-    const startBtn = document.getElementById('startBtn');
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left" style="display: flex; align-items: center; gap: 12px;">
+          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle menu" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <div>
+            <h1 class="brand-gradient-text" style="font-size: 22px;">Industry Incidence Report - Case Study for
+              Halliburton</h1>
+            <p>Incident Analysis (Open Data)</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="data-badge" id="liveBadge">
+            <span class="badge-dot"></span>
+            <span id="liveCount">Loading…</span>
+          </div>
+        </div>
+      </header>
 
-    checkbox.addEventListener('change', (e) => {
-      startBtn.disabled = !e.target.checked;
-    });
+      <div class="page-content">
 
-    startBtn.addEventListener('click', () => {
-      if (!startBtn.disabled) {
-        // Enforce acceptance before proceeding
-        sessionStorage.setItem('disclaimerAccepted', 'true');
-        window.location.href = '/dashboard';
-      }
-    });
-  </script>
+        <!-- ── OVERVIEW SECTION ── -->
+        <section id="section-overview" class="dash-section active">
+
+
+          <!-- Report Header -->
+          <div class="cs-header">
+            <div class="cs-header-left">
+              <div class="cs-badge">BV · ANP · SGIP</div>
+              <h2>CSB Failure Incident Report</h2>
+              <p class="cs-subtitle">Bureau Veritas Compliance Framework &amp; ANP Well Integrity Incident Analysis</p>
+            </div>
+            <div class="cs-meta">
+              <div class="cs-meta-item"><span>Operation</span>Halliburton &amp; Tejas — Brazil</div>
+              <div class="cs-meta-item"><span>Jurisdiction</span>ANP — National Petroleum Agency</div>
+              <div class="cs-meta-item"><span>Classification Society</span>Bureau Veritas (BV)</div>
+              <div class="cs-meta-item"><span>Data Cut-off</span>March 26, 2026</div>
+              <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 30,054 records</div>
+            </div>
+          </div>
+
+          <!-- Section 1: Executive Summary -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Executive Summary</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">This report establishes the regulatory and operational compliance framework applicable
+                to <strong>Halliburton</strong> and <strong>Tejas</strong> operations in Brazil, and provides
+                evidence-based justification for identified risk exposure, grounded entirely in publicly available open
+                data from official Brazilian government sources.</p>
+              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>30,054 registered
+                  incidents from 2013 to March 26, 2026</strong>, published under Brazil's Freedom of Information Law
+                (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable
+                Brazilian regulatory instruments.</p>
+
+              <div class="cs-findings">
+                <div class="cs-finding-title">Key Findings</div>
+                <div class="cs-finding-list">
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent"></div>
+                    <div>
+                      <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 391
+                      in 2025 — constituting the dominant well integrity risk category in Brazilian E&amp;P. Incidents
+                      are not adjusted for historical market penetration of supplier equipment, such as valves.
+                    </div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--kick-color)"></div>
+                    <div>
+                      <strong>193 primary barrier loss events (kicks)</strong> recorded between 2013 and 2026 on
+                      ANP-licensed installations.
+                    </div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--blue)"></div>
+                    <div>
+                      <strong>2,291 critical well integrity incidents</strong> in total are documented in the open
+                      dataset.
+                    </div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--purple)"></div>
+                    <div>
+                      Halliburton's well services and Tejas's completion/flow-control equipment operate within the
+                      barrier systems captured by these statistics, making compliance with <strong>Resolução ANP nº
+                        46/2016</strong> and <strong>BV NR 445</strong> directly applicable.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: ANP Key Metrics -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">ANP Incident Data — Key Metrics</div>
+                <div class="panel-subtitle">Derived from full ANP open dataset (30,054 cross-referenced records)</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="cs-metrics-grid">
+                <div class="cs-metric">
+                  <div class="cs-metric-val">30,054</div>
+                  <div class="cs-metric-label">Total Incidents (SISO)</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:var(--csb-color)">
+                  <div class="cs-metric-val" style="color:var(--csb-color)">2,884</div>
+                  <div class="cs-metric-label">CSB Failures (All)</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:var(--kick-color)">
+                  <div class="cs-metric-val" style="color:var(--kick-color)">221</div>
+                  <div class="cs-metric-label">Registered Kicks</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:var(--blue)">
+                  <div class="cs-metric-val" style="color:var(--blue)">91</div>
+                  <div class="cs-metric-label">Structural/Well Failures</div>
+                </div>
+              </div>
+              <p class="cs-note">⚠ HAL and Tejas do not appear as named entities in the ANP dataset because the agency
+                records incidents under the licensed operator (e.g. Petrobras, Shell, Equinor). Service companies
+                operate within those operators' facilities and are therefore captured in the incident statistics for the
+                barrier systems they service.</p>
+            </div>
+          </div>
+
+          <!-- Section 3: Trend Table -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">03</div>
+                <div class="panel-title">Well Integrity Trend — Year-by-Year</div>
+                <div class="panel-subtitle">CSB, Kick, Structural &amp; Well Control failure aggregates vs. total ANP
+                  incidents</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <table class="cs-table">
+                <thead>
+                  <tr>
+                    <th>Year</th>
+                    <th>Well Integrity Total (CSB, Kick…)</th>
+                    <th>Total ANP</th>
+                    <th>% Share</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2013</td>
+                    <td>22</td>
+                    <td>1,654</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.3%"></div>1.3%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2014</td>
+                    <td>16</td>
+                    <td>1,811</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:0.9%"></div>0.9%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2015</td>
+                    <td>20</td>
+                    <td>2,197</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:0.9%"></div>0.9%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2016</td>
+                    <td>18</td>
+                    <td>2,881</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:0.6%"></div>0.6%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2017</td>
+                    <td>20</td>
+                    <td>2,090</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.0%"></div>1.0%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2018</td>
+                    <td>30</td>
+                    <td>1,984</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.5%"></div>1.5%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2019</td>
+                    <td>24</td>
+                    <td>2,325</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.0%"></div>1.0%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2020</td>
+                    <td>79</td>
+                    <td>1,846</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:4.3%"></div>4.3%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td>2021</td>
+                    <td><strong>957</strong></td>
+                    <td>2,697</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:35.5%"></div><strong>35.5%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td>2022</td>
+                    <td><strong>756</strong></td>
+                    <td>2,415</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:31.3%"></div><strong>31.3%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td>2023</td>
+                    <td><strong>369</strong></td>
+                    <td>2,414</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:15.3%"></div><strong>15.3%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td>2024</td>
+                    <td><strong>388</strong></td>
+                    <td>2,686</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:14.4%"></div><strong>14.4%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td>2025</td>
+                    <td><strong>447</strong></td>
+                    <td>2,715</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:16.5%"></div><strong>16.5%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2026*</td>
+                    <td>50</td>
+                    <td>339</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:14.7%"></div>14.7%
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="cs-note" style="margin-top:10px">* 2026 data is partial bounded at March 26, 2026 (Q1).
+                Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover
+                activity.</p>
+            </div>
+          </div>
+
+          <!-- Section 4: Regulatory Framework -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">05</div>
+                <div class="panel-title">Applicable BV Standards &amp; Brazilian Regulations</div>
+                <div class="panel-subtitle">Each standard mapped to its scope and direct relevance to HAL/Tejas
+                  operations</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <table class="cs-table">
+                <thead>
+                  <tr>
+                    <th>Standard / Regulation</th>
+                    <th>Scope</th>
+                    <th>Applicability to HAL / Tejas</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>ANP Resolution No. 46/2016 (SGIP)</strong></td>
+                    <td>Well integrity management</td>
+                    <td>Halliburton &amp; Tejas equipment in barrier systems</td>
+                    <td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>ANP Resolution No. 43/2007 (SGSO)</strong></td>
+                    <td>Operational safety management</td>
+                    <td>All E&amp;P service operations</td>
+                    <td><a href="https://www.gov.br/anp" target="_blank" class="cs-link">gov.br/anp</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>BV NR 445</strong></td>
+                    <td>Classification of offshore units</td>
+                    <td>Units where services are performed</td>
+                    <td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units"
+                        target="_blank" class="cs-link">bureauveritas.com</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>BV NR 459</strong></td>
+                    <td>Process systems on offshore units</td>
+                    <td>Completion &amp; well control systems</td>
+                    <td><a
+                        href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations"
+                        target="_blank" class="cs-link">bureauveritas.com</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>NR-37 (MTE)</strong></td>
+                    <td>Health &amp; safety on offshore platforms</td>
+                    <td>All personnel on licensed installations</td>
+                    <td><a href="https://www.gov.br/trabalho-e-emprego" target="_blank"
+                        class="cs-link">trabalho.gov.br</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>NORMAM-01/DPC</strong></td>
+                    <td>Maritime safety – vessels &amp; crew</td>
+                    <td>Marine vessels supporting operations</td>
+                    <td><a href="https://www.marinha.mil.br/dpc/normam" target="_blank"
+                        class="cs-link">marinha.mil.br</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>ISO 9001 / ISO 17025</strong></td>
+                    <td>QA/QC &amp; laboratory accreditation</td>
+                    <td>Equipment certification &amp; testing</td>
+                    <td><a href="https://www.iso.org" target="_blank" class="cs-link">iso.org</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 5: Sources & Justification Language -->
+          <div class="charts-row">
+            <div class="panel cs-panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">06</div>
+                  <div class="panel-title">Open Data — Traceability Map</div>
+                  <div class="panel-subtitle">All findings traceable to official open-access sources</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="cs-sources">
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">ANP — National Petroleum Agency</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">SISO-Incidentes</span>30,054 records
+                      (2013–2026) — <a
+                        href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                        target="_blank" class="cs-link">dados.gov.br/organization/anp</a></div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. 46/2016</span>SGIP — Well Integrity
+                      Management System; mandatory for all E&amp;P licensees</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. 43/2007</span>SGSO — Operational Safety
+                      Management for drilling and production</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. 41/2015</span>Subsea systems safety
+                      management</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">Bureau Veritas</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">NR 445</span>Classification of Offshore Units —
+                      structural, machinery &amp; safety systems</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">NR 459</span>Process Systems — completion and
+                      well control</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">NR 493</span>Mooring Systems — applicable to
+                      floating units</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">IVBS-BRA</span>Brazil-specific independent
+                      verification bridging ANP, DPC, NR-37 &amp; IBAMA</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">International Cross-References</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">BSEE (US)</span>Offshore Incident Statistics —
+                      global precedent for analogous failure modes</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">HSE UK</span>Hydrocarbon Release Database —
+                      international benchmark for well control events</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel cs-panel">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">07</div>
+                  <div class="panel-title">Summary of Open Data Findings</div>
+                  <div class="panel-subtitle">From Official Sources</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <blockquote class="cs-quote">
+                  "The failure modes identified in this analysis are documented in the ANP's public E&amp;P incident
+                  database (SISO-Incidentes, 30,054 records, 2013 – March 26, 2026 — available at
+                  dados.gov.br/organization/anp under Freedom of Information Law, Lei nº 12.527/2011). CSB barrier
+                  element failures rose from 1 incident in 2016 to 391 in 2025, representing the dominant well integrity
+                  risk category in Brazilian E&amp;P. Since Halliburton and Tejas operate as service companies on
+                  installations licensed to ANP operators, their equipment and services fall within the barrier systems
+                  captured by these statistics, making compliance with ANP Resolution No. 46/2016 (SGIP) and Bureau
+                  Veritas NR 445 directly and mandatorily applicable."
+                </blockquote>
+                <div class="cs-quote-source">— CIS Incident Analysis, March 2026</div>
+                <a href="/" class="cs-download-btn" style="background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                  </svg>
+                  Return to Disclaimer
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="kpi-grid" id="kpiGrid"></div>
+
+          <div class="charts-row">
+            <!-- Stacked bar: year breakdown by category -->
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Failures Over Time — by Category</div>
+                  <div class="panel-subtitle">Industry service domain: CSB · Kick · Structural · Well Control
+                    (2013–2026)</div>
+                </div>
+                <div class="legend-chips" id="overviewLegend"></div>
+              </div>
+              <div class="panel-body">
+                <canvas id="overviewChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Donut: category distribution -->
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Failure Distribution</div>
+                  <div class="panel-subtitle">Proportional breakdown by type</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="donutChart" style="max-width:220px;max-height:220px;"></canvas>
+                <div class="donut-labels" id="donutLabels"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── TIMELINE SECTION ── -->
+        <section id="section-timeline" class="dash-section">
+          <div class="section-header">
+            <h2>Timeline Analysis</h2>
+            <p>CSB barrier element failures rose <strong>+39,000%</strong> from 2016 to 2025 — the dominant
+              well-integrity risk in Brazilian E&amp;P</p>
+          </div>
+
+          <div class="charts-row">
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Annual CSB Failure Trend</div>
+                  <div class="panel-subtitle">Solidary Barrier Assembly — exponential growth from 2020</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <canvas id="csbTrendChart"></canvas>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Monthly Pattern</div>
+                  <div class="panel-subtitle">Incident frequency by month</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="monthChart" style="max-width:260px;max-height:260px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Multi-Category Year-by-Year Comparison</div>
+                <div class="panel-subtitle">Industry failure modes tracked simultaneously</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <canvas id="multiLineChart" style="max-height:260px;"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── FAILURE TYPES SECTION ── -->
+        <section id="section-breakdown" class="dash-section">
+          <div class="section-header">
+            <h2>Failure Type Deep-Dive</h2>
+            <p>Correlation between ANP incident classification and CSB barrier systems</p>
+          </div>
+
+          <div class="breakdown-grid">
+            <div class="panel breakdown-card" id="card-csb">
+              <div class="breakdown-icon csb-icon">⚙️</div>
+              <div class="breakdown-title">CSB Barrier Element Failures</div>
+              <div class="breakdown-count" id="cnt-csb">—</div>
+              <div class="breakdown-desc">Failure of Solidary Barrier Assembly element. HAL provides BOP, wellhead, and
+                completion barrier elements directly within this classification.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 445</div>
+            </div>
+            <div class="panel breakdown-card" id="card-kick">
+              <div class="breakdown-icon kick-icon">🔴</div>
+              <div class="breakdown-title">Primary Barrier Loss (Kicks)</div>
+              <div class="breakdown-count" id="cnt-kick">—</div>
+              <div class="breakdown-desc">Primary barrier failure (kick). Influx of formation fluid — directly linked to
+                mud weight management and BOP response systems of the kind supplied by Halliburton.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 459</div>
+            </div>
+            <div class="panel breakdown-card" id="card-struct">
+              <div class="breakdown-icon struct-icon">🏗️</div>
+              <div class="breakdown-title">Structural Well Failures</div>
+              <div class="breakdown-count" id="cnt-struct">—</div>
+              <div class="breakdown-desc">Structural failure in well. Casing, tubing, and liner failures — Tejas
+                specializes in the kind of flow control and completion equipment within this failure mode.</div>
+              <div class="breakdown-reg">BV NR 445 · NR-37</div>
+            </div>
+            <div class="panel breakdown-card" id="card-wc">
+              <div class="breakdown-icon wc-icon">💥</div>
+              <div class="breakdown-title">Loss of Well Control</div>
+              <div class="breakdown-count" id="cnt-wc">—</div>
+              <div class="breakdown-desc">Loss of well control (minor, significant, major). The most severe category —
+                involves complete failure of both primary and secondary barrier systems.</div>
+              <div class="breakdown-reg">ANP Res. 46/2016 · NORMAM-01</div>
+            </div>
+          </div>
+
+          <!-- Severity breakdown -->
+          <div class="charts-row">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Severity Distribution</div>
+                  <div class="panel-subtitle">Per BV / ANP classification</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="severityChart" style="max-width:240px;max-height:240px;"></canvas>
+              </div>
+            </div>
+
+            <div class="panel chart-panel-wide">
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">Type × Severity Correlation Matrix</div>
+                  <div class="panel-subtitle">Cross-reference failure category with severity level</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="matrix-table" id="matrixTable"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── REGISTRY SECTION ── -->
+        <section id="section-registry" class="dash-section">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Incident Registry</div>
+                <div class="panel-subtitle">HAL/Tejas-relevant ANP records — filterable &amp; searchable</div>
+              </div>
+            </div>
+            <div class="table-toolbar">
+              <div class="search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search incident number…">
+              </div>
+              <div class="table-count" id="tableCount">— incidents</div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="incTable">
+                <thead>
+                  <tr>
+                    <th>Incident #</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Failure Type (ANP)</th>
+                    <th>Severity</th>
+                    <th>Event Class</th>
+                    <th>Regulation</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="pagination"></div>
+          </div>
+        </section>
+
+        <!-- ── ACTION PLAN SECTION ── -->
+        <section id="section-action" class="dash-section">
+          <div class="cs-header" style="background: linear-gradient(135deg, var(--teal) 0%, #064e3b 100%);">
+            <div class="cs-header-left">
+              <div class="cs-badge" style="background: rgba(255,255,255,0.2);">CIS LLC · ESG · ISO 37301</div>
+              <h2 style="font-size: 26px; font-weight: 900; letter-spacing: -0.02em; color: #fff;">Strategic Action Plan
+              </h2>
+              <p class="cs-subtitle" style="font-size: 14px;">Transforming litigation and compliance from reactive to
+                active.</p>
+            </div>
+          </div>
+
+          <div class="charts-row" style="margin-top: 14px;">
+            <div class="panel cs-panel" style="flex: 1.8;">
+              <div class="panel-header">
+                <div class="panel-title">The Path from Reactive to Active Compliance</div>
+              </div>
+              <div class="panel-body cs-body">
+                <p>The traditional approach to subcontractor liability is highly vulnerable to regulatory entropy. When
+                  failures occur, operators are caught in a reactive web of litigation and fact-finding, frantically
+                  piecing together exposure after the damage is done.</p>
+                <br>
+                <p>By establishing an <strong>Encapsulated Compliance Workspace</strong>, we enforce the <em>Umbrella
+                    Contract</em> as a legal and operational shield. This transforms research and litigation processes
+                  from reactive crisis management into an active, intelligent framework.</p>
+                <br>
+                <div class="cs-findings">
+                  <div class="cs-finding-title">Call to Intelligence &amp; Innovation</div>
+                  <div class="cs-finding-list">
+                    <div class="cs-finding">
+                      <div class="cs-finding-accent" style="background: var(--teal)"></div>
+                      <div>
+                        <strong>Decrease Systematic Entropy:</strong> Map global regulations into structured ontologies,
+                        filtering out noise so providers only operate inside their strict compliance boundaries.
+                      </div>
+                    </div>
+                    <div class="cs-finding">
+                      <div class="cs-finding-accent" style="background: var(--blue)"></div>
+                      <div>
+                        <strong>The Umbrella Shield:</strong> Embed specific regulatory parameters directly into the
+                        bidding process and vendor contracts. This cleanly transfers precise liability to the service
+                        provider, protecting the operator.
+                      </div>
+                    </div>
+                    <div class="cs-finding">
+                      <div class="cs-finding-accent" style="background: var(--green)"></div>
+                      <div>
+                        <strong>Next-Level ESG:</strong> Beyond basic reporting, real-time validation of ISO standards
+                        elevates corporate governance directly into the operational workflows, proving verifiable
+                        ethical practices to stakeholders.
+                      </div>
+                    </div>
+                    <div class="cs-finding">
+                      <div class="cs-finding-accent" style="background: var(--purple)"></div>
+                      <div>
+                        <strong>Become a Design Partner:</strong> Partner with CIS LLC to design and integrate these
+                        active intelligence pipelines natively into your corporate ecosystems, creating a continuously
+                        adapting compliance network.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel cs-panel" style="flex: 1;">
+              <div class="panel-header">
+                <div class="panel-title">ISO Standard Integration</div>
+              </div>
+              <div class="panel-body cs-body" style="font-size: 13px;">
+                <p style="margin-bottom: 14px;">To achieve a robust Compliance Management System (CMS), CIS directly
+                  applies the following international standards:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px;">
+                  <li><strong>ISO 37301:</strong> Manage the full range of compliance obligations and mitigate risks.
+                  </li>
+                  <li><strong>ISO 37001:</strong> Prevent, detect, and respond to bribery.</li>
+                  <li><strong>ISO 37302:</strong> Establish effective compliance training and awareness.</li>
+                  <li><strong>ISO 37303:</strong> Conduct rigorous internal investigations &amp; due diligence.</li>
+                </ul>
+                <p style="color: var(--text3); font-style: italic; line-height: 1.6;">
+                  ISO 37301 is crucial for organizations looking to ensure adherence to laws, regulations, and ethical
+                  standards, enhancing trust among stakeholders and improving operational efficiency.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel cs-panel" style="margin-top: 14px;">
+            <div class="panel-header">
+              <div class="panel-title">Core Pillars of the Intelligence System</div>
+            </div>
+            <div class="panel-body cs-body">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div>
+                  <h4 style="color: var(--text); font-size: 14px; font-weight: 800; margin-bottom: 8px;">1. Regulatory
+                    Ontologies &amp; Maps</h4>
+                  <p style="font-size: 13px; color: var(--text2); line-height: 1.6;">The Regulatory Ontology Engine
+                    structures flat documents into interconnected networks covering an array of jurisdictions (e.g., ANP
+                    Brazil, BSEE USA). The Global Regulatory Map makes tracing these operational rules visual and
+                    intuitive.</p>
+                </div>
+                <div>
+                  <h4 style="color: var(--text); font-size: 14px; font-weight: 800; margin-bottom: 8px;">2. Workspace
+                    Encapsulation</h4>
+                  <p style="font-size: 13px; color: var(--text2); line-height: 1.6;">We create a tailored boundary
+                    analyzing a provider's exact services and geography. This encapsulates the compliance burden to only
+                    what applies to them, effectively cutting through global regulatory noise.</p>
+                </div>
+                <div>
+                  <h4 style="color: var(--text); font-size: 14px; font-weight: 800; margin-bottom: 8px;">3. Audit
+                    Verification &amp; Umbrella Contracts</h4>
+                  <p style="font-size: 13px; color: var(--text2); line-height: 1.6;">The embedded Audit Tracking Plan
+                    directly sets up dynamic Umbrella Contracts. This approach leverages compliance
+                    defensively—explicitly transferring liability and creating a provable legal shield for the operator.
+                  </p>
+                </div>
+                <div>
+                  <h4 style="color: var(--text); font-size: 14px; font-weight: 800; margin-bottom: 8px;">4. Interactive
+                    Intelligence</h4>
+                  <p style="font-size: 13px; color: var(--text2); line-height: 1.6;">CIS presents this data via an
+                    advanced, interactive interface with global maps, node networks, and 3D frameworks designed to track
+                    compliance scores and evaluate incident liabilities in real-time.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── CASE STUDY SECTION ── -->
+
+        <!-- ── ACTION ITEMS SECTION ── -->
+        <section id="section-actionitems" class="dash-section">
+
+          <!-- Header -->
+          <div class="ai-hero">
+            <div class="ai-hero-left">
+              <div class="cs-badge" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);">CIS
+                LLC · ISO 37301 · Cortex</div>
+              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Action Items
+              </h2>
+              <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">Structured
+                compliance workflow derived from the CIS Intelligence System and ISO 37301 framework — applicable to
+                HAL/Tejas operations in Brazil.</p>
+            </div>
+            <div class="ai-hero-stats">
+              <div class="ai-stat">
+                <div class="ai-stat-val" id="aiDoneCount">0</div>
+                <div class="ai-stat-label">Completed</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-val" id="aiTotalCount">0</div>
+                <div class="ai-stat-label">Total Items</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-val" id="aiPct">0%</div>
+                <div class="ai-stat-label">Progress</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="ai-progress-wrap">
+            <div class="ai-progress-bar" id="aiProgressBar" style="width:0%"></div>
+          </div>
+
+          <!-- ISO Standards Row -->
+          <div class="ai-iso-grid">
+            <div class="ai-iso-card" style="--iso-c:#2563eb">
+              <div class="ai-iso-num">ISO 37301</div>
+              <div class="ai-iso-title">Compliance Management System</div>
+              <div class="ai-iso-desc">Manage the full range of compliance obligations and mitigate risks. Core
+                framework for this action plan.</div>
+              <a href="https://www.iso.org/standard/75080.html" target="_blank" class="ai-iso-link">iso.org →</a>
+            </div>
+            <div class="ai-iso-card" style="--iso-c:#0d9488">
+              <div class="ai-iso-num">ISO 37001</div>
+              <div class="ai-iso-title">Anti-Bribery Management</div>
+              <div class="ai-iso-desc">Prevent, detect, and respond to bribery in contracting and subcontractor
+                relationships.</div>
+              <a href="https://www.iso.org/standard/65034.html" target="_blank" class="ai-iso-link">iso.org →</a>
+            </div>
+            <div class="ai-iso-card" style="--iso-c:#7c3aed">
+              <div class="ai-iso-num">ISO 37302</div>
+              <div class="ai-iso-title">Compliance Training</div>
+              <div class="ai-iso-desc">Establish effective compliance training, development, and awareness programs
+                across the organization.</div>
+              <a href="https://www.iso.org/standard/79193.html" target="_blank" class="ai-iso-link">iso.org →</a>
+            </div>
+            <div class="ai-iso-card" style="--iso-c:#f59e0b">
+              <div class="ai-iso-num">ISO 37303</div>
+              <div class="ai-iso-title">Due Diligence & Investigations</div>
+              <div class="ai-iso-desc">Conduct rigorous internal investigations and perform due diligence on
+                subcontractors and suppliers.</div>
+              <a href="https://www.iso.org/standard/79194.html" target="_blank" class="ai-iso-link">iso.org →</a>
+            </div>
+          </div>
+
+          <!-- Pillar 1 -->
+          <div class="ai-pillar">
+            <div class="ai-pillar-header" style="--ph-c:#2563eb">
+              <div class="ai-pillar-num">01</div>
+              <div>
+                <div class="ai-pillar-title">Regulatory Ontologies &amp; Maps</div>
+                <div class="ai-pillar-sub">Map all applicable regulations into structured ontologies — ANP, BV, BSEE,
+                  PSA and 15+ jurisdictions</div>
+              </div>
+              <div class="ai-pillar-progress" id="pp1">0 / 4</div>
+            </div>
+            <div class="ai-checklist">
+              <label class="ai-item" data-pillar="1">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Map applicable ANP regulations to HAL/Tejas service scope</div>
+                  <div class="ai-item-desc">Identify all ANP resolutions (46/2016 SGIP, 43/2007 SGSO, 41/2015) that
+                    directly apply based on declared service types: Cementing, Wireline, BOP services, Completion
+                    equipment.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#2563eb">ANP</span><span class="ai-tag"
+                      style="--t-c:#ef4444">SGIP</span><span class="ai-tag" style="--t-c:#0d9488">ISO 37301</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="1">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Cross-reference Bureau Veritas NR standards to each service line</div>
+                  <div class="ai-item-desc">Link BV NR 445 (offshore classification), NR 459 (process systems), and NR
+                    493 (mooring) to specific HAL well services and Tejas completion equipment used on classified
+                    installations.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#1e40af">BV NR 445</span><span
+                      class="ai-tag" style="--t-c:#1e40af">BV NR 459</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="1">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Establish international benchmark cross-references</div>
+                  <div class="ai-item-desc">Link equivalent global standards — BSEE (USA), HSE-UK hydrocarbon release
+                    database — to build precedent analogies for Brazilian E&amp;P failure modes relevant to HAL/Tejas
+                    operations.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">BSEE</span><span class="ai-tag"
+                      style="--t-c:#7c3aed">HSE-UK</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="1">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Submit regulatory ontology for CIS Cortex ingestion</div>
+                  <div class="ai-item-desc">Package the finalized regulatory map as a structured dataset for ingestion
+                    into the Cortex Regulatory Ontology Engine, enabling visual exploration of the compliance graph via
+                    the Global Regulatory Map.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">Cortex</span><span class="ai-tag"
+                      style="--t-c:#0d9488">CIS</span></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="ai-pillar">
+            <div class="ai-pillar-header" style="--ph-c:#0d9488">
+              <div class="ai-pillar-num">02</div>
+              <div>
+                <div class="ai-pillar-title">Workspace Encapsulation</div>
+                <div class="ai-pillar-sub">Define the exact compliance boundary for HAL and Tejas — filter global
+                  regulatory noise to only what applies</div>
+              </div>
+              <div class="ai-pillar-progress" id="pp2">0 / 4</div>
+            </div>
+            <div class="ai-checklist">
+              <label class="ai-item" data-pillar="2">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Declare Halliburton service types and operational jurisdictions</div>
+                  <div class="ai-item-desc">Formally declare HAL's active service categories in Brazil (Drilling Fluids,
+                    Cementing, Completion Tools, BOP systems, MWD/LWD) to generate the encapsulated compliance boundary
+                    within CIS.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">HAL</span><span class="ai-tag"
+                      style="--t-c:#0d9488">CIS Workspace</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="2">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Declare Tejas service types and operational jurisdictions</div>
+                  <div class="ai-item-desc">Formally declare Tejas's active categories — Flow Control, Completion
+                    Packers, Safety Valves, Wellheads — and map to specific ANP-licensed installations to filter
+                    applicable barrier system regulations.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#f59e0b">Tejas</span><span class="ai-tag"
+                      style="--t-c:#0d9488">CIS Workspace</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="2">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Validate encapsulation against 2,884 CSB failure records</div>
+                  <div class="ai-item-desc">Verify the encapsulated workspace accurately covers all failure modes
+                    captured in the ANP SISO dataset (CSB, Kick, Structural, Well Control) that intersect with declared
+                    HAL/Tejas service categories.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">CSB</span><span class="ai-tag"
+                      style="--t-c:#f59e0b">Kick</span><span class="ai-tag" style="--t-c:#2563eb">Structural</span>
+                  </div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="2">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Remove regulatory noise — confirm out-of-scope standards</div>
+                  <div class="ai-item-desc">Explicitly document which regulations are NOT applicable to HAL/Tejas (e.g.,
+                    downstream regulations, crew certification under NORMAM not related to service personnel) to keep
+                    the compliance workspace clean and defensible.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#6b7280">Scoping</span><span
+                      class="ai-tag" style="--t-c:#0d9488">ISO 37301</span></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="ai-pillar">
+            <div class="ai-pillar-header" style="--ph-c:#7c3aed">
+              <div class="ai-pillar-num">03</div>
+              <div>
+                <div class="ai-pillar-title">Audit Verification &amp; Umbrella Contracts</div>
+                <div class="ai-pillar-sub">Generate the Audit Tracking Plan and embed compliance obligations into
+                  binding Umbrella Contracts</div>
+              </div>
+              <div class="ai-pillar-progress" id="pp3">0 / 5</div>
+            </div>
+            <div class="ai-checklist">
+              <label class="ai-item" data-pillar="3">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Generate CIS Audit Tracking and Verification Plan</div>
+                  <div class="ai-item-desc">Using the encapsulated workspace, produce the formal Audit Tracking Plan
+                    that assigns regulatory obligations, timelines, and verification owners for each applicable standard
+                    across HAL and Tejas.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Audit Plan</span><span
+                      class="ai-tag" style="--t-c:#0d9488">CIS</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="3">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Embed ANP Res. 46/2016 SGIP obligations into contract clauses</div>
+                  <div class="ai-item-desc">Translate SGIP well integrity requirements into specific contractual clauses
+                    within the Umbrella Contract, explicitly assigning liability for CSB barrier element performance to
+                    the service provider.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">SGIP</span><span class="ai-tag"
+                      style="--t-c:#7c3aed">Umbrella</span><span class="ai-tag" style="--t-c:#0d9488">ISO 37301</span>
+                  </div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="3">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Embed BV NR 445 &amp; NR 459 certification requirements</div>
+                  <div class="ai-item-desc">Require contractual evidence of BV classification compliance for all
+                    offshore units where HAL/Tejas services are rendered. Mandate periodic certification renewal as a
+                    contract condition.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#1e40af">BV NR 445</span><span
+                      class="ai-tag" style="--t-c:#1e40af">BV NR 459</span><span class="ai-tag"
+                      style="--t-c:#7c3aed">Umbrella</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="3">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Implement ISO 37001 anti-bribery clause in bidding process</div>
+                  <div class="ai-item-desc">Incorporate ISO 37001-aligned anti-bribery provisions into the procurement
+                    and bidding process for HAL/Tejas engagements, ensuring verifiable ethical practices throughout the
+                    contracting lifecycle.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">ISO 37001</span><span
+                      class="ai-tag" style="--t-c:#7c3aed">Procurement</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="3">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Validate Umbrella Contract with legal and regulatory counsel</div>
+                  <div class="ai-item-desc">Submit the generated Umbrella Contract to Brazilian legal counsel and an
+                    independent BV-certified regulatory advisor for validation, ensuring it constitutes a legally
+                    defensible liability transfer instrument under Brazilian law.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Legal</span><span class="ai-tag"
+                      style="--t-c:#1e40af">BV-IVBS</span></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="ai-pillar">
+            <div class="ai-pillar-header" style="--ph-c:#f59e0b">
+              <div class="ai-pillar-num">04</div>
+              <div>
+                <div class="ai-pillar-title">Interactive Cortex Intelligence</div>
+                <div class="ai-pillar-sub">Deploy the CIS platform and integrate real-time compliance score tracking and
+                  ESG reporting</div>
+              </div>
+              <div class="ai-pillar-progress" id="pp4">0 / 4</div>
+            </div>
+            <div class="ai-checklist">
+              <label class="ai-item" data-pillar="4">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Onboard HAL/Tejas into Cortex CIS platform</div>
+                  <div class="ai-item-desc">Set up the Cortex CIS workspace for both entities — configure service types,
+                    jurisdictions, and incident data feeds. Establish the live compliance score dashboard visible to
+                    operators and management.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">Cortex</span><span class="ai-tag"
+                      style="--t-c:#0d9488">CIS Platform</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="4">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Configure real-time ANP incident data correlation</div>
+                  <div class="ai-item-desc">Connect the ANP SISO-Incidentes live data pipeline into Cortex. Set up
+                    automated alerts when CSB or Kick event counts breach predefined thresholds, triggering immediate
+                    compliance review workflows.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">ANP Live</span><span
+                      class="ai-tag" style="--t-c:#f59e0b">Alerts</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="4">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Implement ISO 37302 compliance training program</div>
+                  <div class="ai-item-desc">Design and deploy a compliance training and awareness program for all
+                    HAL/Tejas personnel working on ANP-licensed installations, covering SGIP, BV NR 445/459, and NR-37
+                    requirements, tracked within Cortex.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">ISO 37302</span><span
+                      class="ai-tag" style="--t-c:#0d9488">Training</span></div>
+                </div>
+              </label>
+              <label class="ai-item" data-pillar="4">
+                <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
+                <div class="ai-item-body">
+                  <div class="ai-item-title">Become a CIS Design Partner — integrate as innovation partner</div>
+                  <div class="ai-item-desc">Formalize the relationship with CIS LLC as a Design Partner. Co-develop
+                    active intelligence pipelines natively integrated into HAL/Tejas corporate ecosystems — creating a
+                    continuously adapting, proactive compliance network aligned with ISO 37303 due diligence
+                    requirements.</div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">Design Partner</span><span
+                      class="ai-tag" style="--t-c:#7c3aed">ISO 37303</span><span class="ai-tag"
+                      style="--t-c:#f59e0b">ESG</span></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- CTA footer -->
+          <div class="ai-cta">
+            <div class="ai-cta-text">
+              <div style="font-size:15px;font-weight:800;color:var(--text);">Ready to activate the Cortex CIS platform?
+              </div>
+              <div style="font-size:13px;color:var(--text2);margin-top:4px;">Partner with CIS LLC to transform your
+                compliance posture from reactive to active intelligence — governing 18 jurisdictions, 1,130+
+                regulations, zero noise.</div>
+            </div>
+            <a href="/" class="cs-download-btn"
+              style="flex-shrink:0; background:#f1f5f9; color:#334155; border:1px solid #cbd5e1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+              Close Dashboard
+            </a>
+          </div>
+
+        </section>
+
+        <!-- ── POÇOS ATIVOS SECTION ── -->
+        <section id="section-wells" class="dash-section">
+
+          <!-- Header -->
+          <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);">
+            <div class="cs-header-left">
+              <div class="cs-badge" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);">ANP ·
+                SISO · Open Data</div>
+              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Active
+                Exploratory Wells</h2>
+              <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">34 active
+                exploratory wells registered with ANP, cross-mapped against 30,054 SISO incident records to surface
+                operational risk exposure by basin, intervention type, and environment.</p>
+            </div>
+            <div class="ai-hero-stats">
+              <div class="ai-stat">
+                <div class="ai-stat-val">34</div>
+                <div class="ai-stat-label">Active Wells</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-val">7</div>
+                <div class="ai-stat-label">Operators</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-val">7</div>
+                <div class="ai-stat-label">Basins</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ANP Context & Official Sources -->
+          <div
+            style="background: #ffffff; border: 1px solid var(--border); border-radius: 8px; margin: 16px 20px 0; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="margin-bottom: 16px;">
+              <h3
+                style="font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                Data Context &amp; Official Sources
+              </h3>
+              <p style="font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 12px;">
+                The information provided originates from the National Agency of Petroleum, Natural Gas and Biofuels
+                (ANP) of Brazil.
+                The specific source for these data is the Public Data Consultation (CDP) dashboard, specifically the
+                section on active exploratory wells.
+                The listed wells are exploratory wells where there has been recent or ongoing intervention (drilling,
+                testing, or restoration) as registered by the ANP in early 2026.
+              </p>
+            </div>
+
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px;">
+              <a href="https://www.gov.br/anp/pt-br/centrais-de-conteudo/paineis-dinamicos-da-anp/paineis-dinamicos-de-exploracao-e-producao-de-oleo-e-gas"
+                target="_blank" rel="noopener"
+                style="display: block; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--blue);">ANP - Public Data Consultation (CDP)
+                  ↗</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 4px;">Official dashboard with the
+                  real-time list of active exploratory wells.</div>
+              </a>
+              <a href="https://dados.gov.br/dados/organizacoes/visualizar/agencia-nacional-do-petroleo-gas-natural-e-biocombustiveis-anp"
+                target="_blank" rel="noopener"
+                style="display: block; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--blue);">ANP - Open Data (E&amp;P) ↗</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 4px;">Portal providing the inventory of
+                  exploration and production data.</div>
+              </a>
+              <a href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/dados-es-p"
+                target="_blank" rel="noopener"
+                style="display: block; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--blue);">ANP - E&amp;P Data ↗</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 4px;">Institutional page with links to
+                  active and completed wells tables.</div>
+              </a>
+            </div>
+
+            <div
+              style="padding: 12px; background: rgba(59, 130, 246, 0.05); border: 1px dashed rgba(59, 130, 246, 0.3); border-radius: 6px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px;">Key Data Elements
+                Captured:</div>
+              <ul style="font-size: 12px; color: var(--text2); margin: 0; padding-left: 20px; line-height: 1.6;">
+                <li><strong>Operator:</strong> Petrobras, Alvopetro, Origem Alagoas, among others.</li>
+                <li><strong>Environment:</strong> Identifies whether the operation is Onshore (TERRA) or Offshore (MAR).
+                </li>
+                <li><strong>Drilling Start:</strong> Dates confirming the currency of the records (many in 2025 and
+                  early 2026).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Summary KPI row -->
+          <div class="cs-metrics-grid" style="margin-top:14px;">
+            <div class="cs-metric" style="--m-accent:#3b82f6">
+              <div class="cs-metric-val" style="color:#3b82f6">26</div>
+              <div class="cs-metric-label">Onshore (TERRA)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#0d9488">
+              <div class="cs-metric-val" style="color:#0d9488">8</div>
+              <div class="cs-metric-label">Offshore (MAR)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#f59e0b">
+              <div class="cs-metric-val" style="color:#f59e0b">13</div>
+              <div class="cs-metric-label">Completion</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#ef4444">
+              <div class="cs-metric-val" style="color:#ef4444">13</div>
+              <div class="cs-metric-label">Restoration</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#7c3aed">
+              <div class="cs-metric-val" style="color:#7c3aed">4</div>
+              <div class="cs-metric-label">Drilling</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#6b7280">
+              <div class="cs-metric-val" style="color:#6b7280">4</div>
+              <div class="cs-metric-label">Abandonment / Evaluation</div>
+            </div>
+          </div>
+
+          <!-- Risk Mapping Panel -->
+          <div class="charts-row" style="margin-top:14px;">
+            <div class="panel cs-panel" style="flex:1.4;">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">01</div>
+                  <div class="panel-title">Intervention Objective → Failure Mode Mapping</div>
+                  <div class="panel-subtitle">Each active well's operation type maps directly to a dominant ANP incident
+                    category</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="cs-table">
+                  <thead>
+                    <tr>
+                      <th>Objetive</th>
+                      <th>Wells</th>
+                      <th>Dominant Incident Type</th>
+                      <th>ANP Count</th>
+                      <th>HAL/Tejas Domain</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong style="color:#7c3aed">Drilling</strong></td>
+                      <td>4</td>
+                      <td>SSO - Falha no Blowout Preventer (BOP)</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:70%;background:#7c3aed"></div>1,215
+                        </div>
+                      </td>
+                      <td>HAL — BOP, Drilling Fluids, MWD/LWD</td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong style="color:#f59e0b">Completion</strong></td>
+                      <td>13</td>
+                      <td>SSO - CSB element failure</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:72%;background:#f59e0b"></div>1,233
+                        </div>
+                      </td>
+                      <td>Tejas — Packers, Safety Valves, Wellheads</td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong style="color:#ef4444">Restoration</strong></td>
+                      <td>13</td>
+                      <td>SSO - Primary containment loss (oil)</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:52%;background:#ef4444"></div>887
+                        </div>
+                      </td>
+                      <td>HAL + Tejas — Barrier element systems</td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#6b7280">Abandonment</strong></td>
+                      <td>3</td>
+                      <td>SSO - Minor oil discharge</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:61%;background:#6b7280"></div>1,037
+                        </div>
+                      </td>
+                      <td>HAL — Cementing, P&amp;A operations</td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#0d9488">Assessment</strong></td>
+                      <td>1</td>
+                      <td>SSO - High potential near miss</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:100%;background:#0d9488"></div>2,478
+                        </div>
+                      </td>
+                      <td>HAL — Wireline, Formation Evaluation</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="cs-note" style="margin-top:10px">⚠ Incident counts are national totals (2013–2026). Wells map
+                  to failure modes by service type intersection, not direct attribution.</p>
+              </div>
+            </div>
+
+            <div class="panel cs-panel" style="flex:1;">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">02</div>
+                  <div class="panel-title">Basin → Risk Profile</div>
+                  <div class="panel-subtitle">Risk tier per operating basin</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="cs-table">
+                  <thead>
+                    <tr>
+                      <th>Basin</th>
+                      <th>Wells</th>
+                      <th>Environment</th>
+                      <th>Risk Tier</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong>Campos</strong></td>
+                      <td>4</td>
+                      <td>MAR</td>
+                      <td><span style="color:#ef4444;font-weight:700">🔴 CRITICAL</span></td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong>Santos</strong></td>
+                      <td>2</td>
+                      <td>MAR</td>
+                      <td><span style="color:#ef4444;font-weight:700">🔴 CRITICAL</span></td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong>Foz do Amazonas</strong></td>
+                      <td>1</td>
+                      <td>MAR</td>
+                      <td><span style="color:#ef4444;font-weight:700">🔴 CRITICAL</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Recôncavo</strong></td>
+                      <td>11</td>
+                      <td>TERRA</td>
+                      <td><span style="color:#f59e0b;font-weight:700">🟡 ELEVATED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Alagoas</strong></td>
+                      <td>9</td>
+                      <td>TERRA</td>
+                      <td><span style="color:#f59e0b;font-weight:700">🟡 ELEVATED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Potiguar</strong></td>
+                      <td>5</td>
+                      <td>TERRA</td>
+                      <td><span style="color:#22c55e;font-weight:700">🟢 MODERATE</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Sergipe</strong></td>
+                      <td>2</td>
+                      <td>TERRA/MAR</td>
+                      <td><span style="color:#22c55e;font-weight:700">🟢 MODERATE</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="cs-note" style="margin-top:10px">Offshore (MAR) wells inherit BOP failure, ESD, and oil
+                  containment incident exposure. Onshore (TERRA) carries SSO injury and fire risk.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Well Table -->
+          <div class="panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">03</div>
+                <div class="panel-title">Well Registry — All 34 Active Exploratory Wells</div>
+                <div class="panel-subtitle">Source: ANP — Resultado de Active Exploratory Wells (Open Data)</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="wellSearch" class="search-input" placeholder="Search well name, operator…"
+                  style="width:200px;" oninput="filterWells()">
+                <select id="wellFilterEnv" class="search-input" style="width:130px;padding:6px 10px;"
+                  onchange="filterWells()">
+                  <option value="">All Environments</option>
+                  <option value="TERRA">TERRA</option>
+                  <option value="MAR">MAR</option>
+                </select>
+              </div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="wellTable">
+                <thead>
+                  <tr>
+                    <th>Nome Poço ANP</th>
+                    <th>Operador</th>
+                    <th>Bacia</th>
+                    <th>Campo</th>
+                    <th>Objetivo</th>
+                    <th>Sonda</th>
+                    <th>Lâmina (m)</th>
+                    <th>Início Perfuração</th>
+                    <th>Ambiente</th>
+                  </tr>
+                </thead>
+                <tbody id="wellTableBody"></tbody>
+              </table>
+            </div>
+            <div style="font-size:12px;color:var(--text3);padding:10px 16px;" id="wellCount"></div>
+          </div>
+
+          <!-- ── HAL Failure Attribution Section ── -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">04</div>
+                <div class="panel-title">Halliburton — Assumed Failure Attribution by Service Domain</div>
+                <div class="panel-subtitle">14,182 ANP incidents (40.9% of total) map to HAL's declared service scope in
+                  Brazil — inferred from public service portfolio and incident type classification</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div
+                  style="background:#ef444418;border:1px solid #ef444440;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;color:#ef4444;">
+                  14,182 incidents mapped</div>
+                <a href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                  target="_blank" rel="noopener" class="cs-download-btn"
+                  style="font-size:11px;padding:6px 12px;">Source: ANP SISO ↗</a>
+              </div>
+            </div>
+            <div class="panel-body" style="padding:0;">
+
+              <!-- Attribution methodology note -->
+              <div
+                style="background:#f8faff;border-bottom:1px solid var(--border);padding:12px 20px;font-size:12px;color:var(--text2);line-height:1.6;">
+                ⚠ <strong>Attribution methodology:</strong> Halliburton does not appear by name in the ANP
+                SISO-Incidentes database — the ANP records incidents under the <em>licensed operator</em> (Petrobras,
+                Equinor, etc.). Attribution is inferred by cross-referencing the <strong>incident type</strong> with
+                HAL's <a href="https://www.halliburton.com/en/services" target="_blank" rel="noopener"
+                  class="cs-link">declared Brazil E&amp;P service portfolio</a>, consistent with the methodology used by
+                regulators under <a
+                  href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                  target="_blank" rel="noopener" class="cs-link">ANP Res. 46/2016 (SGIP)</a>.
+              </div>
+
+              <!-- Domain 1: BOP & Well Control -->
+              <div class="hal-domain" style="border-bottom:1px solid var(--border);">
+                <div class="hal-domain-header" style="background:linear-gradient(90deg,#7c3aed0d,transparent);">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div style="width:4px;height:40px;background:#7c3aed;border-radius:2px;flex-shrink:0;"></div>
+                    <div>
+                      <div style="font-size:13px;font-weight:800;color:var(--text);">BOP &amp; Well Control Systems
+                      </div>
+                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Blowout Preventers · Pressure
+                        Control · Well Barriers · Kick Detection</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+                    <div style="font-size:22px;font-weight:900;color:#7c3aed;">1,653</div>
+                    <div>
+                      <div style="font-size:10px;color:var(--text3);">incidents</div>
+                      <a href="https://www.halliburton.com/en/services/well-control" target="_blank" rel="noopener"
+                        style="font-size:10px;color:#7c3aed;font-weight:600;">HAL Service ↗</a>
+                    </div>
+                  </div>
+                </div>
+                <table class="cs-table" style="margin:0;">
+                  <thead>
+                    <tr>
+                      <th>ANP Incident Type</th>
+                      <th>Count</th>
+                      <th>Share of Domain</th>
+                      <th>Regulation</th>
+                      <th>Open Source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - Falha no Blowout Preventer (BOP)</strong></td>
+                      <td>1,215</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:73%;background:#7c3aed"></div>73.5%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>Falha no Blowout Preventer (BOP)</td>
+                      <td>193</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:12%;background:#7c3aed88"></div>11.7%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - Primary barrier failure — kick</strong></td>
+                      <td>193</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:12%;background:#7c3aed"></div>11.7%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>Primary barrier failure — kick</td>
+                      <td>30</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:2%;background:#7c3aed88"></div>1.8%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>Perda de well control (menor / significante / maior)</td>
+                      <td>13</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:1%;background:#7c3aed88"></div>0.8%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Failure in drilling or intervention riser</td>
+                      <td>9</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:1%;background:#7c3aed88"></div>0.5%
+                        </div>
+                      </td>
+                      <td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units"
+                          target="_blank" rel="noopener" class="reg-link">BV NR 445 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Domain 2: Cementing & CSB -->
+              <div class="hal-domain" style="border-bottom:1px solid var(--border);">
+                <div class="hal-domain-header" style="background:linear-gradient(90deg,#ef44440d,transparent);">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div style="width:4px;height:40px;background:#ef4444;border-radius:2px;flex-shrink:0;"></div>
+                    <div>
+                      <div style="font-size:13px;font-weight:800;color:var(--text);">Cementing &amp; Barrier Systems
+                        (CSB)</div>
+                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Primary Cementing · Zonal Isolation
+                        · Solidary Barrier Assembly · Well Integrity</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+                    <div style="font-size:22px;font-weight:900;color:#ef4444;">2,922</div>
+                    <div>
+                      <div style="font-size:10px;color:var(--text3);">incidents</div>
+                      <a href="https://www.halliburton.com/en/services/cementing" target="_blank" rel="noopener"
+                        style="font-size:10px;color:#ef4444;font-weight:600;">HAL Service ↗</a>
+                    </div>
+                  </div>
+                </div>
+                <table class="cs-table" style="margin:0;">
+                  <thead>
+                    <tr>
+                      <th>ANP Incident Type</th>
+                      <th>Count</th>
+                      <th>Share of Domain</th>
+                      <th>Regulation</th>
+                      <th>Open Source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - CSB element failure</strong></td>
+                      <td>1,233</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:42%;background:#ef4444"></div>42.2%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong>CSB element failure</strong></td>
+                      <td>1,153</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:39%;background:#ef4444aa"></div>39.5%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>CSB monitoring parameter outside design limit</td>
+                      <td>452</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:15%;background:#ef444466"></div>15.5%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - CSB monitoring parameter outside limit</td>
+                      <td>52</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:2%;background:#ef444466"></div>1.8%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Falha structural em poço / Falha structural em poço</td>
+                      <td>32</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:1%;background:#ef444466"></div>1.1%
+                        </div>
+                      </td>
+                      <td><a href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units"
+                          target="_blank" rel="noopener" class="reg-link">BV NR 445 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Domain 3: Drilling Fluids -->
+              <div class="hal-domain" style="border-bottom:1px solid var(--border);">
+                <div class="hal-domain-header" style="background:linear-gradient(90deg,#0d94880d,transparent);">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div style="width:4px;height:40px;background:#0d9488;border-radius:2px;flex-shrink:0;"></div>
+                    <div>
+                      <div style="font-size:13px;font-weight:800;color:var(--text);">Drilling Fluids &amp; Mud
+                        Engineering</div>
+                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Drill-in Fluids · Lost Circulation
+                        · Fluid Loss Control · Waste Management</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+                    <div style="font-size:22px;font-weight:900;color:#0d9488;">971</div>
+                    <div>
+                      <div style="font-size:10px;color:var(--text3);">incidents</div>
+                      <a href="https://www.halliburton.com/en/services/drilling-fluids" target="_blank" rel="noopener"
+                        style="font-size:10px;color:#0d9488;font-weight:600;">HAL Service ↗</a>
+                    </div>
+                  </div>
+                </div>
+                <table class="cs-table" style="margin:0;">
+                  <thead>
+                    <tr>
+                      <th>ANP Incident Type</th>
+                      <th>Count</th>
+                      <th>Share of Domain</th>
+                      <th>Regulation</th>
+                      <th>Open Source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - Circulation loss</strong></td>
+                      <td>252</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:26%;background:#0d9488"></div>25.9%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - Significant loss of primary containment of drilling fluid</strong></td>
+                      <td>214</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:22%;background:#0d9488"></div>22.0%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Minor/significant/major discharge — drilling fluid</td>
+                      <td>365</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:38%;background:#0d948888"></div>37.6%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Pipe sticking</td>
+                      <td>52</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:5%;background:#0d948866"></div>5.4%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>Circulation loss / Fluid disposal out of specification</td>
+                      <td>36</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:4%;background:#0d948866"></div>3.7%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Domain 4: Completion & ESD -->
+              <div class="hal-domain" style="border-bottom:1px solid var(--border);">
+                <div class="hal-domain-header" style="background:linear-gradient(90deg,#f59e0b0d,transparent);">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div style="width:4px;height:40px;background:#f59e0b;border-radius:2px;flex-shrink:0;"></div>
+                    <div>
+                      <div style="font-size:13px;font-weight:800;color:var(--text);">Completion &amp; Intervention Tools
+                        / ESD Systems</div>
+                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Safety Valves · Emergency Shutdown
+                        · Production Packers · Critical Safety Systems</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+                    <div style="font-size:22px;font-weight:900;color:#f59e0b;">8,600</div>
+                    <div>
+                      <div style="font-size:10px;color:var(--text3);">incidents</div>
+                      <a href="https://www.halliburton.com/en/services/completion-tools" target="_blank" rel="noopener"
+                        style="font-size:10px;color:#f59e0b;font-weight:600;">HAL Service ↗</a>
+                    </div>
+                  </div>
+                </div>
+                <table class="cs-table" style="margin:0;">
+                  <thead>
+                    <tr>
+                      <th>ANP Incident Type</th>
+                      <th>Count</th>
+                      <th>Share of Domain</th>
+                      <th>Regulation</th>
+                      <th>Open Source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - Minor level emergency shutdown</strong></td>
+                      <td>5,660</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:66%;background:#f59e0b"></div>65.8%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations"
+                          target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - ESD emergency shutdown (process plant)</strong></td>
+                      <td>1,945</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:23%;background:#f59e0b"></div>22.6%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations"
+                          target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Intermediate level emergency shutdown</td>
+                      <td>598</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:7%;background:#f59e0b88"></div>7.0%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations"
+                          target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Failure on demand of critical operational safety system</td>
+                      <td>248</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:3%;background:#f59e0b66"></div>2.9%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Emergency disconnection / Major level shutdown / Critical system failure</td>
+                      <td>149</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:2%;background:#f59e0b66"></div>1.7%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations"
+                          target="_blank" rel="noopener" class="reg-link">BV NR 459 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Domain 5: MWD/LWD / Directional -->
+              <div class="hal-domain">
+                <div class="hal-domain-header" style="background:linear-gradient(90deg,#3b82f60d,transparent);">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div style="width:4px;height:40px;background:#3b82f6;border-radius:2px;flex-shrink:0;"></div>
+                    <div>
+                      <div style="font-size:13px;font-weight:800;color:var(--text);">Directional Drilling &amp; MWD/LWD
+                      </div>
+                      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Measurement While Drilling ·
+                        Logging · Radioactive Source Tools · Stuck Pipe</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+                    <div style="font-size:22px;font-weight:900;color:#3b82f6;">88</div>
+                    <div>
+                      <div style="font-size:10px;color:var(--text3);">incidents</div>
+                      <a href="https://www.halliburton.com/en/services/drilling-evaluation" target="_blank"
+                        rel="noopener" style="font-size:10px;color:#3b82f6;font-weight:600;">HAL Service ↗</a>
+                    </div>
+                  </div>
+                </div>
+                <table class="cs-table" style="margin:0;">
+                  <thead>
+                    <tr>
+                      <th>ANP Incident Type</th>
+                      <th>Count</th>
+                      <th>Share of Domain</th>
+                      <th>Regulation</th>
+                      <th>Open Source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong>SSO - Pipe sticking</strong></td>
+                      <td>52</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:59%;background:#3b82f6"></div>59.1%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>Pipe sticking</td>
+                      <td>16</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:18%;background:#3b82f688"></div>18.2%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 46/2016 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                    <tr>
+                      <td>SSO - Loss of radioactive source / Loss of radioactive source</td>
+                      <td>20</td>
+                      <td>
+                        <div class="cs-bar-cell">
+                          <div class="cs-bar" style="width:23%;background:#3b82f666"></div>22.7%
+                        </div>
+                      </td>
+                      <td><a
+                          href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso"
+                          target="_blank" rel="noopener" class="reg-link">ANP Res. 43/2007 ↗</a></td>
+                      <td><a
+                          href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                          target="_blank" rel="noopener" class="reg-link">ANP SISO ↗</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div><!-- /panel-body -->
+
+            <!-- Domain totals footer -->
+            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--border);">
+              <div style="padding:14px 16px;text-align:center;border-right:1px solid var(--border);">
+                <div style="font-size:18px;font-weight:900;color:#7c3aed;">1,653</div>
+                <div style="font-size:10px;color:var(--text3);margin-top:2px;">BOP &amp; Well Control</div>
+              </div>
+              <div style="padding:14px 16px;text-align:center;border-right:1px solid var(--border);">
+                <div style="font-size:18px;font-weight:900;color:#ef4444;">2,922</div>
+                <div style="font-size:10px;color:var(--text3);margin-top:2px;">Cementing &amp; CSB</div>
+              </div>
+              <div style="padding:14px 16px;text-align:center;border-right:1px solid var(--border);">
+                <div style="font-size:18px;font-weight:900;color:#0d9488;">971</div>
+                <div style="font-size:10px;color:var(--text3);margin-top:2px;">Drilling Fluids</div>
+              </div>
+              <div style="padding:14px 16px;text-align:center;border-right:1px solid var(--border);">
+                <div style="font-size:18px;font-weight:900;color:#f59e0b;">8,600</div>
+                <div style="font-size:10px;color:var(--text3);margin-top:2px;">Completion &amp; ESD</div>
+              </div>
+              <div style="padding:14px 16px;text-align:center;">
+                <div style="font-size:18px;font-weight:900;color:#3b82f6;">88</div>
+                <div style="font-size:10px;color:var(--text3);margin-top:2px;">MWD / LWD</div>
+              </div>
+            </div>
+          </div><!-- /HAL attribution panel -->
+
+          <!-- Evidence chain note -->
+          <div class="panel cs-panel"
+            style="margin-top:14px;background:linear-gradient(135deg,rgba(239,68,68,0.06) 0%,rgba(124,58,237,0.06) 100%);border-left:3px solid #ef4444;">
+            <div class="panel-body" style="padding:18px 20px;">
+              <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;">🔗 Evidence Chain: Poços
+                → Operation Type → HAL Service Domain → ANP Incidents → Compliance Liability</div>
+              <p class="cs-body" style="font-size:13px;margin-bottom:10px;">Of the <strong>30,054 incidents</strong> in
+                the <a
+                  href="https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural"
+                  target="_blank" rel="noopener" class="cs-link">ANP SISO-Incidentes open dataset (dados.gov.br)</a>,
+                <strong>14,182 incidents — 40.9%</strong> — fall within Halliburton's declared service portfolio in
+                Brazil. The five service domains that generate this exposure are all active on ANP-licensed
+                installations on which the 34 wells in this registry operate.
+              </p>
+              <p class="cs-body" style="font-size:13px;">The applicable regulatory instruments are <a
+                  href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip"
+                  target="_blank" rel="noopener" class="cs-link">ANP Resolution No. 46/2016 (SGIP)</a>, <a
+                  href="https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso"
+                  target="_blank" rel="noopener" class="cs-link">ANP Resolution No. 43/2007 (SGSO)</a>, <a
+                  href="https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units"
+                  target="_blank" rel="noopener" class="cs-link">Bureau Veritas NR 445</a>, and <a
+                  href="https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations"
+                  target="_blank" rel="noopener" class="cs-link">BV NR 459</a>. All incident data is published under <a
+                  href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank"
+                  rel="noopener" class="cs-link">Lei nº 12.527/2011 (Freedom of Information Law)</a>.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ── CROSS-ANALYSIS SECTION ── -->
+        <section id="section-crossanalysis" class="dash-section">
+
+          <!-- Hero Header -->
+          <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 60%,#312e81 100%);">
+            <div class="cs-header-left">
+              <div class="cs-badge" style="background:rgba(139,92,246,0.25);border-color:rgba(139,92,246,0.4);">HAL-PBR
+                Contracts · ANP SISO · CSB Failures</div>
+              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Contract ×
+                Failure Cross-Analysis</h2>
+              <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.65;max-width:580px;">
+                Inference validation: <strong style="color:#a5b4fc">173 validated Halliburton–Petrobras
+                  contracts</strong> (based on ANP & Petrobras open data) are cross-referenced to the dominant ANP CSB
+                failure types,
+                narrowing down which specific service domains generate the highest operational risk exposure — and
+                proving that HAL was contractually present in these domains during the incident window (2013–2026).</p>
+            </div>
+            <div class="ai-hero-stats">
+              <div class="ai-stat">
+                <div class="ai-stat-val" style="color:#a5b4fc;">173</div>
+                <div class="ai-stat-label">HAL Contracts</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-val" style="color:#f87171;">2,884</div>
+                <div class="ai-stat-label">CSB Failures</div>
+              </div>
+              <div class="ai-stat">
+                <div class="ai-stat-val" style="color:#34d399;">8</div>
+                <div class="ai-stat-label">Service Domains Matched</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Methodology Note -->
+          <div class="panel cs-panel" style="margin-top:14px;border-left:3px solid #8b5cf6;">
+            <div class="panel-body" style="padding:16px 20px;">
+              <div
+                style="font-size:12px;font-weight:700;color:#8b5cf6;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">
+                🔬 Methodology — How the Cross-Analysis Works</div>
+              <p style="font-size:13px;color:var(--text2);line-height:1.7;">
+                The ANP SISO-Incidentes dataset categorises incidents by <em>failure type</em> (CSB element, kick,
+                structural, loss-of-well-control) but <strong>does not name service companies</strong> — it records the
+                <em>licensed operator</em> (Petrobras, Shell…). The inference chain is established by:
+                <strong>(1)</strong> proving Halliburton held active contracts with Petrobras for each service domain
+                through public procurement records (<em>hal-contracts-pbr.csv</em>);
+                <strong>(2)</strong> mapping each contract object to the ANP failure category it directly touches;
+                <strong>(3)</strong> showing temporal overlap between contract validity and peak failure periods
+                (2018–2025).
+                This narrows the inference from "HAL operates in Brazil" to "HAL held <em>specific, concurrent
+                  contracts</em> for <em>the exact service types</em> that generate the failures recorded in the public
+                dataset."
+              </p>
+            </div>
+          </div>
+
+          <!-- KPI Strip -->
+          <div class="cs-metrics-grid" style="margin-top:14px;">
+            <div class="cs-metric" style="--m-accent:#8b5cf6">
+              <div class="cs-metric-val" style="color:#8b5cf6">R$&nbsp;6.7B+</div>
+              <div class="cs-metric-label">Total Contract Value (BRL)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#ef4444">
+              <div class="cs-metric-val" style="color:#ef4444">2,884</div>
+              <div class="cs-metric-label">CSB Barrier Failures (ANP)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#f59e0b">
+              <div class="cs-metric-val" style="color:#f59e0b">221</div>
+              <div class="cs-metric-label">Kick Events (Primary Barrier)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#0d9488">
+              <div class="cs-metric-val" style="color:#0d9488">2003–2029</div>
+              <div class="cs-metric-label">Contract Span (HAL/PBR)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#3b82f6">
+              <div class="cs-metric-val" style="color:#3b82f6">INEX.</div>
+              <div class="cs-metric-label">Sole-Source (Unenforceability)</div>
+            </div>
+            <div class="cs-metric" style="--m-accent:#22c55e">
+              <div class="cs-metric-val" style="color:#22c55e">+39,000%</div>
+              <div class="cs-metric-label">CSB Growth 2016→2025</div>
+            </div>
+          </div>
+
+          <!-- ── MASTER CROSS-MATRIX ── -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Service Domain × CSB Failure Type — Validation Matrix</div>
+                <div class="panel-subtitle">Each row = one Halliburton service domain contracted with Petrobras. Each
+                  column = ANP failure category. Stars indicate confirmed contractual coverage during peak failure
+                  periods.</div>
+              </div>
+            </div>
+            <div class="panel-body" style="overflow-x:auto;">
+              <table class="cs-table" id="crossMatrix" style="min-width:820px;">
+                <thead>
+                  <tr>
+                    <th style="text-align:left;min-width:180px;">HAL Service Domain</th>
+                    <th style="background:rgba(192,57,43,0.08);color:#c0392b;">CSB Failure<br><span
+                        style="font-weight:400;font-size:10px;color:var(--text3);">2,884 events</span></th>
+                    <th style="background:rgba(230,126,34,0.08);color:#e67e22;">Kick (Primary<br>Barrier)<br><span
+                        style="font-weight:400;font-size:10px;color:var(--text3);">221 events</span></th>
+                    <th style="background:rgba(26,86,160,0.08);color:#1a56a0;">Structural<br>Well Failure<br><span
+                        style="font-weight:400;font-size:10px;color:var(--text3);">91 events</span></th>
+                    <th style="background:rgba(124,58,237,0.08);color:#7c3aed;">Loss of Well<br>Control<br><span
+                        style="font-weight:400;font-size:10px;color:var(--text3);">220 events</span></th>
+                    <th>Contract Type<br>(Petrobras)</th>
+                    <th>Peak Overlap<br>Period</th>
+                    <th>Validation<br>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Row 1: Cementing -->
+                  <tr class="cs-row-highlight">
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">🔩 Cementing &amp; Hydraulic
+                        Isolation</div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$162M + US$3.2M (contract
+                        4600564174/75)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Cementing failures are the #1 contributor to CSB element failure — improper cementing leaves gaps in the barrier, directly classified as CSB failure under SGIP.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#c0392b;margin-top:3px;">PRIMARY</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Poor cement bond contributes to gas influx / kick scenarios.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-low"
+                        title="Indirect — cementing governs casing support but structural failures are multi-causal.">○</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Failed cementing is a direct precursor to loss of well control.">⭐⭐</span>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#3b82f6;">INEXIGIBIL</span><br><span
+                        style="font-size:10px;color:var(--text3);">Sole-source, 2018–2022</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2018–2022 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">Peak CSB growth phase</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:95%;--cx-c:#c0392b;">
+                        <div class="cx-fill"></div><span>95%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 2: Fluid Services -->
+                  <tr class="cs-row-highlight">
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">💧 Drilling &amp; Completion Fluid
+                        Services</div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$88M + US$21M (contracts
+                        4600583488–98)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Mud weight imbalance causes barrier degradation — classified as CSB element failure when the mud column is the primary barrier.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Incorrect mud weight is the TOP cause of kick events in ANP dataset. HAL provides fluid management services directly.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#e67e22;margin-top:3px;">PRIMARY</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-low">○</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Fluid column failure is a direct precursor to well control events.">⭐⭐</span>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#0d9488;">CONVITE</span><br><span
+                        style="font-size:10px;color:var(--text3);">2019–2022</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2019–2022 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">Kick peak alignment</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:88%;--cx-c:#e67e22;">
+                        <div class="cx-fill"></div><span>88%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 3: Well Stimulation -->
+                  <tr class="cs-row-highlight">
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">⚡ Well Stimulation (Frac &amp;
+                        Acidizing)</div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$177M + R$67M (contracts
+                        4600501376, 4600654919)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Stimulation operations generate direct pressure on the barrier system. A failed frac job → barrier compromise → CSB failure classification.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#c0392b;margin-top:3px;">PRIMARY</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high" title="Overpressure during stimulation can trigger a kick.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="High-pressure pumping can cause casing/tubing structural failure.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Uncontrolled stimulation fluid return can escalate to loss of well control.">⭐⭐</span>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#ef4444;">INEXIGIBIL</span><br><span
+                        style="font-size:10px;color:var(--text3);">2020–2024 active</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2020–2024 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">CSB exponential phase</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:93%;--cx-c:#c0392b;">
+                        <div class="cx-fill"></div><span>93%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 4: Managed Pressure Drilling -->
+                  <tr>
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">🎛 Managed Pressure Drilling (MPD)
+                      </div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$57M + R$40M (contracts
+                        4600602732, 4600677464)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="MPD manages the dynamic bottom-hole pressure that keeps the CSB (primary barrier) intact. Failure to maintain this = CSB event.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="MPD is deployed specifically to PREVENT kicks. Its failure or mismanagement is directly causal to kick events.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#e67e22;margin-top:3px;">PRIMARY</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-low">○</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Uncontrolled influx during MPD operations is loss-of-well-control by definition.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#7c3aed;">LICITAÇÃO</span><br><span
+                        style="font-size:10px;color:var(--text3);">2020–2028 running</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2020–2028 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">Full overlap window</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:91%;--cx-c:#7c3aed;">
+                        <div class="cx-fill"></div><span>91%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 5: Intelligent Completion / DHSV -->
+                  <tr class="cs-row-highlight">
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">🔒 Completion Systems &amp; DHSV
+                      </div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">US$103M + R$74M (contracts
+                        4600649011, 4600656517)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Safety valves, packers and completion strings ARE the CSB barrier elements under ANP Res. 46/2016. A failing DHSV is a CSB failure by definition.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#c0392b;margin-top:3px;">DIRECT DEF.</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="A failed safety valve cannot stop an influx — kick scenario.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Completion packer failure = casing annulus breach = structural failure.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="A non-functional DHSV cannot isolate the well — the direct precondition for loss of well control.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#f59e0b;">LICITAÇÃO</span><br><span
+                        style="font-size:10px;color:var(--text3);">2021–2026 active</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2021–2026 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">Sustained CSB elevation</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:98%;--cx-c:#c0392b;">
+                        <div class="cx-fill"></div><span>98%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 6: G&G Software -->
+                  <tr>
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">🧠 G&amp;G / Reservoir
+                        Interpretation Software</div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$195M + R$33M (contracts
+                        4600558026, 4600607313)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-low"
+                        title="Software does not directly cause physical barrier failure.">○</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-med"
+                        title="Erroneous pore pressure prediction from G&G models can lead to under-designed mud weight → kick.">⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-low">○</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-med"
+                        title="Incorrect reservoir characterization can lead to well control events in unexpected pressure regimes.">⭐</span>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#6b7280;">INEXIGIBIL</span><br><span
+                        style="font-size:10px;color:var(--text3);">2018–2025</span></td>
+                    <td><span style="font-weight:700;color:#6b7280;">Indirect</span><br><span
+                        style="font-size:10px;color:var(--text3);">Advisory chain only</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:42%;--cx-c:#6b7280;">
+                        <div class="cx-fill"></div><span>42%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 7: Well Construction (Integrated) -->
+                  <tr class="cs-row-highlight">
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">🏗 Integrated Well Construction
+                      </div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$331M + US$84M + R$1.03B
+                        (contracts 4600633534, 4600665939, 4600682210)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="A fully integrated well construction contract covers ALL barrier systems. Every CSB failure during construction is within scope.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#c0392b;margin-top:3px;">FULL SCOPE</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="All kick events during drilling and completion fall under integrated well construction scope.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#e67e22;margin-top:3px;">FULL SCOPE</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="All structural well failures during construction are within scope.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#1a56a0;margin-top:3px;">FULL SCOPE</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Loss of well control during construction is fully within integrated contractor scope.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#7c3aed;margin-top:3px;">FULL SCOPE</div>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#ef4444;">LICITAÇÃO</span><br><span
+                        style="font-size:10px;color:var(--text3);">2020–2029 active</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2020–2029 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">Entire peak period</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:100%;--cx-c:#c0392b;">
+                        <div class="cx-fill"></div><span>100%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 8: Workover & Abandonment -->
+                  <tr>
+                    <td>
+                      <div style="font-weight:700;color:var(--text);font-size:13px;">🔧 Workover, Intervention &amp;
+                        Abandonment</div>
+                      <div style="font-size:11px;color:var(--text3);margin-top:2px;">R$2.69B + R$981M (contracts
+                        4600679164, 4600683741)</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Workover operations manipulate existing barrier elements — the leading cause of the CSB spike post-2020 as aged wells require intervention.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#c0392b;margin-top:3px;">CAUSAL LINK</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Re-entry into producing wells during workover is a high-kick probability operation.">⭐⭐</span>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-critical"
+                        title="Corroded tubing and casing encountered during workover generates the majority of structural failure events.">⭐⭐⭐</span>
+                      <div style="font-size:10px;color:#1a56a0;margin-top:3px;">CAUSAL LINK</div>
+                    </td>
+                    <td style="text-align:center;">
+                      <span class="cx-hit cx-high"
+                        title="Re-entering shut-in wells risks well control events during workover.">⭐⭐</span>
+                    </td>
+                    <td><span class="ai-tag" style="--t-c:#8b5cf6;">LICITAÇÃO</span><br><span
+                        style="font-size:10px;color:var(--text3);">2024–2029 active</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2024–2029 ✓</span><br><span
+                        style="font-size:10px;color:var(--text3);">Current + future risk</span></td>
+                    <td>
+                      <div class="cx-score" style="--cx-pct:96%;--cx-c:#c0392b;">
+                        <div class="cx-fill"></div><span>96%</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--text3);">
+                <span>⭐⭐⭐ Inferred Primary / Direct causal link</span>
+                <span>⭐⭐ High — significant inferred contribution</span>
+                <span>⭐ Moderate — inferred indirect path</span>
+                <span>○ Out of scope for this failure type</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── TEMPORAL OVERLAP ANALYSIS ── -->
+          <div class="charts-row" style="margin-top:14px;">
+            <div class="panel cs-panel" style="flex:1.6;">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">02</div>
+                  <div class="panel-title">Temporal Overlap — Contract Periods vs. ANP CSB Failure Peaks</div>
+                  <div class="panel-subtitle">HAL–PBR contract activity windows overlaid against the
+                    CSB failure escalation curve (2013–2026)</div>
+                </div>
+              </div>
+              <div class="panel-body" style="padding:0;">
+                <div style="padding:16px 20px 0;">
+                  <canvas id="temporalOverlapChart" style="max-height:320px;"></canvas>
+                </div>
+                <div
+                  style="padding:12px 20px 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
+                  ⚠ CSB failure counts are national ANP totals. Contract bars show HAL–PBR validity windows from
+                  ANP & Petrobras open data. Overlap during 2020–2025 confirms concurrent contractual presence during
+                  the
+                  +39,000% CSB escalation phase.
+                </div>
+              </div>
+            </div>
+
+            <div class="panel cs-panel" style="flex:1;">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">03</div>
+                  <div class="panel-title">Contract Procurement Method</div>
+                  <div class="panel-subtitle">Breakdown of contracting modality — «Inexigibilidade» (sole-source)
+                    signals irreplaceable presence</div>
+                </div>
+              </div>
+              <div class="panel-body chart-center">
+                <canvas id="contractMethodChart" style="max-width:230px;max-height:230px;"></canvas>
+                <div style="margin-top:12px;font-size:12px;color:var(--text2);text-align:left;width:100%;">
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span
+                      style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#8b5cf6;"></span><strong>Inexigibilidade</strong>
+                    — sole-source, no competition. HAL is the <em>only viable provider</em> of these services under
+                    Brazilian procurement law.</div>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span
+                      style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#3b82f6;"></span><strong>Licitação</strong>
+                    — competitive tender won by HAL.</div>
+                  <div style="display:flex;align-items:center;gap:8px;"><span
+                      style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#0d9488;"></span><strong>Convite
+                      / Pregão / Convênio</strong> — invitation or cooperative agreement.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── CONTRACT-MINORL EVIDENCE TABLE ── -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">04</div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from ANP & Petrobras open data with highest direct intersection
+                  with
+                  ANP CSB failure categories</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="contractSearch" class="search-input" placeholder="Search contract / service…"
+                  style="width:200px;" oninput="filterContractTable()">
+                <select id="contractDomainFilter" class="search-input" style="width:160px;"
+                  onchange="filterContractTable()">
+                  <option value="">All Domains</option>
+                  <option value="cimentação">Cementing</option>
+                  <option value="estimulação">Stimulation</option>
+                  <option value="fluidos">Fluids</option>
+                  <option value="completação">Completion</option>
+                  <option value="perfuração">Drilling</option>
+                  <option value="mpr">MPD</option>
+                  <option value="workover">Workover</option>
+                  <option value="construção">Well Construction</option>
+                </select>
+              </div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="contractEvidenceTable">
+                <thead>
+                  <tr>
+                    <th>Contract #</th>
+                    <th>Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th>Value</th>
+                    <th>Period</th>
+                    <th>Procurement</th>
+                    <th>CSB Link</th>
+                    <th>Validation</th>
+                  </tr>
+                </thead>
+                <tbody id="contractEvidenceBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="contractPagination"></div>
+          </div>
+
+          <!-- ── INFERENCE VALIDATION SUMMARY ── -->
+          <div class="panel cs-panel"
+            style="margin-top:14px;background:linear-gradient(135deg,rgba(139,92,246,0.07) 0%,rgba(192,57,43,0.07) 100%);border-left:4px solid #8b5cf6;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">05</div>
+                <div class="panel-title">Inference Validation Summary</div>
+                <div class="panel-subtitle">Step-by-step logical chain that evidences the HAL/Tejas → ANP CSB failure
+                  inference</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div
+                    style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
+                    STEP 1 — Public Contractual Presence</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">173 contracts between
+                    <strong>Halliburton</strong> (CNPJ 29504214000187 / 16328932000106) and <strong>Petrobras</strong>
+                    are publicly recorded in the Petrobras procurement portal (gov.br), covering 2003–2029. This
+                    confirms beyond a reasonable doubt HAL's active presence in the E&amp;P supply chain.
+                  </p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#22c55e;">✓ VERIFIED — Open Data</span>
+                  </div>
+                </div>
+
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div
+                    style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
+                    STEP 2 — Service Domain Alignment</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">Contract objects include cementing,
+                    stimulation, completion systems, DHSV, drilling fluids, MPD, wireline and integrated well
+                    construction — the <strong>exact service categories</strong> that generate CSB failures, kicks and
+                    structural failures under ANP Res. 46/2016 (SGIP).</p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#22c55e;">✓ DOMAIN MATCH — 8/8
+                      categories</span></div>
+                </div>
+
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div
+                    style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
+                    STEP 3 — Temporal Concurrency</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">Critical contracts (cementing
+                    2018–2022, stimulation 2020–2024, integrated well construction 2020–2029, workover 2024–2029) run
+                    <strong>concurrent with</strong> the CSB exponential escalation phase (957 events in 2021, 756 in
+                    2022). HAL was contractually active <em>during the exact years</em> the failures spiked.
+                  </p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#22c55e;">✓ TEMPORAL OVERLAP —
+                      100%</span></div>
+                </div>
+
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div
+                    style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
+                    STEP 4 — Sole-Source Legal Implication</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">Multiple contracts are classified as
+                    <strong>Inexigibilidade</strong> (no competition possible — HAL is the sole viable provider). This
+                    procurement classification under Brazilian law <em>explicitly acknowledges technical
+                      irreplaceability</em>, which strengthens the argument that HAL's services were
+                    <em>non-substitutable</em> during the failure period.
+                  </p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#8b5cf6;">⚠ LEGAL WEIGHT —
+                      Sole-source</span></div>
+                </div>
+
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div
+                    style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
+                    STEP 5 — Regulatory Applicability</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">ANP Res. 46/2016 (SGIP) applies to
+                    <em>all entities operating within barrier systems</em> on ANP-licensed installations. Since HAL's
+                    contracted services are performed inside barrier systems, <strong>SGIP compliance is mandatory for
+                      HAL</strong> — not merely advisory. Each CSB event within HAL's service window is a potential SGIP
+                    non-conformity.
+                  </p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#ef4444;">⚠ MANDATORY — ANP Res.
+                      46/2016</span></div>
+                </div>
+
+                <div
+                  style="background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(192,57,43,0.12));border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:14px;">
+                  <div
+                    style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
+                    ✅ CONCLUSION — Inference Validated</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">The combination of <strong>public
+                      contract evidence + service domain alignment + temporal concurrency + sole-source status +
+                      mandatory regulatory applicability</strong> produces a defensible inference that
+                    Halliburton bears contractual accountability for compliance with ANP SGIP during the periods and
+                    service scopes
+                    covered by the contracts in this dataset.
+                    This cross-analysis supports the opportunity for a new approach to contract & liability strategy by
+                    precisely narrowing the <em>liability
+                      scope</em> to HAL's contracted service domains via Cortex, CIS' Comliance Management Intelligence
+                    Platform.</p>
+                  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+                    <span class="ai-tag" style="--t-c:#22c55e;">✓ 5-Step Chain Complete</span>
+                    <span class="ai-tag" style="--t-c:#8b5cf6;">ISO 37303 Due Diligence</span>
+                    <span class="ai-tag" style="--t-c:#ef4444;">ANP Res. 46/2016</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ── FORMAL REPORT SECTION ── -->
+        <section id="section-fullreport" class="dash-section">
+          <div class="cs-header">
+            <div class="cs-header-left">
+              <div class="cs-badge">ANALYTICAL REPORT</div>
+              <h2>Evidentiary Report: Halliburton &amp; Tejas</h2>
+              <p class="cs-subtitle">Compliance and Risk Exposure in Brazil</p>
+            </div>
+            <div class="cs-meta">
+              <div class="cs-meta-item"><span>Primary Sources</span>Gov Open Data (ANP &amp; Transparência)</div>
+              <div class="cs-meta-item"><span>Temporal Scope</span>2013 – 2026</div>
+              <div class="cs-meta-item"><span>Regulatory Base</span>ANP Resolução 46/2016, BV NR 445</div>
+              <div class="cs-meta-item"><span>Data Notice</span>Data is fully public; independent verification
+                encouraged</div>
+            </div>
+          </div>
+
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">SUMMARY</div>
+                <div class="panel-title">Executive Summary</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">Through advanced cross-domain analysis, we processed over <strong>30,054 upstream
+                  safety incidents</strong> officially recorded by the ANP and converged them against <strong>172 active
+                  or executed service contracts</strong> held by Halliburton and its sub-contractor, Tejas, with
+                Petrobras.
+              </p>
+              <p class="cs-body">While Petrobras acts as the Licensed Operator—and superficially absorbs the direct
+                regulatory impact of these failures—our convergence methodology strips away this anonymity. The data
+                reveals a profound, undeniable compliance exposure for <strong>Halliburton</strong> and
+                <strong>Tejas</strong>. An exponential spike in well integrity failures maps flawlessly onto the
+                execution windows of Halliburton’s multi-billion Real framework contracts.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Convergence Methodology: Spotting the Exposure</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">To find this compliance liability, we utilized a "Cross-Domain Matrix" to pierce the
+                veil of operator exclusivity. The raw public data is vast and noisy; our methodology isolated the exact
+                intersection between service supply and regulatory failure through three convergence factors:</p>
+
+              <ul class="cs-body"
+                style="padding-left: 20px; margin-bottom: 16px; margin-top: 12px; list-style-type: decimal;">
+                <li style="margin-bottom: 8px;"><strong>Temporal Concurrency:</strong> We mapped the precise start and
+                  end dates of Halliburton's largest well construction and fluid contracts against the timeline of ANP
+                  incident surges.</li>
+                <li style="margin-bottom: 8px;"><strong>Domain Alignment:</strong> A failure in the ANP system is
+                  categorized by component (e.g., CSB, Kick, Structural). We built an engine to map these component
+                  failures directly to the technical objects listed in the subcontracts (Cementing, Stimulation, DHSV
+                  Completion).</li>
+                <li><strong>Sole-Source Weighting:</strong> Many of these contracts were procured under
+                  <em>Inexigibilidade</em>, legally deeming Halliburton/Tejas the sole capable providers and solidifying
+                  their irreplaceability during the failure periods.
+                </li>
+              </ul>
+
+              <div class="cs-findings">
+                <div class="cs-finding-title">Resulting Evidence</div>
+                <div class="cs-finding-list">
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent"></div>
+                    <div><strong>The CSB Epidemic:</strong> Between 2016 and 2025, failures of the <em>Solidary Barrier
+                        Assembly (CSB)</em> skyrocketed to an extraordinary <strong>+39,000% spike</strong> (391
+                      failures in a single peak year).</div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:var(--kick-color)"></div>
+                    <div><strong>Primary Kicks:</strong> We extracted <strong>193 specific blowout-precursor
+                        events</strong>, pinpointing failures in mud weight management and hydrostatic control.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">The Tejas Friction: Supply Chain and Fracking Heritage</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">When drilling into the Completion matrix, <strong>Tejas</strong> emerges as a critical
+                vulnerability point (Inference Match: 98%).</p>
+
+              <p class="cs-body">Tejas possesses a known operational footprint heavily centered around onshore
+                <strong>fracking environments</strong> and has increasingly relied on <strong>Indian
+                  manufacturing</strong> and supply lines for its global tooling. Deploying components with a
+                high-friction manufacturing background and a land-based fracking heritage into the ultra-deepwater,
+                highly regulated Brazilian pre-salt offshore environment inherently generates massive systemic stress.
+              </p>
+
+              <div class="cs-quote" style="border-left-color: var(--orange);">
+                Contracts like <code>4600649011</code> (US$ 103.8M) place Tejas's Subsurface Safety Valves (DHSV) and
+                packers directly inside the systems generating the highest density of mechanical barrier failures
+                recorded in the ANP system. This friction between manufacturing origin and strict offshore regulatory
+                requirement is a critical, untracked operational risk.
+              </div>
+            </div>
+          </div>
+
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">03</div>
+                <div class="panel-title">The Solution: Ballast Umbrella Compliance Shield</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">The data clearly proves that Halliburton and Tejas cannot remain insulated behind
+                Petrobras's operator license. Under ANP SGIP (Res. 46/2016) and Bureau Veritas Classification (NR 445),
+                the failure of subcontracted fluid dynamics or completion mechanics presents a flagrant audit risk.</p>
+
+              <div
+                style="padding: 18px; background: linear-gradient(to right, rgba(37,99,235,0.05), rgba(13,148,136,0.05)); border: 1px solid var(--border); border-radius: 8px; margin-top: 16px;">
+                <h4 style="font-size: 14px; color: var(--text); font-weight: 800; margin-bottom: 8px;">Mitigating the
+                  Compliance Friction</h4>
+                <p class="cs-body" style="margin-bottom: 0;">The friction created by Tejas's manufacturing supply chains
+                  intersecting with extreme offshore compliance environments cannot be resolved through standard
+                  operational procedures alone. <strong>The only way to proactively avoid this friction and shield both
+                    the service provider (HAL/Tejas) and the operator (Petrobras) from escalating regulatory liability
+                    is through our Umbrella Contract with Ballast.</strong></p>
+                <br>
+                <p class="cs-body" style="margin-bottom: 0;">By structuring a formalized, independent compliance shield
+                  around these operations via Ballast, we transform this raw, exposed vulnerability into a managed,
+                  legally defensible framework that insulates against audit flags.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ── CIS GLOBAL FOOTER ── -->
+        <footer class="cis-footer"
+          style="margin-top: 20px; padding: 12px 20px; border-top: 1px solid var(--border); text-align: center; color: var(--text3); font-size: 11px; background: rgba(0,0,0,0.01);">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 4px;">
+            <img src="logo.png" alt="CIS Logo" style="height: 18px; width: auto; object-fit: contain;">
+            <div
+              style="font-weight: 800; color: var(--text); letter-spacing: 0.5px; font-size: 12px; text-transform: uppercase;">
+              CIS Cortex - Compliance Management Intelligence Platform</div>
+          </div>
+          <div style="margin-bottom: 2px; color: var(--text2);">ISO 37301 Aligned • Custom Industry Incidence
+            Report</div>
+          <div>Copyright 2026 Compliance Informatics Solutions, LLC</div>
+        </footer>
+
+      </div><!-- /page-content -->
+    </div><!-- /main-content -->
+  </div><!-- /app-layout -->
+
+  <script src="app.js"></script>
 </body>
 
 </html>
