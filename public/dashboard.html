@@ -114,6 +114,13 @@
           </svg>
           HAL Argentina
         </a>
+        <a href="#" class="nav-link" data-section="mexico" id="nav-mexico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="12" rx="10" ry="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          HAL Mexico
+        </a>
 
       </nav>
 
@@ -3256,6 +3263,68 @@
         </div>
 
       </section><!-- /section-argentina -->
+
+      <section id="section-mexico" class="dash-section">
+
+        <!-- Header -->
+        <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);">
+          <div class="cs-header-left">
+            <div class="cs-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.28);">CNH · SIH · DOF · 2015–2026</div>
+            <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">HAL Mexico — Compliance Intelligence Study</h2>
+            <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">
+              Operational footprint and regulatory exposure for Halliburton and Tejas operations mapped via verified Mexican portals. Exposure is derived from official data sources such as the <strong>Comisión Nacional de Hidrocarburos (CNH)</strong>, Diario Oficial de la Federación (DOF), and CompraNet. 
+            </p>
+          </div>
+        </div>
+
+        <!-- Data Context & Official Sources -->
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;margin:16px 20px 0;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+          <div style="margin-bottom:16px;">
+            <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              Verified Open Data Portals for Mexico
+            </h3>
+            <p style="font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:6px;">
+              These verified data sources support the analysis of HAL Mexico operations, substituting the equivalent platforms found in Argentina and Brazil. 
+            </p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:12px;margin-bottom:16px;">
+            <a href="https://compras.gob.mx/" target="_blank" rel="noopener"
+              style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">Compras MX / CompraNet ↗</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:4px;">Procurement portal equivalent to COMPR.AR. Tracks public tenders and contracts involving PEMEX and HAL.</div>
+            </a>
+            <a href="https://sih.hidrocarburos.gob.mx/" target="_blank" rel="noopener"
+              style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">SIH - Sistema de Información de Hidrocarburos ↗</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:4px;">Maintained by CNH. Provides well-by-well production metrics, equivalent to Capítulo IV in Argentina.</div>
+            </a>
+            <a href="https://www.dof.gob.mx/" target="_blank" rel="noopener"
+              style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">Diario Oficial de la Federación (DOF) ↗</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:4px;">Official bulletin equivalent. Used for tracing decrees, newly approved contracts, and government regulations.</div>
+            </a>
+          </div>
+
+          <div style="padding:16px 20px;background:#f8fafc;border:1px solid var(--border);border-radius:10px;margin-bottom:4px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:8px;">Compliance Actions Required</div>
+            <div style="display:flex;gap:20px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:220px;">
+                <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">Implement API/Scraping Checks</div>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <div style="font-size:11px;color:var(--text2);">Integrate data pulls from `sih.hidrocarburos.gob.mx` for production stats.</div>
+                  <div style="font-size:11px;color:var(--text2);">Adapt procurement validation to check `compras.gob.mx` instead of `comprar.gob.ar`.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section><!-- /section-mexico -->
 
       </div><!-- /page-content -->
     </div><!-- /main-content -->

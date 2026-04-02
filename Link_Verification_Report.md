@@ -29,3 +29,30 @@ This report contains the corrected and verified working URLs for the Argentine g
 ### Recommended Actions
 - Update any project configurations, codebases, or documentation that mapped to `datos.energia.gob.ar` to use `datos.gob.ar`.
 - Update references to `contrataciones.gob.ar` to point to `comprar.gob.ar`.
+
+---
+
+## HAL Mexico Tab
+
+This section contains the verified working URLs for the corresponding data portals in Mexico, designed for integration into the HAL Mexico tab.
+
+### 1. Procurement Portal (CompraNet / Compras MX)
+* **Status**: ⚠️ Transitioning / Redirects Active
+* **Primary URL**: [https://compranet.hacienda.gob.mx](https://compranet.hacienda.gob.mx)
+* **New Platform**: [https://compras.gob.mx/](https://compras.gob.mx/)
+* **Notes**: The Mexican government is transitioning from the legacy CompraNet domain to the new Compras MX portal. It is recommended to monitor both links or update your integrations to reflect this transition.
+
+### 2. Official Bulletin (Diario Oficial de la Federación - DOF)
+* **Status**: ✅ Working (`200 OK`)
+* **Verified URL**: [https://www.dof.gob.mx/](https://www.dof.gob.mx/)
+* **Notes**: This is the equivalent of the official bulletins in Argentina. The DOF site provides official daily publications, decrees, and government regulations.
+
+### 3. Energy Data - Production Dataset (CNH)
+* **Status**: ✅ Active Portal
+* **Verified URL**: [https://sih.hidrocarburos.gob.mx/](https://sih.hidrocarburos.gob.mx/) (Sistema de Información de Hidrocarburos)
+* **Alternative URL**: [https://produccion.hidrocarburos.gob.mx/](https://produccion.hidrocarburos.gob.mx/)
+* **Notes**: The equivalent dataset for "producción de petróleo y gas por pozo" is managed by the Comisión Nacional de Hidrocarburos (CNH) in Mexico. The SIH portal contains the granular, well-by-well production metrics.
+
+### Recommended Actions for Mexico Tab
+- Implement data connections or scraping methods pointing to `sih.hidrocarburos.gob.mx` for oil and gas metrics.
+- Adapt procurement verification workflows from checking `comprar.gob.ar` in Argentina to checking `compras.gob.mx` / `compranet.hacienda.gob.mx` in Mexico.
