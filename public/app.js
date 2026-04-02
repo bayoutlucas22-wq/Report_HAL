@@ -831,6 +831,7 @@ window.filterWells = function () {
 document.addEventListener('DOMContentLoaded', () => {
   renderWellTable(POCOS_DATA);
   renderArgentinaTables();
+  renderMexicoTables();
 });
 
 // ── HAL Argentina Study ────────────────────────────────────────────────────
@@ -954,6 +955,107 @@ function renderArgentinaTables() {
   const regBody = document.getElementById('argRegulatoryBody');
   if (regBody) {
     regBody.innerHTML = ARG_REGULATIONS.map(r => `<tr>
+      <td style="font-weight:600;font-size:11px;">${r.link ? `<a href="${r.link}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${r.reg} ↗</a>` : r.reg}</td>
+      <td style="font-size:11px;color:var(--text2);">${r.scope}</td>
+      <td style="font-size:11px;"><span class="ai-tag" style="--t-c:#2563eb">${r.domains}</span></td>
+      <td style="font-size:11px;color:var(--text3);">${r.br}</td>
+    </tr>`).join('');
+  }
+}
+
+// ── HAL Mexico Study ────────────────────────────────────────────────────
+
+const MEX_TREND = [
+  { year:2015, jobs:108, stages:3100, psi:10830, hp:29509, lateral:2083, offshore:58.3, burgos:18.5 },
+  { year:2016, jobs:115, stages:3149, psi:10841, hp:25636, lateral:1991, offshore:62.6, burgos:15.7 },
+  { year:2017, jobs:102, stages:2800, psi:11398, hp:27037, lateral:1932, offshore:64.7, burgos:16.7 },
+  { year:2018, jobs:104, stages:2999, psi:11086, hp:28951, lateral:2067, offshore:64.4, burgos:10.6 },
+  { year:2019, jobs:104, stages:2717, psi:11766, hp:26679, lateral:1987, offshore:61.5, burgos:17.3 },
+  { year:2020, jobs:124, stages:3117, psi:11543, hp:29555, lateral:1943, offshore:54.8, burgos:20.2 },
+  { year:2021, jobs:133, stages:3545, psi:10692, hp:28076, lateral:1890, offshore:56.4, burgos:15.8 },
+  { year:2022, jobs:115, stages:3085, psi:10818, hp:28342, lateral:1987, offshore:65.2, burgos:13.0 },
+  { year:2023, jobs:118, stages:3077, psi:10795, hp:27945, lateral:2061, offshore:58.5, burgos:16.9 },
+  { year:2024, jobs:113, stages:2984, psi:11132, hp:27456, lateral:1939, offshore:59.3, burgos:15.9 },
+  { year:2025, jobs:109, stages:3014, psi:10761, hp:27212, lateral:2038, offshore:52.3, burgos:24.8 },
+];
+
+const MEX_OPERATORS = [
+  { op:"PEMEX EXPLORACIÓN Y PRODUCCIÓN", basin:"SURESTE", jobs:859, stages:22995, psi:11087, tier:"HIGH" },
+  { op:"REPSOL EXPLORACIÓN MÉXICO",      basin:"SURESTE", jobs:75,  stages:2018,  psi:11155, tier:"HIGH" },
+  { op:"FIELDWOOD ENERGY",               basin:"SURESTE", jobs:72,  stages:1953,  psi:10842, tier:"HIGH" },
+  { op:"HOKCHI ENERGY",                  basin:"SURESTE", jobs:69,  stages:2034,  psi:10513, tier:"HIGH" },
+  { op:"ENI MÉXICO",                     basin:"SURESTE", jobs:59,  stages:1398,  psi:10716, tier:"HIGH" },
+  { op:"PETROBAL",                       basin:"SURESTE", jobs:59,  stages:1708,  psi:11471, tier:"HIGH" },
+  { op:"WINTERSHALL DEA",                basin:"SURESTE", jobs:52,  stages:1481,  psi:11197, tier:"HIGH" },
+];
+
+const MEX_FORMATIONS = [
+  { form:"Jurásico Superior", jobs:488, psi:11167, offshore:57.6, hazard:"Deep HPHT / Well control" },
+  { form:"Cretácico",         jobs:407, psi:10994, offshore:63.4, hazard:"Naturally fractured carbonates" },
+  { form:"Pimienta",          jobs:120, psi:11327, offshore:58.3, hazard:"Deep HPHT / Well control" },
+  { form:"Terciario",         jobs:117, psi:10404, offshore:55.6, hazard:"Standard pressure horizons" },
+  { form:"Agua Nueva",        jobs:113, psi:11125, offshore:61.1, hazard:"Deep HPHT / Well control" },
+];
+
+const MEX_REGULATIONS = [
+  { reg:"Lineamientos de Perforación (CNH)",            scope:"Safety and well integrity guidelines for drilling",                        domains:"Domains 2 & 3",            br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/" },
+  { reg:"Reglamento de la Ley de Hidrocarburos",        scope:"Overall E&P industry regulation, operational boundaries",                 domains:"All domains",              br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/" },
+  { reg:"NOM-115-SEMARNAT",                             scope:"Environmental requirements for extreme drilling, waste management",         domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
+  { reg:"Lineamientos de Medición (CNH)",               scope:"Requirements for hydrocarbon metering, affects production completions",      domains:"Domain 4",                 br:"Res. ANP 874/2022",     link:"https://www.dof.gob.mx/" },
+];
+
+function renderMexicoTables() {
+  const trendBody = document.getElementById('mexTrendBody');
+  if (trendBody) {
+    trendBody.innerHTML = MEX_TREND.map(r => {
+      const isEscalating = r.year >= 2021;
+      const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
+      return `<tr style="${rowStyle}">
+        <td style="font-weight:700;">${r.year}${r.year===2026?' <span style="font-size:10px;color:var(--text3);">YTD</span>':''}</td>
+        <td>${r.jobs.toLocaleString()}</td>
+        <td>${r.stages.toLocaleString()}</td>
+        <td>${r.psi.toLocaleString()}</td>
+        <td>${r.hp.toLocaleString()}</td>
+        <td style="${r.lateral>=1500?'color:#dc2626;font-weight:700;':''}">${r.lateral.toLocaleString()}</td>
+        <td>${r.offshore}%</td>
+        <td>${r.burgos}%</td>
+      </tr>`;
+    }).join('');
+  }
+
+  const opBody = document.getElementById('mexOperatorBody');
+  if (opBody) {
+    opBody.innerHTML = MEX_OPERATORS.map(r => {
+      const ts = TIER_STYLES[r.tier] || TIER_STYLES.LOW;
+      const badge = `<span style="font-size:10px;font-weight:700;background:${ts.bg};color:${ts.color};border:1px solid ${ts.border};padding:2px 7px;border-radius:20px;">${r.tier}</span>`;
+      return `<tr>
+        <td style="font-weight:600;font-size:11px;">${r.op}</td>
+        <td style="font-size:11px;">${r.basin}</td>
+        <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
+        <td>${r.stages.toLocaleString()}</td>
+        <td>${r.psi.toLocaleString()}</td>
+        <td>${badge}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  const formBody = document.getElementById('mexFormationBody');
+  if (formBody) {
+    formBody.innerHTML = MEX_FORMATIONS.map(r => {
+        const isHigh = r.psi > 11000;
+        return `<tr style="${isHigh?'background:#fef2f2;':''}">
+          <td style="font-weight:${isHigh?'700':'500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
+          <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
+          <td>${r.psi.toLocaleString()}</td>
+          <td style="${r.offshore>=90?'color:#dc2626;font-weight:700;':''}">${r.offshore}%</td>
+          <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
+        </tr>`;
+    }).join('');
+  }
+
+  const regBody = document.getElementById('mexRegulatoryBody');
+  if (regBody) {
+    regBody.innerHTML = MEX_REGULATIONS.map(r => `<tr>
       <td style="font-weight:600;font-size:11px;">${r.link ? `<a href="${r.link}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${r.reg} ↗</a>` : r.reg}</td>
       <td style="font-size:11px;color:var(--text2);">${r.scope}</td>
       <td style="font-size:11px;"><span class="ai-tag" style="--t-c:#2563eb">${r.domains}</span></td>
