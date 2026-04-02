@@ -13,4 +13,4 @@ COPY . .
 
 EXPOSE 3333
 
-CMD ["node", "server.js"]
+CMD ["node", "api/server.js"]

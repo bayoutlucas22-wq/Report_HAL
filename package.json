@@ -2,9 +2,9 @@
   "name": "hal-tejas-incident-report-app",
   "version": "1.0.0",
   "description": "HAL Tejas Incident Report — BV & ANP compliance analysis web app with DOCX export.",
-  "main": "server.js",
+  "main": "api/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node api/server.js",
     "generate": "node main.js",
     "build:static": "node main.js && cp HAL_Tejas_Incident_Report.docx docs/"
   },
