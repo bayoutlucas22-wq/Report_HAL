@@ -882,14 +882,14 @@ const ARG_FORMATIONS = [
 ];
 
 const ARG_REGULATIONS = [
-  { reg:"Res. SE 25/2004 — Integridad de Pozos",               scope:"Mandatory well integrity management",                      domains:"All 4 domains",            br:"ANP Res. 46/2016 SGIP" },
-  { reg:"Res. SE 317/2021 — Operaciones No Convencionales",     scope:"Safety for unconventional (shale/tight) operations",       domains:"Domain 1 — Fracking",      br:"ANP Res. 43/2007 SGSO" },
-  { reg:"Ley 24.051 — Residuos Peligrosos",                    scope:"Hazardous waste: drilling fluids, produced water",          domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011" },
-  { reg:"Ley 25.675 — Ley General del Ambiente",               scope:"Environmental liability for all E&P service operations",    domains:"All 4 domains",            br:"Lei 9.605/1998" },
-  { reg:"Res. SRT 559/2009 — Seguridad en Perforación",        scope:"OHS for drilling, completion, and workover personnel",      domains:"All 4 domains",            br:"NR-37 (MTE)" },
-  { reg:"Ley Neuquén 2615 — Código de Aguas",                  scope:"Water use and produced water disposal — Neuquina basin",   domains:"Domain 1 — water sourcing", br:"N/A (offshore in Brazil)" },
-  { reg:"Ley Neuquén 3004 — Regulación Fracking",              scope:"Environmental controls specific to hydraulic fracturing",    domains:"Domain 1 — Fracking",      br:"N/A" },
-  { reg:"Decreto 1122/97 — EIA Upstream",                      scope:"Environmental impact assessment for E&P operations",        domains:"All domains",              br:"Res. CONAMA 001/1986" },
+  { reg:"Res. SE 25/2004 — Integridad de Pozos",               scope:"Environmental study standards for exploration permits and exploitation concessions; primary upstream EIA framework",  domains:"All 4 domains",            br:"ANP Res. 46/2016 SGIP",   link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=91789" },
+  { reg:"Decreto 929/2013 — Régimen No Convencional",          scope:"Investment promotion and regulatory framework for unconventional hydrocarbon exploitation (shale/tight formations)",  domains:"Domain 1 — Fracking",      br:"ANP Res. 43/2007 SGSO",   link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=217314" },
+  { reg:"Ley 24.051 — Residuos Peligrosos",                   scope:"Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required",   domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",    link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
+  { reg:"Ley 25.675 — Ley General del Ambiente",              scope:"Environmental liability for all E&P service operations; minimum standards for sustainable management",               domains:"All 4 domains",            br:"Lei 9.605/1998",          link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
+  { reg:"Res. SRT 559/2009 — Seguridad en Perforación",       scope:"OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program",         domains:"All 4 domains",            br:"NR-37 (MTE)",             link:"https://www.argentina.gob.ar/srt" },
+  { reg:"Ley Neuquén 899 — Código de Aguas",                  scope:"Water use rights and produced water disposal in Neuquina basin; governs HAL frac fluid sourcing and disposal",      domains:"Domain 1 — water sourcing", br:"N/A (offshore in Brazil)", link:"https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
+  { reg:"Decreto Neuquén 1483/2012 — No Convencional",        scope:"Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)",   domains:"Domain 1 — Fracking",      br:"N/A",                     link:"https://boficial.neuquen.gov.ar/" },
+  { reg:"Ley 17.319/1967 — Ley de Hidrocarburos",             scope:"Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P",    domains:"All domains",              br:"Lei 9.478/1997 (Petróleo)",link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
 ];
 
 const TIER_STYLES = {
@@ -954,7 +954,7 @@ function renderArgentinaTables() {
   const regBody = document.getElementById('argRegulatoryBody');
   if (regBody) {
     regBody.innerHTML = ARG_REGULATIONS.map(r => `<tr>
-      <td style="font-weight:600;font-size:11px;">${r.reg}</td>
+      <td style="font-weight:600;font-size:11px;">${r.link ? `<a href="${r.link}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;">${r.reg} ↗</a>` : r.reg}</td>
       <td style="font-size:11px;color:var(--text2);">${r.scope}</td>
       <td style="font-size:11px;"><span class="ai-tag" style="--t-c:#2563eb">${r.domains}</span></td>
       <td style="font-size:11px;color:var(--text3);">${r.br}</td>
