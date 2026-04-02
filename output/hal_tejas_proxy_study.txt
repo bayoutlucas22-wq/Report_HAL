@@ -1,0 +1,29 @@
+========================================================================
+  HALLIBURTON & TEJAS MEXICO — COMPLIANCE INTELLIGENCE STUDY
+  Generated: 2026-04-02 00:54:28
+  Source: Compranet Historico & SIH Open Data (Proxy Intersection)
+========================================================================
+
+  1. SUMMARY METRICS
+────────────────────────────────────────────────────────────────────────
+  Missing Completions Tracked: 581
+  Total Drilled Wells Pending Completion: 846
+  Primary Proxies: Halliburton / Constructora y Perforadora Latina
+
+  2. REAL OPERATOR EXPOSURE (Ranked by Missing Completions)
+────────────────────────────────────────────────────────────────────────
+  Pemex Exploración y Producción | Cuencas del Sur | 10/2023 | Missing: 8    
+  Pemex Exploración y Producción | Tampico-Misantl | 04/2018 | Missing: 8    
+  Pemex Exploración y Producción | Tampico-Misantl | 11/2015 | Missing: 8    
+  Pemex Exploración y Producción | Tampico-Misantl | 12/2015 | Missing: 8    
+  Pemex Exploración y Producción | Cuencas del Sur | 08/2021 | Missing: 6    
+  Pemex Exploración y Producción | Cuencas del Sur | 07/2023 | Missing: 5    
+  Pemex Exploración y Producción | Cuencas del Sur | 02/2020 | Missing: 5    
+  Pemex Exploración y Producción | Cuencas del Sur | 02/2019 | Missing: 5    
+  Pemex Exploración y Producción | Cuencas del Sur | 09/2019 | Missing: 5    
+  Pemex Exploración y Producción | Tampico-Misantl | 11/2017 | Missing: 5    
+  Pemex Exploración y Producción | Cuencas del Sur | 11/2020 | Missing: 5    
+  Pemex Exploración y Producción | Cuencas del Sur | 10/2023 | Missing: 5    
+  Pemex Exploración y Producción | Cuencas del Sur | 12/2021 | Missing: 4    
+  Pemex Exploración y Producción | Tampico-Misantl | 10/2021 | Missing: 4    
+  Pemex Exploración y Producción | Cuencas del Sur | 02/2023 | Missing: 4    
