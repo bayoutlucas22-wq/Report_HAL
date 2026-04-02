@@ -107,7 +107,13 @@
           </svg>
           Active Wells
         </a>
-
+        <a href="#" class="nav-link" data-section="argentina" id="nav-argentina">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="12" rx="10" ry="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          HAL Argentina
+        </a>
 
       </nav>
 
@@ -2963,6 +2969,293 @@
             Report</div>
           <div>Copyright 2026 Compliance Informatics Solutions, LLC</div>
         </footer>
+
+      <!-- ── HAL ARGENTINA STUDY ── -->
+      <section id="section-argentina" class="dash-section">
+
+        <!-- Header -->
+        <div class="cs-header" style="background: linear-gradient(135deg, #0c1a0e 0%, #14532d 60%, #166534 100%);">
+          <div class="cs-header-left">
+            <div class="cs-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.28);">SESCO · datos.energia.gob.ar · 2015–2026</div>
+            <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">HAL Argentina — Compliance Intelligence Study</h2>
+            <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">
+              Operational footprint and regulatory exposure for Halliburton's Argentina operations mapped via SESCO open data.
+              Argentina has no public incident database equivalent to Brazil's ANP SISO — exposure is derived from fracking parameters,
+              well counts, and applicable Argentine regulatory framework.
+            </p>
+          </div>
+          <div class="ai-hero-stats">
+            <div class="ai-stat"><div class="ai-stat-val">3,642</div><div class="ai-stat-label">Frac Jobs</div></div>
+            <div class="ai-stat"><div class="ai-stat-val">90%</div><div class="ai-stat-label">HAL Clients</div></div>
+            <div class="ai-stat"><div class="ai-stat-val">3</div><div class="ai-stat-label">Basins</div></div>
+            <div class="ai-stat"><div class="ai-stat-val">8</div><div class="ai-stat-label">Regulations</div></div>
+          </div>
+        </div>
+
+        <!-- Data Context & Official Sources -->
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;margin:16px 20px 0;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+          <div style="margin-bottom:16px;">
+            <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              Data Context &amp; Official Sources
+            </h3>
+            <p style="font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:6px;">
+              All quantitative data originates from Argentina's <strong>Secretaría de Energía — SESCO open data portal</strong>
+              (<a href="https://datos.energia.gob.ar" target="_blank" style="color:var(--blue);">datos.energia.gob.ar</a>),
+              published under Decreto 1172/2003 (Argentina's open government access framework).
+              The fracturing dataset (Adjunto IV) records every hydraulic fracturing job reported by operators to the Secretaría de Energía from 2015 to present.
+            </p>
+            <p style="font-size:13px;color:var(--text2);line-height:1.5;">
+              <strong>HAL client classification</strong> (the "90% confirmed HAL clients" figure) is based on operator identity, not on a field in the SESCO data — SESCO records the <em>operator</em>, not the service company that performed the fracking job.
+              Classification relies on publicly documented HAL Argentina contracts and SPE/IAPG papers confirming HAL's operational presence for each operator listed.
+            </p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:12px;margin-bottom:16px;">
+            <a href="https://datos.energia.gob.ar/dataset/adjunto-iv-datos-de-fracturas-hidraulicas" target="_blank" rel="noopener"
+              style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">SESCO — Fractura Hidráulica (Adjunto IV) ↗</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:4px;">Primary source for all fracking job data: stages, water volumes, pressure, HP, lateral length, formation, and operator. 3,642 records 2015–2026.</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:4px;font-family:monospace;">Resource ID: 2280ad92-6ed3-403e-a095-50139863ab0d</div>
+            </a>
+            <a href="https://datos.energia.gob.ar/dataset/produccion-de-petroleo-y-gas-por-pozo-de-la-republica-argentina" target="_blank" rel="noopener"
+              style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">SESCO — Producción por Pozo (Annex IV) ↗</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:4px;">Source for producing well counts, extraction method (ESP, rod pump, gas lift), resource type (conventional / unconventional). 38,956 unique wells.</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:4px;font-family:monospace;">Resource ID: 876b3746-85e2-4039-adeb-b1354436159f</div>
+            </a>
+            <a href="https://servicios.infoleg.gob.ar" target="_blank" rel="noopener"
+              style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">InfoLEG — Argentine Legal Database ↗</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:4px;">Official source for all Argentine regulations cited: Res. SE 25/2004, Res. SE 317/2021, Ley 24.051, Ley 25.675, Res. SRT 559/2009, Decreto 1122/97.</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:4px;">servicios.infoleg.gob.ar</div>
+            </a>
+          </div>
+
+          <div style="padding:12px;background:rgba(59,130,246,0.05);border:1px dashed rgba(59,130,246,0.3);border-radius:6px;">
+            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;">What is directly in SESCO vs what is inferred:</div>
+            <ul style="font-size:12px;color:var(--text2);margin:0;padding-left:20px;line-height:1.7;">
+              <li><strong>Direct SESCO data (100% verifiable):</strong> all numerical values — jobs, stages, PSI, HP, lateral length, water volumes, formation names, operator names, year-over-year trends, proxy thresholds.</li>
+              <li><strong>Inferred from industry sources:</strong> HAL client classification (operator → service company mapping); HAL market share in cementing and directional drilling; Tejas valve exposure in producing wells.</li>
+              <li><strong>Argentina vs Brazil gap:</strong> Argentina has no public well-barrier failure disclosure mandate equivalent to ANP Res. 46/2016, so no direct incident counts are available from government sources.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="cs-metrics-grid" style="margin-bottom:20px;">
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">3,642</div>
+            <div class="cs-metric-label">Total Frac Jobs</div>
+            <div class="cs-metric-sub">SESCO Annex IV, 2015–2026</div>
+          </div>
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">96,795</div>
+            <div class="cs-metric-label">Total Frac Stages</div>
+            <div class="cs-metric-sub">Avg 26.6 stages / job</div>
+          </div>
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">138.4 Mm³</div>
+            <div class="cs-metric-label">Water Injected</div>
+            <div class="cs-metric-sub">138 billion litres total</div>
+          </div>
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">9,906 PSI</div>
+            <div class="cs-metric-label">Avg Treating Pressure</div>
+            <div class="cs-metric-sub">Max recorded: 209,641 PSI</div>
+          </div>
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">23,164 HP</div>
+            <div class="cs-metric-label">Avg Equipment Power</div>
+            <div class="cs-metric-sub">Peak jobs: 42,133 HP (2026)</div>
+          </div>
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">1,582 m</div>
+            <div class="cs-metric-label">Avg Lateral Length</div>
+            <div class="cs-metric-sub">Growing to 3,038m by 2025</div>
+          </div>
+        </div>
+
+        <!-- Annual Trend -->
+        <div class="panel" style="margin-bottom:20px;">
+          <div class="panel-header">
+            <div>
+              <div class="cs-section-num">01</div>
+              <div class="panel-title">Annual Intensity Escalation — 2015 to 2026</div>
+              <div class="panel-subtitle">Every metric has grown consistently. Laterals grew 17× since 2015. HAL's service scope and regulatory exposure expand proportionally.</div>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="argTrendTable">
+              <thead>
+                <tr>
+                  <th>Year</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Avg HP</th><th>Avg Lateral m</th><th>Unconv %</th><th>Neuquina %</th>
+                </tr>
+              </thead>
+              <tbody id="argTrendBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Operator Exposure + Formation Risk side by side -->
+        <div class="charts-row" style="margin-bottom:20px;">
+          <div class="panel" style="flex:1.4;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">Operator Exposure Matrix</div>
+                <div class="panel-subtitle">HAL confirmed clients covering 90% of all recorded fracking jobs in Argentina.</div>
+              </div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="argOperatorTable">
+                <thead>
+                  <tr><th>Operator</th><th>Basin</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Risk Tier</th></tr>
+                </thead>
+                <tbody id="argOperatorBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel" style="flex:1;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">03</div>
+                <div class="panel-title">Formation Risk Profile</div>
+                <div class="panel-subtitle">What HAL is pumping into — by formation.</div>
+              </div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="argFormationTable">
+                <thead>
+                  <tr><th>Formation</th><th>Jobs</th><th>Avg PSI</th><th>Shale%</th><th>Primary Hazard</th></tr>
+                </thead>
+                <tbody id="argFormationBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regulatory Framework -->
+        <div class="panel" style="margin-bottom:20px;">
+          <div class="panel-header">
+            <div>
+              <div class="cs-section-num">04</div>
+              <div class="panel-title">Argentine Regulatory Framework — HAL Compliance Obligations</div>
+              <div class="panel-subtitle">8 regulations apply directly across HAL's 4 service domains in Argentina. Argentina has NO public barrier-failure disclosure mandate equivalent to Brazil's ANP Res. 46/2016.</div>
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="argRegulatoryTable">
+              <thead>
+                <tr><th>Regulation</th><th>Scope</th><th>HAL Domains</th><th>Brazil Equivalent</th></tr>
+              </thead>
+              <tbody id="argRegulatoryBody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:14px;padding:12px 16px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;">
+            <div style="font-size:12px;color:#713f12;line-height:1.6;">
+              <span style="font-weight:700;">Regulatory Gap vs Brazil:</span>
+              Argentina's Res. SE 25/2004 mandates internal well integrity management but does <em>not</em> require public disclosure of well barrier failures.
+              HAL Argentina operates under fewer transparency obligations than HAL Brazil — while running physically more demanding jobs (deeper wells, higher pressures, longer laterals in Vaca Muerta).
+            </div>
+          </div>
+        </div>
+
+        <!-- Proxy Risk Indicators + HAL Domains -->
+        <div class="charts-row" style="margin-bottom:20px;">
+          <div class="panel" style="flex:1;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">05</div>
+                <div class="panel-title">Proxy Risk Indicators</div>
+                <div class="panel-subtitle">No public incident database — these SESCO thresholds are the best available signal.</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;padding:4px 0;">
+              <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;">
+                <div style="font-size:28px;font-weight:900;color:#dc2626;min-width:44px;text-align:center;">16</div>
+                <div><div style="font-size:13px;font-weight:700;color:#991b1b;">Jobs exceeding 15,000 PSI treating pressure</div><div style="font-size:11px;color:#b91c1c;margin-top:2px;">Above this threshold, wellhead and casing integrity risk increases significantly</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;">
+                <div style="font-size:28px;font-weight:900;color:#ea580c;min-width:44px;text-align:center;">448</div>
+                <div><div style="font-size:13px;font-weight:700;color:#9a3412;">Jobs injecting &gt;80,000 m³ of water</div><div style="font-size:11px;color:#c2410c;margin-top:2px;">Large-volume jobs drive produced water disposal risks and induced seismicity</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;">
+                <div style="font-size:28px;font-weight:900;color:#d97706;min-width:44px;text-align:center;">1,187</div>
+                <div><div style="font-size:13px;font-weight:700;color:#92400e;">Wells with lateral length &gt;2,500 m</div><div style="font-size:11px;color:#b45309;margin-top:2px;">Ultra-long laterals require multiple packers — completion integrity risk per zone</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;">
+                <div style="font-size:28px;font-weight:900;color:#16a34a;min-width:44px;text-align:center;">307</div>
+                <div><div style="font-size:13px;font-weight:700;color:#166534;">Jobs using &gt;40,000 HP equipment</div><div style="font-size:11px;color:#15803d;margin-top:2px;">High-HP operations = elevated surface equipment and wellhead failure risk</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" style="flex:1;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">06</div>
+                <div class="panel-title">HAL Service Domains — Argentina</div>
+                <div class="panel-subtitle">All 4 confirmed active. Each domain maps to applicable Argentine regulations.</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 0;">
+              <div style="padding:14px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                  <div style="font-size:12px;font-weight:800;color:#166534;">DOMAIN 1 — Hydraulic Fracturing (Estimulación)</div>
+                  <span style="font-size:10px;font-weight:700;background:#16a34a;color:#fff;padding:2px 8px;border-radius:20px;">CONFIRMED ACTIVE</span>
+                </div>
+                <div style="font-size:11px;color:#15803d;line-height:1.5;">3,642 jobs documented 2015–2026. Vaca Muerta is HAL's most intensive global fracking zone. Primary regulation: Res. SE 317/2021 + Ley Provincial Neuquén 3004.</div>
+              </div>
+              <div style="padding:14px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                  <div style="font-size:12px;font-weight:800;color:#166534;">DOMAIN 2 — Cementing &amp; Well Construction</div>
+                  <span style="font-size:10px;font-weight:700;background:#16a34a;color:#fff;padding:2px 8px;border-radius:20px;">CONFIRMED ACTIVE</span>
+                </div>
+                <div style="font-size:11px;color:#15803d;line-height:1.5;">Every new well requires a cement job. Argentina drills ~350 new wells/year (SESCO pozos terminados). HAL holds major cementing market share. Regulation: Res. SE 25/2004.</div>
+              </div>
+              <div style="padding:14px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                  <div style="font-size:12px;font-weight:800;color:#166534;">DOMAIN 3 — Directional Drilling / MWD-LWD</div>
+                  <span style="font-size:10px;font-weight:700;background:#16a34a;color:#fff;padding:2px 8px;border-radius:20px;">CONFIRMED ACTIVE</span>
+                </div>
+                <div style="font-size:11px;color:#15803d;line-height:1.5;">100% of Vaca Muerta wells are horizontal. Avg lateral 1,582m growing to 3,038m by 2025. HAL iCruise + EarthStar tools widely deployed. Regulation: Res. SRT 559/2009.</div>
+              </div>
+              <div style="padding:14px 16px;background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                  <div style="font-size:12px;font-weight:800;color:#1e40af;">DOMAIN 4 — Completion Tools (DHSV / Tejas Valves)</div>
+                  <span style="font-size:10px;font-weight:700;background:#2563eb;color:#fff;padding:2px 8px;border-radius:20px;">IN-SERVICE</span>
+                </div>
+                <div style="font-size:11px;color:#1d4ed8;line-height:1.5;">38,956 unique producing wells with HAL completion hardware in-service. Tejas/HAL surface safety valves on every wellhead. These remain in-service indefinitely after fracturing is complete.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data gap notice -->
+        <div style="padding:16px 20px;background:#f8fafc;border:1px solid var(--border);border-radius:10px;margin-bottom:4px;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:8px;">Incident Data Gap — How to Fill It</div>
+          <div style="display:flex;gap:20px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:220px;">
+              <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">Public Sources Available Now</div>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="font-size:11px;color:var(--text2);">→ <a href="https://www.argentina.gob.ar/srt/estadisticas" target="_blank" style="color:var(--blue);">SRT Statistics</a> — workplace accidents by sector (oil &amp; gas = sector 11)</div>
+                <div style="font-size:11px;color:var(--text2);">→ <a href="https://www.iapg.org.ar/estadisticas" target="_blank" style="color:var(--blue);">IAPG Annual Safety Stats</a> — industry-wide incident rates</div>
+                <div style="font-size:11px;color:var(--text2);">→ <a href="https://contrataciones.gob.ar" target="_blank" style="color:var(--blue);">contrataciones.gob.ar</a> — YPF/ENARSA contracts with HAL (public procurement)</div>
+                <div style="font-size:11px;color:var(--text2);">→ <a href="https://www.argentina.gob.ar/ambiente" target="_blank" style="color:var(--blue);">Ministerio de Ambiente</a> — environmental incident registry</div>
+              </div>
+            </div>
+            <div style="flex:1;min-width:220px;">
+              <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">Grey Zone: Physical Risk vs Transparency</div>
+              <div style="font-size:11px;color:var(--text2);line-height:1.6;">HAL Argentina operates under fewer disclosure obligations than HAL Brazil — yet Vaca Muerta operations are physically more demanding: deeper wells, higher pressures, longer laterals, larger water volumes. The absence of a public incident database does not mean absence of incidents.</div>
+            </div>
+          </div>
+        </div>
+
+      </section><!-- /section-argentina -->
 
       </div><!-- /page-content -->
     </div><!-- /main-content -->

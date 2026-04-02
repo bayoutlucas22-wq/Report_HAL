@@ -1,0 +1,141 @@
+==================================================================
+  ARGENTINA HYDROCARBONS OPEN DATA — FULL REPORT 2015–2026
+  Generated : 2026-04-01 17:33:50
+  Datasets  : 20
+==================================================================
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Wells
+──────────────────────────────────────────────────────────────────
+
+  Pozos en Perforación
+    Raw records loaded : 467,790
+    2015–2026 records  : 344,538  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Pozos Terminados (desde 2009)
+    Raw records loaded : 100,000
+    2015–2026 records  : 100,000  [no date col]
+    Tejas matches      : 0
+
+  Metros Perforados (desde 2009)
+    Raw records loaded : 100,000
+    2015–2026 records  : 2  [filtered on 'anio']
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Production
+──────────────────────────────────────────────────────────────────
+
+  Producción por Pozo — Cap. IV
+    Raw records loaded : 130,000
+    2015–2026 records  : 130,000  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Producción Petróleo por Yacimiento
+    Raw records loaded : 100,000
+    2015–2026 records  : 25,000  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Producción Gas por Yacimiento
+    Raw records loaded : 100,000
+    2015–2026 records  : 80,000  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Prod. Petróleo SESCO + Tight & Shale (por Cuenca)
+    Raw records loaded : 5,121
+    2015–2026 records  : 3,165  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Prod. Gas SESCO + Tight & Shale (por Cuenca)
+    Raw records loaded : 6,039
+    2015–2026 records  : 4,080  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Prod. Petróleo Promedio Diaria por Yacimiento
+    Raw records loaded : 100,000
+    2015–2026 records  : 14,181  [filtered on 'anio']
+    Tejas matches      : 0
+
+  Prod. Gas Promedio Diaria por Yacimiento
+    Raw records loaded : 16,500
+    2015–2026 records  : 16,500  [no date col]
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Completions
+──────────────────────────────────────────────────────────────────
+
+  Fractura — Adjunto IV (daily)
+    Raw records loaded : 4,646
+    2015–2026 records  : 3,642  [filtered on 'anio']
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Exploration
+──────────────────────────────────────────────────────────────────
+
+  Exploración — Cuencas Sedimentarias
+    Raw records loaded : 24
+    2015–2026 records  : 24  [no date col]
+    Tejas matches      : 0
+
+  Permisos de Exploración
+    Raw records loaded : 84
+    2015–2026 records  : 84  [no date col]
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Concessions
+──────────────────────────────────────────────────────────────────
+
+  Concesiones de Explotación
+    Raw records loaded : 297
+    2015–2026 records  : 297  [no date col]
+    Tejas matches      : 0
+
+  Yacimientos
+    Raw records loaded : 875
+    2015–2026 records  : 875  [no date col]
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Companies
+──────────────────────────────────────────────────────────────────
+
+  Registro Empresas Upstream
+    Raw records loaded : 191
+    2015–2026 records  : 191  [no date col]
+    Tejas matches      : 0
+
+  Conformación de Consorcios
+    Raw records loaded : 4,012
+    2015–2026 records  : 4,012  [no date col]
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Transport
+──────────────────────────────────────────────────────────────────
+
+  Volúmenes Transporte Ductos (Planilla 20)
+    Raw records loaded : 36,403
+    2015–2026 records  : 36,403  [filtered on 'anio']
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Compliance
+──────────────────────────────────────────────────────────────────
+
+  Inspecciones de Abastecimiento
+    Raw records loaded : 4,909
+    2015–2026 records  : 430  [filtered on 'anio']
+    Tejas matches      : 0
+
+──────────────────────────────────────────────────────────────────
+  CATEGORY: Environment
+──────────────────────────────────────────────────────────────────
+
+  Puntos de Venteo Declarados
+    Raw records loaded : 1,006
+    2015–2026 records  : 1,006  [no date col]
+    Tejas matches      : 0

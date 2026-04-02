@@ -11,17 +11,10 @@ let ANP_RECORDS = [];
 let ANP_STATS = null;
 
 function parseIncidentesCSV() {
-  // Robust pathing for Vercel: try local then relative to cwd
+  // Now simpler since files are relative to this api/server.js file
   const locate = (rel) => {
-    // 1. Try relative to the app root (via process.cwd)
-    const p1 = path.join(process.cwd(), rel);
-    if (fs.existsSync(p1)) return p1;
-    // 2. Try one level up (if running inside api/ on Vercel)
-    const p2 = path.join(__dirname, "..", rel);
-    if (fs.existsSync(p2)) return p2;
-    // 3. Try direct (local run fallback)
-    const p3 = path.join(__dirname, rel);
-    if (fs.existsSync(p3)) return p3;
+    const p = path.join(__dirname, rel);
+    if (fs.existsSync(p)) return p;
     return null;
   };
 
@@ -29,7 +22,7 @@ function parseIncidentesCSV() {
   const typeCsvPath = locate("data/incidentes-tipo.csv");
 
   if (!csvPath || !typeCsvPath) {
-    console.error("CRITICAL: CSV data files missing from filesystem:", { csvPath, typeCsvPath });
+    console.error("CRITICAL: CSV data files missing from filesystem (under api/):", { csvPath, typeCsvPath });
     return;
   }
   
