@@ -539,16 +539,6 @@ window.goPage = async function (p) {
   renderTable(data);
 };
 
-// ── Populate year filter ──────────────────────────────────────────────────────
-function populateYearFilter(stats) {
-  const sel = document.getElementById("filterYear");
-  const years = [...new Set(stats.yearSeries.map(y => y.year))].sort();
-  years.forEach(y => {
-    const opt = document.createElement("option");
-    opt.value = y; opt.textContent = y;
-    sel.appendChild(opt);
-  });
-}
 
 // ── Live badge with source link ───────────────────────────────────────────────
 function renderBadge(total) {
@@ -574,51 +564,51 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
+  // Toggle global lock-mode for restricted sections
+  const globalOverlay = document.getElementById('globalLockOverlay');
+  if (section === 'fullreport' || section === 'latam-summary') {
+    document.body.classList.add('lock-mode');
+    if (globalOverlay) globalOverlay.style.display = 'flex';
+  } else {
+    document.body.classList.remove('lock-mode');
+    if (globalOverlay) globalOverlay.style.display = 'none';
+  }
+
   closeMobileSidebar();
 }
 
-// ── Mobile Sidebar Toggles ────────────────────────────────────────────────────
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobileMenuBtn');
+// ── Sidebar Toggles ──────────────────────────────────────────────────────────
+function initSidebarToggle() {
+  const toggleBtn = document.getElementById('sidebarToggleBtn');
   const overlay = document.getElementById('sidebarOverlay');
-  const sidebar = document.querySelector('.sidebar');
-  const layout = document.querySelector('.app-layout');
+  const appLayout = document.querySelector('.app-layout');
 
-  if (menuBtn && sidebar && overlay && layout) {
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      layout.classList.toggle('sidebar-open');
+  if (toggleBtn && appLayout) {
+    toggleBtn.addEventListener('click', () => {
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile) {
+        appLayout.classList.toggle('mobile-sidebar-open');
+      } else {
+        appLayout.classList.toggle('sidebar-collapsed');
+      }
     });
-    overlay.addEventListener('click', closeMobileSidebar);
+
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        appLayout.classList.remove('mobile-sidebar-open');
+      });
+    }
   }
 }
 
 function closeMobileSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  const layout = document.querySelector('.app-layout');
-  if (sidebar && layout) {
-    sidebar.classList.remove('open');
-    layout.classList.remove('sidebar-open');
+  const appLayout = document.querySelector('.app-layout');
+  if (appLayout) {
+    appLayout.classList.remove('mobile-sidebar-open');
   }
 }
 
-// ── Filters ───────────────────────────────────────────────────────────────────
-async function applyFilters() {
-  activeFilters.year = document.getElementById("filterYear").value;
-  activeFilters.category = document.getElementById("filterCategory").value;
-  activeFilters.severity = document.getElementById("filterSeverity").value;
-  const data = await fetchHalIncidents(1);
-  renderTable(data);
-  renderMatrix(data.items);
-  switchSection("registry");
-}
-
-function clearFilters() {
-  document.getElementById("filterYear").value = "";
-  document.getElementById("filterCategory").value = "";
-  document.getElementById("filterSeverity").value = "";
-  activeFilters = { year: "", category: "", severity: "" };
-}
 
 // ── Search ────────────────────────────────────────────────────────────────────
 let searchTimer = null;
@@ -635,7 +625,7 @@ document.getElementById("searchInput").addEventListener("input", e => {
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   try {
-    initMobileMenu();
+    initSidebarToggle();
     document.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", e => { e.preventDefault(); switchSection(link.dataset.section); });
     });
@@ -653,8 +643,6 @@ async function init() {
       }
     });
 
-    document.getElementById("btnApply").addEventListener("click", applyFilters);
-    document.getElementById("btnClear").addEventListener("click", clearFilters);
 
     // Initial data load
     const [stats, tableData, contractData] = await Promise.all([
@@ -666,7 +654,6 @@ async function init() {
     if (stats) {
       halStats = stats;
       renderBadge(stats.total);
-      populateYearFilter(stats);
       renderKPIs(stats);
       renderOverviewChart(stats);
       renderDonut(stats);
@@ -1165,6 +1152,37 @@ function processIncomingContracts(rawItems) {
       score: getInferenceScore(domain),
       scoreC: domain === "G&G Software" ? "#6b7280" : "#c0392b"
     };
+  });
+
+  // Sort contracts by Value (Descending) -> Date (Descending)
+  ALL_CONTRACTS.sort((a, b) => {
+    // Robust currency parser (handles R$ 1.500.000,00 or $ 1,500,000.00)
+    const parseVal = (v) => {
+      if (!v) return 0;
+      const str = String(v);
+      if (str.includes(',') && str.lastIndexOf(',') > str.lastIndexOf('.')) {
+         return parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
+      }
+      return parseFloat(str.replace(/[^\d.-]/g, '')) || 0;
+    };
+
+    const valDiff = parseVal(b.value) - parseVal(a.value);
+    if (valDiff !== 0) return valDiff;
+
+    // Secondary sort: most recent start date first
+    // Expecting DD/MM/YYYY format
+    const parseDate = (dstr) => {
+        if (!dstr) return 0;
+        const pts = String(dstr).split('/');
+        if (pts.length === 3) return new Date(`${pts[2]}-${pts[1]}-${pts[0]}`).getTime();
+        return 0;
+    };
+    
+    // a.inicio is mapped to c.inicio in the raw item? Wait, the mapped object has `periodo`, not `inicio`.
+    // Let's sort by periodo year (e.g. "2021-2025")
+    const yearA = parseInt(a.periodo.split('–')[0]) || 0;
+    const yearB = parseInt(b.periodo.split('–')[0]) || 0;
+    return yearB - yearA;
   });
 
   filteredContracts = [...ALL_CONTRACTS];
