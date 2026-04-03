@@ -152,13 +152,12 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 
 /* Collapsed Sidebar State */
 .app-layout.sidebar-collapsed .sidebar {
-  width: 68px;
-}
-.app-layout.sidebar-collapsed .sidebar-logo {
-  padding: 16px 8px;
+  width: 0;
+  transform: translateX(-100%);
+  border-right: none;
 }
 .app-layout.sidebar-collapsed .sidebar-logo img {
-  max-width: 40px;
+  opacity: 0;
 }
 .app-layout.sidebar-collapsed .nav-link span,
 .app-layout.sidebar-collapsed .filter-label {
