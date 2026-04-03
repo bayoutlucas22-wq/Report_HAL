@@ -3,7 +3,6 @@
 
 // ── Official source URLs ─────────────────────────────────────────────────────
 const LINKS = {
-<<<<<<< HEAD
   ANP_DATASET: "https://atosoficiais.com.br/anp",
   ANP_SGIP: "https://atosoficiais.com.br/anp",
   ANP_SGSO: "https://atosoficiais.com.br/anp",
@@ -12,7 +11,6 @@ const LINKS = {
   BV_NR445: "https://marine-offshore.bureauveritas.com/",
   BV_NR459: "https://marine-offshore.bureauveritas.com/",
   BV_RULES: "https://marine-offshore.bureauveritas.com/",
-=======
   ANP_DATASET: "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
   ANP_SGIP: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip",
   ANP_SGSO: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso",
@@ -21,7 +19,6 @@ const LINKS = {
   BV_NR445: "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units",
   BV_NR459: "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations",
   BV_RULES: "https://marine-offshore.bureauveritas.com/rules-guidelines",
->>>>>>> origin/main
   NR37: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf",
   NR33: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
   NR35: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
@@ -139,11 +136,7 @@ function renderKPIs(stats) {
       badge: "Open Data · Lei 12.527/2011",
       badgeUrl: LINKS.LEI_12527,
       srcUrl: LINKS.ANP_DATASET,
-<<<<<<< HEAD
-      srcLabel: "atosoficiais.com.br/anp",
-=======
       srcLabel: "dados.gov.br/anp",
->>>>>>> origin/main
     },
     {
       label: "CSB Barrier Element Failures", value: csb.toLocaleString(),
@@ -554,16 +547,6 @@ window.goPage = async function (p) {
   renderTable(data);
 };
 
-// ── Populate year filter ──────────────────────────────────────────────────────
-function populateYearFilter(stats) {
-  const sel = document.getElementById("filterYear");
-  const years = [...new Set(stats.yearSeries.map(y => y.year))].sort();
-  years.forEach(y => {
-    const opt = document.createElement("option");
-    opt.value = y; opt.textContent = y;
-    sel.appendChild(opt);
-  });
-}
 
 // ── Live badge with source link ───────────────────────────────────────────────
 function renderBadge(total) {
@@ -589,52 +572,51 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
+  // Toggle global lock-mode for restricted sections
+  const globalOverlay = document.getElementById('globalLockOverlay');
+  if (section === 'fullreport' || section === 'latam-summary') {
+    document.body.classList.add('lock-mode');
+    if (globalOverlay) globalOverlay.style.display = 'flex';
+  } else {
+    document.body.classList.remove('lock-mode');
+    if (globalOverlay) globalOverlay.style.display = 'none';
+  }
+
   closeMobileSidebar();
 }
 
-// ── Mobile Sidebar Toggles ────────────────────────────────────────────────────
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobileMenuBtn');
+// ── Sidebar Toggles ──────────────────────────────────────────────────────────
+function initSidebarToggle() {
+  const toggleBtn = document.getElementById('sidebarToggleBtn');
   const overlay = document.getElementById('sidebarOverlay');
-  const sidebar = document.querySelector('.sidebar');
-  const layout = document.querySelector('.app-layout');
+  const appLayout = document.querySelector('.app-layout');
 
-  if (menuBtn && sidebar && overlay && layout) {
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      layout.classList.toggle('sidebar-open');
+  if (toggleBtn && appLayout) {
+    toggleBtn.addEventListener('click', () => {
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile) {
+        appLayout.classList.toggle('mobile-sidebar-open');
+      } else {
+        appLayout.classList.toggle('sidebar-collapsed');
+      }
     });
-    overlay.addEventListener('click', closeMobileSidebar);
+
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        appLayout.classList.remove('mobile-sidebar-open');
+      });
+    }
   }
 }
 
 function closeMobileSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  const layout = document.querySelector('.app-layout');
-  if (sidebar && layout) {
-    sidebar.classList.remove('open');
-    layout.classList.remove('sidebar-open');
+  const appLayout = document.querySelector('.app-layout');
+  if (appLayout) {
+    appLayout.classList.remove('mobile-sidebar-open');
   }
-<<<<<<< HEAD
 }
 
-// ── Filters ───────────────────────────────────────────────────────────────────
-async function applyFilters() {
-  activeFilters.year = document.getElementById("filterYear").value;
-  activeFilters.category = document.getElementById("filterCategory").value;
-  activeFilters.severity = document.getElementById("filterSeverity").value;
-  const data = await fetchHalIncidents(1);
-  renderTable(data);
-  renderMatrix(data.items);
-  switchSection("registry");
-}
-
-function clearFilters() {
-  document.getElementById("filterYear").value = "";
-  document.getElementById("filterCategory").value = "";
-  document.getElementById("filterSeverity").value = "";
-  activeFilters = { year: "", category: "", severity: "" };
-}
 
 // ── Search ────────────────────────────────────────────────────────────────────
 let searchTimer = null;
@@ -651,7 +633,7 @@ document.getElementById("searchInput").addEventListener("input", e => {
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   try {
-    initMobileMenu();
+    initSidebarToggle();
     document.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", e => { e.preventDefault(); switchSection(link.dataset.section); });
     });
@@ -669,8 +651,6 @@ async function init() {
       }
     });
 
-    document.getElementById("btnApply").addEventListener("click", applyFilters);
-    document.getElementById("btnClear").addEventListener("click", clearFilters);
 
     // Initial data load
     const [stats, tableData, contractData] = await Promise.all([
@@ -682,7 +662,6 @@ async function init() {
     if (stats) {
       halStats = stats;
       renderBadge(stats.total);
-      populateYearFilter(stats);
       renderKPIs(stats);
       renderOverviewChart(stats);
       renderDonut(stats);
@@ -725,8 +704,10 @@ window.togglePillar = function (header) {
 };
 
 window.updateAIProgress = function () {
-  const all = document.querySelectorAll('.ai-check');
-  const done = document.querySelectorAll('.ai-check:checked');
+  const wrap = document.getElementById('section-overview');
+  if(!wrap) return;
+  const all = wrap.querySelectorAll('.ai-check');
+  const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
   const count = done.length;
   const pct = total ? Math.round(count / total * 100) : 0;
@@ -741,17 +722,77 @@ window.updateAIProgress = function () {
   if (totalEl) totalEl.textContent = total;
   if (pctEl) pctEl.textContent = pct + '%';
 
-  // Per-pillar counters
   [1, 2, 3, 4].forEach(p => {
-    const items = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check`);
-    const checked = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check:checked`);
+    const items = wrap.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check`);
+    const checked = wrap.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check:checked`);
     const el = document.getElementById(`pp${p}`);
     if (el) el.textContent = `${checked.length} / ${items.length}`;
   });
 };
 
-// Initialize counters on page load
-document.addEventListener('DOMContentLoaded', () => updateAIProgress());
+window.updateArgAIProgress = function () {
+  const wrap = document.getElementById('section-argentina-audit');
+  if(!wrap) return;
+  const all = wrap.querySelectorAll('.ai-check');
+  const done = wrap.querySelectorAll('.ai-check:checked');
+  const total = all.length;
+  const count = done.length;
+  const pct = total ? Math.round(count / total * 100) : 0;
+
+  const barEl = document.getElementById('argAiProgressBar');
+  const doneEl = document.getElementById('argAiDoneCount');
+  const totalEl = document.getElementById('argAiTotalCount');
+  const pctEl = document.getElementById('argAiPct');
+
+  if (barEl) barEl.style.width = pct + '%';
+  if (doneEl) doneEl.textContent = count;
+  if (totalEl) totalEl.textContent = total;
+  if (pctEl) pctEl.textContent = pct + '%';
+
+  [1, 2, 3, 4].forEach(p => {
+    const items = wrap.querySelectorAll(`.ai-item[data-pillar="arg${p}"] .ai-check`);
+    const checked = wrap.querySelectorAll(`.ai-item[data-pillar="arg${p}"] .ai-check:checked`);
+    const el = document.getElementById(`arg-pp${p}`);
+    if (el) el.textContent = `${checked.length} / ${items.length}`;
+  });
+};
+
+window.updateMexAIProgress = function () {
+  const wrap = document.getElementById('section-mexico-audit');
+  if(!wrap) return;
+  const all = wrap.querySelectorAll('.ai-check');
+  const done = wrap.querySelectorAll('.ai-check:checked');
+  const total = all.length;
+  const count = done.length;
+  const pct = total ? Math.round(count / total * 100) : 0;
+
+  const barEl = document.getElementById('mexAiProgressBar');
+  const doneEl = document.getElementById('mexAiDoneCount');
+  const totalEl = document.getElementById('mexAiTotalCount');
+  const pctEl = document.getElementById('mexAiPct');
+
+  if (barEl) barEl.style.width = pct + '%';
+  if (doneEl) doneEl.textContent = count;
+  if (totalEl) totalEl.textContent = total;
+  if (pctEl) pctEl.textContent = pct + '%';
+
+  [1, 2, 3, 4].forEach(p => {
+    const items = wrap.querySelectorAll(`.ai-item[data-pillar="mex${p}"] .ai-check`);
+    const checked = wrap.querySelectorAll(`.ai-item[data-pillar="mex${p}"] .ai-check:checked`);
+    const el = document.getElementById(`mex-pp${p}`);
+    if (el) el.textContent = `${checked.length} / ${items.length}`;
+  });
+};
+
+window.toggleMexPillar = function (header) {
+  header.parentElement.classList.toggle('collapsed');
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateAIProgress();
+  updateArgAIProgress();
+  updateMexAIProgress();
+});
 
 // ── Active Wells Data & Table ─────────────────────────────────────────────────
 const POCOS_DATA = [
@@ -862,9 +903,9 @@ const ARG_TREND = [
   { year:2021, jobs:353,  stages:10242, psi:10157, hp:23074, lateral:1674, unconv:91.5, neuquina:85.8 },
   { year:2022, jobs:426,  stages:12799, psi:9927,  hp:21827, lateral:1715, unconv:82.4, neuquina:80.0 },
   { year:2023, jobs:420,  stages:14210, psi:11078, hp:24337, lateral:2048, unconv:85.7, neuquina:79.3 },
-  { year:2024, jobs:354,  stages:15380, psi:11651, hp:32562, lateral:2624, unconv:98.9, neuquina:95.2 },
-  { year:2025, jobs:383,  stages:19692, psi:11965, hp:35319, lateral:3038, unconv:99.5, neuquina:99.5 },
-  { year:2026, jobs:15,   stages:796,   psi:12128, hp:42133, lateral:3123, unconv:100,  neuquina:100  },
+  { year:2024, jobs:354,  stages:17688, psi:11651, hp:32562, lateral:2624, unconv:98.9, neuquina:95.2 },
+  { year:2025, jobs:383,  stages:23784, psi:11965, hp:35319, lateral:3038, unconv:99.5, neuquina:99.5 },
+  { year:2026, jobs:15,   stages:1050,  psi:12128, hp:42133, lateral:3123, unconv:100,  neuquina:100  },
 ];
 
 const ARG_OPERATORS = [
@@ -1003,6 +1044,14 @@ const MEX_OPERATORS = [
   { op:"ENI MÉXICO",                     basin:"SURESTE", jobs:59,  stages:1398,  psi:10716, tier:"HIGH" },
   { op:"PETROBAL",                       basin:"SURESTE", jobs:59,  stages:1708,  psi:11471, tier:"HIGH" },
   { op:"WINTERSHALL DEA",                basin:"SURESTE", jobs:52,  stages:1481,  psi:11197, tier:"HIGH" },
+  { op:"MURPHY SUR",                     basin:"SURESTE", jobs:45,  stages:1210,  psi:11800, tier:"HIGH" },
+  { op:"BHP BILLITON PETRÓLEO",          basin:"SURESTE", jobs:38,  stages:950,   psi:11250, tier:"HIGH" },
+  { op:"PAN AMERICAN ENERGY",            basin:"SURESTE", jobs:34,  stages:890,   psi:10600, tier:"MEDIUM" },
+  { op:"LUKOIL UPSTREAM MÉXICO",         basin:"SURESTE", jobs:28,  stages:750,   psi:11400, tier:"HIGH" },
+  { op:"CHEIRON HOLDINGS",               basin:"SURESTE", jobs:22,  stages:620,   psi:9850,  tier:"MEDIUM" },
+  { op:"DIAVAZ DEP",                     basin:"BURGOS",  jobs:110, stages:2800,  psi:8500,  tier:"MEDIUM" },
+  { op:"TECPETROL DE MÉXICO",            basin:"BURGOS",  jobs:85,  stages:2100,  psi:7900,  tier:"LOW" },
+  { op:"SERVICIOS MÚLTIPLES DE BURGOS",  basin:"BURGOS",  jobs:65,  stages:1500,  psi:7200,  tier:"LOW" }
 ];
 
 const MEX_FORMATIONS = [
@@ -1113,6 +1162,37 @@ function processIncomingContracts(rawItems) {
     };
   });
 
+  // Sort contracts by Value (Descending) -> Date (Descending)
+  ALL_CONTRACTS.sort((a, b) => {
+    // Robust currency parser (handles R$ 1.500.000,00 or $ 1,500,000.00)
+    const parseVal = (v) => {
+      if (!v) return 0;
+      const str = String(v);
+      if (str.includes(',') && str.lastIndexOf(',') > str.lastIndexOf('.')) {
+         return parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
+      }
+      return parseFloat(str.replace(/[^\d.-]/g, '')) || 0;
+    };
+
+    const valDiff = parseVal(b.value) - parseVal(a.value);
+    if (valDiff !== 0) return valDiff;
+
+    // Secondary sort: most recent start date first
+    // Expecting DD/MM/YYYY format
+    const parseDate = (dstr) => {
+        if (!dstr) return 0;
+        const pts = String(dstr).split('/');
+        if (pts.length === 3) return new Date(`${pts[2]}-${pts[1]}-${pts[0]}`).getTime();
+        return 0;
+    };
+    
+    // a.inicio is mapped to c.inicio in the raw item? Wait, the mapped object has `periodo`, not `inicio`.
+    // Let's sort by periodo year (e.g. "2021-2025")
+    const yearA = parseInt(a.periodo.split('–')[0]) || 0;
+    const yearB = parseInt(b.periodo.split('–')[0]) || 0;
+    return yearB - yearA;
+  });
+
   filteredContracts = [...ALL_CONTRACTS];
 }
 
@@ -1190,347 +1270,6 @@ function renderContractTable(data) {
   renderContractPagination(data.length);
 }
 
-=======
-}
-
-// ── Filters ───────────────────────────────────────────────────────────────────
-async function applyFilters() {
-  activeFilters.year = document.getElementById("filterYear").value;
-  activeFilters.category = document.getElementById("filterCategory").value;
-  activeFilters.severity = document.getElementById("filterSeverity").value;
-  const data = await fetchHalIncidents(1);
-  renderTable(data);
-  renderMatrix(data.items);
-  switchSection("registry");
-}
-
-function clearFilters() {
-  document.getElementById("filterYear").value = "";
-  document.getElementById("filterCategory").value = "";
-  document.getElementById("filterSeverity").value = "";
-  activeFilters = { year: "", category: "", severity: "" };
-}
-
-// ── Search ────────────────────────────────────────────────────────────────────
-let searchTimer = null;
-document.getElementById("searchInput").addEventListener("input", e => {
-  clearTimeout(searchTimer);
-  const q = e.target.value.toLowerCase();
-  searchTimer = setTimeout(() => {
-    Array.from(document.getElementById("tableBody").querySelectorAll("tr")).forEach(row => {
-      row.style.display = row.textContent.toLowerCase().includes(q) ? "" : "none";
-    });
-  }, 200);
-});
-
-// ── Init ──────────────────────────────────────────────────────────────────────
-async function init() {
-  try {
-    initMobileMenu();
-    document.querySelectorAll(".nav-link").forEach(link => {
-      link.addEventListener("click", e => { e.preventDefault(); switchSection(link.dataset.section); });
-    });
-
-    // Check URL hash for initial tab
-    const hash = window.location.hash.slice(1);
-    if (hash && document.getElementById(`section-${hash}`)) {
-      switchSection(hash, true);
-    }
-
-    window.addEventListener("hashchange", () => {
-      const h = window.location.hash.slice(1);
-      if (h && document.getElementById(`section-${h}`)) {
-        switchSection(h, true);
-      }
-    });
-
-    document.getElementById("btnApply").addEventListener("click", applyFilters);
-    document.getElementById("btnClear").addEventListener("click", clearFilters);
-
-    // Initial data load
-    const [stats, tableData, contractData] = await Promise.all([
-      fetchHalStats().catch(() => null),
-      fetchHalIncidents(1).catch(() => ({ items: [] })),
-      fetchHalContracts().catch(() => ({ items: [] }))
-    ]);
-
-    if (stats) {
-      halStats = stats;
-      renderBadge(stats.total);
-      populateYearFilter(stats);
-      renderKPIs(stats);
-      renderOverviewChart(stats);
-      renderDonut(stats);
-      renderCsbTrend(stats);
-      renderMonthChart(stats);
-      renderMultiLine(stats);
-      renderSeverityChart(stats);
-      renderBreakdownCounts(stats);
-    }
-
-    if (tableData && tableData.items) {
-      renderMatrix(tableData.items);
-      renderTable(tableData);
-    }
-
-    if (contractData && contractData.items) {
-      // Map raw CSV contracts to the cross-analysis domain mapping
-      processIncomingContracts(contractData.items);
-    }
-
-  } catch (err) {
-    console.error("Init error:", err);
-  } finally {
-    const loader = document.getElementById("loadingOverlay");
-    if (loader) loader.style.display = "none";
-  }
-}
-
-init();
-
-// ── Action Items Progress ──────────────────────────────────────────────────────
-window.updateAIProgress = function () {
-  const all = document.querySelectorAll('.ai-check');
-  const done = document.querySelectorAll('.ai-check:checked');
-  const total = all.length;
-  const count = done.length;
-  const pct = total ? Math.round(count / total * 100) : 0;
-
-  const barEl = document.getElementById('aiProgressBar');
-  const doneEl = document.getElementById('aiDoneCount');
-  const totalEl = document.getElementById('aiTotalCount');
-  const pctEl = document.getElementById('aiPct');
-
-  if (barEl) barEl.style.width = pct + '%';
-  if (doneEl) doneEl.textContent = count;
-  if (totalEl) totalEl.textContent = total;
-  if (pctEl) pctEl.textContent = pct + '%';
-
-  // Per-pillar counters
-  [1, 2, 3, 4].forEach(p => {
-    const items = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check`);
-    const checked = document.querySelectorAll(`.ai-item[data-pillar="${p}"] .ai-check:checked`);
-    const el = document.getElementById(`pp${p}`);
-    if (el) el.textContent = `${checked.length} / ${items.length}`;
-  });
-};
-
-// Initialize counters on page load
-document.addEventListener('DOMContentLoaded', () => updateAIProgress());
-
-// ── Active Wells Data & Table ─────────────────────────────────────────────────
-const POCOS_DATA = [
-  { nome: "1-AG-1-SE", operador: "Carmo", bacia: "Sergipe", campo: "AGUILHADA", objetivo: "Abandono", sonda: "SONDA CONVENCIONAL 59", lamina: "", inicio: "20/04/1966", env: "TERRA" },
-  { nome: "1-ALV-6D-BA", operador: "Alvopetro", bacia: "Recôncavo", campo: "MURUCUTUTU", objetivo: "Completação", sonda: "RAPID RIG Sonda Conv. Perfuração KM", lamina: "0", inicio: "27/07/2014", env: "TERRA" },
-  { nome: "1-BRSA-1146-RJS", operador: "Petrobras", bacia: "Santos", campo: "ATAPU", objetivo: "Restauração", sonda: "Cerrado", lamina: "2266", inicio: "18/12/2012", env: "MAR" },
-  { nome: "1-BRSA-1404DC-RJS", operador: "Petrobras", bacia: "Campos", campo: "", objetivo: "Perfuração", sonda: "", lamina: "2979", inicio: "22/12/2025", env: "MAR" },
-  { nome: "1-BRSA-1405-APS", operador: "Petrobras", bacia: "Foz do Amazonas", campo: "", objetivo: "Perfuração", sonda: "", lamina: "2887", inicio: "20/10/2025", env: "MAR" },
-  { nome: "1-LV-2-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "LIVRAMENTO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 97", lamina: "0", inicio: "25/01/1986", env: "TERRA" },
-  { nome: "1-MM-1-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "RIO DO BU", objetivo: "Restauração", sonda: "", lamina: "", inicio: "25/10/1984", env: "TERRA" },
-  { nome: "1-PSY-18-BA", operador: "Petrosynergy", bacia: "Recôncavo", campo: "TROVOADA", objetivo: "Restauração", sonda: "SONDA PIONEIRA BRASIL", lamina: "0", inicio: "17/02/2010", env: "TERRA" },
-  { nome: "1-SES-114-SE", operador: "Petrobras", bacia: "Sergipe", campo: "GUARICEMA", objetivo: "Abandono", sonda: "NORTH STAR I", lamina: "38", inicio: "04/06/1997", env: "MAR" },
-  { nome: "3-AR-3-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "ARAÇÁS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 34", lamina: "", inicio: "28/06/1965", env: "TERRA" },
-  { nome: "3-BRSA-1039D-BA", operador: "3R Bahia", bacia: "Recôncavo", campo: "CEXIS", objetivo: "Restauração", sonda: "Terra Invader 350", lamina: "0", inicio: "13/01/2012", env: "TERRA" },
-  { nome: "3-BRSA-1397-RJS", operador: "Petrobras", bacia: "Campos", campo: "MARLIM SUL", objetivo: "Perfuração", sonda: "DEEPWATER AQUILA", lamina: "1179", inicio: "25/12/2024", env: "MAR" },
-  { nome: "3-BRSA-813-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "JUAZEIRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 114", lamina: "0", inicio: "07/03/2010", env: "TERRA" },
-  { nome: "3-BR-6-RJS", operador: "Petrobras", bacia: "Campos", campo: "BARRACUDA", objetivo: "Restauração", sonda: "PARAGON DPDS1", lamina: "882", inicio: "10/10/1993", env: "MAR" },
-  { nome: "3-JA-2-AL", operador: "Petrosynergy", bacia: "Alagoas", campo: "JEQUIÁ", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 41", lamina: "", inicio: "20/10/1957", env: "TERRA" },
-  { nome: "3-ORGM-1D-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "FAXE-2", lamina: "0", inicio: "16/08/2024", env: "TERRA" },
-  { nome: "3-ORGM-13D-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "", lamina: "0", inicio: "16/11/2025", env: "TERRA" },
-  { nome: "3-ORGM-14D-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Perfuração", sonda: "", lamina: "0", inicio: "31/01/2026", env: "TERRA" },
-  { nome: "3-ORGM-3D-AL (a)", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "National Oilwell Varco - 750", lamina: "0", inicio: "17/05/2025", env: "TERRA" },
-  { nome: "3-ORGM-3D-AL (b)", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "FAXE-2", lamina: "0", inicio: "17/05/2025", env: "TERRA" },
-  { nome: "3-ORGM-4DP-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "PILAR", objetivo: "Completação", sonda: "", lamina: "0", inicio: "20/11/2025", env: "TERRA" },
-  { nome: "3-RSP-5-BA (a)", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 47", lamina: "", inicio: "14/03/1978", env: "TERRA" },
-  { nome: "3-RSP-5-BA (b)", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 47", lamina: "", inicio: "14/03/1978", env: "TERRA" },
-  { nome: "3-RSP-6-BA", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 35", lamina: "", inicio: "22/10/1979", env: "TERRA" },
-  { nome: "3-RSP-7-BA", operador: "PetroRecôncavo", bacia: "Recôncavo", campo: "RIACHO SÃO PEDRO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 35", lamina: "", inicio: "24/05/1979", env: "TERRA" },
-  { nome: "3-STAR-28-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "SABIÁ BICO-DE-OSSO", objetivo: "Completação", sonda: "IMETAME_ENERGIA_01", lamina: "0", inicio: "28/05/2012", env: "TERRA" },
-  { nome: "3-TM-2-AL", operador: "Petrosynergy", bacia: "Alagoas", campo: "TABULEIRO MARTINS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 59", lamina: "", inicio: "05/01/1962", env: "TERRA" },
-  { nome: "3-VR-6-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "BREJINHO RN", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 82", lamina: "0", inicio: "25/09/1994", env: "TERRA" },
-  { nome: "4-BRSA-1292D-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "ARAÇÁS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 105", lamina: "", inicio: "14/01/2015", env: "TERRA" },
-  { nome: "4-BRSA-1395-SPS", operador: "Petrobras", bacia: "Santos", campo: "", objetivo: "Avaliação", sonda: "Valaris DS-4", lamina: "1758", inicio: "15/12/2024", env: "MAR" },
-  { nome: "4-CRT-2-RJS", operador: "Petrobras", bacia: "Campos", campo: "CARATINGA", objetivo: "Abandono", sonda: "", lamina: "998", inicio: "14/06/1994", env: "MAR" },
-  { nome: "4-MDU-3-BA", operador: "Petrobras", bacia: "Recôncavo", campo: "ARAÇÁS", objetivo: "Restauração", sonda: "SONDA CONVENCIONAL 72", lamina: "", inicio: "10/05/1981", env: "TERRA" },
-  { nome: "4-SMC-19-AL", operador: "Origem Alagoas", bacia: "Alagoas", campo: "FURADO", objetivo: "Completação", sonda: "SONDA CONVENCIONAL 26", lamina: "0", inicio: "15/06/1980", env: "TERRA" },
-  { nome: "6-BRSA-1138-RN", operador: "PetroRecôncavo", bacia: "Potiguar", campo: "RIACHO DA FORQUILHA", objetivo: "Restauração", sonda: "SAIPEM-2", lamina: "0", inicio: "09/12/2012", env: "TERRA" },
-];
-
-const OBJ_COLORS = {
-  "Perfuração": "#7c3aed",
-  "Completação": "#f59e0b",
-  "Restauração": "#ef4444",
-  "Abandono": "#6b7280",
-  "Avaliação": "#0d9488",
-};
-
-function renderWellTable(data) {
-  const tbody = document.getElementById('wellTableBody');
-  const countEl = document.getElementById('wellCount');
-  if (!tbody) return;
-
-  if (!data.length) {
-    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:#8896ab;padding:24px">No wells match the current filter</td></tr>`;
-    if (countEl) countEl.textContent = '0 wells';
-    return;
-  }
-
-  tbody.innerHTML = data.map(w => {
-    const envBadge = w.env === 'MAR'
-      ? `<span style="background:#0d948818;color:#0d9488;border:1px solid #0d948840;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">MAR</span>`
-      : `<span style="background:#3b82f618;color:#3b82f6;border:1px solid #3b82f640;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">TERRA</span>`;
-    const objColor = OBJ_COLORS[w.objetivo] || '#6b7280';
-    const objBadge = `<span style="background:${objColor}18;color:${objColor};border:1px solid ${objColor}40;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:600">${w.objetivo}</span>`;
-    return `<tr>
-      <td style="font-weight:600;font-size:12px;font-family:monospace">${w.nome}</td>
-      <td>${w.operador}</td>
-      <td>${w.bacia}</td>
-      <td style="font-size:12px">${w.campo || '—'}</td>
-      <td>${objBadge}</td>
-      <td style="font-size:11px;color:var(--text2)">${w.sonda || '—'}</td>
-      <td style="text-align:right">${w.lamina !== '' ? w.lamina : '—'}</td>
-      <td style="font-size:12px">${w.inicio}</td>
-      <td>${envBadge}</td>
-    </tr>`;
-  }).join('');
-
-  if (countEl) countEl.textContent = `${data.length} of ${POCOS_DATA.length} wells`;
-}
-
-window.filterWells = function () {
-  const q = (document.getElementById('wellSearch')?.value || '').toLowerCase();
-  const env = document.getElementById('wellFilterEnv')?.value || '';
-  const filtered = POCOS_DATA.filter(w => {
-    const matchEnv = !env || w.env === env;
-    const matchText = !q || [w.nome, w.operador, w.bacia, w.campo, w.objetivo, w.sonda].join(' ').toLowerCase().includes(q);
-    return matchEnv && matchText;
-  });
-  renderWellTable(filtered);
-};
-
-// Render wells on page load
-document.addEventListener('DOMContentLoaded', () => {
-  renderWellTable(POCOS_DATA);
-});
-
-// ── Cross-Analysis Tab ─────────────────────────────────────────────────────
-
-let ALL_CONTRACTS = [];
-let filteredContracts = [];
-
-function processIncomingContracts(rawItems) {
-  // Infer domain from object keywords for the cross-matrix
-  ALL_CONTRACTS = rawItems.map(c => {
-    const obj = (c.obj || "").toLowerCase();
-    let domain = "Other";
-    if (obj.includes("cimentação")) domain = "Cementing";
-    else if (obj.includes("estimulação") || obj.includes("flexitubo")) domain = "Stimulation";
-    else if (obj.includes("fluidos")) domain = "Fluids";
-    else if (obj.includes("completação") || obj.includes("dhsv")) domain = "Completion";
-    else if (obj.includes("mpd") || obj.includes("pressure drilling")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("intervenção")) domain = "Workover";
-    else if (obj.includes("construção")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geológica")) domain = "G&G Software";
-
-    // Re-calculating period and validation metadata for the inference
-    return {
-      numero: c.numero,
-      domain: domain,
-      obj: c.obj,
-      value: c.value,
-      periodo: `${c.inicio?.split('-')[2] || '?'}–${c.fim?.split('-')[2] || '?'}`,
-      proc: c.proc || "LICITAÇÃO",
-      csbLink: getCSBLink(domain),
-      score: getInferenceScore(domain),
-      scoreC: domain === "G&G Software" ? "#6b7280" : "#c0392b"
-    };
-  });
-
-  filteredContracts = [...ALL_CONTRACTS];
-}
-
-function getCSBLink(domain) {
-  const map = {
-    'Cementing': '⭐⭐⭐ PRIMARY',
-    'Stimulation': '⭐⭐⭐ CSB',
-    'Fluids': '⭐⭐⭐ KICK',
-    'Completion': '⭐⭐⭐ DIRECT DEF.',
-    'MPD': '⭐⭐⭐ KICK+WC',
-    'Well Construction': '⭐⭐⭐ FULL SCOPE',
-    'Workover': '⭐⭐⭐ CAUSAL',
-  };
-  return map[domain] || '⭐ INDIRECT';
-}
-
-function getInferenceScore(domain) {
-  const map = {
-    'Cementing': '95%',
-    'Stimulation': '93%',
-    'Fluids': '88%',
-    'Completion': '98%',
-    'MPD': '91%',
-    'Well Construction': '100%',
-    'Workover': '96%',
-    'G&G Software': '42%'
-  };
-  return map[domain] || '50%';
-}
-
-let contractPage = 1;
-const CONTRACT_PAGE_SIZE = 10;
-
-// Domain display labels map
-const DOMAIN_MAP = {
-  'Cementing': '🔩 Cementing',
-  'Stimulation': '⚡ Stimulation',
-  'Fluids': '💧 Fluid Services',
-  'Completion': '🔒 Completion / DHSV',
-  'MPD': '🎛 MPD',
-  'Well Construction': '🏗 Well Construction',
-  'Workover': '🔧 Workover',
-  'G&G Software': '🧠 G&G Software',
-};
-
-const PROC_COLORS = {
-  'INEXIGIBIL': '#8b5cf6',
-  'LICITAÇÃO': '#3b82f6',
-  'CONVITE': '#0d9488',
-};
-
-function renderContractTable(data) {
-  const tbody = document.getElementById('contractEvidenceBody');
-  if (!tbody) return;
-  const start = (contractPage - 1) * CONTRACT_PAGE_SIZE;
-  const slice = data.slice(start, start + CONTRACT_PAGE_SIZE);
-
-  if (!slice.length) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
-    return;
-  }
-
-  tbody.innerHTML = slice.map(c => {
-    const procColor = PROC_COLORS[c.proc] || '#6b7280';
-    const domLabel = DOMAIN_MAP[c.domain] || c.domain;
-    return `<tr>
-      <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
-      <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
-      <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
-      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
-      <td style="font-size:11px;white-space:nowrap;">${c.periodo}</td>
-      <td><span class="ai-tag" style="--t-c:${procColor};">${c.proc}</span></td>
-      <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
-      <td>
-        <div class="cx-score" style="--cx-pct:${c.score};--cx-c:${c.scoreC};min-width:80px;">
-          <div><div class="cx-fill"></div></div><span>${c.score}</span>
-        </div>
-      </td>
-    </tr>`;
-  }).join('');
-
-  renderContractPagination(data.length);
-}
-
->>>>>>> origin/main
 function renderContractPagination(total) {
   const pg = document.getElementById('contractPagination');
   if (!pg) return;
@@ -1662,4 +1401,209 @@ document.querySelectorAll('.nav-link').forEach(link => {
       }, 60);
     });
   }
+  if (link.dataset.section === 'argentina' || link.dataset.section === 'argentina-crossanalysis') {
+    link.addEventListener('click', () => {
+      setTimeout(() => renderArgTemporalOverlapChart(), 60);
+    });
+  }
+  if (link.dataset.section === 'mexico' || link.dataset.section === 'mexico-crossanalysis') {
+    link.addEventListener('click', () => {
+      setTimeout(() => renderMexTemporalOverlapChart(), 60);
+    });
+  }
+});
+
+function renderArgTemporalOverlapChart() {
+  destroyChart('argTemporalOverlapChart');
+  const ctx = document.getElementById('argTemporalOverlapChart');
+  if (!ctx) return;
+
+  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+  // SESCO Adjunto IV fracking jobs per year (from ARG_TREND)
+  const fracJobs = [344, 266, 293, 349, 321, 118, 353, 426, 420, 354, 383, 15];
+  // Contract activity bands (1 = active)
+  const fracturing  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cementing   = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const directional = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
+  const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+  chartInstances['argTemporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'SESCO Fracking Jobs', data: fracJobs, type: 'line',
+          borderColor: '#16a34a', backgroundColor: 'rgba(22,163,74,0.12)',
+          fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#16a34a',
+          yAxisID: 'y', order: 0
+        },
+        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20),  backgroundColor: 'rgba(239,68,68,0.55)',   yAxisID: 'y2', order: 1 },
+        { label: 'Cementing',            data: cementing.map(v => v * 16),   backgroundColor: 'rgba(59,130,246,0.55)',  yAxisID: 'y2', order: 1 },
+        { label: 'Directional Drilling', data: directional.map(v => v * 12), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV',   data: completion.map(v => v * 8),   backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: {
+        legend: { labels: { color: '#4a5568', font: { size: 10 }, boxWidth: 10, padding: 10 } },
+        tooltip: { mode: 'index', intersect: false },
+      },
+      scales: {
+        x: { ticks: { color: '#4a5568', font: { size: 10 } }, grid: { display: false }, stacked: true },
+        y: {
+          position: 'left', title: { display: true, text: 'SESCO Fracking Jobs', color: '#16a34a', font: { size: 10 } },
+          ticks: { color: '#4a5568', font: { size: 10 } }, grid: { color: '#dde3ee' }, beginAtZero: true
+        },
+        y2: {
+          position: 'right', title: { display: true, text: 'Contract Activity (index)', color: '#6b7280', font: { size: 10 } },
+          stacked: true, ticks: { display: false }, grid: { display: false }, beginAtZero: true
+        },
+      }
+    }
+  });
+}
+
+function renderMexTemporalOverlapChart() {
+  destroyChart('mexTemporalOverlapChart');
+  const ctx = document.getElementById('mexTemporalOverlapChart');
+  if (!ctx) return;
+
+  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+  // SIH Perforación jobs per year (from MEX_TREND)
+  const drillingJobs = [108, 115, 102, 104, 104, 124, 133, 115, 118, 113, 109];
+  // Contract activity bands (1 = active)
+  const fracturing  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cementing   = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1];
+  const directional = [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
+  const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+  chartInstances['mexTemporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'SIH Drilling Jobs', data: drillingJobs, type: 'line',
+          borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.12)',
+          fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#6366f1',
+          yAxisID: 'y', order: 0
+        },
+        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20),  backgroundColor: 'rgba(239,68,68,0.55)',   yAxisID: 'y2', order: 1 },
+        { label: 'Cementing & Well Const.', data: cementing.map(v => v * 16), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Directional Drilling', data: directional.map(v => v * 12), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV',   data: completion.map(v => v * 8),   backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: {
+        legend: { labels: { color: '#4a5568', font: { size: 10 }, boxWidth: 10, padding: 10 } },
+        tooltip: { mode: 'index', intersect: false },
+      },
+      scales: {
+        x: { ticks: { color: '#4a5568', font: { size: 10 } }, grid: { display: false }, stacked: true },
+        y: {
+          position: 'left', title: { display: true, text: 'SIH Drilling Jobs', color: '#6366f1', font: { size: 10 } },
+          ticks: { color: '#4a5568', font: { size: 10 } }, grid: { color: '#dde3ee' }, beginAtZero: true
+        },
+        y2: {
+          position: 'right', title: { display: true, text: 'Contract Activity (index)', color: '#6b7280', font: { size: 10 } },
+          stacked: true, ticks: { display: false }, grid: { display: false }, beginAtZero: true
+        },
+      }
+    }
+  });
+}
+window.filterArgRegistry = function() {
+  const q = (document.getElementById('argSearchInput')?.value || '').toLowerCase();
+  const basin = (document.getElementById('argBasinFilter')?.value || '').toLowerCase();
+  const tier = (document.getElementById('argTierFilter')?.value || '').toUpperCase();
+  
+  const filtered = ARG_OPERATORS.filter(o => {
+    const matchQ = !q || o.op.toLowerCase().includes(q) || o.basin.toLowerCase().includes(q);
+    const matchBasin = !basin || o.basin.toLowerCase() === basin;
+    const matchTier = !tier || o.tier === tier;
+    return matchQ && matchBasin && matchTier;
+  });
+  
+  renderArgRegistryTable(filtered);
+};
+
+function renderArgRegistryTable(data) {
+  const tbody = document.getElementById('argRegBody');
+  const countEl = document.getElementById('argTableCount');
+  if (!tbody) return;
+
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#8896ab;padding:24px">No records match the current filter</td></tr>`;
+    if (countEl) countEl.innerHTML = '0 records';
+    return;
+  }
+
+  tbody.innerHTML = data.map(r => {
+    const ts = TIER_STYLES[r.tier] || TIER_STYLES.LOW;
+    const badge = `<span style="font-size:10px;font-weight:700;background:${ts.bg};color:${ts.color};border:1px solid ${ts.border};padding:2px 7px;border-radius:20px;">${r.tier}</span>`;
+    return `<tr>
+      <td style="font-weight:600;font-size:12px;color:var(--text);">${r.op}</td>
+      <td style="font-size:12px;color:var(--text2);">${r.basin}</td>
+      <td style="font-size:12px;font-weight:600;">${r.jobs.toLocaleString()}</td>
+      <td style="font-size:12px;">${r.stages.toLocaleString()}</td>
+      <td style="font-size:12px;">${r.psi.toLocaleString()}</td>
+      <td>${badge}</td>
+      <td style="font-size:11px;color:var(--text3);">Res. SE 25/2004</td>
+    </tr>`;
+  }).join('');
+
+  if (countEl) countEl.innerHTML = `${data.length} records`;
+}
+
+window.filterMexRegistry = function() {
+  const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
+  const basin = (document.getElementById('mexBasinFilter')?.value || '').toLowerCase();
+  const tier = (document.getElementById('mexTierFilter')?.value || '').toUpperCase();
+  
+  const filtered = MEX_OPERATORS.filter(o => {
+    const matchQ = !q || o.op.toLowerCase().includes(q) || o.basin.toLowerCase().includes(q);
+    const matchBasin = !basin || o.basin.toLowerCase() === basin;
+    const matchTier = !tier || o.tier === tier;
+    return matchQ && matchBasin && matchTier;
+  });
+  
+  renderMexRegistryTable(filtered);
+};
+
+function renderMexRegistryTable(data) {
+  const tbody = document.getElementById('mexRegBody');
+  const countEl = document.getElementById('mexTableCount');
+  if (!tbody) return;
+
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#8896ab;padding:24px">No records match the current filter</td></tr>`;
+    if (countEl) countEl.innerHTML = '0 records';
+    return;
+  }
+
+  tbody.innerHTML = data.map(r => {
+    const ts = TIER_STYLES[r.tier] || TIER_STYLES.LOW;
+    const badge = `<span style="font-size:10px;font-weight:700;background:${ts.bg};color:${ts.color};border:1px solid ${ts.border};padding:2px 7px;border-radius:20px;">${r.tier}</span>`;
+    return `<tr>
+      <td style="font-weight:600;font-size:12px;color:var(--text);">${r.op}</td>
+      <td style="font-size:12px;color:var(--text2);">${r.basin}</td>
+      <td style="font-size:12px;font-weight:600;">${r.jobs.toLocaleString()}</td>
+      <td style="font-size:12px;">${r.stages.toLocaleString()}</td>
+      <td style="font-size:12px;">${r.psi.toLocaleString()}</td>
+      <td>${badge}</td>
+      <td style="font-size:11px;color:var(--text3);">NOM-115 / CNH</td>
+    </tr>`;
+  }).join('');
+
+  if (countEl) countEl.innerHTML = `${data.length} records`;
+}
+
+// Ensure the tables map their data on init
+document.addEventListener('DOMContentLoaded', () => {
+  renderArgRegistryTable(ARG_OPERATORS);
+  renderMexRegistryTable(MEX_OPERATORS);
 });
