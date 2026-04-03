@@ -104,12 +104,21 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 }
 
 .sidebar-logo {
-  display: flex; align-items: center; gap: 12px;
-  padding: 16px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 20px;
   border-bottom: 1px solid var(--border);
   min-height: var(--topbar-h);
   overflow: hidden;
   white-space: nowrap;
+  background: rgba(15, 23, 42, 0.03);
+}
+.sidebar-logo img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 .sidebar-logo-mark {
   width: 36px; height: 36px; border-radius: 8px;
@@ -145,7 +154,12 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .app-layout.sidebar-collapsed .sidebar {
   width: 68px;
 }
-.app-layout.sidebar-collapsed .sidebar-logo-text,
+.app-layout.sidebar-collapsed .sidebar-logo {
+  padding: 16px 8px;
+}
+.app-layout.sidebar-collapsed .sidebar-logo img {
+  max-width: 40px;
+}
 .app-layout.sidebar-collapsed .nav-link span,
 .app-layout.sidebar-collapsed .filter-label {
   display: none;
@@ -158,8 +172,14 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
   justify-content: center;
   padding: 12px;
 }
+.app-layout.sidebar-collapsed .nav-link svg {
+  margin: 0;
+}
 .app-layout.sidebar-collapsed .sidebar-footer .btn-download span {
   display: none;
+}
+.app-layout.sidebar-collapsed .sidebar-footer .btn-download {
+  padding: 10px;
 }
 
 /* Sidebar Filters */
