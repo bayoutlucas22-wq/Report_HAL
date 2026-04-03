@@ -1,0 +1,28 @@
+========================================================================
+  HALLIBURTON MEXICO — COMPLIANCE INTELLIGENCE STUDY
+  Generated: 2026-04-02 00:58:42
+  Source: SIH Open Data (PRODUCCION_OPERADORES.csv ingested)
+========================================================================
+
+  1. SUMMARY METRICS
+────────────────────────────────────────────────────────────────────────
+  Active Operators tracked: 7
+  Total Drilling Jobs (Proxy): 1245
+
+  2. REAL OPERATOR EXPOSURE (Ranked by Liquid Prod Scale)
+────────────────────────────────────────────────────────────────────────
+  PEMEX EXPLORACIÓN Y PRODUCCIÓN | Jobs(P): 859   | PSI(P): 11087  | Tier: HIGH
+  REPSOL EXPLORACIÓN MÉXICO      | Jobs(P): 75    | PSI(P): 11155  | Tier: HIGH
+  FIELDWOOD ENERGY               | Jobs(P): 72    | PSI(P): 10842  | Tier: HIGH
+  HOKCHI ENERGY                  | Jobs(P): 69    | PSI(P): 10513  | Tier: HIGH
+  ENI MÉXICO                     | Jobs(P): 59    | PSI(P): 10716  | Tier: HIGH
+  PETROBAL                       | Jobs(P): 59    | PSI(P): 11471  | Tier: HIGH
+  WINTERSHALL DEA                | Jobs(P): 52    | PSI(P): 11197  | Tier: HIGH
+
+  3. FORMATION RISK
+────────────────────────────────────────────────────────────────────────
+  Jurásico Superior    | Jobs: 488  | Offshore: 57.6% | Hazard: Deep HPHT / Well control
+  Cretácico            | Jobs: 407  | Offshore: 63.4% | Hazard: Naturally fractured carbonates
+  Pimienta             | Jobs: 120  | Offshore: 58.3% | Hazard: Deep HPHT / Well control
+  Terciario            | Jobs: 117  | Offshore: 55.6% | Hazard: Standard pressure horizons
+  Agua Nueva           | Jobs: 113  | Offshore: 61.1% | Hazard: Deep HPHT / Well control
