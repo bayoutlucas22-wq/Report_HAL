@@ -141,7 +141,7 @@ function parseIncidentesCSV() {
 parseIncidentesCSV();
 
 const app = express();
-const PORT = process.env.PORT || 3333;
+const PORT = process.env.PORT || 5001;
 
 // Explicit page routes come FIRST — before static middleware
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "..", "public", "index.html")));

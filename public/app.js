@@ -572,15 +572,8 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
-  // Toggle global lock-mode for restricted sections
-  const globalOverlay = document.getElementById('globalLockOverlay');
-  if (section === 'fullreport' || section === 'latam-summary') {
-    document.body.classList.add('lock-mode');
-    if (globalOverlay) globalOverlay.style.display = 'flex';
-  } else {
-    document.body.classList.remove('lock-mode');
-    if (globalOverlay) globalOverlay.style.display = 'none';
-  }
+  // Lock logic removed for open version
+  document.body.classList.remove('lock-mode');
 
   closeMobileSidebar();
 }
@@ -1401,14 +1394,20 @@ document.querySelectorAll('.nav-link').forEach(link => {
       }, 60);
     });
   }
-  if (link.dataset.section === 'argentina' || link.dataset.section === 'argentina-crossanalysis') {
+  if (link.dataset.section.startsWith('argentina')) {
     link.addEventListener('click', () => {
-      setTimeout(() => renderArgTemporalOverlapChart(), 60);
+      setTimeout(() => {
+        renderArgentinaTables();
+        renderArgTemporalOverlapChart();
+      }, 60);
     });
   }
-  if (link.dataset.section === 'mexico' || link.dataset.section === 'mexico-crossanalysis') {
+  if (link.dataset.section.startsWith('mexico')) {
     link.addEventListener('click', () => {
-      setTimeout(() => renderMexTemporalOverlapChart(), 60);
+      setTimeout(() => {
+        renderMexicoTables();
+        renderMexTemporalOverlapChart();
+      }, 60);
     });
   }
 });
@@ -1604,6 +1603,12 @@ function renderMexRegistryTable(data) {
 
 // Ensure the tables map their data on init
 document.addEventListener('DOMContentLoaded', () => {
-  renderArgRegistryTable(ARG_OPERATORS);
-  renderMexRegistryTable(MEX_OPERATORS);
+  renderArgentinaTables();
+  renderMexicoTables();
+  // Ensure charts and other data loads if starting on a sub-section
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    if (hash.startsWith('argentina')) setTimeout(() => renderArgTemporalOverlapChart(), 100);
+    if (hash.startsWith('mexico')) setTimeout(() => renderMexTemporalOverlapChart(), 100);
+  }
 });

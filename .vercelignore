@@ -1,3 +1,9 @@
+KLMÇJ# large directories and files
+/data/
+/output/
+*.zip
+*.docx
+
 node_modules/
 .DS_Store
 *.log
