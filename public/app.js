@@ -1049,6 +1049,14 @@ const MEX_OPERATORS = [
   { op:"ENI MÉXICO",                     basin:"SURESTE", jobs:59,  stages:1398,  psi:10716, tier:"HIGH" },
   { op:"PETROBAL",                       basin:"SURESTE", jobs:59,  stages:1708,  psi:11471, tier:"HIGH" },
   { op:"WINTERSHALL DEA",                basin:"SURESTE", jobs:52,  stages:1481,  psi:11197, tier:"HIGH" },
+  { op:"MURPHY SUR",                     basin:"SURESTE", jobs:45,  stages:1210,  psi:11800, tier:"HIGH" },
+  { op:"BHP BILLITON PETRÓLEO",          basin:"SURESTE", jobs:38,  stages:950,   psi:11250, tier:"HIGH" },
+  { op:"PAN AMERICAN ENERGY",            basin:"SURESTE", jobs:34,  stages:890,   psi:10600, tier:"MEDIUM" },
+  { op:"LUKOIL UPSTREAM MÉXICO",         basin:"SURESTE", jobs:28,  stages:750,   psi:11400, tier:"HIGH" },
+  { op:"CHEIRON HOLDINGS",               basin:"SURESTE", jobs:22,  stages:620,   psi:9850,  tier:"MEDIUM" },
+  { op:"DIAVAZ DEP",                     basin:"BURGOS",  jobs:110, stages:2800,  psi:8500,  tier:"MEDIUM" },
+  { op:"TECPETROL DE MÉXICO",            basin:"BURGOS",  jobs:85,  stages:2100,  psi:7900,  tier:"LOW" },
+  { op:"SERVICIOS MÚLTIPLES DE BURGOS",  basin:"BURGOS",  jobs:65,  stages:1500,  psi:7200,  tier:"LOW" }
 ];
 
 const MEX_FORMATIONS = [

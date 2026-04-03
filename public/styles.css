@@ -672,9 +672,8 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .ai-checklist {
   display: flex;
   flex-direction: column;
-  filter: blur(5px);
-  user-select: none;
-  pointer-events: auto; /* Allow checking boxes maybe? "allow so the people can try opening, folding" */
+  /* Unlock: Removed blur(5px) and user-select: none */
+  pointer-events: auto;
   transition: max-height 0.4s ease-in-out, filter 0.3s;
   max-height: 2000px;
 }
@@ -692,9 +691,7 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .ai-item:hover { background: var(--bg3); }
 
 .cross-analysis-blur-content {
-  filter: blur(5px);
-  user-select: none;
-  pointer-events: none;
+  /* Unlock: removed user-select: none */
   transition: filter 0.3s;
 }
 .ai-check {
