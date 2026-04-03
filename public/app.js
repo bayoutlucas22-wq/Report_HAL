@@ -11,14 +11,6 @@ const LINKS = {
   BV_NR445: "https://marine-offshore.bureauveritas.com/",
   BV_NR459: "https://marine-offshore.bureauveritas.com/",
   BV_RULES: "https://marine-offshore.bureauveritas.com/",
-  ANP_DATASET: "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
-  ANP_SGIP: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip",
-  ANP_SGSO: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso",
-  ANP_SUBSEA: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos",
-  ANP_PORTAL: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional",
-  BV_NR445: "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units",
-  BV_NR459: "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations",
-  BV_RULES: "https://marine-offshore.bureauveritas.com/rules-guidelines",
   NR37: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf",
   NR33: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
   NR35: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
@@ -136,7 +128,7 @@ function renderKPIs(stats) {
       badge: "Open Data · Lei 12.527/2011",
       badgeUrl: LINKS.LEI_12527,
       srcUrl: LINKS.ANP_DATASET,
-      srcLabel: "dados.gov.br/anp",
+      srcLabel: "atosoficiais.com.br/anp",
     },
     {
       label: "CSB Barrier Element Failures", value: csb.toLocaleString(),
@@ -572,8 +564,15 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
-  // Lock logic removed for open version
-  document.body.classList.remove('lock-mode');
+  // Toggle global lock-mode for restricted sections
+  const globalOverlay = document.getElementById('globalLockOverlay');
+  if (section === 'fullreport' || section === 'latam-summary') {
+    document.body.classList.add('lock-mode');
+    if (globalOverlay) globalOverlay.style.display = 'flex';
+  } else {
+    document.body.classList.remove('lock-mode');
+    if (globalOverlay) globalOverlay.style.display = 'none';
+  }
 
   closeMobileSidebar();
 }
@@ -1394,20 +1393,14 @@ document.querySelectorAll('.nav-link').forEach(link => {
       }, 60);
     });
   }
-  if (link.dataset.section.startsWith('argentina')) {
+  if (link.dataset.section === 'argentina' || link.dataset.section === 'argentina-crossanalysis') {
     link.addEventListener('click', () => {
-      setTimeout(() => {
-        renderArgentinaTables();
-        renderArgTemporalOverlapChart();
-      }, 60);
+      setTimeout(() => renderArgTemporalOverlapChart(), 60);
     });
   }
-  if (link.dataset.section.startsWith('mexico')) {
+  if (link.dataset.section === 'mexico' || link.dataset.section === 'mexico-crossanalysis') {
     link.addEventListener('click', () => {
-      setTimeout(() => {
-        renderMexicoTables();
-        renderMexTemporalOverlapChart();
-      }, 60);
+      setTimeout(() => renderMexTemporalOverlapChart(), 60);
     });
   }
 });
@@ -1603,12 +1596,6 @@ function renderMexRegistryTable(data) {
 
 // Ensure the tables map their data on init
 document.addEventListener('DOMContentLoaded', () => {
-  renderArgentinaTables();
-  renderMexicoTables();
-  // Ensure charts and other data loads if starting on a sub-section
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    if (hash.startsWith('argentina')) setTimeout(() => renderArgTemporalOverlapChart(), 100);
-    if (hash.startsWith('mexico')) setTimeout(() => renderMexTemporalOverlapChart(), 100);
-  }
+  renderArgRegistryTable(ARG_OPERATORS);
+  renderMexRegistryTable(MEX_OPERATORS);
 });
