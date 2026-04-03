@@ -38,14 +38,18 @@
       <div class="sidebar-logo" style="justify-content: center; padding: 32px 16px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.05);">
         <img src="logo.png" alt="CIS Logo" style="width: 220px; height: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
       </div>
+      
+    <!-- Filter Panel (Moved to Top) -->
+    <!-- Removed: LIVE ANALYTICS FILTERS as requested -->
+
 
       <nav class="sidebar-nav">
-        <div class="filter-label" style="margin-top:10px;margin-bottom:8px;opacity:0.6;">🇧🇷 BRAZIL (ANP/BV)</div>
+        <div class="filter-label" style="margin-top:10px;margin-bottom:8px;opacity:0.6;">🇧🇷 BRZ</div>
         <a href="#" class="nav-link active" data-section="overview" id="nav-overview">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
           </svg>
-          Audit Dashboard
+          BRZ Audit Dashboard
         </a>
         <a href="#" class="nav-link" data-section="registry" id="nav-registry">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -54,23 +58,23 @@
             <line x1="16" y1="13" x2="8" y2="13"></line>
             <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
-          Incident Registry
+          BRZ Incident Registry
         </a>
         <a href="#" class="nav-link" data-section="crossanalysis" id="nav-crossanalysis">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
             <line x1="21" y1="3" x2="3" y2="21"/>
           </svg>
-          Cross-Analysis
+          BRZ Cross-Analysis
         </a>
         <a href="#" class="nav-link" data-section="wells" id="nav-wells">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
           </svg>
-          HAL Brazil (ANP)
+          HAL BRZ
         </a>
 
-        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">🇦🇷 ARGENTINA (SESCO)</div>
+        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">🇦🇷 ARG</div>
         <a href="#" class="nav-link" data-section="argentina-audit" id="nav-argentina-audit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
@@ -98,10 +102,10 @@
             <ellipse cx="12" cy="12" rx="10" ry="10"/>
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          HAL Argentina
+          HAL ARG
         </a>
 
-        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">🇲🇽 MEXICO (SIH/CNH)</div>
+        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">🇲🇽 MEX</div>
         <a href="#" class="nav-link" data-section="mexico-audit" id="nav-mexico-audit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
@@ -129,65 +133,25 @@
             <ellipse cx="12" cy="12" rx="10" ry="10"/>
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          HAL Mexico
+          HAL MEX
         </a>
 
         <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE MONITORING</div>
 
-        <a href="#" class="nav-link" data-section="latam-summary" id="nav-latam-summary">
+        <a href="#" class="nav-link" data-section="latam-summary" id="nav-latam-summary" style="opacity:0.6; cursor:not-allowed;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
           </svg>
           LATAM Compliance Summary
         </a>
-        <a href="#" class="nav-link" data-section="fullreport" id="nav-fullreport">
+        <a href="#" class="nav-link" data-section="fullreport" id="nav-fullreport" style="opacity:0.6; cursor:not-allowed;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
           </svg>
           Audit PDF Export
         </a>
 
       </nav>
-
-      <!-- Filter Panel -->
-      <div class="sidebar-filters">
-        <div class="filter-label">FILTERS</div>
-
-        <div class="filter-group">
-          <label for="filterYear">Year</label>
-          <select id="filterYear">
-            <option value="">All Years</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label for="filterCategory">Failure Type</label>
-          <select id="filterCategory">
-            <option value="">All Types</option>
-            <option value="CSB Failure">CSB Failure</option>
-            <option value="Kick (Primary Barrier)">Kick (Primary Barrier)</option>
-            <option value="Structural Failure">Structural Failure</option>
-            <option value="Loss of Well Control">Loss of Well Control</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label for="filterSeverity">Severity</label>
-          <select id="filterSeverity">
-            <option value="">All Severities</option>
-            <option value="SSO">SSO (System Safety)</option>
-            <option value="Minor">Minor (MINOR)</option>
-            <option value="Moderate">Moderate (MODERATE)</option>
-            <option value="Severe">Severe (SEVERE)</option>
-          </select>
-        </div>
-
-        <button class="btn-apply" id="btnApply">Apply Filters</button>
-        <button class="btn-clear" id="btnClear">Clear</button>
-      </div>
 
       <div class="sidebar-footer">
         <a href="/" class="btn-download"
@@ -207,26 +171,41 @@
 
       <!-- Top Bar -->
       <header class="topbar">
-        <div class="topbar-left" style="display: flex; align-items: center; gap: 12px;">
-          <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle menu" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <div class="topbar-left">
+          <button id="sidebarToggleBtn" class="sidebar-toggle-btn" aria-label="Toggle Sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <div style="flex: 1;">
-            <h1 class="brand-gradient-text" style="font-size: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Industry Incidence Report — Halliburton &amp; Tejas</h1>
-            <p style="margin-top: 2px;">Comprehensive Investigative Analysis (Official Data)</p>
+          <div style="min-width: 0;">
+            <h1 class="brand-gradient-text" style="font-size: clamp(16px, 2.5vw, 22px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Industry Incidence Report — Halliburton &amp; Tejas</h1>
+            <p style="margin-top: 2px; font-size: 11px; color: var(--text3); font-weight: 500;">Comprehensive Investigative Analysis (Official Data)</p>
           </div>
         </div>
         <div class="topbar-right">
           <div class="data-badge" id="liveBadge">
             <span class="badge-dot"></span>
-            <span id="liveCount">Loading…</span>
+            <span id="liveCount" style="font-weight: 700;">Loading…</span>
           </div>
         </div>
       </header>
 
       <div class="page-content">
+        <!-- Global Lock Overlay (shows on lock-mode) -->
+        <div id="globalLockOverlay" class="lock-overlay" style="display:none; position: fixed; inset: var(--sidebar-w) 0 0 var(--sidebar-w); z-index: 9999; backdrop-filter: blur(12px); background: rgba(15, 23, 42, 0.4);">
+          <div class="lock-card" style="box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.95);">
+            <div class="lock-icon" style="font-size: 64px; animation: pulse 2s infinite;">🔐</div>
+            <h3 style="font-size: 24px; font-weight: 900; color: #0f172a; margin-bottom: 12px; letter-spacing: -0.025em;">Confidential Audit Data</h3>
+            <p style="font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 32px; max-width: 320px; margin-left: auto; margin-right: auto;">The analytical methodology and compliance verification reports are currently <strong>under audit review</strong> and restricted to authenticated CIS partners.</p>
+            <div style="padding: 16px; background: #f1f5f9; border-radius: 12px; font-family: monospace; font-size: 13px; color: #1e293b; font-weight: 700; margin-bottom: 24px; border: 1px dashed #cbd5e1;">
+              ERR: TOKEN_NOT_FOUND_FOR_CID
+            </div>
+            <button class="btn-apply" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); width: 100%; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 10px; color: white; border: none; cursor: pointer;">
+              Authenticate to CIS Secure Portal
+            </button>
+            <p style="margin-top: 20px; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Bureau Veritas · Regulatory Affairs</p>
+          </div>
+        </div>
 
         <!-- ── OVERVIEW SECTION ── -->
         <section id="section-overview" class="dash-section active">
@@ -2850,6 +2829,7 @@
 
         <!-- ── FORMAL REPORT SECTION ── -->
         <section id="section-fullreport" class="dash-section">
+          <!-- Local blur removed in favor of global lock-mode overlay -->
           <div class="cs-header">
             <div class="cs-header-left">
               <div class="cs-badge">ANALYTICAL REPORT</div>
@@ -3432,6 +3412,119 @@
 
       </section><!-- /section-argentina -->
 
+      <section id="section-argentina-crossanalysis" class="dash-section">
+        <div class="cs-header" style="background:linear-gradient(135deg,#022c22 0%,#14532d 60%,#166534 100%);padding:40px 30px;">
+          <div class="cs-header-left">
+            <div class="cs-badge" style="background:rgba(134,239,172,0.2);border-color:rgba(134,239,172,0.4);">SESCO · COMPR.AR · VERIFICATION</div>
+            <h2 style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:12px;">ARG Cross-Analysis Inference</h2>
+            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">Verification of operational exposure. Because Argentina does not publish direct failure correlations (CSB), risk is inferred via temporal overlap between SESCO job escalation and active HAL contracts.</p>
+          </div>
+        </div>
+
+        <div style="padding:24px;">
+          <!-- Methodology -->
+          <div class="panel cs-panel" style="margin-top:14px;border-left:3px solid #16a34a;">
+            <div class="panel-body" style="padding:14px 20px;">
+              <div style="font-size:12px;font-weight:700;color:#16a34a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">🔬 Methodology — Argentina Inference</div>
+              <p style="font-size:13px;color:var(--text2);line-height:1.7;">
+                Because SESCO (Secretaría de Energía) records the <em>operator</em> but not the directly linked barrier failures, we must rely on a source-based inference chain: <strong>(1)</strong> HAL Argentina contracts with YPF/Tecpetrol/Shell AR confirmed via <strong>COMPR.AR</strong> public procurement; <strong>(2)</strong> contract objects mapped to SESCO fracturing categories (high-pressure frac, H₂S exposure, casing structural); <strong>(3)</strong> temporal overlap validated across the 2015–2026 fracking escalation in Vaca Muerta.
+              </p>
+            </div>
+          </div>
+
+          <!-- Matrix -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Service Domain × SESCO Fracking Categories — Validation Matrix</div>
+                <div class="panel-subtitle">Each row = one HAL Argentina inferred exposure domain based on SESCO Vaca Muerta fracking risk categories.</div>
+              </div>
+            </div>
+            <div class="panel-body" style="overflow-x:auto;">
+              <table class="cs-table" style="min-width:760px;">
+                <thead>
+                  <tr>
+                    <th style="text-align:left;min-width:180px;">HAL Service Domain</th>
+                    <th style="background:rgba(192,57,43,0.08);color:#c0392b;">High-Pressure Frac<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Avg 11,651 PSI</span></th>
+                    <th style="background:rgba(230,126,34,0.08);color:#e67e22;">H₂S / Wellhead<br>Integrity<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Vaca Muerta</span></th>
+                    <th style="background:rgba(26,86,160,0.08);color:#1a56a0;">Proppant<br>Flowback<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Tight sand ops</span></th>
+                    <th style="background:rgba(124,58,237,0.08);color:#7c3aed;">Casing<br>Structural<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Deep laterals</span></th>
+                    <th>Primary Operators<br>(SESCO)</th>
+                    <th>Active Window</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="cs-row-highlight">
+                    <td><div style="font-weight:700;color:var(--text);font-size:13px;">⚡ Hydraulic Fracturing (Estimulación)</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">2,467 Vaca Muerta jobs — COMPR.AR confirmed</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#c0392b;margin-top:3px;">PRIMARY</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#1a56a0;margin-top:3px;">PRIMARY</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td><span class="ai-tag" style="--t-c:#2563eb;">YPF S.A.</span><br><span style="font-size:10px;color:var(--text3);">1,765 jobs · Neuquina</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2015–2026 ✓</span><br><span style="font-size:10px;color:var(--text3);">Full escalation phase</span></td>
+                  </tr>
+                  <tr>
+                    <td><div style="font-weight:700;color:var(--text);font-size:13px;">🔩 Cementing (Cimentación)</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">Primary annular barriers for >2000m wells</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#e67e22;margin-top:3px;">PRIMARY</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-low">○</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div></td>
+                    <td><span class="ai-tag" style="--t-c:#3b82f6;">SHELL AR</span><br><span style="font-size:10px;color:var(--text3);">147 jobs · Neuquina</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2018–2026 ✓</span><br><span style="font-size:10px;color:var(--text3);">Vaca Muerta scale-up</span></td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td><div style="font-weight:700;color:var(--text);font-size:13px;">🎛 Directional Drilling / MWD-LWD</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">Avg lateral 3,038m — iCruise/EarthStar deployed</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#1a56a0;margin-top:3px;">PRIMARY</div></td>
+                    <td><span class="ai-tag" style="--t-c:#8b5cf6;">TECPETROL</span><br><span style="font-size:10px;color:var(--text3);">272 jobs · Neuquina</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2020–2026 ✓</span><br><span style="font-size:10px;color:var(--text3);">Extended lateral growth</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Temporal Overlap Chart -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">Temporal Overlap — Contract Periods vs. SESCO Fracking Job Escalation</div>
+                <div class="panel-subtitle">HAL Argentina contract activity overlaid against SESCO Adjunto IV fracking job growth curve (2015–2026)</div>
+              </div>
+            </div>
+            <div class="panel-body" style="padding:0;">
+              <div style="padding:16px 20px 0;"><canvas id="argTemporalOverlapChart" style="max-height:320px;"></canvas></div>
+              <div style="padding:12px 20px 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
+                ⚠ Fracking job counts are from SESCO Adjunto IV (datos.energia.gob.ar). Contract bars show estimated HAL–Argentina validity windows based on COMPR.AR public procurement records. Overlap confirms exposure limits during Vaca Muerta hyper-escalation.
+              </div>
+            </div>
+          </div>
+
+          <!-- Inference Summary -->
+          <div class="panel cs-panel" style="margin-top:14px;background:linear-gradient(135deg,rgba(22,101,52,0.07) 0%,rgba(134,239,172,0.05) 100%);border-left:4px solid #16a34a;">
+            <div class="panel-header"><div><div class="cs-section-num">03</div><div class="panel-title">Inference Validation Summary — Argentina</div></div></div>
+            <div class="panel-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div style="font-size:11px;font-weight:700;color:#16a34a;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">STEP 1 — Public Contractual Presence</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">HAL Argentina S.A. contracts with YPF and Tecpetrol are confirmed via <strong>COMPR.AR</strong> open data.</p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#22c55e;">✓ VERIFIED — COMPR.AR</span></div>
+                </div>
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                  <div style="font-size:11px;font-weight:700;color:#16a34a;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">STEP 2 — Service Domain Alignment</div>
+                  <p style="font-size:13px;color:var(--text2);line-height:1.65;">Contract objects match the exact service parameters mapping to high-risk SESCO failure precursors (High-Pressure Frac).</p>
+                  <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#22c55e;">✓ DOMAIN MATCH</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- /section-argentina-crossanalysis -->
+
 
       <!-- ── MEX AUDIT DASHBOARD ── -->
       <section id="section-mexico-audit" class="dash-section">
@@ -3586,6 +3679,92 @@
           </div>
         </div>
       </section><!-- /section-mexico-registry -->
+
+      <!-- ── MEX CROSS-ANALYSIS ── -->
+      <section id="section-mexico-crossanalysis" class="dash-section">
+        <div class="cs-header" style="background:linear-gradient(135deg,#0c1a0e 0%,#14532d 60%,#166534 100%);padding:40px 30px;">
+          <div class="cs-header-left">
+            <div class="cs-badge" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);">SIH · CNH · COMPRANET · INFOMEX</div>
+            <h2 style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:12px;">MEX Cross-Analysis Inference</h2>
+            <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">Verification of operational exposure. Because Mexico does not publish a direct service-company failure registry, risk is inferred via temporal overlap between SIH Perforación activity and confirmed HAL contracts.</p>
+          </div>
+        </div>
+
+        <div style="padding:24px;">
+          <!-- Methodology -->
+          <div class="panel cs-panel" style="margin-top:14px;border-left:3px solid #166534;">
+            <div class="panel-body" style="padding:14px 20px;">
+              <div style="font-size:12px;font-weight:700;color:#166534;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">🔬 Methodology — Mexico Inference</div>
+              <p style="font-size:13px;color:var(--text2);line-height:1.7;">
+                Because SIH (Sistema de Información de Hidrocarburos) records only operator-level drilling metrics, we use a source-based inference chain: <strong>(1)</strong> HAL Mexico contracts with PEMEX/Tecpetrol confirmed via <strong>CompraNet</strong> and <strong>INFOMEX</strong>; <strong>(2)</strong> contract objects mapped to SIH risk parameters (HPHT, directional complexity, subsea completion); <strong>(3)</strong> temporal overlap validated across 2015–2026 offshore/onshore drilling windows.
+              </p>
+            </div>
+          </div>
+
+          <!-- Matrix -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Service Domain × SIH Drilling Parameters — Validation Matrix</div>
+                <div class="panel-subtitle">Each row = one HAL Mexico inferred exposure domain based on SIH Perforación risk categories in Sureste/Burgos.</div>
+              </div>
+            </div>
+            <div class="panel-body" style="overflow-x:auto;">
+              <table class="cs-table" style="min-width:760px;">
+                <thead>
+                  <tr>
+                    <th style="text-align:left;min-width:180px;">HAL Service Domain</th>
+                    <th style="background:rgba(99,102,241,0.08);color:#6366f1;">HPHT Intensity<br><span style="font-weight:400;font-size:10px;color:var(--text3);">> 11,000 PSI</span></th>
+                    <th style="background:rgba(13,148,136,0.08);color:#0d9488;">Offshore Complexity<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Deepwater Sureste</span></th>
+                    <th style="background:rgba(124,58,237,0.08);color:#7c3aed;">Subsea Systems<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Compleción Submarina</span></th>
+                    <th style="background:rgba(219,39,119,0.08);color:#db2777;">Fractured Carbonates<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Lost circulation risk</span></th>
+                    <th>Primary Operators<br>(SIH)</th>
+                    <th>Active Window</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="cs-row-highlight">
+                    <td><div style="font-weight:700;color:var(--text);font-size:13px;">🏗 Well Construction / Drilling</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">HAL offshore drilling units — CompraNet confirmed</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#6366f1;margin-top:3px;">PRIMARY</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#0d9488;margin-top:3px;">PRIMARY</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td><span class="ai-tag" style="--t-c:#2563eb;">PEMEX E&P</span><br><span style="font-size:10px;color:var(--text3);">859 jobs · Sureste</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2015–2026 ✓</span><br><span style="font-size:10px;color:var(--text3);">Continuous presence</span></td>
+                  </tr>
+                  <tr>
+                    <td><div style="font-weight:700;color:var(--text);font-size:13px;">🔒 Completion & Subsea Hardware</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">HAL DHSV/Liner Hangers deployed in HPHT wells</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span><div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div></td>
+                    <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
+                    <td><span class="ai-tag" style="--t-c:#3b82f6;">HOKCHI ENERGY</span><br><span style="font-size:10px;color:var(--text3);">69 jobs · Offshore</span></td>
+                    <td><span style="font-weight:700;color:#ef4444;">2019–2026 ✓</span><br><span style="font-size:10px;color:var(--text3);">Subsea expansion phase</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Temporal Overlap Chart -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">Temporal Overlap — Contract Periods vs. SIH Perforación Job Escalation</div>
+                <div class="panel-subtitle">HAL Mexico contract activity overlaid against SIH drilling activity curve (2015–2026)</div>
+              </div>
+            </div>
+            <div class="panel-body" style="padding:0;">
+              <div style="padding:16px 20px 0;"><canvas id="mexTemporalOverlapChart" style="max-height:320px;"></canvas></div>
+              <div style="padding:12px 20px 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
+                ⚠ Drilling job counts are from SIH Perforación (sih.hidrocarburos.gob.mx). Contract bars show estimated HAL–MEX validity windows based on CompraNet records.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- /section-mexico-crossanalysis -->
 
 <section id="section-mexico" class="dash-section">
 
