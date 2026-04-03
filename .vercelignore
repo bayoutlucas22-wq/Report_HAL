@@ -1,5 +1,5 @@
 KLMÇJ# large directories and files
-/data/
+# /data/ removed to allow Vercel data loading
 /output/
 *.zip
 *.docx

@@ -13,7 +13,7 @@ let ANP_STATS = null;
 function parseIncidentesCSV() {
   // Now simpler since files are relative to this api/server.js file
   const locate = (rel) => {
-    const p = path.join(__dirname, rel);
+    const p = path.resolve(process.cwd(), rel);
     if (fs.existsSync(p)) return p;
     return null;
   };

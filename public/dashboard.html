@@ -3307,20 +3307,7 @@
               <div style="display:flex;flex-direction:column;gap:4px;">
                 <div style="font-size:11px;color:var(--text2);">→ <a href="https://www.argentina.gob.ar/srt/estadisticas" target="_blank" style="color:var(--blue);">SRT Statistics</a> — workplace accidents by sector (oil &amp; gas = sector 11)</div>
                 <div style="font-size:11px;color:var(--text2);">→ <a href="https://www.iapg.org.ar/" target="_blank" style="color:var(--blue);">IAPG</a> — industry-wide incident rates (member stats section requires login)</div>
-                <div style="font-size:11px;color:var(--text2);">→ <a href="https://comprar.gob.ar/" target="_blank" style="color:var(--blue);">comprar.gob.ar</a> — YPF/ENARSA contracts with HAL (COMPR.AR national procurement portal; search "Halliburton")</div>
-                <div style="font-size:11px;color:var(--text2);">→ <a href="https://www.argentina.gob.ar/jefatura/turismo-y-ambiente/ambiente" target="_blank" style="color:var(--blue);">Ministerio de Ambiente</a> — environmental incident registry</div>
-              </div>
-            </div>
-            <div style="flex:1;min-width:220px;">
-              <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">Grey Zone: Physical Risk vs Transparency</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.6;">HAL Argentina operates under fewer disclosure obligations than HAL Brazil — yet Vaca Muerta operations are physically more demanding: deeper wells, higher pressures, longer laterals, larger water volumes. The absence of a public incident database does not mean absence of incidents.</div>
-            </div>
-          </div>
-        </div>
-
-      </section><!-- /section-argentina -->
-
-      <section id="section-mexico" class="dash-section">
+                <div style="font-size:11px;color:var(--text2);">→ <a href="https://comprar.gob.ar/" target="_blank" style="color:var(--blue);">comprar.gob.ar</a> — YPF/ENARSA con      <section id="section-mexico" class="dash-section">
         <!-- Header -->
         <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);">
           <div class="cs-header-left">
@@ -3337,8 +3324,23 @@
           </div>
         </div>
 
+        <!-- Verified Portals -->
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;margin:20px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+          <div style="margin-bottom:16px;">
+            <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;">Verified Mexico Open Data Portals</h3>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:12px;">
+            <a href="https://compras.gob.mx/" target="_blank" rel="noopener" style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">Compras MX / CompraNet ↗</div>
+            </a>
+            <a href="https://sih.hidrocarburos.gob.mx/" target="_blank" rel="noopener" style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">SIH — Sistema de Info de Hidrocarburos ↗</div>
+            </a>
+          </div>
+        </div>
+
         <!-- KPI Grid -->
-        <div class="cs-metrics-grid" style="margin-top:20px;">
+        <div class="cs-metrics-grid" style="margin:20px;">
           <div class="cs-metric-card">
             <div class="cs-metric-val">1,245</div>
             <div class="cs-metric-label">Total Jobs</div>
@@ -3361,14 +3363,20 @@
           </div>
         </div>
 
-        <div class="panel" style="margin-top:20px;">
+        <div class="panel" style="margin:20px;">
             <div class="panel-header">
                 <div class="panel-title">HAL Service Domains — Mexico</div>
-                <div class="panel-subtitle">All 4 confirmed active. Each domain maps to applicable MX regulations (CNH/DOF).</div>
+                <div class="panel-subtitle">All 4 confirmed active. Each domain maps to applicable MX regulations.</div>
             </div>
-            <div style="display:flex;flex-direction:column;gap:10px;padding:20px;">
-                <div style="padding:14px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <div style="padding:20px;">
+                <p style="font-size:12px;color:var(--text2);line-height:1.6;">
+                  Analysis focuses on the Tampico-Misantla and Sureste basins. 
+                  Due to high offshore concentration (59%+), the risk profile specifically targets deep-water well integrity and directional drilling failures in naturally fractured carbonates.
+                </p>
+            </div>
+        </div>
+      </section>
+div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
                         <div style="font-size:12px;font-weight:800;color:#166534;">DOMAIN 1 — Hydraulic Fracturing (Estimulación)</div>
                         <span style="font-size:10px;font-weight:700;background:#16a34a;color:#fff;padding:2px 8px;border-radius:20px;">CONFIRMED ACTIVE</span>
                     </div>
@@ -3541,211 +3549,169 @@
         <!-- Additional Argentina pillars could be added here -->
       </section>
 
-      <!-- ── MEXICO AUDIT ── -->
-      <section id="section-mexico-audit" class="dash-section">
-        <div class="ai-hero" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #3730a3 100%);">
-          <div class="ai-hero-left">
-            <div class="cs-badge" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);">Mexico CNH · ASEA · SIH</div>
-            <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Mexico Action Items</h2>
-            <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">Compliance workflow for Halliburton/Tejas Mexico focus on offshore and carbonate risk.</p>
+      <!-- ── HAL ARGENTINA OVERVIEW ── -->
+      <section id="section-argentina" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 60%, #047857 100%);">
+          <div class="cs-header-left">
+            <div class="cs-badge">SESCO · datos.energia.gob.ar · 2015–2026</div>
+            <h2>HAL Argentina — Regional Intelligence Module</h2>
+            <p class="cs-subtitle">SESCO Compliance Framework & Operational Exposure Analysis (Neuquina Basin Focus)</p>
           </div>
-          <div class="ai-hero-stats">
-            <div class="ai-stat">
-              <div class="ai-stat-val" id="mexAiDoneCount">0</div>
-              <div class="ai-stat-label">Completed</div>
-            </div>
-            <div class="ai-stat">
-              <div class="ai-stat-val" id="mexAiTotalCount">0</div>
-              <div class="ai-stat-label">Total Items</div>
-            </div>
-            <div class="ai-stat">
-              <div class="ai-stat-val" id="mexAiPct">0%</div>
-              <div class="ai-stat-label">Progress</div>
-            </div>
-          </div>
-        </div>
-        <div class="ai-progress-wrap">
-          <div class="ai-progress-bar" id="mexAiProgressBar" style="width:0%"></div>
-        </div>
-
-        <div class="ai-pillar">
-          <div class="ai-pillar-header" style="--ph-c:#6366f1" onclick="toggleMexPillar(this)">
-            <div class="ai-pillar-num">01</div>
-            <div>
-              <div class="ai-pillar-title">SIH Drilling Integration</div>
-              <div class="ai-pillar-sub">Transition from Production to Drilling-based risk metrics</div>
-            </div>
-            <div class="ai-pillar-progress" id="mex-pp1">0 / 2</div>
-          </div>
-          <div class="ai-checklist">
-            <label class="ai-item" data-pillar="mex1">
-              <input type="checkbox" class="ai-check" onchange="updateMexAIProgress()">
-              <div class="ai-item-body">
-                <div class="ai-item-title">Ingest SIH Perforación dataset</div>
-                <div class="ai-item-desc">Fetch mexico_perforacion.csv to extract real-world PSI and HP metrics for the Sureste basin.</div>
-                <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#6366f1">SIH</span><span class="ai-tag" style="--t-c:#6366f1">Data</span></div>
-              </div>
-            </label>
-            <label class="ai-item" data-pillar="mex1">
-              <input type="checkbox" class="ai-check" onchange="updateMexAIProgress()">
-              <div class="ai-item-body">
-                <div class="ai-item-title">Audit Lost Circulation events in Carbonates</div>
-                <div class="ai-item-desc">Cross-reference NPT reports with HAL fluid service windows in HPHT zones.</div>
-                <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#f59e0b">NPT</span></div>
-              </div>
-            </label>
+          <div class="cs-meta">
+            <div class="cs-meta-item"><span>Operation</span>Halliburton Argentina S.A.</div>
+            <div class="cs-meta-item"><span>Jurisdiction</span>Secretaría de Energía — Argentina</div>
+            <div class="cs-meta-item"><span>Data Source</span>SESCO Adjunto IV — 3,642 records</div>
+            <div class="cs-meta-item"><span>Last Mapping</span>100% Empirical (Study v2.4)</div>
           </div>
         </div>
 
-        <div class="ai-pillar">
-          <div class="ai-pillar-header" style="--ph-c:#8b5cf6" onclick="toggleMexPillar(this)">
-            <div class="ai-pillar-num">02</div>
-            <div>
-              <div class="ai-pillar-title">ASEA Incident Tracking</div>
-              <div class="ai-pillar-sub">Trace barrier failures in Mexico (ASEA/SIIA)</div>
-            </div>
-            <div class="ai-pillar-progress" id="mex-pp2">0 / 1</div>
+        <!-- Data Context & Official Sources -->
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;margin:20px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+          <div style="margin-bottom:16px;">
+            <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;">Data Context &amp; Official Sources</h3>
+            <p style="font-size:13px;color:var(--text2);line-height:1.5;">
+              All quantitative data originates from Argentina's <strong>Secretaría de Energía — SESCO open data portal</strong>.
+              Classification relies on publicly documented HAL Argentina contracts and SPE/IAPG papers confirming HAL's operational presence for each operator listed.
+            </p>
           </div>
-          <div class="ai-checklist">
-            <label class="ai-item" data-pillar="mex2">
-              <input type="checkbox" class="ai-check" onchange="updateMexAIProgress()">
-              <div class="ai-item-body">
-                <div class="ai-item-title">Map ASEA SIIA records to HAL domains</div>
-                <div class="ai-item-desc">Fetch mexico_asea_incidentes.csv to identify 'Registro de Incidentes' corresponding to barrier failures.</div>
-                <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">ASEA</span></div>
-              </div>
-            </label>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:12px;">
+            <a href="http://datos.energia.gob.ar/dataset/datos-de-fractura-de-pozos-adjunto-iv" target="_blank" rel="noopener" style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">SESCO — Fractura Hidráulica (Adjunto IV) ↗</div>
+              <div style="font-size:11px;color:var(--text2);margin-top:4px;">Primary source for all fracking job data.</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="cs-metrics-grid" style="margin:20px;">
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">3,642</div>
+            <div class="cs-metric-label">Total Frac Jobs</div>
+          </div>
+          <div class="cs-metric-card">
+            <div class="cs-metric-val">9,906 PSI</div>
+            <div class="cs-metric-label">Avg Treating Pressure</div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin:20px;">
+          <div class="panel-header">
+            <div class="panel-title">Inference Summary</div>
+          </div>
+          <div style="padding:20px; font-size:13px; color:var(--text2);">
+            Argentina has no public failure disclosure mandate (unlike Brazil). Operational parameters confirm HAL is running <strong>"Red-Zone"</strong> complexity jobs under reduced transparency.
           </div>
         </div>
       </section>
 
-        <!-- ── ARGENTINA AUDIT ── -->
-        <section id="section-argentina-audit" class="dash-section">
-          <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
-            <div class="cs-header-left">
-              <div class="cs-badge">ESG · ISO 37301 · SESCO</div>
-              <h2>Argentina Audit Dashboard</h2>
-              <p class="cs-subtitle">Active compliance monitoring for Vaca Muerta high-pressure operations.</p>
-            </div>
+      <!-- ── ARGENTINA AUDIT ── -->
+      <section id="section-argentina-audit" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
+          <div class="cs-header-left">
+            <div class="cs-badge">ESG · ISO 37301 · SESCO</div>
+            <h2>Argentina Audit Dashboard</h2>
+            <p class="cs-subtitle">Active compliance monitoring for Vaca Muerta operations.</p>
           </div>
-
-          <!-- Action Items Replicated -->
-          <div class="panel" style="margin-top:20px;">
-            <div class="panel-header">
-                <div class="panel-title">Operational Integrity Checklist — ARG</div>
-                <div class="panel-subtitle">Key compliance pillars for HAL Argentina fracturing and cementing.</div>
-            </div>
-            <div class="ai-checklist">
-                <div class="ai-item" onclick="toggleTask(this)">
-                    <div class="ai-task-icon">📍</div>
-                    <div class="ai-task-content">
-                        <div class="ai-task-title">Physical Proxy Calibration</div>
-                        <div class="ai-task-desc">Verify that all wellheads for jobs exceeding 11,000 PSI have verified Tejas valve installation logs.</div>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── ARGENTINA REGISTRY ── -->
-        <section id="section-argentina-registry" class="dash-section">
-          <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
-            <div class="cs-header-left">
-              <div class="cs-badge">SESCO · Open Data</div>
-              <h2>Argentina Incident Registry</h2>
-              <p class="cs-subtitle">Active mapping of physical proxy failure modes in Vaca Muerta.</p>
-            </div>
-          </div>
-
-          <!-- Annual Trend Moved Here -->
-          <div class="panel" style="margin-top:20px; margin-bottom:20px;">
-            <div class="panel-header">
-              <div class="panel-title">Annual Intensity Escalation — 2015 to 2026</div>
-            </div>
-            <div style="overflow-x:auto;">
-              <table class="data-table" id="argTrendTable">
-                <thead>
-                  <tr>
-                    <th>Year</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Avg HP</th><th>Avg Lateral m</th><th>Unconv %</th>
-                  </tr>
-                </thead>
-                <tbody id="argTrendBody"></tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Operator Exposure Moved Here -->
-          <div class="panel">
-            <div class="panel-header">
-              <div class="panel-title">Operator Exposure Matrix</div>
-            </div>
-            <div style="overflow-x:auto;">
-              <table class="data-table" id="argOperatorTable">
-                <thead>
-                  <tr><th>Operator</th><th>Basin</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Risk Tier</th></tr>
-                </thead>
-                <tbody id="argOperatorBody"></tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <!-- ── ARGENTINA CROSS-ANALYSIS ── -->
-        <section id="section-argentina-crossanalysis" class="dash-section">
-          <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
-            <div class="cs-header-left">
-              <div class="cs-badge">CIS CORTEX · CROSS-CORRELATION</div>
-              <h2>ARG — Cross-Analysis Intelligence</h2>
-              <p class="cs-subtitle">Correlation of Operator fatigue vs HAL hardware limits.</p>
-            </div>
-          </div>
-
-          <div class="charts-row" style="margin-top:20px; margin-bottom:20px;">
-            <div class="panel" style="flex:1;">
-              <div class="panel-header">
-                <div class="panel-title">Formation Risk Profile</div>
-              </div>
-              <div style="overflow-x:auto;">
-                <table class="data-table" id="argFormationTable">
-                  <thead>
-                    <tr><th>Formation</th><th>Jobs</th><th>Avg PSI</th><th>Primary Hazard</th></tr>
-                  </thead>
-                  <tbody id="argFormationBody"></tbody>
-                </table>
-              </div>
-            </div>
-            <div class="panel" style="flex:1;">
-              <div class="panel-header">
-                <div class="panel-title">Regulatory Framework</div>
-              </div>
-              <div style="overflow-x:auto;">
-                <table class="data-table" id="argRegulatoryTable">
-                  <thead>
-                    <tr><th>Regulation</th><th>Scope</th><th>HAL Domains</th></tr>
-                  </thead>
-                  <tbody id="argRegulatoryBody"></tbody>
-                </table>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div class="ai-checklist">
+            <div class="ai-item">
+              <div class="ai-task-icon">📍</div>
+              <div class="ai-task-content">
+                <div class="ai-task-title">Physical Proxy Calibration</div>
+                <div class="ai-task-desc">Verify wellheads for jobs >11k PSI.</div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Inference Validation Summary Moved Here -->
-          <div class="panel cs-panel">
-            <div class="panel-header">
-              <div class="panel-title">Inference Validation Summary — Argentina</div>
-            </div>
-            <div class="panel-body">
-              <div class="cs-findings" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
-                <div class="cs-finding-list">
-                  <div class="cs-finding">
-                    <div class="cs-finding-accent" style="background: #166534;"></div>
-                    <div style="font-size: 14px;"><strong>STEP 1: SESCO Intensity Mapping.</strong> The SESCO dataset establishes the physical stress profile for Vaca Muerta operations.</div>
-                  </div>
-                </div>
+      <!-- ── ARGENTINA REGISTRY ── -->
+      <section id="section-argentina-registry" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
+          <div class="cs-header-left">
+            <h2>Argentina Incident Registry</h2>
+            <p class="cs-subtitle">SESCO extraction tables (Mapped Data).</p>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div class="panel-header"><div class="panel-title">Annual Trends</div></div>
+          <div style="overflow-x:auto;"><table class="data-table" id="argTrendTable"><thead><tr><th>Year</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Avg HP</th><th>Avg Lateral m</th><th>Unconv %</th></tr></thead><tbody id="argTrendBody"></tbody></table></div>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div class="panel-header"><div class="panel-title">Operator Exposure</div></div>
+          <div style="overflow-x:auto;"><table class="data-table" id="argOperatorTable"><thead><tr><th>Operator</th><th>Basin</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Risk Tier</th></tr></thead><tbody id="argOperatorBody"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- ── ARGENTINA CROSS-ANALYSIS ── -->
+      <section id="section-argentina-crossanalysis" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);">
+          <h2>ARG — Cross-Analysis Intelligence</h2>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div style="overflow-x:auto;"><table class="data-table" id="argFormationTable"><thead><tr><th>Formation</th><th>Jobs</th><th>Avg PSI</th><th>Primary Hazard</th></tr></thead><tbody id="argFormationBody"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- ── HAL MEXICO OVERVIEW ── -->
+      <section id="section-mexico" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);">
+          <div class="cs-header-left">
+            <div class="cs-badge">CNH · SIH · DOF · 2015–2026</div>
+            <h2>HAL Mexico — Regional Intelligence Module</h2>
+            <p class="cs-subtitle">CNH Compliance Framework & Operational exposure via SIH Perforación</p>
+          </div>
+        </div>
+        <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;margin:20px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+          <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;">Verified Mexico Open Data Portals</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:12px;">
+            <a href="https://sih.hidrocarburos.gob.mx/" target="_blank" rel="noopener" style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+              <div style="font-size:13px;font-weight:600;color:var(--blue);">SIH — Sistema de Información de Hidrocarburos ↗</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MEXICO AUDIT ── -->
+      <section id="section-mexico-audit" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);">
+          <h2>Mexico Audit Dashboard</h2>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div class="ai-checklist">
+            <div class="ai-item">
+              <div class="ai-task-icon">⚓</div>
+              <div class="ai-task-content">
+                <div class="ai-task-title">Sureste Rig Validation</div>
+                <div class="ai-task-desc">Confirm ASEA safety compliance logs.</div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <!-- ── MEXICO REGISTRY ── -->
+      <section id="section-mexico-registry" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);">
+          <h2>Mexico Incident Registry</h2>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div style="overflow-x:auto;"><table class="data-table" id="mexTrendTable"><thead><tr><th>Year</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Avg HP</th><th>Avg Lat m</th></tr></thead><tbody id="mexTrendBody"></tbody></table></div>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div style="overflow-x:auto;"><table class="data-table" id="mexOperatorTable"><thead><tr><th>Operator</th><th>Basin</th><th>Jobs</th><th>Stages</th><th>Avg PSI</th><th>Risk Tier</th></tr></thead><tbody id="mexOperatorBody"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- ── MEXICO CROSS-ANALYSIS ── -->
+      <section id="section-mexico-crossanalysis" class="dash-section">
+        <div class="cs-header" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);">
+          <h2>MEX — Cross-Analysis Intelligence</h2>
+        </div>
+        <div class="panel" style="margin-top:20px;">
+          <div style="overflow-x:auto;"><table class="data-table" id="mexFormationTable"><thead><tr><th>Formation</th><th>Jobs</th><th>Avg PSI</th><th>Primary Hazard</th></tr></thead><tbody id="mexFormationBody"></tbody></table></div>
+        </div>
+      </section>
 
       </div><!-- /page-content -->
     </div><!-- /main-content -->
