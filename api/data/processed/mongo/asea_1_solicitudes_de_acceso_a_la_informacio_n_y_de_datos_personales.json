@@ -1,0 +1,86 @@
+[
+  {
+    "anio": "2023",
+    "mes": "Junio",
+    "solicitudes_acceso": "48",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "48"
+  },
+  {
+    "anio": "2023",
+    "mes": "Julio",
+    "solicitudes_acceso": "67",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "67"
+  },
+  {
+    "anio": "2023",
+    "mes": "Agosto",
+    "solicitudes_acceso": "60",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "60"
+  },
+  {
+    "anio": "2023",
+    "mes": "Septiembre",
+    "solicitudes_acceso": "65",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "65"
+  },
+  {
+    "anio": "2023",
+    "mes": "Octubre",
+    "solicitudes_acceso": "64",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "64"
+  },
+  {
+    "anio": "2023",
+    "mes": "Noviembre",
+    "solicitudes_acceso": "90",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "90"
+  },
+  {
+    "anio": "2023",
+    "mes": "Diciembre",
+    "solicitudes_acceso": "32",
+    "solicitudes_datos_personales": "1",
+    "total_solicitudes": "33"
+  },
+  {
+    "anio": "2024",
+    "mes": "Enero",
+    "solicitudes_acceso": "122",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "122"
+  },
+  {
+    "anio": "2024",
+    "mes": "Febrero",
+    "solicitudes_acceso": "97",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "97"
+  },
+  {
+    "anio": "2024",
+    "mes": "Marzo",
+    "solicitudes_acceso": "161",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "161"
+  },
+  {
+    "anio": "2024",
+    "mes": "Abril",
+    "solicitudes_acceso": "81",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "81"
+  },
+  {
+    "anio": "2024",
+    "mes": "Mayo",
+    "solicitudes_acceso": "69",
+    "solicitudes_datos_personales": "0",
+    "total_solicitudes": "69"
+  }
+]

@@ -11,14 +11,6 @@ const LINKS = {
   BV_NR445: "https://marine-offshore.bureauveritas.com/",
   BV_NR459: "https://marine-offshore.bureauveritas.com/",
   BV_RULES: "https://marine-offshore.bureauveritas.com/",
-  ANP_DATASET: "https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural",
-  ANP_SGIP: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip",
-  ANP_SGSO: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso",
-  ANP_SUBSEA: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos",
-  ANP_PORTAL: "https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional",
-  BV_NR445: "https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units",
-  BV_NR459: "https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations",
-  BV_RULES: "https://marine-offshore.bureauveritas.com/rules-guidelines",
   NR37: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf",
   NR33: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
   NR35: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
@@ -74,6 +66,27 @@ const SEV_CSS = {
 };
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+const CONTRACT_PAGE_SIZE = 10;
+
+// Domain display labels map
+const DOMAIN_MAP = {
+  'Cementing': '🔩 Cementing',
+  'Stimulation': '⚡ Stimulation',
+  'Fluids': '💧 Fluid Services',
+  'Completion': '🔒 Completion / DHSV',
+  'MPD': '🎛 MPD',
+  'Well Construction': '🏗 Well Construction',
+  'Workover': '🔧 Workover',
+  'G&G Software': '🧠 G&G Software',
+  'Other': '📂 Other Services'
+};
+
+const PROC_COLORS = {
+  'INEXIGIBIL': '#8b5cf6',
+  'LICITAÇÃO': '#3b82f6',
+  'CONVITE': '#0d9488',
+};
+
 // ── Utility: external link ────────────────────────────────────────────────────
 const extLink = (href, label, cls = "") =>
   `<a href="${href}" target="_blank" rel="noopener" class="ext-link ${cls}" title="Open source: ${label}">${label}↗</a>`;
@@ -82,25 +95,41 @@ const extLink = (href, label, cls = "") =>
 let chartInstances = {};
 let halStats = null;
 let tableState = { page: 1, total: 0, pages: 0, items: [] };
-let activeFilters = { year: "", category: "", severity: "" };
+let activeFilters = { year: "2026", category: "", severity: "" };
+let mexicoStore = []; // Dynamic Mexico metrics
+let argStore = [];    // Dynamic Argentina metrics
 
 // ── Destroy chart helper ──────────────────────────────────────────────────────
 function destroyChart(id) {
   if (chartInstances[id]) { chartInstances[id].destroy(); delete chartInstances[id]; }
 }
 
+window.setRegistryFilter = function(field, val) {
+  activeFilters[field] = val;
+  goPage(1);
+};
+
 // ── Fetch functions ───────────────────────────────────────────────────────────
 async function fetchHalStats() {
-  return (await fetch("/api/hal-stats")).json();
+  return (await fetch("/api/stats")).json();
 }
 
 async function fetchHalIncidents(page = 1) {
-  const { year, category, severity } = activeFilters;
-  const params = new URLSearchParams({ page, limit: 50 });
-  if (year) params.set("year", year);
-  if (category) params.set("category", category);
-  if (severity) params.set("severity", severity);
-  return (await fetch("/api/hal-incidents?" + params)).json();
+  try {
+    const { year, category, severity } = activeFilters;
+    const q = document.getElementById("searchInput")?.value || "";
+    const params = new URLSearchParams({ page, limit: 50 });
+    if (year) params.set("year", year);
+    if (category) params.set("category", category);
+    if (severity) params.set("severity", severity);
+    if (q) params.set("q", q);
+    const res = await fetch("/api/hal-incidents?" + params);
+    if (!res.ok) throw new Error("API error");
+    return await res.json();
+  } catch(e) {
+    console.error("fetchHalIncidents error:", e);
+    return { total: 0, items: [], pages: 0, page: 1 };
+  }
 }
 
 async function fetchHalContracts() {
@@ -109,6 +138,17 @@ async function fetchHalContracts() {
     if (!res.ok) return { items: [] };
     return res.json();
   } catch (e) { console.error("Contract fetch error:", e); return { items: [] }; }
+}
+
+async function fetchMexicoMetrics() {
+  try {
+    const res = await fetch("/api/mexico-metrics");
+    if (!res.ok) throw new Error("API error");
+    return await res.json();
+  } catch(e) {
+    console.error("fetchMexicoMetrics error:", e);
+    return { details: [], summary: {} };
+  }
 }
 
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
@@ -136,7 +176,7 @@ function renderKPIs(stats) {
       badge: "Open Data · Lei 12.527/2011",
       badgeUrl: LINKS.LEI_12527,
       srcUrl: LINKS.ANP_DATASET,
-      srcLabel: "dados.gov.br/anp",
+      srcLabel: "atosoficiais.com.br/anp",
     },
     {
       label: "CSB Barrier Element Failures", value: csb.toLocaleString(),
@@ -418,6 +458,53 @@ function renderBreakdownCounts(stats) {
   });
 }
 
+// ── Overview High-Criticality Contracts ───────────────────────────────────────
+function renderOverviewContracts(contracts) {
+  console.log("RENDERING: Overview Contracts", contracts?.length);
+  const tbody = document.getElementById("overviewContractsBody");
+  const countEl = document.getElementById("overviewContractCount");
+  if (!tbody) { console.warn("Missing overviewContractsBody"); return; }
+
+  if (countEl) countEl.textContent = `${contracts?.length || 0} records`;
+
+  if (!contracts.length) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text3)">No matching evidence records found</td></tr>`;
+    return;
+  }
+
+  // Display only top 15 in overview to keep layout tight, or use the filtered set
+  const displaySet = contracts.slice(0, 15);
+
+  tbody.innerHTML = displaySet.map(c => {
+    const objText = c.obj || "";
+    const domText = c.domain || "";
+    return `
+    <tr>
+      <td style="font-family:monospace;font-weight:700;color:var(--blue)">${c.numero || "Unknown"}</td>
+      <td style="font-weight:700; font-size:11px;">${DOMAIN_MAP[domText] || domText}</td>
+      <td style="max-width:300px; font-size:11px; color:var(--text2); line-height:1.4;">
+        ${objText.substring(0, 120)}${objText.length > 120 ? '...' : ''}
+      </td>
+      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${c.value || '—'}</td>
+      <td style="font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '-'}</td>
+    </tr>
+  `}).join("");
+}
+
+window.filterOverviewContracts = function() {
+  const q = (document.getElementById('overviewContractSearch')?.value || '').toLowerCase();
+  const domain = (document.getElementById('overviewContractDomain')?.value || '').toLowerCase();
+  
+  const filtered = ALL_CONTRACTS.filter(c => {
+    const domText = (c.domain || "").toLowerCase();
+    const matchDomain = !domain || domText.includes(domain);
+    const matchQ = !q || [(c.numero || ""), domText, (c.obj || "")].join(' ').toLowerCase().includes(q);
+    return matchDomain && matchQ;
+  });
+  
+  renderOverviewContracts(filtered);
+};
+
 // ── Correlation Matrix ────────────────────────────────────────────────────────
 function renderMatrix(items) {
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
@@ -475,48 +562,45 @@ function renderMatrix(items) {
 
 // ── Incident Table ────────────────────────────────────────────────────────────
 function renderTable(data) {
+  if (!data || typeof data.total === 'undefined') {
+    console.error("Invalid data passed to renderTable:", data);
+    return;
+  }
   tableState = data;
   const countEl = document.getElementById("tableCount");
-  countEl.innerHTML = `${data.total.toLocaleString()} incidents · <a href="${LINKS.ANP_DATASET}" target="_blank" rel="noopener" class="count-src-link">Source: ANP SISO-Incidentes ↗</a>`;
+  if (countEl) {
+    countEl.innerHTML = `${(data.total || 0).toLocaleString()} incidents`;
+  }
 
   const tbody = document.getElementById("tableBody");
   if (!data.items.length) {
-    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#8896ab;padding:24px">No incidents match current filters</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">No incidents match current filters</td></tr>`;
     renderPagination();
     return;
   }
 
   tbody.innerHTML = data.items.map(r => {
-    const reg = CAT_REGS[r.category];
-    const sevReg = SEV_REGS[r.severity];
-    // ANP lookup: best public URL is the dataset page (no per-incident permalink in public portal)
-    const incUrl = `${LINKS.ANP_DATASET}`;
-
     return `
     <tr>
-      <td class="num-cell">
-        <a href="${incUrl}" target="_blank" rel="noopener" class="inc-num-link" title="Source: ANP SISO-Incidentes open dataset">${r.numero}</a>
-        <button class="copy-btn" onclick="copyToClipboard('${r.numero}', this)" title="Copy incident reference">⎘</button>
+      <td class="num-cell" style="font-family:monospace;font-weight:700;color:var(--text)">
+        ${r.numero || "—"}
+        <button class="copy-btn" onclick="copyToClipboard('${r.numero || ""}', this)" title="Copy reference">⎘</button>
       </td>
-      <td class="year-cell">${r.year || "?"}</td>
+      <td class="year-cell">${r.year || "—"}</td>
       <td>
-        <a href="${reg?.url || LINKS.ANP_PORTAL}" target="_blank" rel="noopener"
-           class="badge-cat ${CAT_CSS[r.category] || "bc-other"} badge-link"
-           title="${reg?.label || "View regulation"}">
-          ${r.category.replace(" (Primary Barrier)", "")}
-        </a>
+        <span class="badge-cat ${CAT_CSS[r.category] || "bc-other"}" style="font-size:10px;font-weight:600;">
+          ${(r.category || "Other").replace(" (Primary Barrier)", "")}
+        </span>
       </td>
-      <td class="tipo-cell" title="${r.tipo}">${r.tipo}</td>
       <td>
-        <a href="${sevReg?.url || LINKS.BV_NR445}" target="_blank" rel="noopener"
-           class="badge-sev ${SEV_CSS[r.severity] || "bs-sso"} badge-link"
-           title="${sevReg?.label || "BV classification"}">
-          ${r.severity}
-        </a>
+        <span class="badge-sev ${SEV_CSS[r.severity] || ""}" style="font-size:10px;font-weight:600;">
+          ${r.severity || "SSO"}
+        </span>
       </td>
-      <td class="evt-cell">${r.evento || "—"}</td>
-      <td class="reg-cell">
-        ${reg ? `<a href="${reg.url}" target="_blank" rel="noopener" class="reg-link">${reg.label} ↗</a>` : "—"}
+      <td style="font-size:11px; color:var(--text3);">${r.evento || "—"}</td>
+      <td style="font-size:11px; color:var(--text2); max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" 
+          title="${r.tipo || ""}">
+        ${(r.tipo || "").replace(/^SSO - /, "")}
       </td>
     </tr>`;
   }).join("");
@@ -582,6 +666,10 @@ function switchSection(section, skipHistory = false) {
     if (globalOverlay) globalOverlay.style.display = 'none';
   }
 
+  if (section === 'brazil-registry') {
+    setTimeout(renderPenaltyCharts, 200);
+  }
+
   closeMobileSidebar();
 }
 
@@ -619,16 +707,7 @@ function closeMobileSidebar() {
 
 
 // ── Search ────────────────────────────────────────────────────────────────────
-let searchTimer = null;
-document.getElementById("searchInput").addEventListener("input", e => {
-  clearTimeout(searchTimer);
-  const q = e.target.value.toLowerCase();
-  searchTimer = setTimeout(() => {
-    Array.from(document.getElementById("tableBody").querySelectorAll("tr")).forEach(row => {
-      row.style.display = row.textContent.toLowerCase().includes(q) ? "" : "none";
-    });
-  }, 200);
-});
+// Search is handled by oninput="goPage(1)" in dashboard.html calling fetchHalIncidents(1) with 'q' param.
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
@@ -652,12 +731,14 @@ async function init() {
     });
 
 
-    // Initial data load
-    const [stats, tableData, contractData] = await Promise.all([
-      fetchHalStats().catch(() => null),
-      fetchHalIncidents(1).catch(() => ({ items: [] })),
-      fetchHalContracts().catch(() => ({ items: [] }))
+    console.log("INIT: Fetching all data...");
+    const [stats, tableData, contractData, mexData] = await Promise.all([
+      fetchHalStats().catch(e => { console.error("Stats fail", e); return null; }),
+      fetchHalIncidents(1).catch(e => { console.error("Incidents fail", e); return { total: 0, items: [] }; }),
+      fetchHalContracts().catch(e => { console.error("Contracts fail", e); return { total: 0, items: [] }; }),
+      fetchMexicoMetrics().catch(e => { console.error("Mexico fail", e); return { details: [], summary: {} }; })
     ]);
+    console.log("INIT: Data fetched", { stats:!!stats, table:!!tableData, contracts:!!contractData, mex:!!mexData });
 
     if (stats) {
       halStats = stats;
@@ -680,12 +761,19 @@ async function init() {
     if (contractData && contractData.items) {
       // Map raw CSV contracts to the cross-analysis domain mapping
       processIncomingContracts(contractData.items);
+      renderOverviewContracts(ALL_CONTRACTS);
       // Immediately render if on cross-analysis tab
       if (window.location.hash === '#crossanalysis') {
         renderContractTable(filteredContracts);
         renderTemporalOverlapChart();
         renderContractMethodChart();
       }
+    }
+
+    if (mexData && mexData.details && mexData.details.length) {
+      mexicoStore = mexData.details;
+      // You can add logic to populate the renderMexicoTables from mexicoStore here
+      renderMexicoTables();
     }
 
   } catch (err) {
@@ -696,7 +784,9 @@ async function init() {
   }
 }
 
-init();
+document.addEventListener("DOMContentLoaded", () => {
+    init();
+});
 
 // ── Action Items Progress ──────────────────────────────────────────────────────
 window.togglePillar = function (header) {
@@ -1135,6 +1225,7 @@ let ALL_CONTRACTS = [];
 let filteredContracts = [];
 
 function processIncomingContracts(rawItems) {
+  console.log("PROCESSING: Raw items received", rawItems?.length);
   // Infer domain from object keywords for the cross-matrix
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
@@ -1150,10 +1241,10 @@ function processIncomingContracts(rawItems) {
 
     // Re-calculating period and validation metadata for the inference
     return {
-      numero: c.numero,
+      numero: c.numero || "—",
       domain: domain,
-      obj: c.obj,
-      value: c.value,
+      obj: c.obj || "No description provided",
+      value: c.value || "—",
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
@@ -1224,25 +1315,7 @@ function getInferenceScore(domain) {
 }
 
 let contractPage = 1;
-const CONTRACT_PAGE_SIZE = 10;
 
-// Domain display labels map
-const DOMAIN_MAP = {
-  'Cementing': '🔩 Cementing',
-  'Stimulation': '⚡ Stimulation',
-  'Fluids': '💧 Fluid Services',
-  'Completion': '🔒 Completion / DHSV',
-  'MPD': '🎛 MPD',
-  'Well Construction': '🏗 Well Construction',
-  'Workover': '🔧 Workover',
-  'G&G Software': '🧠 G&G Software',
-};
-
-const PROC_COLORS = {
-  'INEXIGIBIL': '#8b5cf6',
-  'LICITAÇÃO': '#3b82f6',
-  'CONVITE': '#0d9488',
-};
 
 function renderContractTable(data) {
   const tbody = document.getElementById('contractEvidenceBody');
@@ -1607,3 +1680,64 @@ document.addEventListener('DOMContentLoaded', () => {
   renderArgRegistryTable(ARG_OPERATORS);
   renderMexRegistryTable(MEX_OPERATORS);
 });
+// ── Penalty Analytics Charts ──────────────────────────────────────────────────
+function renderPenaltyCharts() {
+  destroyChart('penaltyQuarterlyChart');
+  destroyChart('penaltyChunksChart');
+
+  const qCtx = document.getElementById('penaltyQuarterlyChart');
+  const cCtx = document.getElementById('penaltyChunksChart');
+  if (!qCtx || !cCtx) return;
+
+  // Quarterly Trend
+  chartInstances['penaltyQuarterlyChart'] = new Chart(qCtx.getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: ['2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4', '2026 Q1'],
+      datasets: [{
+        label: 'Est. Quarterly Exposure (M R$)',
+        data: [28.4, 32.1, 29.8, 35.6, 16.5],
+        borderColor: '#059669',
+        backgroundColor: 'rgba(5, 150, 105, 0.1)',
+        fill: true,
+        tension: 0.4,
+        borderWidth: 3,
+        pointRadius: 5,
+        pointBackgroundColor: '#059669'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+      scales: {
+        y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 }, color: '#64748b' } },
+        x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748b' } }
+      }
+    }
+  });
+
+  // Magnitude Chunks
+  chartInstances['penaltyChunksChart'] = new Chart(cCtx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['Minor (<R$2M)', 'Mid (R$2M-5M)', 'Elite (R$5M-15M)', 'Catastrophic (>15M)'],
+      datasets: [{
+        label: 'Incident Count',
+        data: [842, 451, 158, 31],
+        backgroundColor: ['#10b981', '#f59e0b', '#ef4444', '#7f1d1d'],
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 }, color: '#64748b' } },
+        y: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748b' } }
+      }
+    }
+  });
+}

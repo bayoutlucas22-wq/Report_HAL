@@ -14,13 +14,9 @@ Thumbs.db
 .vercel/
 
 # Large raw data files
-data/incidentes.csv
-src/data/incidentes.csv
-data/PRODUCCION_*.csv
-data/PRODUCCION_CAMPOS.csv
-data/PRODUCCION_ASIGNACIONES.csv
-data/PRODUCCION_CUENCA.csv
-data/og_contracts_summary.csv
+# data/incidentes.csv removed for deployment
+# src/data/incidentes.csv removed for deployment
+# data/og_contracts_summary.csv removed for deployment
 
 # Generated output files
 output/
