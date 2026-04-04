@@ -95,7 +95,7 @@ const extLink = (href, label, cls = "") =>
 let chartInstances = {};
 let halStats = null;
 let tableState = { page: 1, total: 0, pages: 0, items: [] };
-let activeFilters = { year: "2026", category: "", severity: "" };
+let activeFilters = { year: "", category: "", severity: "" };
 let mexicoStore = []; // Dynamic Mexico metrics
 let argStore = [];    // Dynamic Argentina metrics
 
@@ -224,12 +224,23 @@ function renderKPIs(stats) {
   `).join("");
 }
 
-// ── Overview Chart ────────────────────────────────────────────────────────────
+// ── Overview Chart (08) ───────────────────────────────────────────────────────
 function renderOverviewChart(stats) {
   destroyChart("overviewChart");
-  const ctx = document.getElementById("overviewChart").getContext("2d");
+  const canvas = document.getElementById("overviewChart");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
   const years = stats.yearSeries.map(y => y.year);
+
+  // Gradient generator for premium look
+  const getGradient = (color) => {
+    const g = ctx.createLinearGradient(0, 0, 0, 400);
+    g.addColorStop(0, color + "ee");
+    g.addColorStop(1, color + "44");
+    return g;
+  };
 
   chartInstances["overviewChart"] = new Chart(ctx, {
     type: "bar",
@@ -238,17 +249,40 @@ function renderOverviewChart(stats) {
       datasets: cats.map(cat => ({
         label: cat,
         data: stats.yearSeries.map(y => y[cat] || 0),
-        backgroundColor: CAT_COLORS[cat] + "cc",
+        backgroundColor: getGradient(CAT_COLORS[cat]),
         borderColor: CAT_COLORS[cat],
-        borderWidth: 1, borderRadius: 3,
+        borderWidth: 1.5,
+        borderRadius: { topLeft: 4, topRight: 4 },
+        barPercentage: 0.85,
+        categoryPercentage: 0.85
       }))
     },
     options: {
       responsive: true, maintainAspectRatio: true,
-      plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false } },
+      interaction: { mode: "index", intersect: false },
+      plugins: { 
+        legend: { display: false }, 
+        tooltip: { 
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleFont: { size: 13, weight: 'bold' },
+          bodyFont: { size: 12 },
+          padding: 12,
+          cornerRadius: 8,
+          boxPadding: 6
+        } 
+      },
       scales: {
-        x: { stacked: true, ticks: { color: "#4a5568", font: { size: 11 } }, grid: { display: false } },
-        y: { stacked: true, ticks: { color: "#4a5568", font: { size: 11 } }, grid: { color: "#dde3ee" }, beginAtZero: true }
+        x: { 
+          stacked: true, 
+          ticks: { color: "#64748b", font: { size: 10, weight: '600' } }, 
+          grid: { display: false } 
+        },
+        y: { 
+          stacked: true, 
+          ticks: { color: "#64748b", font: { size: 10 } }, 
+          grid: { color: "rgba(226, 232, 240, 0.6)", drawBorder: false },
+          beginAtZero: true 
+        }
       }
     }
   });
@@ -261,32 +295,50 @@ function renderOverviewChart(stats) {
     "Loss of Well Control": LINKS.ANP_SGIP,
   };
   const leg = document.getElementById("overviewLegend");
-  leg.innerHTML = cats.map(c => `
-    <a href="${catLinks[c]}" target="_blank" rel="noopener" class="lchip lchip-link" title="Regulation: ${CAT_REGS[c]?.label}">
-      <div class="lchip-dot" style="background:${CAT_COLORS[c]}"></div>
-      ${c.replace(" (Primary Barrier)", "").replace(" Failure", "")}
-    </a>
-  `).join("");
+  if (leg) {
+    leg.innerHTML = cats.map(c => `
+      <a href="${catLinks[c]}" target="_blank" rel="noopener" class="lchip lchip-link" title="Regulation: ${CAT_REGS[c]?.label}">
+        <div class="lchip-dot" style="background:${CAT_COLORS[c]}"></div>
+        ${c.replace(" (Primary Barrier)", "").replace(" Failure", "")}
+      </a>
+    `).join("");
+  }
 }
 
-// ── Donut Chart ───────────────────────────────────────────────────────────────
+// ── Donut Chart (09) ───────────────────────────────────────────────────────────
 function renderDonut(stats) {
   destroyChart("donutChart");
   const cats = Object.keys(stats.categoryBreakdown).filter(c => c !== "Other");
   const vals = cats.map(c => stats.categoryBreakdown[c]);
   const total = vals.reduce((a, b) => a + b, 0);
 
-  const ctx = document.getElementById("donutChart").getContext("2d");
+  const canvas = document.getElementById("donutChart");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+
   chartInstances["donutChart"] = new Chart(ctx, {
     type: "doughnut",
     data: {
       labels: cats,
-      datasets: [{ data: vals, backgroundColor: cats.map(c => CAT_COLORS[c] + "dd"), borderColor: "#ffffff", borderWidth: 3, hoverOffset: 8 }]
+      datasets: [{ 
+        data: vals, 
+        backgroundColor: cats.map(c => CAT_COLORS[c] + "ee"), 
+        borderColor: "#ffffff", 
+        borderWidth: 4, 
+        hoverOffset: 12,
+        hoverBorderColor: "#ffffff",
+        hoverBorderWidth: 5
+      }]
     },
     options: {
-      responsive: true, maintainAspectRatio: true, cutout: "68%",
+      responsive: true, maintainAspectRatio: true, cutout: "74%",
+      animation: { animateRotate: true, animateScale: true, duration: 1500, easing: 'easeOutQuart' },
       plugins: {
-        legend: { display: false }, tooltip: {
+        legend: { display: false }, 
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          padding: 12,
+          cornerRadius: 8,
           callbacks: {
             label: ctx => ` ${ctx.label}: ${ctx.parsed} (${Math.round(ctx.parsed / total * 100)}%)`
           }
@@ -296,12 +348,17 @@ function renderDonut(stats) {
   });
 
   const labDiv = document.getElementById("donutLabels");
-  labDiv.innerHTML = cats.map((c, i) => `
-    <a href="${CAT_REGS[c]?.url || LINKS.ANP_PORTAL}" target="_blank" rel="noopener" class="dl-row dl-row-link" title="Regulation: ${CAT_REGS[c]?.label}">
-      <span class="dl-name"><span class="dl-dot" style="background:${CAT_COLORS[c]}"></span>${c.replace(" (Primary Barrier)", " (Kick)")}</span>
-      <span class="dl-pct">${Math.round(vals[i] / total * 100)}%</span>
-    </a>
-  `).join("");
+  if (labDiv) {
+    labDiv.innerHTML = cats.map((c, i) => `
+      <a href="${CAT_REGS[c]?.url || LINKS.ANP_PORTAL}" target="_blank" rel="noopener" class="dl-row dl-row-link" title="Regulation: ${CAT_REGS[c]?.label}">
+        <span class="dl-name">
+          <span class="dl-dot" style="background:${CAT_COLORS[c]}; box-shadow: 0 0 8px ${CAT_COLORS[c]}66"></span>
+          ${c.replace(" (Primary Barrier)", " (Kick)")}
+        </span>
+        <span class="dl-pct">${Math.round(vals[i] / total * 100)}%</span>
+      </a>
+    `).join("");
+  }
 }
 
 // ── CSB Trend Chart ───────────────────────────────────────────────────────────
@@ -658,12 +715,16 @@ function switchSection(section, skipHistory = false) {
 
   // Toggle global lock-mode for restricted sections
   const globalOverlay = document.getElementById('globalLockOverlay');
-  if (section === 'fullreport' || section === 'latam-summary') {
+  if (section === 'fullreport' || section === 'latam-summary' || section === 'mexico-registry') {
     document.body.classList.add('lock-mode');
-    if (globalOverlay) globalOverlay.style.display = 'flex';
+    if (globalOverlay) {
+      globalOverlay.style.setProperty('display', 'flex', 'important');
+    }
   } else {
     document.body.classList.remove('lock-mode');
-    if (globalOverlay) globalOverlay.style.display = 'none';
+    if (globalOverlay) {
+      globalOverlay.style.display = 'none';
+    }
   }
 
   if (section === 'brazil-registry') {
