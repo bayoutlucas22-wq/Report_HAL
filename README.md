@@ -1,83 +1,50 @@
-# HAL & Tejas Compliance Report — Data Verification & Terms of Use
+# HAL Tejas Incident Intelligence Dashboard
 
-**Project Name:** CIS — Explore the World of Compliance (HAL/Tejas Operations)
+## Overview
+The **HAL Tejas Incident Intelligence Dashboard** is a web-based compliance analysis application tailored for operational intelligence and incident review. It tracks, parses, and visualizes compliance and security incident data stemming from regional databases—specifically focusing on Brazil (ANP data), Mexico (Perforation & Production data), and broader Halliburton incident histories.
 
-This repository hosts a web application and document generation tool that provides **Bureau Veritas classification compliance** and **ANP well integrity analysis** acting as a case study. All findings are derived exclusively from verified, publicly available open datasets.
+The primary purpose of the application is to empower safety engineers, auditors, and stakeholders to investigate operational anomalies (such as Critical Safety Barrier (CSB) failures, BOP closures, and Kicks), measure compliance against rigorous regulations (e.g., ANP Resolutions, Bureau Veritas, MTE norms), and export findings into formal, audit-ready Document (DOCX) reports.
 
----
+## Project Architecture & Tech Stack
 
-## ⚠️ Disclaimer and Agreement on Usage
+This project uses a monolithic client-server architecture centered around **Node.js**:
+- **Backend:** Express.js (`api/server.js`) acting as the API handler, with endpoints that serve CSV-aggregated statistics, database entries, and dynamically generated summary reports.
+- **Frontend:** Vanilla HTML/CSS/JS (`public/`), incorporating dashboards like `dashboard.html` that pull from the internal APIs to render metrics and analytical comparisons visually. It uses standard browser technologies to maintain an audit-friendly layout.
+- **Reporting Engine:** Uses `docx` to automatically generate Word documents combining textual summaries, statistical trends, and regional risk metrics straight out of the data pipelines.
+- **Deployment:** The application is packaged and configured for **Vercel** (`vercel.json`), utilizing serverless functions to parse data blocks on demand and rewrite URL routes seamlessly.
 
-By running, viewing, or distributing the materials generated from this repository (including the dashboard and `.docx` reports), **you explicitly agree to the following terms regarding data integrity, inference, and accountability.**
-
-### 1. The Raw ANP Dataset (Verified Open Data)
-This project is built on a **genuinely strong evidentiary foundation**. The underlying metrics are driven straight from the Brazilian government open data framework:
-- **Source:** [dados.gov.br/organization/anp](https://dados.gov.br/dados/conjuntos-dados/dados-de-incidentes-de-exploracao-e-producao-de-petroleo-e-gas-natural)  
-- **Records Processed:** 30,054 individual cases (2013 – 2026) natively parsed  
-- **Legal Basis:** Brazil's Freedom of Information Act (Lei nº 12.527/2011)
-
-### 2. Legal, Safety, and Classification Framework (The Laws & Standards)
-Every incident grouping evaluates liability and exposure referencing the following published frameworks:
-- **Resolução ANP nº 46/2016 (SGIP)** — Well Integrity Management System (gov.br/anp)  
-- **Resolução ANP nº 43/2007 (SGSO)** — Operational Safety Management (gov.br/anp)  
-- **Resolução ANP nº 41/2015** — Subsea systems safety  
-- **Bureau Veritas NR 445** — Rules for the Classification of Offshore Units  
-- **Bureau Veritas NR 459** — Process Systems On Board Offshore Units  
-- **Brazilian Ministry of Labour (MTE)** — NR-37 (Health & Safety), NR-33, NR-35  
-- **Brazilian Navy** — NORMAM-01/DPC (Maritime Authority)  
-
-### 3. Case Study Fact Check & Usage Caveat
-
-> **IMPORTANT:** Accountability for the usage of this data lies entirely with the user presenting it.  
-
-**The critical link between Halliburton (HAL) and Tejas and the incidents presented is *inferred by exposure parameter*, not directly named as causation in the raw data.**  
-The ANP dataset registers incidents explicitly under the **licensed operator** (Petrobras, Shell, Equinor, etc.). Consequently, subcontractors and service providers like HAL/Tejas do not appear as named entities in the raw ANP database.
-
-What this case study successfully proves:
-1. **A verified operational crisis:** An exponential spike (+39,000% from 2016 to 2025) in *Conjunto Solidário de Barreira (CSB)* failures.
-2. **Categorical accountability:** HAL/Tejas provide barrier-system and well-intervention services precisely covering the domains governed by ANP Res. 46/2016 and BV NR 445.
-3. Therefore: *They fall squarely within the regulatory perimeter of this documented, growing incident category.*
-
-**You must NOT claim** that the dataset proves HAL or Tejas equipment directly caused "Incident X."  
-**You MUST claim** that HAL/Tejas equipment operates inside the barrier systems manifesting the 39,000% escalation, and therefore mandatory BV and ANP auditing thresholds apply.
-
----
-
-## 🚀 Quick Start (Running the Platform)
-
-**Installation:**
-```bash
-npm install
-```
-
-**Launch the Dashboard & Validation Screen:**
-```bash
-npm start
-```
-1. Open **http://localhost:3333**
-2. Proceed past the **Compliance Check Agreement** (Landing Page).
-3. Access the interactive dashboards and dynamic incident extractions.
-
-**Export the Dynamic Document:**
-- Click "Export Report" in the UI (or access `/api/generate-report`) to download the `HAL_Tejas_Incident_Report.docx`.
-
-## 📁 Repository Structure
+## Directory Structure
 
 ```
+.
+├── api/
+│   ├── server.js          # Main Express API and Server definitions
+│   ├── data_store.js      # Consolidated JSON/Array data loader from flat CSV files
+│   ├── data/              # Mexico dataset CSVs and other runtime processed files
+│   └── docs/              # Location of generated documents or knowledge summary files
 ├── public/
-│   ├── login.html       # Landing Page & Agreement terms
-│   ├── index.html       # Dynamic metrics dashboard
-│   ├── app.js           # Client-side chart rendering and API interaction
-│   └── styles.css       # Core aesthetics and styling classes
+│   ├── index.html         # Application landing/login page
+│   ├── dashboard.html     # Main interface grid for intel tracking and compliance charts
+│   ├── app.js             # Frontend API ingestion and interactive DOM rendering
+│   └── styles.css         # Styling, including specialized dashboard formatting and blur overlays
 ├── src/
-│   ├── data/            # Local ANP incident CSVs mapping to the live data
-│   ├── reporting/       # Node.js metrics aggregators, CSB match logic
-│   └── document_generation/ # DOCX structured exporter algorithms
-├── server.js            # Express API handling data logic internally
-└── package.json
+│   ├── data/              # Core Raw Datasets (ANP incidents, HAL regional incidents)
+│   ├── document_generation/ # Internal DOCX structure builders for compliance summary exports
+│   └── reporting/         # Incident filtering, sorting, and analytical helper functions
+├── package.json           # Node script registry and dependency index
+└── vercel.json            # Vercel deployment configuration, function routing and static paths
 ```
 
-All hardcoded specimen incidents have been surgically removed in favor of 100% data-driven generation from the live ANP `.csv` records. Any user presentation reflects verifiable open data facts.
+## How It Works (The Data Flow)
 
----
-**Prepared by CIS (Compliance Intelligence System) Data Analysis Team.**
+1. **Information Ingestion:** The `api/data_store.js` and `parseIncidentesCSV` handlers in `server.js` read local `.csv` files provided via `src/data` or `api/data` upon initialization. It cross-references raw reporting codes to categorize failures contextually (e.g., 'CSB Failure', 'BOP Failure', 'Structural').
+2. **Analysis APIs:** The server exposes multiple clean API endpoints (e.g., `/api/data`, `/api/hal-incidents`, `/api/mexico-metrics`, `/api/stats`) that paginate and summarize this data cleanly.
+3. **Frontend Dashboarding:** The `public/dashboard.html` page executes `public/app.js`, dynamically querying and mapping the server endpoints to UI components (charts, lists, verification blocks). Security protocols dictate certain sections (like LATAM Summary) may use blur effects depending on authorization states.
+4. **Data Export:** The user can request an automated report which triggers the `/api/generate-report` endpoint, invoking the `docx` library to compile the current memory state into a beautifully formatted `HAL_Tejas_Incident_Report.docx` file.
+
+## Focus of Recent Optimization
+Based on recent workflows, work has been revolving around:
+- Integrating regional module parity (Brazil, Mexico, Argentina intelligence tabs).
+- Enforcing structural reporting validations (e.g., Inference Summaries).
+- Hardening the application layout structure (fixing responsive clips, adding/removing 'LOCK' overlay states on compliance summaries for active audit reviews).
+- Finalizing the operational API mappings behind Vercel serverless domains to prevent routing errors in productions.

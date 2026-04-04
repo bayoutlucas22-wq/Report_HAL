@@ -6,139 +6,48 @@ const { buildReportSections } = require("../src/document_generation/report_build
 const { getMetrics, getRegData, getIncidents, getTrendData } = require("../src/reporting/incident_analyzer");
 const { anpData, bureauVeritasData, mteDpcData, internationalRefs } = require("../src/data/anp_data");
 
-// ── Real ANP dataset (incidentes.csv + incidentes-tipo.csv) ──────────────
+const { getDatabase } = require("./data_store"); // Consolidated Metrics Engine 
+
+// Internal helper for static file paths
+function locate(rel) {
+  const p = path.resolve(__dirname, '..', rel);
+  return fs.existsSync(p) ? p : null;
+}
+
 let ANP_RECORDS = [];
 let ANP_STATS = null;
 
-function parseIncidentesCSV() {
-  // Now simpler since files are relative to this api/server.js file
-  const locate = (rel) => {
-    const p = path.resolve(process.cwd(), rel);
-    if (fs.existsSync(p)) return p;
-    return null;
-  };
+// Fetch pre-treated JSON from Vercel Blob (Placeholder for fully integrated deployment)
+async function fetchANPData() {
+  try {
+    /* 
+    const recordsRes = await fetch("https://your-vercel-blob/processed/anp_records.json");
+    ANP_RECORDS = await recordsRes.json();
+    const statsRes = await fetch("https://your-vercel-blob/processed/anp_stats.json");
+    ANP_STATS = await statsRes.json();
+    */
+    
+    // Local Fallback Strategy
+    const recPath = path.resolve(__dirname, 'data/processed/anp_records.json');
+    const statPath = path.resolve(__dirname, 'data/processed/anp_stats.json');
+    
+    if (fs.existsSync(recPath)) {
+      ANP_RECORDS = JSON.parse(fs.readFileSync(recPath, 'utf8'));
+    } else {
+      console.warn("WARNING: processed/anp_records.json missing. Run pre-processing or link bucket.");
+    }
 
-  const csvPath = locate("src/data/incidentes.csv");
-  const typeCsvPath = locate("data/incidentes-tipo.csv");
-
-  if (!csvPath || !typeCsvPath) {
-    console.error("CRITICAL: CSV data files missing from filesystem (under api/):", { csvPath, typeCsvPath });
-    return;
+    if (fs.existsSync(statPath)) {
+      ANP_STATS = JSON.parse(fs.readFileSync(statPath, 'utf8'));
+    } else {
+      console.warn("WARNING: processed/anp_stats.json missing. Run pre-processing or link bucket.");
+    }
+  } catch (err) {
+    console.error("Failed to load pre-treated ANP metrics.", err);
   }
-  
-  // 1. Load Types
-  const typeContent = fs.readFileSync(typeCsvPath, 'latin1');
-  const typeLines = typeContent.split('\n').filter(l => l.trim());
-  const typeMap = {};
-  
-  typeLines.slice(1).forEach(line => {
-    const cols = line.split(';');
-    const num = cols[0]?.trim();
-    if(num) {
-      if(!typeMap[num]) typeMap[num] = [];
-      typeMap[num].push(cols[1]?.trim() || "");
-    }
-  });
-
-  // 2. Load Incidents
-  const content = fs.readFileSync(csvPath, 'latin1');
-  const lines = content.split('\n').filter(l => l.trim());
-
-  ANP_RECORDS = lines.slice(1).map(line => {
-    const cols = line.split(';');
-    const get = (i) => (cols[i] || '').trim();
-    const numero = get(0);
-    const date = get(3); // Data_de_criacao DD-MM-YYYY
-    const parts = date.split('-');
-    const year = parts.length === 3 ? parts[2] : null;
-    const empresa = get(1).replace(/\s*\(.*\)/, '').trim();
-    
-    const tipos = typeMap[numero] || [];
-    const tipoStr = tipos.join(' | ').toLowerCase();
-    
-    // HAL/Tejas specific categorization
-    if (tipoStr.includes('reclassificação') || tipoStr.includes('queda de objetos') || tipoStr.includes('princípio de incêndio') || tipoStr.includes('ferimento grave')) return null;
-
-    let category = "Other";
-    if (tipoStr.includes('csb') || tipoStr.includes('conjunto solidário')) category = "CSB Failure";
-    else if (tipoStr.includes('bop') || tipoStr.includes('blowout')) category = "BOP Failure";
-    else if (tipoStr.includes('kick')) category = "Kick";
-    else if (tipoStr.includes('estrutural')) category = "Structural";
-    else if (tipoStr.includes('controle de poço')) category = "Well Control";
-
-    return {
-      numero,
-      empresa,
-      instalacao:    get(5),
-      data:          date,
-      year:          year && year.length === 4 ? year : null,
-      lat:           parseFloat(get(8)) || null,
-      lon:           parseFloat(get(9)) || null,
-      situacao:      get(11),
-      feridos:       parseInt(get(14)) || 0,
-      fatalidades:   parseInt(get(15)) || 0,
-      descricao:     get(16),
-      codigo:        get(17),
-      tipos:         tipos,
-      category:      category
-    };
-  }).filter(Boolean);
-
-  // Pre-aggregate stats
-  const yearMapObj = {}, halYearMap = {}, categoryMap = {}, companyMap = {};
-  let totalFatal = 0, totalInj = 0;
-  
-  let csbCount = 0, bopCount = 0, kickCount = 0, structCount = 0;
-
-  ANP_RECORDS.forEach(r => {
-    if (r.year && r.year >= '2013' && r.year <= '2026') yearMapObj[r.year] = (yearMapObj[r.year] || 0) + 1;
-    
-    totalFatal += r.fatalidades;
-    totalInj   += r.feridos;
-    
-    companyMap[r.empresa] = (companyMap[r.empresa] || 0) + 1;
-    
-    if (r.category === "CSB Failure") csbCount++;
-    if (r.category === "BOP Failure") bopCount++;
-    if (r.category === "Kick") kickCount++;
-    if (r.category === "Structural" || r.category === "Well Control") structCount++;
-    
-    if (r.category !== "Other") {
-      categoryMap[r.category] = (categoryMap[r.category] || 0) + 1;
-      if (r.year && r.year >= '2013' && r.year <= '2026') {
-         halYearMap[r.year] = (halYearMap[r.year] || 0) + 1;
-      }
-    }
-  });
-
-  const yearSeries = Object.entries(yearMapObj)
-    .sort((a,b) => a[0].localeCompare(b[0]))
-    .map(([year, count]) => ({ year, count }));
-    
-  const halYearSeries = Object.entries(halYearMap)
-    .sort((a,b) => a[0].localeCompare(b[0]))
-    .map(([year, count]) => ({ year, count }));
-
-  const topCompanies = Object.entries(companyMap)
-    .sort((a,b) => b[1]-a[1]).slice(0,10)
-    .map(([name, count]) => ({ name, count }));
-
-  ANP_STATS = {
-    total:       ANP_RECORDS.length,
-    fatalidades: totalFatal,
-    feridos:     totalInj,
-    csbCount,
-    bopCount,
-    kickCount,
-    structCount,
-    yearSeries,
-    halYearSeries,
-    categoryMap,
-    topCompanies,
-  };
 }
 
-parseIncidentesCSV();
+fetchANPData();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -194,7 +103,12 @@ app.get("/api/data", (req, res) => {
 
 // ── HAL incidents helpers ───────────────────────────────────────────────────
 function parseHalIncidents() {
-  const csvContent = fs.readFileSync(path.join(__dirname, "src/data/hal_incidents.csv"), "utf8");
+  const csvPath = locate("src/data/hal_incidents.csv");
+  if (!csvPath) {
+      console.error("HAL incidents CSV not found");
+      return [];
+  }
+  const csvContent = fs.readFileSync(csvPath, "utf8");
   const lines = csvContent.split("\n").filter(Boolean);
   return lines.slice(1).map(line => {
     const parts = line.split(";");
@@ -235,7 +149,7 @@ function parseHalIncidents() {
 }
 
 // API: Get complete Halliburton incidents from CSV (enriched)
-app.get("/api/hal-incidents", (req, res) => {
+app.get("/api/hal-incidents", async (req, res) => {
   try {
     const year     = req.query.year     || "";
     const category = req.query.category || "";
@@ -243,15 +157,11 @@ app.get("/api/hal-incidents", (req, res) => {
     const page     = Math.max(1, parseInt(req.query.page)  || 1);
     const limit    = Math.min(500, parseInt(req.query.limit) || 50);
 
-    let data = parseHalIncidents();
+    const HAL_DB = await getDatabase();
+    let data = HAL_DB.brazil.incidents;
     if (year)     data = data.filter(r => r.year === parseInt(year));
     if (category) data = data.filter(r => r.category === category);
     if (severity) data = data.filter(r => r.severity === severity);
-
-    data.sort((a, b) => {
-      if (b.year !== a.year) return (b.year || 0) - (a.year || 0);
-      return (b.month || 0) - (a.month || 0);
-    });
 
     const total = data.length;
     const items = data.slice((page - 1) * limit, page * limit);
@@ -261,44 +171,21 @@ app.get("/api/hal-incidents", (req, res) => {
   }
 });
 
-// API: HAL incidents aggregated stats
-app.get("/api/hal-stats", (req, res) => {
+app.get("/api/hal-stats", async (req, res) => {
   try {
-    const records = parseHalIncidents();
-
-    // Year series per category
-    const yearCat = {};  // { year: { cat: count } }
-    const catCount = {};
-    const sevCount = {};
-    const monthCount = {};
-
+    const HAL_DB = await getDatabase();
+    const records = HAL_DB.brazil.incidents;
+    const catCount = {}, sevCount = {}, years = new Set();
     records.forEach(r => {
-      // by year + category
-      if (r.year) {
-        if (!yearCat[r.year]) yearCat[r.year] = {};
-        yearCat[r.year][r.category] = (yearCat[r.year][r.category] || 0) + 1;
-      }
-      catCount[r.category] = (catCount[r.category] || 0) + 1;
-      sevCount[r.severity] = (sevCount[r.severity] || 0) + 1;
-      if (r.month) monthCount[r.month] = (monthCount[r.month] || 0) + 1;
+        catCount[r.category] = (catCount[r.category] || 0) + 1;
+        sevCount[r.severity] = (sevCount[r.severity] || 0) + 1;
+        if (r.year) years.add(r.year);
     });
-
-    const years = Object.keys(yearCat).sort();
-    const categories = ["CSB Failure", "BOP Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
-
-    const yearSeries = years.map(y => ({
-      year: parseInt(y),
-      total: Object.values(yearCat[y]).reduce((a, b) => a + b, 0),
-      ...Object.fromEntries(categories.map(c => [c, yearCat[y][c] || 0]))
-    }));
-
     res.json({
       total: records.length,
-      yearSeries,
       categoryBreakdown: catCount,
       severityBreakdown: sevCount,
-      monthPattern: monthCount,
-      categories
+      uniqueYears: Array.from(years).sort()
     });
   } catch(e) {
     res.status(500).json({ error: e.message });
@@ -306,26 +193,21 @@ app.get("/api/hal-stats", (req, res) => {
 });
 
 // API: HAL contracts from CSV
-app.get("/api/hal-contracts", (req, res) => {
+app.get("/api/hal-contracts", async (req, res) => {
   try {
-    const contractPath = path.join(__dirname, 'data', 'hal-contracts-pbr.csv');
-    if (!fs.existsSync(contractPath)) return res.json({ total: 0, items: [] });
-    const content = fs.readFileSync(contractPath, 'utf8');
-    const lines = content.split('\n').filter(l => l.trim());
-    const PBR_CONTRACTS = lines.slice(1).map(line => {
-      const cols = line.split(';');
-      return {
-        numero: cols[3]?.trim(),
-        obj:    cols[9]?.trim(),
-        proc:   cols[6]?.trim(), // modalidade
-        inicio: cols[11]?.trim(),
-        fim:    cols[12]?.trim(),
-        value:  cols[13]?.trim(),
-        cur:    cols[13]?.includes('$') ? 'USD' : 'BRL',
-        status: cols[16]?.trim()
-      };
-    });
-    res.json({ total: PBR_CONTRACTS.length, items: PBR_CONTRACTS });
+    const HAL_DB = await getDatabase();
+    const items = HAL_DB.brazil.contracts;
+    res.json({ total: items.length, items });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// API: Mexico Operational Metrics
+app.get("/api/mexico-metrics", async (req, res) => {
+  try {
+    const HAL_DB = await getDatabase();
+    res.json(HAL_DB.mexico);
   } catch(e) {
     res.status(500).json({ error: e.message });
   }
