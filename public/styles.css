@@ -745,18 +745,22 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .ai-item:hover { background: var(--bg3); }
 
 /* Lock Mode Removed */
-body.lock-mode .main-content {
-  pointer-events: auto;
-  user-select: auto;
+body.lock-mode .page-content > section.active {
+  filter: blur(14px);
+  pointer-events: none;
+  user-select: none;
 }
 
 .restricted-blur {
-  pointer-events: auto;
-  user-select: auto;
+  filter: blur(12px);
+  pointer-events: none;
+  user-select: none;
 }
 
 .lock-overlay {
-  display: none !important;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .lock-card {
@@ -766,7 +770,9 @@ body.lock-mode .main-content {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   text-align: center;
   max-width: 400px;
+  width: 100%;
   border: 1px solid var(--border);
+  margin: auto;
 }
 
 .lock-icon {

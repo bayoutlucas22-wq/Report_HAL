@@ -17,37 +17,33 @@ function locate(rel) {
 let ANP_RECORDS = [];
 let ANP_STATS = null;
 
-// Fetch pre-treated JSON from Vercel Blob (Placeholder for fully integrated deployment)
-async function fetchANPData() {
-  try {
-    /* 
-    const recordsRes = await fetch("https://your-vercel-blob/processed/anp_records.json");
-    ANP_RECORDS = await recordsRes.json();
-    const statsRes = await fetch("https://your-vercel-blob/processed/anp_stats.json");
-    ANP_STATS = await statsRes.json();
-    */
-    
-    // Local Fallback Strategy
-    const recPath = path.resolve(__dirname, 'data/processed/anp_records.json');
-    const statPath = path.resolve(__dirname, 'data/processed/anp_stats.json');
-    
-    if (fs.existsSync(recPath)) {
-      ANP_RECORDS = JSON.parse(fs.readFileSync(recPath, 'utf8'));
-    } else {
-      console.warn("WARNING: processed/anp_records.json missing. Run pre-processing or link bucket.");
-    }
+// Fetch pre-treated JSON - Lazy loading wrapper for Vercel
+let DATA_LOADING_PROMISE = null;
 
-    if (fs.existsSync(statPath)) {
-      ANP_STATS = JSON.parse(fs.readFileSync(statPath, 'utf8'));
-    } else {
-      console.warn("WARNING: processed/anp_stats.json missing. Run pre-processing or link bucket.");
+async function ensureDataLoaded() {
+  if (ANP_STATS && ANP_RECORDS.length > 0) return;
+  if (DATA_LOADING_PROMISE) return DATA_LOADING_PROMISE;
+
+  DATA_LOADING_PROMISE = (async () => {
+    try {
+      console.log("ENGINE: Loading ANP metrics into memory...");
+      const recPath = path.resolve(__dirname, 'data/processed/anp_records.json');
+      const statPath = path.resolve(__dirname, 'data/processed/anp_stats.json');
+      
+      if (fs.existsSync(recPath)) {
+        ANP_RECORDS = JSON.parse(fs.readFileSync(recPath, 'utf8'));
+      }
+      if (fs.existsSync(statPath)) {
+        ANP_STATS = JSON.parse(fs.readFileSync(statPath, 'utf8'));
+      }
+      console.log(`ENGINE: Load complete (${ANP_RECORDS.length} records).`);
+    } catch (err) {
+      console.error("Failed to load pre-treated ANP metrics.", err);
     }
-  } catch (err) {
-    console.error("Failed to load pre-treated ANP metrics.", err);
-  }
+  })();
+  
+  return DATA_LOADING_PROMISE;
 }
-
-fetchANPData();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -241,7 +237,8 @@ app.get("/api/mexico-metrics", async (req, res) => {
 
 // API: Real ANP incidents — paginated
 // API: Real ANP incidents — paginated
-app.get("/api/incidents", (req, res) => {
+app.get("/api/incidents", async (req, res) => {
+  await ensureDataLoaded();
   const page     = Math.max(1, parseInt(req.query.page) || 1);
   const limit    = Math.min(100, parseInt(req.query.limit) || 20);
   const q        = (req.query.q || '').toLowerCase().trim();
@@ -268,7 +265,8 @@ app.get("/api/incidents", (req, res) => {
 });
 
 // API: Pre-aggregated stats from real ANP data
-app.get("/api/stats", (req, res) => {
+app.get("/api/stats", async (req, res) => {
+  await ensureDataLoaded();
   if (!ANP_STATS) return res.status(503).json({ error: 'Data not loaded' });
   res.json(ANP_STATS);
 });
