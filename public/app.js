@@ -75,6 +75,8 @@ let chartInstances = {};
 let halStats = null;
 let tableState = { page: 1, total: 0, pages: 0, items: [] };
 let activeFilters = { year: "", category: "", severity: "" };
+let mexicoStore = []; // Dynamic Mexico metrics
+let argStore = [];    // Dynamic Argentina metrics
 
 // ── Destroy chart helper ──────────────────────────────────────────────────────
 function destroyChart(id) {
@@ -87,12 +89,19 @@ async function fetchHalStats() {
 }
 
 async function fetchHalIncidents(page = 1) {
-  const { year, category, severity } = activeFilters;
-  const params = new URLSearchParams({ page, limit: 50 });
-  if (year) params.set("year", year);
-  if (category) params.set("category", category);
-  if (severity) params.set("severity", severity);
-  return (await fetch("/api/hal-incidents?" + params)).json();
+  try {
+    const { year, category, severity } = activeFilters;
+    const params = new URLSearchParams({ page, limit: 50 });
+    if (year) params.set("year", year);
+    if (category) params.set("category", category);
+    if (severity) params.set("severity", severity);
+    const res = await fetch("/api/hal-incidents?" + params);
+    if (!res.ok) throw new Error("API error");
+    return await res.json();
+  } catch(e) {
+    console.error("fetchHalIncidents error:", e);
+    return { total: 0, items: [], pages: 0, page: 1 };
+  }
 }
 
 async function fetchHalContracts() {
@@ -101,6 +110,17 @@ async function fetchHalContracts() {
     if (!res.ok) return { items: [] };
     return res.json();
   } catch (e) { console.error("Contract fetch error:", e); return { items: [] }; }
+}
+
+async function fetchMexicoMetrics() {
+  try {
+    const res = await fetch("/api/mexico-metrics");
+    if (!res.ok) throw new Error("API error");
+    return await res.json();
+  } catch(e) {
+    console.error("fetchMexicoMetrics error:", e);
+    return { details: [], summary: {} };
+  }
 }
 
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
@@ -467,9 +487,15 @@ function renderMatrix(items) {
 
 // ── Incident Table ────────────────────────────────────────────────────────────
 function renderTable(data) {
+  if (!data || typeof data.total === 'undefined') {
+    console.error("Invalid data passed to renderTable:", data);
+    return;
+  }
   tableState = data;
   const countEl = document.getElementById("tableCount");
-  countEl.innerHTML = `${data.total.toLocaleString()} incidents · <a href="${LINKS.ANP_DATASET}" target="_blank" rel="noopener" class="count-src-link">Source: ANP SISO-Incidentes ↗</a>`;
+  if (countEl) {
+    countEl.innerHTML = `${(data.total || 0).toLocaleString()} incidents · <a href="${LINKS.ANP_DATASET}" target="_blank" rel="noopener" class="count-src-link">Source: ANP SISO-Incidentes ↗</a>`;
+  }
 
   const tbody = document.getElementById("tableBody");
   if (!data.items.length) {
@@ -645,10 +671,11 @@ async function init() {
 
 
     // Initial data load
-    const [stats, tableData, contractData] = await Promise.all([
+    const [stats, tableData, contractData, mexData] = await Promise.all([
       fetchHalStats().catch(() => null),
-      fetchHalIncidents(1).catch(() => ({ items: [] })),
-      fetchHalContracts().catch(() => ({ items: [] }))
+      fetchHalIncidents(1).catch(() => ({ total: 0, items: [] })),
+      fetchHalContracts().catch(() => ({ total: 0, items: [] })),
+      fetchMexicoMetrics().catch(() => ({ details: [], summary: {} }))
     ]);
 
     if (stats) {
@@ -678,6 +705,12 @@ async function init() {
         renderTemporalOverlapChart();
         renderContractMethodChart();
       }
+    }
+
+    if (mexData && mexData.details && mexData.details.length) {
+      mexicoStore = mexData.details;
+      // You can add logic to populate the renderMexicoTables from mexicoStore here
+      renderMexicoTables();
     }
 
   } catch (err) {
