@@ -1,0 +1,348 @@
+{
+  "total": 23264,
+  "fatalidades": 31,
+  "feridos": 2,
+  "csbCount": 2882,
+  "bopCount": 1407,
+  "kickCount": 220,
+  "structCount": 153,
+  "yearSeries": [
+    {
+      "year": "2013",
+      "count": 1127,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 21,
+      "Structural Failure": 6,
+      "Loss of Well Control": 0,
+      "BOP Failure": 19,
+      "Other": 1081
+    },
+    {
+      "year": "2014",
+      "count": 1118,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 15,
+      "Structural Failure": 6,
+      "Loss of Well Control": 0,
+      "BOP Failure": 160,
+      "Other": 937
+    },
+    {
+      "year": "2015",
+      "count": 1254,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 20,
+      "Structural Failure": 5,
+      "Loss of Well Control": 0,
+      "BOP Failure": 171,
+      "Other": 1058
+    },
+    {
+      "year": "2016",
+      "count": 1370,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 13,
+      "Structural Failure": 8,
+      "Loss of Well Control": 0,
+      "BOP Failure": 136,
+      "Other": 1213
+    },
+    {
+      "year": "2017",
+      "count": 1779,
+      "CSB Failure": 8,
+      "Kick (Primary Barrier)": 7,
+      "Structural Failure": 10,
+      "Loss of Well Control": 0,
+      "BOP Failure": 132,
+      "Other": 1622
+    },
+    {
+      "year": "2018",
+      "count": 1695,
+      "CSB Failure": 4,
+      "Kick (Primary Barrier)": 21,
+      "Structural Failure": 8,
+      "Loss of Well Control": 0,
+      "BOP Failure": 87,
+      "Other": 1575
+    },
+    {
+      "year": "2019",
+      "count": 2002,
+      "CSB Failure": 7,
+      "Kick (Primary Barrier)": 9,
+      "Structural Failure": 12,
+      "Loss of Well Control": 1,
+      "BOP Failure": 79,
+      "Other": 1894
+    },
+    {
+      "year": "2020",
+      "count": 1568,
+      "CSB Failure": 63,
+      "Kick (Primary Barrier)": 10,
+      "Structural Failure": 13,
+      "Loss of Well Control": 1,
+      "BOP Failure": 83,
+      "Other": 1398
+    },
+    {
+      "year": "2021",
+      "count": 2386,
+      "CSB Failure": 940,
+      "Kick (Primary Barrier)": 9,
+      "Structural Failure": 16,
+      "Loss of Well Control": 0,
+      "BOP Failure": 109,
+      "Other": 1312
+    },
+    {
+      "year": "2022",
+      "count": 2126,
+      "CSB Failure": 730,
+      "Kick (Primary Barrier)": 18,
+      "Structural Failure": 9,
+      "Loss of Well Control": 2,
+      "BOP Failure": 65,
+      "Other": 1302
+    },
+    {
+      "year": "2023",
+      "count": 2035,
+      "CSB Failure": 335,
+      "Kick (Primary Barrier)": 14,
+      "Structural Failure": 24,
+      "Loss of Well Control": 2,
+      "BOP Failure": 103,
+      "Other": 1557
+    },
+    {
+      "year": "2024",
+      "count": 2250,
+      "CSB Failure": 344,
+      "Kick (Primary Barrier)": 31,
+      "Structural Failure": 14,
+      "Loss of Well Control": 1,
+      "BOP Failure": 115,
+      "Other": 1745
+    },
+    {
+      "year": "2025",
+      "count": 2272,
+      "CSB Failure": 404,
+      "Kick (Primary Barrier)": 31,
+      "Structural Failure": 12,
+      "Loss of Well Control": 0,
+      "BOP Failure": 138,
+      "Other": 1687
+    },
+    {
+      "year": "2026",
+      "count": 282,
+      "CSB Failure": 47,
+      "Kick (Primary Barrier)": 1,
+      "Structural Failure": 3,
+      "Loss of Well Control": 0,
+      "BOP Failure": 10,
+      "Other": 221
+    }
+  ],
+  "halYearSeries": [
+    {
+      "year": "2013",
+      "count": 46,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 21,
+      "Structural Failure": 6,
+      "Loss of Well Control": 0,
+      "BOP Failure": 19,
+      "Other": 0
+    },
+    {
+      "year": "2014",
+      "count": 181,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 15,
+      "Structural Failure": 6,
+      "Loss of Well Control": 0,
+      "BOP Failure": 160,
+      "Other": 0
+    },
+    {
+      "year": "2015",
+      "count": 196,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 20,
+      "Structural Failure": 5,
+      "Loss of Well Control": 0,
+      "BOP Failure": 171,
+      "Other": 0
+    },
+    {
+      "year": "2016",
+      "count": 157,
+      "CSB Failure": 0,
+      "Kick (Primary Barrier)": 13,
+      "Structural Failure": 8,
+      "Loss of Well Control": 0,
+      "BOP Failure": 136,
+      "Other": 0
+    },
+    {
+      "year": "2017",
+      "count": 157,
+      "CSB Failure": 8,
+      "Kick (Primary Barrier)": 7,
+      "Structural Failure": 10,
+      "Loss of Well Control": 0,
+      "BOP Failure": 132,
+      "Other": 0
+    },
+    {
+      "year": "2018",
+      "count": 120,
+      "CSB Failure": 4,
+      "Kick (Primary Barrier)": 21,
+      "Structural Failure": 8,
+      "Loss of Well Control": 0,
+      "BOP Failure": 87,
+      "Other": 0
+    },
+    {
+      "year": "2019",
+      "count": 108,
+      "CSB Failure": 7,
+      "Kick (Primary Barrier)": 9,
+      "Structural Failure": 12,
+      "Loss of Well Control": 1,
+      "BOP Failure": 79,
+      "Other": 0
+    },
+    {
+      "year": "2020",
+      "count": 170,
+      "CSB Failure": 63,
+      "Kick (Primary Barrier)": 10,
+      "Structural Failure": 13,
+      "Loss of Well Control": 1,
+      "BOP Failure": 83,
+      "Other": 0
+    },
+    {
+      "year": "2021",
+      "count": 1074,
+      "CSB Failure": 940,
+      "Kick (Primary Barrier)": 9,
+      "Structural Failure": 16,
+      "Loss of Well Control": 0,
+      "BOP Failure": 109,
+      "Other": 0
+    },
+    {
+      "year": "2022",
+      "count": 824,
+      "CSB Failure": 730,
+      "Kick (Primary Barrier)": 18,
+      "Structural Failure": 9,
+      "Loss of Well Control": 2,
+      "BOP Failure": 65,
+      "Other": 0
+    },
+    {
+      "year": "2023",
+      "count": 478,
+      "CSB Failure": 335,
+      "Kick (Primary Barrier)": 14,
+      "Structural Failure": 24,
+      "Loss of Well Control": 2,
+      "BOP Failure": 103,
+      "Other": 0
+    },
+    {
+      "year": "2024",
+      "count": 505,
+      "CSB Failure": 344,
+      "Kick (Primary Barrier)": 31,
+      "Structural Failure": 14,
+      "Loss of Well Control": 1,
+      "BOP Failure": 115,
+      "Other": 0
+    },
+    {
+      "year": "2025",
+      "count": 585,
+      "CSB Failure": 404,
+      "Kick (Primary Barrier)": 31,
+      "Structural Failure": 12,
+      "Loss of Well Control": 0,
+      "BOP Failure": 138,
+      "Other": 0
+    },
+    {
+      "year": "2026",
+      "count": 61,
+      "CSB Failure": 47,
+      "Kick (Primary Barrier)": 1,
+      "Structural Failure": 3,
+      "Loss of Well Control": 0,
+      "BOP Failure": 10,
+      "Other": 0
+    }
+  ],
+  "categoryBreakdown": {
+    "Kick (Primary Barrier)": 220,
+    "Structural Failure": 146,
+    "BOP Failure": 1407,
+    "CSB Failure": 2882,
+    "Loss of Well Control": 7
+  },
+  "severityBreakdown": {
+    "Minor": 3251,
+    "Moderate": 371,
+    "Severe": 62,
+    "SSO": 19580
+  },
+  "topCompanies": [
+    {
+      "name": "PETRÓLEO BRASILEIRO S.A.",
+      "count": 13779
+    },
+    {
+      "name": "PETRÓLEO BRASILEIRO S.A. - PETROBRAS",
+      "count": 4917
+    },
+    {
+      "name": "CARMO ENERGY S.A.",
+      "count": 639
+    },
+    {
+      "name": "PERENCO PETRÓLEO E GÁS DO BRASIL LTDA.",
+      "count": 438
+    },
+    {
+      "name": "SHELL BRASIL PETRÓLEO LTDA.",
+      "count": 396
+    },
+    {
+      "name": "EQUINOR BRASIL ENERGIA LTDA.",
+      "count": 356
+    },
+    {
+      "name": "TRIDENT ENERGY DO BRASIL LTDA.",
+      "count": 224
+    },
+    {
+      "name": "3R POTIGUAR S.A.",
+      "count": 207
+    },
+    {
+      "name": "PETRORECÔNCAVO S.A.",
+      "count": 178
+    },
+    {
+      "name": "PETRO RIO O&G EXPLORAÇÃO E PRODUÇÃO DE PETRÓLEO LTDA.",
+      "count": 156
+    }
+  ]
+}

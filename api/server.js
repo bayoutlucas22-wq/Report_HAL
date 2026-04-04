@@ -103,7 +103,7 @@ app.get("/api/data", (req, res) => {
 
 // ── HAL incidents helpers ───────────────────────────────────────────────────
 function parseHalIncidents() {
-  const csvPath = locate("src/data/hal_incidents.csv");
+  const csvPath = locate("api/data/hal_incidents.csv");
   if (!csvPath) {
       console.error("HAL incidents CSV not found");
       return [];
@@ -148,17 +148,45 @@ function parseHalIncidents() {
   }).filter(Boolean);
 }
 
+function parseHalContracts() {
+  const csvPath = locate("api/data/hal-contracts-pbr.csv");
+  if (!csvPath) {
+    console.error("HAL contracts CSV not found");
+    return [];
+  }
+  const csvContent = fs.readFileSync(csvPath, "utf8");
+  const lines = csvContent.split("\n").filter(Boolean);
+  return lines.slice(1).map(line => {
+    const parts = line.split(";");
+    return {
+      numero: parts[3]?.trim() || "—",
+      obj:    parts[9]?.trim() || "No description provided",
+      proc:   parts[6]?.trim() || "LICITAÇÃO",
+      inicio: parts[11]?.trim() || "?",
+      fim:    parts[12]?.trim() || "?",
+      value:  parts[13]?.trim() || "—",
+    };
+  });
+}
+
 // API: Get complete Halliburton incidents from CSV (enriched)
 app.get("/api/hal-incidents", async (req, res) => {
   try {
     const year     = req.query.year     || "";
     const category = req.query.category || "";
     const severity = req.query.severity || "";
+    const q        = (req.query.q || "").toLowerCase().trim();
     const page     = Math.max(1, parseInt(req.query.page)  || 1);
     const limit    = Math.min(500, parseInt(req.query.limit) || 50);
 
-    const HAL_DB = await getDatabase();
-    let data = HAL_DB.brazil.incidents;
+    let data = parseHalIncidents();
+
+    if (q) {
+      data = data.filter(r => 
+        r.numero.toLowerCase().includes(q) || 
+        r.tipo.toLowerCase().includes(q)
+      );
+    }
     if (year)     data = data.filter(r => r.year === parseInt(year));
     if (category) data = data.filter(r => r.category === category);
     if (severity) data = data.filter(r => r.severity === severity);
@@ -173,8 +201,7 @@ app.get("/api/hal-incidents", async (req, res) => {
 
 app.get("/api/hal-stats", async (req, res) => {
   try {
-    const HAL_DB = await getDatabase();
-    const records = HAL_DB.brazil.incidents;
+    const records = parseHalIncidents();
     const catCount = {}, sevCount = {}, years = new Set();
     records.forEach(r => {
         catCount[r.category] = (catCount[r.category] || 0) + 1;
@@ -195,8 +222,7 @@ app.get("/api/hal-stats", async (req, res) => {
 // API: HAL contracts from CSV
 app.get("/api/hal-contracts", async (req, res) => {
   try {
-    const HAL_DB = await getDatabase();
-    const items = HAL_DB.brazil.contracts;
+    const items = parseHalContracts();
     res.json({ total: items.length, items });
   } catch(e) {
     res.status(500).json({ error: e.message });
@@ -214,15 +240,25 @@ app.get("/api/mexico-metrics", async (req, res) => {
 });
 
 // API: Real ANP incidents — paginated
+// API: Real ANP incidents — paginated
 app.get("/api/incidents", (req, res) => {
-  const page  = Math.max(1, parseInt(req.query.page) || 1);
-  const limit = Math.min(100, parseInt(req.query.limit) || 20);
-  const q     = (req.query.q || '').toLowerCase().trim();
-  const year  = req.query.year || '';
+  const page     = Math.max(1, parseInt(req.query.page) || 1);
+  const limit    = Math.min(100, parseInt(req.query.limit) || 20);
+  const q        = (req.query.q || '').toLowerCase().trim();
+  const year     = req.query.year || '';
+  const category = req.query.category || '';
+  const severity = req.query.severity || '';
 
   let data = ANP_RECORDS;
-  if (q)    data = data.filter(r => r.numero.toLowerCase().includes(q) || r.empresa.toLowerCase().includes(q) || r.descricao.toLowerCase().includes(q));
-  if (year) data = data.filter(r => r.year === year);
+  if (q)    data = data.filter(r => 
+    r.numero.toLowerCase().includes(q) || 
+    r.empresa.toLowerCase().includes(q) || 
+    r.descricao.toLowerCase().includes(q) ||
+    r.instalacao?.toLowerCase().includes(q)
+  );
+  if (year)     data = data.filter(r => String(r.year) === String(year));
+  if (category) data = data.filter(r => r.category === category);
+  if (severity) data = data.filter(r => r.severity === severity);
 
   const total = data.length;
   const start = (page - 1) * limit;
