@@ -1,3 +1,9 @@
+KLMÇJ# large directories and files
+# /data/ removed to allow Vercel data loading
+/output/
+*.zip
+*.docx
+
 node_modules/
 .DS_Store
 *.log
