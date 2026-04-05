@@ -176,6 +176,8 @@ app.get("/api/hal-incidents", async (req, res) => {
     const limit    = Math.min(500, parseInt(req.query.limit) || 50);
 
     let data = parseHalIncidents();
+    // Sort by date descending relying on the sequence numbers YYMM/...
+    data.sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
 
     if (q) {
       data = data.filter(r => 

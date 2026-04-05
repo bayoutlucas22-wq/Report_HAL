@@ -1,11 +1,11 @@
 {
-  "total": 23264,
+  "total": 25233,
   "fatalidades": 31,
   "feridos": 2,
-  "csbCount": 2882,
+  "csbCount": 3355,
   "bopCount": 1407,
-  "kickCount": 220,
-  "structCount": 153,
+  "kickCount": 316,
+  "structCount": 219,
   "yearSeries": [
     {
       "year": "2013",
@@ -139,13 +139,13 @@
     },
     {
       "year": "2026",
-      "count": 282,
-      "CSB Failure": 47,
-      "Kick (Primary Barrier)": 1,
-      "Structural Failure": 3,
-      "Loss of Well Control": 0,
+      "count": 2251,
+      "CSB Failure": 520,
+      "Kick (Primary Barrier)": 97,
+      "Structural Failure": 43,
+      "Loss of Well Control": 26,
       "BOP Failure": 10,
-      "Other": 221
+      "Other": 1555
     }
   ],
   "halYearSeries": [
@@ -281,27 +281,27 @@
     },
     {
       "year": "2026",
-      "count": 61,
-      "CSB Failure": 47,
-      "Kick (Primary Barrier)": 1,
-      "Structural Failure": 3,
-      "Loss of Well Control": 0,
+      "count": 696,
+      "CSB Failure": 520,
+      "Kick (Primary Barrier)": 97,
+      "Structural Failure": 43,
+      "Loss of Well Control": 26,
       "BOP Failure": 10,
       "Other": 0
     }
   ],
   "categoryBreakdown": {
-    "Kick (Primary Barrier)": 220,
-    "Structural Failure": 146,
+    "Kick (Primary Barrier)": 316,
+    "Structural Failure": 186,
     "BOP Failure": 1407,
-    "CSB Failure": 2882,
-    "Loss of Well Control": 7
+    "CSB Failure": 3355,
+    "Loss of Well Control": 33
   },
   "severityBreakdown": {
-    "Minor": 3251,
+    "Minor": 3307,
     "Moderate": 371,
-    "Severe": 62,
-    "SSO": 19580
+    "Severe": 76,
+    "SSO": 21479
   },
   "topCompanies": [
     {
@@ -311,6 +311,10 @@
     {
       "name": "PETRÓLEO BRASILEIRO S.A. - PETROBRAS",
       "count": 4917
+    },
+    {
+      "name": "PETROLEO BRASILEIRO S.A. - PETROBRAS",
+      "count": 871
     },
     {
       "name": "CARMO ENERGY S.A.",
@@ -329,20 +333,16 @@
       "count": 356
     },
     {
+      "name": "ENEVA S.A.",
+      "count": 319
+    },
+    {
       "name": "TRIDENT ENERGY DO BRASIL LTDA.",
       "count": 224
     },
     {
       "name": "3R POTIGUAR S.A.",
       "count": 207
-    },
-    {
-      "name": "PETRORECÔNCAVO S.A.",
-      "count": 178
-    },
-    {
-      "name": "PETRO RIO O&G EXPLORAÇÃO E PRODUÇÃO DE PETRÓLEO LTDA.",
-      "count": 156
     }
   ]
 }
