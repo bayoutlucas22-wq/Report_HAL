@@ -144,6 +144,46 @@ function parseHalIncidents() {
   }).filter(Boolean);
 }
 
+function parseNorwayIncidents() {
+  const csvPath = locate("api/data/norway_incidents.csv");
+  if (!csvPath) {
+      console.error("Norway incidents CSV not found");
+      return [];
+  }
+  const csvContent = fs.readFileSync(csvPath, "utf8");
+  const lines = csvContent.split("\n").filter(Boolean);
+  return lines.slice(1).map(line => {
+    const parts = line.split(";");
+    const numero  = parts[0]?.trim() || "";
+    const rawTipo = parts[1]?.trim() || "";
+    const grav    = parts[2]?.trim() || "";
+    const evt     = parts[3]?.trim() || "";
+
+    const m = numero.match(/^(\d{2})(\d{2})\//);
+    const year  = m ? (2000 + parseInt(m[1])) : null;
+    const month = m ? parseInt(m[2]) : null;
+
+    const tipo = rawTipo.replace(/^SSO - /, "").trim();
+    const t = tipo.toLowerCase();
+    
+    let category = "Other";
+    if (t.includes("csb") || t.includes("conjunto solidário") || t.includes("shear")) category = "CSB Failure";
+    else if (t.includes("bop") || t.includes("blowout"))         category = "BOP Failure";
+    else if (t.includes("kick") || t.includes("control equipment")) category = "Kick (Primary Barrier)";
+    else if (t.includes("estrutural") || t.includes("structural"))  category = "Structural Failure";
+    else if (t.includes("controle de poço") || t.includes("loss of well control")) category = "Loss of Well Control";
+
+    let severity = "SSO";
+    if (grav === "MINOR")    severity = "Minor";
+    else if (grav === "MODERATE") severity = "Moderate";
+    else if (grav === "SEVERE")    severity = "Severe";
+    else if (grav)          severity = grav;
+
+    return { numero, tipo, rawTipo, category, severity,
+             gravidade: grav, evento: evt, year, month };
+  }).filter(Boolean);
+}
+
 function parseHalContracts() {
   const csvPath = locate("api/data/hal-contracts-pbr.csv");
   if (!csvPath) {
@@ -177,6 +217,36 @@ app.get("/api/hal-incidents", async (req, res) => {
 
     let data = parseHalIncidents();
     // Sort by date descending relying on the sequence numbers YYMM/...
+    data.sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
+
+    if (q) {
+      data = data.filter(r => 
+        r.numero.toLowerCase().includes(q) || 
+        r.tipo.toLowerCase().includes(q)
+      );
+    }
+    if (year)     data = data.filter(r => r.year === parseInt(year));
+    if (category) data = data.filter(r => r.category === category);
+    if (severity) data = data.filter(r => r.severity === severity);
+
+    const total = data.length;
+    const items = data.slice((page - 1) * limit, page * limit);
+    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get("/api/norway-incidents", async (req, res) => {
+  try {
+    const year     = req.query.year     || "";
+    const category = req.query.category || "";
+    const severity = req.query.severity || "";
+    const q        = (req.query.q || "").toLowerCase().trim();
+    const page     = Math.max(1, parseInt(req.query.page)  || 1);
+    const limit    = Math.min(500, parseInt(req.query.limit) || 50);
+
+    let data = parseNorwayIncidents();
     data.sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
 
     if (q) {
