@@ -102,6 +102,7 @@ let activeFilters = { year: "2026", category: "", severity: "" };
 let mexicoStore = []; // Dynamic Mexico metrics
 let argStore = [];    // Dynamic Argentina metrics
 
+
 // ── Destroy chart helper ──────────────────────────────────────────────────────
 function destroyChart(id) {
   if (chartInstances[id]) { chartInstances[id].destroy(); delete chartInstances[id]; }
@@ -119,73 +120,7 @@ async function fetchHalStats() {
 
 
 
-// ── Norway Integration ──────────────────────────────────────────────────
-async function fetchNorwayIncidents(page = 1) {
-  norwayPage = page;
-  try {
-    const params = new URLSearchParams({ page, limit: norwayLimit });
-    if(norwayQuery) params.append("q", norwayQuery);
-    if(norwayYear) params.append("year", norwayYear);
-    if(norwayCat) params.append("category", norwayCat);
-    if(norwaySev) params.append("severity", norwaySev);
 
-    const res = await fetch("/api/norway-incidents?" + params);
-    if(!res.ok) throw new Error("Fetch failed");
-    const data = await res.json();
-    renderNorwayIncidents(data);
-  } catch(e) { console.error("Norway fetch:", e); }
-}
-
-function renderNorwayIncidents(data) {
-  const tbody = document.getElementById("norwayRegistryBody");
-  const totSpan = document.getElementById("norwayTotalString");
-  if(!tbody) return;
-
-  if(totSpan) totSpan.textContent = `${data.total.toLocaleString()} incidents`;
-
-  if(!data.items || !data.items.length) {
-      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:30px;color:#8896ab;">No records found</td></tr>`;
-      return;
-  }
-
-  tbody.innerHTML = data.items.map(r => {
-    return `<tr>
-      <td style="font-family:monospace;font-size:12px;font-weight:600;color:#334155;">${r.numero}</td>
-      <td style="font-weight:600;color:#0f172a;">${r.year || '—'}</td>
-      <td><span class="cs-badge ${getCatClass(r.category)}">${r.category}</span></td>
-      <td><span class="cs-badge ${getSevClass(r.severity)}">${r.severity}</span></td>
-      <td style="font-size:12px;color:#475569;">${r.tipo}</td>
-      <td style="font-size:11px;color:#475569;line-height:1.4">${r.evento}</td>
-    </tr>`;
-  }).join("");
-
-  renderNorwayPagination(data.page, data.pages);
-}
-
-function renderNorwayPagination(current, total) {
-  const pg = document.getElementById("norwayRegistryPagination");
-  if(!pg) return;
-  if(total <= 1) { pg.innerHTML = ""; return; }
-
-  let html = ``;
-  html += `<button onclick="fetchNorwayIncidents(${current-1})" ${current===1?'disabled':''} class="pg-btn">Prev</button>`;
-  html += `<span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${current} of ${total}</span>`;
-  html += `<button onclick="fetchNorwayIncidents(${current+1})" ${current===total?'disabled':''} class="pg-btn">Next</button>`;
-  pg.innerHTML = html;
-}
-
-window.filterNorwayIncidents = function() {
-  const qEl = document.getElementById("norwayNumFilter");
-  const yEl = document.getElementById("norwayYearFilter");
-  const cEl = document.getElementById("norwayCatFilter");
-  const sEl = document.getElementById("norwaySevFilter");
-
-  norwayQuery = qEl ? qEl.value : "";
-  norwayYear = yEl ? yEl.value : "";
-  norwayCat = cEl ? cEl.value : "";
-  norwaySev = sEl ? sEl.value : "";
-  fetchNorwayIncidents(1);
-};
 
 async function fetchHalIncidents(page = 1) {
   try {
@@ -867,14 +802,22 @@ async function init() {
 
 
     console.log("INIT: Fetching all data...");
-    const [stats, tableData, contractData, mexData] = await Promise.all([
+    const [stats, tableData, contractData, mexData, mexC, argC] = await Promise.all([
       fetchHalStats().catch(e => { console.error("Stats fail", e); return null; }),
       fetchHalIncidents(1).catch(e => { console.error("Incidents fail", e); return { total: 0, items: [] }; }),
       fetchHalContracts().catch(e => { console.error("Contracts fail", e); return { total: 0, items: [] }; }),
-      fetchMexicoMetrics().catch(e => { console.error("Mexico fail", e); return { details: [], summary: {} }; })
+
+      fetchMexicoMetrics().catch(e => { console.error("Mexico fail", e); return { details: [], summary: {} }; }),
+      fetch("/api/mexico-contracts").then(r=>r.json()).catch(()=>({items:[]})),
+      fetch("/api/argentina-contracts").then(r=>r.json()).catch(()=>({items:[]}))
     ]);
+
+  
     console.log("INIT: Data fetched", { stats:!!stats, table:!!tableData, contracts:!!contractData, mex:!!mexData });
 
+    
+    if (mexC && mexC.items) { mexicoContracts = processRegionalContracts(mexC.items); window.filtermexicoContracts(); }
+    if (argC && argC.items) { argentinaContracts = processRegionalContracts(argC.items); window.filterargentinaContracts(); }
     if (stats) {
       halStats = stats;
       renderBadge(stats.total);
@@ -1358,6 +1301,110 @@ function renderMexicoTables() {
 
 let ALL_CONTRACTS = [];
 let filteredContracts = [];
+
+
+let mexicoContracts = [];
+let argentinaContracts = [];
+let norwayContracts = [];
+let fMexicoContracts = [];
+let fArgentinaContracts = [];
+let fNorwayContracts = [];
+let mexCPage=1, argCPage=1, norCPage=1;
+
+function processRegionalContracts(rawItems) {
+  return rawItems.map(c => {
+    const obj = (c.obj || "").toLowerCase();
+    let domain = "Other";
+    if (obj.includes("ciment")) domain = "Cementing";
+    else if (obj.includes("estimul")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid")) domain = "Fluids";
+    else if (obj.includes("complet")) domain = "Completion";
+    else if (obj.includes("mpd")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("operations")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("execution")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+
+    return {
+      numero: c.numero || "—",
+      domain: domain,
+      obj: c.obj || "No description provided",
+      value: c.value || "—",
+      csbLink: getCSBLink(domain)
+    };
+  });
+}
+
+function renderRegionalTable(prefix, page, data) {
+  const tbody = document.getElementById(prefix + "ContractEvidenceBody");
+  if (!tbody) return;
+  const PAGE_SIZE = 12;
+  const start = (page - 1) * PAGE_SIZE;
+  const slice = data.slice(start, start + PAGE_SIZE);
+
+  if (!slice.length) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = slice.map(c => {
+    const domLabel = DOMAIN_MAP[c.domain] || c.domain;
+    return `<tr>
+      <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
+      <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
+      <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
+      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
+      <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
+    </tr>`;
+  }).join('');
+
+  // pagination
+  const pg = document.getElementById(prefix + "ContractPagination");
+  if(pg) {
+      const pages = Math.ceil(data.length / PAGE_SIZE);
+      if(pages<=1) { pg.innerHTML=""; return;}
+      pg.innerHTML = `
+        <button onclick="change${prefix}Page(${page-1})" ${page===1?'disabled':''} class="pg-btn">Prev</button>
+        <span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${page} of ${pages}</span>
+        <button onclick="change${prefix}Page(${page+1})" ${page===pages?'disabled':''} class="pg-btn">Next</button>
+      `;
+  }
+}
+
+window.filtermexicoContracts = function() {
+    const q = (document.getElementById('mexicoContractSearch')?.value||'').toLowerCase();
+    const domain = (document.getElementById('mexicoContractDomainFilter')?.value||'').toLowerCase();
+    fMexicoContracts = mexicoContracts.filter(c => {
+        const dText = (c.domain||'').toLowerCase();
+        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+    });
+    mexCPage = 1;
+    renderRegionalTable('mexico', mexCPage, fMexicoContracts);
+};
+window.changemexicoPage = function(p) { mexCPage=p; renderRegionalTable('mexico', mexCPage, fMexicoContracts); };
+
+window.filterargentinaContracts = function() {
+    const q = (document.getElementById('argentinaContractSearch')?.value||'').toLowerCase();
+    const domain = (document.getElementById('argentinaContractDomainFilter')?.value||'').toLowerCase();
+    fArgentinaContracts = argentinaContracts.filter(c => {
+        const dText = (c.domain||'').toLowerCase();
+        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+    });
+    argCPage = 1;
+    renderRegionalTable('argentina', argCPage, fArgentinaContracts);
+};
+window.changeargentinaPage = function(p) { argCPage=p; renderRegionalTable('argentina', argCPage, fArgentinaContracts); };
+
+window.filternorwayContracts = function() {
+    const q = (document.getElementById('norwayContractSearch')?.value||'').toLowerCase();
+    const domain = (document.getElementById('norwayContractDomainFilter')?.value||'').toLowerCase();
+    fNorwayContracts = norwayContracts.filter(c => {
+        const dText = (c.domain||'').toLowerCase();
+        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+    });
+    norCPage = 1;
+    renderRegionalTable('norway', norCPage, fNorwayContracts);
+};
+window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
 
 function processIncomingContracts(rawItems) {
   console.log("PROCESSING: Raw items received", rawItems?.length);

@@ -8,7 +8,7 @@ let js = fs.readFileSync(appPath, 'utf8');
 
 // 1. HTML modifications
 // Insert Sidebar link
-const sidebarTarget = `        <a href="#" class="nav-link" data-section="mexico-registry" id="nav-mexico-registry">
+const sidebarTarget = `        <a href="#" class="nav-link" data-section="mexico" id="nav-mexico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <ellipse cx="12" cy="12" rx="10" ry="10" />
             <path
@@ -57,13 +57,7 @@ if (html.includes(brzStart) && !html.includes('id="section-norway-registry"')) {
 }
 
 // 2. JS modifications
-const appVarsTarget = `let halIncidents = [];
-let halPage = 1;
-let halLimit = 20;
-let halQuery = '';
-let halYear = '';
-let halCat = '';
-let halSev = '';`;
+const appVarsTarget = `/* ── app.js — HAL/Tejas ANP Incident Dashboard ── */`; 
 
 const norwayVars = `
 let norwayIncidents = [];
@@ -75,7 +69,7 @@ let norwayCat = '';
 let norwaySev = '';`;
 
 if (!js.includes('let norwayPage = 1;')) {
-    js = js.replace(appVarsTarget, appVarsTarget + norwayVars);
+    js = js.replace(appVarsTarget, appVarsTarget + "\n" + norwayVars);
 }
 
 const jsFetchBrz = `async function fetchHalIncidents(page = 1) {`;
@@ -99,6 +93,32 @@ async function fetchNorwayIncidents(page = 1) {
     const data = await res.json();
     renderNorwayIncidents(data);
   } catch(e) { console.error("Norway fetch:", e); }
+}
+
+function renderNorwayIncidents(data) {
+  const tbody = document.getElementById("norwayRegistryBody");
+  const totSpan = document.getElementById("norwayTotalString");
+  if(!tbody) return;
+
+  if(totSpan) totSpan.textContent = \`\${data.total.toLocaleString()} incidents\`;
+
+  if(!data.items || !data.items.length) {
+      tbody.innerHTML = \`<tr><td colspan="6" style="text-align:center;padding:30px;color:#8896ab;">No records found</td></tr>\`;
+      return;
+  }
+
+  tbody.innerHTML = data.items.map(r => {
+    return \`<tr>
+      <td style="font-family:monospace;font-size:12px;font-weight:600;color:#334155;">\${r.numero}</td>
+      <td style="font-weight:600;color:#0f172a;">\${r.year || '—'}</td>
+      <td><span class="cs-badge \${getCatClass(r.category)}">\${r.category}</span></td>
+      <td><span class="cs-badge \${getSevClass(r.severity)}">\${r.severity}</span></td>
+      <td style="font-size:12px;color:#475569;">\${r.tipo}</td>
+      <td style="font-size:11px;color:#475569;line-height:1.4">\${r.evento}</td>
+    </tr>\`;
+  }).join("");
+
+  renderNorwayPagination(data.page, data.pages);
 }
 
 function renderNorwayIncidents(data) {
@@ -156,16 +176,14 @@ window.filterNorwayIncidents = function() {
 }
 
 // In app.js route handling
-const showSectionMatch = `if (section === 'brazil-registry') {
-    fetchHalIncidents(1);
-  }`;
+const showSectionMatch = `if (section === 'brazil-registry') {`;
   
 const showNorway = `if (section === 'norway-registry') {
     fetchNorwayIncidents(1);
   }`;
 
 if (!js.includes("section === 'norway-registry'")) {
-    js = js.replace(showSectionMatch, showSectionMatch + "\n  " + showNorway);
+    js = js.replace(showSectionMatch, showSectionMatch + "\n    " + showNorway);
 }
 
 fs.writeFileSync(dashPath, html);
