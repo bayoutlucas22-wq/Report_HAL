@@ -1337,6 +1337,7 @@ let fMexicoContracts = [];
 let fArgentinaContracts = [];
 let fNorwayContracts = [];
 let mexCPage=1, argCPage=1, norCPage=1;
+let activeMexDomain = '';
 
 function processRegionalContracts(rawItems) {
   return rawItems.map(c => {
@@ -1352,12 +1353,19 @@ function processRegionalContracts(rawItems) {
     else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
 
     const numero = c.numero || "—";
+    // MEX contracts are denominated in USD — keep as-is; only ARG converts to local currency
     let country = null;
     if (numero.startsWith('ARG-')) country = 'ARG';
-    else if (numero.startsWith('MEX-')) country = 'MEX';
 
     const rawValue = c.value || "—";
     const displayValue = country ? convertContractValue(rawValue, country) : rawValue;
+
+    // Parse inicio date (DD/MM/YYYY) → sortable number YYYYMMDD
+    const parseDateSort = (d) => {
+      if (!d) return 0;
+      const p = d.split('/');
+      return p.length === 3 ? parseInt(p[2] + p[1] + p[0]) : 0;
+    };
 
     return {
       numero,
@@ -1365,6 +1373,9 @@ function processRegionalContracts(rawItems) {
       obj: c.obj || "No description provided",
       value: displayValue,
       country,
+      inicio: c.inicio || '',
+      fim: c.fim || '',
+      inicioSort: parseDateSort(c.inicio),
       csbLink: getCSBLink(domain)
     };
   });
