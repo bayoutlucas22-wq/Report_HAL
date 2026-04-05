@@ -117,6 +117,76 @@ async function fetchHalStats() {
   return (await fetch("/api/stats")).json();
 }
 
+
+
+// ── Norway Integration ──────────────────────────────────────────────────
+async function fetchNorwayIncidents(page = 1) {
+  norwayPage = page;
+  try {
+    const params = new URLSearchParams({ page, limit: norwayLimit });
+    if(norwayQuery) params.append("q", norwayQuery);
+    if(norwayYear) params.append("year", norwayYear);
+    if(norwayCat) params.append("category", norwayCat);
+    if(norwaySev) params.append("severity", norwaySev);
+
+    const res = await fetch("/api/norway-incidents?" + params);
+    if(!res.ok) throw new Error("Fetch failed");
+    const data = await res.json();
+    renderNorwayIncidents(data);
+  } catch(e) { console.error("Norway fetch:", e); }
+}
+
+function renderNorwayIncidents(data) {
+  const tbody = document.getElementById("norwayRegistryBody");
+  const totSpan = document.getElementById("norwayTotalString");
+  if(!tbody) return;
+
+  if(totSpan) totSpan.textContent = `${data.total.toLocaleString()} incidents`;
+
+  if(!data.items || !data.items.length) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:30px;color:#8896ab;">No records found</td></tr>`;
+      return;
+  }
+
+  tbody.innerHTML = data.items.map(r => {
+    return `<tr>
+      <td style="font-family:monospace;font-size:12px;font-weight:600;color:#334155;">${r.numero}</td>
+      <td style="font-weight:600;color:#0f172a;">${r.year || '—'}</td>
+      <td><span class="cs-badge ${getCatClass(r.category)}">${r.category}</span></td>
+      <td><span class="cs-badge ${getSevClass(r.severity)}">${r.severity}</span></td>
+      <td style="font-size:12px;color:#475569;">${r.tipo}</td>
+      <td style="font-size:11px;color:#475569;line-height:1.4">${r.evento}</td>
+    </tr>`;
+  }).join("");
+
+  renderNorwayPagination(data.page, data.pages);
+}
+
+function renderNorwayPagination(current, total) {
+  const pg = document.getElementById("norwayRegistryPagination");
+  if(!pg) return;
+  if(total <= 1) { pg.innerHTML = ""; return; }
+
+  let html = ``;
+  html += `<button onclick="fetchNorwayIncidents(${current-1})" ${current===1?'disabled':''} class="pg-btn">Prev</button>`;
+  html += `<span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${current} of ${total}</span>`;
+  html += `<button onclick="fetchNorwayIncidents(${current+1})" ${current===total?'disabled':''} class="pg-btn">Next</button>`;
+  pg.innerHTML = html;
+}
+
+window.filterNorwayIncidents = function() {
+  const qEl = document.getElementById("norwayNumFilter");
+  const yEl = document.getElementById("norwayYearFilter");
+  const cEl = document.getElementById("norwayCatFilter");
+  const sEl = document.getElementById("norwaySevFilter");
+
+  norwayQuery = qEl ? qEl.value : "";
+  norwayYear = yEl ? yEl.value : "";
+  norwayCat = cEl ? cEl.value : "";
+  norwaySev = sEl ? sEl.value : "";
+  fetchNorwayIncidents(1);
+};
+
 async function fetchHalIncidents(page = 1) {
   try {
     const { year, category, severity } = activeFilters;
@@ -408,7 +478,8 @@ function renderCsbTrend(stats) {
 function renderMonthChart(stats) {
   destroyChart("monthChart");
   const ctx = document.getElementById("monthChart").getContext("2d");
-  const vals = Array.from({ length: 12 }, (_, i) => stats.monthPattern[i + 1] || 0);
+  const pattern = stats.monthPattern || {};
+  const vals = Array.from({ length: 12 }, (_, i) => pattern[i + 1] || 0);
 
   chartInstances["monthChart"] = new Chart(ctx, {
     type: "radar",
