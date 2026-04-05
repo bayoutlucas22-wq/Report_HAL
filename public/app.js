@@ -28,6 +28,7 @@ const CAT_REGS = {
   "Kick (Primary Barrier)": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
   "Structural Failure": { label: "BV NR 445", url: LINKS.BV_NR445 },
   "Loss of Well Control": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
+  "BOP Failure": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
 };
 
 // Severity → BV classification link
@@ -44,6 +45,7 @@ const CAT_COLORS = {
   "Kick (Primary Barrier)": "#e67e22",
   "Structural Failure": "#1a56a0",
   "Loss of Well Control": "#7c3aed",
+  "BOP Failure": "#b45309",
   "Other": "#8896ab",
 };
 const SEV_COLORS = {
@@ -57,6 +59,7 @@ const CAT_CSS = {
   "Kick (Primary Barrier)": "bc-kick",
   "Structural Failure": "bc-struct",
   "Loss of Well Control": "bc-wc",
+  "BOP Failure": "bc-bop",
 };
 const SEV_CSS = {
   "SSO": "bs-sso",
@@ -231,7 +234,7 @@ function renderOverviewChart(stats) {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
   
-  const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
+  const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control", "BOP Failure"];
   const years = stats.yearSeries.map(y => y.year);
 
   // Gradient generator for premium look
