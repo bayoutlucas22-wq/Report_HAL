@@ -3299,7 +3299,49 @@
               <div class="pagination" id="argRegPagination"></div>
             </div>
           </div>
-        </section><!-- /section-argentina-registry -->
+        
+          <!-- ── CONTRACT EVIDENCE TABLE FOR ARGENTINA ── -->
+          <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">C</div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from YPF / Secretaria de Energia open data with highest direct intersection with CSB failure categories</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="argentinaContractSearch" class="search-input" placeholder="Search contract / service…" style="width:200px;" oninput="filterargentinaContracts()">
+                <select id="argentinaContractDomainFilter" class="search-input" style="width:160px;" onchange="filterargentinaContracts()">
+                  <option value="">All Domains</option>
+                  <option value="Cementing">Cementing</option>
+                  <option value="Completion">Completion / DHSV</option>
+                  <option value="Stimulation">Stimulation</option>
+                  <option value="Fluids">Fluid Services</option>
+                  <option value="MPD">MPD</option>
+                  <option value="Well Construction">Well Construction</option>
+                  <option value="Workover">Workover</option>
+                  <option value="G&G Software">G&G Software</option>
+                </select>
+              </div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="cs-table" style="table-layout:fixed;">
+                <thead>
+                  <tr>
+                    <th style="width:100px;">Contract #</th>
+                    <th style="width:140px;">Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th style="width:120px;">Value</th>
+                    <th style="width:140px;">CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="argentinaContractEvidenceBody">
+                  <tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:center;padding:16px;gap:8px" id="argentinaContractPagination"></div>
+          </div>
+</section><!-- /section-argentina-registry -->
 
         <!-- ── HAL ARGENTINA STUDY ── -->
         <section id="section-argentina" class="dash-section">
@@ -4279,7 +4321,49 @@
               <div class="pagination" id="mexRegPagination"></div>
             </div>
           </div>
-        </section><!-- /section-mexico-registry -->
+        
+          <!-- ── CONTRACT EVIDENCE TABLE FOR MEXICO ── -->
+          <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">C</div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from Pemex / CNH open data with highest direct intersection with CSB failure categories</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="mexicoContractSearch" class="search-input" placeholder="Search contract / service…" style="width:200px;" oninput="filtermexicoContracts()">
+                <select id="mexicoContractDomainFilter" class="search-input" style="width:160px;" onchange="filtermexicoContracts()">
+                  <option value="">All Domains</option>
+                  <option value="Cementing">Cementing</option>
+                  <option value="Completion">Completion / DHSV</option>
+                  <option value="Stimulation">Stimulation</option>
+                  <option value="Fluids">Fluid Services</option>
+                  <option value="MPD">MPD</option>
+                  <option value="Well Construction">Well Construction</option>
+                  <option value="Workover">Workover</option>
+                  <option value="G&G Software">G&G Software</option>
+                </select>
+              </div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="cs-table" style="table-layout:fixed;">
+                <thead>
+                  <tr>
+                    <th style="width:100px;">Contract #</th>
+                    <th style="width:140px;">Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th style="width:120px;">Value</th>
+                    <th style="width:140px;">CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="mexicoContractEvidenceBody">
+                  <tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:center;padding:16px;gap:8px" id="mexicoContractPagination"></div>
+          </div>
+</section><!-- /section-mexico-registry -->
 
         <!-- ── MEX CROSS-ANALYSIS ── -->
         <section id="section-mexico-crossanalysis" class="dash-section">
@@ -5003,6 +5087,7 @@
             </div>
           </div>
         </section>
+
         <footer class="cis-footer"
           style="margin-top: 40px; padding: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text3); font-size: 11px; background: rgba(0,0,0,0.01);">
           <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">

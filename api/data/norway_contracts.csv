@@ -1,0 +1,66 @@
+idx;ano;mes;numero;uf;modalidade;proc;tipo;empresa;obj;valor;inicio;fim;value
+0;2022;01;NOR-2022-5079;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Provision of offshore services for complet - High Criticality Service;0;01/01/2022;31/12/2025;kr 41,000,000.00 NOK
+1;2026;01;NOR-2026-8198;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Integrated operations for ciment - High Criticality Service;0;01/01/2026;31/12/2029;kr 90,000,000.00 NOK
+2;2020;01;NOR-2020-2354;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Supply of materials for complet - High Criticality Service;0;01/01/2020;31/12/2023;kr 16,000,000.00 NOK
+3;2020;01;NOR-2020-9912;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Execution of estimul - High Criticality Service;0;01/01/2020;31/12/2023;kr 14,000,000.00 NOK
+4;2025;01;NOR-2025-9338;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for constru - High Criticality Service;0;01/01/2025;31/12/2028;kr 34,000,000.00 NOK
+5;2026;01;NOR-2026-8752;XX;LIC;PUBLIC;SERVICE;AKER BP;Execution of fluidos - High Criticality Service;0;01/01/2026;31/12/2029;kr 23,000,000.00 NOK
+6;2021;01;NOR-2021-6044;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Provision of offshore services for constru - High Criticality Service;0;01/01/2021;31/12/2024;kr 53,000,000.00 NOK
+7;2024;01;NOR-2024-1062;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Integrated operations for mpd - High Criticality Service;0;01/01/2024;31/12/2027;kr 49,000,000.00 NOK
+8;2026;01;NOR-2026-2420;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Supply of materials for constru - High Criticality Service;0;01/01/2026;31/12/2029;kr 36,000,000.00 NOK
+9;2024;01;NOR-2024-3470;XX;LIC;PUBLIC;SERVICE;AKER BP;Provision of offshore services for ciment - High Criticality Service;0;01/01/2024;31/12/2027;kr 67,000,000.00 NOK
+10;2025;01;NOR-2025-7782;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Integrated operations for workover - High Criticality Service;0;01/01/2025;31/12/2028;kr 73,000,000.00 NOK
+11;2022;01;NOR-2022-3805;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Supply of materials for complet - High Criticality Service;0;01/01/2022;31/12/2025;kr 90,000,000.00 NOK
+12;2025;01;NOR-2025-1457;XX;LIC;PUBLIC;SERVICE;AKER BP;Integrated operations for fluidos - High Criticality Service;0;01/01/2025;31/12/2028;kr 45,000,000.00 NOK
+13;2023;01;NOR-2023-9659;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Integrated operations for mpd - High Criticality Service;0;01/01/2023;31/12/2026;kr 27,000,000.00 NOK
+14;2025;01;NOR-2025-2965;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Integrated operations for geol - High Criticality Service;0;01/01/2025;31/12/2028;kr 102,000,000.00 NOK
+15;2023;01;NOR-2023-4249;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Supply of materials for fluidos - High Criticality Service;0;01/01/2023;31/12/2026;kr 12,000,000.00 NOK
+16;2024;01;NOR-2024-7800;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Provision of offshore services for constru - High Criticality Service;0;01/01/2024;31/12/2027;kr 21,000,000.00 NOK
+17;2021;01;NOR-2021-5448;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Supply of materials for ciment - High Criticality Service;0;01/01/2021;31/12/2024;kr 91,000,000.00 NOK
+18;2025;01;NOR-2025-5597;XX;LIC;PUBLIC;SERVICE;AKER BP;Supply of materials for mpd - High Criticality Service;0;01/01/2025;31/12/2028;kr 66,000,000.00 NOK
+19;2021;01;NOR-2021-3067;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Execution of estimul - High Criticality Service;0;01/01/2021;31/12/2024;kr 21,000,000.00 NOK
+20;2026;01;NOR-2026-9502;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Provision of offshore services for fluidos - High Criticality Service;0;01/01/2026;31/12/2029;kr 64,000,000.00 NOK
+21;2025;01;NOR-2025-1720;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Provision of offshore services for geol - High Criticality Service;0;01/01/2025;31/12/2028;kr 23,000,000.00 NOK
+22;2020;01;NOR-2020-7736;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Provision of offshore services for mpd - High Criticality Service;0;01/01/2020;31/12/2023;kr 80,000,000.00 NOK
+23;2024;01;NOR-2024-0821;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for ciment - High Criticality Service;0;01/01/2024;31/12/2027;kr 88,000,000.00 NOK
+24;2025;01;NOR-2025-9718;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Integrated operations for fluidos - High Criticality Service;0;01/01/2025;31/12/2028;kr 100,000,000.00 NOK
+25;2020;01;NOR-2020-4011;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for geol - High Criticality Service;0;01/01/2020;31/12/2023;kr 73,000,000.00 NOK
+26;2026;01;NOR-2026-9389;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Provision of offshore services for fluidos - High Criticality Service;0;01/01/2026;31/12/2029;kr 109,000,000.00 NOK
+27;2025;01;NOR-2025-1226;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Supply of materials for geol - High Criticality Service;0;01/01/2025;31/12/2028;kr 30,000,000.00 NOK
+28;2024;01;NOR-2024-5595;XX;LIC;PUBLIC;SERVICE;AKER BP;Integrated operations for fluidos - High Criticality Service;0;01/01/2024;31/12/2027;kr 51,000,000.00 NOK
+29;2026;01;NOR-2026-9089;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Provision of offshore services for mpd - High Criticality Service;0;01/01/2026;31/12/2029;kr 91,000,000.00 NOK
+30;2026;01;NOR-2026-4996;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Execution of fluidos - High Criticality Service;0;01/01/2026;31/12/2029;kr 41,000,000.00 NOK
+31;2025;01;NOR-2025-2241;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Provision of offshore services for complet - High Criticality Service;0;01/01/2025;31/12/2028;kr 87,000,000.00 NOK
+32;2021;01;NOR-2021-5056;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Supply of materials for constru - High Criticality Service;0;01/01/2021;31/12/2024;kr 44,000,000.00 NOK
+33;2020;01;NOR-2020-1260;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Integrated operations for workover - High Criticality Service;0;01/01/2020;31/12/2023;kr 105,000,000.00 NOK
+34;2024;01;NOR-2024-6142;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Integrated operations for mpd - High Criticality Service;0;01/01/2024;31/12/2027;kr 21,000,000.00 NOK
+35;2020;01;NOR-2020-8625;XX;LIC;PUBLIC;SERVICE;AKER BP;Execution of fluidos - High Criticality Service;0;01/01/2020;31/12/2023;kr 18,000,000.00 NOK
+36;2021;01;NOR-2021-0888;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Supply of materials for mpd - High Criticality Service;0;01/01/2021;31/12/2024;kr 12,000,000.00 NOK
+37;2021;01;NOR-2021-2205;XX;LIC;PUBLIC;SERVICE;AKER BP;Integrated operations for ciment - High Criticality Service;0;01/01/2021;31/12/2024;kr 92,000,000.00 NOK
+38;2025;01;NOR-2025-6417;XX;LIC;PUBLIC;SERVICE;AKER BP;Execution of constru - High Criticality Service;0;01/01/2025;31/12/2028;kr 10,000,000.00 NOK
+39;2022;01;NOR-2022-7491;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Supply of materials for workover - High Criticality Service;0;01/01/2022;31/12/2025;kr 51,000,000.00 NOK
+40;2026;01;NOR-2026-4859;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Supply of materials for complet - High Criticality Service;0;01/01/2026;31/12/2029;kr 65,000,000.00 NOK
+41;2024;01;NOR-2024-3948;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for ciment - High Criticality Service;0;01/01/2024;31/12/2027;kr 23,000,000.00 NOK
+42;2020;01;NOR-2020-5606;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Integrated operations for workover - High Criticality Service;0;01/01/2020;31/12/2023;kr 44,000,000.00 NOK
+43;2022;01;NOR-2022-2477;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for ciment - High Criticality Service;0;01/01/2022;31/12/2025;kr 96,000,000.00 NOK
+44;2021;01;NOR-2021-5516;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Execution of estimul - High Criticality Service;0;01/01/2021;31/12/2024;kr 30,000,000.00 NOK
+45;2026;01;NOR-2026-9145;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Provision of offshore services for constru - High Criticality Service;0;01/01/2026;31/12/2029;kr 96,000,000.00 NOK
+46;2020;01;NOR-2020-7824;XX;LIC;PUBLIC;SERVICE;AKER BP;Supply of materials for workover - High Criticality Service;0;01/01/2020;31/12/2023;kr 10,000,000.00 NOK
+47;2020;01;NOR-2020-5467;XX;LIC;PUBLIC;SERVICE;AKER BP;Integrated operations for ciment - High Criticality Service;0;01/01/2020;31/12/2023;kr 84,000,000.00 NOK
+48;2020;01;NOR-2020-6329;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Integrated operations for mpd - High Criticality Service;0;01/01/2020;31/12/2023;kr 54,000,000.00 NOK
+49;2025;01;NOR-2025-0095;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for geol - High Criticality Service;0;01/01/2025;31/12/2028;kr 87,000,000.00 NOK
+50;2024;01;NOR-2024-9312;XX;LIC;PUBLIC;SERVICE;AKER BP;Supply of materials for fluidos - High Criticality Service;0;01/01/2024;31/12/2027;kr 72,000,000.00 NOK
+51;2026;01;NOR-2026-3525;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Supply of materials for ciment - High Criticality Service;0;01/01/2026;31/12/2029;kr 65,000,000.00 NOK
+52;2023;01;NOR-2023-5756;XX;LIC;PUBLIC;SERVICE;AKER BP;Integrated operations for complet - High Criticality Service;0;01/01/2023;31/12/2026;kr 84,000,000.00 NOK
+53;2026;01;NOR-2026-2449;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Integrated operations for fluidos - High Criticality Service;0;01/01/2026;31/12/2029;kr 31,000,000.00 NOK
+54;2023;01;NOR-2023-9181;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Integrated operations for estimul - High Criticality Service;0;01/01/2023;31/12/2026;kr 53,000,000.00 NOK
+55;2020;01;NOR-2020-9271;XX;LIC;PUBLIC;SERVICE;WINTERSHALL DEA;Execution of geol - High Criticality Service;0;01/01/2020;31/12/2023;kr 44,000,000.00 NOK
+56;2024;01;NOR-2024-1340;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Supply of materials for geol - High Criticality Service;0;01/01/2024;31/12/2027;kr 105,000,000.00 NOK
+57;2020;01;NOR-2020-9885;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Integrated operations for complet - High Criticality Service;0;01/01/2020;31/12/2023;kr 65,000,000.00 NOK
+58;2025;01;NOR-2025-7879;XX;LIC;PUBLIC;SERVICE;VAR ENERGI;Supply of materials for fluidos - High Criticality Service;0;01/01/2025;31/12/2028;kr 29,000,000.00 NOK
+59;2020;01;NOR-2020-9253;XX;LIC;PUBLIC;SERVICE;AKER BP;Execution of mpd - High Criticality Service;0;01/01/2020;31/12/2023;kr 18,000,000.00 NOK
+60;2025;01;NOR-2025-0347;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Execution of mpd - High Criticality Service;0;01/01/2025;31/12/2028;kr 104,000,000.00 NOK
+61;2024;01;NOR-2024-7810;XX;LIC;PUBLIC;SERVICE;AKER BP;Supply of materials for fluidos - High Criticality Service;0;01/01/2024;31/12/2027;kr 44,000,000.00 NOK
+62;2026;01;NOR-2026-5987;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Provision of offshore services for ciment - High Criticality Service;0;01/01/2026;31/12/2029;kr 52,000,000.00 NOK
+63;2021;01;NOR-2021-5690;XX;LIC;PUBLIC;SERVICE;HALLIBURTON AS;Execution of estimul - High Criticality Service;0;01/01/2021;31/12/2024;kr 103,000,000.00 NOK
+64;2021;01;NOR-2021-8365;XX;LIC;PUBLIC;SERVICE;EQUINOR ASA;Supply of materials for estimul - High Criticality Service;0;01/01/2021;31/12/2024;kr 79,000,000.00 NOK

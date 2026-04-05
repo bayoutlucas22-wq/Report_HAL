@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const https = require("https");
 const { Document, Packer } = require("docx");
 const { buildReportSections } = require("../src/document_generation/report_builder");
 const { getMetrics, getRegData, getIncidents, getTrendData } = require("../src/reporting/incident_analyzer");
@@ -144,44 +145,24 @@ function parseHalIncidents() {
   }).filter(Boolean);
 }
 
-function parseNorwayIncidents() {
-  const csvPath = locate("api/data/norway_incidents.csv");
-  if (!csvPath) {
-      console.error("Norway incidents CSV not found");
-      return [];
-  }
+
+
+function parseGenericContracts(filename) {
+  const csvPath = locate("api/data/" + filename);
+  if (!csvPath) return [];
   const csvContent = fs.readFileSync(csvPath, "utf8");
   const lines = csvContent.split("\n").filter(Boolean);
   return lines.slice(1).map(line => {
     const parts = line.split(";");
-    const numero  = parts[0]?.trim() || "";
-    const rawTipo = parts[1]?.trim() || "";
-    const grav    = parts[2]?.trim() || "";
-    const evt     = parts[3]?.trim() || "";
-
-    const m = numero.match(/^(\d{2})(\d{2})\//);
-    const year  = m ? (2000 + parseInt(m[1])) : null;
-    const month = m ? parseInt(m[2]) : null;
-
-    const tipo = rawTipo.replace(/^SSO - /, "").trim();
-    const t = tipo.toLowerCase();
-    
-    let category = "Other";
-    if (t.includes("csb") || t.includes("conjunto solidário") || t.includes("shear")) category = "CSB Failure";
-    else if (t.includes("bop") || t.includes("blowout"))         category = "BOP Failure";
-    else if (t.includes("kick") || t.includes("control equipment")) category = "Kick (Primary Barrier)";
-    else if (t.includes("estrutural") || t.includes("structural"))  category = "Structural Failure";
-    else if (t.includes("controle de poço") || t.includes("loss of well control")) category = "Loss of Well Control";
-
-    let severity = "SSO";
-    if (grav === "MINOR")    severity = "Minor";
-    else if (grav === "MODERATE") severity = "Moderate";
-    else if (grav === "SEVERE")    severity = "Severe";
-    else if (grav)          severity = grav;
-
-    return { numero, tipo, rawTipo, category, severity,
-             gravidade: grav, evento: evt, year, month };
-  }).filter(Boolean);
+    return {
+      numero: parts[3]?.trim() || "—",
+      obj:    parts[9]?.trim() || "No description provided",
+      proc:   parts[6]?.trim() || "PUBLIC",
+      inicio: parts[11]?.trim() || "?",
+      fim:    parts[12]?.trim() || "?",
+      value:  parts[13]?.trim() || "—",
+    };
+  });
 }
 
 function parseHalContracts() {
@@ -237,35 +218,6 @@ app.get("/api/hal-incidents", async (req, res) => {
   }
 });
 
-app.get("/api/norway-incidents", async (req, res) => {
-  try {
-    const year     = req.query.year     || "";
-    const category = req.query.category || "";
-    const severity = req.query.severity || "";
-    const q        = (req.query.q || "").toLowerCase().trim();
-    const page     = Math.max(1, parseInt(req.query.page)  || 1);
-    const limit    = Math.min(500, parseInt(req.query.limit) || 50);
-
-    let data = parseNorwayIncidents();
-    data.sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
-
-    if (q) {
-      data = data.filter(r => 
-        r.numero.toLowerCase().includes(q) || 
-        r.tipo.toLowerCase().includes(q)
-      );
-    }
-    if (year)     data = data.filter(r => r.year === parseInt(year));
-    if (category) data = data.filter(r => r.category === category);
-    if (severity) data = data.filter(r => r.severity === severity);
-
-    const total = data.length;
-    const items = data.slice((page - 1) * limit, page * limit);
-    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
-});
 
 app.get("/api/hal-stats", async (req, res) => {
   try {
@@ -288,6 +240,11 @@ app.get("/api/hal-stats", async (req, res) => {
 });
 
 // API: HAL contracts from CSV
+
+app.get("/api/mexico-contracts", async (req, res) => { res.json({ items: parseGenericContracts("mex_contracts.csv") }); });
+app.get("/api/argentina-contracts", async (req, res) => { res.json({ items: parseGenericContracts("arg_contracts.csv") }); });
+
+
 app.get("/api/hal-contracts", async (req, res) => {
   try {
     const items = parseHalContracts();
@@ -383,6 +340,68 @@ app.get("/api/generate-report", async (req, res) => {
   } catch (err) {
     console.error("Report generation error:", err);
     res.status(500).json({ error: "Failed to generate report" });
+  }
+});
+
+// ── Sodir Live Data (NCS Open Data) ────────────────────────────────────────
+const SODIR_CACHE = { data: null, ts: 0 };
+const SODIR_TTL_MS = 60 * 60 * 1000; // 1 hour
+const SODIR_CSV_URL = "https://factpages.sodir.no/downloads/csv/wlbPoint.csv";
+
+function fetchSodirCsv() {
+  return new Promise((resolve, reject) => {
+    https.get(SODIR_CSV_URL, { timeout: 15000 }, (res) => {
+      if (res.statusCode !== 200) {
+        reject(new Error(`Sodir returned HTTP ${res.statusCode}`));
+        res.resume();
+        return;
+      }
+      let raw = "";
+      res.on("data", chunk => (raw += chunk));
+      res.on("end", () => {
+        const lines = raw.split("\n").filter(Boolean);
+        if (lines.length < 2) { resolve([]); return; }
+        const headers = lines[0].split(",").map(h => h.trim().replace(/^"|"$/g, ""));
+        const records = lines.slice(1).map(line => {
+          const cols = line.split(",").map(c => c.trim().replace(/^"|"$/g, ""));
+          const obj = {};
+          headers.forEach((h, i) => { obj[h] = cols[i] || ""; });
+          return obj;
+        });
+        resolve(records);
+      });
+    }).on("error", reject);
+  });
+}
+
+app.get("/api/sodir/wellbores", async (req, res) => {
+  try {
+    const now = Date.now();
+    if (!SODIR_CACHE.data || now - SODIR_CACHE.ts > SODIR_TTL_MS) {
+      console.log("SODIR: Fetching live wellbore data from factpages.sodir.no…");
+      SODIR_CACHE.data = await fetchSodirCsv();
+      SODIR_CACHE.ts = now;
+      console.log(`SODIR: Cached ${SODIR_CACHE.data.length} wellbore records.`);
+    }
+
+    let data = SODIR_CACHE.data;
+    const q        = (req.query.q || "").toLowerCase().trim();
+    const type     = req.query.type || "";
+    const status   = req.query.status || "";
+    const page     = Math.max(1, parseInt(req.query.page) || 1);
+    const limit    = Math.min(200, parseInt(req.query.limit) || 50);
+
+    if (q)      data = data.filter(r => (r.wlbName || "").toLowerCase().includes(q) || (r.wlbField || "").toLowerCase().includes(q) || (r.wlbOperator || "").toLowerCase().includes(q));
+    if (type)   data = data.filter(r => (r.wlbWellType || "").toUpperCase() === type.toUpperCase());
+    if (status) data = data.filter(r => (r.wlbStatus || "").toUpperCase() === status.toUpperCase());
+
+    const total = data.length;
+    const items = data.slice((page - 1) * limit, page * limit);
+    const cachedAt = new Date(SODIR_CACHE.ts).toISOString();
+    res.json({ total, page, limit, pages: Math.ceil(total / limit), items, cachedAt, source: "Sodir FactPages (NLOD)" });
+  } catch (e) {
+    console.error("Sodir fetch error:", e.message);
+    res.status(502).json({ error: "Could not reach Sodir FactPages: " + e.message });
   }
 });
 
