@@ -1,24 +1,16 @@
 const express = require("express");
 const path = require("path");
-const fs = require("fs");
 const https = require("https");
 const { Document, Packer } = require("docx");
 const { buildReportSections } = require("../src/document_generation/report_builder");
 const { getMetrics, getRegData, getIncidents, getTrendData } = require("../src/reporting/incident_analyzer");
 const { anpData, bureauVeritasData, mteDpcData, internationalRefs } = require("../src/data/anp_data");
 
-const { getDatabase } = require("./data_store"); // Consolidated Metrics Engine 
-
-// Internal helper for static file paths
-function locate(rel) {
-  const p = path.resolve(__dirname, '..', rel);
-  return fs.existsSync(p) ? p : null;
-}
+const { getDatabase } = require("./data_store");
+const { getDb }       = require("./mongo");
 
 let ANP_RECORDS = [];
-let ANP_STATS = null;
-
-// Fetch pre-treated JSON - Lazy loading wrapper for Vercel
+let ANP_STATS   = null;
 let DATA_LOADING_PROMISE = null;
 
 async function ensureDataLoaded() {
@@ -27,22 +19,17 @@ async function ensureDataLoaded() {
 
   DATA_LOADING_PROMISE = (async () => {
     try {
-      console.log("ENGINE: Loading ANP metrics into memory...");
-      const recPath = path.resolve(__dirname, 'data/processed/anp_records.json');
-      const statPath = path.resolve(__dirname, 'data/processed/anp_stats.json');
-      
-      if (fs.existsSync(recPath)) {
-        ANP_RECORDS = JSON.parse(fs.readFileSync(recPath, 'utf8'));
-      }
-      if (fs.existsSync(statPath)) {
-        ANP_STATS = JSON.parse(fs.readFileSync(statPath, 'utf8'));
-      }
+      console.log("ENGINE: Loading ANP metrics from MongoDB…");
+      const db = await getDb();
+      ANP_RECORDS = await db.collection('anp_records').find({}, { projection: { _id: 0 } }).toArray();
+      const statsDoc = await db.collection('anp_stats').findOne({}, { projection: { _id: 0 } });
+      ANP_STATS = statsDoc || null;
       console.log(`ENGINE: Load complete (${ANP_RECORDS.length} records).`);
     } catch (err) {
-      console.error("Failed to load pre-treated ANP metrics.", err);
+      console.error("Failed to load ANP metrics from MongoDB:", err);
     }
   })();
-  
+
   return DATA_LOADING_PROMISE;
 }
 
@@ -98,95 +85,8 @@ app.get("/api/data", (req, res) => {
   });
 });
 
-// ── HAL incidents helpers ───────────────────────────────────────────────────
-function parseHalIncidents() {
-  const csvPath = locate("api/data/hal_incidents.csv");
-  if (!csvPath) {
-      console.error("HAL incidents CSV not found");
-      return [];
-  }
-  const csvContent = fs.readFileSync(csvPath, "utf8");
-  const lines = csvContent.split("\n").filter(Boolean);
-  return lines.slice(1).map(line => {
-    const parts = line.split(";");
-    const numero  = parts[0]?.trim() || "";
-    const rawTipo = parts[1]?.trim() || "";
-    const grav    = parts[2]?.trim() || "";
-    const evt     = parts[3]?.trim() || "";
+// ── MongoDB-backed routes ────────────────────────────────────────────────────
 
-    // Derive year + month from prefix e.g. "2107/000001" → 2021, 7
-    const m = numero.match(/^(\d{2})(\d{2})\//);
-    const year  = m ? (2000 + parseInt(m[1])) : null;
-    const month = m ? parseInt(m[2]) : null;
-
-    // Normalize type
-    const tipo = rawTipo.replace(/^SSO - /, "").trim();
-
-    // Category bucket
-    const t = tipo.toLowerCase();
-    if (t.includes('reclassificação') || t.includes('queda de objetos') || t.includes('princípio de incêndio') || t.includes('ferimento grave')) return null;
-
-    let category = "Other";
-    if (t.includes("csb") || t.includes("conjunto solidário")) category = "CSB Failure";
-    else if (t.includes("bop") || t.includes("blowout"))         category = "BOP Failure";
-    else if (t.includes("kick"))                                 category = "Kick (Primary Barrier)";
-    else if (t.includes("estrutural"))                          category = "Structural Failure";
-    else if (t.includes("controle de poço"))                    category = "Loss of Well Control";
-
-    // Severity normalisation
-    let severity = "SSO"; // system-safety-only (no gravity label)
-    if (grav === "MINOR")    severity = "Minor";
-    else if (grav === "MODERATE") severity = "Moderate";
-    else if (grav === "SEVERE")    severity = "Severe";
-    else if (grav)          severity = grav;
-
-    return { numero, tipo, rawTipo, category, severity,
-             gravidade: grav, evento: evt, year, month };
-  }).filter(Boolean);
-}
-
-
-
-function parseGenericContracts(filename) {
-  const csvPath = locate("api/data/" + filename);
-  if (!csvPath) return [];
-  const csvContent = fs.readFileSync(csvPath, "utf8");
-  const lines = csvContent.split("\n").filter(Boolean);
-  return lines.slice(1).map(line => {
-    const parts = line.split(";");
-    return {
-      numero: parts[3]?.trim() || "—",
-      obj:    parts[9]?.trim() || "No description provided",
-      proc:   parts[6]?.trim() || "PUBLIC",
-      inicio: parts[11]?.trim() || "?",
-      fim:    parts[12]?.trim() || "?",
-      value:  parts[13]?.trim() || "—",
-    };
-  });
-}
-
-function parseHalContracts() {
-  const csvPath = locate("api/data/hal-contracts-pbr.csv");
-  if (!csvPath) {
-    console.error("HAL contracts CSV not found");
-    return [];
-  }
-  const csvContent = fs.readFileSync(csvPath, "utf8");
-  const lines = csvContent.split("\n").filter(Boolean);
-  return lines.slice(1).map(line => {
-    const parts = line.split(";");
-    return {
-      numero: parts[3]?.trim() || "—",
-      obj:    parts[9]?.trim() || "No description provided",
-      proc:   parts[6]?.trim() || "LICITAÇÃO",
-      inicio: parts[11]?.trim() || "?",
-      fim:    parts[12]?.trim() || "?",
-      value:  parts[13]?.trim() || "—",
-    };
-  });
-}
-
-// API: Get complete Halliburton incidents from CSV (enriched)
 app.get("/api/hal-incidents", async (req, res) => {
   try {
     const year     = req.query.year     || "";
@@ -196,59 +96,78 @@ app.get("/api/hal-incidents", async (req, res) => {
     const page     = Math.max(1, parseInt(req.query.page)  || 1);
     const limit    = Math.min(500, parseInt(req.query.limit) || 50);
 
-    let data = parseHalIncidents();
-    // Sort by date descending relying on the sequence numbers YYMM/...
-    data.sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
+    const db    = await getDb();
+    const filter = {};
+    if (year)     filter.year     = parseInt(year);
+    if (category) filter.category = category;
+    if (severity) filter.severity = severity;
+    if (q)        filter.$or = [
+      { numero: { $regex: q, $options: 'i' } },
+      { tipo:   { $regex: q, $options: 'i' } },
+    ];
 
-    if (q) {
-      data = data.filter(r => 
-        r.numero.toLowerCase().includes(q) || 
-        r.tipo.toLowerCase().includes(q)
-      );
-    }
-    if (year)     data = data.filter(r => r.year === parseInt(year));
-    if (category) data = data.filter(r => r.category === category);
-    if (severity) data = data.filter(r => r.severity === severity);
+    const total = await db.collection('hal_incidents').countDocuments(filter);
+    const items = await db.collection('hal_incidents')
+      .find(filter, { projection: { _id: 0 } })
+      .sort({ numero: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .toArray();
 
-    const total = data.length;
-    const items = data.slice((page - 1) * limit, page * limit);
     res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
   } catch(e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-
 app.get("/api/hal-stats", async (req, res) => {
   try {
-    const records = parseHalIncidents();
+    const db      = await getDb();
+    const records = await db.collection('hal_incidents').find({}, { projection: { _id: 0 } }).toArray();
     const catCount = {}, sevCount = {}, years = new Set();
     records.forEach(r => {
-        catCount[r.category] = (catCount[r.category] || 0) + 1;
-        sevCount[r.severity] = (sevCount[r.severity] || 0) + 1;
-        if (r.year) years.add(r.year);
+      catCount[r.category] = (catCount[r.category] || 0) + 1;
+      sevCount[r.severity] = (sevCount[r.severity] || 0) + 1;
+      if (r.year) years.add(r.year);
     });
     res.json({
       total: records.length,
       categoryBreakdown: catCount,
       severityBreakdown: sevCount,
-      uniqueYears: Array.from(years).sort()
+      uniqueYears: Array.from(years).sort(),
     });
   } catch(e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// API: HAL contracts from CSV
-
-app.get("/api/mexico-contracts", async (req, res) => { res.json({ items: parseGenericContracts("mex_contracts.csv") }); });
-app.get("/api/argentina-contracts", async (req, res) => { res.json({ items: parseGenericContracts("arg_contracts.csv") }); });
-
-
+// HAL contracts (Brazil / Petrobras)
 app.get("/api/hal-contracts", async (req, res) => {
   try {
-    const items = parseHalContracts();
+    const db    = await getDb();
+    const items = await db.collection('hal_contracts').find({}, { projection: { _id: 0 } }).toArray();
     res.json({ total: items.length, items });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Regional contracts
+app.get("/api/mexico-contracts", async (req, res) => {
+  try {
+    const db    = await getDb();
+    const items = await db.collection('mex_contracts').find({}, { projection: { _id: 0 } }).toArray();
+    res.json({ items });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get("/api/argentina-contracts", async (req, res) => {
+  try {
+    const db    = await getDb();
+    const items = await db.collection('arg_contracts').find({}, { projection: { _id: 0 } }).toArray();
+    res.json({ items });
   } catch(e) {
     res.status(500).json({ error: e.message });
   }

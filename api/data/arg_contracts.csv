@@ -1,66 +1,66 @@
 idx;ano;mes;numero;uf;modalidade;proc;tipo;empresa;obj;valor;inicio;fim;value
-0;2023;01;ARG-2023-6595;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de complet - High Criticality Service;0;01/01/2023;31/12/2026;$ 373,000,000.00 ARS
-1;2025;01;ARG-2025-0804;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de ciment - High Criticality Service;0;01/01/2025;31/12/2028;$ 406,000,000.00 ARS
-2;2023;01;ARG-2023-1150;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para mpd - High Criticality Service;0;01/01/2023;31/12/2026;$ 73,000,000.00 ARS
-3;2023;01;ARG-2023-1420;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para ciment - High Criticality Service;0;01/01/2023;31/12/2026;$ 325,000,000.00 ARS
-4;2025;01;ARG-2025-6570;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Provisión de servicios de fluidos - High Criticality Service;0;01/01/2025;31/12/2028;$ 283,000,000.00 ARS
-5;2020;01;ARG-2020-4972;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Ejecución de trabajos de complet - High Criticality Service;0;01/01/2020;31/12/2023;$ 255,000,000.00 ARS
-6;2022;01;ARG-2022-3152;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Ejecución de trabajos de complet - High Criticality Service;0;01/01/2022;31/12/2025;$ 399,000,000.00 ARS
-7;2025;01;ARG-2025-8107;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2025;31/12/2028;$ 159,000,000.00 ARS
-8;2024;01;ARG-2024-1565;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para ciment - High Criticality Service;0;01/01/2024;31/12/2027;$ 182,000,000.00 ARS
-9;2026;01;ARG-2026-6554;XX;LIC;PUBLIC;SERVICE;TECPETROL;Servicios integrales de ciment - High Criticality Service;0;01/01/2026;31/12/2029;$ 207,000,000.00 ARS
-10;2026;01;ARG-2026-9047;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Servicios integrales de constru - High Criticality Service;0;01/01/2026;31/12/2029;$ 74,000,000.00 ARS
-11;2021;01;ARG-2021-2232;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de mpd - High Criticality Service;0;01/01/2021;31/12/2024;$ 420,000,000.00 ARS
-12;2021;01;ARG-2021-5577;XX;LIC;PUBLIC;SERVICE;TECPETROL;Ejecución de trabajos de constru - High Criticality Service;0;01/01/2021;31/12/2024;$ 102,000,000.00 ARS
-13;2022;01;ARG-2022-5035;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2022;31/12/2025;$ 437,000,000.00 ARS
-14;2021;01;ARG-2021-8824;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de ciment - High Criticality Service;0;01/01/2021;31/12/2024;$ 375,000,000.00 ARS
-15;2025;01;ARG-2025-9514;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para estimul - High Criticality Service;0;01/01/2025;31/12/2028;$ 441,000,000.00 ARS
-16;2023;01;ARG-2023-0807;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de constru - High Criticality Service;0;01/01/2023;31/12/2026;$ 268,000,000.00 ARS
-17;2022;01;ARG-2022-6561;XX;LIC;PUBLIC;SERVICE;TECPETROL;Ejecución de trabajos de complet - High Criticality Service;0;01/01/2022;31/12/2025;$ 117,000,000.00 ARS
-18;2026;01;ARG-2026-1632;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Provisión de servicios de constru - High Criticality Service;0;01/01/2026;31/12/2029;$ 433,000,000.00 ARS
-19;2025;01;ARG-2025-5403;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2025;31/12/2028;$ 250,000,000.00 ARS
-20;2020;01;ARG-2020-4752;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Suministro de materiales para complet - High Criticality Service;0;01/01/2020;31/12/2023;$ 102,000,000.00 ARS
-21;2026;01;ARG-2026-6081;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para constru - High Criticality Service;0;01/01/2026;31/12/2029;$ 258,000,000.00 ARS
-22;2020;01;ARG-2020-0271;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2020;31/12/2023;$ 428,000,000.00 ARS
-23;2024;01;ARG-2024-0720;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para estimul - High Criticality Service;0;01/01/2024;31/12/2027;$ 73,000,000.00 ARS
-24;2026;01;ARG-2026-2558;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2026;31/12/2029;$ 386,000,000.00 ARS
-25;2021;01;ARG-2021-3039;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para estimul - High Criticality Service;0;01/01/2021;31/12/2024;$ 440,000,000.00 ARS
-26;2020;01;ARG-2020-9582;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de estimul - High Criticality Service;0;01/01/2020;31/12/2023;$ 77,000,000.00 ARS
-27;2023;01;ARG-2023-1145;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Servicios integrales de estimul - High Criticality Service;0;01/01/2023;31/12/2026;$ 280,000,000.00 ARS
-28;2022;01;ARG-2022-6906;XX;LIC;PUBLIC;SERVICE;TECPETROL;Servicios integrales de complet - High Criticality Service;0;01/01/2022;31/12/2025;$ 396,000,000.00 ARS
-29;2023;01;ARG-2023-7213;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Suministro de materiales para complet - High Criticality Service;0;01/01/2023;31/12/2026;$ 214,000,000.00 ARS
-30;2025;01;ARG-2025-7211;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Provisión de servicios de mpd - High Criticality Service;0;01/01/2025;31/12/2028;$ 188,000,000.00 ARS
-31;2021;01;ARG-2021-2087;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2021;31/12/2024;$ 200,000,000.00 ARS
-32;2025;01;ARG-2025-4127;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de estimul - High Criticality Service;0;01/01/2025;31/12/2028;$ 258,000,000.00 ARS
-33;2024;01;ARG-2024-3129;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para workover - High Criticality Service;0;01/01/2024;31/12/2027;$ 235,000,000.00 ARS
-34;2020;01;ARG-2020-9973;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2020;31/12/2023;$ 184,000,000.00 ARS
-35;2024;01;ARG-2024-8592;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para estimul - High Criticality Service;0;01/01/2024;31/12/2027;$ 322,000,000.00 ARS
-36;2022;01;ARG-2022-8974;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Servicios integrales de constru - High Criticality Service;0;01/01/2022;31/12/2025;$ 392,000,000.00 ARS
-37;2023;01;ARG-2023-8341;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2023;31/12/2026;$ 129,000,000.00 ARS
-38;2024;01;ARG-2024-1863;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Servicios integrales de ciment - High Criticality Service;0;01/01/2024;31/12/2027;$ 63,000,000.00 ARS
-39;2024;01;ARG-2024-8352;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2024;31/12/2027;$ 108,000,000.00 ARS
-40;2024;01;ARG-2024-4199;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2024;31/12/2027;$ 308,000,000.00 ARS
-41;2024;01;ARG-2024-4521;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2024;31/12/2027;$ 438,000,000.00 ARS
-42;2023;01;ARG-2023-3508;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de ciment - High Criticality Service;0;01/01/2023;31/12/2026;$ 271,000,000.00 ARS
-43;2026;01;ARG-2026-1163;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Provisión de servicios de ciment - High Criticality Service;0;01/01/2026;31/12/2029;$ 364,000,000.00 ARS
-44;2024;01;ARG-2024-2929;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de fluidos - High Criticality Service;0;01/01/2024;31/12/2027;$ 440,000,000.00 ARS
-45;2022;01;ARG-2022-2494;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para workover - High Criticality Service;0;01/01/2022;31/12/2025;$ 319,000,000.00 ARS
-46;2021;01;ARG-2021-6062;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Servicios integrales de mpd - High Criticality Service;0;01/01/2021;31/12/2024;$ 223,000,000.00 ARS
-47;2026;01;ARG-2026-3198;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de fluidos - High Criticality Service;0;01/01/2026;31/12/2029;$ 247,000,000.00 ARS
-48;2026;01;ARG-2026-1554;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de constru - High Criticality Service;0;01/01/2026;31/12/2029;$ 200,000,000.00 ARS
-49;2020;01;ARG-2020-0490;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para constru - High Criticality Service;0;01/01/2020;31/12/2023;$ 427,000,000.00 ARS
-50;2026;01;ARG-2026-9776;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2026;31/12/2029;$ 285,000,000.00 ARS
-51;2026;01;ARG-2026-3936;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para geol - High Criticality Service;0;01/01/2026;31/12/2029;$ 334,000,000.00 ARS
-52;2025;01;ARG-2025-8009;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Ejecución de trabajos de mpd - High Criticality Service;0;01/01/2025;31/12/2028;$ 323,000,000.00 ARS
-53;2020;01;ARG-2020-6270;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de geol - High Criticality Service;0;01/01/2020;31/12/2023;$ 176,000,000.00 ARS
-54;2026;01;ARG-2026-8496;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Provisión de servicios de estimul - High Criticality Service;0;01/01/2026;31/12/2029;$ 289,000,000.00 ARS
-55;2022;01;ARG-2022-4599;XX;LIC;PUBLIC;SERVICE;TECPETROL;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2022;31/12/2025;$ 327,000,000.00 ARS
-56;2022;01;ARG-2022-0611;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2022;31/12/2025;$ 425,000,000.00 ARS
-57;2021;01;ARG-2021-5869;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para geol - High Criticality Service;0;01/01/2021;31/12/2024;$ 347,000,000.00 ARS
-58;2020;01;ARG-2020-7821;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para constru - High Criticality Service;0;01/01/2020;31/12/2023;$ 183,000,000.00 ARS
-59;2023;01;ARG-2023-5941;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2023;31/12/2026;$ 52,000,000.00 ARS
-60;2022;01;ARG-2022-3822;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de mpd - High Criticality Service;0;01/01/2022;31/12/2025;$ 273,000,000.00 ARS
-61;2025;01;ARG-2025-0489;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para mpd - High Criticality Service;0;01/01/2025;31/12/2028;$ 180,000,000.00 ARS
-62;2023;01;ARG-2023-6467;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Servicios integrales de mpd - High Criticality Service;0;01/01/2023;31/12/2026;$ 279,000,000.00 ARS
-63;2020;01;ARG-2020-8121;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Suministro de materiales para constru - High Criticality Service;0;01/01/2020;31/12/2023;$ 273,000,000.00 ARS
-64;2024;01;ARG-2024-4146;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2024;31/12/2027;$ 151,000,000.00 ARS
+0;2023;01;ARG-2023-6595;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de complet - High Criticality Service;0;01/01/2023;31/12/2026;US$ 414,444
+1;2025;01;ARG-2025-0804;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de ciment - High Criticality Service;0;01/01/2025;31/12/2028;US$ 451,111
+2;2023;01;ARG-2023-1150;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para mpd - High Criticality Service;0;01/01/2023;31/12/2026;US$ 81,111
+3;2023;01;ARG-2023-1420;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para ciment - High Criticality Service;0;01/01/2023;31/12/2026;US$ 361,111
+4;2025;01;ARG-2025-6570;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Provisión de servicios de fluidos - High Criticality Service;0;01/01/2025;31/12/2028;US$ 314,444
+5;2020;01;ARG-2020-4972;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Ejecución de trabajos de complet - High Criticality Service;0;01/01/2020;31/12/2023;US$ 283,333
+6;2022;01;ARG-2022-3152;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Ejecución de trabajos de complet - High Criticality Service;0;01/01/2022;31/12/2025;US$ 443,333
+7;2025;01;ARG-2025-8107;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2025;31/12/2028;US$ 176,667
+8;2024;01;ARG-2024-1565;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para ciment - High Criticality Service;0;01/01/2024;31/12/2027;US$ 202,222
+9;2026;01;ARG-2026-6554;XX;LIC;PUBLIC;SERVICE;TECPETROL;Servicios integrales de ciment - High Criticality Service;0;01/01/2026;31/12/2029;US$ 230,000
+10;2026;01;ARG-2026-9047;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Servicios integrales de constru - High Criticality Service;0;01/01/2026;31/12/2029;US$ 82,222
+11;2021;01;ARG-2021-2232;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de mpd - High Criticality Service;0;01/01/2021;31/12/2024;US$ 466,667
+12;2021;01;ARG-2021-5577;XX;LIC;PUBLIC;SERVICE;TECPETROL;Ejecución de trabajos de constru - High Criticality Service;0;01/01/2021;31/12/2024;US$ 113,333
+13;2022;01;ARG-2022-5035;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2022;31/12/2025;US$ 485,556
+14;2021;01;ARG-2021-8824;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de ciment - High Criticality Service;0;01/01/2021;31/12/2024;US$ 416,667
+15;2025;01;ARG-2025-9514;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para estimul - High Criticality Service;0;01/01/2025;31/12/2028;US$ 490,000
+16;2023;01;ARG-2023-0807;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de constru - High Criticality Service;0;01/01/2023;31/12/2026;US$ 297,778
+17;2022;01;ARG-2022-6561;XX;LIC;PUBLIC;SERVICE;TECPETROL;Ejecución de trabajos de complet - High Criticality Service;0;01/01/2022;31/12/2025;US$ 130,000
+18;2026;01;ARG-2026-1632;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Provisión de servicios de constru - High Criticality Service;0;01/01/2026;31/12/2029;US$ 481,111
+19;2025;01;ARG-2025-5403;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2025;31/12/2028;US$ 277,778
+20;2020;01;ARG-2020-4752;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Suministro de materiales para complet - High Criticality Service;0;01/01/2020;31/12/2023;US$ 113,333
+21;2026;01;ARG-2026-6081;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para constru - High Criticality Service;0;01/01/2026;31/12/2029;US$ 286,667
+22;2020;01;ARG-2020-0271;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2020;31/12/2023;US$ 475,556
+23;2024;01;ARG-2024-0720;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para estimul - High Criticality Service;0;01/01/2024;31/12/2027;US$ 81,111
+24;2026;01;ARG-2026-2558;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2026;31/12/2029;US$ 428,889
+25;2021;01;ARG-2021-3039;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para estimul - High Criticality Service;0;01/01/2021;31/12/2024;US$ 488,889
+26;2020;01;ARG-2020-9582;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de estimul - High Criticality Service;0;01/01/2020;31/12/2023;US$ 85,556
+27;2023;01;ARG-2023-1145;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Servicios integrales de estimul - High Criticality Service;0;01/01/2023;31/12/2026;US$ 311,111
+28;2022;01;ARG-2022-6906;XX;LIC;PUBLIC;SERVICE;TECPETROL;Servicios integrales de complet - High Criticality Service;0;01/01/2022;31/12/2025;US$ 440,000
+29;2023;01;ARG-2023-7213;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Suministro de materiales para complet - High Criticality Service;0;01/01/2023;31/12/2026;US$ 237,778
+30;2025;01;ARG-2025-7211;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Provisión de servicios de mpd - High Criticality Service;0;01/01/2025;31/12/2028;US$ 208,889
+31;2021;01;ARG-2021-2087;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2021;31/12/2024;US$ 222,222
+32;2025;01;ARG-2025-4127;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de estimul - High Criticality Service;0;01/01/2025;31/12/2028;US$ 286,667
+33;2024;01;ARG-2024-3129;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para workover - High Criticality Service;0;01/01/2024;31/12/2027;US$ 261,111
+34;2020;01;ARG-2020-9973;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2020;31/12/2023;US$ 204,444
+35;2024;01;ARG-2024-8592;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para estimul - High Criticality Service;0;01/01/2024;31/12/2027;US$ 357,778
+36;2022;01;ARG-2022-8974;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Servicios integrales de constru - High Criticality Service;0;01/01/2022;31/12/2025;US$ 435,556
+37;2023;01;ARG-2023-8341;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2023;31/12/2026;US$ 143,333
+38;2024;01;ARG-2024-1863;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Servicios integrales de ciment - High Criticality Service;0;01/01/2024;31/12/2027;US$ 70,000
+39;2024;01;ARG-2024-8352;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2024;31/12/2027;US$ 120,000
+40;2024;01;ARG-2024-4199;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2024;31/12/2027;US$ 342,222
+41;2024;01;ARG-2024-4521;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para fluidos - High Criticality Service;0;01/01/2024;31/12/2027;US$ 486,667
+42;2023;01;ARG-2023-3508;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de ciment - High Criticality Service;0;01/01/2023;31/12/2026;US$ 301,111
+43;2026;01;ARG-2026-1163;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Provisión de servicios de ciment - High Criticality Service;0;01/01/2026;31/12/2029;US$ 404,444
+44;2024;01;ARG-2024-2929;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de fluidos - High Criticality Service;0;01/01/2024;31/12/2027;US$ 488,889
+45;2022;01;ARG-2022-2494;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Suministro de materiales para workover - High Criticality Service;0;01/01/2022;31/12/2025;US$ 354,444
+46;2021;01;ARG-2021-6062;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Servicios integrales de mpd - High Criticality Service;0;01/01/2021;31/12/2024;US$ 247,778
+47;2026;01;ARG-2026-3198;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de fluidos - High Criticality Service;0;01/01/2026;31/12/2029;US$ 274,444
+48;2026;01;ARG-2026-1554;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de constru - High Criticality Service;0;01/01/2026;31/12/2029;US$ 222,222
+49;2020;01;ARG-2020-0490;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para constru - High Criticality Service;0;01/01/2020;31/12/2023;US$ 474,444
+50;2026;01;ARG-2026-9776;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2026;31/12/2029;US$ 316,667
+51;2026;01;ARG-2026-3936;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para geol - High Criticality Service;0;01/01/2026;31/12/2029;US$ 371,111
+52;2025;01;ARG-2025-8009;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Ejecución de trabajos de mpd - High Criticality Service;0;01/01/2025;31/12/2028;US$ 358,889
+53;2020;01;ARG-2020-6270;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Servicios integrales de geol - High Criticality Service;0;01/01/2020;31/12/2023;US$ 195,556
+54;2026;01;ARG-2026-8496;XX;LIC;PUBLIC;SERVICE;PLUSPETROL;Provisión de servicios de estimul - High Criticality Service;0;01/01/2026;31/12/2029;US$ 321,111
+55;2022;01;ARG-2022-4599;XX;LIC;PUBLIC;SERVICE;TECPETROL;Ejecución de trabajos de workover - High Criticality Service;0;01/01/2022;31/12/2025;US$ 363,333
+56;2022;01;ARG-2022-0611;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2022;31/12/2025;US$ 472,222
+57;2021;01;ARG-2021-5869;XX;LIC;PUBLIC;SERVICE;TECPETROL;Suministro de materiales para geol - High Criticality Service;0;01/01/2021;31/12/2024;US$ 385,556
+58;2020;01;ARG-2020-7821;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Suministro de materiales para constru - High Criticality Service;0;01/01/2020;31/12/2023;US$ 203,333
+59;2023;01;ARG-2023-5941;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2023;31/12/2026;US$ 57,778
+60;2022;01;ARG-2022-3822;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Provisión de servicios de mpd - High Criticality Service;0;01/01/2022;31/12/2025;US$ 303,333
+61;2025;01;ARG-2025-0489;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Suministro de materiales para mpd - High Criticality Service;0;01/01/2025;31/12/2028;US$ 200,000
+62;2023;01;ARG-2023-6467;XX;LIC;PUBLIC;SERVICE;PAN AMERICAN ENERGY;Servicios integrales de mpd - High Criticality Service;0;01/01/2023;31/12/2026;US$ 310,000
+63;2020;01;ARG-2020-8121;XX;LIC;PUBLIC;SERVICE;HALLIBURTON ARGENTINA;Suministro de materiales para constru - High Criticality Service;0;01/01/2020;31/12/2023;US$ 303,333
+64;2024;01;ARG-2024-4146;XX;LIC;PUBLIC;SERVICE;YPF S.A.;Ejecución de trabajos de geol - High Criticality Service;0;01/01/2024;31/12/2027;US$ 167,778
