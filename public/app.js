@@ -95,7 +95,7 @@ const extLink = (href, label, cls = "") =>
 let chartInstances = {};
 let halStats = null;
 let tableState = { page: 1, total: 0, pages: 0, items: [] };
-let activeFilters = { year: "", category: "", severity: "" };
+let activeFilters = { year: "2026", category: "", severity: "" };
 let mexicoStore = []; // Dynamic Mexico metrics
 let argStore = [];    // Dynamic Argentina metrics
 
@@ -715,7 +715,7 @@ function switchSection(section, skipHistory = false) {
 
   // Toggle global lock-mode for restricted sections
   const globalOverlay = document.getElementById('globalLockOverlay');
-  if (section === 'fullreport' || section === 'latam-summary' || section === 'mexico-registry') {
+  if (section === 'fullreport' || section === 'latam-summary') {
     document.body.classList.add('lock-mode');
     if (globalOverlay) {
       globalOverlay.style.setProperty('display', 'flex', 'important');
@@ -1291,14 +1291,14 @@ function processIncomingContracts(rawItems) {
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("cimentação")) domain = "Cementing";
-    else if (obj.includes("estimulação") || obj.includes("flexitubo")) domain = "Stimulation";
+    if (obj.includes("ciment")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("flexitubo")) domain = "Stimulation";
     else if (obj.includes("fluidos")) domain = "Fluids";
-    else if (obj.includes("completação") || obj.includes("dhsv")) domain = "Completion";
+    else if (obj.includes("complet") || obj.includes("dhsv")) domain = "Completion";
     else if (obj.includes("mpd") || obj.includes("pressure drilling")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("intervenção")) domain = "Workover";
-    else if (obj.includes("construção")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geológica")) domain = "G&G Software";
+    else if (obj.includes("workover") || obj.includes("interven")) domain = "Workover";
+    else if (obj.includes("constru")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
 
     // Re-calculating period and validation metadata for the inference
     return {
