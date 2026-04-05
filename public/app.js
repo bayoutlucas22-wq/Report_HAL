@@ -98,9 +98,12 @@ const extLink = (href, label, cls = "") =>
 let chartInstances = {};
 let halStats = null;
 let tableState = { page: 1, total: 0, pages: 0, items: [] };
-let activeFilters = { year: "2026", category: "", severity: "" };
+let activeFilters = { year: "", category: "", severity: "" };
 let mexicoStore = []; // Dynamic Mexico metrics
 let argStore = [];    // Dynamic Argentina metrics
+let fMexStore = [];    // Filtered Mexico wells/jobs
+let mexRegPage = 1;
+let mexRegLimit = 20;
 
 
 // ── Destroy chart helper ──────────────────────────────────────────────────────
@@ -648,11 +651,16 @@ function renderTable(data) {
   tbody.innerHTML = data.items.map(r => {
     return `
     <tr>
-      <td class="num-cell" style="font-family:monospace;font-weight:700;color:var(--text)">
-        ${r.numero || "—"}
-        <button class="copy-btn" onclick="copyToClipboard('${r.numero || ""}', this)" title="Copy reference">⎘</button>
+      <td class="num-cell" style="white-space:nowrap;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:3px 8px;font-family:monospace;font-size:11px;font-weight:800;color:#1d4ed8;letter-spacing:0.02em;">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            ${r.numero || "—"}
+          </span>
+          <button class="copy-btn" onclick="copyToClipboard('${r.numero || ""}', this)" title="Copy reference">⎘</button>
+        </div>
       </td>
-      <td class="year-cell">${r.year || "—"}</td>
+
       <td>
         <span class="badge-cat ${CAT_CSS[r.category] || "bc-other"}" style="font-size:10px;font-weight:600;">
           ${(r.category || "Other").replace(" (Primary Barrier)", "")}
@@ -850,8 +858,10 @@ async function init() {
 
     if (mexData && mexData.details && mexData.details.length) {
       mexicoStore = mexData.details;
-      // You can add logic to populate the renderMexicoTables from mexicoStore here
+      fMexStore = [...mexicoStore]; // Initial set
       renderMexicoTables();
+      renderMexDynamicStats(mexData.summary);
+      goMexPage(1);
     }
 
   } catch (err) {
@@ -1303,6 +1313,23 @@ let ALL_CONTRACTS = [];
 let filteredContracts = [];
 
 
+// ── Currency conversion rates (USD → local) ───────────────────────────────────
+// Rates as of April 5, 2026
+const FX_RATES = {
+  BRZ: { rate: 5.85,   symbol: 'R$',  label: 'Brazilian Real (BRL)',  date: 'Apr 5, 2026' },
+  ARG: { rate: 1098.5, symbol: 'ARS', label: 'Argentine Peso (ARS)', date: 'Apr 5, 2026' },
+  MEX: { rate: 20.15,  symbol: 'MX$', label: 'Mexican Peso (MXN)',   date: 'Apr 5, 2026' },
+};
+
+function convertContractValue(usdStr, country) {
+  const fx = FX_RATES[country];
+  if (!fx) return usdStr;
+  const num = parseFloat((usdStr || '').replace(/[^0-9.]/g, ''));
+  if (isNaN(num)) return usdStr;
+  const converted = Math.round(num * fx.rate);
+  return `${fx.symbol} ${converted.toLocaleString('en-US')}`;
+}
+
 let mexicoContracts = [];
 let argentinaContracts = [];
 let norwayContracts = [];
@@ -1324,11 +1351,20 @@ function processRegionalContracts(rawItems) {
     else if (obj.includes("constru") || obj.includes("execution")) domain = "Well Construction";
     else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
 
+    const numero = c.numero || "—";
+    let country = null;
+    if (numero.startsWith('ARG-')) country = 'ARG';
+    else if (numero.startsWith('MEX-')) country = 'MEX';
+
+    const rawValue = c.value || "—";
+    const displayValue = country ? convertContractValue(rawValue, country) : rawValue;
+
     return {
-      numero: c.numero || "—",
-      domain: domain,
+      numero,
+      domain,
       obj: c.obj || "No description provided",
-      value: c.value || "—",
+      value: displayValue,
+      country,
       csbLink: getCSBLink(domain)
     };
   });
@@ -1367,6 +1403,24 @@ function renderRegionalTable(prefix, page, data) {
         <span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${page} of ${pages}</span>
         <button onclick="change${prefix}Page(${page+1})" ${page===pages?'disabled':''} class="pg-btn">Next</button>
       `;
+  }
+
+  // Currency conversion footnote for ARG and MEX tables
+  const fxNote = document.getElementById(prefix + "ContractFxNote");
+  if (fxNote) {
+    const country = data[0]?.country;
+    const fx = country ? FX_RATES[country] : null;
+    if (fx) {
+      fxNote.innerHTML = `
+        <span style="font-size:11px;color:#64748b;">
+          ⓘ Contract values displayed in <strong>${fx.label}</strong>.
+          Conversion rate: <strong>1 USD = ${fx.rate.toLocaleString('en-US')} ${fx.symbol}</strong>
+          &nbsp;·&nbsp; Rate as of <strong>${fx.date}</strong>
+        </span>`;
+      fxNote.style.display = 'block';
+    } else {
+      fxNote.style.display = 'none';
+    }
   }
 }
 
@@ -1422,11 +1476,14 @@ function processIncomingContracts(rawItems) {
     else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
 
     // Re-calculating period and validation metadata for the inference
+    const rawBrzValue = c.value || "—";
+    const brzValue = convertContractValue(rawBrzValue, 'BRZ');
     return {
       numero: c.numero || "—",
       domain: domain,
       obj: c.obj || "No description provided",
-      value: c.value || "—",
+      value: brzValue,
+      country: 'BRZ',
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
@@ -1814,53 +1871,86 @@ function renderArgRegistryTable(data) {
   if (countEl) countEl.innerHTML = `${data.length} records`;
 }
 
-window.filterMexRegistry = function() {
-  const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
-  const basin = (document.getElementById('mexBasinFilter')?.value || '').toLowerCase();
-  const tier = (document.getElementById('mexTierFilter')?.value || '').toUpperCase();
+function renderMexDynamicStats(summary) {
+  const totJobs = document.getElementById('mexMetricTotalJobs');
+  const totOps = document.getElementById('mexMetricTotalOps');
+  const totBasins = document.getElementById('mexMetricTotalBasins');
   
-  const filtered = MEX_OPERATORS.filter(o => {
-    const matchQ = !q || o.op.toLowerCase().includes(q) || o.basin.toLowerCase().includes(q);
-    const matchBasin = !basin || o.basin.toLowerCase() === basin;
-    const matchTier = !tier || o.tier === tier;
-    return matchQ && matchBasin && matchTier;
+  if (summary && summary.operators) {
+    const opsCount = Object.keys(summary.operators).length;
+    if (totOps) totOps.textContent = opsCount;
+    if (totJobs) {
+      const total = Object.values(summary.operators).reduce((a, b) => a + b, 0);
+      totJobs.textContent = total.toLocaleString();
+    }
+    // Count unique basins in mexicoStore
+    const basins = new Set(mexicoStore.map(m => (m.cuenca || '').toUpperCase()).filter(Boolean));
+    if (totBasins) totBasins.textContent = basins.size;
+  }
+}
+
+window.goMexPage = function(p) {
+  mexRegPage = p;
+  const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
+  const basin = (document.getElementById('mexBasinFilter')?.value || '').toUpperCase();
+  
+  fMexStore = mexicoStore.filter(r => {
+    const matchQ = !q || [r.id_pozo, r.operador, r.cuenca, r.formacion].join(' ').toLowerCase().includes(q);
+    const matchBasin = !basin || (r.cuenca || '').toUpperCase() === basin;
+    return matchQ && matchBasin;
   });
   
-  renderMexRegistryTable(filtered);
+  renderMexRegistryTable(fMexStore);
 };
 
 function renderMexRegistryTable(data) {
   const tbody = document.getElementById('mexRegBody');
   const countEl = document.getElementById('mexTableCount');
+  const paginationEl = document.getElementById('mexRegPagination');
   if (!tbody) return;
+
+  if (countEl) countEl.innerHTML = `${data.length.toLocaleString()} records`;
 
   if (!data.length) {
     tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#8896ab;padding:24px">No records match the current filter</td></tr>`;
-    if (countEl) countEl.innerHTML = '0 records';
+    if (paginationEl) paginationEl.innerHTML = "";
     return;
   }
 
-  tbody.innerHTML = data.map(r => {
-    const ts = TIER_STYLES[r.tier] || TIER_STYLES.LOW;
-    const badge = `<span style="font-size:10px;font-weight:700;background:${ts.bg};color:${ts.color};border:1px solid ${ts.border};padding:2px 7px;border-radius:20px;">${r.tier}</span>`;
+  const start = (mexRegPage - 1) * mexRegLimit;
+  const slice = data.slice(start, start + mexRegLimit);
+  const totalPages = Math.ceil(data.length / mexRegLimit);
+
+  tbody.innerHTML = slice.map(r => {
     return `<tr>
-      <td style="font-weight:600;font-size:12px;color:var(--text);">${r.op}</td>
-      <td style="font-size:12px;color:var(--text2);">${r.basin}</td>
-      <td style="font-size:12px;font-weight:600;">${r.jobs.toLocaleString()}</td>
-      <td style="font-size:12px;">${r.stages.toLocaleString()}</td>
-      <td style="font-size:12px;">${r.psi.toLocaleString()}</td>
-      <td>${badge}</td>
-      <td style="font-size:11px;color:var(--text3);">NOM-115 / CNH</td>
+      <td style="font-family:monospace;font-weight:700;color:var(--blue);font-size:11px;">${r.id_pozo || '—'}</td>
+      <td style="font-weight:600;font-size:11px;color:var(--text);">${r.operador || '—'}</td>
+      <td style="font-size:11px;color:var(--text2);">${r.cuenca || '—'}</td>
+      <td style="font-size:11px;font-weight:600;">${r.etapas_fractura || '0'}</td>
+      <td style="font-size:11px;">${(parseInt(r.presion_max_psi)||0).toLocaleString()}</td>
+      <td style="font-size:11px;">${(parseInt(r.longitud_lateral_m)||0).toLocaleString()}</td>
     </tr>`;
   }).join('');
 
-  if (countEl) countEl.innerHTML = `${data.length} records`;
+  // Pagination
+  if (paginationEl) {
+    if (totalPages <= 1) {
+      paginationEl.innerHTML = "";
+    } else {
+      paginationEl.innerHTML = `
+        <button onclick="goMexPage(${mexRegPage-1})" ${mexRegPage===1?'disabled':''} class="pg-btn">Prev</button>
+        <span style="font-size:12px;font-weight:600;color:#64748b;margin:0 10px;">Page ${mexRegPage} of ${totalPages}</span>
+        <button onclick="goMexPage(${mexRegPage+1})" ${mexRegPage===totalPages?'disabled':''} class="pg-btn">Next</button>
+      `;
+    }
+  }
 }
 
 // Ensure the tables map their data on init
+// Ensure the tables map their data on init
 document.addEventListener('DOMContentLoaded', () => {
   renderArgRegistryTable(ARG_OPERATORS);
-  renderMexRegistryTable(MEX_OPERATORS);
+  // renderMexRegistryTable(MEX_OPERATORS); // Now handled by goMexPage(1) in init()
 });
 // ── Penalty Analytics Charts ──────────────────────────────────────────────────
 function renderPenaltyCharts() {
