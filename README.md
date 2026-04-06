@@ -3,7 +3,7 @@
 ## Overview
 The **HAL Tejas Incident Intelligence Dashboard** is a web-based compliance analysis application tailored for operational intelligence and incident review. It tracks, parses, and visualizes compliance and security incident data stemming from regional databases—specifically focusing on Brazil (ANP data), Mexico (Perforation & Production data), and broader Halliburton incident histories.
 
-The primary purpose of the application is to empower safety engineers, auditors, and stakeholders to investigate operational anomalies (such as Critical Safety Barrier (CSB) failures, BOP closures, and Kicks), measure compliance against rigorous regulations (e.g., ANP Resolutions, Bureau Veritas, MTE norms), and export findings into formal, audit-ready Document (DOCX) reports.
+The primary purpose of the application is to empower safety engineers, auditors, and stakeholders to investigate operational anomalies (such as Critical Safety Barrier (CSB) failures, BOP closures, and Kicks), measure compliance against rigorous regulations (e.g., ANP Resolutions, classification society standards, MTE norms), and export findings into formal, audit-ready Document (DOCX) reports.
 
 ## Project Architecture & Tech Stack
 
