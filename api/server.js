@@ -110,12 +110,14 @@ app.get("/api/hal-incidents", async (req, res) => {
     if (category) filter.category = category;
     if (severity) filter.severity = severity;
     if (q)        filter.$or = [
-      { numero: { $regex: q, $options: 'i' } },
-      { tipo:   { $regex: q, $options: 'i' } },
+      { numero:    { $regex: q, $options: 'i' } },
+      { empresa:   { $regex: q, $options: 'i' } },
+      { instalacao:{ $regex: q, $options: 'i' } },
+      { descricao: { $regex: q, $options: 'i' } },
     ];
 
-    const total = await db.collection('hal_incidents').countDocuments(filter);
-    const items = await db.collection('hal_incidents')
+    const total = await db.collection('anp_records').countDocuments(filter);
+    const items = await db.collection('anp_records')
       .find(filter, { projection: { _id: 0 } })
       .sort({ numero: -1 })
       .skip((page - 1) * limit)
