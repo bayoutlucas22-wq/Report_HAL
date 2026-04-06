@@ -199,12 +199,13 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 .btn-download:hover { background: var(--bg3); color: var(--text); }
 
 /* ── Main Content ─────────────────────────────────────────────────────── */
-.main-content { 
-  flex: 1; 
-  display: flex; 
-  flex-direction: column; 
-  min-width: 0; 
-  height: 100%;
+.main-content {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100dvh;
   overflow: hidden;
 }
 
@@ -252,16 +253,17 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
 
 .page-content {
-  flex: 1; 
-  overflow-y: auto; 
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 24px;
   background: var(--bg);
-  display: flex; flex-direction: column; gap: 14px;
 }
 
 /* ── Sections ─────────────────────────────────────────────────────────── */
 .dash-section { display: none; flex-direction: column; gap: 14px; }
-.dash-section.active { display: flex; }
+.dash-section.active { display: flex; flex-direction: column; gap: 14px; min-height: min-content; }
 
 .section-header { margin-bottom: 2px; }
 .section-header h2 { font-size: 18px; font-weight: 700; color: var(--text); }
