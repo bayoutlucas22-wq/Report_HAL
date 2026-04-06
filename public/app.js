@@ -1,4 +1,4 @@
-/* ── app.js — HAL/Tejas ANP Incident Dashboard ── */
+/* ── app.js — Halliburton ANP Incident Dashboard ── */
 'use strict';
 
 // ── Official source URLs ─────────────────────────────────────────────────────
@@ -170,6 +170,11 @@ window.copyToClipboard = function (text, btn) {
     btn.classList.add("copied");
     setTimeout(() => { btn.textContent = orig; btn.classList.remove("copied"); }, 1400);
   });
+};
+
+window.toggleDesc = function(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === 'none' ? 'table-row' : 'none';
 };
 
 // ── KPI Cards (with linked badges) ───────────────────────────────────────────
@@ -643,24 +648,33 @@ function renderTable(data) {
 
   const tbody = document.getElementById("tableBody");
   if (!data.items.length) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">No incidents match current filters</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:#8896ab;padding:24px">No incidents match current filters</td></tr>`;
     renderPagination();
     return;
   }
 
-  tbody.innerHTML = data.items.map(r => {
+  const escAttr = s => (s || "").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  tbody.innerHTML = data.items.map((r, i) => {
+    const rowId = `inc-desc-${i}`;
+    const hasDesc = r.descricao && r.descricao.trim();
+    const injCount = parseInt(r.feridos) || 0;
+    const fatCount = parseInt(r.fatalidades) || 0;
+    const situacao = r.situacao || "—";
+    const sitColor = situacao === "Fechada" ? "#16a34a" : situacao === "Aberta" ? "#c0392b" : "#8896ab";
     return `
-    <tr>
+    <tr style="cursor:${hasDesc ? 'pointer' : 'default'}" onclick="${hasDesc ? `toggleDesc('${rowId}')` : ''}">
       <td class="num-cell" style="white-space:nowrap;">
         <div style="display:flex;align-items:center;gap:6px;">
           <span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:3px 8px;font-family:monospace;font-size:11px;font-weight:800;color:#1d4ed8;letter-spacing:0.02em;">
             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             ${r.numero || "—"}
           </span>
-          <button class="copy-btn" onclick="copyToClipboard('${r.numero || ""}', this)" title="Copy reference">⎘</button>
+          <button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('${escAttr(r.numero)}', this)" title="Copy reference">⎘</button>
         </div>
       </td>
-
+      <td style="font-size:11px;color:var(--text2);white-space:nowrap;">${r.data || "—"}</td>
+      <td style="font-size:11px;font-weight:600;color:var(--text);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${escAttr(r.empresa)}">${r.empresa || "—"}</td>
+      <td style="font-size:11px;color:var(--text2);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${escAttr(r.instalacao)}">${r.instalacao || "—"}</td>
       <td>
         <span class="badge-cat ${CAT_CSS[r.category] || "bc-other"}" style="font-size:10px;font-weight:600;">
           ${(r.category || "Other").replace(" (Primary Barrier)", "")}
@@ -671,12 +685,16 @@ function renderTable(data) {
           ${r.severity || "SSO"}
         </span>
       </td>
-      <td style="font-size:11px; color:var(--text3);">${r.evento || "—"}</td>
-      <td style="font-size:11px; color:var(--text2); max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" 
-          title="${r.tipo || ""}">
-        ${(r.tipo || "").replace(/^SSO - /, "")}
+      <td style="text-align:center;font-size:12px;font-weight:700;color:${injCount > 0 ? '#c0392b' : '#8896ab'};">${injCount > 0 ? injCount : '—'}</td>
+      <td style="text-align:center;font-size:12px;font-weight:700;color:${fatCount > 0 ? '#7f1d1d' : '#8896ab'};">${fatCount > 0 ? fatCount : '—'}</td>
+      <td style="font-size:11px;font-weight:700;color:${sitColor};">${situacao}</td>
+    </tr>
+    ${hasDesc ? `<tr id="${rowId}" style="display:none;background:#f8fafc;">
+      <td colspan="9" style="padding:12px 20px;font-size:12px;color:var(--text2);line-height:1.6;border-top:none;">
+        <strong style="color:var(--text);display:block;margin-bottom:4px;">ANP Description:</strong>
+        ${escAttr(r.descricao)}
       </td>
-    </tr>`;
+    </tr>` : ''}`;
   }).join("");
 
   renderPagination();

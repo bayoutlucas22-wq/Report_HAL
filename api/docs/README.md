@@ -81,3 +81,12 @@ All hardcoded specimen incidents have been surgically removed in favor of 100% d
 
 ---
 **Prepared by CIS (Compliance Intelligence System) Data Analysis Team.**
+
+---
+
+## 🔧 Compliance Actions Required
+
+### Implement API/Scraping Checks
+
+- Integrate data pulls from `sih.hidrocarburos.gob.mx` for production stats.
+- Adapt procurement validation to check `compras.gob.mx` instead of `comprar.gob.ar`.
