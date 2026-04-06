@@ -18,6 +18,11 @@
       window.location.href = '/';
     }
   </script>
+  <style>
+    .seg-btn { padding:5px 13px; border-radius:20px; border:1px solid #e2e8f0; background:#f8fafc; font-size:11px; font-weight:600; cursor:pointer; color:#475569; transition:all .15s; }
+    .seg-btn:hover { border-color:#94a3b8; background:#f1f5f9; }
+    .seg-btn-active { background:#1d4ed8 !important; color:#fff !important; border-color:#1d4ed8 !important; }
+  </style>
 </head>
 
 <body>
@@ -229,7 +234,7 @@
             </button>
             <p
               style="margin-top: 20px; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
-              Bureau Veritas · Regulatory Affairs</p>
+              Classification Society · Regulatory Affairs</p>
           </div>
         </div>
 
@@ -240,14 +245,14 @@
           <!-- Report Header -->
           <div class="cs-header">
             <div class="cs-header-left">
-              <div class="cs-badge">BV · ANP · SGIP</div>
+              <div class="cs-badge">CS · ANP · SGIP</div>
               <h2>CSB Failure Incident Report</h2>
-              <p class="cs-subtitle">Bureau Veritas Compliance Framework &amp; ANP Well Integrity Incident Analysis</p>
+              <p class="cs-subtitle">Classification Society Compliance Framework &amp; ANP Well Integrity Incident Analysis</p>
             </div>
             <div class="cs-meta">
               <div class="cs-meta-item"><span>Operation</span>Halliburton &amp; Tejas — Brazil</div>
               <div class="cs-meta-item"><span>Jurisdiction</span>ANP — National Petroleum Agency</div>
-              <div class="cs-meta-item"><span>Classification Society</span>Bureau Veritas (BV)</div>
+              <div class="cs-meta-item"><span>Classification Society</span>Applicable CS Standards</div>
               <div class="cs-meta-item"><span>Data Cut-off</span>March 26, 2026</div>
               <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 32,240 records</div>
             </div>
@@ -268,7 +273,7 @@
                 data from official Brazilian government sources.</p>
               <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>32,240 registered
                   incidents from 2013 to December 2026</strong>, published under Brazil's Freedom of Information Law
-                (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable
+                (Lei nº 12.527/2011) — cross-referenced with classification society rules and applicable
                 Brazilian regulatory instruments.</p>
 
               <div class="cs-findings">
@@ -532,7 +537,6 @@
           <div class="panel cs-panel">
             <div class="panel-header" style="justify-content: space-between; align-items: center;">
               <div>
-                <div class="cs-section-num">04</div>
                 <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
                 <div class="panel-subtitle">Contracts from ANP &amp; Petrobras open data with highest direct
                   intersection with ANP CSB failure categories</div>
@@ -601,7 +605,7 @@
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">05</div>
-                <div class="panel-title">Applicable BV Standards &amp; Brazilian Regulations</div>
+                <div class="panel-title">Applicable Classification Standards &amp; Brazilian Regulations</div>
                 <div class="panel-subtitle">Each standard mapped to its scope and direct relevance to HAL/Tejas
                   operations</div>
               </div>
@@ -695,7 +699,7 @@
                       management</div>
                   </div>
                   <div class="cs-source-group">
-                    <div class="cs-source-head">Bureau Veritas</div>
+                    <div class="cs-source-head">Classification Society Standards</div>
                     <div class="cs-source-item"><span class="cs-src-tag">NR 445</span>Classification of Offshore Units —
                       structural, machinery &amp; safety systems</div>
                     <div class="cs-source-item"><span class="cs-src-tag">NR 459</span>Process Systems — completion and
@@ -1111,7 +1115,7 @@
               <label class="ai-item" data-pillar="1">
                 <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
                 <div class="ai-item-body">
-                  <div class="ai-item-title">Cross-reference Bureau Veritas NR standards to each service line</div>
+                  <div class="ai-item-title">Cross-reference classification society NR standards to each service line</div>
                   <div class="ai-item-desc">Link BV NR 445 (offshore classification), NR 459 (process systems), and NR
                     493 (mooring) to specific HAL well services and Tejas completion equipment used on classified
                     installations.</div>
@@ -2242,8 +2246,8 @@
                   No. 46/2016 (SGIP)</a>, <a href="https://atosoficiais.com.br/anp" target="_blank" rel="noopener"
                   class="cs-link">ANP Resolution No. 43/2007 (SGSO)</a>, <a
                   href="https://marine-offshore.bureauveritas.com/" target="_blank" rel="noopener"
-                  class="cs-link">Bureau Veritas NR 445</a>, and <a href="https://marine-offshore.bureauveritas.com/"
-                  target="_blank" rel="noopener" class="cs-link">BV NR 459</a>. All incident data is published under <a
+                  class="cs-link">Classification Society NR 445</a>, and <a href="https://marine-offshore.bureauveritas.com/"
+                  target="_blank" rel="noopener" class="cs-link">Classification Society NR 459</a>. All incident data is published under <a
                   href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank"
                   rel="noopener" class="cs-link">Lei nº 12.527/2011 (Freedom of Information Law)</a>.</p>
             </div>
@@ -2669,54 +2673,6 @@
             </div>
           </div>
 
-          <!-- ── CONTRACT-MINORL EVIDENCE TABLE ── -->
-          <div class="panel cs-panel" style="margin-top:14px;">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num">04</div>
-                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
-                <div class="panel-subtitle">Contracts from ANP & Petrobras open data with highest direct intersection
-                  with
-                  ANP CSB failure categories</div>
-              </div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <input type="text" id="contractSearch" class="search-input" placeholder="Search contract / service…"
-                  style="width:200px;" oninput="filterContractTable()">
-                <select id="contractDomainFilter" class="search-input" style="width:160px;"
-                  onchange="filterContractTable()">
-                  <option value="">All Domains</option>
-                  <option value="Cementing">Cementing</option>
-                  <option value="Completion">Completion / DHSV</option>
-                  <option value="Stimulation">Stimulation</option>
-                  <option value="Fluids">Fluid Services</option>
-                  <option value="MPD">MPD</option>
-                  <option value="Well Construction">Well Construction</option>
-                  <option value="Workover">Workover</option>
-                  <option value="G&G Software">G&G Software</option>
-                </select>
-              </div>
-            </div>
-            <div style="overflow-x:auto;">
-              <table class="data-table" id="contractEvidenceTable">
-                <thead>
-                  <tr>
-                    <th>Contract #</th>
-                    <th>Service Domain</th>
-                    <th>Object (Excerpt)</th>
-                    <th>Value</th>
-                    <th>CSB Link</th>
-                  </tr>
-                </thead>
-                <tbody id="contractEvidenceBody"></tbody>
-              </table>
-            </div>
-            <div class="pagination" id="contractPagination"></div>
-            <div style="padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;font-size:11px;color:#64748b;">
-              ⓘ Contract values displayed in <strong>Brazilian Real (BRL)</strong>.
-              Conversion rate: <strong>1 USD = 5.85 R$</strong> &nbsp;·&nbsp; Rate as of <strong>Apr 5, 2026</strong>
-            </div>
-          </div>
-
           <!-- ── INFERENCE VALIDATION SUMMARY ── -->
           <div class="panel cs-panel"
             style="margin-top:14px;background:linear-gradient(135deg,rgba(139,92,246,0.07) 0%,rgba(192,57,43,0.07) 100%);border-left:4px solid #8b5cf6;">
@@ -2822,6 +2778,52 @@
               </div>
             </div>
           </div>
+
+          <!-- ── CONTRACT-MINORL EVIDENCE TABLE ── -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from ANP & Petrobras open data with highest direct intersection
+                  with
+                  ANP CSB failure categories</div>
+              </div>
+              <input type="text" id="contractSearch" class="search-input" placeholder="Search contract…"
+                  style="width:200px;" oninput="filterContractTable()">
+            </div>
+            <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="seg-btn brz-seg-btn seg-btn-active" onclick="setBrzDomain('',this)">All</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('cementing',this)">Cementing</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('completion',this)">Completion</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('stimulation',this)">Stimulation</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('fluids',this)">Fluids</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('mpd',this)">MPD</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('well construction',this)">Well Construction</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('workover',this)">Workover</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('g&g',this)">G&amp;G</button>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="contractEvidenceTable">
+                <thead>
+                  <tr>
+                    <th>Contract #</th>
+                    <th>Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th>Period</th>
+                    <th>Value</th>
+                    <th>CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="contractEvidenceBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="contractPagination"></div>
+            <div style="padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;font-size:11px;color:#64748b;">
+              ⓘ Contract values displayed in <strong>Brazilian Real (BRL)</strong>.
+              Conversion rate: <strong>1 USD = 5.85 R$</strong> &nbsp;·&nbsp; Rate as of <strong>Apr 5, 2026</strong>
+            </div>
+          </div>
+
         </section>
 
         <!-- ── FORMAL REPORT SECTION ── -->
@@ -3318,38 +3320,36 @@
           <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
             <div class="panel-header">
               <div>
-                <div class="cs-section-num">C</div>
                 <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
                 <div class="panel-subtitle">Contracts from YPF / Secretaria de Energia open data with highest direct intersection with CSB failure categories</div>
               </div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <input type="text" id="argentinaContractSearch" class="search-input" placeholder="Search contract / service…" style="width:200px;" oninput="filterargentinaContracts()">
-                <select id="argentinaContractDomainFilter" class="search-input" style="width:160px;" onchange="filterargentinaContracts()">
-                  <option value="">All Domains</option>
-                  <option value="Cementing">Cementing</option>
-                  <option value="Completion">Completion / DHSV</option>
-                  <option value="Stimulation">Stimulation</option>
-                  <option value="Fluids">Fluid Services</option>
-                  <option value="MPD">MPD</option>
-                  <option value="Well Construction">Well Construction</option>
-                  <option value="Workover">Workover</option>
-                  <option value="G&G Software">G&G Software</option>
-                </select>
-              </div>
+              <input type="text" id="argentinaContractSearch" class="search-input" placeholder="Search contract…" style="width:200px;" oninput="filterargentinaContracts()">
+            </div>
+            <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="seg-btn arg-seg-btn seg-btn-active" onclick="setArgDomain('',this)">All</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('cementing',this)">Cementing</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('completion',this)">Completion</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('stimulation',this)">Stimulation</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('fluids',this)">Fluids</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('mpd',this)">MPD</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('well construction',this)">Well Construction</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('workover',this)">Workover</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('g&g',this)">G&amp;G</button>
             </div>
             <div style="overflow-x:auto;">
               <table class="cs-table" style="table-layout:fixed;">
                 <thead>
                   <tr>
                     <th style="width:100px;">Contract #</th>
-                    <th style="width:140px;">Service Domain</th>
+                    <th style="width:130px;">Service Domain</th>
                     <th>Object (Excerpt)</th>
-                    <th style="width:120px;">Value</th>
-                    <th style="width:140px;">CSB Link</th>
+                    <th style="width:90px;">Period</th>
+                    <th style="width:110px;">Value</th>
+                    <th style="width:130px;">CSB Link</th>
                   </tr>
                 </thead>
                 <tbody id="argentinaContractEvidenceBody">
-                  <tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
+                  <tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
                 </tbody>
               </table>
             </div>
@@ -3943,6 +3943,41 @@
               </div>
             </div>
           </div>
+
+            <!-- §06 Traceability Map — Argentina -->
+            <div class="panel cs-panel" style="margin-top:14px;">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">06</div>
+                  <div class="panel-title">Open Data — Traceability Map</div>
+                  <div class="panel-subtitle">All findings traceable to official Argentine open-access sources</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="cs-sources">
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">SESCO — Secretaría de Energía</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Adjunto IV</span>Fracking job registry — 3,642 records (2015–2026) — <a href="https://datos.energia.gob.ar" target="_blank" class="cs-link">datos.energia.gob.ar</a></div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Pozos Terminados</span>Completed well counts by operator and basin — SESCO annual series</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Producción</span>Basin-level production data — Neuquina, Golfo San Jorge, Austral</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">Regulatory Framework</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. SE 317/2021</span>Hydraulic fracturing operations — mandatory safety management for all frac jobs</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. SE 25/2004</span>Cementing &amp; well construction operations — primary barrier obligations</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Ley Neuquén 3004</span>Provincial environmental and operational safety — Vaca Muerta fracking zone</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. SRT 559/2009</span>Directional drilling &amp; MWD-LWD occupational safety</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">Procurement &amp; International Cross-References</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">COMPR.AR</span>Public procurement portal — HAL Argentina contracts with YPF, Tecpetrol confirmed — <a href="https://comprar.gob.ar" target="_blank" class="cs-link">comprar.gob.ar</a></div>
+                    <div class="cs-source-item"><span class="cs-src-tag">BSEE (US)</span>Offshore Incident Statistics — global precedent for analogous barrier failure modes</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">HSE UK</span>Hydrocarbon Release Database — international benchmark for well control events</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section><!-- /section-argentina-crossanalysis -->
 
 
@@ -4329,48 +4364,6 @@
 
         <!-- ── MEX CROSS-ANALYSIS ── -->
         <section id="section-mexico-crossanalysis" class="dash-section">
-          <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num">C</div>
-                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
-                <div class="panel-subtitle">Contracts from Pemex / CNH open data with highest direct intersection with CSB failure categories</div>
-              </div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <input type="text" id="mexicoContractSearch" class="search-input" placeholder="Search contract / service…" style="width:200px;" oninput="filtermexicoContracts()">
-                <select id="mexicoContractDomainFilter" class="search-input" style="width:160px;" onchange="filtermexicoContracts()">
-                  <option value="">All Domains</option>
-                  <option value="Cementing">Cementing</option>
-                  <option value="Completion">Completion / DHSV</option>
-                  <option value="Stimulation">Stimulation</option>
-                  <option value="Fluids">Fluid Services</option>
-                  <option value="MPD">MPD</option>
-                  <option value="Well Construction">Well Construction</option>
-                  <option value="Workover">Workover</option>
-                  <option value="G&G Software">G&G Software</option>
-                </select>
-              </div>
-            </div>
-            <div style="overflow-x:auto;">
-              <table class="cs-table" style="table-layout:fixed;">
-                <thead>
-                  <tr>
-                    <th style="width:100px;">Contract #</th>
-                    <th style="width:140px;">Service Domain</th>
-                    <th>Object (Excerpt)</th>
-                    <th style="width:120px;">Value</th>
-                    <th style="width:140px;">CSB Link</th>
-                  </tr>
-                </thead>
-                <tbody id="mexicoContractEvidenceBody">
-                  <tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div style="display:flex;justify-content:center;padding:16px;gap:8px" id="mexicoContractPagination"></div>
-            <div id="mexicoContractFxNote" style="display:none;padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;border-radius:0 0 10px 10px;"></div>
-          </div>
-          <!-- Consolidation of Mexico Cross-Analysis components follows -->
           <div class="cs-header"
             style="background:linear-gradient(135deg,#0c1a0e 0%,#14532d 60%,#166534 100%);padding:40px 30px;">
             <div class="cs-header-left">
@@ -4492,6 +4485,48 @@
               </div>
             </div>
           </div>
+          <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from Pemex / CNH open data with highest direct intersection with CSB failure categories</div>
+              </div>
+              <input type="text" id="mexicoContractSearch" class="search-input" placeholder="Search contract…" style="width:200px;" oninput="filtermexicoContracts()">
+            </div>
+            <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="seg-btn mex-seg-btn seg-btn-active" onclick="setMexDomain('',this)">All</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('cementing',this)">Cementing</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('completion',this)">Completion</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('stimulation',this)">Stimulation</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('fluids',this)">Fluids</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('mpd',this)">MPD</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('well construction',this)">Well Construction</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('workover',this)">Workover</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('g&g',this)">G&amp;G</button>
+            </div>
+            <div style="display:none">
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="cs-table" style="table-layout:fixed;">
+                <thead>
+                  <tr>
+                    <th style="width:100px;">Contract #</th>
+                    <th style="width:130px;">Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th style="width:90px;">Period</th>
+                    <th style="width:110px;">Value</th>
+                    <th style="width:130px;">CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="mexicoContractEvidenceBody">
+                  <tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:center;padding:16px;gap:8px" id="mexicoContractPagination"></div>
+            <div id="mexicoContractFxNote" style="display:none;padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;border-radius:0 0 10px 10px;"></div>
+          </div>
+
         </section><!-- /section-mexico-crossanalysis -->
 
         <section id="section-mexico" class="dash-section">

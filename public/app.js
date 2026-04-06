@@ -1338,6 +1338,8 @@ let fArgentinaContracts = [];
 let fNorwayContracts = [];
 let mexCPage=1, argCPage=1, norCPage=1;
 let activeMexDomain = '';
+let activeArgDomain = '';
+let activeBrzDomain = '';
 
 function processRegionalContracts(rawItems) {
   return rawItems.map(c => {
@@ -1389,16 +1391,20 @@ function renderRegionalTable(prefix, page, data) {
   const slice = data.slice(start, start + PAGE_SIZE);
 
   if (!slice.length) {
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
     return;
   }
 
   tbody.innerHTML = slice.map(c => {
     const domLabel = DOMAIN_MAP[c.domain] || c.domain;
+    const yr1 = c.inicio ? c.inicio.split('/')[2] : '?';
+    const yr2 = c.fim    ? c.fim.split('/')[2]    : '?';
+    const period = yr1 === yr2 ? yr1 : `${yr1}–${yr2}`;
     return `<tr>
       <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
+      <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
       <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
@@ -1437,11 +1443,13 @@ function renderRegionalTable(prefix, page, data) {
 
 window.filtermexicoContracts = function() {
     const q = (document.getElementById('mexicoContractSearch')?.value||'').toLowerCase();
-    const domain = (document.getElementById('mexicoContractDomainFilter')?.value||'').toLowerCase();
-    fMexicoContracts = mexicoContracts.filter(c => {
-        const dText = (c.domain||'').toLowerCase();
-        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
-    });
+    const domain = activeMexDomain.toLowerCase();
+    fMexicoContracts = mexicoContracts
+        .filter(c => {
+            const dText = (c.domain||'').toLowerCase();
+            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+        })
+        .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
     mexCPage = 1;
     renderRegionalTable('mexico', mexCPage, fMexicoContracts);
 };
@@ -1449,11 +1457,13 @@ window.changemexicoPage = function(p) { mexCPage=p; renderRegionalTable('mexico'
 
 window.filterargentinaContracts = function() {
     const q = (document.getElementById('argentinaContractSearch')?.value||'').toLowerCase();
-    const domain = (document.getElementById('argentinaContractDomainFilter')?.value||'').toLowerCase();
-    fArgentinaContracts = argentinaContracts.filter(c => {
-        const dText = (c.domain||'').toLowerCase();
-        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
-    });
+    const domain = activeArgDomain.toLowerCase();
+    fArgentinaContracts = argentinaContracts
+        .filter(c => {
+            const dText = (c.domain||'').toLowerCase();
+            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+        })
+        .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
     argCPage = 1;
     renderRegionalTable('argentina', argCPage, fArgentinaContracts);
 };
@@ -1470,6 +1480,25 @@ window.filternorwayContracts = function() {
     renderRegionalTable('norway', norCPage, fNorwayContracts);
 };
 window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
+
+window.setMexDomain = function(domain, el) {
+  activeMexDomain = activeMexDomain === domain ? '' : domain;
+  document.querySelectorAll('.mex-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (activeMexDomain && el) el.classList.add('seg-btn-active');
+  window.filtermexicoContracts();
+};
+window.setArgDomain = function(domain, el) {
+  activeArgDomain = activeArgDomain === domain ? '' : domain;
+  document.querySelectorAll('.arg-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (activeArgDomain && el) el.classList.add('seg-btn-active');
+  window.filterargentinaContracts();
+};
+window.setBrzDomain = function(domain, el) {
+  activeBrzDomain = activeBrzDomain === domain ? '' : domain;
+  document.querySelectorAll('.brz-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (activeBrzDomain && el) el.classList.add('seg-btn-active');
+  filterContractTable();
+};
 
 function processIncomingContracts(rawItems) {
   console.log("PROCESSING: Raw items received", rawItems?.length);
@@ -1574,17 +1603,20 @@ function renderContractTable(data) {
   const slice = data.slice(start, start + CONTRACT_PAGE_SIZE);
 
   if (!slice.length) {
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
     return;
   }
 
   tbody.innerHTML = slice.map(c => {
-    const procColor = PROC_COLORS[c.proc] || '#6b7280';
     const domLabel = DOMAIN_MAP[c.domain] || c.domain;
+    const yr1 = c.periodo ? c.periodo.split('–')[0] : '?';
+    const yr2 = c.periodo ? c.periodo.split('–')[1] : '?';
+    const period = yr1 === yr2 ? yr1 : `${yr1}–${yr2}`;
     return `<tr>
       <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
+      <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
       <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
@@ -1614,12 +1646,14 @@ window.contractGoPage = function (p) {
 
 window.filterContractTable = function () {
   const q = (document.getElementById('contractSearch')?.value || '').toLowerCase();
-  const domain = (document.getElementById('contractDomainFilter')?.value || '').toLowerCase();
-  filteredContracts = ALL_CONTRACTS.filter(c => {
-    const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
-    const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
-    return matchDomain && matchQ;
-  });
+  const domain = activeBrzDomain.toLowerCase();
+  filteredContracts = ALL_CONTRACTS
+    .filter(c => {
+      const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
+      const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
+      return matchDomain && matchQ;
+    })
+    .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
   contractPage = 1;
   renderContractTable(filteredContracts);
 };
