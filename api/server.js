@@ -37,8 +37,14 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Explicit page routes come FIRST — before static middleware
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "..", "public", "index.html")));
-app.get("/dashboard", (req, res) => res.sendFile(path.join(__dirname, "..", "public", "dashboard.html")));
+app.get("/", (req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+});
+app.get("/dashboard", (req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.sendFile(path.join(__dirname, "..", "public", "dashboard.html"));
+});
 
 // Static assets (CSS, JS, images) — index:false prevents auto-serving index.html
 app.use(express.static(path.join(__dirname, "..", "public"), { index: false }));

@@ -748,6 +748,10 @@ function switchSection(section, skipHistory = false) {
     setTimeout(renderPenaltyCharts, 200);
   }
 
+  // Reset scroll position to top on section switch
+  const pageContent = document.querySelector('.page-content');
+  if (pageContent) pageContent.scrollTop = 0;
+
   closeMobileSidebar();
 }
 

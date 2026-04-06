@@ -212,8 +212,8 @@ Halliburton's five active service domains in Brazil are cross-referenced against
 | Resolução ANP nº 46/2016 (SGIP) | Well integrity management — mandatory for all E&P licensees and service companies operating barrier elements | https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip |
 | Resolução ANP nº 43/2007 (SGSO) | Operational safety management for drilling and production | https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso |
 | Resolução ANP nº 41/2015 | Subsea systems safety management | https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos |
-| Bureau Veritas NR 445 | Classification of offshore units — structural, machinery & safety systems | https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units |
-| Bureau Veritas NR 459 | Process systems on offshore units — completion and well control | https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations |
+| Classification Society NR 445 | Classification of offshore units — structural, machinery & safety systems | https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units |
+| Classification Society NR 459 | Process systems on offshore units — completion and well control | https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations |
 | NR-37 (MTE) | Health & safety on offshore platforms — all personnel | https://www.gov.br/trabalho-e-emprego |
 | NORMAM-01/DPC | Maritime safety — vessels and crew supporting operations | https://www.marinha.mil.br/dpc/normam |
 | Lei nº 12.527/2011 | Freedom of Information — legal basis for all ANP open data used | https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm |
@@ -241,7 +241,7 @@ Objetivo da Intervenção (operation type per well)
 Compliance Liability Under:
   → ANP Res. 46/2016 (SGIP)   — well integrity / barrier system responsibility
   → ANP Res. 43/2007 (SGSO)   — operational safety
-  → Bureau Veritas NR 445/459 — offshore unit classification
+  → Classification Society NR 445/459 — offshore unit classification
   → Lei 12.527/2011            — open data basis (publicly verifiable)
 ```
 

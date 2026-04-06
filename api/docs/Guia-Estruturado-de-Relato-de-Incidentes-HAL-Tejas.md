@@ -4,7 +4,7 @@ Este documento estabelece a estrutura de conformidade regulatória e operacional
 
 ## 1. Resumo Executivo
 
-A análise baseia-se no banco de dados SISO-Incidentes da Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP), que contém 30.054 incidentes registrados entre 2013 e 2026 [1]. Estes dados são publicados sob a Lei de Acesso à Informação do Brasil (Lei nº 12.527/2011). Os dados foram cruzados com as regras de classificação do Bureau Veritas e os instrumentos regulatórios brasileiros aplicáveis.
+A análise baseia-se no banco de dados SISO-Incidentes da Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP), que contém 30.054 incidentes registrados entre 2013 e 2026 [1]. Estes dados são publicados sob a Lei de Acesso à Informação do Brasil (Lei nº 12.527/2011). Os dados foram cruzados com as regras de sociedades classificadoras e os instrumentos regulatórios brasileiros aplicáveis.
 
 ### Principais Descobertas
 
@@ -86,7 +86,7 @@ Todas as descobertas neste relatório são rastreáveis até as seguintes fontes
 *   **Resolução ANP nº 43/2007 (SGSO):** Sistema de Gerenciamento da Segurança Operacional para perfuração e produção [4].
 *   **Resolução ANP nº 41/2015:** Gestão de segurança de sistemas submarinos [5].
 
-### 6.2 Bureau Veritas
+### 6.2 Normas de Sociedades Classificadoras
 *   **NR 445 — Classificação de Unidades Offshore:** Rege sistemas estruturais, de maquinário e de segurança em todas as unidades classificadas pelo BV [3].
 *   **NR 459 — Sistemas de Processo em Unidades Offshore:** Aplica-se a sistemas de completação e controle de poço [6].
 *   **NR 493 — Sistemas de Ancoragem:** Aplicável a unidades flutuantes [7].
@@ -105,7 +105,7 @@ Todas as descobertas neste relatório são rastreáveis até as seguintes fontes
 
 O texto a seguir pode ser usado literalmente em submissões regulatórias, respostas a auditorias ou avaliações de risco de projetos para justificar o conhecimento dos modos de falha:
 
-> "Os modos de falha identificados nesta análise estão documentados no banco de dados público de incidentes de E&P da ANP (SISO-Incidentes, 30.054 registros, 2013–2026 — disponível em dados.gov.br/organization/anp sob a Lei de Acesso à Informação, Lei nº 12.527/2011). As falhas de elementos de barreira CSB aumentaram de 1 incidente em 2016 para 391 em 2025, representando a categoria dominante de risco de integridade de poços na E&P brasileira. Como a Halliburton e a Tejas operam como empresas de serviços em instalações licenciadas para operadores da ANP, seus equipamentos e serviços se enquadram nos sistemas de barreira capturados por essas estatísticas, tornando a conformidade com a Resolução ANP nº 46/2016 (SGIP) e a norma Bureau Veritas NR 445 direta e obrigatoriamente aplicável."
+> "Os modos de falha identificados nesta análise estão documentados no banco de dados público de incidentes de E&P da ANP (SISO-Incidentes, 30.054 registros, 2013–2026 — disponível em dados.gov.br/organization/anp sob a Lei de Acesso à Informação, Lei nº 12.527/2011). As falhas de elementos de barreira CSB aumentaram de 1 incidente em 2016 para 391 em 2025, representando a categoria dominante de risco de integridade de poços na E&P brasileira. Como a Halliburton e a Tejas operam como empresas de serviços em instalações licenciadas para operadores da ANP, seus equipamentos e serviços se enquadram nos sistemas de barreira capturados por essas estatísticas, tornando a conformidade com a Resolução ANP nº 46/2016 (SGIP) e a norma NR 445 de sociedade classificadora direta e obrigatoriamente aplicável."
 
 ---
 
@@ -115,17 +115,17 @@ O texto a seguir pode ser usado literalmente em submissões regulatórias, respo
 
 [2] Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP). "Sistema de Gerenciamento da Integridade de Poços (SGIP) - Resolução ANP nº 46/2016". Disponível em: https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-integridade-de-pocos-sgip
 
-[3] Bureau Veritas. "NR445 Rules for the classification of offshore units". Disponível em: https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units
+[3] Classification Society. "NR445 Rules for the classification of offshore units". Disponível em: https://marine-offshore.bureauveritas.com/nr445-rules-classification-offshore-units
 
 [4] Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP). "Sistema de Gerenciamento da Segurança Operacional (SGSO) - Resolução ANP nº 43/2007". Disponível em: https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistema-de-gerenciamento-da-seguranca-operacional-sgso
 
 [5] Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP). "Resolução ANP nº 41/2015". Disponível em: https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/sistemas-submarinos
 
-[6] Bureau Veritas. "NR459 Process Systems Onboard Offshore Units and Installations". Disponível em: https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations
+[6] Classification Society. "NR459 Process Systems Onboard Offshore Units and Installations". Disponível em: https://marine-offshore.bureauveritas.com/nr459-process-systems-onboard-offshore-units-and-installations
 
-[7] Bureau Veritas. "NR493 Classification of Mooring Systems for Permanent and Mobile Offshore Units". Disponível em: https://marine-offshore.bureauveritas.com/rules-guidelines
+[7] Classification Society. "NR493 Classification of Mooring Systems for Permanent and Mobile Offshore Units". Disponível em: https://marine-offshore.bureauveritas.com/rules-guidelines
 
-[8] Bureau Veritas. "Independent Verification Body Services in Brazil (IVBS-BRA)". Disponível em: https://marine-offshore.bureauveritas.com/
+[8] Classification Society. "Independent Verification Body Services in Brazil (IVBS-BRA)". Disponível em: https://marine-offshore.bureauveritas.com/
 
 [9] Ministério do Trabalho e Emprego. "Norma Regulamentadora No. 37 (NR-37) - Segurança e Saúde em Plataformas de Petróleo". Disponível em: https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-37-atualizada-2022.pdf
 
