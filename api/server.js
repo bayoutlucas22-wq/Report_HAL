@@ -73,6 +73,8 @@ function formatSources(obj) {
   }));
 }
 
+app.get("/api/health", (req, res) => res.json({ status: "ok" }));
+
 // API: Get report data for frontend — all driven by live ANP CSV data
 app.get("/api/data", (req, res) => {
   if (!ANP_STATS) return res.status(503).json({ error: 'ANP data not loaded' });
