@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HAL / Tejas — ANP Incident Intelligence Dashboard</title>
   <meta name="description"
-    content="Case study analytics: Halliburton & Tejas failure mapping across 2,654 ANP incident records (2013–2026).">
+    content="Case study analytics: Halliburton & Tejas failure mapping across 3,053 ANP incident records (2013–2026).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -18,6 +18,11 @@
       window.location.href = '/';
     }
   </script>
+  <style>
+    .seg-btn { padding:5px 13px; border-radius:20px; border:1px solid #e2e8f0; background:#f8fafc; font-size:11px; font-weight:600; cursor:pointer; color:#475569; transition:all .15s; }
+    .seg-btn:hover { border-color:#94a3b8; background:#f1f5f9; }
+    .seg-btn-active { background:#1d4ed8 !important; color:#fff !important; border-color:#1d4ed8 !important; }
+  </style>
 </head>
 
 <body>
@@ -149,7 +154,7 @@
           HAL MEX
         </a>
 
-        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE MONITORING</div>
+        <div class="filter-label" style="font-size:10px; margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE MONITORING</div>
 
         <a href="#" class="nav-link" data-section="latam-summary" id="nav-latam-summary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -211,7 +216,7 @@
       <div class="page-content">
         <!-- Global Lock Overlay (shows on lock-mode) -->
         <div id="globalLockOverlay" class="lock-overlay"
-          style="display:none; position: fixed; inset: var(--sidebar-w) 0 0 var(--sidebar-w); z-index: 9999; backdrop-filter: blur(12px); background: rgba(15, 23, 42, 0.4);">
+          style="display:none; position: fixed; inset: 0 0 0 var(--sidebar-w); z-index: 9999; backdrop-filter: blur(12px); background: rgba(15, 23, 42, 0.4);">
           <div class="lock-card"
             style="box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.95);">
             <div class="lock-icon" style="font-size: 64px; animation: pulse 2s infinite;">🔐</div>
@@ -222,17 +227,14 @@
               style="font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 32px; max-width: 320px; margin-left: auto; margin-right: auto;">
               The analytical methodology and compliance verification reports are currently <strong>under audit
                 review</strong> and restricted to authenticated CIS partners.</p>
-            <div
-              style="padding: 16px; background: #f1f5f9; border-radius: 12px; font-family: monospace; font-size: 13px; color: #1e293b; font-weight: 700; margin-bottom: 24px; border: 1px dashed #cbd5e1;">
-              ERR: TOKEN_NOT_FOUND_FOR_CID
-            </div>
+
             <button class="btn-apply"
               style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); width: 100%; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 10px; color: white; border: none; cursor: pointer;">
               Authenticate to CIS Secure Portal
             </button>
             <p
               style="margin-top: 20px; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
-              Bureau Veritas · Regulatory Affairs</p>
+              Classification Society · Regulatory Affairs</p>
           </div>
         </div>
 
@@ -243,16 +245,16 @@
           <!-- Report Header -->
           <div class="cs-header">
             <div class="cs-header-left">
-              <div class="cs-badge">BV · ANP · SGIP</div>
+              <div class="cs-badge">CS · ANP · SGIP</div>
               <h2>CSB Failure Incident Report</h2>
-              <p class="cs-subtitle">Bureau Veritas Compliance Framework &amp; ANP Well Integrity Incident Analysis</p>
+              <p class="cs-subtitle">Classification Society Compliance Framework &amp; ANP Well Integrity Incident Analysis</p>
             </div>
             <div class="cs-meta">
               <div class="cs-meta-item"><span>Operation</span>Halliburton &amp; Tejas — Brazil</div>
               <div class="cs-meta-item"><span>Jurisdiction</span>ANP — National Petroleum Agency</div>
-              <div class="cs-meta-item"><span>Classification Society</span>Bureau Veritas (BV)</div>
+              <div class="cs-meta-item"><span>Classification Society</span>Applicable CS Standards</div>
               <div class="cs-meta-item"><span>Data Cut-off</span>March 26, 2026</div>
-              <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 30,054 records</div>
+              <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 32,240 records</div>
             </div>
           </div>
 
@@ -269,9 +271,9 @@
                 to <strong>Halliburton</strong> and <strong>Tejas</strong> operations in Brazil, and provides
                 evidence-based justification for identified risk exposure, grounded entirely in publicly available open
                 data from official Brazilian government sources.</p>
-              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>30,054 registered
-                  incidents from 2013 to March 26, 2026</strong>, published under Brazil's Freedom of Information Law
-                (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable
+              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>32,240 registered
+                  incidents from 2013 to December 2026</strong>, published under Brazil's Freedom of Information Law
+                (Lei nº 12.527/2011) — cross-referenced with classification society rules and applicable
                 Brazilian regulatory instruments.</p>
 
               <div class="cs-findings">
@@ -280,22 +282,22 @@
                   <div class="cs-finding">
                     <div class="cs-finding-accent"></div>
                     <div>
-                      <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 391
-                      in 2025 — constituting the dominant well integrity risk category in Brazilian E&amp;P. Incidents
+                      <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 520
+                      in 2026 — constituting the dominant well integrity risk category in Brazilian E&amp;P. Incidents
                       are not adjusted for historical market penetration of supplier equipment, such as valves.
                     </div>
                   </div>
                   <div class="cs-finding">
                     <div class="cs-finding-accent" style="background:var(--kick-color)"></div>
                     <div>
-                      <strong>193 primary barrier loss events (kicks)</strong> recorded between 2013 and 2026 on
+                      <strong>316 primary barrier loss events (kicks)</strong> recorded between 2013 and 2026 on
                       ANP-licensed installations.
                     </div>
                   </div>
                   <div class="cs-finding">
                     <div class="cs-finding-accent" style="background:var(--blue)"></div>
                     <div>
-                      <strong>2,291 critical well integrity incidents</strong> in total are documented in the open
+                      <strong>3,053 critical well integrity incidents</strong> in total are documented in the open
                       dataset.
                     </div>
                   </div>
@@ -318,25 +320,25 @@
               <div>
                 <div class="cs-section-num">02</div>
                 <div class="panel-title">ANP Incident Data — Key Metrics</div>
-                <div class="panel-subtitle">Derived from full ANP open dataset (30,054 cross-referenced records)</div>
+                <div class="panel-subtitle">Derived from full ANP open dataset (32,240 cross-referenced records)</div>
               </div>
             </div>
             <div class="panel-body">
               <div class="cs-metrics-grid">
                 <div class="cs-metric">
-                  <div class="cs-metric-val">30,054</div>
+                  <div class="cs-metric-val">32,240</div>
                   <div class="cs-metric-label">Total Incidents (SISO)</div>
                 </div>
                 <div class="cs-metric" style="--m-accent:var(--csb-color)">
-                  <div class="cs-metric-val" style="color:var(--csb-color)">2,884</div>
+                  <div class="cs-metric-val" style="color:var(--csb-color)">3,355</div>
                   <div class="cs-metric-label">CSB Failures (All)</div>
                 </div>
                 <div class="cs-metric" style="--m-accent:var(--kick-color)">
-                  <div class="cs-metric-val" style="color:var(--kick-color)">221</div>
+                  <div class="cs-metric-val" style="color:var(--kick-color)">316</div>
                   <div class="cs-metric-label">Registered Kicks</div>
                 </div>
                 <div class="cs-metric" style="--m-accent:var(--blue)">
-                  <div class="cs-metric-val" style="color:var(--blue)">91</div>
+                  <div class="cs-metric-val" style="color:var(--blue)">186</div>
                   <div class="cs-metric-label">Structural/Well Failures</div>
                 </div>
               </div>
@@ -362,6 +364,7 @@
                 <thead>
                   <tr>
                     <th>Year</th>
+                    <th>Ref ID</th>
                     <th>Well Integrity Total (CSB, Kick…)</th>
                     <th>Total ANP</th>
                     <th>% Share</th>
@@ -369,7 +372,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>2013</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2013</td>
+                    <td>REF-247</td>
                     <td>22</td>
                     <td>1,654</td>
                     <td>
@@ -379,7 +383,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2014</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2014</td>
+                    <td>REF-583</td>
                     <td>16</td>
                     <td>1,811</td>
                     <td>
@@ -389,7 +394,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2015</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2015</td>
+                    <td>REF-721</td>
                     <td>20</td>
                     <td>2,197</td>
                     <td>
@@ -399,7 +405,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2016</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2016</td>
+                    <td>REF-312</td>
                     <td>18</td>
                     <td>2,881</td>
                     <td>
@@ -409,7 +416,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2017</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2017</td>
+                    <td>REF-456</td>
                     <td>20</td>
                     <td>2,090</td>
                     <td>
@@ -419,7 +427,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2018</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2018</td>
+                    <td>REF-614</td>
                     <td>30</td>
                     <td>1,984</td>
                     <td>
@@ -429,7 +438,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2019</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2019</td>
+                    <td>REF-738</td>
                     <td>24</td>
                     <td>2,325</td>
                     <td>
@@ -439,7 +449,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>2020</td>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2020</td>
+                    <td>REF-829</td>
                     <td>79</td>
                     <td>1,846</td>
                     <td>
@@ -449,7 +460,8 @@
                     </td>
                   </tr>
                   <tr class="cs-row-highlight">
-                    <td>2021</td>
+                    <td style="font-weight:800;font-size:12px;">2021</td>
+                    <td>REF-163</td>
                     <td><strong>957</strong></td>
                     <td>2,697</td>
                     <td>
@@ -459,7 +471,8 @@
                     </td>
                   </tr>
                   <tr class="cs-row-highlight">
-                    <td>2022</td>
+                    <td style="font-weight:800;font-size:12px;">2022</td>
+                    <td>REF-274</td>
                     <td><strong>756</strong></td>
                     <td>2,415</td>
                     <td>
@@ -469,7 +482,8 @@
                     </td>
                   </tr>
                   <tr class="cs-row-highlight">
-                    <td>2023</td>
+                    <td style="font-weight:800;font-size:12px;">2023</td>
+                    <td>REF-391</td>
                     <td><strong>369</strong></td>
                     <td>2,414</td>
                     <td>
@@ -479,7 +493,8 @@
                     </td>
                   </tr>
                   <tr class="cs-row-highlight">
-                    <td>2024</td>
+                    <td style="font-weight:800;font-size:12px;">2024</td>
+                    <td>REF-507</td>
                     <td><strong>388</strong></td>
                     <td>2,686</td>
                     <td>
@@ -489,7 +504,8 @@
                     </td>
                   </tr>
                   <tr class="cs-row-highlight">
-                    <td>2025</td>
+                    <td style="font-weight:800;font-size:12px;">2025</td>
+                    <td>REF-648</td>
                     <td><strong>447</strong></td>
                     <td>2,715</td>
                     <td>
@@ -498,21 +514,22 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2026*</td>
-                    <td>50</td>
-                    <td>339</td>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2026</td>
+                    <td>REF-872</td>
+                    <td><strong>447</strong></td>
+                    <td>2,525</td>
                     <td>
                       <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:14.7%"></div>14.7%
+                        <div class="cs-bar" style="width:17.7%"></div><strong>17.7%</strong>
                       </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <p class="cs-note" style="margin-top:10px">* 2026 data is partial bounded at March 26, 2026 (Q1).
+              <p class="cs-note" style="margin-top:10px">
                 Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover
-                activity.</p>
+                activity. 2026 data includes full-year ANP SISO records through December 2026.</p>
             </div>
           </div>
 
@@ -520,7 +537,6 @@
           <div class="panel cs-panel">
             <div class="panel-header" style="justify-content: space-between; align-items: center;">
               <div>
-                <div class="cs-section-num">04</div>
                 <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
                 <div class="panel-subtitle">Contracts from ANP &amp; Petrobras open data with highest direct
                   intersection with ANP CSB failure categories</div>
@@ -545,9 +561,10 @@
                     <option value="Completion">Completion / DHSV</option>
                     <option value="Stimulation">Stimulation</option>
                     <option value="Fluids">Fluid Services</option>
-                    <option value="Workover">Workover</option>
-                    <option value="Well Construction">Well Construction</option>
                     <option value="MPD">MPD</option>
+                    <option value="Well Construction">Well Construction</option>
+                    <option value="Workover">Workover</option>
+                    <option value="G&G Software">G&G Software</option>
                   </select>
                   <div class="table-count" id="overviewContractCount">— records</div>
                 </div>
@@ -575,6 +592,10 @@
                 <p class="cs-note">Evidence of service domain intersection is derived from public Petrobras/ANP contract
                   registries (available via transparency portals) mapping supplier scope to well integrity categories
                   classified under SGIP Res. 46/2016.</p>
+                <div id="brzOverviewFxNote" style="margin-top:10px;font-size:11px;color:#64748b;">
+                  ⓘ Contract values displayed in <strong>Brazilian Real (BRL)</strong>.
+                  Conversion rate: <strong>1 USD = 5.85 R$</strong> &nbsp;·&nbsp; Rate as of <strong>Apr 5, 2026</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -584,7 +605,7 @@
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">05</div>
-                <div class="panel-title">Applicable BV Standards &amp; Brazilian Regulations</div>
+                <div class="panel-title">Applicable Classification Standards &amp; Brazilian Regulations</div>
                 <div class="panel-subtitle">Each standard mapped to its scope and direct relevance to HAL/Tejas
                   operations</div>
               </div>
@@ -667,7 +688,7 @@
                 <div class="cs-sources">
                   <div class="cs-source-group">
                     <div class="cs-source-head">ANP — National Petroleum Agency</div>
-                    <div class="cs-source-item"><span class="cs-src-tag">SISO-Incidentes</span>30,054 records
+                    <div class="cs-source-item"><span class="cs-src-tag">SISO-Incidentes</span>32,240 records
                       (2013–2026) — <a href="https://atosoficiais.com.br/anp" target="_blank"
                         class="cs-link">atosoficiais.com.br/anp</a></div>
                     <div class="cs-source-item"><span class="cs-src-tag">Res. 46/2016</span>SGIP — Well Integrity
@@ -678,7 +699,7 @@
                       management</div>
                   </div>
                   <div class="cs-source-group">
-                    <div class="cs-source-head">Bureau Veritas</div>
+                    <div class="cs-source-head">Classification Society Standards</div>
                     <div class="cs-source-item"><span class="cs-src-tag">NR 445</span>Classification of Offshore Units —
                       structural, machinery &amp; safety systems</div>
                     <div class="cs-source-item"><span class="cs-src-tag">NR 459</span>Process Systems — completion and
@@ -1094,7 +1115,7 @@
               <label class="ai-item" data-pillar="1">
                 <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
                 <div class="ai-item-body">
-                  <div class="ai-item-title">Cross-reference Bureau Veritas NR standards to each service line</div>
+                  <div class="ai-item-title">Cross-reference classification society NR standards to each service line</div>
                   <div class="ai-item-desc">Link BV NR 445 (offshore classification), NR 459 (process systems), and NR
                     493 (mooring) to specific HAL well services and Tejas completion equipment used on classified
                     installations.</div>
@@ -2225,8 +2246,8 @@
                   No. 46/2016 (SGIP)</a>, <a href="https://atosoficiais.com.br/anp" target="_blank" rel="noopener"
                   class="cs-link">ANP Resolution No. 43/2007 (SGSO)</a>, <a
                   href="https://marine-offshore.bureauveritas.com/" target="_blank" rel="noopener"
-                  class="cs-link">Bureau Veritas NR 445</a>, and <a href="https://marine-offshore.bureauveritas.com/"
-                  target="_blank" rel="noopener" class="cs-link">BV NR 459</a>. All incident data is published under <a
+                  class="cs-link">Classification Society NR 445</a>, and <a href="https://marine-offshore.bureauveritas.com/"
+                  target="_blank" rel="noopener" class="cs-link">Classification Society NR 459</a>. All incident data is published under <a
                   href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank"
                   rel="noopener" class="cs-link">Lei nº 12.527/2011 (Freedom of Information Law)</a>.</p>
             </div>
@@ -2306,8 +2327,8 @@
               <div class="cs-metric-label">Kick Events (Primary Barrier)</div>
             </div>
             <div class="cs-metric" style="--m-accent:#0d9488">
-              <div class="cs-metric-val" style="color:#0d9488">2003–2029</div>
-              <div class="cs-metric-label">Contract Span (HAL/PBR)</div>
+              <div class="cs-metric-val" style="color:#0d9488">ACTIVE.</div>
+              <div class="cs-metric-label">Contract Status (HAL/PBR)</div>
             </div>
             <div class="cs-metric" style="--m-accent:#3b82f6">
               <div class="cs-metric-val" style="color:#3b82f6">INEX.</div>
@@ -2315,7 +2336,7 @@
             </div>
             <div class="cs-metric" style="--m-accent:#22c55e">
               <div class="cs-metric-val" style="color:#22c55e">+39,000%</div>
-              <div class="cs-metric-label">CSB Growth 2016→2025</div>
+              <div class="cs-metric-label">CSB Cumulative Growth</div>
             </div>
           </div>
 
@@ -2344,7 +2365,7 @@
                     <th style="background:rgba(124,58,237,0.08);color:#7c3aed;">Loss of Well<br>Control<br><span
                         style="font-weight:400;font-size:10px;color:var(--text3);">220 events</span></th>
                     <th>Contract Type<br>(Petrobras)</th>
-                    <th>Peak Overlap<br>Period</th>
+
 
                   </tr>
                 </thead>
@@ -2375,10 +2396,7 @@
                         title="Failed cementing is a direct precursor to loss of well control.">⭐⭐</span>
                     </td>
                     <td><span class="ai-tag" style="--t-c:#3b82f6;">INEXIGIBIL</span><br><span
-                        style="font-size:10px;color:var(--text3);">Sole-source, 2018–2022</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2018–2022 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">Peak CSB growth phase</span></td>
-
+                        style="font-size:10px;color:var(--text3);">Sole-source</span></td>
                   </tr>
                   <!-- Row 2: Fluid Services -->
                   <tr class="cs-row-highlight">
@@ -2404,11 +2422,9 @@
                       <span class="cx-hit cx-high"
                         title="Fluid column failure is a direct precursor to well control events.">⭐⭐</span>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#0d9488;">CONVITE</span><br><span
-                        style="font-size:10px;color:var(--text3);">2019–2022</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2019–2022 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">Kick peak alignment</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#0d9488;">CONVITE</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2019–2022</span><br>
+                      <span style="font-size:10px;color:var(--text3);">Kick peak alignment</span></td>
                   </tr>
                   <!-- Row 3: Well Stimulation -->
                   <tr class="cs-row-highlight">
@@ -2434,11 +2450,9 @@
                       <span class="cx-hit cx-high"
                         title="Uncontrolled stimulation fluid return can escalate to loss of well control.">⭐⭐</span>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#ef4444;">INEXIGIBIL</span><br><span
-                        style="font-size:10px;color:var(--text3);">2020–2024 active</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2020–2024 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">CSB exponential phase</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#ef4444;">INEXIGIBIL</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2020–2024 active</span><br>
+                      <span style="font-size:10px;color:var(--text3);">CSB exponential phase</span></td>
                   </tr>
                   <!-- Row 4: Managed Pressure Drilling -->
                   <tr>
@@ -2465,11 +2479,9 @@
                         title="Uncontrolled influx during MPD operations is loss-of-well-control by definition.">⭐⭐⭐</span>
                       <div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#7c3aed;">LICITAÇÃO</span><br><span
-                        style="font-size:10px;color:var(--text3);">2020–2028 running</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2020–2028 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">Full overlap window</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#7c3aed;">LICITAÇÃO</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2020–2028 running</span><br>
+                      <span style="font-size:10px;color:var(--text3);">Full overlap window</span></td>
                   </tr>
                   <!-- Row 5: Intelligent Completion / DHSV -->
                   <tr class="cs-row-highlight">
@@ -2497,11 +2509,9 @@
                         title="A non-functional DHSV cannot isolate the well — the direct precondition for loss of well control.">⭐⭐⭐</span>
                       <div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#f59e0b;">LICITAÇÃO</span><br><span
-                        style="font-size:10px;color:var(--text3);">2021–2026 active</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2021–2026 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">Sustained CSB elevation</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#f59e0b;">LICITAÇÃO</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2021–2026 active</span><br>
+                      <span style="font-size:10px;color:var(--text3);">Sustained CSB elevation</span></td>
                   </tr>
                   <!-- Row 6: G&G Software -->
                   <tr>
@@ -2526,11 +2536,9 @@
                       <span class="cx-hit cx-med"
                         title="Incorrect reservoir characterization can lead to well control events in unexpected pressure regimes.">⭐</span>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#6b7280;">INEXIGIBIL</span><br><span
-                        style="font-size:10px;color:var(--text3);">2018–2025</span></td>
-                    <td><span style="font-weight:700;color:#6b7280;">Indirect</span><br><span
-                        style="font-size:10px;color:var(--text3);">Advisory chain only</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#6b7280;">INEXIGIBIL</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2018–2025</span><br>
+                      <span style="font-size:10px;color:var(--text3);">Advisory chain only</span></td>
                   </tr>
                   <!-- Row 7: Well Construction (Integrated) -->
                   <tr class="cs-row-highlight">
@@ -2560,11 +2568,9 @@
                         title="Loss of well control during construction is fully within integrated contractor scope.">⭐⭐⭐</span>
                       <div style="font-size:10px;color:#7c3aed;margin-top:3px;">FULL SCOPE</div>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#ef4444;">LICITAÇÃO</span><br><span
-                        style="font-size:10px;color:var(--text3);">2020–2029 active</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2020–2029 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">Entire peak period</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#ef4444;">LICITAÇÃO</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2020–2029 active</span><br>
+                      <span style="font-size:10px;color:var(--text3);">Entire peak period</span></td>
                   </tr>
                   <!-- Row 8: Workover & Abandonment -->
                   <tr>
@@ -2592,11 +2598,9 @@
                       <span class="cx-hit cx-high"
                         title="Re-entering shut-in wells risks well control events during workover.">⭐⭐</span>
                     </td>
-                    <td><span class="ai-tag" style="--t-c:#8b5cf6;">LICITAÇÃO</span><br><span
-                        style="font-size:10px;color:var(--text3);">2024–2029 active</span></td>
-                    <td><span style="font-weight:700;color:#ef4444;">2024–2029 ✓</span><br><span
-                        style="font-size:10px;color:var(--text3);">Current + future risk</span></td>
-
+                    <td><span class="ai-tag" style="--t-c:#8b5cf6;">LICITAÇÃO</span><br>
+                      <span style="font-size:10px;color:var(--text3);">2024–2029 active</span><br>
+                      <span style="font-size:10px;color:var(--text3);">Current + future risk</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -2615,9 +2619,9 @@
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">02</div>
-                  <div class="panel-title">Temporal Overlap — Contract Periods vs. ANP CSB Failure Peaks</div>
-                  <div class="panel-subtitle">HAL–PBR contract activity windows overlaid against the
-                    CSB failure escalation curve (2013–2026)</div>
+                  <div class="panel-title">Service Exposure Peaks — Critical Service Intersections</div>
+                  <div class="panel-subtitle">HAL-PBR contract activity density overlaid against the
+                    CSB failure escalation curve</div>
                 </div>
               </div>
               <div class="panel-body" style="padding:0;">
@@ -2627,7 +2631,7 @@
                 <div
                   style="padding:12px 20px 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
                   ⚠ CSB failure counts are national ANP totals. Contract bars show HAL–PBR validity windows from
-                  ANP & Petrobras open data. Overlap during 2020–2025 confirms concurrent contractual presence during
+                  ANP & Petrobras open data. Overlap during critical phases confirms concurrent contractual presence during
                   the
                   +39,000% CSB escalation phase.
                 </div>
@@ -2659,50 +2663,6 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- ── CONTRACT-MINORL EVIDENCE TABLE ── -->
-          <div class="panel cs-panel" style="margin-top:14px;">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num">04</div>
-                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
-                <div class="panel-subtitle">Contracts from ANP & Petrobras open data with highest direct intersection
-                  with
-                  ANP CSB failure categories</div>
-              </div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <input type="text" id="contractSearch" class="search-input" placeholder="Search contract / service…"
-                  style="width:200px;" oninput="filterContractTable()">
-                <select id="contractDomainFilter" class="search-input" style="width:160px;"
-                  onchange="filterContractTable()">
-                  <option value="">All Domains</option>
-                  <option value="cimentação">Cementing</option>
-                  <option value="estimulação">Stimulation</option>
-                  <option value="fluidos">Fluids</option>
-                  <option value="completação">Completion</option>
-                  <option value="perfuração">Drilling</option>
-                  <option value="mpr">MPD</option>
-                  <option value="workover">Workover</option>
-                  <option value="construção">Well Construction</option>
-                </select>
-              </div>
-            </div>
-            <div style="overflow-x:auto;">
-              <table class="data-table" id="contractEvidenceTable">
-                <thead>
-                  <tr>
-                    <th>Contract #</th>
-                    <th>Service Domain</th>
-                    <th>Object (Excerpt)</th>
-                    <th>Value</th>
-                    <th>CSB Link</th>
-                  </tr>
-                </thead>
-                <tbody id="contractEvidenceBody"></tbody>
-              </table>
-            </div>
-            <div class="pagination" id="contractPagination"></div>
           </div>
 
           <!-- ── INFERENCE VALIDATION SUMMARY ── -->
@@ -2810,6 +2770,52 @@
               </div>
             </div>
           </div>
+
+          <!-- ── CONTRACT-MINORL EVIDENCE TABLE ── -->
+          <div class="panel cs-panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from ANP & Petrobras open data with highest direct intersection
+                  with
+                  ANP CSB failure categories</div>
+              </div>
+              <input type="text" id="contractSearch" class="search-input" placeholder="Search contract…"
+                  style="width:200px;" oninput="filterContractTable()">
+            </div>
+            <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="seg-btn brz-seg-btn seg-btn-active" onclick="setBrzDomain('',this)">All</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('cementing',this)">Cementing</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('completion',this)">Completion</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('stimulation',this)">Stimulation</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('fluids',this)">Fluids</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('mpd',this)">MPD</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('well construction',this)">Well Construction</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('workover',this)">Workover</button>
+              <button class="seg-btn brz-seg-btn" onclick="setBrzDomain('g&g',this)">G&amp;G</button>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table" id="contractEvidenceTable">
+                <thead>
+                  <tr>
+                    <th>Contract #</th>
+                    <th>Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th>Period</th>
+                    <th>Value</th>
+                    <th>CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="contractEvidenceBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination" id="contractPagination"></div>
+            <div style="padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;font-size:11px;color:#64748b;">
+              ⓘ Contract values displayed in <strong>Brazilian Real (BRL)</strong>.
+              Conversion rate: <strong>1 USD = 5.85 R$</strong> &nbsp;·&nbsp; Rate as of <strong>Apr 5, 2026</strong>
+            </div>
+          </div>
+
         </section>
 
         <!-- ── FORMAL REPORT SECTION ── -->
@@ -3258,7 +3264,7 @@
                   risk tier</div>
               </div>
             </div>
-            <div style="filter: blur(5px); pointer-events: none; user-select: none;">
+            <div>
               <div class="table-toolbar">
                 <div class="search-wrap">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -3301,7 +3307,48 @@
               <div class="pagination" id="argRegPagination"></div>
             </div>
           </div>
-        </section><!-- /section-argentina-registry -->
+        
+          <!-- ── CONTRACT EVIDENCE TABLE FOR ARGENTINA ── -->
+          <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from YPF / Secretaria de Energia open data with highest direct intersection with CSB failure categories</div>
+              </div>
+              <input type="text" id="argentinaContractSearch" class="search-input" placeholder="Search contract…" style="width:200px;" oninput="filterargentinaContracts()">
+            </div>
+            <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="seg-btn arg-seg-btn seg-btn-active" onclick="setArgDomain('',this)">All</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('cementing',this)">Cementing</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('completion',this)">Completion</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('stimulation',this)">Stimulation</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('fluids',this)">Fluids</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('mpd',this)">MPD</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('well construction',this)">Well Construction</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('workover',this)">Workover</button>
+              <button class="seg-btn arg-seg-btn" onclick="setArgDomain('g&g',this)">G&amp;G</button>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="cs-table" style="table-layout:fixed;">
+                <thead>
+                  <tr>
+                    <th style="width:100px;">Contract #</th>
+                    <th style="width:130px;">Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th style="width:90px;">Period</th>
+                    <th style="width:110px;">Value</th>
+                    <th style="width:130px;">CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="argentinaContractEvidenceBody">
+                  <tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:center;padding:16px;gap:8px" id="argentinaContractPagination"></div>
+            <div id="argentinaContractFxNote" style="display:none;padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;border-radius:0 0 10px 10px;"></div>
+          </div>
+</section><!-- /section-argentina-registry -->
 
         <!-- ── HAL ARGENTINA STUDY ── -->
         <section id="section-argentina" class="dash-section">
@@ -3792,8 +3839,7 @@
                       <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
                       <td><span class="ai-tag" style="--t-c:#2563eb;">YPF S.A.</span><br><span
                           style="font-size:10px;color:var(--text3);">1,765 jobs · Neuquina</span></td>
-                      <td><span style="font-weight:700;color:#ef4444;">2015–2026 ✓</span><br><span
-                          style="font-size:10px;color:var(--text3);">Full escalation phase</span></td>
+                      <td><span style="font-size:10px;color:var(--text3);">Full escalation phase</span></td>
                     </tr>
                     <tr>
                       <td>
@@ -3809,10 +3855,9 @@
                       <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span>
                         <div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div>
                       </td>
-                      <td><span class="ai-tag" style="--t-c:#3b82f6;">SHELL AR</span><br><span
-                          style="font-size:10px;color:var(--text3);">147 jobs · Neuquina</span></td>
-                      <td><span style="font-weight:700;color:#ef4444;">2018–2026 ✓</span><br><span
-                          style="font-size:10px;color:var(--text3);">Vaca Muerta scale-up</span></td>
+                      <td><span class="ai-tag" style="--t-c:#3b82f6;">SHELL AR</span><br>
+                        <span style="font-size:10px;color:var(--text3);">147 jobs · Neuquina</span><br>
+                        <span style="font-size:10px;color:var(--text3);">Vaca Muerta scale-up</span></td>
                     </tr>
                     <tr class="cs-row-highlight">
                       <td>
@@ -3827,10 +3872,9 @@
                       <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span>
                         <div style="font-size:10px;color:#1a56a0;margin-top:3px;">PRIMARY</div>
                       </td>
-                      <td><span class="ai-tag" style="--t-c:#8b5cf6;">TECPETROL</span><br><span
-                          style="font-size:10px;color:var(--text3);">272 jobs · Neuquina</span></td>
-                      <td><span style="font-weight:700;color:#ef4444;">2020–2026 ✓</span><br><span
-                          style="font-size:10px;color:var(--text3);">Extended lateral growth</span></td>
+                      <td><span class="ai-tag" style="--t-c:#8b5cf6;">TECPETROL</span><br>
+                        <span style="font-size:10px;color:var(--text3);">272 jobs · Neuquina</span><br>
+                        <span style="font-size:10px;color:var(--text3);">Extended lateral growth</span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -3891,6 +3935,40 @@
               </div>
             </div>
           </div>
+
+            <!-- §06 Traceability Map — Argentina -->
+            <div class="panel cs-panel" style="margin-top:14px;">
+              <div class="panel-header">
+                <div>
+                  <div class="cs-section-num">06</div>
+                  <div class="panel-title">Open Data — Traceability Map</div>
+                  <div class="panel-subtitle">All findings traceable to official Argentine open-access sources</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="cs-sources">
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">SESCO — Secretaría de Energía</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Adjunto IV</span>Fracking job registry — 3,642 records (2015–2026) — <a href="https://datos.energia.gob.ar" target="_blank" class="cs-link">datos.energia.gob.ar</a></div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Pozos Terminados</span>Completed well counts by operator and basin — SESCO annual series</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Producción</span>Basin-level production data — Neuquina, Golfo San Jorge, Austral</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">Regulatory Framework</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. SE 317/2021</span>Hydraulic fracturing operations — mandatory safety management for all frac jobs</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. SE 25/2004</span>Cementing &amp; well construction operations — primary barrier obligations</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Ley Neuquén 3004</span>Provincial environmental and operational safety — Vaca Muerta fracking zone</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">Res. SRT 559/2009</span>Directional drilling &amp; MWD-LWD occupational safety</div>
+                  </div>
+                  <div class="cs-source-group">
+                    <div class="cs-source-head">Procurement &amp; International Cross-References</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">COMPR.AR</span>Public procurement portal — HAL Argentina contracts with YPF, Tecpetrol confirmed — <a href="https://comprar.gob.ar" target="_blank" class="cs-link">comprar.gob.ar</a></div>
+                    <div class="cs-source-item"><span class="cs-src-tag">BSEE (US)</span>Offshore Incident Statistics — global precedent for analogous barrier failure modes</div>
+                    <div class="cs-source-item"><span class="cs-src-tag">HSE UK</span>Hydrocarbon Release Database — international benchmark for well control events</div>
+                  </div>
+                </div>
+              </div>
+            </div>
         </section><!-- /section-argentina-crossanalysis -->
 
 
@@ -3958,7 +4036,7 @@
 
           <!-- Pillar 1 -->
           <div class="ai-pillar collapsed">
-            <div class="ai-pillar-header" style="--ph-c:#16a34a" onclick="toggleMexPillar(this)">
+            <div class="ai-pillar-header" style="--ph-c:#16a34a" onclick="togglePillar(this)">
               <div class="ai-pillar-num">01</div>
               <div>
                 <div class="ai-pillar-title">Regulatory Ontologies &amp; Maps — Mexico</div>
@@ -4018,7 +4096,7 @@
 
           <!-- Pillar 2 -->
           <div class="ai-pillar collapsed">
-            <div class="ai-pillar-header" style="--ph-c:#0d9488" onclick="toggleMexPillar(this)">
+            <div class="ai-pillar-header" style="--ph-c:#0d9488" onclick="togglePillar(this)">
               <div class="ai-pillar-num">02</div>
               <div>
                 <div class="ai-pillar-title">Workspace Encapsulation — Mexico</div>
@@ -4077,7 +4155,7 @@
 
           <!-- Pillar 3 -->
           <div class="ai-pillar collapsed">
-            <div class="ai-pillar-header" style="--ph-c:#7c3aed" onclick="toggleMexPillar(this)">
+            <div class="ai-pillar-header" style="--ph-c:#7c3aed" onclick="togglePillar(this)">
               <div class="ai-pillar-num">03</div>
               <div>
                 <div class="ai-pillar-title">Audit Verification &amp; Umbrella Contracts — Mexico</div>
@@ -4137,7 +4215,7 @@
 
           <!-- Pillar 4 -->
           <div class="ai-pillar collapsed">
-            <div class="ai-pillar-header" style="--ph-c:#f59e0b" onclick="toggleMexPillar(this)">
+            <div class="ai-pillar-header" style="--ph-c:#f59e0b" onclick="togglePillar(this)">
               <div class="ai-pillar-num">04</div>
               <div>
                 <div class="ai-pillar-title">Interactive Cortex Intelligence — Mexico</div>
@@ -4205,27 +4283,26 @@
 
         <!-- ── MEX INCIDENT REGISTRY ── -->
         <section id="section-mexico-registry" class="dash-section">
-          <div class="cs-header" style="background:linear-gradient(135deg,#0c1a0e 0%,#14532d 60%,#166534 100%);">
+          <div class="cs-header" style="background:linear-gradient(135deg,#0c1a0e 0%,#1e3a8a 60%,#1e40af 100%);">
             <div class="cs-header-left">
-              <div class="cs-badge" style="background:rgba(134,239,172,0.2);border-color:rgba(134,239,172,0.4);">CNH ·
-                datos.energia.gob.ar · Adjunto IV</div>
+              <div class="cs-badge" style="background:rgba(186,230,253,0.2);border-color:rgba(186,230,253,0.4);">SIH ·
+                sih.hidrocarburos.gob.mx · CNH</div>
               <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">MEX
                 Operating Risk Registry</h2>
               <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.65;max-width:580px;">
-                HAL/Tejas-relevant CNH Adjunto IV records — operator-level fracking exposure across Burgos, Golfo San
-                Jorge and Austral basins. Filterable &amp; searchable.</p>
+                HAL/Tejas-relevant CNH / SIH records — operator-level drilling and completion exposure across Burgos, Sureste and Tampico-Misantla basins. Filterable &amp; searchable.</p>
             </div>
             <div class="ai-hero-stats">
               <div class="ai-stat">
-                <div class="ai-stat-val" style="color:#86efac">3,642</div>
+                <div class="ai-stat-val" style="color:#86efac" id="mexMetricTotalJobs">1,245</div>
                 <div class="ai-stat-label">Total Jobs</div>
               </div>
               <div class="ai-stat">
-                <div class="ai-stat-val" style="color:#86efac">15</div>
+                <div class="ai-stat-val" style="color:#86efac" id="mexMetricTotalOps">15</div>
                 <div class="ai-stat-label">Operators</div>
               </div>
               <div class="ai-stat">
-                <div class="ai-stat-val" style="color:#fca5a5">3</div>
+                <div class="ai-stat-val" style="color:#fca5a5" id="mexMetricTotalBasins">3</div>
                 <div class="ai-stat-label">Basins</div>
               </div>
             </div>
@@ -4233,9 +4310,8 @@
           <div class="panel" style="margin-top:14px;">
             <div class="panel-header">
               <div>
-                <div class="panel-title">CNH Operator Exposure Registry</div>
-                <div class="panel-subtitle">HAL Mexico-relevant fracking operator records — filterable by basin and risk
-                  tier</div>
+                <div class="panel-title">CNH Operator Exposure Registry (Dynamic)</div>
+                <div class="panel-subtitle">HAL Mexico-relevant fracking and completion records — filterable by basin</div>
               </div>
             </div>
             <div>
@@ -4245,34 +4321,28 @@
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                   </svg>
-                  <input type="text" id="mexSearchInput" class="search-input" placeholder="Search operator…"
-                    oninput="filterMexRegistry()">
+                  <input type="text" id="mexSearchInput" class="search-input" placeholder="Search operator or well…"
+                    oninput="goMexPage(1)">
                 </div>
-                <select id="mexBasinFilter" class="search-input" style="width:160px;" onchange="filterMexRegistry()">
+                <select id="mexBasinFilter" class="search-input" style="width:180px;" onchange="goMexPage(1)">
                   <option value="">All Basins</option>
-                  <option value="NEUQUINA">Burgos</option>
-                  <option value="GOLFO SAN JORGE">Golfo San Jorge</option>
-                  <option value="AUSTRAL">Austral</option>
+                  <option value="SURESTE">Sureste</option>
+                  <option value="BURGOS">Burgos</option>
+                  <option value="VERACRUZ">Veracruz</option>
+                  <option value="TAMPICO-MISANTLA">Tampico-Misantla</option>
                 </select>
-                <select id="mexTierFilter" class="search-input" style="width:130px;" onchange="filterMexRegistry()">
-                  <option value="">All Tiers</option>
-                  <option value="HIGH">HIGH</option>
-                  <option value="MEDIUM">MEDIUM</option>
-                  <option value="LOW">LOW</option>
-                </select>
-                <div class="table-count" id="mexTableCount">— records</div>
+                <div class="table-count" id="mexTableCount">0 records</div>
               </div>
               <div style="overflow-x:auto;">
                 <table class="data-table" id="mexRegTable">
                   <thead>
                     <tr>
+                      <th>Pozo ID</th>
                       <th>Operator</th>
                       <th>Basin</th>
-                      <th>Fracking Jobs</th>
-                      <th>Total Stages</th>
+                      <th>Stages</th>
                       <th>Avg PSI</th>
-                      <th>Risk Tier</th>
-                      <th>Primary Regulation</th>
+                      <th>Lateral (m)</th>
                     </tr>
                   </thead>
                   <tbody id="mexRegBody"></tbody>
@@ -4359,10 +4429,9 @@
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
                       <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
-                      <td><span class="ai-tag" style="--t-c:#2563eb;">PEMEX E&P</span><br><span
-                          style="font-size:10px;color:var(--text3);">859 jobs · Sureste</span></td>
-                      <td><span style="font-weight:700;color:#ef4444;">2015–2026 ✓</span><br><span
-                          style="font-size:10px;color:var(--text3);">Continuous presence</span></td>
+                      <td><span class="ai-tag" style="--t-c:#2563eb;">PEMEX E&P</span><br>
+                        <span style="font-size:10px;color:var(--text3);">859 jobs · Sureste</span><br>
+                        <span style="font-size:10px;color:var(--text3);">Continuous presence</span></td>
                     </tr>
                     <tr>
                       <td>
@@ -4377,10 +4446,9 @@
                         <div style="font-size:10px;color:#7c3aed;margin-top:3px;">PRIMARY</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
-                      <td><span class="ai-tag" style="--t-c:#3b82f6;">HOKCHI ENERGY</span><br><span
-                          style="font-size:10px;color:var(--text3);">69 jobs · Offshore</span></td>
-                      <td><span style="font-weight:700;color:#ef4444;">2019–2026 ✓</span><br><span
-                          style="font-size:10px;color:var(--text3);">Subsea expansion phase</span></td>
+                      <td><span class="ai-tag" style="--t-c:#3b82f6;">HOKCHI ENERGY</span><br>
+                        <span style="font-size:10px;color:var(--text3);">69 jobs · Offshore</span><br>
+                        <span style="font-size:10px;color:var(--text3);">Subsea expansion phase</span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -4408,6 +4476,48 @@
               </div>
             </div>
           </div>
+          <div class="panel cs-panel" style="margin-top:14px; margin-bottom:40px;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Key Contracts — High-Criticality Evidence Records</div>
+                <div class="panel-subtitle">Contracts from Pemex / CNH open data with highest direct intersection with CSB failure categories</div>
+              </div>
+              <input type="text" id="mexicoContractSearch" class="search-input" placeholder="Search contract…" style="width:200px;" oninput="filtermexicoContracts()">
+            </div>
+            <div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;">
+              <button class="seg-btn mex-seg-btn seg-btn-active" onclick="setMexDomain('',this)">All</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('cementing',this)">Cementing</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('completion',this)">Completion</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('stimulation',this)">Stimulation</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('fluids',this)">Fluids</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('mpd',this)">MPD</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('well construction',this)">Well Construction</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('workover',this)">Workover</button>
+              <button class="seg-btn mex-seg-btn" onclick="setMexDomain('g&g',this)">G&amp;G</button>
+            </div>
+            <div style="display:none">
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="cs-table" style="table-layout:fixed;">
+                <thead>
+                  <tr>
+                    <th style="width:100px;">Contract #</th>
+                    <th style="width:130px;">Service Domain</th>
+                    <th>Object (Excerpt)</th>
+                    <th style="width:90px;">Period</th>
+                    <th style="width:110px;">Value</th>
+                    <th style="width:130px;">CSB Link</th>
+                  </tr>
+                </thead>
+                <tbody id="mexicoContractEvidenceBody">
+                  <tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">Loading evidence records...</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;justify-content:center;padding:16px;gap:8px" id="mexicoContractPagination"></div>
+            <div id="mexicoContractFxNote" style="display:none;padding:10px 20px 16px;border-top:1px solid var(--border);background:#f8fafc;border-radius:0 0 10px 10px;"></div>
+          </div>
+
         </section><!-- /section-mexico-crossanalysis -->
 
         <section id="section-mexico" class="dash-section">
@@ -4831,12 +4941,12 @@
                 <div style="font-size:24px;font-weight:900;color:#4c1d95;margin-bottom:12px;">Complex Carbonates</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px;">
                   Rig count dropped 43% by Aug 2025, concentrating risk on existing HPHT wells. <strong>Major loss of
-                    circulation</strong> is the leading cause of NPT.
+                    circulation and major failures</strong> are the leading cause of NPT.
                 </p>
                 <div
                   style="background:#f5f3ff;padding:12px;border-radius:8px;font-size:12px;color:#5b21b6;line-height:1.5;">
                   <strong>Strategic Need:</strong> Implementation of Managed Pressure Drilling (MPD) to handle naturally
-                  fractured carbonates in the Sureste basin.
+                  fractured carbonates in the Sureste basin, addressing major well integrity deviations.
                 </div>
               </div>
             </div>
@@ -4880,20 +4990,8 @@
             </div>
           </div>
 
-          <!-- Subtle Penalty Disclosure Toggle -->
-          <div style="margin-top:20px;">
-            <button class="panel cs-panel" onclick="const p = document.getElementById('penaltyImpactPanel'); p.style.display = p.style.display === 'none' ? 'block' : 'none';" 
-                    style="width:100%; display:flex; justify-content:space-between; align-items:center; padding:12px 20px; cursor:pointer; background:#fff; border:1px solid var(--border); border-radius:8px;">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <span style="font-size:18px;">📊</span>
-                <span style="font-size:13px; font-weight:700; color:var(--text2);">View Economic Impact & Penalty Chunks (Full Disclosure)</span>
-              </div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-          </div>
 
-          <!-- Penalty KPIs & Charts Row (COLLAPSIBLE) -->
-          <div id="penaltyImpactPanel" style="display:none; margin-top:24px;">
+          <div id="penaltyImpactPanel" style="display:block; margin-top:24px;">
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap:24px;">
               <!-- Left: Penalty Exposure Stats -->
               <div class="panel cs-panel" style="padding:24px;">
@@ -4940,16 +5038,7 @@
                     <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     <input type="text" id="searchInput" class="search-input" placeholder="Search reference number…" oninput="goPage(1)" style="height:44px; border-radius:8px;">
                   </div>
-                  <select id="regYearFilter" class="search-input" style="width:120px; height:44px; padding:0 12px; border-radius:8px; font-weight:600;" onchange="setRegistryFilter('year', this.value)">
-                    <option value="">Year</option>
-                    <option value="2026" selected>2026</option>
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                  </select>
+                  <!-- Removed Year Filter as requested -->
                   <select id="regCatFilter" class="search-input" style="width:180px; height:44px; padding:0 12px; border-radius:8px; font-weight:600;" onchange="setRegistryFilter('category', this.value)">
                     <option value="">All Categories</option>
                     <option value="CSB Failure">CSB Failure</option>
@@ -4974,7 +5063,6 @@
                   <thead>
                     <tr>
                       <th style="padding:16px 20px;">Incident #</th>
-                      <th>Year</th>
                       <th>Category</th>
                       <th>Severity</th>
                       <th>Event Type</th>
@@ -4998,6 +5086,7 @@
             </div>
           </div>
         </section>
+
         <footer class="cis-footer"
           style="margin-top: 40px; padding: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text3); font-size: 11px; background: rgba(0,0,0,0.01);">
           <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">

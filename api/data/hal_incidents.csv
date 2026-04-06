@@ -2653,3 +2653,402 @@ Numero;Tipo_de_incidente;DSC_GRAVIDADE_TIPO;DSC_QUASE_ACIDENTE_ACIDENTE
 2602/000117;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
 2602/000122;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
 2602/000133;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2603/000141;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000142;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2603/000143;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2603/000144;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000145;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000146;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000147;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000148;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000149;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000150;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000151;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2603/000152;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2603/000153;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000154;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2603/000155;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000156;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2603/000157;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000158;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000159;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000160;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2603/000161;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000162;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000163;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000164;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000165;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2603/000166;SSO - Perda de controle de poço;;
+2603/000167;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000168;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000169;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000170;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2603/000171;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000172;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000173;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2603/000174;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000175;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);LEVE;Quase acidente
+2604/000176;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000177;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000178;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000179;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2604/000180;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000181;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000182;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2604/000183;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2604/000184;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000185;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000186;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000187;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2604/000188;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000189;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000190;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000191;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000192;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000193;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2604/000194;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000195;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000196;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000197;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000198;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000199;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2604/000200;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000201;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2604/000202;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000203;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000204;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000205;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000206;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000207;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000208;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000209;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000210;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2604/000211;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000212;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000213;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000214;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000215;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000216;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000217;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2605/000218;SSO - Perda de controle de poço;GRAVE;Acidente
+2605/000219;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000220;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000221;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000222;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000223;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2605/000224;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000225;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000226;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000227;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000228;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000229;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000230;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000231;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000232;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2605/000233;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000234;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000235;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000236;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000237;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000238;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000239;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000240;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000241;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000242;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000243;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2605/000244;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2605/000245;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2605/000246;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000247;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000248;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000249;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2606/000250;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2606/000251;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2606/000252;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000253;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2606/000254;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000255;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000256;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2606/000257;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000258;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000259;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000260;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000261;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000262;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000263;SSO - Falha estrutural em poço;;
+2606/000264;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000265;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000266;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000267;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000268;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000269;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000270;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2606/000271;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000272;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000273;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000274;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000275;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000276;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);LEVE;Quase acidente
+2606/000277;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000278;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000279;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2606/000280;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000281;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2606/000282;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000283;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000284;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000285;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2607/000286;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2607/000287;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000288;SSO - Perda de controle de poço;;
+2607/000289;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000290;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000291;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000292;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2607/000293;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000294;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000295;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000296;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000297;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000298;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000299;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000300;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000301;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000302;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000303;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000304;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2607/000305;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000306;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2607/000307;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000308;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2607/000309;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000310;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);MODERADO;Acidente
+2607/000311;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000312;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000313;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2607/000314;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000315;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000316;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2607/000317;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000318;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000319;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000320;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2607/000321;SSO - Falha estrutural em poço;;
+2607/000322;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000323;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000324;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2607/000325;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2607/000326;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000327;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000328;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2608/000329;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2608/000330;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000331;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000332;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2608/000333;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000334;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000335;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000336;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000337;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000338;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000339;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2608/000340;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000341;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000342;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000343;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000344;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000345;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000346;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2608/000347;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2608/000348;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000349;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000350;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000351;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000352;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000353;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000354;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000355;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000356;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000357;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000358;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000359;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000360;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000361;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000362;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000363;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000364;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2608/000365;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2608/000366;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000367;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000368;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000369;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000370;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000371;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000372;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2608/000373;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000374;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000375;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2608/000376;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2608/000377;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000378;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000379;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000380;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000381;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2609/000382;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000383;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2609/000384;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000385;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2609/000386;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000387;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000388;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000389;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000390;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000391;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000392;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2609/000393;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000394;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000395;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000396;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000397;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);LEVE;Quase acidente
+2609/000398;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000399;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000400;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000401;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000402;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2609/000403;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000404;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000405;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2609/000406;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000407;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000408;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000409;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000410;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000411;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000412;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000413;SSO - Falha estrutural em poço;;
+2609/000414;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000415;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000416;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000417;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2609/000418;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000419;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2609/000420;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000421;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2610/000422;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2610/000423;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000424;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000425;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000426;SSO - Falha estrutural em poço;;
+2610/000427;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000428;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2610/000429;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000430;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000431;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2610/000432;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000433;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000434;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2610/000435;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2610/000436;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000437;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000438;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000439;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);LEVE;Quase acidente
+2610/000440;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2610/000441;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000442;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000443;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000444;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000445;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000446;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000447;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000448;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2610/000449;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000450;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000451;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000452;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000453;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000454;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2610/000455;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000456;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000457;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2610/000458;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000459;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000460;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000461;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2610/000462;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2610/000463;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000464;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2610/000465;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2611/000466;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000467;SSO - Falha de elemento do conjunto solidário de barreira (CSB);LEVE;Quase acidente
+2611/000468;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000469;SSO - Falha estrutural em poço;;
+2611/000470;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000471;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000472;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000473;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2611/000474;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000475;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000476;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000477;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2611/000478;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000479;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000480;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000481;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000482;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000483;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000484;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000485;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000486;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000487;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000488;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000489;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000490;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000491;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000492;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000493;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000494;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000495;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000496;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000497;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000498;SSO - Falha estrutural em poço;;
+2611/000499;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000500;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000501;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000502;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000503;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000504;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2611/000505;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);GRAVE;Acidente
+2612/000506;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000507;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000508;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000509;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000510;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000511;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000512;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000513;SSO - Falha de elemento do conjunto solidário de barreira (CSB);MODERADO;Acidente
+2612/000514;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000515;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000516;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000517;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000518;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2612/000519;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000520;SSO - Falha estrutural em poço;;
+2612/000521;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000522;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000523;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000524;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000525;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000526;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000527;SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick);;
+2612/000528;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000529;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000530;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000531;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000532;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000533;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000534;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000535;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000536;SSO - Falha de elemento do conjunto solidário de barreira (CSB);GRAVE;Acidente
+2612/000537;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000538;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;
+2612/000539;SSO - Falha de elemento do conjunto solidário de barreira (CSB);;

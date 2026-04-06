@@ -18578,6 +18578,2799 @@
         "severity": "SSO",
         "category": "Kick (Primary Barrier)",
         "year": 2026
+      },
+      {
+        "numero": "2603/000141",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000142",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000143",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000144",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000145",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000146",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000147",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000148",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000149",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000150",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000151",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000152",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000153",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000154",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000155",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000156",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000157",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000158",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000159",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000160",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000161",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000162",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000163",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000164",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000165",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000166",
+        "tipo": "SSO - Perda de controle de poço",
+        "severity": "SSO",
+        "category": "Other",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000167",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000168",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000169",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000170",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000171",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000172",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000173",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2603/000174",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000175",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "LEVE",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000176",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000177",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000178",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000179",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000180",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000181",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000182",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000183",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000184",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000185",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000186",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000187",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000188",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000189",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000190",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000191",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000192",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000193",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000194",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000195",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000196",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000197",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000198",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000199",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000200",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000201",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000202",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000203",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000204",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000205",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000206",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000207",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000208",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000209",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000210",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2604/000211",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000212",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000213",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000214",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000215",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000216",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000217",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000218",
+        "tipo": "SSO - Perda de controle de poço",
+        "severity": "GRAVE",
+        "category": "Other",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000219",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000220",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000221",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000222",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000223",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000224",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000225",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000226",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000227",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000228",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000229",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000230",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000231",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000232",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000233",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000234",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000235",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000236",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000237",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000238",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000239",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000240",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000241",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000242",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000243",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000244",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000245",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2605/000246",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000247",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000248",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000249",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000250",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000251",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000252",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000253",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000254",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000255",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000256",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000257",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000258",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000259",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000260",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000261",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000262",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000263",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000264",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000265",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000266",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000267",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000268",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000269",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000270",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000271",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000272",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000273",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000274",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000275",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000276",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "LEVE",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000277",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000278",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000279",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000280",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000281",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2606/000282",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000283",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000284",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000285",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000286",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000287",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000288",
+        "tipo": "SSO - Perda de controle de poço",
+        "severity": "SSO",
+        "category": "Other",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000289",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000290",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000291",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000292",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000293",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000294",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000295",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000296",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000297",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000298",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000299",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000300",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000301",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000302",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000303",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000304",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000305",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000306",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000307",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000308",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000309",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000310",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "MODERADO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000311",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000312",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000313",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000314",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000315",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000316",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000317",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000318",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000319",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000320",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000321",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000322",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000323",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000324",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000325",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2607/000326",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000327",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000328",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000329",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000330",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000331",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000332",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000333",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000334",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000335",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000336",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000337",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000338",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000339",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000340",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000341",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000342",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000343",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000344",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000345",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000346",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000347",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000348",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000349",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000350",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000351",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000352",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000353",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000354",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000355",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000356",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000357",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000358",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000359",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000360",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000361",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000362",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000363",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000364",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000365",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000366",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000367",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000368",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000369",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000370",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000371",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000372",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000373",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000374",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000375",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000376",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2608/000377",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000378",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000379",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000380",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000381",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000382",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000383",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000384",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000385",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000386",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000387",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000388",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000389",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000390",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000391",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000392",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000393",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000394",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000395",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000396",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000397",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "LEVE",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000398",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000399",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000400",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000401",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000402",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000403",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000404",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000405",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000406",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000407",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000408",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000409",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000410",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000411",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000412",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000413",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000414",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000415",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000416",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000417",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000418",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000419",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2609/000420",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000421",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000422",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000423",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000424",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000425",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000426",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000427",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000428",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000429",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000430",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000431",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000432",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000433",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000434",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000435",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000436",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000437",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000438",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000439",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "LEVE",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000440",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000441",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000442",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000443",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000444",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000445",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000446",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000447",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000448",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000449",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000450",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000451",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000452",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000453",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000454",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000455",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000456",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000457",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000458",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000459",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000460",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000461",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000462",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000463",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000464",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2610/000465",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000466",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000467",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "LEVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000468",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000469",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000470",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000471",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000472",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000473",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000474",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000475",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000476",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000477",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000478",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000479",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000480",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000481",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000482",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000483",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000484",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000485",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000486",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000487",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000488",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000489",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000490",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000491",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000492",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000493",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000494",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000495",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000496",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000497",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000498",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000499",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000500",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000501",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000502",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000503",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000504",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2611/000505",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "GRAVE",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000506",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000507",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000508",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000509",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000510",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000511",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000512",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000513",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "MODERADO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000514",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000515",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000516",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000517",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000518",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000519",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000520",
+        "tipo": "SSO - Falha estrutural em poço",
+        "severity": "SSO",
+        "category": "Structural Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000521",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000522",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000523",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000524",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000525",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000526",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000527",
+        "tipo": "SSO - Falha da barreira primária na perfuração ou intervenção em poços (kick)",
+        "severity": "SSO",
+        "category": "Kick (Primary Barrier)",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000528",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000529",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000530",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000531",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000532",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000533",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000534",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000535",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000536",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "GRAVE",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000537",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000538",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
+      },
+      {
+        "numero": "2612/000539",
+        "tipo": "SSO - Falha de elemento do conjunto solidário de barreira (CSB)",
+        "severity": "SSO",
+        "category": "CSB Failure",
+        "year": 2026
       }
     ],
     "contracts": [
@@ -40714,5 +43507,5 @@
       "totalLateral": 2478558
     }
   },
-  "lastUpdated": "2026-04-04T05:38:09.883Z"
+  "lastUpdated": "2026-04-05T03:55:26.951Z"
 }

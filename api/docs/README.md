@@ -2,7 +2,7 @@
 
 **Project Name:** CIS — Explore the World of Compliance (HAL/Tejas Operations)
 
-This repository hosts a web application and document generation tool that provides **Bureau Veritas classification compliance** and **ANP well integrity analysis** acting as a case study. All findings are derived exclusively from verified, publicly available open datasets.
+This repository hosts a web application and document generation tool that provides **classification society compliance** and **ANP well integrity analysis** acting as a case study. All findings are derived exclusively from verified, publicly available open datasets.
 
 ---
 
@@ -21,8 +21,8 @@ Every incident grouping evaluates liability and exposure referencing the followi
 - **Resolução ANP nº 46/2016 (SGIP)** — Well Integrity Management System (gov.br/anp)  
 - **Resolução ANP nº 43/2007 (SGSO)** — Operational Safety Management (gov.br/anp)  
 - **Resolução ANP nº 41/2015** — Subsea systems safety  
-- **Bureau Veritas NR 445** — Rules for the Classification of Offshore Units  
-- **Bureau Veritas NR 459** — Process Systems On Board Offshore Units  
+- **Classification Society NR 445** — Rules for the Classification of Offshore Units  
+- **Classification Society NR 459** — Process Systems On Board Offshore Units  
 - **Brazilian Ministry of Labour (MTE)** — NR-37 (Health & Safety), NR-33, NR-35  
 - **Brazilian Navy** — NORMAM-01/DPC (Maritime Authority)  
 
@@ -35,11 +35,11 @@ The ANP dataset registers incidents explicitly under the **licensed operator** (
 
 What this case study successfully proves:
 1. **A verified operational crisis:** An exponential spike (+39,000% from 2016 to 2025) in *Conjunto Solidário de Barreira (CSB)* failures.
-2. **Categorical accountability:** HAL/Tejas provide barrier-system and well-intervention services precisely covering the domains governed by ANP Res. 46/2016 and BV NR 445.
+2. **Categorical accountability:** HAL/Tejas provide barrier-system and well-intervention services precisely covering the domains governed by ANP Res. 46/2016 and classification society NR 445.
 3. Therefore: *They fall squarely within the regulatory perimeter of this documented, growing incident category.*
 
 **You must NOT claim** that the dataset proves HAL or Tejas equipment directly caused "Incident X."  
-**You MUST claim** that HAL/Tejas equipment operates inside the barrier systems manifesting the 39,000% escalation, and therefore mandatory BV and ANP auditing thresholds apply.
+**You MUST claim** that HAL/Tejas equipment operates inside the barrier systems manifesting the 39,000% escalation, and therefore mandatory classification society and ANP auditing thresholds apply.
 
 ---
 
