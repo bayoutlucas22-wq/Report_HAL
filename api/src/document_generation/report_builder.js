@@ -110,7 +110,7 @@ function buildReportSections(stats, sampleIncidents) {
         children: [
           new Paragraph({
             children: [
-              new TextRun({ text: "Industry Incident Report — BV Compliance & ANP Incident Analysis", size: 18, font: "Arial", color: "1F4E79", bold: true }),
+              new TextRun({ text: "Industry Incident Report — Classification Society Compliance & ANP Incident Analysis", size: 18, font: "Arial", color: "1F4E79", bold: true }),
               new TextRun({ text: "    |    CONFIDENTIAL", size: 18, font: "Arial", color: "C00000" }),
             ],
             border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "1F4E79", space: 1 } },
@@ -124,7 +124,7 @@ function buildReportSections(stats, sampleIncidents) {
         children: [
           new Paragraph({
             children: [
-              new TextRun({ text: "Source: ANP SISO-Incidentes Open Data (dados.gov.br) | Bureau Veritas Rules (marine-offshore.bureauveritas.com) | Page ", size: 16, font: "Arial", color: "888888" }),
+              new TextRun({ text: "Source: ANP SISO-Incidentes Open Data (dados.gov.br) | Classification Society Rules | Page ", size: 16, font: "Arial", color: "888888" }),
               new TextRun({ children: [PageNumber.CURRENT], size: 16, font: "Arial", color: "888888" }),
               new TextRun({ text: " of ", size: 16, font: "Arial", color: "888888" }),
               new TextRun({ children: [PageNumber.TOTAL_PAGES], size: 16, font: "Arial", color: "888888" }),
@@ -150,7 +150,7 @@ function buildReportSections(stats, sampleIncidents) {
       }),
       new Paragraph({
         alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: "Bureau Veritas Compliance Framework & ANP Well Integrity Incident Analysis", size: 30, font: "Arial", color: "2E74B5" })],
+        children: [new TextRun({ text: "Classification Society Compliance Framework & ANP Well Integrity Incident Analysis", size: 30, font: "Arial", color: "2E74B5" })],
         spacing: { before: 80, after: 160 }
       }),
       new Paragraph({
@@ -171,7 +171,7 @@ function buildReportSections(stats, sampleIncidents) {
       }),
       new Paragraph({
         alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: "Classification Society: Bureau Veritas (BV)", size: 22, font: "Arial", color: "555555" })],
+        children: [new TextRun({ text: "Classification Society: Applicable CS Standards", size: 22, font: "Arial", color: "555555" })],
         spacing: { before: 60, after: 60 }
       }),
       new Paragraph({
@@ -195,7 +195,7 @@ function buildReportSections(stats, sampleIncidents) {
       h1("1. Executive Summary"),
       p("This report establishes the regulatory and operational compliance framework applicable to Halliburton and Tejas operations in Brazil, and provides evidence-based justification for the identified risk exposure, grounded entirely in publicly available open data from official Brazilian government sources."),
       spacer(),
-      p("The analysis draws on the ANP\'s SISO-Incidentes database — 30,054 registered incidents from 2013 to March 26, 2026, published under Brazil\'s Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with Bureau Veritas classification rules and applicable Brazilian regulatory instruments."),
+      p("The analysis draws on the ANP\'s SISO-Incidentes database — 30,054 registered incidents from 2013 to March 26, 2026, published under Brazil\'s Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with classification society rules and applicable Brazilian regulatory instruments."),
       spacer(),
       h3("Key Findings"),
       bullet("CSB (Conjunto Solidário de Barreira) barrier element failures rose from 1 incident in 2016 to 391 in 2025 — a 39,000% increase — constituting the dominant well integrity risk category in Brazilian E&P. Incidents are not adjusted for historical market penetration of supplier equipment, such as valves."),
@@ -236,7 +236,7 @@ function buildReportSections(stats, sampleIncidents) {
       new Paragraph({ children: [new PageBreak()] }),
 
       // --- SECTION 5: REGULATORY FRAMEWORK -------------------------------------
-      h1("5. Applicable BV Standards & Brazilian Regulations"),
+      h1("5. Applicable Classification Standards & Brazilian Regulations"),
       p("The table below maps each applicable standard to its scope and direct relevance to HAL/Tejas operations, along with the official open-access source for independent verification."),
       spacer(),
       makeRegTable(),
@@ -255,7 +255,7 @@ function buildReportSections(stats, sampleIncidents) {
       pBold("ANP Resolution No. 41/2015", anpData.resolucao41.description),
       spacer(),
 
-      h2("6.2 Bureau Veritas"),
+      h2("6.2 Classification Society Standards"),
       pBold("NR 445 — Classification of Offshore Units", bureauVeritasData.nr445.description),
       pBold("NR 459 — Process Systems on Offshore Units", bureauVeritasData.nr459.description),
       pBold("NR 493 — Mooring Systems", bureauVeritasData.nr493.description),
@@ -280,7 +280,7 @@ function buildReportSections(stats, sampleIncidents) {
       spacer(),
       new Paragraph({
         children: [new TextRun({
-          text: "\"The failure modes identified in this analysis are documented in the ANP\'s public E&P incident database (SISO-Incidentes, 30,054 records, 2013 – March 26, 2026 — available at dados.gov.br/organization/anp under Lei de Acesso a Informacao, Lei no 12.527/2011). CSB barrier element failures rose from 1 incident in 2016 to 391 in 2025, representing the dominant well integrity risk category in Brazilian E&P. Since Halliburton and Tejas operate as service companies on installations licensed to ANP operators, their equipment and services fall within the barrier systems captured by these statistics, making compliance with Resolucao ANP no 46/2016 (SGIP) and Bureau Veritas NR 445 directly and mandatorily applicable.\"",
+          text: "\"The failure modes identified in this analysis are documented in the ANP\'s public E&P incident database (SISO-Incidentes, 30,054 records, 2013 – March 26, 2026 — available at dados.gov.br/organization/anp under Lei de Acesso a Informacao, Lei no 12.527/2011). CSB barrier element failures rose from 1 incident in 2016 to 391 in 2025, representing the dominant well integrity risk category in Brazilian E&P. Since Halliburton and Tejas operate as service companies on installations licensed to ANP operators, their equipment and services fall within the barrier systems captured by these statistics, making compliance with Resolucao ANP no 46/2016 (SGIP) and classification society NR 445 directly and mandatorily applicable.\"",
           size: 20, font: "Arial", color: "333333", italics: true
         })],
         spacing: { before: 120, after: 120 }

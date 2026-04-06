@@ -55,7 +55,7 @@ Beyond Tejas, the broader Halliburton scope aligns flawlessly with the raw incid
 
 ## Conclusion & The Path Forward
 
-The data clearly proves that Halliburton and Tejas cannot remain insulated behind Petrobras's operator license. Under ANP SGIP (Res. 46/2016) and Bureau Veritas Classification (NR 445), the failure of subcontracted fluid dynamics or completion mechanics presents a flagrant audit risk.
+The data clearly proves that Halliburton and Tejas cannot remain insulated behind Petrobras's operator license. Under ANP SGIP (Res. 46/2016) and Classification Society Standards (NR 445), the failure of subcontracted fluid dynamics or completion mechanics presents a flagrant audit risk.
 
 The friction created by Tejas's manufacturing supply chains intersecting with extreme offshore compliance environments cannot be mitigated through standard operational procedures. **The only way to avoid this specific friction and shield both the service provider and the operator from escalating regulatory liability is through our Umbrella Contract with Ballast on compliance.**
 

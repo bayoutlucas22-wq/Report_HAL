@@ -34668,3 +34668,2527 @@ Numero;Tipo_de_incidente;DSC_GRAVIDADE_TIPO;DSC_QUASE_ACIDENTE_ACIDENTE
 2602/000135;SSO - Queima ou emissão de gás por motivo de emergência;;
 2602/000136;SSO - Parada emergencial de planta de processo (Emergency Shutdown - ESD);;
 2602/000136;SSO - Queima ou emissão de gás por motivo de emergência;;
+2603/000351;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000352;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000353;SSO - Queda de objetos;;Quase acidente
+2603/000354;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000355;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000356;SSO - Incidente ambiental;;Acidente
+2603/000357;SSO - Reclassificacao;;
+2603/000358;SSO - Queda de objetos;;Quase acidente
+2603/000359;SSO - Falha estrutural em poco;;Acidente
+2603/000360;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000361;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000362;SSO - Incidente ambiental;;Acidente
+2603/000363;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000364;SSO - Ferimento grave;LEVE;Acidente
+2603/000365;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000366;SSO - Parada de emergencia;;Acidente
+2603/000367;SSO - Derramamento quimico;;Acidente
+2603/000368;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000369;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000370;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000371;SSO - Danos estruturais a instalacao;;Acidente
+2603/000372;SSO - Parada de emergencia;;Acidente
+2603/000373;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000374;SSO - Danos estruturais a instalacao;;Acidente
+2603/000374;SSO - Parada de emergencia;;Acidente
+2603/000375;SSO - Incidente ambiental;;Acidente
+2603/000376;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000377;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000378;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000379;SSO - Incidente ambiental;;Acidente
+2603/000380;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000380;SSO - Queda de objetos;;Quase acidente
+2603/000381;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000382;SSO - Incidente ambiental;;Acidente
+2603/000382;SSO - Ferimento grave;LEVE;Acidente
+2603/000383;SSO - Principio de incendio;;Acidente
+2603/000384;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000385;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000386;SSO - Parada de emergencia;;Acidente
+2603/000387;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000388;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000389;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000390;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000391;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000392;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2603/000393;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000393;SSO - Parada de emergencia;;Acidente
+2603/000394;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000395;SSO - Danos estruturais a instalacao;;Acidente
+2603/000395;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000396;SSO - Parada de emergencia;;Acidente
+2603/000397;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000398;SSO - Queda de objetos;;Quase acidente
+2603/000399;SSO - Parada de emergencia;;Acidente
+2603/000400;SSO - Parada de emergencia;;Acidente
+2603/000400;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000401;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000402;SSO - Parada de emergencia;;Acidente
+2603/000403;SSO - Incidente ambiental;;Acidente
+2603/000404;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000405;SSO - Queda de objetos;;Quase acidente
+2603/000406;SSO - Ferimento grave;LEVE;Acidente
+2603/000407;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000408;SSO - Parada de emergencia;;Acidente
+2603/000409;SSO - Incidente ambiental;;Acidente
+2603/000410;SSO - Derramamento quimico;;Acidente
+2603/000411;SSO - Parada de emergencia;;Acidente
+2603/000411;SSO - Parada de emergencia;;Acidente
+2603/000412;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000412;SSO - Parada de emergencia;;Acidente
+2603/000413;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000414;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000414;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000415;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000416;SSO - Reclassificacao;;
+2603/000417;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000418;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000419;SSO - Parada de emergencia;;Acidente
+2603/000420;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000421;SSO - Derramamento quimico;;Acidente
+2603/000421;SSO - Danos estruturais a instalacao;;Acidente
+2603/000422;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000423;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000424;SSO - Parada de emergencia;;Acidente
+2603/000425;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000425;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000426;SSO - Derramamento quimico;;Acidente
+2603/000427;SSO - Fatalidade;GRAVE;Acidente
+2603/000427;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000428;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000429;SSO - Queda de objetos;;Quase acidente
+2603/000430;SSO - Parada de emergencia;;Acidente
+2603/000431;SSO - Derramamento quimico;;Acidente
+2603/000432;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000433;SSO - Parada de emergencia;;Acidente
+2603/000434;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000435;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000436;SSO - Parada de emergencia;;Acidente
+2603/000437;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000438;SSO - Ferimento grave;LEVE;Acidente
+2603/000438;SSO - Danos estruturais a instalacao;;Acidente
+2603/000439;SSO - Reclassificacao;;
+2603/000440;SSO - Incidente ambiental;;Acidente
+2603/000441;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000442;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000443;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000444;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000445;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000446;SSO - Parada de emergencia;;Acidente
+2603/000447;SSO - Principio de incendio;;Acidente
+2603/000448;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000449;SSO - Incidente ambiental;;Acidente
+2603/000450;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000451;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000452;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000453;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2603/000454;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000454;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000455;SSO - Falha estrutural em poco;;Acidente
+2603/000456;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000457;SSO - Parada de emergencia;;Acidente
+2603/000458;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000459;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000460;SSO - Queda de objetos;;Quase acidente
+2603/000461;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000462;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000463;SSO - Queda de objetos;;Quase acidente
+2603/000464;SSO - Queda de objetos;;Quase acidente
+2603/000465;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000466;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000467;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000467;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000468;SSO - Parada de emergencia;;Acidente
+2603/000469;SSO - Parada de emergencia;;Acidente
+2603/000470;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000471;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000472;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000473;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000474;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000475;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000476;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000477;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000478;SSO - Parada de emergencia;;Acidente
+2603/000479;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000480;SSO - Derramamento quimico;;Acidente
+2603/000481;SSO - Parada de emergencia;;Acidente
+2603/000482;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000483;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000484;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000485;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000486;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000487;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000488;SSO - Queda de objetos;;Quase acidente
+2603/000488;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000489;SSO - Danos estruturais a instalacao;;Acidente
+2603/000490;SSO - Parada de emergencia;;Acidente
+2603/000491;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000492;SSO - Ferimento grave;LEVE;Acidente
+2603/000493;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000494;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000495;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000496;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000497;SSO - Parada de emergencia;;Acidente
+2603/000498;SSO - Danos estruturais a instalacao;;Acidente
+2603/000498;SSO - Parada de emergencia;;Acidente
+2603/000499;SSO - Danos estruturais a instalacao;;Acidente
+2603/000500;SSO - Queda de objetos;;Quase acidente
+2603/000500;SSO - Incidente ambiental;;Acidente
+2603/000501;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000501;SSO - Parada de emergencia;;Acidente
+2603/000502;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2603/000503;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000504;SSO - Queda de objetos;;Quase acidente
+2603/000505;SSO - Danos estruturais a instalacao;;Acidente
+2603/000506;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2603/000506;SSO - Parada de emergencia;;Acidente
+2603/000507;SSO - Parada de emergencia;;Acidente
+2603/000508;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000509;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000509;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000510;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000511;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000512;SSO - Queda de objetos;;Quase acidente
+2603/000513;SSO - Derramamento quimico;;Acidente
+2603/000514;SSO - Danos estruturais a instalacao;;Acidente
+2603/000514;SSO - Parada de emergencia;;Acidente
+2603/000515;SSO - Incidente ambiental;;Acidente
+2603/000516;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2603/000516;SSO - Principio de incendio;;Acidente
+2603/000517;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000518;SSO - Ferimento grave;LEVE;Acidente
+2603/000518;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000519;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000520;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000521;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000521;SSO - Perda de controle de poco;;Acidente
+2603/000522;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000522;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000523;SSO - Falha de equipamento de protecao;;Quase acidente
+2603/000524;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000525;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000525;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000526;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000527;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000528;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000529;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000530;SSO - Parada de emergencia;;Acidente
+2603/000530;SSO - Queda de objetos;;Quase acidente
+2603/000531;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000531;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000532;SSO - Trabalho em altura (queda);LEVE;Acidente
+2603/000533;SSO - Queda de objetos;;Quase acidente
+2603/000534;SSO - Parada de emergencia;;Acidente
+2603/000535;SSO - Parada de emergencia;;Acidente
+2603/000536;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000537;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000538;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2603/000539;SSO - Incidente ambiental;;Acidente
+2603/000539;SSO - Falha estrutural em poco;;Acidente
+2603/000540;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000541;SSO - Danos estruturais a instalacao;;Acidente
+2603/000542;SSO - Parada de emergencia;;Acidente
+2603/000542;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000543;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2603/000544;SSO - Vazamento de oleo mineral no mar;;Acidente
+2603/000544;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2603/000545;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000546;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000547;SSO - Reclassificacao;;
+2604/000548;SSO - Derramamento quimico;;Acidente
+2604/000549;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000550;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000551;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000551;SSO - Queda de objetos;;Quase acidente
+2604/000552;SSO - Parada de emergencia;;Acidente
+2604/000553;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000554;SSO - Parada de emergencia;;Acidente
+2604/000555;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000556;SSO - Parada de emergencia;;Acidente
+2604/000557;SSO - Fatalidade;GRAVE;Acidente
+2604/000558;SSO - Trabalho em altura (queda);LEVE;Acidente
+2604/000559;SSO - Danos estruturais a instalacao;;Acidente
+2604/000560;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000561;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000562;SSO - Danos estruturais a instalacao;;Acidente
+2604/000563;SSO - Derramamento quimico;;Acidente
+2604/000564;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000564;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000565;SSO - Incidente ambiental;;Acidente
+2604/000566;SSO - Reclassificacao;;
+2604/000566;SSO - Queda de objetos;;Quase acidente
+2604/000567;SSO - Parada de emergencia;;Acidente
+2604/000568;SSO - Danos estruturais a instalacao;;Acidente
+2604/000569;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000570;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000571;SSO - Danos estruturais a instalacao;;Acidente
+2604/000572;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000572;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000573;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000574;SSO - Queda de objetos;;Quase acidente
+2604/000574;SSO - Perda de controle de poco;;Acidente
+2604/000575;SSO - Parada de emergencia;;Acidente
+2604/000576;SSO - Incidente ambiental;;Acidente
+2604/000577;SSO - Trabalho em altura (queda);LEVE;Acidente
+2604/000577;SSO - Principio de incendio;;Acidente
+2604/000578;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000579;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000580;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000581;SSO - Ferimento grave;LEVE;Acidente
+2604/000582;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000583;SSO - Derramamento quimico;;Acidente
+2604/000584;SSO - Queda de objetos;;Quase acidente
+2604/000585;SSO - Parada de emergencia;;Acidente
+2604/000586;SSO - Explosao;;Acidente
+2604/000587;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000588;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2604/000589;SSO - Parada de emergencia;;Acidente
+2604/000590;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000591;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000592;SSO - Parada de emergencia;;Acidente
+2604/000593;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000594;SSO - Principio de incendio;;Acidente
+2604/000595;SSO - Parada de emergencia;;Acidente
+2604/000596;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2604/000597;SSO - Parada de emergencia;;Acidente
+2604/000598;SSO - Reclassificacao;;
+2604/000599;SSO - Derramamento quimico;;Acidente
+2604/000600;SSO - Parada de emergencia;;Acidente
+2604/000601;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000602;SSO - Perda de controle de poco;;Acidente
+2604/000602;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000603;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000603;SSO - Queda de objetos;;Quase acidente
+2604/000604;SSO - Trabalho em altura (queda);LEVE;Acidente
+2604/000604;SSO - Derramamento quimico;;Acidente
+2604/000605;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000606;SSO - Reclassificacao;;
+2604/000607;SSO - Reclassificacao;;
+2604/000608;SSO - Falha estrutural em poco;;Acidente
+2604/000609;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000610;SSO - Parada de emergencia;;Acidente
+2604/000611;SSO - Queda de objetos;;Quase acidente
+2604/000612;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000613;SSO - Parada de emergencia;;Acidente
+2604/000614;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000615;SSO - Derramamento quimico;;Acidente
+2604/000616;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000617;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000618;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000618;SSO - Danos estruturais a instalacao;;Acidente
+2604/000619;SSO - Parada de emergencia;;Acidente
+2604/000620;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000620;SSO - Danos estruturais a instalacao;;Acidente
+2604/000621;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000622;SSO - Parada de emergencia;;Acidente
+2604/000623;SSO - Incidente ambiental;;Acidente
+2604/000624;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000625;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000626;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000627;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000628;SSO - Parada de emergencia;;Acidente
+2604/000629;SSO - Danos estruturais a instalacao;;Acidente
+2604/000629;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000630;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000631;SSO - Danos estruturais a instalacao;;Acidente
+2604/000632;SSO - Derramamento quimico;;Acidente
+2604/000633;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000634;SSO - Incidente ambiental;;Acidente
+2604/000635;SSO - Parada de emergencia;;Acidente
+2604/000635;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000636;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000637;SSO - Perda de controle de poco;;Acidente
+2604/000638;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000638;SSO - Principio de incendio;;Acidente
+2604/000639;SSO - Derramamento quimico;;Acidente
+2604/000640;SSO - Perda de controle de poco;;Acidente
+2604/000640;SSO - Parada de emergencia;;Acidente
+2604/000641;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000642;SSO - Danos estruturais a instalacao;;Acidente
+2604/000642;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000643;SSO - Queda de objetos;;Quase acidente
+2604/000644;SSO - Danos estruturais a instalacao;;Acidente
+2604/000644;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000645;SSO - Reclassificacao;;
+2604/000646;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000647;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2604/000648;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000649;SSO - Principio de incendio;;Acidente
+2604/000650;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000651;SSO - Danos estruturais a instalacao;;Acidente
+2604/000652;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000653;SSO - Queda de objetos;;Quase acidente
+2604/000653;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000654;SSO - Queda de objetos;;Quase acidente
+2604/000654;SSO - Queda de objetos;;Quase acidente
+2604/000655;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000656;SSO - Parada de emergencia;;Acidente
+2604/000657;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000658;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000659;SSO - Trabalho em altura (queda);LEVE;Acidente
+2604/000660;SSO - Principio de incendio;;Acidente
+2604/000661;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000662;SSO - Derramamento quimico;;Acidente
+2604/000663;SSO - Incidente ambiental;;Acidente
+2604/000664;SSO - Incidente ambiental;;Acidente
+2604/000665;SSO - Reclassificacao;;
+2604/000666;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000666;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000667;SSO - Parada de emergencia;;Acidente
+2604/000667;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000668;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000669;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000670;SSO - Parada de emergencia;;Acidente
+2604/000670;SSO - Parada de emergencia;;Acidente
+2604/000671;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000672;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000673;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000674;SSO - Danos estruturais a instalacao;;Acidente
+2604/000675;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000676;SSO - Parada de emergencia;;Acidente
+2604/000677;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000678;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000679;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000680;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000680;SSO - Parada de emergencia;;Acidente
+2604/000681;SSO - Incidente ambiental;;Acidente
+2604/000682;SSO - Derramamento quimico;;Acidente
+2604/000683;SSO - Trabalho em altura (queda);LEVE;Acidente
+2604/000684;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000685;SSO - Parada de emergencia;;Acidente
+2604/000686;SSO - Derramamento quimico;;Acidente
+2604/000687;SSO - Principio de incendio;;Acidente
+2604/000687;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000688;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000689;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000689;SSO - Falha estrutural em poco;;Acidente
+2604/000690;SSO - Queda de objetos;;Quase acidente
+2604/000691;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000692;SSO - Incidente ambiental;;Acidente
+2604/000693;SSO - Parada de emergencia;;Acidente
+2604/000694;SSO - Derramamento quimico;;Acidente
+2604/000695;SSO - Parada de emergencia;;Acidente
+2604/000696;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000697;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000698;SSO - Parada de emergencia;;Acidente
+2604/000699;SSO - Parada de emergencia;;Acidente
+2604/000699;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000700;SSO - Principio de incendio;;Acidente
+2604/000701;SSO - Ferimento grave;LEVE;Acidente
+2604/000702;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000703;SSO - Parada de emergencia;;Acidente
+2604/000704;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000705;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000705;SSO - Danos estruturais a instalacao;;Acidente
+2604/000706;SSO - Queda de objetos;;Quase acidente
+2604/000707;SSO - Danos estruturais a instalacao;;Acidente
+2604/000708;SSO - Queda de objetos;;Quase acidente
+2604/000709;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000710;SSO - Parada de emergencia;;Acidente
+2604/000711;SSO - Derramamento quimico;;Acidente
+2604/000711;SSO - Derramamento quimico;;Acidente
+2604/000712;SSO - Parada de emergencia;;Acidente
+2604/000713;SSO - Danos estruturais a instalacao;;Acidente
+2604/000714;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000715;SSO - Explosao;;Acidente
+2604/000716;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000717;SSO - Parada de emergencia;;Acidente
+2604/000718;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000719;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000720;SSO - Parada de emergencia;;Acidente
+2604/000721;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000721;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000722;SSO - Incidente ambiental;;Acidente
+2604/000722;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2604/000723;SSO - Queda de objetos;;Quase acidente
+2604/000724;SSO - Queda de objetos;;Quase acidente
+2604/000725;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2604/000726;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000727;SSO - Danos estruturais a instalacao;;Acidente
+2604/000727;SSO - Incidente ambiental;;Acidente
+2604/000728;SSO - Principio de incendio;;Acidente
+2604/000728;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000729;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000730;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000731;SSO - Incidente ambiental;;Acidente
+2604/000731;SSO - Queda de objetos;;Quase acidente
+2604/000732;SSO - Queda de objetos;;Quase acidente
+2604/000732;SSO - Vazamento de oleo mineral no mar;;Acidente
+2604/000733;SSO - Parada de emergencia;;Acidente
+2604/000734;SSO - Reclassificacao;;
+2604/000735;SSO - Parada de emergencia;;Acidente
+2604/000736;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000737;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000738;SSO - Falha estrutural em poco;;Acidente
+2604/000739;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000740;SSO - Perda de controle de poco;;Acidente
+2604/000741;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000742;SSO - Danos estruturais a instalacao;;Acidente
+2604/000743;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2604/000744;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000745;SSO - Reclassificacao;;
+2604/000745;SSO - Parada de emergencia;;Acidente
+2604/000746;SSO - Derramamento quimico;;Acidente
+2604/000747;SSO - Incidente ambiental;;Acidente
+2604/000748;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000749;SSO - Queda de objetos;;Quase acidente
+2604/000750;SSO - Falha estrutural em poco;;Acidente
+2604/000751;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2604/000752;SSO - Reclassificacao;;
+2604/000753;SSO - Falha de equipamento de protecao;;Quase acidente
+2604/000753;SSO - Queda de objetos;;Quase acidente
+2604/000754;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2604/000755;SSO - Derramamento quimico;;Acidente
+2605/000756;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000757;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000758;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000759;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000760;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000760;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000761;SSO - Queda de objetos;;Quase acidente
+2605/000762;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000763;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000764;SSO - Parada de emergencia;;Acidente
+2605/000764;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000765;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000766;SSO - Trabalho em altura (queda);LEVE;Acidente
+2605/000767;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2605/000768;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000769;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000770;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000770;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000771;SSO - Parada de emergencia;;Acidente
+2605/000772;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000773;SSO - Parada de emergencia;;Acidente
+2605/000774;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000774;SSO - Queda de objetos;;Quase acidente
+2605/000775;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000776;SSO - Parada de emergencia;;Acidente
+2605/000777;SSO - Queda de objetos;;Quase acidente
+2605/000777;SSO - Reclassificacao;;
+2605/000778;SSO - Derramamento quimico;;Acidente
+2605/000779;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000779;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000780;SSO - Parada de emergencia;;Acidente
+2605/000781;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000781;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000782;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000782;SSO - Parada de emergencia;;Acidente
+2605/000783;SSO - Derramamento quimico;;Acidente
+2605/000784;SSO - Ferimento grave;LEVE;Acidente
+2605/000785;SSO - Reclassificacao;;
+2605/000786;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000787;SSO - Principio de incendio;;Acidente
+2605/000788;SSO - Parada de emergencia;;Acidente
+2605/000789;SSO - Parada de emergencia;;Acidente
+2605/000790;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000791;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000792;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000793;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000794;SSO - Derramamento quimico;;Acidente
+2605/000794;SSO - Parada de emergencia;;Acidente
+2605/000795;SSO - Principio de incendio;;Acidente
+2605/000796;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000797;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000798;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000799;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000799;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000800;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000801;SSO - Queda de objetos;;Quase acidente
+2605/000802;SSO - Reclassificacao;;
+2605/000802;SSO - Queda de objetos;;Quase acidente
+2605/000803;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000804;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000805;SSO - Perda de controle de poco;;Acidente
+2605/000806;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000807;SSO - Parada de emergencia;;Acidente
+2605/000808;SSO - Parada de emergencia;;Acidente
+2605/000809;SSO - Queda de objetos;;Quase acidente
+2605/000810;SSO - Falha estrutural em poco;;Acidente
+2605/000811;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000812;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000813;SSO - Ferimento grave;LEVE;Acidente
+2605/000814;SSO - Parada de emergencia;;Acidente
+2605/000815;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000816;SSO - Ferimento grave;LEVE;Acidente
+2605/000817;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000818;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000819;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000820;SSO - Parada de emergencia;;Acidente
+2605/000821;SSO - Ferimento grave;LEVE;Acidente
+2605/000821;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000822;SSO - Incidente ambiental;;Acidente
+2605/000823;SSO - Parada de emergencia;;Acidente
+2605/000823;SSO - Principio de incendio;;Acidente
+2605/000824;SSO - Incidente ambiental;;Acidente
+2605/000825;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000825;SSO - Danos estruturais a instalacao;;Acidente
+2605/000826;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000827;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000828;SSO - Derramamento quimico;;Acidente
+2605/000829;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000830;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000831;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000832;SSO - Parada de emergencia;;Acidente
+2605/000833;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000834;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000835;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000836;SSO - Derramamento quimico;;Acidente
+2605/000837;SSO - Parada de emergencia;;Acidente
+2605/000838;SSO - Principio de incendio;;Acidente
+2605/000839;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2605/000840;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000841;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000842;SSO - Incidente ambiental;;Acidente
+2605/000843;SSO - Parada de emergencia;;Acidente
+2605/000843;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000844;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000845;SSO - Parada de emergencia;;Acidente
+2605/000846;SSO - Queda de objetos;;Quase acidente
+2605/000847;SSO - Queda de objetos;;Quase acidente
+2605/000848;SSO - Ferimento grave;LEVE;Acidente
+2605/000849;SSO - Trabalho em altura (queda);LEVE;Acidente
+2605/000850;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000851;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000852;SSO - Incidente ambiental;;Acidente
+2605/000852;SSO - Incidente ambiental;;Acidente
+2605/000853;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000854;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2605/000855;SSO - Parada de emergencia;;Acidente
+2605/000856;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000856;SSO - Queda de objetos;;Quase acidente
+2605/000857;SSO - Queda de objetos;;Quase acidente
+2605/000858;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000859;SSO - Explosao;;Acidente
+2605/000860;SSO - Fatalidade;GRAVE;Acidente
+2605/000861;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000862;SSO - Queda de objetos;;Quase acidente
+2605/000863;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000864;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000865;SSO - Incidente ambiental;;Acidente
+2605/000866;SSO - Parada de emergencia;;Acidente
+2605/000867;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000867;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000868;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000869;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000870;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000871;SSO - Reclassificacao;;
+2605/000872;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000873;SSO - Queda de objetos;;Quase acidente
+2605/000873;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000874;SSO - Principio de incendio;;Acidente
+2605/000875;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000876;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000877;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000878;SSO - Trabalho em altura (queda);LEVE;Acidente
+2605/000879;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000880;SSO - Perda de controle de poco;;Acidente
+2605/000881;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000882;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000883;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000884;SSO - Parada de emergencia;;Acidente
+2605/000885;SSO - Trabalho em altura (queda);LEVE;Acidente
+2605/000886;SSO - Incidente ambiental;;Acidente
+2605/000887;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000888;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000889;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000889;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000890;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000890;SSO - Queda de objetos;;Quase acidente
+2605/000891;SSO - Danos estruturais a instalacao;;Acidente
+2605/000892;SSO - Parada de emergencia;;Acidente
+2605/000892;SSO - Reclassificacao;;
+2605/000893;SSO - Queda de objetos;;Quase acidente
+2605/000894;SSO - Incidente ambiental;;Acidente
+2605/000895;SSO - Parada de emergencia;;Acidente
+2605/000896;SSO - Ferimento grave;LEVE;Acidente
+2605/000897;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000898;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000899;SSO - Queda de objetos;;Quase acidente
+2605/000900;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000901;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000902;SSO - Incidente ambiental;;Acidente
+2605/000903;SSO - Derramamento quimico;;Acidente
+2605/000904;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000905;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000906;SSO - Reclassificacao;;
+2605/000907;SSO - Derramamento quimico;;Acidente
+2605/000908;SSO - Ferimento grave;LEVE;Acidente
+2605/000909;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000910;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000911;SSO - Incidente ambiental;;Acidente
+2605/000912;SSO - Falha estrutural em poco;;Acidente
+2605/000913;SSO - Derramamento quimico;;Acidente
+2605/000914;SSO - Reclassificacao;;
+2605/000915;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000916;SSO - Queda de objetos;;Quase acidente
+2605/000917;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000918;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000918;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000919;SSO - Parada de emergencia;;Acidente
+2605/000919;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000920;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000921;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000922;SSO - Reclassificacao;;
+2605/000923;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000923;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2605/000924;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000925;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000926;SSO - Incidente ambiental;;Acidente
+2605/000927;SSO - Principio de incendio;;Acidente
+2605/000928;SSO - Fatalidade;GRAVE;Acidente
+2605/000929;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000929;SSO - Parada de emergencia;;Acidente
+2605/000930;SSO - Trabalho em altura (queda);LEVE;Acidente
+2605/000931;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2605/000932;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000933;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000933;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000934;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000935;SSO - Principio de incendio;;Acidente
+2605/000936;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000937;SSO - Parada de emergencia;;Acidente
+2605/000937;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000938;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2605/000939;SSO - Principio de incendio;;Acidente
+2605/000940;SSO - Principio de incendio;;Acidente
+2605/000941;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000941;SSO - Queda de objetos;;Quase acidente
+2605/000942;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000943;SSO - Falha de equipamento de protecao;;Quase acidente
+2605/000944;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000945;SSO - Danos estruturais a instalacao;;Acidente
+2605/000946;SSO - Danos estruturais a instalacao;;Acidente
+2605/000946;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000947;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000948;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2605/000949;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000950;SSO - Trabalho em altura (queda);LEVE;Acidente
+2605/000951;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000952;SSO - Vazamento de oleo mineral no mar;;Acidente
+2605/000952;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000953;SSO - Derramamento quimico;;Acidente
+2605/000954;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2605/000955;SSO - Perda de controle de poco;;Acidente
+2606/000956;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000957;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000958;SSO - Falha estrutural em poco;;Acidente
+2606/000958;SSO - Danos estruturais a instalacao;;Acidente
+2606/000959;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/000960;SSO - Queda de objetos;;Quase acidente
+2606/000961;SSO - Principio de incendio;;Acidente
+2606/000962;SSO - Parada de emergencia;;Acidente
+2606/000963;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000964;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/000965;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000966;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/000967;SSO - Queda de objetos;;Quase acidente
+2606/000967;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/000968;SSO - Queda de objetos;;Quase acidente
+2606/000969;SSO - Queda de objetos;;Quase acidente
+2606/000970;SSO - Danos estruturais a instalacao;;Acidente
+2606/000971;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/000972;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/000973;SSO - Parada de emergencia;;Acidente
+2606/000974;SSO - Queda de objetos;;Quase acidente
+2606/000975;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/000976;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/000977;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/000978;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/000978;SSO - Danos estruturais a instalacao;;Acidente
+2606/000979;SSO - Danos estruturais a instalacao;;Acidente
+2606/000980;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/000981;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000982;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000983;SSO - Parada de emergencia;;Acidente
+2606/000984;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/000985;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/000986;SSO - Danos estruturais a instalacao;;Acidente
+2606/000987;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/000987;SSO - Incidente ambiental;;Acidente
+2606/000988;SSO - Parada de emergencia;;Acidente
+2606/000989;SSO - Ferimento grave;LEVE;Acidente
+2606/000990;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/000991;SSO - Parada de emergencia;;Acidente
+2606/000992;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000993;SSO - Queda de objetos;;Quase acidente
+2606/000994;SSO - Principio de incendio;;Acidente
+2606/000995;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/000996;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000997;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/000998;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/000999;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001000;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001001;SSO - Queda de objetos;;Quase acidente
+2606/001001;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001002;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2606/001003;SSO - Parada de emergencia;;Acidente
+2606/001004;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001005;SSO - Parada de emergencia;;Acidente
+2606/001006;SSO - Falha estrutural em poco;;Acidente
+2606/001007;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001008;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001009;SSO - Danos estruturais a instalacao;;Acidente
+2606/001010;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001011;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001011;SSO - Principio de incendio;;Acidente
+2606/001012;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001013;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001014;SSO - Queda de objetos;;Quase acidente
+2606/001015;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001016;SSO - Parada de emergencia;;Acidente
+2606/001017;SSO - Parada de emergencia;;Acidente
+2606/001018;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2606/001018;SSO - Ferimento grave;LEVE;Acidente
+2606/001019;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001020;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001021;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001022;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001023;SSO - Danos estruturais a instalacao;;Acidente
+2606/001023;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001024;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001025;SSO - Parada de emergencia;;Acidente
+2606/001026;SSO - Parada de emergencia;;Acidente
+2606/001027;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2606/001028;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001029;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001030;SSO - Incidente ambiental;;Acidente
+2606/001031;SSO - Principio de incendio;;Acidente
+2606/001032;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2606/001033;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001034;SSO - Parada de emergencia;;Acidente
+2606/001035;SSO - Principio de incendio;;Acidente
+2606/001035;SSO - Parada de emergencia;;Acidente
+2606/001036;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001037;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001038;SSO - Parada de emergencia;;Acidente
+2606/001039;SSO - Parada de emergencia;;Acidente
+2606/001039;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2606/001040;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001040;SSO - Parada de emergencia;;Acidente
+2606/001041;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001042;SSO - Queda de objetos;;Quase acidente
+2606/001043;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001044;SSO - Danos estruturais a instalacao;;Acidente
+2606/001045;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001045;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001046;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001047;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001048;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001049;SSO - Danos estruturais a instalacao;;Acidente
+2606/001050;SSO - Principio de incendio;;Acidente
+2606/001050;SSO - Explosao;;Acidente
+2606/001051;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001052;SSO - Parada de emergencia;;Acidente
+2606/001053;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001054;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001054;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001055;SSO - Parada de emergencia;;Acidente
+2606/001056;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001057;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001057;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001058;SSO - Ferimento grave;LEVE;Acidente
+2606/001059;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001060;SSO - Principio de incendio;;Acidente
+2606/001061;SSO - Queda de objetos;;Quase acidente
+2606/001062;SSO - Queda de objetos;;Quase acidente
+2606/001063;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2606/001064;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001065;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001065;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001066;SSO - Reclassificacao;;
+2606/001067;SSO - Parada de emergencia;;Acidente
+2606/001068;SSO - Parada de emergencia;;Acidente
+2606/001069;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001070;SSO - Queda de objetos;;Quase acidente
+2606/001071;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001072;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001073;SSO - Danos estruturais a instalacao;;Acidente
+2606/001073;SSO - Queda de objetos;;Quase acidente
+2606/001074;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001075;SSO - Falha estrutural em poco;;Acidente
+2606/001076;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001077;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001078;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001079;SSO - Derramamento quimico;;Acidente
+2606/001080;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001080;SSO - Perda de controle de poco;;Acidente
+2606/001081;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001082;SSO - Parada de emergencia;;Acidente
+2606/001083;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001083;SSO - Derramamento quimico;;Acidente
+2606/001084;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001085;SSO - Reclassificacao;;
+2606/001086;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2606/001086;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001087;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2606/001088;SSO - Reclassificacao;;
+2606/001089;SSO - Parada de emergencia;;Acidente
+2606/001090;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001091;SSO - Parada de emergencia;;Acidente
+2606/001092;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001093;SSO - Danos estruturais a instalacao;;Acidente
+2606/001094;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001095;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001096;SSO - Parada de emergencia;;Acidente
+2606/001097;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001098;SSO - Perda de controle de poco;;Acidente
+2606/001099;SSO - Parada de emergencia;;Acidente
+2606/001100;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001101;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001101;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001102;SSO - Queda de objetos;;Quase acidente
+2606/001103;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001104;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001105;SSO - Ferimento grave;LEVE;Acidente
+2606/001106;SSO - Danos estruturais a instalacao;;Acidente
+2606/001107;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001107;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001108;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001109;SSO - Derramamento quimico;;Acidente
+2606/001110;SSO - Parada de emergencia;;Acidente
+2606/001111;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001112;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001113;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001113;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2606/001114;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001115;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001116;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001116;SSO - Parada de emergencia;;Acidente
+2606/001117;SSO - Parada de emergencia;;Acidente
+2606/001118;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001119;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001120;SSO - Queda de objetos;;Quase acidente
+2606/001121;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001122;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001123;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001124;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001125;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001126;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001127;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001127;SSO - Ferimento grave;LEVE;Acidente
+2606/001128;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001129;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001130;SSO - Explosao;;Acidente
+2606/001131;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2606/001132;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001132;SSO - Danos estruturais a instalacao;;Acidente
+2606/001133;SSO - Queda de objetos;;Quase acidente
+2606/001134;SSO - Parada de emergencia;;Acidente
+2606/001135;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001136;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001137;SSO - Queda de objetos;;Quase acidente
+2606/001138;SSO - Falha de equipamento de protecao;;Quase acidente
+2606/001139;SSO - Incidente ambiental;;Acidente
+2606/001140;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001141;SSO - Parada de emergencia;;Acidente
+2606/001142;SSO - Incidente ambiental;;Acidente
+2606/001143;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001144;SSO - Incidente ambiental;;Acidente
+2606/001145;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001146;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001146;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001147;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001148;SSO - Parada de emergencia;;Acidente
+2606/001149;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001150;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2606/001151;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001152;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2606/001153;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001154;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001155;SSO - Principio de incendio;;Acidente
+2606/001156;SSO - Parada de emergencia;;Acidente
+2606/001157;SSO - Vazamento de oleo mineral no mar;;Acidente
+2606/001158;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001159;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001160;SSO - Derramamento quimico;;Acidente
+2606/001161;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001162;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2606/001163;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001164;SSO - Trabalho em altura (queda);LEVE;Acidente
+2606/001165;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2606/001166;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001167;SSO - Principio de incendio;;Acidente
+2607/001168;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001169;SSO - Parada de emergencia;;Acidente
+2607/001170;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001171;SSO - Reclassificacao;;
+2607/001172;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001173;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001173;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001174;SSO - Incidente ambiental;;Acidente
+2607/001175;SSO - Falha estrutural em poco;;Acidente
+2607/001176;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001177;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001178;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001179;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001180;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001181;SSO - Parada de emergencia;;Acidente
+2607/001182;SSO - Incidente ambiental;;Acidente
+2607/001183;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001184;SSO - Derramamento quimico;;Acidente
+2607/001185;SSO - Parada de emergencia;;Acidente
+2607/001186;SSO - Danos estruturais a instalacao;;Acidente
+2607/001186;SSO - Incidente ambiental;;Acidente
+2607/001187;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001187;SSO - Parada de emergencia;;Acidente
+2607/001188;SSO - Parada de emergencia;;Acidente
+2607/001189;SSO - Danos estruturais a instalacao;;Acidente
+2607/001190;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001190;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001191;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001192;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001193;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001193;SSO - Derramamento quimico;;Acidente
+2607/001194;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001195;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001195;SSO - Principio de incendio;;Acidente
+2607/001196;SSO - Derramamento quimico;;Acidente
+2607/001197;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001198;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001199;SSO - Incidente ambiental;;Acidente
+2607/001200;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001201;SSO - Danos estruturais a instalacao;;Acidente
+2607/001202;SSO - Queda de objetos;;Quase acidente
+2607/001203;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001203;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001204;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001205;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001206;SSO - Perda de controle de poco;;Acidente
+2607/001207;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001208;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001209;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001209;SSO - Falha estrutural em poco;;Acidente
+2607/001210;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001210;SSO - Parada de emergencia;;Acidente
+2607/001211;SSO - Perda de controle de poco;;Acidente
+2607/001212;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001212;SSO - Parada de emergencia;;Acidente
+2607/001213;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001214;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001215;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001216;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001217;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001218;SSO - Parada de emergencia;;Acidente
+2607/001219;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001220;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001221;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001222;SSO - Principio de incendio;;Acidente
+2607/001223;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001224;SSO - Ferimento grave;LEVE;Acidente
+2607/001225;SSO - Danos estruturais a instalacao;;Acidente
+2607/001226;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001227;SSO - Ferimento grave;LEVE;Acidente
+2607/001228;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001229;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001230;SSO - Parada de emergencia;;Acidente
+2607/001231;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001232;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001233;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001234;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001234;SSO - Falha estrutural em poco;;Acidente
+2607/001235;SSO - Ferimento grave;LEVE;Acidente
+2607/001236;SSO - Principio de incendio;;Acidente
+2607/001237;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001237;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001238;SSO - Incidente ambiental;;Acidente
+2607/001239;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001240;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001241;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001242;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001243;SSO - Danos estruturais a instalacao;;Acidente
+2607/001244;SSO - Falha estrutural em poco;;Acidente
+2607/001245;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001246;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001247;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001248;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001249;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001250;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001250;SSO - Parada de emergencia;;Acidente
+2607/001251;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001252;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001253;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001254;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001255;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001256;SSO - Derramamento quimico;;Acidente
+2607/001257;SSO - Reclassificacao;;
+2607/001258;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001258;SSO - Danos estruturais a instalacao;;Acidente
+2607/001259;SSO - Parada de emergencia;;Acidente
+2607/001260;SSO - Parada de emergencia;;Acidente
+2607/001261;SSO - Reclassificacao;;
+2607/001262;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001263;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001263;SSO - Parada de emergencia;;Acidente
+2607/001264;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001265;SSO - Danos estruturais a instalacao;;Acidente
+2607/001266;SSO - Parada de emergencia;;Acidente
+2607/001267;SSO - Derramamento quimico;;Acidente
+2607/001268;SSO - Parada de emergencia;;Acidente
+2607/001269;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001270;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001271;SSO - Queda de objetos;;Quase acidente
+2607/001271;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001272;SSO - Principio de incendio;;Acidente
+2607/001273;SSO - Parada de emergencia;;Acidente
+2607/001274;SSO - Trabalho em altura (queda);LEVE;Acidente
+2607/001275;SSO - Parada de emergencia;;Acidente
+2607/001276;SSO - Incidente ambiental;;Acidente
+2607/001276;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001277;SSO - Principio de incendio;;Acidente
+2607/001278;SSO - Queda de objetos;;Quase acidente
+2607/001279;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001279;SSO - Incidente ambiental;;Acidente
+2607/001280;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001281;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001282;SSO - Parada de emergencia;;Acidente
+2607/001283;SSO - Queda de objetos;;Quase acidente
+2607/001283;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001284;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001285;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001286;SSO - Danos estruturais a instalacao;;Acidente
+2607/001287;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001288;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001289;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001290;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001291;SSO - Parada de emergencia;;Acidente
+2607/001292;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001293;SSO - Danos estruturais a instalacao;;Acidente
+2607/001294;SSO - Incidente ambiental;;Acidente
+2607/001295;SSO - Queda de objetos;;Quase acidente
+2607/001296;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001297;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001298;SSO - Derramamento quimico;;Acidente
+2607/001299;SSO - Incidente ambiental;;Acidente
+2607/001300;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001301;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001302;SSO - Parada de emergencia;;Acidente
+2607/001303;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001304;SSO - Parada de emergencia;;Acidente
+2607/001305;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001306;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2607/001307;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001308;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001308;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001309;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001310;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001311;SSO - Queda de objetos;;Quase acidente
+2607/001312;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001313;SSO - Reclassificacao;;
+2607/001314;SSO - Principio de incendio;;Acidente
+2607/001315;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001316;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001317;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001318;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001318;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001319;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001320;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001321;SSO - Parada de emergencia;;Acidente
+2607/001322;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2607/001323;SSO - Parada de emergencia;;Acidente
+2607/001324;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001325;SSO - Explosao;;Acidente
+2607/001326;SSO - Trabalho em altura (queda);LEVE;Acidente
+2607/001327;SSO - Ferimento grave;LEVE;Acidente
+2607/001327;SSO - Danos estruturais a instalacao;;Acidente
+2607/001328;SSO - Danos estruturais a instalacao;;Acidente
+2607/001329;SSO - Falha estrutural em poco;;Acidente
+2607/001330;SSO - Parada de emergencia;;Acidente
+2607/001331;SSO - Parada de emergencia;;Acidente
+2607/001332;SSO - Queda de objetos;;Quase acidente
+2607/001333;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001334;SSO - Queda de objetos;;Quase acidente
+2607/001335;SSO - Incidente ambiental;;Acidente
+2607/001336;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001336;SSO - Incidente ambiental;;Acidente
+2607/001337;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001338;SSO - Parada de emergencia;;Acidente
+2607/001339;SSO - Parada de emergencia;;Acidente
+2607/001340;SSO - Queda de objetos;;Quase acidente
+2607/001341;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001342;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001343;SSO - Danos estruturais a instalacao;;Acidente
+2607/001343;SSO - Incidente ambiental;;Acidente
+2607/001344;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001345;SSO - Incidente ambiental;;Acidente
+2607/001346;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001346;SSO - Parada de emergencia;;Acidente
+2607/001347;SSO - Parada de emergencia;;Acidente
+2607/001348;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001348;SSO - Queda de objetos;;Quase acidente
+2607/001349;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001350;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001351;SSO - Ferimento grave;LEVE;Acidente
+2607/001351;SSO - Danos estruturais a instalacao;;Acidente
+2607/001352;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001353;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001353;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001354;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001355;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001356;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001357;SSO - Derramamento quimico;;Acidente
+2607/001358;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2607/001359;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001360;SSO - Trabalho em altura (queda);LEVE;Acidente
+2607/001361;SSO - Queda de objetos;;Quase acidente
+2607/001362;SSO - Trabalho em altura (queda);LEVE;Acidente
+2607/001363;SSO - Trabalho em altura (queda);LEVE;Acidente
+2607/001364;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001365;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001366;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001367;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001368;SSO - Parada de emergencia;;Acidente
+2607/001369;SSO - Ferimento grave;LEVE;Acidente
+2607/001370;SSO - Danos estruturais a instalacao;;Acidente
+2607/001371;SSO - Danos estruturais a instalacao;;Acidente
+2607/001372;SSO - Queda de objetos;;Quase acidente
+2607/001373;SSO - Derramamento quimico;;Acidente
+2607/001374;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001375;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001375;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001376;SSO - Vazamento de oleo mineral no mar;;Acidente
+2607/001377;SSO - Fatalidade;GRAVE;Acidente
+2607/001378;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001379;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001380;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001380;SSO - Derramamento quimico;;Acidente
+2607/001381;SSO - Reclassificacao;;
+2607/001382;SSO - Principio de incendio;;Acidente
+2607/001382;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2607/001383;SSO - Parada de emergencia;;Acidente
+2607/001384;SSO - Falha estrutural em poco;;Acidente
+2607/001385;SSO - Parada de emergencia;;Acidente
+2607/001386;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001386;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001387;SSO - Parada de emergencia;;Acidente
+2607/001388;SSO - Ferimento grave;LEVE;Acidente
+2607/001389;SSO - Queda de objetos;;Quase acidente
+2607/001390;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001390;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001391;SSO - Parada de emergencia;;Acidente
+2607/001391;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2607/001392;SSO - Parada de emergencia;;Acidente
+2607/001393;SSO - Incidente ambiental;;Acidente
+2607/001394;SSO - Incidente ambiental;;Acidente
+2607/001395;SSO - Parada de emergencia;;Acidente
+2607/001396;SSO - Danos estruturais a instalacao;;Acidente
+2607/001397;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001398;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001399;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2607/001400;SSO - Falha de equipamento de protecao;;Quase acidente
+2607/001401;SSO - Falha estrutural em poco;;Acidente
+2608/001402;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001402;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001403;SSO - Trabalho em altura (queda);LEVE;Acidente
+2608/001404;SSO - Incidente ambiental;;Acidente
+2608/001405;SSO - Falha estrutural em poco;;Acidente
+2608/001406;SSO - Parada de emergencia;;Acidente
+2608/001407;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001408;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001409;SSO - Queda de objetos;;Quase acidente
+2608/001409;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001410;SSO - Parada de emergencia;;Acidente
+2608/001411;SSO - Principio de incendio;;Acidente
+2608/001412;SSO - Explosao;;Acidente
+2608/001413;SSO - Parada de emergencia;;Acidente
+2608/001414;SSO - Incidente ambiental;;Acidente
+2608/001415;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2608/001416;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001417;SSO - Reclassificacao;;
+2608/001418;SSO - Parada de emergencia;;Acidente
+2608/001419;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001420;SSO - Danos estruturais a instalacao;;Acidente
+2608/001421;SSO - Ferimento grave;LEVE;Acidente
+2608/001422;SSO - Danos estruturais a instalacao;;Acidente
+2608/001423;SSO - Principio de incendio;;Acidente
+2608/001424;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2608/001425;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001425;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2608/001426;SSO - Parada de emergencia;;Acidente
+2608/001427;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001428;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001429;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001430;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001431;SSO - Derramamento quimico;;Acidente
+2608/001432;SSO - Ferimento grave;LEVE;Acidente
+2608/001432;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001433;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001434;SSO - Danos estruturais a instalacao;;Acidente
+2608/001435;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001436;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001437;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001438;SSO - Reclassificacao;;
+2608/001439;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001440;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001441;SSO - Derramamento quimico;;Acidente
+2608/001442;SSO - Derramamento quimico;;Acidente
+2608/001443;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001444;SSO - Queda de objetos;;Quase acidente
+2608/001445;SSO - Queda de objetos;;Quase acidente
+2608/001446;SSO - Parada de emergencia;;Acidente
+2608/001446;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001447;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001448;SSO - Parada de emergencia;;Acidente
+2608/001449;SSO - Queda de objetos;;Quase acidente
+2608/001450;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001451;SSO - Principio de incendio;;Acidente
+2608/001452;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001453;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001454;SSO - Parada de emergencia;;Acidente
+2608/001455;SSO - Queda de objetos;;Quase acidente
+2608/001456;SSO - Perda de controle de poco;;Acidente
+2608/001457;SSO - Incidente ambiental;;Acidente
+2608/001457;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001458;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001459;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001460;SSO - Incidente ambiental;;Acidente
+2608/001460;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001461;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001462;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001463;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001463;SSO - Reclassificacao;;
+2608/001464;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001465;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001466;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001467;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001468;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001469;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2608/001470;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001471;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001472;SSO - Danos estruturais a instalacao;;Acidente
+2608/001473;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001474;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001475;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001476;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001476;SSO - Queda de objetos;;Quase acidente
+2608/001477;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2608/001478;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001479;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001480;SSO - Ferimento grave;LEVE;Acidente
+2608/001481;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001482;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001483;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001483;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001484;SSO - Ferimento grave;LEVE;Acidente
+2608/001485;SSO - Incidente ambiental;;Acidente
+2608/001486;SSO - Falha estrutural em poco;;Acidente
+2608/001487;SSO - Derramamento quimico;;Acidente
+2608/001488;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001489;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2608/001490;SSO - Derramamento quimico;;Acidente
+2608/001491;SSO - Danos estruturais a instalacao;;Acidente
+2608/001492;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001493;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001494;SSO - Derramamento quimico;;Acidente
+2608/001495;SSO - Explosao;;Acidente
+2608/001496;SSO - Parada de emergencia;;Acidente
+2608/001497;SSO - Incidente ambiental;;Acidente
+2608/001498;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001499;SSO - Ferimento grave;LEVE;Acidente
+2608/001500;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001500;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001501;SSO - Principio de incendio;;Acidente
+2608/001502;SSO - Trabalho em altura (queda);LEVE;Acidente
+2608/001503;SSO - Falha estrutural em poco;;Acidente
+2608/001503;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001504;SSO - Queda de objetos;;Quase acidente
+2608/001505;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001505;SSO - Reclassificacao;;
+2608/001506;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001507;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001508;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001509;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001510;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001511;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001511;SSO - Queda de objetos;;Quase acidente
+2608/001512;SSO - Trabalho em altura (queda);LEVE;Acidente
+2608/001513;SSO - Danos estruturais a instalacao;;Acidente
+2608/001514;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001515;SSO - Queda de objetos;;Quase acidente
+2608/001516;SSO - Parada de emergencia;;Acidente
+2608/001517;SSO - Reclassificacao;;
+2608/001518;SSO - Parada de emergencia;;Acidente
+2608/001519;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001519;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001520;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001521;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001522;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001523;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001524;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001525;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001525;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001526;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001527;SSO - Danos estruturais a instalacao;;Acidente
+2608/001528;SSO - Parada de emergencia;;Acidente
+2608/001528;SSO - Parada de emergencia;;Acidente
+2608/001529;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001529;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001530;SSO - Queda de objetos;;Quase acidente
+2608/001531;SSO - Fatalidade;GRAVE;Acidente
+2608/001531;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001532;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001533;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001534;SSO - Principio de incendio;;Acidente
+2608/001535;SSO - Incidente ambiental;;Acidente
+2608/001536;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001537;SSO - Reclassificacao;;
+2608/001538;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001539;SSO - Queda de objetos;;Quase acidente
+2608/001540;SSO - Parada de emergencia;;Acidente
+2608/001541;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001542;SSO - Parada de emergencia;;Acidente
+2608/001543;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001543;SSO - Falha estrutural em poco;;Acidente
+2608/001544;SSO - Trabalho em altura (queda);LEVE;Acidente
+2608/001544;SSO - Incidente ambiental;;Acidente
+2608/001545;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001546;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001546;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001547;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001548;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001549;SSO - Danos estruturais a instalacao;;Acidente
+2608/001550;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001551;SSO - Principio de incendio;;Acidente
+2608/001552;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001553;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2608/001554;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001555;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001556;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001557;SSO - Falha estrutural em poco;;Acidente
+2608/001557;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001558;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001558;SSO - Incidente ambiental;;Acidente
+2608/001559;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001560;SSO - Queda de objetos;;Quase acidente
+2608/001561;SSO - Queda de objetos;;Quase acidente
+2608/001562;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001563;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001564;SSO - Queda de objetos;;Quase acidente
+2608/001564;SSO - Queda de objetos;;Quase acidente
+2608/001565;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001566;SSO - Reclassificacao;;
+2608/001567;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2608/001567;SSO - Parada de emergencia;;Acidente
+2608/001568;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001569;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001570;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001571;SSO - Parada de emergencia;;Acidente
+2608/001572;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001573;SSO - Incidente ambiental;;Acidente
+2608/001574;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001575;SSO - Incidente ambiental;;Acidente
+2608/001575;SSO - Parada de emergencia;;Acidente
+2608/001576;SSO - Parada de emergencia;;Acidente
+2608/001577;SSO - Principio de incendio;;Acidente
+2608/001578;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001579;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2608/001580;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001581;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001582;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001583;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001584;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001585;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001586;SSO - Ferimento grave;LEVE;Acidente
+2608/001587;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001587;SSO - Danos estruturais a instalacao;;Acidente
+2608/001588;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001589;SSO - Parada de emergencia;;Acidente
+2608/001589;SSO - Parada de emergencia;;Acidente
+2608/001590;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001591;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001592;SSO - Parada de emergencia;;Acidente
+2608/001593;SSO - Queda de objetos;;Quase acidente
+2608/001593;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001594;SSO - Parada de emergencia;;Acidente
+2608/001595;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001596;SSO - Parada de emergencia;;Acidente
+2608/001597;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001598;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001599;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001600;SSO - Ferimento grave;LEVE;Acidente
+2608/001600;SSO - Perda de controle de poco;;Acidente
+2608/001601;SSO - Reclassificacao;;
+2608/001602;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001603;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001604;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001605;SSO - Parada de emergencia;;Acidente
+2608/001606;SSO - Ferimento grave;LEVE;Acidente
+2608/001607;SSO - Incidente ambiental;;Acidente
+2608/001607;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001608;SSO - Incidente ambiental;;Acidente
+2608/001608;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001609;SSO - Reclassificacao;;
+2608/001610;SSO - Parada de emergencia;;Acidente
+2608/001611;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001612;SSO - Parada de emergencia;;Acidente
+2608/001612;SSO - Parada de emergencia;;Acidente
+2608/001613;SSO - Incidente ambiental;;Acidente
+2608/001614;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001614;SSO - Incidente ambiental;;Acidente
+2608/001615;SSO - Principio de incendio;;Acidente
+2608/001616;SSO - Reclassificacao;;
+2608/001617;SSO - Trabalho em altura (queda);LEVE;Acidente
+2608/001618;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001619;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001619;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001620;SSO - Trabalho em altura (queda);LEVE;Acidente
+2608/001621;SSO - Queda de objetos;;Quase acidente
+2608/001621;SSO - Parada de emergencia;;Acidente
+2608/001622;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001623;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001624;SSO - Incidente ambiental;;Acidente
+2608/001625;SSO - Parada de emergencia;;Acidente
+2608/001626;SSO - Queda de objetos;;Quase acidente
+2608/001627;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001628;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001629;SSO - Parada de emergencia;;Acidente
+2608/001630;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001631;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001632;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001633;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2608/001634;SSO - Parada de emergencia;;Acidente
+2608/001635;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001636;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001637;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2608/001638;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001639;SSO - Danos estruturais a instalacao;;Acidente
+2608/001639;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001640;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001641;SSO - Vazamento de oleo mineral no mar;;Acidente
+2608/001642;SSO - Falha de equipamento de protecao;;Quase acidente
+2608/001643;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001644;SSO - Falha estrutural em poco;;Acidente
+2608/001645;SSO - Parada de emergencia;;Acidente
+2608/001645;SSO - Principio de incendio;;Acidente
+2608/001646;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2608/001647;SSO - Parada de emergencia;;Acidente
+2608/001647;SSO - Danos estruturais a instalacao;;Acidente
+2608/001648;SSO - Parada de emergencia;;Acidente
+2608/001648;SSO - Parada de emergencia;;Acidente
+2608/001649;SSO - Incidente ambiental;;Acidente
+2608/001650;SSO - Perda de controle de poco;;Acidente
+2608/001651;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2609/001652;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001653;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2609/001654;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001655;SSO - Ferimento grave;LEVE;Acidente
+2609/001656;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001657;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001658;SSO - Parada de emergencia;;Acidente
+2609/001658;SSO - Queda de objetos;;Quase acidente
+2609/001659;SSO - Queda de objetos;;Quase acidente
+2609/001660;SSO - Falha estrutural em poco;;Acidente
+2609/001661;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001661;SSO - Explosao;;Acidente
+2609/001662;SSO - Derramamento quimico;;Acidente
+2609/001662;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001663;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2609/001664;SSO - Danos estruturais a instalacao;;Acidente
+2609/001664;SSO - Parada de emergencia;;Acidente
+2609/001665;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001666;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001667;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001667;SSO - Parada de emergencia;;Acidente
+2609/001668;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001669;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001670;SSO - Ferimento grave;LEVE;Acidente
+2609/001670;SSO - Queda de objetos;;Quase acidente
+2609/001671;SSO - Explosao;;Acidente
+2609/001671;SSO - Queda de objetos;;Quase acidente
+2609/001672;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001673;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001674;SSO - Principio de incendio;;Acidente
+2609/001675;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001676;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001677;SSO - Parada de emergencia;;Acidente
+2609/001678;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001679;SSO - Derramamento quimico;;Acidente
+2609/001680;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001681;SSO - Ferimento grave;LEVE;Acidente
+2609/001682;SSO - Falha estrutural em poco;;Acidente
+2609/001683;SSO - Derramamento quimico;;Acidente
+2609/001684;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001685;SSO - Falha estrutural em poco;;Acidente
+2609/001686;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001687;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001688;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001689;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001690;SSO - Ferimento grave;LEVE;Acidente
+2609/001691;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001692;SSO - Parada de emergencia;;Acidente
+2609/001692;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001693;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001694;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001695;SSO - Incidente ambiental;;Acidente
+2609/001695;SSO - Ferimento grave;LEVE;Acidente
+2609/001696;SSO - Parada de emergencia;;Acidente
+2609/001697;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001698;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001699;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001700;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001701;SSO - Parada de emergencia;;Acidente
+2609/001702;SSO - Danos estruturais a instalacao;;Acidente
+2609/001703;SSO - Incidente ambiental;;Acidente
+2609/001703;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001704;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001705;SSO - Incidente ambiental;;Acidente
+2609/001706;SSO - Queda de objetos;;Quase acidente
+2609/001706;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001707;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001708;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001708;SSO - Parada de emergencia;;Acidente
+2609/001709;SSO - Principio de incendio;;Acidente
+2609/001709;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001710;SSO - Incidente ambiental;;Acidente
+2609/001711;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001712;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001713;SSO - Ferimento grave;LEVE;Acidente
+2609/001714;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2609/001714;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001715;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001716;SSO - Reclassificacao;;
+2609/001717;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001718;SSO - Perda de controle de poco;;Acidente
+2609/001719;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001720;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001721;SSO - Ferimento grave;LEVE;Acidente
+2609/001721;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001722;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2609/001723;SSO - Parada de emergencia;;Acidente
+2609/001724;SSO - Parada de emergencia;;Acidente
+2609/001725;SSO - Parada de emergencia;;Acidente
+2609/001726;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001727;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001728;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001729;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001730;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001731;SSO - Parada de emergencia;;Acidente
+2609/001732;SSO - Parada de emergencia;;Acidente
+2609/001732;SSO - Parada de emergencia;;Acidente
+2609/001733;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001734;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001735;SSO - Fatalidade;GRAVE;Acidente
+2609/001736;SSO - Ferimento grave;LEVE;Acidente
+2609/001737;SSO - Ferimento grave;LEVE;Acidente
+2609/001738;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2609/001739;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001739;SSO - Parada de emergencia;;Acidente
+2609/001740;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001741;SSO - Queda de objetos;;Quase acidente
+2609/001742;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001743;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001744;SSO - Parada de emergencia;;Acidente
+2609/001745;SSO - Parada de emergencia;;Acidente
+2609/001746;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2609/001747;SSO - Parada de emergencia;;Acidente
+2609/001748;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001749;SSO - Parada de emergencia;;Acidente
+2609/001750;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001751;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001752;SSO - Queda de objetos;;Quase acidente
+2609/001753;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001754;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001755;SSO - Principio de incendio;;Acidente
+2609/001756;SSO - Danos estruturais a instalacao;;Acidente
+2609/001757;SSO - Parada de emergencia;;Acidente
+2609/001758;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001759;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001760;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001761;SSO - Parada de emergencia;;Acidente
+2609/001762;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001763;SSO - Parada de emergencia;;Acidente
+2609/001763;SSO - Derramamento quimico;;Acidente
+2609/001764;SSO - Incidente ambiental;;Acidente
+2609/001765;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001766;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001767;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001767;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001768;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001769;SSO - Queda de objetos;;Quase acidente
+2609/001770;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001770;SSO - Ferimento grave;LEVE;Acidente
+2609/001771;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001772;SSO - Falha estrutural em poco;;Acidente
+2609/001773;SSO - Parada de emergencia;;Acidente
+2609/001774;SSO - Reclassificacao;;
+2609/001775;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001776;SSO - Parada de emergencia;;Acidente
+2609/001777;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001777;SSO - Incidente ambiental;;Acidente
+2609/001778;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001779;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001780;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001780;SSO - Reclassificacao;;
+2609/001781;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001782;SSO - Perda de controle de poco;;Acidente
+2609/001782;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001783;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001784;SSO - Derramamento quimico;;Acidente
+2609/001785;SSO - Parada de emergencia;;Acidente
+2609/001786;SSO - Parada de emergencia;;Acidente
+2609/001787;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001788;SSO - Parada de emergencia;;Acidente
+2609/001789;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001790;SSO - Principio de incendio;;Acidente
+2609/001791;SSO - Parada de emergencia;;Acidente
+2609/001791;SSO - Derramamento quimico;;Acidente
+2609/001792;SSO - Incidente ambiental;;Acidente
+2609/001792;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001793;SSO - Parada de emergencia;;Acidente
+2609/001794;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001795;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001796;SSO - Principio de incendio;;Acidente
+2609/001797;SSO - Parada de emergencia;;Acidente
+2609/001798;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001798;SSO - Parada de emergencia;;Acidente
+2609/001799;SSO - Ferimento grave;LEVE;Acidente
+2609/001800;SSO - Parada de emergencia;;Acidente
+2609/001801;SSO - Parada de emergencia;;Acidente
+2609/001801;SSO - Ferimento grave;LEVE;Acidente
+2609/001802;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001802;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001803;SSO - Parada de emergencia;;Acidente
+2609/001804;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001805;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001806;SSO - Parada de emergencia;;Acidente
+2609/001807;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001808;SSO - Perda de controle de poco;;Acidente
+2609/001809;SSO - Parada de emergencia;;Acidente
+2609/001810;SSO - Parada de emergencia;;Acidente
+2609/001811;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001812;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001813;SSO - Parada de emergencia;;Acidente
+2609/001814;SSO - Derramamento quimico;;Acidente
+2609/001814;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001815;SSO - Queda de objetos;;Quase acidente
+2609/001815;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001816;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001817;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001818;SSO - Perda de controle de poco;;Acidente
+2609/001818;SSO - Parada de emergencia;;Acidente
+2609/001819;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001820;SSO - Incidente ambiental;;Acidente
+2609/001821;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001822;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001823;SSO - Queda de objetos;;Quase acidente
+2609/001824;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001825;SSO - Derramamento quimico;;Acidente
+2609/001826;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001827;SSO - Perda de controle de poco;;Acidente
+2609/001828;SSO - Falha estrutural em poco;;Acidente
+2609/001829;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001830;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001831;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001832;SSO - Danos estruturais a instalacao;;Acidente
+2609/001832;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001833;SSO - Ferimento grave;LEVE;Acidente
+2609/001833;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001834;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001834;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001835;SSO - Falha estrutural em poco;;Acidente
+2609/001836;SSO - Queda de objetos;;Quase acidente
+2609/001837;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001838;SSO - Queda de objetos;;Quase acidente
+2609/001839;SSO - Incidente ambiental;;Acidente
+2609/001840;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001840;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001841;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001842;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001843;SSO - Parada de emergencia;;Acidente
+2609/001844;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001845;SSO - Danos estruturais a instalacao;;Acidente
+2609/001846;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001846;SSO - Danos estruturais a instalacao;;Acidente
+2609/001847;SSO - Perda de controle de poco;;Acidente
+2609/001848;SSO - Principio de incendio;;Acidente
+2609/001849;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001850;SSO - Parada de emergencia;;Acidente
+2609/001851;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001852;SSO - Parada de emergencia;;Acidente
+2609/001852;SSO - Principio de incendio;;Acidente
+2609/001853;SSO - Incidente ambiental;;Acidente
+2609/001854;SSO - Vazamento de oleo mineral no mar;;Acidente
+2609/001855;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001856;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001857;SSO - Falha de equipamento de protecao;;Quase acidente
+2609/001858;SSO - Queda de objetos;;Quase acidente
+2609/001859;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2609/001859;SSO - Derramamento quimico;;Acidente
+2609/001860;SSO - Queda de objetos;;Quase acidente
+2609/001861;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001862;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001863;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2609/001864;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2609/001864;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001865;SSO - Trabalho em altura (queda);LEVE;Acidente
+2609/001865;SSO - Parada de emergencia;;Acidente
+2609/001866;SSO - Ferimento grave;LEVE;Acidente
+2609/001867;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001868;SSO - Parada de emergencia;;Acidente
+2609/001869;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001870;SSO - Queda de objetos;;Quase acidente
+2609/001871;SSO - Parada de emergencia;;Acidente
+2609/001872;SSO - Parada de emergencia;;Acidente
+2609/001873;SSO - Parada de emergencia;;Acidente
+2609/001874;SSO - Danos estruturais a instalacao;;Acidente
+2609/001875;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2609/001876;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2609/001877;SSO - Reclassificacao;;
+2609/001878;SSO - Falha estrutural em poco;;Acidente
+2609/001879;SSO - Reclassificacao;;
+2609/001880;SSO - Parada de emergencia;;Acidente
+2609/001881;SSO - Parada de emergencia;;Acidente
+2610/001882;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001883;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001883;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001884;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2610/001885;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001886;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001887;SSO - Parada de emergencia;;Acidente
+2610/001888;SSO - Queda de objetos;;Quase acidente
+2610/001889;SSO - Queda de objetos;;Quase acidente
+2610/001889;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001890;SSO - Incidente ambiental;;Acidente
+2610/001891;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001891;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001892;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001892;SSO - Parada de emergencia;;Acidente
+2610/001893;SSO - Ferimento grave;LEVE;Acidente
+2610/001894;SSO - Queda de objetos;;Quase acidente
+2610/001895;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001896;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001897;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001898;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2610/001898;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001899;SSO - Queda de objetos;;Quase acidente
+2610/001899;SSO - Incidente ambiental;;Acidente
+2610/001900;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001901;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001902;SSO - Parada de emergencia;;Acidente
+2610/001903;SSO - Danos estruturais a instalacao;;Acidente
+2610/001904;SSO - Parada de emergencia;;Acidente
+2610/001905;SSO - Fatalidade;GRAVE;Acidente
+2610/001905;SSO - Trabalho em altura (queda);LEVE;Acidente
+2610/001906;SSO - Derramamento quimico;;Acidente
+2610/001907;SSO - Parada de emergencia;;Acidente
+2610/001908;SSO - Ferimento grave;LEVE;Acidente
+2610/001909;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001910;SSO - Parada de emergencia;;Acidente
+2610/001911;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001912;SSO - Parada de emergencia;;Acidente
+2610/001913;SSO - Danos estruturais a instalacao;;Acidente
+2610/001914;SSO - Parada de emergencia;;Acidente
+2610/001915;SSO - Parada de emergencia;;Acidente
+2610/001916;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001916;SSO - Derramamento quimico;;Acidente
+2610/001917;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001918;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001919;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001920;SSO - Danos estruturais a instalacao;;Acidente
+2610/001921;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001922;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001923;SSO - Queda de objetos;;Quase acidente
+2610/001924;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001924;SSO - Trabalho em altura (queda);LEVE;Acidente
+2610/001925;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001926;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001927;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001928;SSO - Danos estruturais a instalacao;;Acidente
+2610/001929;SSO - Parada de emergencia;;Acidente
+2610/001930;SSO - Perda de controle de poco;;Acidente
+2610/001931;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2610/001932;SSO - Ferimento grave;LEVE;Acidente
+2610/001933;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001934;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001935;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001935;SSO - Parada de emergencia;;Acidente
+2610/001936;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001937;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001937;SSO - Parada de emergencia;;Acidente
+2610/001938;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001939;SSO - Parada de emergencia;;Acidente
+2610/001940;SSO - Queda de objetos;;Quase acidente
+2610/001941;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2610/001942;SSO - Ferimento grave;LEVE;Acidente
+2610/001943;SSO - Perda de controle de poco;;Acidente
+2610/001943;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001944;SSO - Queda de objetos;;Quase acidente
+2610/001945;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001945;SSO - Ferimento grave;LEVE;Acidente
+2610/001946;SSO - Perda de controle de poco;;Acidente
+2610/001947;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001948;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001949;SSO - Incidente ambiental;;Acidente
+2610/001950;SSO - Danos estruturais a instalacao;;Acidente
+2610/001951;SSO - Danos estruturais a instalacao;;Acidente
+2610/001952;SSO - Queda de objetos;;Quase acidente
+2610/001953;SSO - Reclassificacao;;
+2610/001954;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001955;SSO - Parada de emergencia;;Acidente
+2610/001956;SSO - Reclassificacao;;
+2610/001956;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001957;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001958;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001959;SSO - Queda de objetos;;Quase acidente
+2610/001960;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001961;SSO - Queda de objetos;;Quase acidente
+2610/001962;SSO - Principio de incendio;;Acidente
+2610/001963;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001964;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001965;SSO - Principio de incendio;;Acidente
+2610/001966;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001967;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001968;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001969;SSO - Parada de emergencia;;Acidente
+2610/001970;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001971;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001972;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001973;SSO - Parada de emergencia;;Acidente
+2610/001974;SSO - Parada de emergencia;;Acidente
+2610/001975;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001976;SSO - Queda de objetos;;Quase acidente
+2610/001977;SSO - Parada de emergencia;;Acidente
+2610/001978;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001978;SSO - Derramamento quimico;;Acidente
+2610/001979;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001980;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001981;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001982;SSO - Incidente ambiental;;Acidente
+2610/001983;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/001983;SSO - Ferimento grave;LEVE;Acidente
+2610/001984;SSO - Ferimento grave;LEVE;Acidente
+2610/001985;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/001986;SSO - Derramamento quimico;;Acidente
+2610/001986;SSO - Derramamento quimico;;Acidente
+2610/001987;SSO - Parada de emergencia;;Acidente
+2610/001988;SSO - Derramamento quimico;;Acidente
+2610/001989;SSO - Incidente ambiental;;Acidente
+2610/001990;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2610/001991;SSO - Queda de objetos;;Quase acidente
+2610/001992;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001993;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/001994;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/001995;SSO - Reclassificacao;;
+2610/001996;SSO - Parada de emergencia;;Acidente
+2610/001997;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/001998;SSO - Parada de emergencia;;Acidente
+2610/001999;SSO - Parada de emergencia;;Acidente
+2610/002000;SSO - Reclassificacao;;
+2610/002001;SSO - Derramamento quimico;;Acidente
+2610/002002;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002003;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002004;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002005;SSO - Fatalidade;GRAVE;Acidente
+2610/002006;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2610/002007;SSO - Danos estruturais a instalacao;;Acidente
+2610/002008;SSO - Incidente ambiental;;Acidente
+2610/002009;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002010;SSO - Principio de incendio;;Acidente
+2610/002010;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002011;SSO - Derramamento quimico;;Acidente
+2610/002012;SSO - Incidente ambiental;;Acidente
+2610/002013;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002014;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002015;SSO - Ferimento grave;LEVE;Acidente
+2610/002016;SSO - Queda de objetos;;Quase acidente
+2610/002017;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002018;SSO - Ferimento grave;LEVE;Acidente
+2610/002019;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002020;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002020;SSO - Danos estruturais a instalacao;;Acidente
+2610/002021;SSO - Parada de emergencia;;Acidente
+2610/002022;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002023;SSO - Explosao;;Acidente
+2610/002024;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002025;SSO - Falha estrutural em poco;;Acidente
+2610/002026;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002027;SSO - Parada de emergencia;;Acidente
+2610/002028;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002029;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002030;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002031;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002031;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002032;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002033;SSO - Perda de controle de poco;;Acidente
+2610/002034;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002035;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002036;SSO - Queda de objetos;;Quase acidente
+2610/002037;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002038;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/002039;SSO - Parada de emergencia;;Acidente
+2610/002040;SSO - Queda de objetos;;Quase acidente
+2610/002041;SSO - Derramamento quimico;;Acidente
+2610/002042;SSO - Derramamento quimico;;Acidente
+2610/002043;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002043;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002044;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002045;SSO - Parada de emergencia;;Acidente
+2610/002046;SSO - Reclassificacao;;
+2610/002047;SSO - Trabalho em altura (queda);LEVE;Acidente
+2610/002048;SSO - Danos estruturais a instalacao;;Acidente
+2610/002048;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002049;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002050;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002050;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002051;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002052;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002053;SSO - Reclassificacao;;
+2610/002054;SSO - Perda de controle de poco;;Acidente
+2610/002055;SSO - Perda de controle de poco;;Acidente
+2610/002056;SSO - Danos estruturais a instalacao;;Acidente
+2610/002057;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2610/002057;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002058;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/002059;SSO - Derramamento quimico;;Acidente
+2610/002059;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002060;SSO - Derramamento quimico;;Acidente
+2610/002061;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/002062;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002063;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002064;SSO - Ferimento grave;LEVE;Acidente
+2610/002064;SSO - Parada de emergencia;;Acidente
+2610/002065;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002066;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002067;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002068;SSO - Parada de emergencia;;Acidente
+2610/002069;SSO - Incidente ambiental;;Acidente
+2610/002070;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002070;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002071;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002072;SSO - Parada de emergencia;;Acidente
+2610/002073;SSO - Parada de emergencia;;Acidente
+2610/002074;SSO - Falha estrutural em poco;;Acidente
+2610/002075;SSO - Incidente ambiental;;Acidente
+2610/002076;SSO - Parada de emergencia;;Acidente
+2610/002077;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002078;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002079;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002080;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002080;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002081;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002082;SSO - Parada de emergencia;;Acidente
+2610/002083;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002083;SSO - Derramamento quimico;;Acidente
+2610/002084;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002085;SSO - Ferimento grave;LEVE;Acidente
+2610/002086;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002087;SSO - Incidente ambiental;;Acidente
+2610/002088;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002089;SSO - Parada de emergencia;;Acidente
+2610/002090;SSO - Incidente ambiental;;Acidente
+2610/002091;SSO - Trabalho em altura (queda);LEVE;Acidente
+2610/002092;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002093;SSO - Derramamento quimico;;Acidente
+2610/002093;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2610/002094;SSO - Falha estrutural em poco;;Acidente
+2610/002095;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002096;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/002096;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002097;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002098;SSO - Falha estrutural em poco;;Acidente
+2610/002099;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002099;SSO - Parada de emergencia;;Acidente
+2610/002100;SSO - Danos estruturais a instalacao;;Acidente
+2610/002100;SSO - Ferimento grave;LEVE;Acidente
+2610/002101;SSO - Principio de incendio;;Acidente
+2610/002102;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2610/002103;SSO - Queda de objetos;;Quase acidente
+2610/002104;SSO - Derramamento quimico;;Acidente
+2610/002105;SSO - Queda de objetos;;Quase acidente
+2610/002106;SSO - Principio de incendio;;Acidente
+2610/002107;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002108;SSO - Parada de emergencia;;Acidente
+2610/002109;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002110;SSO - Danos estruturais a instalacao;;Acidente
+2610/002111;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2610/002112;SSO - Parada de emergencia;;Acidente
+2610/002113;SSO - Danos estruturais a instalacao;;Acidente
+2610/002114;SSO - Queda de objetos;;Quase acidente
+2610/002115;SSO - Vazamento de oleo mineral no mar;;Acidente
+2610/002116;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2610/002117;SSO - Ferimento grave;LEVE;Acidente
+2610/002118;SSO - Falha de equipamento de protecao;;Quase acidente
+2610/002118;SSO - Incidente ambiental;;Acidente
+2610/002119;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2610/002119;SSO - Queda de objetos;;Quase acidente
+2610/002120;SSO - Parada de emergencia;;Acidente
+2610/002121;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002122;SSO - Parada de emergencia;;Acidente
+2611/002123;SSO - Derramamento quimico;;Acidente
+2611/002123;SSO - Parada de emergencia;;Acidente
+2611/002124;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002125;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002126;SSO - Parada de emergencia;;Acidente
+2611/002126;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002127;SSO - Explosao;;Acidente
+2611/002128;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002129;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002130;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002131;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002132;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002133;SSO - Principio de incendio;;Acidente
+2611/002134;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002135;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002136;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002137;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002138;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002138;SSO - Incidente ambiental;;Acidente
+2611/002139;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002140;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002141;SSO - Parada de emergencia;;Acidente
+2611/002142;SSO - Danos estruturais a instalacao;;Acidente
+2611/002143;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002144;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002145;SSO - Queda de objetos;;Quase acidente
+2611/002146;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002147;SSO - Explosao;;Acidente
+2611/002148;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002149;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2611/002150;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002151;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002152;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002153;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002154;SSO - Parada de emergencia;;Acidente
+2611/002154;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002155;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002156;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002157;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002158;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002159;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002160;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002161;SSO - Fatalidade;GRAVE;Acidente
+2611/002162;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002163;SSO - Queda de objetos;;Quase acidente
+2611/002163;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002164;SSO - Incidente ambiental;;Acidente
+2611/002164;SSO - Parada de emergencia;;Acidente
+2611/002165;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002165;SSO - Danos estruturais a instalacao;;Acidente
+2611/002166;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002167;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002168;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002169;SSO - Parada de emergencia;;Acidente
+2611/002170;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002171;SSO - Parada de emergencia;;Acidente
+2611/002172;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002172;SSO - Parada de emergencia;;Acidente
+2611/002173;SSO - Danos estruturais a instalacao;;Acidente
+2611/002174;SSO - Danos estruturais a instalacao;;Acidente
+2611/002175;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002176;SSO - Reclassificacao;;
+2611/002176;SSO - Parada de emergencia;;Acidente
+2611/002177;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002177;SSO - Danos estruturais a instalacao;;Acidente
+2611/002178;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002179;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002180;SSO - Parada de emergencia;;Acidente
+2611/002181;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002182;SSO - Derramamento quimico;;Acidente
+2611/002183;SSO - Parada de emergencia;;Acidente
+2611/002184;SSO - Ferimento grave;LEVE;Acidente
+2611/002184;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002185;SSO - Parada de emergencia;;Acidente
+2611/002186;SSO - Derramamento quimico;;Acidente
+2611/002187;SSO - Parada de emergencia;;Acidente
+2611/002188;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002189;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002190;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002190;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002191;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002192;SSO - Incidente ambiental;;Acidente
+2611/002193;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002194;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002194;SSO - Parada de emergencia;;Acidente
+2611/002195;SSO - Reclassificacao;;
+2611/002196;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002197;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002198;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002199;SSO - Fatalidade;GRAVE;Acidente
+2611/002200;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002201;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002202;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002203;SSO - Danos estruturais a instalacao;;Acidente
+2611/002204;SSO - Parada de emergencia;;Acidente
+2611/002205;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002206;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002207;SSO - Parada de emergencia;;Acidente
+2611/002208;SSO - Parada de emergencia;;Acidente
+2611/002208;SSO - Reclassificacao;;
+2611/002209;SSO - Parada de emergencia;;Acidente
+2611/002210;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002211;SSO - Queda de objetos;;Quase acidente
+2611/002212;SSO - Queda de objetos;;Quase acidente
+2611/002213;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002214;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002215;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002216;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002217;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002218;SSO - Falha estrutural em poco;;Acidente
+2611/002219;SSO - Queda de objetos;;Quase acidente
+2611/002220;SSO - Parada de emergencia;;Acidente
+2611/002221;SSO - Principio de incendio;;Acidente
+2611/002222;SSO - Parada de emergencia;;Acidente
+2611/002223;SSO - Derramamento quimico;;Acidente
+2611/002224;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002224;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002225;SSO - Parada de emergencia;;Acidente
+2611/002226;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002227;SSO - Derramamento quimico;;Acidente
+2611/002228;SSO - Fatalidade;GRAVE;Acidente
+2611/002229;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002230;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002231;SSO - Danos estruturais a instalacao;;Acidente
+2611/002232;SSO - Ferimento grave;LEVE;Acidente
+2611/002233;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002233;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002234;SSO - Parada de emergencia;;Acidente
+2611/002235;SSO - Incidente ambiental;;Acidente
+2611/002236;SSO - Parada de emergencia;;Acidente
+2611/002237;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002238;SSO - Danos estruturais a instalacao;;Acidente
+2611/002239;SSO - Queda de objetos;;Quase acidente
+2611/002240;SSO - Falha estrutural em poco;;Acidente
+2611/002241;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002242;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002243;SSO - Reclassificacao;;
+2611/002243;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002244;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002245;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002246;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002247;SSO - Incidente ambiental;;Acidente
+2611/002248;SSO - Derramamento quimico;;Acidente
+2611/002249;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002250;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002251;SSO - Queda de objetos;;Quase acidente
+2611/002251;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002252;SSO - Parada de emergencia;;Acidente
+2611/002253;SSO - Ferimento grave;LEVE;Acidente
+2611/002254;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002255;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002256;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002256;SSO - Queda de objetos;;Quase acidente
+2611/002257;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002257;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2611/002258;SSO - Falha estrutural em poco;;Acidente
+2611/002259;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2611/002260;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002261;SSO - Parada de emergencia;;Acidente
+2611/002262;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002262;SSO - Fatalidade;GRAVE;Acidente
+2611/002263;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002264;SSO - Parada de emergencia;;Acidente
+2611/002264;SSO - Incidente ambiental;;Acidente
+2611/002265;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002265;SSO - Principio de incendio;;Acidente
+2611/002266;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002267;SSO - Ferimento grave;LEVE;Acidente
+2611/002268;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002269;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002270;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002271;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002272;SSO - Danos estruturais a instalacao;;Acidente
+2611/002273;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002273;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002274;SSO - Incidente ambiental;;Acidente
+2611/002275;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002276;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002277;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002278;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002279;SSO - Parada de emergencia;;Acidente
+2611/002279;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002280;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002280;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002281;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002282;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002282;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002283;SSO - Fatalidade;GRAVE;Acidente
+2611/002284;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002285;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002285;SSO - Incidente ambiental;;Acidente
+2611/002286;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002287;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002288;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2611/002289;SSO - Derramamento quimico;;Acidente
+2611/002290;SSO - Principio de incendio;;Acidente
+2611/002291;SSO - Parada de emergencia;;Acidente
+2611/002292;SSO - Queda de objetos;;Quase acidente
+2611/002293;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002294;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002294;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002295;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002296;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002297;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002298;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002299;SSO - Parada de emergencia;;Acidente
+2611/002300;SSO - Parada de emergencia;;Acidente
+2611/002301;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002302;SSO - Derramamento quimico;;Acidente
+2611/002302;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002303;SSO - Danos estruturais a instalacao;;Acidente
+2611/002304;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002305;SSO - Derramamento quimico;;Acidente
+2611/002305;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002306;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002306;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002307;SSO - Parada de emergencia;;Acidente
+2611/002308;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002309;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002310;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002311;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002312;SSO - Danos estruturais a instalacao;;Acidente
+2611/002312;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2611/002313;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002314;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002315;SSO - Parada de emergencia;;Acidente
+2611/002316;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002317;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002318;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002319;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002320;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002320;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2611/002321;SSO - Parada de emergencia;;Acidente
+2611/002322;SSO - Reclassificacao;;
+2611/002323;SSO - Falha de equipamento de protecao;;Quase acidente
+2611/002323;SSO - Incidente ambiental;;Acidente
+2611/002324;SSO - Danos estruturais a instalacao;;Acidente
+2611/002325;SSO - Incidente ambiental;;Acidente
+2611/002326;SSO - Parada de emergencia;;Acidente
+2611/002327;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002327;SSO - Queda de objetos;;Quase acidente
+2611/002328;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002329;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002330;SSO - Parada de emergencia;;Acidente
+2611/002330;SSO - Reclassificacao;;
+2611/002331;SSO - Vazamento de oleo mineral no mar;;Acidente
+2611/002332;SSO - Derramamento quimico;;Acidente
+2611/002333;SSO - Danos estruturais a instalacao;;Acidente
+2611/002334;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2611/002335;SSO - Trabalho em altura (queda);LEVE;Acidente
+2611/002336;SSO - Derramamento quimico;;Acidente
+2611/002337;SSO - Perda de controle de poco;;Acidente
+2611/002338;SSO - Fatalidade;GRAVE;Acidente
+2611/002339;SSO - Incidente ambiental;;Acidente
+2611/002339;SSO - Danos estruturais a instalacao;;Acidente
+2611/002340;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2611/002341;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002342;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002342;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002343;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002344;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2612/002345;SSO - Principio de incendio;;Acidente
+2612/002346;SSO - Trabalho em altura (queda);LEVE;Acidente
+2612/002347;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002348;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002349;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002350;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002351;SSO - Reclassificacao;;
+2612/002352;SSO - Parada de emergencia;;Acidente
+2612/002353;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002354;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002355;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002356;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002356;SSO - Parada de emergencia;;Acidente
+2612/002357;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002358;SSO - Derramamento quimico;;Acidente
+2612/002359;SSO - Parada de emergencia;;Acidente
+2612/002359;SSO - Parada de emergencia;;Acidente
+2612/002360;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002361;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2612/002362;SSO - Danos estruturais a instalacao;;Acidente
+2612/002363;SSO - Incidente ambiental;;Acidente
+2612/002363;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002364;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002365;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002366;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2612/002367;SSO - Queda de objetos;;Quase acidente
+2612/002368;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002368;SSO - Parada de emergencia;;Acidente
+2612/002369;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002370;SSO - Parada de emergencia;;Acidente
+2612/002371;SSO - Parada de emergencia;;Acidente
+2612/002372;SSO - Ferimento grave;LEVE;Acidente
+2612/002373;SSO - Reclassificacao;;
+2612/002374;SSO - Principio de incendio;;Acidente
+2612/002375;SSO - Trabalho em altura (queda);LEVE;Acidente
+2612/002376;SSO - Derramamento quimico;;Acidente
+2612/002377;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002378;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002379;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002380;SSO - Incidente ambiental;;Acidente
+2612/002381;SSO - Danos estruturais a instalacao;;Acidente
+2612/002382;SSO - Parada de emergencia;;Acidente
+2612/002383;SSO - Trabalho em altura (queda);LEVE;Acidente
+2612/002384;SSO - Trabalho em altura (queda);LEVE;Acidente
+2612/002385;SSO - Derramamento quimico;;Acidente
+2612/002386;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2612/002387;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002388;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002389;SSO - Parada de emergencia;;Acidente
+2612/002390;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002391;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002392;SSO - Principio de incendio;;Acidente
+2612/002393;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002394;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002395;SSO - Principio de incendio;;Acidente
+2612/002396;SSO - Parada de emergencia;;Acidente
+2612/002397;SSO - Principio de incendio;;Acidente
+2612/002398;SSO - Parada de emergencia;;Acidente
+2612/002399;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002400;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2612/002401;SSO - Parada de emergencia;;Acidente
+2612/002402;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002403;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002404;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002405;SSO - Queda de objetos;;Quase acidente
+2612/002406;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002407;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002408;SSO - Falha estrutural em poco;;Acidente
+2612/002409;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002409;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002410;SSO - Incidente ambiental;;Acidente
+2612/002411;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002412;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002413;SSO - Ferimento grave;LEVE;Acidente
+2612/002414;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002414;SSO - Parada de emergencia;;Acidente
+2612/002415;SSO - Reclassificacao;;
+2612/002416;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002417;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002418;SSO - Incidente ambiental;;Acidente
+2612/002419;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002419;SSO - Principio de incendio;;Acidente
+2612/002420;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002421;SSO - Parada de emergencia;;Acidente
+2612/002422;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002423;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002424;SSO - Queda de objetos;;Quase acidente
+2612/002425;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002426;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002427;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002428;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002429;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002429;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002430;SSO - Queda de objetos;;Quase acidente
+2612/002431;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002432;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002433;SSO - Falha estrutural em poco;;Acidente
+2612/002434;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002435;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002436;SSO - Falha de sistema de combate a incendio;;Quase acidente
+2612/002437;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002438;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002439;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002440;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002441;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002442;SSO - Danos estruturais a instalacao;;Acidente
+2612/002443;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002444;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002445;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002446;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002447;SSO - Queda de objetos;;Quase acidente
+2612/002447;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002448;SSO - Incidente ambiental;;Acidente
+2612/002449;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002450;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002451;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002452;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002453;SSO - Parada de emergencia;;Acidente
+2612/002454;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002455;SSO - Parada de emergencia;;Acidente
+2612/002456;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002457;SSO - Explosao;;Acidente
+2612/002458;SSO - Parada de emergencia;;Acidente
+2612/002458;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002459;SSO - Abalroamento, colisao, encalhe ou naufragio;;Acidente
+2612/002460;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002461;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002462;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002463;SSO - Reclassificacao;;
+2612/002463;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002464;SSO - Perda de controle de poco;;Acidente
+2612/002465;SSO - Danos estruturais a instalacao;;Acidente
+2612/002466;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002467;SSO - Reclassificacao;;
+2612/002468;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002469;SSO - Parada de emergencia;;Acidente
+2612/002470;SSO - Parada de emergencia;;Acidente
+2612/002470;SSO - Principio de incendio;;Acidente
+2612/002471;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002472;SSO - Danos estruturais a instalacao;;Acidente
+2612/002472;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002473;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002474;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002475;SSO - Incidente ambiental;;Acidente
+2612/002476;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002476;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002477;SSO - Parada de emergencia;;Acidente
+2612/002478;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002479;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002480;SSO - Reclassificacao;;
+2612/002481;SSO - Principio de incendio;;Acidente
+2612/002482;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002483;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002484;SSO - Reclassificacao;;
+2612/002484;SSO - Trabalho em altura (queda);LEVE;Acidente
+2612/002485;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002486;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002487;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002487;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002488;SSO - Parada de emergencia;;Acidente
+2612/002489;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002490;SSO - Parada de emergencia;;Acidente
+2612/002491;SSO - Derramamento quimico;;Acidente
+2612/002492;SSO - Queda de objetos;;Quase acidente
+2612/002493;SSO - Reclassificacao;;
+2612/002494;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002495;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002495;SSO - Derramamento quimico;;Acidente
+2612/002496;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002497;SSO - Queda de objetos;;Quase acidente
+2612/002498;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002499;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002500;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002501;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002502;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002503;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002504;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002505;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002506;SSO - Reclassificacao;;
+2612/002507;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002508;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002509;SSO - Danos estruturais a instalacao;;Acidente
+2612/002510;SSO - Principio de incendio;;Acidente
+2612/002511;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002512;SSO - Parada de emergencia;;Acidente
+2612/002513;SSO - Falha estrutural em poco;;Acidente
+2612/002513;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002514;SSO - Queda de objetos;;Quase acidente
+2612/002515;SSO - Principio de incendio;;Acidente
+2612/002516;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002517;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002517;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002518;SSO - Vazamento de oleo mineral no mar;;Acidente
+2612/002519;SSO - Incidente ambiental;;Acidente
+2612/002520;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002520;SSO - Danos estruturais a instalacao;;Acidente
+2612/002521;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002522;SSO - Ferimento grave;LEVE;Acidente
+2612/002523;SSO - Falha de equipamento de protecao;;Quase acidente
+2612/002524;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002525;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002526;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002527;SSO - Principio de incendio;;Acidente
+2612/002528;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002529;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002530;SSO - Parada de emergencia;;Acidente
+2612/002531;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002532;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002532;SSO - Falha de elemento do conjunto solidario de barreira (CSB);;Acidente
+2612/002533;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002533;SSO - Falha da barreira primaria na perfuracao ou intervencao em pocos (kick);;Acidente
+2612/002534;SSO - Falha estrutural em poco;;Acidente
+2612/002535;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente
+2612/002535;SSO - Parada de emergencia;;Acidente
+2612/002536;SSO - Deteccao de gas ou vapor inflamavel;;Quase acidente

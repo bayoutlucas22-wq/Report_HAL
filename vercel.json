@@ -5,7 +5,7 @@
   "trailingSlash": false,
   "functions": {
     "api/server.js": {
-      "includeFiles": "data/**,src/data/**"
+      "includeFiles": "api/data/**,src/data/**"
     }
   },
   "rewrites": [

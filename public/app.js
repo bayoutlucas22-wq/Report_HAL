@@ -28,6 +28,7 @@ const CAT_REGS = {
   "Kick (Primary Barrier)": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
   "Structural Failure": { label: "BV NR 445", url: LINKS.BV_NR445 },
   "Loss of Well Control": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
+  "BOP Failure": { label: "ANP Res. 46/2016 (SGIP)", url: LINKS.ANP_SGIP },
 };
 
 // Severity → BV classification link
@@ -44,6 +45,7 @@ const CAT_COLORS = {
   "Kick (Primary Barrier)": "#e67e22",
   "Structural Failure": "#1a56a0",
   "Loss of Well Control": "#7c3aed",
+  "BOP Failure": "#b45309",
   "Other": "#8896ab",
 };
 const SEV_COLORS = {
@@ -57,6 +59,7 @@ const CAT_CSS = {
   "Kick (Primary Barrier)": "bc-kick",
   "Structural Failure": "bc-struct",
   "Loss of Well Control": "bc-wc",
+  "BOP Failure": "bc-bop",
 };
 const SEV_CSS = {
   "SSO": "bs-sso",
@@ -95,9 +98,13 @@ const extLink = (href, label, cls = "") =>
 let chartInstances = {};
 let halStats = null;
 let tableState = { page: 1, total: 0, pages: 0, items: [] };
-let activeFilters = { year: "2026", category: "", severity: "" };
+let activeFilters = { year: "", category: "", severity: "" };
 let mexicoStore = []; // Dynamic Mexico metrics
 let argStore = [];    // Dynamic Argentina metrics
+let fMexStore = [];    // Filtered Mexico wells/jobs
+let mexRegPage = 1;
+let mexRegLimit = 20;
+
 
 // ── Destroy chart helper ──────────────────────────────────────────────────────
 function destroyChart(id) {
@@ -113,6 +120,10 @@ window.setRegistryFilter = function(field, val) {
 async function fetchHalStats() {
   return (await fetch("/api/stats")).json();
 }
+
+
+
+
 
 async function fetchHalIncidents(page = 1) {
   try {
@@ -224,12 +235,23 @@ function renderKPIs(stats) {
   `).join("");
 }
 
-// ── Overview Chart ────────────────────────────────────────────────────────────
+// ── Overview Chart (08) ───────────────────────────────────────────────────────
 function renderOverviewChart(stats) {
   destroyChart("overviewChart");
-  const ctx = document.getElementById("overviewChart").getContext("2d");
-  const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
+  const canvas = document.getElementById("overviewChart");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  
+  const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control", "BOP Failure"];
   const years = stats.yearSeries.map(y => y.year);
+
+  // Gradient generator for premium look
+  const getGradient = (color) => {
+    const g = ctx.createLinearGradient(0, 0, 0, 400);
+    g.addColorStop(0, color + "ee");
+    g.addColorStop(1, color + "44");
+    return g;
+  };
 
   chartInstances["overviewChart"] = new Chart(ctx, {
     type: "bar",
@@ -238,17 +260,40 @@ function renderOverviewChart(stats) {
       datasets: cats.map(cat => ({
         label: cat,
         data: stats.yearSeries.map(y => y[cat] || 0),
-        backgroundColor: CAT_COLORS[cat] + "cc",
+        backgroundColor: getGradient(CAT_COLORS[cat]),
         borderColor: CAT_COLORS[cat],
-        borderWidth: 1, borderRadius: 3,
+        borderWidth: 1.5,
+        borderRadius: { topLeft: 4, topRight: 4 },
+        barPercentage: 0.85,
+        categoryPercentage: 0.85
       }))
     },
     options: {
       responsive: true, maintainAspectRatio: true,
-      plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false } },
+      interaction: { mode: "index", intersect: false },
+      plugins: { 
+        legend: { display: false }, 
+        tooltip: { 
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleFont: { size: 13, weight: 'bold' },
+          bodyFont: { size: 12 },
+          padding: 12,
+          cornerRadius: 8,
+          boxPadding: 6
+        } 
+      },
       scales: {
-        x: { stacked: true, ticks: { color: "#4a5568", font: { size: 11 } }, grid: { display: false } },
-        y: { stacked: true, ticks: { color: "#4a5568", font: { size: 11 } }, grid: { color: "#dde3ee" }, beginAtZero: true }
+        x: { 
+          stacked: true, 
+          ticks: { color: "#64748b", font: { size: 10, weight: '600' } }, 
+          grid: { display: false } 
+        },
+        y: { 
+          stacked: true, 
+          ticks: { color: "#64748b", font: { size: 10 } }, 
+          grid: { color: "rgba(226, 232, 240, 0.6)", drawBorder: false },
+          beginAtZero: true 
+        }
       }
     }
   });
@@ -261,32 +306,50 @@ function renderOverviewChart(stats) {
     "Loss of Well Control": LINKS.ANP_SGIP,
   };
   const leg = document.getElementById("overviewLegend");
-  leg.innerHTML = cats.map(c => `
-    <a href="${catLinks[c]}" target="_blank" rel="noopener" class="lchip lchip-link" title="Regulation: ${CAT_REGS[c]?.label}">
-      <div class="lchip-dot" style="background:${CAT_COLORS[c]}"></div>
-      ${c.replace(" (Primary Barrier)", "").replace(" Failure", "")}
-    </a>
-  `).join("");
+  if (leg) {
+    leg.innerHTML = cats.map(c => `
+      <a href="${catLinks[c]}" target="_blank" rel="noopener" class="lchip lchip-link" title="Regulation: ${CAT_REGS[c]?.label}">
+        <div class="lchip-dot" style="background:${CAT_COLORS[c]}"></div>
+        ${c.replace(" (Primary Barrier)", "").replace(" Failure", "")}
+      </a>
+    `).join("");
+  }
 }
 
-// ── Donut Chart ───────────────────────────────────────────────────────────────
+// ── Donut Chart (09) ───────────────────────────────────────────────────────────
 function renderDonut(stats) {
   destroyChart("donutChart");
   const cats = Object.keys(stats.categoryBreakdown).filter(c => c !== "Other");
   const vals = cats.map(c => stats.categoryBreakdown[c]);
   const total = vals.reduce((a, b) => a + b, 0);
 
-  const ctx = document.getElementById("donutChart").getContext("2d");
+  const canvas = document.getElementById("donutChart");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+
   chartInstances["donutChart"] = new Chart(ctx, {
     type: "doughnut",
     data: {
       labels: cats,
-      datasets: [{ data: vals, backgroundColor: cats.map(c => CAT_COLORS[c] + "dd"), borderColor: "#ffffff", borderWidth: 3, hoverOffset: 8 }]
+      datasets: [{ 
+        data: vals, 
+        backgroundColor: cats.map(c => CAT_COLORS[c] + "ee"), 
+        borderColor: "#ffffff", 
+        borderWidth: 4, 
+        hoverOffset: 12,
+        hoverBorderColor: "#ffffff",
+        hoverBorderWidth: 5
+      }]
     },
     options: {
-      responsive: true, maintainAspectRatio: true, cutout: "68%",
+      responsive: true, maintainAspectRatio: true, cutout: "74%",
+      animation: { animateRotate: true, animateScale: true, duration: 1500, easing: 'easeOutQuart' },
       plugins: {
-        legend: { display: false }, tooltip: {
+        legend: { display: false }, 
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          padding: 12,
+          cornerRadius: 8,
           callbacks: {
             label: ctx => ` ${ctx.label}: ${ctx.parsed} (${Math.round(ctx.parsed / total * 100)}%)`
           }
@@ -296,12 +359,17 @@ function renderDonut(stats) {
   });
 
   const labDiv = document.getElementById("donutLabels");
-  labDiv.innerHTML = cats.map((c, i) => `
-    <a href="${CAT_REGS[c]?.url || LINKS.ANP_PORTAL}" target="_blank" rel="noopener" class="dl-row dl-row-link" title="Regulation: ${CAT_REGS[c]?.label}">
-      <span class="dl-name"><span class="dl-dot" style="background:${CAT_COLORS[c]}"></span>${c.replace(" (Primary Barrier)", " (Kick)")}</span>
-      <span class="dl-pct">${Math.round(vals[i] / total * 100)}%</span>
-    </a>
-  `).join("");
+  if (labDiv) {
+    labDiv.innerHTML = cats.map((c, i) => `
+      <a href="${CAT_REGS[c]?.url || LINKS.ANP_PORTAL}" target="_blank" rel="noopener" class="dl-row dl-row-link" title="Regulation: ${CAT_REGS[c]?.label}">
+        <span class="dl-name">
+          <span class="dl-dot" style="background:${CAT_COLORS[c]}; box-shadow: 0 0 8px ${CAT_COLORS[c]}66"></span>
+          ${c.replace(" (Primary Barrier)", " (Kick)")}
+        </span>
+        <span class="dl-pct">${Math.round(vals[i] / total * 100)}%</span>
+      </a>
+    `).join("");
+  }
 }
 
 // ── CSB Trend Chart ───────────────────────────────────────────────────────────
@@ -348,7 +416,8 @@ function renderCsbTrend(stats) {
 function renderMonthChart(stats) {
   destroyChart("monthChart");
   const ctx = document.getElementById("monthChart").getContext("2d");
-  const vals = Array.from({ length: 12 }, (_, i) => stats.monthPattern[i + 1] || 0);
+  const pattern = stats.monthPattern || {};
+  const vals = Array.from({ length: 12 }, (_, i) => pattern[i + 1] || 0);
 
   chartInstances["monthChart"] = new Chart(ctx, {
     type: "radar",
@@ -582,11 +651,16 @@ function renderTable(data) {
   tbody.innerHTML = data.items.map(r => {
     return `
     <tr>
-      <td class="num-cell" style="font-family:monospace;font-weight:700;color:var(--text)">
-        ${r.numero || "—"}
-        <button class="copy-btn" onclick="copyToClipboard('${r.numero || ""}', this)" title="Copy reference">⎘</button>
+      <td class="num-cell" style="white-space:nowrap;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="display:inline-flex;align-items:center;gap:4px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:3px 8px;font-family:monospace;font-size:11px;font-weight:800;color:#1d4ed8;letter-spacing:0.02em;">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            ${r.numero || "—"}
+          </span>
+          <button class="copy-btn" onclick="copyToClipboard('${r.numero || ""}', this)" title="Copy reference">⎘</button>
+        </div>
       </td>
-      <td class="year-cell">${r.year || "—"}</td>
+
       <td>
         <span class="badge-cat ${CAT_CSS[r.category] || "bc-other"}" style="font-size:10px;font-weight:600;">
           ${(r.category || "Other").replace(" (Primary Barrier)", "")}
@@ -660,15 +734,23 @@ function switchSection(section, skipHistory = false) {
   const globalOverlay = document.getElementById('globalLockOverlay');
   if (section === 'fullreport' || section === 'latam-summary') {
     document.body.classList.add('lock-mode');
-    if (globalOverlay) globalOverlay.style.display = 'flex';
+    if (globalOverlay) {
+      globalOverlay.style.setProperty('display', 'flex', 'important');
+    }
   } else {
     document.body.classList.remove('lock-mode');
-    if (globalOverlay) globalOverlay.style.display = 'none';
+    if (globalOverlay) {
+      globalOverlay.style.display = 'none';
+    }
   }
 
   if (section === 'brazil-registry') {
     setTimeout(renderPenaltyCharts, 200);
   }
+
+  // Reset scroll position to top on section switch
+  const pageContent = document.querySelector('.page-content');
+  if (pageContent) pageContent.scrollTop = 0;
 
   closeMobileSidebar();
 }
@@ -732,14 +814,22 @@ async function init() {
 
 
     console.log("INIT: Fetching all data...");
-    const [stats, tableData, contractData, mexData] = await Promise.all([
+    const [stats, tableData, contractData, mexData, mexC, argC] = await Promise.all([
       fetchHalStats().catch(e => { console.error("Stats fail", e); return null; }),
       fetchHalIncidents(1).catch(e => { console.error("Incidents fail", e); return { total: 0, items: [] }; }),
       fetchHalContracts().catch(e => { console.error("Contracts fail", e); return { total: 0, items: [] }; }),
-      fetchMexicoMetrics().catch(e => { console.error("Mexico fail", e); return { details: [], summary: {} }; })
+
+      fetchMexicoMetrics().catch(e => { console.error("Mexico fail", e); return { details: [], summary: {} }; }),
+      fetch("/api/mexico-contracts").then(r=>r.json()).catch(()=>({items:[]})),
+      fetch("/api/argentina-contracts").then(r=>r.json()).catch(()=>({items:[]}))
     ]);
+
+  
     console.log("INIT: Data fetched", { stats:!!stats, table:!!tableData, contracts:!!contractData, mex:!!mexData });
 
+    
+    if (mexC && mexC.items) { mexicoContracts = processRegionalContracts(mexC.items); window.filtermexicoContracts(); }
+    if (argC && argC.items) { argentinaContracts = processRegionalContracts(argC.items); window.filterargentinaContracts(); }
     if (stats) {
       halStats = stats;
       renderBadge(stats.total);
@@ -772,8 +862,10 @@ async function init() {
 
     if (mexData && mexData.details && mexData.details.length) {
       mexicoStore = mexData.details;
-      // You can add logic to populate the renderMexicoTables from mexicoStore here
+      fMexStore = [...mexicoStore]; // Initial set
       renderMexicoTables();
+      renderMexDynamicStats(mexData.summary);
+      goMexPage(1);
     }
 
   } catch (err) {
@@ -1224,27 +1316,218 @@ function renderMexicoTables() {
 let ALL_CONTRACTS = [];
 let filteredContracts = [];
 
+
+// ── Currency conversion rates (USD → local) ───────────────────────────────────
+// Rates as of April 5, 2026
+const FX_RATES = {
+  BRZ: { rate: 5.85,   symbol: 'R$',  label: 'Brazilian Real (BRL)',  date: 'Apr 5, 2026' },
+  ARG: { rate: 1098.5, symbol: 'ARS', label: 'Argentine Peso (ARS)', date: 'Apr 5, 2026' },
+  MEX: { rate: 20.15,  symbol: 'MX$', label: 'Mexican Peso (MXN)',   date: 'Apr 5, 2026' },
+};
+
+function convertContractValue(usdStr, country) {
+  const fx = FX_RATES[country];
+  if (!fx) return usdStr;
+  const num = parseFloat((usdStr || '').replace(/[^0-9.]/g, ''));
+  if (isNaN(num)) return usdStr;
+  const converted = Math.round(num * fx.rate);
+  return `${fx.symbol} ${converted.toLocaleString('en-US')}`;
+}
+
+let mexicoContracts = [];
+let argentinaContracts = [];
+let norwayContracts = [];
+let fMexicoContracts = [];
+let fArgentinaContracts = [];
+let fNorwayContracts = [];
+let mexCPage=1, argCPage=1, norCPage=1;
+let activeMexDomain = '';
+let activeArgDomain = '';
+let activeBrzDomain = '';
+
+function processRegionalContracts(rawItems) {
+  return rawItems.map(c => {
+    const obj = (c.obj || "").toLowerCase();
+    let domain = "Other";
+    if (obj.includes("ciment")) domain = "Cementing";
+    else if (obj.includes("estimul")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid")) domain = "Fluids";
+    else if (obj.includes("complet")) domain = "Completion";
+    else if (obj.includes("mpd")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("operations")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("execution")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+
+    const numero = c.numero || "—";
+    // MEX contracts are denominated in USD — keep as-is; only ARG converts to local currency
+    let country = null;
+    if (numero.startsWith('ARG-')) country = 'ARG';
+
+    const rawValue = c.value || "—";
+    const displayValue = country ? convertContractValue(rawValue, country) : rawValue;
+
+    // Parse inicio date (DD/MM/YYYY) → sortable number YYYYMMDD
+    const parseDateSort = (d) => {
+      if (!d) return 0;
+      const p = d.split('/');
+      return p.length === 3 ? parseInt(p[2] + p[1] + p[0]) : 0;
+    };
+
+    return {
+      numero,
+      domain,
+      obj: c.obj || "No description provided",
+      value: displayValue,
+      country,
+      inicio: c.inicio || '',
+      fim: c.fim || '',
+      inicioSort: parseDateSort(c.inicio),
+      csbLink: getCSBLink(domain)
+    };
+  });
+}
+
+function renderRegionalTable(prefix, page, data) {
+  const tbody = document.getElementById(prefix + "ContractEvidenceBody");
+  if (!tbody) return;
+  const PAGE_SIZE = 12;
+  const start = (page - 1) * PAGE_SIZE;
+  const slice = data.slice(start, start + PAGE_SIZE);
+
+  if (!slice.length) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = slice.map(c => {
+    const domLabel = DOMAIN_MAP[c.domain] || c.domain;
+    const yr1 = c.inicio ? c.inicio.split('/')[2] : '?';
+    const yr2 = c.fim    ? c.fim.split('/')[2]    : '?';
+    const period = yr1 === yr2 ? yr1 : `${yr1}–${yr2}`;
+    return `<tr>
+      <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
+      <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
+      <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
+      <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
+      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
+      <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
+    </tr>`;
+  }).join('');
+
+  // pagination
+  const pg = document.getElementById(prefix + "ContractPagination");
+  if(pg) {
+      const pages = Math.ceil(data.length / PAGE_SIZE);
+      if(pages<=1) { pg.innerHTML=""; return;}
+      pg.innerHTML = `
+        <button onclick="change${prefix}Page(${page-1})" ${page===1?'disabled':''} class="pg-btn">Prev</button>
+        <span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${page} of ${pages}</span>
+        <button onclick="change${prefix}Page(${page+1})" ${page===pages?'disabled':''} class="pg-btn">Next</button>
+      `;
+  }
+
+  // Currency conversion footnote for ARG and MEX tables
+  const fxNote = document.getElementById(prefix + "ContractFxNote");
+  if (fxNote) {
+    const country = data[0]?.country;
+    const fx = country ? FX_RATES[country] : null;
+    if (fx) {
+      fxNote.innerHTML = `
+        <span style="font-size:11px;color:#64748b;">
+          ⓘ Contract values displayed in <strong>${fx.label}</strong>.
+          Conversion rate: <strong>1 USD = ${fx.rate.toLocaleString('en-US')} ${fx.symbol}</strong>
+          &nbsp;·&nbsp; Rate as of <strong>${fx.date}</strong>
+        </span>`;
+      fxNote.style.display = 'block';
+    } else {
+      fxNote.style.display = 'none';
+    }
+  }
+}
+
+window.filtermexicoContracts = function() {
+    const q = (document.getElementById('mexicoContractSearch')?.value||'').toLowerCase();
+    const domain = activeMexDomain.toLowerCase();
+    fMexicoContracts = mexicoContracts
+        .filter(c => {
+            const dText = (c.domain||'').toLowerCase();
+            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+        })
+        .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
+    mexCPage = 1;
+    renderRegionalTable('mexico', mexCPage, fMexicoContracts);
+};
+window.changemexicoPage = function(p) { mexCPage=p; renderRegionalTable('mexico', mexCPage, fMexicoContracts); };
+
+window.filterargentinaContracts = function() {
+    const q = (document.getElementById('argentinaContractSearch')?.value||'').toLowerCase();
+    const domain = activeArgDomain.toLowerCase();
+    fArgentinaContracts = argentinaContracts
+        .filter(c => {
+            const dText = (c.domain||'').toLowerCase();
+            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+        })
+        .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
+    argCPage = 1;
+    renderRegionalTable('argentina', argCPage, fArgentinaContracts);
+};
+window.changeargentinaPage = function(p) { argCPage=p; renderRegionalTable('argentina', argCPage, fArgentinaContracts); };
+
+window.filternorwayContracts = function() {
+    const q = (document.getElementById('norwayContractSearch')?.value||'').toLowerCase();
+    const domain = (document.getElementById('norwayContractDomainFilter')?.value||'').toLowerCase();
+    fNorwayContracts = norwayContracts.filter(c => {
+        const dText = (c.domain||'').toLowerCase();
+        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+    });
+    norCPage = 1;
+    renderRegionalTable('norway', norCPage, fNorwayContracts);
+};
+window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
+
+window.setMexDomain = function(domain, el) {
+  activeMexDomain = activeMexDomain === domain ? '' : domain;
+  document.querySelectorAll('.mex-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (activeMexDomain && el) el.classList.add('seg-btn-active');
+  window.filtermexicoContracts();
+};
+window.setArgDomain = function(domain, el) {
+  activeArgDomain = activeArgDomain === domain ? '' : domain;
+  document.querySelectorAll('.arg-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (activeArgDomain && el) el.classList.add('seg-btn-active');
+  window.filterargentinaContracts();
+};
+window.setBrzDomain = function(domain, el) {
+  activeBrzDomain = activeBrzDomain === domain ? '' : domain;
+  document.querySelectorAll('.brz-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (activeBrzDomain && el) el.classList.add('seg-btn-active');
+  filterContractTable();
+};
+
 function processIncomingContracts(rawItems) {
   console.log("PROCESSING: Raw items received", rawItems?.length);
   // Infer domain from object keywords for the cross-matrix
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("cimentação")) domain = "Cementing";
-    else if (obj.includes("estimulação") || obj.includes("flexitubo")) domain = "Stimulation";
+    if (obj.includes("ciment")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("flexitubo")) domain = "Stimulation";
     else if (obj.includes("fluidos")) domain = "Fluids";
-    else if (obj.includes("completação") || obj.includes("dhsv")) domain = "Completion";
+    else if (obj.includes("complet") || obj.includes("dhsv")) domain = "Completion";
     else if (obj.includes("mpd") || obj.includes("pressure drilling")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("intervenção")) domain = "Workover";
-    else if (obj.includes("construção")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geológica")) domain = "G&G Software";
+    else if (obj.includes("workover") || obj.includes("interven")) domain = "Workover";
+    else if (obj.includes("constru")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
 
     // Re-calculating period and validation metadata for the inference
+    const rawBrzValue = c.value || "—";
+    const brzValue = convertContractValue(rawBrzValue, 'BRZ');
     return {
       numero: c.numero || "—",
       domain: domain,
       obj: c.obj || "No description provided",
-      value: c.value || "—",
+      value: brzValue,
+      country: 'BRZ',
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
@@ -1324,17 +1607,20 @@ function renderContractTable(data) {
   const slice = data.slice(start, start + CONTRACT_PAGE_SIZE);
 
   if (!slice.length) {
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px">No contracts match the current filter</td></tr>`;
     return;
   }
 
   tbody.innerHTML = slice.map(c => {
-    const procColor = PROC_COLORS[c.proc] || '#6b7280';
     const domLabel = DOMAIN_MAP[c.domain] || c.domain;
+    const yr1 = c.periodo ? c.periodo.split('–')[0] : '?';
+    const yr2 = c.periodo ? c.periodo.split('–')[1] : '?';
+    const period = yr1 === yr2 ? yr1 : `${yr1}–${yr2}`;
     return `<tr>
       <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
+      <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
       <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
@@ -1364,12 +1650,14 @@ window.contractGoPage = function (p) {
 
 window.filterContractTable = function () {
   const q = (document.getElementById('contractSearch')?.value || '').toLowerCase();
-  const domain = (document.getElementById('contractDomainFilter')?.value || '').toLowerCase();
-  filteredContracts = ALL_CONTRACTS.filter(c => {
-    const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
-    const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
-    return matchDomain && matchQ;
-  });
+  const domain = activeBrzDomain.toLowerCase();
+  filteredContracts = ALL_CONTRACTS
+    .filter(c => {
+      const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
+      const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
+      return matchDomain && matchQ;
+    })
+    .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
   contractPage = 1;
   renderContractTable(filteredContracts);
 };
@@ -1632,53 +1920,86 @@ function renderArgRegistryTable(data) {
   if (countEl) countEl.innerHTML = `${data.length} records`;
 }
 
-window.filterMexRegistry = function() {
-  const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
-  const basin = (document.getElementById('mexBasinFilter')?.value || '').toLowerCase();
-  const tier = (document.getElementById('mexTierFilter')?.value || '').toUpperCase();
+function renderMexDynamicStats(summary) {
+  const totJobs = document.getElementById('mexMetricTotalJobs');
+  const totOps = document.getElementById('mexMetricTotalOps');
+  const totBasins = document.getElementById('mexMetricTotalBasins');
   
-  const filtered = MEX_OPERATORS.filter(o => {
-    const matchQ = !q || o.op.toLowerCase().includes(q) || o.basin.toLowerCase().includes(q);
-    const matchBasin = !basin || o.basin.toLowerCase() === basin;
-    const matchTier = !tier || o.tier === tier;
-    return matchQ && matchBasin && matchTier;
+  if (summary && summary.operators) {
+    const opsCount = Object.keys(summary.operators).length;
+    if (totOps) totOps.textContent = opsCount;
+    if (totJobs) {
+      const total = Object.values(summary.operators).reduce((a, b) => a + b, 0);
+      totJobs.textContent = total.toLocaleString();
+    }
+    // Count unique basins in mexicoStore
+    const basins = new Set(mexicoStore.map(m => (m.cuenca || '').toUpperCase()).filter(Boolean));
+    if (totBasins) totBasins.textContent = basins.size;
+  }
+}
+
+window.goMexPage = function(p) {
+  mexRegPage = p;
+  const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
+  const basin = (document.getElementById('mexBasinFilter')?.value || '').toUpperCase();
+  
+  fMexStore = mexicoStore.filter(r => {
+    const matchQ = !q || [r.id_pozo, r.operador, r.cuenca, r.formacion].join(' ').toLowerCase().includes(q);
+    const matchBasin = !basin || (r.cuenca || '').toUpperCase() === basin;
+    return matchQ && matchBasin;
   });
   
-  renderMexRegistryTable(filtered);
+  renderMexRegistryTable(fMexStore);
 };
 
 function renderMexRegistryTable(data) {
   const tbody = document.getElementById('mexRegBody');
   const countEl = document.getElementById('mexTableCount');
+  const paginationEl = document.getElementById('mexRegPagination');
   if (!tbody) return;
+
+  if (countEl) countEl.innerHTML = `${data.length.toLocaleString()} records`;
 
   if (!data.length) {
     tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#8896ab;padding:24px">No records match the current filter</td></tr>`;
-    if (countEl) countEl.innerHTML = '0 records';
+    if (paginationEl) paginationEl.innerHTML = "";
     return;
   }
 
-  tbody.innerHTML = data.map(r => {
-    const ts = TIER_STYLES[r.tier] || TIER_STYLES.LOW;
-    const badge = `<span style="font-size:10px;font-weight:700;background:${ts.bg};color:${ts.color};border:1px solid ${ts.border};padding:2px 7px;border-radius:20px;">${r.tier}</span>`;
+  const start = (mexRegPage - 1) * mexRegLimit;
+  const slice = data.slice(start, start + mexRegLimit);
+  const totalPages = Math.ceil(data.length / mexRegLimit);
+
+  tbody.innerHTML = slice.map(r => {
     return `<tr>
-      <td style="font-weight:600;font-size:12px;color:var(--text);">${r.op}</td>
-      <td style="font-size:12px;color:var(--text2);">${r.basin}</td>
-      <td style="font-size:12px;font-weight:600;">${r.jobs.toLocaleString()}</td>
-      <td style="font-size:12px;">${r.stages.toLocaleString()}</td>
-      <td style="font-size:12px;">${r.psi.toLocaleString()}</td>
-      <td>${badge}</td>
-      <td style="font-size:11px;color:var(--text3);">NOM-115 / CNH</td>
+      <td style="font-family:monospace;font-weight:700;color:var(--blue);font-size:11px;">${r.id_pozo || '—'}</td>
+      <td style="font-weight:600;font-size:11px;color:var(--text);">${r.operador || '—'}</td>
+      <td style="font-size:11px;color:var(--text2);">${r.cuenca || '—'}</td>
+      <td style="font-size:11px;font-weight:600;">${r.etapas_fractura || '0'}</td>
+      <td style="font-size:11px;">${(parseInt(r.presion_max_psi)||0).toLocaleString()}</td>
+      <td style="font-size:11px;">${(parseInt(r.longitud_lateral_m)||0).toLocaleString()}</td>
     </tr>`;
   }).join('');
 
-  if (countEl) countEl.innerHTML = `${data.length} records`;
+  // Pagination
+  if (paginationEl) {
+    if (totalPages <= 1) {
+      paginationEl.innerHTML = "";
+    } else {
+      paginationEl.innerHTML = `
+        <button onclick="goMexPage(${mexRegPage-1})" ${mexRegPage===1?'disabled':''} class="pg-btn">Prev</button>
+        <span style="font-size:12px;font-weight:600;color:#64748b;margin:0 10px;">Page ${mexRegPage} of ${totalPages}</span>
+        <button onclick="goMexPage(${mexRegPage+1})" ${mexRegPage===totalPages?'disabled':''} class="pg-btn">Next</button>
+      `;
+    }
+  }
 }
 
 // Ensure the tables map their data on init
+// Ensure the tables map their data on init
 document.addEventListener('DOMContentLoaded', () => {
   renderArgRegistryTable(ARG_OPERATORS);
-  renderMexRegistryTable(MEX_OPERATORS);
+  // renderMexRegistryTable(MEX_OPERATORS); // Now handled by goMexPage(1) in init()
 });
 // ── Penalty Analytics Charts ──────────────────────────────────────────────────
 function renderPenaltyCharts() {
