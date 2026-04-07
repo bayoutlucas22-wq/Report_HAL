@@ -11,7 +11,7 @@ RUN npm install --omit=dev
 COPY . .
 
 # Must match server.js: PORT || 5001
-EXPOSE 5001
+EXPOSE 3333
 
 # Seed is a one-time operation — run via: railway run node ingest_to_mongo.js
 # Never seed on every container start (drops + re-inserts all collections each restart)
