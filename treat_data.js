@@ -219,18 +219,30 @@ function precomputeNorway() {
   // Summarize operators and fields for Norway dashboard
   const operators = {};
   const fields = {};
+  const fieldMeta = {};
   const yearStats = {};
 
   norRecords.forEach(r => {
     if (r.operator) operators[r.operator] = (operators[r.operator] || 0) + 1;
-    if (r.field) fields[r.field] = (fields[r.field] || 0) + 1;
+    if (r.field) {
+      fields[r.field] = (fields[r.field] || 0) + 1;
+      if (!fieldMeta[r.field]) fieldMeta[r.field] = { years: [], operators: new Set() };
+      if (r.year) fieldMeta[r.field].years.push(parseInt(r.year));
+      if (r.operator) fieldMeta[r.field].operators.add(r.operator);
+    }
     if (r.year && r.year >= "2013") {
         yearStats[r.year] = (yearStats[r.year] || 0) + 1;
     }
   });
 
   const topOps = Object.entries(operators).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => ({ name, count }));
-  const topFields = Object.entries(fields).filter(([n]) => n).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => ({ name, count }));
+  const topFields = Object.entries(fields).filter(([n]) => n).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => {
+    const meta = fieldMeta[name] || { years: [], operators: new Set() };
+    const years = meta.years.filter(y => !isNaN(y));
+    const firstYear = years.length ? Math.min(...years) : null;
+    const lastYear = years.length ? Math.max(...years) : null;
+    return { name, count, firstYear, lastYear, topOperator: [...meta.operators][0] || '' };
+  });
   const trend = Object.entries(yearStats).sort((a,b) => a[0].localeCompare(b[0])).map(([year, count]) => ({ year, count }));
 
   fs.writeFileSync(path.resolve(process.cwd(), 'api/data/processed/norway_stats.json'), JSON.stringify({
