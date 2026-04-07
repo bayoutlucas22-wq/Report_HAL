@@ -1569,7 +1569,7 @@ function renderNorwayTables() {
   // Fields table
   const fieldBody = document.getElementById('norFieldBody');
   if (fieldBody) {
-    fieldBody.innerHTML = NOR_FIELDS.map(r => {
+    fieldBody.innerHTML = [...NOR_FIELDS].sort((a, b) => (b.lastYear || 0) - (a.lastYear || 0)).map(r => {
       const period = (r.firstYear && r.lastYear)
         ? (r.firstYear === r.lastYear ? `${r.firstYear}` : `${r.firstYear} – ${r.lastYear}`)
         : '—';
@@ -1655,6 +1655,7 @@ let fArgentinaContracts = [];
 let fNorwayContracts = [];
 let mexCPage=1, argCPage=1, norCPage=1;
 let activeMexDomain = '';
+let mexActiveOnly = false;
 let activeArgDomain = '';
 let activeBrzDomain = '';
 
@@ -1696,6 +1697,7 @@ function processRegionalContracts(rawItems) {
       inicio: c.inicio || '',
       fim: c.fim || '',
       inicioSort: parseDateSort(c.inicio),
+      finSort: parseDateSort(c.fim),
       csbLink: getCSBLink(domain)
     };
   });
@@ -1765,9 +1767,12 @@ window.filtermexicoContracts = function() {
     fMexicoContracts = mexicoContracts
         .filter(c => {
             const dText = (c.domain||'').toLowerCase();
-            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+            const domainMatch = !domain || dText.includes(domain);
+            const qMatch = !q || (c.numero+dText+c.obj).toLowerCase().includes(q);
+            const activeMatch = !mexActiveOnly || (c.finSort >= 20260101 || c.finSort === 0);
+            return domainMatch && qMatch && activeMatch;
         })
-        .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
+        .sort((a, b) => (b.inicioSort||0) - (a.inicioSort||0));
     mexCPage = 1;
     renderRegionalTable('mexico', mexCPage, fMexicoContracts);
 };
@@ -1799,6 +1804,11 @@ window.filternorwayContracts = function() {
 };
 window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
 
+window.toggleMexActive = function(el) {
+  mexActiveOnly = !mexActiveOnly;
+  el.classList.toggle('seg-btn-active', mexActiveOnly);
+  window.filtermexicoContracts();
+};
 window.setMexDomain = function(domain, el) {
   activeMexDomain = activeMexDomain === domain ? '' : domain;
   document.querySelectorAll('.mex-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));

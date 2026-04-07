@@ -1,11 +1,10 @@
 {
   "name": "hal-tejas-analysis",
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
   "functions": {
     "api/server.js": {
-      "includeFiles": "api/data/**,src/data/**"
+      "includeFiles": "api/data/**,src/data/**",
+      "maxDuration": 30
     }
   },
   "rewrites": [
