@@ -1468,14 +1468,20 @@ async function loadNorwayRealData() {
     if (stats.topOperators) NOR_OPERATORS = stats.topOperators.map(o => ({ op: o.name, field: 'Various', contracts: o.count, tier: o.count > 100 ? 'HIGH' : 'MEDIUM' }));
     if (stats.topFields) NOR_FIELDS = stats.topFields.map(f => ({
       field: f.name,
-      incidents: f.count,
-      type: 'Field',
-      depth_m: 0,
-      hpht: false,
-      hazard: 'Real data from Sodir',
+      count: f.count,
+      topOperator: f.topOperator || '',
+      content: f.content || '',
+      area: f.area || '',
       firstYear: f.firstYear || null,
       lastYear: f.lastYear || null,
-      topOperator: f.topOperator || ''
+      avgWaterDepth: f.avgWaterDepth || 0,
+      avgTotalDepth: f.avgTotalDepth || 0,
+      subsea: f.subsea || 0,
+      pa: f.pa || 0,
+      hazard: f.hazard || '',
+      norsokRef: f.norsokRef || 'NORSOK D-010 Rev.5',
+      rnnpRef: f.rnnpRef || 'RNNP integrity monitoring',
+      source: f.source || 'Sodir FactPages (NLOD)',
     }));
 
     try { renderNorwayTables(); } catch(e) { console.warn('renderNorwayTables error:', e); }
@@ -1554,15 +1560,27 @@ function renderNorwayTables() {
   const fieldBody = document.getElementById('norFieldBody');
   if (fieldBody) {
     fieldBody.innerHTML = NOR_FIELDS.map(r => {
-      const period = r.firstYear && r.lastYear
+      const period = (r.firstYear && r.lastYear)
         ? (r.firstYear === r.lastYear ? `${r.firstYear}` : `${r.firstYear} – ${r.lastYear}`)
         : '—';
+      const wd = r.avgWaterDepth > 0 ? `${r.avgWaterDepth} m` : '—';
+      const isDeep = r.avgWaterDepth > 200;
+      const contentBadge = r.content
+        ? `<span style="font-size:9px;font-weight:700;background:${r.content.includes('GAS')?'#eff6ff':'#fefce8'};color:${r.content.includes('GAS')?'#1d4ed8':'#92400e'};border:1px solid ${r.content.includes('GAS')?'#bfdbfe':'#fde68a'};padding:1px 5px;border-radius:3px;">${r.content}</span>`
+        : '—';
+      const paBadge = r.pa > 0 ? `<span style="font-size:9px;color:#6b7280;margin-left:4px;">${r.pa} P&A</span>` : '';
       return `<tr>
-        <td style="font-weight:700;font-size:11px;">${r.field}</td>
+        <td style="font-weight:700;font-size:12px;">${r.field}${isDeep ? ' <span style="font-size:9px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:1px 4px;border-radius:3px;">DEEP</span>' : ''}</td>
+        <td style="font-size:11px;color:var(--text3);">${r.area || '—'}</td>
         <td style="font-size:11px;color:var(--text2);">${r.topOperator || '—'}</td>
-        <td style="font-weight:700;">${r.incidents}</td>
+        <td style="font-weight:700;">${r.count}${paBadge}</td>
         <td style="font-size:11px;font-weight:600;color:#1d4ed8;">${period}</td>
-        <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
+        <td style="font-size:11px;font-weight:600;color:${isDeep?'#dc2626':'var(--text)'};">${wd}</td>
+        <td>${contentBadge}</td>
+        <td style="font-size:11px;color:var(--text2);max-width:220px;">${r.hazard || '—'}</td>
+        <td style="font-size:10px;color:#7c3aed;">${r.norsokRef || '—'}</td>
+        <td style="font-size:10px;color:#0d9488;">${r.rnnpRef || '—'}</td>
+        <td style="font-size:10px;color:#1d4ed8;"><a href="https://factpages.sodir.no" target="_blank" rel="noopener" style="color:#1d4ed8;">Sodir FactPages ↗</a></td>
       </tr>`;
     }).join('');
   }
