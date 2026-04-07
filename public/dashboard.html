@@ -41,7 +41,7 @@
     <!-- ── Sidebar ── -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <img src="logo.png" alt="CIS Logo">
+        <div style="font-weight:900; font-size:22px; letter-spacing:-1px; color:#1d4ed8;">HAL · NCS</div>
       </div>
 
       <!-- Filter Panel (Moved to Top) -->
@@ -3035,7 +3035,7 @@
               </div>
               <div class="ai-pillar-progress" id="arg-pp1">0 / 4</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="arg1"><input type="checkbox" class="ai-check arg-check"
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
@@ -3095,7 +3095,7 @@
               </div>
               <div class="ai-pillar-progress" id="arg-pp2">0 / 4</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="arg2"><input type="checkbox" class="ai-check arg-check"
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
@@ -3154,7 +3154,7 @@
               </div>
               <div class="ai-pillar-progress" id="arg-pp3">0 / 4</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="arg3"><input type="checkbox" class="ai-check arg-check"
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
@@ -3214,7 +3214,7 @@
               </div>
               <div class="ai-pillar-progress" id="arg-pp4">0 / 3</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="arg4"><input type="checkbox" class="ai-check arg-check"
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
@@ -4040,6 +4040,15 @@
                 <div class="ai-stat-label">Progress</div>
               </div>
             </div>
+            <div style="margin-top:20px; display:flex; justify-content:flex-end;">
+                <button class="btn btn-primary" onclick="window.location.hash='#fullreport'" style="padding:10px 24px; font-weight:700; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); border-radius:8px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16" style="margin-right:8px; vertical-align:middle;">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0110 0v4" />
+                    </svg>
+                    Authenticate & Unlock Detail
+                </button>
+            </div>
           </div>
           <div class="ai-progress-wrap">
             <div class="ai-progress-bar" id="mexAiProgressBar" style="width:0%;background:#16a34a;"></div>
@@ -4087,7 +4096,7 @@
               </div>
               <div class="ai-pillar-progress" id="mex-pp1">0 / 4</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="mex1"><input type="checkbox" class="ai-check mex-check"
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
@@ -4147,7 +4156,7 @@
               </div>
               <div class="ai-pillar-progress" id="mex-pp2">0 / 4</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="mex2"><input type="checkbox" class="ai-check mex-check"
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
@@ -4206,7 +4215,7 @@
               </div>
               <div class="ai-pillar-progress" id="mex-pp3">0 / 4</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="mex3"><input type="checkbox" class="ai-check mex-check"
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
@@ -4266,7 +4275,7 @@
               </div>
               <div class="ai-pillar-progress" id="mex-pp4">0 / 3</div>
             </div>
-            <div class="ai-checklist" style="filter: blur(5px); user-select: none; pointer-events: none;">
+            <div class="ai-checklist locked-item">
               <label class="ai-item" data-pillar="mex4"><input type="checkbox" class="ai-check mex-check"
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
@@ -4894,31 +4903,44 @@
               <div style="width:220px;height:8px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);">
                 <div id="nor-ai-progress-bar" style="width:0%;height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);transition:width 0.6s cubic-bezier(0.4,0,0.2,1);"></div>
               </div>
-              <div style="font-size:10px;color:#60a5fa;margin-top:6px;font-weight:700;" id="nor-ai-pct">0% AUDIT PROGRESS</div>
+              <div style="font-size:10px; color:#60a5fa; margin-top:6px; font-weight:700;" id="nor-ai-pct">0% AUDIT PROGRESS</div>
+              <div style="margin-top:20px;">
+                <button class="btn btn-primary" onclick="window.location.hash='#fullreport'" style="padding:10px 24px; font-weight:700; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.3); border-radius:8px; color:white;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16" style="margin-right:8px; vertical-align:middle;">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0110 0v4" />
+                    </svg>
+                    Authenticate & Unlock Detail
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Norway Audit KPIs -->
-          <div class="cs-metrics-grid" style="margin-top:20px; margin-bottom:10px;">
-            <div class="cs-metric-card" style="border-top:3px solid #60a5fa;">
-              <div class="cs-metric-val">2,186</div>
-              <div class="cs-metric-label">Sodir Integ. Scan (2025)</div>
-              <div class="cs-metric-sub">✓ Complete NCS Integrity Scope</div>
+          <!-- ISO Standards -->
+          <div class="ai-iso-grid">
+            <div class="ai-iso-card" style="--iso-c:#3b82f6">
+              <div class="ai-iso-num">ISO 37301</div>
+              <div class="ai-iso-title">Compliance Management System</div>
+              <div class="ai-iso-desc">Core framework for NCS operations under PSA/Havtil and Aktivitetsforskriften obligations.</div>
+              <a href="https://www.iso.org/standard/75080.html" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
-            <div class="cs-metric-card" style="border-top:3px solid #ef4444;">
-              <div class="cs-metric-val">5</div>
-              <div class="cs-metric-label">HC Releases ≥0.1 kg/s (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · Official Total</div>
+            <div class="ai-iso-card" style="--iso-c:#0d9488">
+              <div class="ai-iso-num">NORSOK D-010</div>
+              <div class="ai-iso-title">Well Integrity Lifecycle</div>
+              <div class="ai-iso-desc">Technical barrier management standard — governing HAL NCS cementing, completion, and MPD services.</div>
+              <a href="https://www.standard.no/en/webshop/produktkatalog/productpresentation/?ProductID=1244030" target="_blank" class="ai-iso-link">standard.no →</a>
             </div>
-            <div class="cs-metric-card" style="border-top:3px solid #f59e0b;">
-              <div class="cs-metric-val">23</div>
-              <div class="cs-metric-label">Serious Injuries (2025)</div>
-              <div class="cs-metric-sub">✓ rate 0.53 per million hours</div>
+            <div class="ai-iso-card" style="--iso-c:#7c3aed">
+              <div class="ai-iso-num">ISO 37001</div>
+              <div class="ai-iso-title">Anti-Bribery Management</div>
+              <div class="ai-iso-desc">Prevent, detect, and respond to bribery in HAL Norway contracting with Equinor, Aker BP and ConocoPhillips.</div>
+              <a href="https://www.iso.org/standard/65034.html" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
-            <div class="cs-metric-card" style="border-top:3px solid #7c3aed; background:rgba(124,58,237,0.03);">
-              <div class="cs-metric-val" style="color:#7c3aed;">+100%</div>
-              <div class="cs-metric-label">Maint. Backlog Alert</div>
-              <div class="cs-metric-sub" style="color:#7c3aed; font-weight:700;">CRITICAL TREND</div>
+            <div class="ai-iso-card" style="--iso-c:#f59e0b">
+              <div class="ai-iso-num">Lovdata / PSA</div>
+              <div class="ai-iso-title">Aktivitetsforskriften</div>
+              <div class="ai-iso-desc">Mandatory regulatory traceability to PSA Activity Regulations §32 (reporting) and §82 (internal control).</div>
+              <a href="https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" target="_blank" class="ai-iso-link">lovdata.no →</a>
             </div>
           </div>
 
@@ -4935,7 +4957,7 @@
                 </div>
                 <div class="ai-pillar-progress" id="nor-pp1">0 / 3</div>
               </div>
-              <div class="ai-checklist">
+              <div class="ai-checklist locked-item">
                 <label class="ai-item"><input type="checkbox" class="ai-check nor-check" onchange="updateNorAIProgress()">
                   <div class="ai-item-body">
                     <div class="ai-item-title">Extract 2025 HC Release Totals (>0.1 kg/s)</div>
@@ -4970,7 +4992,7 @@
                 </div>
                 <div class="ai-pillar-progress" id="nor-pp2">0 / 3</div>
               </div>
-              <div class="ai-checklist">
+              <div class="ai-checklist locked-item">
                 <label class="ai-item"><input type="checkbox" class="ai-check nor-check" onchange="updateNorAIProgress()">
                     <div class="ai-item-body">
                       <div class="ai-item-title">Automate Barrier Mapping (Rev 5)</div>
@@ -5005,7 +5027,7 @@
                 </div>
                 <div class="ai-pillar-progress" id="nor-pp3">0 / 2</div>
               </div>
-              <div class="ai-checklist">
+              <div class="ai-checklist locked-item">
                 <label class="ai-item"><input type="checkbox" class="ai-check nor-check" onchange="updateNorAIProgress()">
                     <div class="ai-item-body">
                       <div class="ai-item-title">Map Aktivitetsforskriften § 32 (Reporting)</div>
@@ -5023,32 +5045,59 @@
               </div>
             </div>
 
+            <!-- Pillar 4 -->
+            <div class="ai-pillar collapsed">
+              <div class="ai-pillar-header" style="--ph-c:#f59e0b" onclick="togglePillar(this)">
+                <div class="ai-pillar-num">04</div>
+                <div>
+                  <div class="ai-pillar-title">Interactive Cortex Intelligence — Norway</div>
+                  <div class="ai-pillar-sub">Deploy CIS platform for Norway NCS and integrate Sodir real-time compliance score tracking</div>
+                </div>
+                <div class="ai-pillar-progress" id="nor-pp4">0 / 3</div>
+              </div>
+              <div class="ai-checklist locked-item">
+                <label class="ai-item"><input type="checkbox" class="ai-check nor-check" onchange="updateNorAIProgress()">
+                    <div class="ai-item-body">
+                      <div class="ai-item-title">Onboard HAL Norway into Cortex CIS platform</div>
+                      <div class="ai-item-desc">Configure NCS-specific service types, Sodir live data feeds, and established compliance score thresholds.</div>
+                      <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">Cortex</span><span class="ai-tag" style="--t-c:#3b82f6">Onboarding</span></div>
+                    </div>
+                </label>
+                <label class="ai-item"><input type="checkbox" class="ai-check nor-check" onchange="updateNorAIProgress()">
+                    <div class="ai-item-body">
+                      <div class="ai-item-title">Configure real-time Sodir data correlation</div>
+                      <div class="ai-item-desc">Automate mapping of live wellbore status changes to HAL contract delivery timelines in the Barents and North Sea.</div>
+                      <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">Sodir Live</span><span class="ai-tag" style="--t-c:#f59e0b">Alerts</span></div>
+                    </div>
+                </label>
+                <label class="ai-item"><input type="checkbox" class="ai-check nor-check" onchange="updateNorAIProgress()">
+                    <div class="ai-item-body">
+                      <div class="ai-item-title">NCS ESG Integration & Reporting</div>
+                      <div class="ai-item-desc">Generate automated sustainability and emissions reports tailored to Havtil/RNNP disclosure standards for NCS operations.</div>
+                      <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#10b981">ESG</span><span class="ai-tag" style="--t-c:#3b82f6">Havtil</span></div>
+                    </div>
+                </label>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Updated KPI Grid with 2025 Data -->
-          <div class="cs-metrics-grid" style="margin-top:20px;">
-            <div class="cs-metric-card" style="border-top:3px solid #1a56a0;">
-              <div class="cs-metric-val" id="nor-kpi-wellbores">2,308</div>
-              <div class="cs-metric-label">Sodir Integ. Scan (2025)</div>
-              <div class="cs-metric-sub">✓ Complete NCS Integrity Scope</div>
+          <div class="ai-cta">
+            <div class="ai-cta-text">
+              <div style="font-size:15px;font-weight:800;color:var(--text);">Ready to activate Cortex CIS for Norway?</div>
+              <div style="font-size:13px;color:var(--text2);margin-top:4px;">Partner with CIS LLC to transform HAL Norway's compliance posture — governing PSA/Havtil, NORSOK D-010 and Aktivitetsforskriften obligations across 2,186 NCS wellbores.</div>
             </div>
-            <div class="cs-metric-card" style="border-top:3px solid #dc2626;">
-              <div class="cs-metric-val" style="color:#dc2626;">5</div>
-              <div class="cs-metric-label">HC Releases ≥0.1 kg/s (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · Official Total</div>
-            </div>
-            <div class="cs-metric-card" style="border-top:3px solid #f97316;">
-              <div class="cs-metric-val" style="color:#f97316;">23</div>
-              <div class="cs-metric-label">Serious Injuries (2025)</div>
-              <div class="cs-metric-sub">✓ rate 0.53 per million hours</div>
-            </div>
-            <div class="cs-metric-card" style="border-top:3px solid #7c3aed; position:relative;">
-              <div class="cs-metric-val" style="color:#7c3aed;">+100%</div>
-              <div class="cs-metric-label">Maint. Backlog Alert</div>
-              <div style="font-size:9px; font-weight:800; background:#fef2f2; color:#ef4444; padding:2px 6px; border-radius:4px; margin-top:4px; display:inline-block; border:1px solid #fee2e2;">CRITICAL TREND</div>
-            </div>
+            <a href="https://www.iso.org/standard/75080.html" target="_blank" class="cs-download-btn"
+              style="flex-shrink:0;background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+              ISO 37301 Roadmap
+            </a>
           </div>
-        </section>
+        </section><!-- /section-norway-audit -->
 
         <section id="section-norway-registry" class="dash-section">
           <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#003d99 100%);padding:30px;border-radius:12px 12px 0 0;">
@@ -5254,27 +5303,27 @@
             </div>
           </div>
 
-          <!-- KPI Row — 2024/2025 from real RNNP PDFs -->
+          <!-- KPI Row — Latest 2025 RNNP & Sodir Data -->
           <div class="cs-metrics-grid" style="margin-top:20px;margin-bottom:20px;">
-            <div class="cs-metric-card">
-              <div class="cs-metric-val" style="color:#1a56a0;">5</div>
+            <div class="cs-metric-card" style="border-top:3px solid #1a56a0;">
+              <div class="cs-metric-val" style="color:#1a56a0;">2,186</div>
+              <div class="cs-metric-label">Sodir Integ. Scan (2025)</div>
+              <div class="cs-metric-sub">✓ Complete NCS Integrity Scope</div>
+            </div>
+            <div class="cs-metric-card" style="border-top:3px solid #dc2626;">
+              <div class="cs-metric-val" style="color:#dc2626;">5</div>
               <div class="cs-metric-label">HC Releases ≥0.1 kg/s (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · havtil.no · all in 0.1–1 kg/s category</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · Official Total</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val" style="color:#c0392b;">15</div>
-              <div class="cs-metric-label">Well Control Incidents (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · 14 lowest category + 1 serious</div>
+            <div class="cs-metric-card" style="border-top:3px solid #f97316;">
+              <div class="cs-metric-val" style="color:#f97316;">23</div>
+              <div class="cs-metric-label">Serious Injuries (2025)</div>
+              <div class="cs-metric-sub">✓ rate 0.53 per million hours</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val" style="color:#7c3aed;">32</div>
-              <div class="cs-metric-label">Near-misses w/ Major Accident Potential (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · stable level since 2013</div>
-            </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val" style="color:#e67e22;">23</div>
-              <div class="cs-metric-label">Serious Personal Injuries (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · rate: 0.53 per million working hours</div>
+            <div class="cs-metric-card" style="border-top:3px solid #7c3aed; background:rgba(124,58,237,0.03);">
+              <div class="cs-metric-val" style="color:#7c3aed;">+100%</div>
+              <div class="cs-metric-label">Maint. Backlog Alert</div>
+              <div class="cs-metric-sub" style="color:#7c3aed; font-weight:700;">CRITICAL TREND</div>
             </div>
           </div>
 
