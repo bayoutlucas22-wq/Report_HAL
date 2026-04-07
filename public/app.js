@@ -309,6 +309,7 @@ function renderOverviewChart(stats) {
     "Kick (Primary Barrier)": LINKS.ANP_SGIP,
     "Structural Failure": LINKS.BV_NR445,
     "Loss of Well Control": LINKS.ANP_SGIP,
+    "BOP Failure": "https://atosoficiais.com.br/anp",
   };
   const leg = document.getElementById("overviewLegend");
   if (leg) {
