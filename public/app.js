@@ -197,6 +197,11 @@ window.updateNorAIProgress = function() {
   const p3 = Array.from(checks).slice(6, 8).filter(c => c.checked).length;
   const p3_txt = document.getElementById('nor-pp3');
   if (p3_txt) p3_txt.textContent = `${p3} / 2`;
+
+  // Pillar 4: Interactive Cortex Intelligence (Indices 8, 9, 10)
+  const p4 = Array.from(checks).slice(8, 11).filter(c => c.checked).length;
+  const p4_txt = document.getElementById('nor-pp4');
+  if (p4_txt) p4_txt.textContent = `${p4} / 3`;
 };
 
 // ── KPI Cards (with linked badges) ───────────────────────────────────────────
@@ -903,7 +908,9 @@ async function init() {
       authLockBtn.onclick = () => {
         alert("🔒 CIS Authentication Check: Developer bypass active for testing purposes.");
         const overlay = document.getElementById('globalLockOverlay');
+        isUnlocked = true;
         document.body.classList.remove('lock-mode');
+        document.querySelectorAll('.locked-item').forEach(el => el.classList.add('unlocked'));
         if (overlay) overlay.style.display = 'none';
       };
     }
