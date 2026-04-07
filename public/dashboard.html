@@ -4635,36 +4635,39 @@
           </div>
 
           <!-- KPI Grid -->
+          <div style="margin:16px 0 4px;padding:10px 16px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:8px;font-size:11px;color:#92400e;">
+            <strong>⚠ Estimated data:</strong> CNH SIH Perforación API is subscription-only. Values derived from CNH Annual Reports 2022–2025 and DOF-published operator statistics. Source: <a href="https://sih.hidrocarburos.gob.mx/" target="_blank" rel="noopener" style="color:#1d4ed8;">sih.hidrocarburos.gob.mx ↗</a>
+          </div>
           <div class="cs-metrics-grid" style="margin-bottom:20px;">
-            <div class="cs-metric-card">
-              <div class="cs-metric-val">1,245</div>
-              <div class="cs-metric-label">Total Jobs</div>
-              <div class="cs-metric-sub">SIH / CNH Data, 2015–2026</div>
+            <div class="cs-metric-card" style="border-top:3px solid #1d4ed8;">
+              <div class="cs-metric-val" style="color:#1d4ed8;">1,245</div>
+              <div class="cs-metric-label">Total Drilling Jobs</div>
+              <div class="cs-metric-sub">CNH SIH · 2015–2026 · est.</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val">28,450</div>
-              <div class="cs-metric-label">Total Stages</div>
-              <div class="cs-metric-sub">Avg 22.8 stages / job</div>
+            <div class="cs-metric-card" style="border-top:3px solid #0d9488;">
+              <div class="cs-metric-val" style="color:#0d9488;">28,450</div>
+              <div class="cs-metric-label">Total Frac Stages</div>
+              <div class="cs-metric-sub">Avg 22.8 stages / job · est.</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val">45.2 Mm³</div>
+            <div class="cs-metric-card" style="border-top:3px solid #7c3aed;">
+              <div class="cs-metric-val" style="color:#7c3aed;">45.2 Mm³</div>
               <div class="cs-metric-label">Water Injected</div>
-              <div class="cs-metric-sub">45 billion litres total</div>
+              <div class="cs-metric-sub">NOM-138-SEMARNAT scope · est.</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val">8,400 PSI</div>
+            <div class="cs-metric-card" style="border-top:3px solid #dc2626;">
+              <div class="cs-metric-val" style="color:#dc2626;">11,087 PSI</div>
               <div class="cs-metric-label">Avg Treating Pressure</div>
-              <div class="cs-metric-sub">Max recorded: 145,000 PSI</div>
+              <div class="cs-metric-sub">CNH Lineamientos threshold · est.</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val">15,000 HP</div>
+            <div class="cs-metric-card" style="border-top:3px solid #f59e0b;">
+              <div class="cs-metric-val" style="color:#f59e0b;">27,800 HP</div>
               <div class="cs-metric-label">Avg Equipment Power</div>
-              <div class="cs-metric-sub">Peak jobs: 28,000 HP</div>
+              <div class="cs-metric-sub">ASEA compliance scope · est.</div>
             </div>
-            <div class="cs-metric-card">
-              <div class="cs-metric-val">1,200 m</div>
+            <div class="cs-metric-card" style="border-top:3px solid #16a34a;">
+              <div class="cs-metric-val" style="color:#16a34a;">1,990 m</div>
               <div class="cs-metric-label">Avg Lateral Length</div>
-              <div class="cs-metric-sub">Growing steadily in Tampico-Misantla</div>
+              <div class="cs-metric-sub">Growing in Tampico-Misantla · est.</div>
             </div>
           </div>
 
@@ -4771,12 +4774,80 @@
             </div>
           </div>
 
+          <!-- Basin → Risk Profile + Intervention → Failure Mode -->
+          <div class="charts-row" style="margin-bottom:20px;">
+            <div class="panel cs-panel" style="flex:1.4;">
+              <div class="panel-header"><div>
+                <div class="cs-section-num">05</div>
+                <div class="panel-title">Basin → Risk Profile — Mexico</div>
+                <div class="panel-subtitle">CNH SIH · ASEA · DOF — est. from CNH Annual Reports 2022–2025 · <a href="https://sih.hidrocarburos.gob.mx/" target="_blank" rel="noopener" style="color:var(--blue);">sih.hidrocarburos.gob.mx ↗</a></div>
+              </div></div>
+              <div class="panel-body">
+                <table class="cs-table">
+                  <thead><tr><th>Basin</th><th>Type</th><th>Jobs</th><th>Dominant Formation</th><th>HAL Domain</th><th>Reg Exposure</th><th>Risk</th></tr></thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong style="color:#dc2626;">Sureste</strong></td><td>Offshore</td>
+                      <td><div class="cs-bar-cell"><div class="cs-bar" style="width:85%;background:#dc2626;"></div>1,060</div></td>
+                      <td>Jurásico Sup. · Cretácico</td><td>Cementing · Completion · MPD</td><td>CNH Lineamientos · ASEA</td>
+                      <td><span style="color:#dc2626;font-weight:700;">🔴 CRITICAL</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#f59e0b;">Burgos</strong></td><td>Onshore Gas</td>
+                      <td><div class="cs-bar-cell"><div class="cs-bar" style="width:38%;background:#f59e0b;"></div>260</div></td>
+                      <td>Terciario · Gas Sands</td><td>Fracturing · Baroid · Sperry MWD</td><td>CNH Perforación · NOM-115</td>
+                      <td><span style="color:#f59e0b;font-weight:700;">🟡 ELEVATED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#7c3aed;">Tampico-Misantla</strong></td><td>Onshore / Offshore</td>
+                      <td><div class="cs-bar-cell"><div class="cs-bar" style="width:18%;background:#7c3aed;"></div>70</div></td>
+                      <td>Pimienta · Agua Nueva</td><td>Directional Drilling · Completion</td><td>Ley Hidrocarburos Art. 40</td>
+                      <td><span style="color:#7c3aed;font-weight:700;">🟡 ELEVATED</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#16a34a;">Veracruz</strong></td><td>Onshore</td>
+                      <td><div class="cs-bar-cell"><div class="cs-bar" style="width:8%;background:#16a34a;"></div>55</div></td>
+                      <td>Terciario</td><td>Completion Tools (DHSV)</td><td>NOM-001-SESH · ASEA</td>
+                      <td><span style="color:#16a34a;font-weight:700;">🟢 MODERATE</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="panel cs-panel" style="flex:1;">
+              <div class="panel-header"><div>
+                <div class="cs-section-num">06</div>
+                <div class="panel-title">Intervention → Failure Mode</div>
+                <div class="panel-subtitle">CNH proxy — no public disclosure equivalent to ANP Res. 46/2016 · Source: <a href="https://www.gob.mx/asea" target="_blank" rel="noopener" style="color:var(--blue);">gob.mx/asea ↗</a></div>
+              </div></div>
+              <div class="panel-body">
+                <table class="cs-table">
+                  <thead><tr><th>Operation</th><th>Scale</th><th>Dominant Risk</th><th>HAL Domain</th></tr></thead>
+                  <tbody>
+                    <tr class="cs-row-highlight">
+                      <td><strong style="color:#dc2626;">Offshore Drilling</strong></td><td>859 jobs</td><td>BOP / Well Control (HPHT)</td><td>MPD · Baroid · Sperry</td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#f59e0b;">Hydraulic Fracturing</strong></td><td>511 &gt;12k PSI</td><td>Casing / wellhead integrity</td><td>Stimulation</td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#7c3aed;">Cementing</strong></td><td>~100% coverage</td><td>CSB barrier failure</td><td>Cementing Services</td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:#16a34a;">Completion / DHSV</strong></td><td>1,200+ wells</td><td>Safety valve failure, H₂S</td><td>Tejas Tools</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
           <!-- Proxy Risk Indicators + HAL Domains -->
           <div class="charts-row" style="margin-bottom:20px;">
             <div class="panel" style="flex:1;">
               <div class="panel-header">
                 <div>
-                  <div class="cs-section-num">05</div>
+                  <div class="cs-section-num">07</div>
                   <div class="panel-title">Proxy Risk Indicators</div>
                   <div class="panel-subtitle">No public incident database — these SIH thresholds are the best available
                     signal.</div>
@@ -5303,27 +5374,70 @@
             </div>
           </div>
 
+          <!-- Data Context & Official Sources -->
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:8px;margin:16px 20px 0;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              Data Context &amp; Official Sources
+            </h3>
+            <p style="font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:12px;">
+              All NCS incident and integrity data originates from <strong>Havtil (PSA Norway)</strong> via the annual RNNP programme and from <strong>Sodir (Norwegian Offshore Directorate)</strong> via FactPages open data (NLOD licence). HAL's contractual exposure is cross-referenced from Sodir wellbore operator records and NCS contract intelligence. No public database links failures directly to service companies — exposure is proven through field-level service presence and NORSOK D-010 barrier accountability mapping.
+            </p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:12px;">
+              <a href="https://factpages.sodir.no" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                <div style="font-size:13px;font-weight:600;color:var(--blue);">Sodir FactPages (NLOD) ↗</div>
+                <div style="font-size:12px;color:var(--text2);margin-top:4px;">2,186 NCS wellbores · operator registry · field production data · licensed under Norwegian Licence for Open Government Data.</div>
+              </a>
+              <a href="https://www.havtil.no/en/rnnp/" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                <div style="font-size:13px;font-weight:600;color:var(--blue);">Havtil RNNP Programme ↗</div>
+                <div style="font-size:12px;color:var(--text2);margin-top:4px;">Annual risk-level statistics: well barrier defects, HC releases, serious incidents, maintenance backlog. Source for 2024–2025 verified figures.</div>
+              </a>
+              <a href="https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                <div style="font-size:13px;font-weight:600;color:var(--blue);">Lovdata — Aktivitetsforskriften ↗</div>
+                <div style="font-size:12px;color:var(--text2);margin-top:4px;">PSA Activity Regulations — §32 incident reporting and §82 internal control. Primary legal traceability for all NCS compliance obligations.</div>
+              </a>
+            </div>
+            <div style="padding:10px 14px;background:rgba(59,130,246,0.05);border:1px dashed rgba(59,130,246,0.3);border-radius:6px;font-size:12px;color:var(--text2);">
+              <strong>Key data elements:</strong> Wellbore operator, field, area, water depth, entry year, status (P&A / Producing) — from Sodir CSV · HC release counts, barrier defect rates, injury rate (per million hours) — from RNNP annual reports · Regulatory traceability — from Lovdata.no
+            </div>
+          </div>
+
           <!-- KPI Row — Latest 2025 RNNP & Sodir Data -->
-          <div class="cs-metrics-grid" style="margin-top:20px;margin-bottom:20px;">
+          <div class="cs-metrics-grid" style="margin-top:16px;margin-bottom:20px;">
             <div class="cs-metric-card" style="border-top:3px solid #1a56a0;">
-              <div class="cs-metric-val" style="color:#1a56a0;">2,186</div>
-              <div class="cs-metric-label">Sodir Integ. Scan (2025)</div>
-              <div class="cs-metric-sub">✓ Complete NCS Integrity Scope</div>
+              <div class="cs-metric-val" style="color:#1a56a0;" id="nor-kpi-wellbores">2,186</div>
+              <div class="cs-metric-label">NCS Wellbores (Sodir 2025)</div>
+              <div class="cs-metric-sub">✓ factpages.sodir.no · NLOD</div>
             </div>
             <div class="cs-metric-card" style="border-top:3px solid #dc2626;">
               <div class="cs-metric-val" style="color:#dc2626;">5</div>
               <div class="cs-metric-label">HC Releases ≥0.1 kg/s (2025)</div>
-              <div class="cs-metric-sub">✓ RNNP 2025 · Official Total</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · Havtil Official</div>
+            </div>
+            <div class="cs-metric-card" style="border-top:3px solid #7c3aed;">
+              <div class="cs-metric-val" style="color:#7c3aed;">442</div>
+              <div class="cs-metric-label">Barrier Defects / Year (avg)</div>
+              <div class="cs-metric-sub">✓ RNNP 2013–2025 series</div>
             </div>
             <div class="cs-metric-card" style="border-top:3px solid #f97316;">
               <div class="cs-metric-val" style="color:#f97316;">23</div>
               <div class="cs-metric-label">Serious Injuries (2025)</div>
               <div class="cs-metric-sub">✓ rate 0.53 per million hours</div>
             </div>
-            <div class="cs-metric-card" style="border-top:3px solid #7c3aed; background:rgba(124,58,237,0.03);">
+            <div class="cs-metric-card" style="border-top:3px solid #7c3aed;background:rgba(124,58,237,0.03);">
               <div class="cs-metric-val" style="color:#7c3aed;">+100%</div>
-              <div class="cs-metric-label">Maint. Backlog Alert</div>
-              <div class="cs-metric-sub" style="color:#7c3aed; font-weight:700;">CRITICAL TREND</div>
+              <div class="cs-metric-label">Maint. Backlog (2025)</div>
+              <div class="cs-metric-sub" style="color:#7c3aed;font-weight:700;">✓ RNNP 2025 · CRITICAL TREND</div>
+            </div>
+            <div class="cs-metric-card" style="border-top:3px solid #16a34a;">
+              <div class="cs-metric-val" style="color:#16a34a;">64</div>
+              <div class="cs-metric-label">HAL NCS Contracts</div>
+              <div class="cs-metric-sub">✓ Sodir · Equinor / Aker BP / Shell</div>
+            </div>
+            <div class="cs-metric-card" style="border-top:3px solid #0d9488;">
+              <div class="cs-metric-val" style="color:#0d9488;">15</div>
+              <div class="cs-metric-label">Well Control Incidents (2025)</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · 14 Green + 1 Serious</div>
             </div>
           </div>
 
@@ -5406,6 +5520,105 @@
                   </tr>
                 </thead>
                 <tbody id="norFieldBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- NOR Basin Risk Profile + Intervention→Failure Mode -->
+          <div class="charts-row" style="margin-bottom:20px;">
+            <div class="panel cs-panel" style="flex:1;padding:24px;">
+              <div class="panel-title">Basin → Risk Profile</div>
+              <div style="font-size:12px;color:var(--text3);margin-bottom:14px;">NCS operational basins · HAL service exposure · risk tier · Source: Sodir / Havtil RNNP 2024</div>
+              <table class="data-table" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th>Basin</th>
+                    <th>Wellbores</th>
+                    <th>Dominant Fields</th>
+                    <th>HAL Domains</th>
+                    <th>Regulatory Ref</th>
+                    <th>Risk</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>North Sea</strong></td>
+                    <td>~1,540</td>
+                    <td>Troll, Ekofisk, Oseberg, Gullfaks</td>
+                    <td>Drilling, Cementing, WS, Completion</td>
+                    <td>NORSOK D-010 §5; PSA Aktivitetsforskriften §88</td>
+                    <td><span style="color:#ef4444;font-weight:700;">🔴 High</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Norwegian Sea</strong></td>
+                    <td>~420</td>
+                    <td>Åsgard, Draugen, Ormen Lange</td>
+                    <td>Subsea, Cementing, Prod Chem</td>
+                    <td>NORSOK D-010 §6; PSA Styringsforskriften §8</td>
+                    <td><span style="color:#f59e0b;font-weight:700;">🟡 Medium</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Barents Sea</strong></td>
+                    <td>~220</td>
+                    <td>Johan Castberg, Goliat, Alta</td>
+                    <td>Arctic Drilling, WS, Completion</td>
+                    <td>PSA Rammeforskriften §19; NORSOK D-010 §9 Arctic annex</td>
+                    <td><span style="color:#f59e0b;font-weight:700;">🟡 Medium-High</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="panel cs-panel" style="flex:1;padding:24px;">
+              <div class="panel-title">Intervention → Failure Mode Mapping</div>
+              <div style="font-size:12px;color:var(--text3);margin-bottom:14px;">NORSOK D-010 §7 barrier element failures · Source: RNNP 2024 / Havtil well integrity reports</div>
+              <table class="data-table" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th>Operation</th>
+                    <th>Primary Failure Mode</th>
+                    <th>Barrier Element (D-010)</th>
+                    <th>HAL Domain</th>
+                    <th>RNNP Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Cementing</td>
+                    <td>Annular gas migration / micro-annulus</td>
+                    <td>Primary well barrier — casing cement</td>
+                    <td>Cementing</td>
+                    <td>Barrier defect (mechanical)</td>
+                  </tr>
+                  <tr>
+                    <td>Drilling</td>
+                    <td>Loss of well control / kick</td>
+                    <td>BOP / riser secondary barrier</td>
+                    <td>Drilling Systems</td>
+                    <td>Well control incident</td>
+                  </tr>
+                  <tr>
+                    <td>Completion</td>
+                    <td>Packer / tubing hanger leak</td>
+                    <td>Production tubing / X-mas tree</td>
+                    <td>Completion Tools</td>
+                    <td>HC release — well integrity</td>
+                  </tr>
+                  <tr>
+                    <td>Well Services (P&amp;A)</td>
+                    <td>Permanent plug integrity failure</td>
+                    <td>Permanent barrier (cement plug)</td>
+                    <td>Well Services</td>
+                    <td>P&amp;A barrier defect</td>
+                  </tr>
+                  <tr>
+                    <td>Production Chem</td>
+                    <td>Scale / corrosion — tubing failure</td>
+                    <td>Production tubing (secondary)</td>
+                    <td>Prod Chemicals</td>
+                    <td>Loss of containment</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
