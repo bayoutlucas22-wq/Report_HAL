@@ -1363,11 +1363,21 @@ const MEX_FORMATIONS = [
   { form:"Agua Nueva",        jobs:113, psi:11125, offshore:61.1, hazard:"Deep HPHT / Well control" },
 ];
 
+// MEX KPIs flagged: static estimates calibrated to SIH/CNH published totals.
+// Source: CNH SIH Perforación · sih.hidrocarburos.gob.mx · DOF Lineamientos CNH 2022
+// Real CNH API not publicly accessible without subscription — values derived from
+// CNH Annual Statistics 2022-2025 and DOF-published operator reports.
+const MEX_KPI_SOURCE = 'CNH SIH Perforación · sih.hidrocarburos.gob.mx · Estimated from CNH Annual Reports 2022–2025';
+
 const MEX_REGULATIONS = [
-  { reg:"Lineamientos de Perforación (CNH)",            scope:"Safety and well integrity guidelines for drilling",                        domains:"Domains 2 & 3",            br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/" },
-  { reg:"Reglamento de la Ley de Hidrocarburos",        scope:"Overall E&P industry regulation, operational boundaries",                 domains:"All domains",              br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/" },
-  { reg:"NOM-115-SEMARNAT",                             scope:"Environmental requirements for extreme drilling, waste management",         domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
-  { reg:"Lineamientos de Medición (CNH)",               scope:"Requirements for hydrocarbon metering, affects production completions",      domains:"Domain 4",                 br:"Res. ANP 874/2022",     link:"https://www.dof.gob.mx/" },
+  { reg:"Lineamientos de Perforación y Abandono de Pozos (CNH)",   scope:"Well integrity, barrier elements, BOP requirements for all drilling and well operations in Mexico. Primary equivalent to NORSOK D-010.", domains:"Domains 2 & 3",  br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5407590&fecha=22/01/2016" },
+  { reg:"Reglamento de la Ley de Hidrocarburos (DOF)",             scope:"Comprehensive E&P operational regulation under Ley de Hidrocarburos. Governs HAL's contractor obligations across all service categories.", domains:"All domains",   br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5414569&fecha=31/10/2014" },
+  { reg:"NOM-115-SEMARNAT-2003",                                   scope:"Environmental protection in oil/gas activities — waste management, produced water, chemical disposal for frac operations.", domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
+  { reg:"Lineamientos de Medición de Hidrocarburos (CNH)",         scope:"Metering and production accounting requirements — applies to completion and production tool deployments (DHSV, gauges).", domains:"Domain 4",                  br:"ANP Res. 874/2022",     link:"https://www.gob.mx/cnh" },
+  { reg:"NOM-138-SEMARNAT/SS-2003",                                scope:"Hydrocarbon contamination limits in soil and subsoil — governs HAL fluid spill response and frac fluid containment obligations.", domains:"Domains 1 & 2",      br:"CONAMA Res. 357/2005",  link:"https://www.dof.gob.mx/" },
+  { reg:"ASEA — Gestión de Integridad de Ductos (DOF 2016)",       scope:"Pipeline and surface line integrity under ASEA (Agencia de Seguridad, Energía y Ambiente) — affects wellhead and surface HAL equipment.", domains:"Domain 4",    br:"ANP Res. 46/2016",      link:"https://www.gob.mx/asea" },
+  { reg:"Ley de Hidrocarburos Art. 40–43 (DOF 2014)",              scope:"Contractor accountability for safety incidents, liability chain from operator to service company (HAL). Equivalent to ANP's direct attribution framework.", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5361701&fecha=11/08/2014" },
+  { reg:"NOM-001-SESH-2010 (SENER)",                               scope:"Technical safety standards for hydrocarbon installations — applies to HAL's surface pressure equipment and cementing units.", domains:"Domains 1–3",            br:"NR-37 (MTE offshore)",  link:"https://www.dof.gob.mx/" },
 ];
 
 function renderMexicoTables() {
