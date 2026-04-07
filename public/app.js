@@ -798,10 +798,12 @@ function switchSection(section, skipHistory = false) {
   }
 
   if (section === 'norway' || section === 'norway-audit') {
-    setTimeout(() => { 
-      if (typeof renderNorwayRNNPChart === 'function') renderNorwayRNNPChart(); 
-      if (typeof renderNorwayTables === 'function') renderNorwayTables(); 
+    setTimeout(() => {
+      try { if (typeof renderNorwayRNNPChart === 'function') renderNorwayRNNPChart(); } catch(e) { console.warn('renderNorwayRNNPChart error:', e); }
     }, 200);
+    setTimeout(() => {
+      try { if (typeof renderNorwayTables === 'function') renderNorwayTables(); } catch(e) { console.warn('renderNorwayTables error:', e); }
+    }, 250);
   }
 
   if (section === 'norway-crossanalysis') {
@@ -1466,10 +1468,10 @@ async function loadNorwayRealData() {
     if (stats.topOperators) NOR_OPERATORS = stats.topOperators.map(o => ({ op: o.name, field: 'Various', contracts: o.count, tier: o.count > 100 ? 'HIGH' : 'MEDIUM' }));
     if (stats.topFields) NOR_FIELDS = stats.topFields.map(f => ({ field: f.name, incidents: f.count, type: 'Field', depth_m: 0, hpht: false, hazard: 'Real data from Sodir' }));
 
-    renderNorwayTables();
+    try { renderNorwayTables(); } catch(e) { console.warn('renderNorwayTables error:', e); }
   } catch (err) {
     console.warn("Failed to load Norway real stats, falling back to static", err);
-    renderNorwayTables();
+    try { renderNorwayTables(); } catch(e) { console.warn('renderNorwayTables error:', e); }
   }
 }
 
@@ -1495,8 +1497,10 @@ const NOR_HAL_OVERLAP = [
   { rnnpCategory:"Structural fatigue / damage", norsokElement:"Structural barrier element", halService:"Halliburton Engineering Services", exposure:"LOW" },
 ];
 function renderNorwayTables() {
+  console.log('NOR: renderNorwayTables called, NOR_TREND rows:', NOR_TREND.length);
   // Trend table
   const trendBody = document.getElementById('norTrendBody');
+  console.log('NOR: norTrendBody element:', trendBody);
   if (trendBody) {
     trendBody.innerHTML = NOR_TREND.map(r => {
       const isReal = !!r.source;
