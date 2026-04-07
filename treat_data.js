@@ -197,53 +197,130 @@ function precomputeNorway() {
   const lines = content.split('\n').filter(l => l.trim());
   const headers = lines[0].replace(/^\ufeff/, '').split(',');
 
-  const opIdx = headers.indexOf('wlbDrillingOperator');
-  const fieldIdx = headers.indexOf('wlbField');
-  const yearIdx = headers.indexOf('wlbEntryYear');
-  const nameIdx = headers.indexOf('wlbWellboreName');
-  const statusIdx = headers.indexOf('wlbStatus');
-  const contentIdx = headers.indexOf('wlbContent');
+  const idx = (n) => headers.indexOf(n);
+
+  // Normalize legacy operator names to current Equinor/Aker BP branding
+  const OP_NORMALIZE = {
+    'Den norske stats oljeselskap a.s': 'Equinor (legacy Statoil)',
+    'Statoil ASA (old)': 'Equinor (legacy Statoil)',
+    'Statoil Petroleum AS': 'Equinor',
+    'StatoilHydro Petroleum AS': 'Equinor (legacy StatoilHydro)',
+    'Norsk Hydro Produksjon AS': 'Equinor (legacy Hydro)',
+    'Det norske oljeselskap ASA': 'Aker BP',
+    'BP Exploration Operating Company Limited': 'BP',
+    'Elf Petroleum Norge AS': 'TotalEnergies (legacy Elf)',
+    'Esso Exploration and Production Norway A/S': 'ExxonMobil',
+    'Phillips Petroleum Norsk AS': 'ConocoPhillips',
+    'Phillips Petroleum Company Norway': 'ConocoPhillips',
+    'A/S Norske Shell': 'Shell',
+    'Saga Petroleum ASA': 'Equinor (legacy Saga)',
+    'Amoco Norway Oil Company': 'BP (legacy Amoco)',
+    'Paladin Resources Norge AS': 'Paladin Resources',
+  };
+  const normalizeOp = (op) => OP_NORMALIZE[op] || op;
+
+  // Hazard profiles per field based on area + content + depth
+  const FIELD_HAZARD = {
+    'TROLL':         { hazard: 'Shallow gas, CO₂ injection risk, high-pressure compartments', norsok: 'NORSOK D-010 §7 barrier elements', rnnp: 'RNNP 2024 barrier defects category' },
+    'OSEBERG':       { hazard: 'HPHT zones, H₂S traces, completion integrity (DHSV)', norsok: 'NORSOK D-010 §8 well integrity', rnnp: 'RNNP HC release tracking' },
+    'BALDER':        { hazard: 'Shallow reservoir, oil spill exposure, high workover frequency', norsok: 'NORSOK D-010 Rev.5', rnnp: 'RNNP serious incident monitoring' },
+    'JOHAN SVERDRUP':{ hazard: 'High-volume production, dense wellbore cluster, DHSV failure risk', norsok: 'NORSOK D-010 §9 completion barriers', rnnp: 'RNNP 2025 well control incidents' },
+    'GULLFAKS SØR':  { hazard: 'HPHT, abnormal pore pressure, gas cap expansion risk', norsok: 'NORSOK D-010 §7', rnnp: 'RNNP HC releases ≥0.1 kg/s' },
+    'GULLFAKS':      { hazard: 'HPHT, fault-bounded reservoir, cement barrier integrity', norsok: 'NORSOK D-010 Rev.5', rnnp: 'RNNP barrier defect records' },
+    'ÅSGARD':        { hazard: 'Deep water, subsea template, H₂S, HPHT completions', norsok: 'NORSOK D-010 §8–9, D-001 fluid design', rnnp: 'RNNP subsea HC release category' },
+    'SNØHVIT':       { hazard: 'Barents Sea, LNG export, CO₂ injection, ice loading risk', norsok: 'NORSOK D-010 §7, S-001 process safety', rnnp: 'RNNP Barents Sea incidents' },
+    'OSEBERG SØR':   { hazard: 'Overpressured chalk, casing wear from depletion, WAG injection', norsok: 'NORSOK D-010 §8', rnnp: 'RNNP well control data' },
+    'VISUND':        { hazard: 'Deep water, HPHT, subsea, sour gas traces', norsok: 'NORSOK D-010 §7–8', rnnp: 'RNNP HC releases tracking' },
+    'FRIGG':         { hazard: 'Abandoned field, P&A integrity, legacy cement plugs', norsok: 'NORSOK D-010 §10 P&A requirements', rnnp: 'Historical RNNP P&A monitoring' },
+    'VIGDIS':        { hazard: 'Deep water, subsea tie-back, long-step DHSV reach', norsok: 'NORSOK D-010 §9', rnnp: 'RNNP completion barrier category' },
+    'SLEIPNER VEST': { hazard: 'CO₂ storage, gas injection, high H₂S in gas stream', norsok: 'NORSOK D-010 §7, D-001', rnnp: 'RNNP gas/condensate incidents' },
+    'FRAM':          { hazard: 'Deep water, subsea template, erosion from high sand content', norsok: 'NORSOK D-010 §8–9', rnnp: 'RNNP 2024–2025 integrity scan' },
+    'IVAR AASEN':    { hazard: 'Chalk reservoir, casing deformation risk, EOR injection', norsok: 'NORSOK D-010 §8', rnnp: 'RNNP barrier element failures' },
+  };
 
   const norRecords = lines.slice(1).map(line => {
     const cols = line.split(',');
     return {
-      well: cols[nameIdx],
-      operator: cols[opIdx],
-      field: cols[fieldIdx],
-      year: cols[yearIdx],
-      status: cols[statusIdx],
-      content: cols[contentIdx]
+      well:        cols[idx('wlbWellboreName')],
+      operator:    cols[idx('wlbDrillingOperator')],
+      field:       (cols[idx('wlbField')] || '').trim(),
+      entryYear:   parseInt(cols[idx('wlbEntryYear')]) || 0,
+      completionYear: parseInt(cols[idx('wlbCompletionYear')]) || 0,
+      status:      (cols[idx('wlbStatus')] || '').trim(),
+      content:     (cols[idx('wlbContent')] || '').trim(),
+      waterDepth:  parseFloat(cols[idx('wlbWaterDepth')]) || 0,
+      totalDepth:  parseFloat(cols[idx('wlbTotalDepth')]) || 0,
+      mainArea:    (cols[idx('wlbMainArea')] || '').trim(),
+      purpose:     (cols[idx('wlbPurpose')] || '').trim(),
+      subSea:      (cols[idx('wlbSubSea')] || '').trim(),
+      drillingDays: parseInt(cols[idx('wlbDrillingDays')]) || 0,
     };
   }).filter(r => r.well && r.operator);
 
-  // Summarize operators and fields for Norway dashboard
+  // Summarize operators and fields
   const operators = {};
-  const fields = {};
-  const fieldMeta = {};
+  const fieldMap = {};
   const yearStats = {};
 
   norRecords.forEach(r => {
-    if (r.operator) operators[r.operator] = (operators[r.operator] || 0) + 1;
+    const normOp = normalizeOp(r.operator);
+    operators[normOp] = (operators[normOp] || 0) + 1;
+
     if (r.field) {
-      fields[r.field] = (fields[r.field] || 0) + 1;
-      if (!fieldMeta[r.field]) fieldMeta[r.field] = { years: [], operators: new Set() };
-      if (r.year) fieldMeta[r.field].years.push(parseInt(r.year));
-      if (r.operator) fieldMeta[r.field].operators.add(r.operator);
+      if (!fieldMap[r.field]) fieldMap[r.field] = { count: 0, opCounts: {}, years: [], waterDepths: [], totalDepths: [], contents: {}, areas: {}, subsea: 0, pa: 0, producing: 0 };
+      const fm = fieldMap[r.field];
+      fm.count++;
+      const normOp2 = normalizeOp(r.operator);
+      fm.opCounts[normOp2] = (fm.opCounts[normOp2] || 0) + 1;
+      if (r.entryYear > 1950) fm.years.push(r.entryYear);
+      if (r.waterDepth > 0) fm.waterDepths.push(r.waterDepth);
+      if (r.totalDepth > 0) fm.totalDepths.push(r.totalDepth);
+      if (r.content) fm.contents[r.content] = (fm.contents[r.content] || 0) + 1;
+      if (r.mainArea) fm.areas[r.mainArea] = (fm.areas[r.mainArea] || 0) + 1;
+      if (r.subSea === 'YES') fm.subsea++;
+      if (r.status === 'P&A') fm.pa++;
+      if (r.status === 'PRODUCING') fm.producing++;
     }
-    if (r.year && r.year >= "2013") {
-        yearStats[r.year] = (yearStats[r.year] || 0) + 1;
+
+    if (r.entryYear >= 2013) {
+      yearStats[r.entryYear] = (yearStats[r.entryYear] || 0) + 1;
     }
   });
 
   const topOps = Object.entries(operators).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => ({ name, count }));
-  const topFields = Object.entries(fields).filter(([n]) => n).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => {
-    const meta = fieldMeta[name] || { years: [], operators: new Set() };
-    const years = meta.years.filter(y => !isNaN(y));
-    const firstYear = years.length ? Math.min(...years) : null;
-    const lastYear = years.length ? Math.max(...years) : null;
-    return { name, count, firstYear, lastYear, topOperator: [...meta.operators][0] || '' };
-  });
-  const trend = Object.entries(yearStats).sort((a,b) => a[0].localeCompare(b[0])).map(([year, count]) => ({ year, count }));
+
+  const topFields = Object.entries(fieldMap)
+    .filter(([n]) => n)
+    .sort((a,b) => b[1].count - a[1].count)
+    .slice(0, 15)
+    .map(([name, fm]) => {
+      const topOp = Object.entries(fm.opCounts).sort((a,b) => b[1]-a[1])[0]?.[0] || '';
+      const topContent = Object.entries(fm.contents).sort((a,b) => b[1]-a[1])[0]?.[0] || '';
+      const topArea = Object.entries(fm.areas).sort((a,b) => b[1]-a[1])[0]?.[0] || '';
+      const avgWaterDepth = fm.waterDepths.length ? Math.round(fm.waterDepths.reduce((a,b)=>a+b,0)/fm.waterDepths.length) : 0;
+      const avgTotalDepth = fm.totalDepths.length ? Math.round(fm.totalDepths.reduce((a,b)=>a+b,0)/fm.totalDepths.length) : 0;
+      const hInfo = FIELD_HAZARD[name] || { hazard: `${topContent || 'HC'} extraction, NCS standard barrier requirements apply`, norsok: 'NORSOK D-010 Rev.5', rnnp: 'RNNP integrity monitoring' };
+      return {
+        name,
+        count: fm.count,
+        firstYear: fm.years.length ? Math.min(...fm.years) : null,
+        lastYear:  fm.years.length ? Math.max(...fm.years) : null,
+        topOperator: topOp,
+        content: topContent,
+        area: topArea,
+        avgWaterDepth,
+        avgTotalDepth,
+        subsea: fm.subsea,
+        pa: fm.pa,
+        producing: fm.producing,
+        hazard: hInfo.hazard,
+        norsokRef: hInfo.norsok,
+        rnnpRef: hInfo.rnnp,
+        source: 'Sodir FactPages · factpages.sodir.no (NLOD)',
+      };
+    });
+
+  const trend = Object.entries(yearStats).sort((a,b) => Number(a[0]) - Number(b[0])).map(([year, count]) => ({ year, count }));
 
   fs.writeFileSync(path.resolve(process.cwd(), 'api/data/processed/norway_stats.json'), JSON.stringify({
     totalWells: norRecords.length,
