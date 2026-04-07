@@ -154,6 +154,40 @@
           HAL MEX
         </a>
 
+        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">🇳🇴 NOR</div>
+        <a href="#" class="nav-link" data-section="norway-audit" id="nav-norway-audit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          NOR Audit Dashboard
+        </a>
+        <a href="#" class="nav-link" data-section="norway-registry" id="nav-norway-registry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          NOR Wellbore Registry
+        </a>
+        <a href="#" class="nav-link" data-section="norway-crossanalysis" id="nav-norway-crossanalysis">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+            <line x1="21" y1="3" x2="3" y2="21" />
+          </svg>
+          NOR Cross-Analysis
+        </a>
+        <a href="#" class="nav-link" data-section="norway" id="nav-norway">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="12" rx="10" ry="10" />
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          HAL NOR
+        </a>
+
         <div class="filter-label" style="font-size:10px; margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE MONITORING</div>
 
         <a href="#" class="nav-link" data-section="latam-summary" id="nav-latam-summary">
@@ -4836,6 +4870,333 @@
           </div>
 
         </section><!-- /section-mexico -->
+
+        <!-- ── NORWAY WELLBORE REGISTRY ── -->
+        <!-- ── NORWAY AUDIT SECTION ── -->
+        <section id="section-norway-audit" class="dash-section">
+          <div class="cs-header" style="background:linear-gradient(135deg,#003d99 0%,#002266 100%);">
+            <div class="cs-header-left">
+              <div class="cs-badge" style="background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4);color:#fff;">NCS · HAVTIL · SODIR</div>
+              <h2 style="color:#fff;">Norway NCS Audit Dashboard</h2>
+              <p style="color:rgba(255,255,255,0.8);">Norwegian Continental Shelf Compliance & Well Integrity Intelligence</p>
+            </div>
+            <div class="cs-meta">
+              <div class="cs-meta-item"><span>Jurisdiction</span>NCS / Norway</div>
+              <div class="cs-meta-item"><span>Authoritative Source</span>Havtil (PSA) & Sodir (Directorate)</div>
+              <div class="cs-meta-item"><span>Standard</span>NORSOK D-010 / Activity Regs</div>
+            </div>
+          </div>
+
+          <div class="kpi-grid" style="margin-top:20px;">
+            <div class="kpi-card">
+              <div class="kpi-val" id="nor-kpi-wellbores">23,450</div>
+              <div class="kpi-label">Sodir Wellbore Records</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-val" id="nor-kpi-defects">420</div>
+              <div class="kpi-label">Avg. Barrier Defects / Year</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-val" id="nor-kpi-releases">64</div>
+              <div class="kpi-label">Avg. HC Releases / Year</div>
+            </div>
+          </div>
+
+          <div class="charts-row">
+            <div class="panel cs-panel chart-panel-wide">
+              <div class="panel-header">
+                <div class="panel-title">NCS Well Barrier Failures (Havtil RNNP)</div>
+                <div class="panel-subtitle">Official statistics on barrier defects and hydrocarbon releases</div>
+              </div>
+              <div class="panel-body">
+                <canvas id="norwayRNNPChart" style="height:300px;"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-norway-registry" class="dash-section">
+          <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#003d99 100%);padding:30px;border-radius:12px 12px 0 0;">
+            <div class="cs-header-left">
+              <div class="cs-badge">NOR · SODIR · NCS OPEN DATA</div>
+              <h2 style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:10px;">Norway NCS Wellbore Registry</h2>
+              <p style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px;">Live wellbore data from Sodir FactPages — Norwegian Continental Shelf. Licensed under NLOD.</p>
+            </div>
+            <div class="cs-meta" style="color:rgba(255,255,255,0.8);">
+              <div class="cs-meta-item"><span>Regulator</span>Sodir (Ptil/PSA Norway)</div>
+              <div class="cs-meta-item"><span>Source</span>factpages.sodir.no (NLOD)</div>
+              <div class="cs-meta-item"><span>Data</span>Live — refreshed hourly</div>
+              <div class="cs-meta-item"><span>Scope</span>All NCS wellbores</div>
+            </div>
+          </div>
+
+          <div class="panel cs-panel" style="border-radius:0 0 12px 12px;border-top:none;">
+            <div class="panel-body" style="padding:0;">
+              <div class="table-toolbar" style="padding:24px;background:#fff;border-bottom:1px solid var(--border);">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:0;">
+                  <div class="search-wrap" style="flex:1;min-width:250px;">
+                    <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="text" id="norSearchInput" class="search-input" placeholder="Search wellbore, field, operator…" oninput="loadNorwayRegistry(1)" style="height:44px;border-radius:8px;">
+                  </div>
+                  <select id="norTypeFilter" class="search-input" style="width:160px;height:44px;padding:0 12px;border-radius:8px;font-weight:600;" onchange="loadNorwayRegistry(1)">
+                    <option value="">All Types</option>
+                    <option value="EXPLORATION">Exploration</option>
+                    <option value="DEVELOPMENT">Development</option>
+                    <option value="OTHER">Other</option>
+                  </select>
+                  <select id="norStatusFilter" class="search-input" style="width:160px;height:44px;padding:0 12px;border-radius:8px;font-weight:600;" onchange="loadNorwayRegistry(1)">
+                    <option value="">All Statuses</option>
+                    <option value="PLUGGED AND ABANDONED">P&amp;A</option>
+                    <option value="PRODUCING">Producing</option>
+                    <option value="INJECTION">Injection</option>
+                    <option value="OBSERVATION">Observation</option>
+                  </select>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;">
+                  <div class="table-count" id="norTableCount" style="font-weight:600;color:var(--text3);">Loading…</div>
+                  <div style="font-size:11px;color:#8896ab;" id="norCachedAt"></div>
+                </div>
+              </div>
+
+              <div style="overflow-x:auto;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th style="padding:16px 20px;">Wellbore</th>
+                      <th>Field</th>
+                      <th>Operator</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>Year</th>
+                      <th>Depth (m)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="norTableBody"></tbody>
+                </table>
+              </div>
+              <div class="pagination" id="norPagination" style="padding:20px;border-top:1px solid var(--border);background:#f8fafc;"></div>
+
+              <div style="padding:20px 24px;background:#eff6ff;border-top:1px solid #bfdbfe;border-radius:0 0 12px 12px;font-size:12px;color:#1e40af;">
+                Data licensed under <strong>Norwegian Licence for Open Government Data (NLOD)</strong> · Source: <a href="https://factpages.sodir.no" target="_blank" rel="noopener" style="color:#1d4ed8;font-weight:700;">factpages.sodir.no ↗</a>
+              </div>
+            </div>
+          </div>
+        </section><!-- /section-norway-registry -->
+
+        <!-- ── NORWAY CROSS-ANALYSIS SECTION ── -->
+        <section id="section-norway-crossanalysis" class="dash-section">
+          <div class="cs-header" style="background:linear-gradient(135deg,#002266 0%,#1e293b 100%);">
+            <div class="cs-header-left">
+              <div class="cs-badge">COMPLIANCE CROSS-MAP</div>
+              <h2 style="color:#fff;">NOR Regulatory Verification Matrix</h2>
+              <p style="color:rgba(255,255,255,0.73);">Mapping wellbore exposures to NORSOK D-010 & Aktivitetsforskriften</p>
+            </div>
+          </div>
+
+          <div class="panel cs-panel" style="margin-top:20px;">
+            <div class="panel-header">
+              <div class="panel-title">NCS Field Exposure & Regulatory Links</div>
+              <div class="panel-subtitle">Traceable evidence of barrier requirements and operational standards (Lovedata)</div>
+            </div>
+            <div class="panel-body" style="padding:0;">
+               <div style="overflow-x:auto;">
+                 <table class="cs-table">
+                   <thead>
+                     <tr>
+                       <th>NCS Field / Block</th>
+                       <th>Operator</th>
+                       <th>HAL Service Scope</th>
+                       <th>Compliance Standard</th>
+                       <th>Regulatory Link (Lovedata)</th>
+                     </tr>
+                   </thead>
+                   <tbody id="norCrossTableBody"></tbody>
+                 </table>
+               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── HAL NORWAY ── -->
+        <section id="section-norway" class="dash-section">
+          <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#003d99 100%);padding:30px;border-radius:12px 12px 0 0;">
+            <div class="cs-header-left">
+              <div class="cs-badge">NOR · PSA · HAVTIL · RNNP · NORSOK</div>
+              <h2 style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:10px;">Halliburton — Norway NCS Operations</h2>
+              <p style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px;">CSB &amp; well integrity exposure on the Norwegian Continental Shelf · 2,399 incident records · 64 contracts · 2013–2026</p>
+            </div>
+            <div class="cs-meta" style="color:rgba(255,255,255,0.8);">
+              <div class="cs-meta-item"><span>Regulator</span>Havtil (PSA Norway)</div>
+              <div class="cs-meta-item"><span>Framework</span>RNNP · NORSOK D-010 · Aktivitetsforskriften</div>
+              <div class="cs-meta-item"><span>HAL Services</span>Cementing · Completion · MPD · Baroid · Sperry</div>
+              <div class="cs-meta-item"><span>Period</span>2013–2026</div>
+            </div>
+          </div>
+
+          <!-- KPI Row — 2024/2025 from real RNNP PDFs -->
+          <div class="cs-metrics-grid" style="margin-top:20px;margin-bottom:20px;">
+            <div class="cs-metric-card">
+              <div class="cs-metric-val" style="color:#1a56a0;">5</div>
+              <div class="cs-metric-label">HC Releases ≥0.1 kg/s (2025)</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · havtil.no · all in 0.1–1 kg/s category</div>
+            </div>
+            <div class="cs-metric-card">
+              <div class="cs-metric-val" style="color:#c0392b;">15</div>
+              <div class="cs-metric-label">Well Control Incidents (2025)</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · 14 lowest category + 1 serious</div>
+            </div>
+            <div class="cs-metric-card">
+              <div class="cs-metric-val" style="color:#7c3aed;">32</div>
+              <div class="cs-metric-label">Near-misses w/ Major Accident Potential (2025)</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · stable level since 2013</div>
+            </div>
+            <div class="cs-metric-card">
+              <div class="cs-metric-val" style="color:#e67e22;">23</div>
+              <div class="cs-metric-label">Serious Personal Injuries (2025)</div>
+              <div class="cs-metric-sub">✓ RNNP 2025 · rate: 0.53 per million working hours</div>
+            </div>
+          </div>
+
+          <!-- Annual Incident Trend Table -->
+          <div class="panel cs-panel" style="margin-bottom:20px;">
+            <div class="panel-title">Annual Incident Trend — NCS SSO Records (2013–2026)</div>
+            <div style="font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 4px;">
+              <strong>2024–2025</strong>: Real data from Havtil RNNP official reports ·
+              <a href="https://www.havtil.no/contentassets/91a4472cef014b2c92bbfbbd54d90b40/rnnp-2024-summary-report.pdf" target="_blank" rel="noopener" style="color:var(--blue);">RNNP 2024 Summary (PDF) ↗</a> ·
+              <a href="https://www.havtil.no/globalassets/rnnp/2025/rnnp-sammendragsrapport-2025-rev.1.pdf" target="_blank" rel="noopener" style="color:var(--blue);">RNNP 2025 Sammendragsrapport (PDF) ↗</a>
+              &nbsp;·&nbsp; <strong>2013–2023</strong>: Modelled — <strong>api/data/norway_incidents.csv</strong> calibrated to RNNP proportions ·
+              <a href="https://www.havtil.no/en/rnnp/" target="_blank" rel="noopener" style="color:var(--blue);">havtil.no/rnnp ↗</a>
+              &nbsp;·&nbsp; Rows marked <span style="font-size:9px;font-weight:700;background:#dcfce7;color:#16a34a;border:1px solid #bbf7d0;padding:1px 5px;border-radius:3px;">✓ RNNP</span> are sourced directly from published reports.
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Year</th>
+                    <th>Total Injuries</th>
+                    <th>Minor</th>
+                    <th>Moderate / Serious</th>
+                    <th>Severe / Fatal</th>
+                    <th>CSB Failures</th>
+                    <th>Well Control Incidents</th>
+                    <th>BOP Failures</th>
+                    <th>HC Releases ≥0.1 kg/s</th>
+                    <th>Loss of Control</th>
+                  </tr>
+                </thead>
+                <tbody id="norTrendBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Operator Exposure -->
+          <div class="panel cs-panel" style="margin-bottom:20px;">
+            <div class="panel-title">Operator / Service Company Exposure — NCS Contract Portfolio</div>
+            <div style="font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 4px;">
+              Source: <strong>api/data/norway_contracts.csv</strong> · 64 NCS contracts · Values in NOK ·
+              <a href="https://www.norskpetroleum.no" target="_blank" rel="noopener" style="color:var(--blue);">norskpetroleum.no ↗</a>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Operator / Company</th>
+                    <th>Primary Field(s)</th>
+                    <th>NCS Contracts</th>
+                    <th>HAL Exposure</th>
+                  </tr>
+                </thead>
+                <tbody id="norOperatorBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- NCS Field Risk -->
+          <div class="panel cs-panel" style="margin-bottom:20px;">
+            <div class="panel-title">NCS Field Incident Profile — Hazard by Installation</div>
+            <div style="font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 4px;">
+              Source: <strong>api/data/norway_incidents.csv</strong> — field names extracted from evento column ("NCS-&lt;field&gt;" pattern) ·
+              Installation type &amp; depth from <a href="https://factpages.sodir.no" target="_blank" rel="noopener" style="color:var(--blue);">factpages.sodir.no ↗</a> (NLOD)
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>NCS Field</th>
+                    <th>Type</th>
+                    <th>Incidents</th>
+                    <th>Water Depth</th>
+                    <th>Key Hazard Profile</th>
+                  </tr>
+                </thead>
+                <tbody id="norFieldBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- RNNP Trend Chart -->
+          <div class="panel cs-panel" style="margin-bottom:20px;padding:24px;">
+            <div class="panel-title">NCS Incident Trend — Barrier Defects &amp; HC Releases (2013–2026)</div>
+            <div style="font-size:12px;color:var(--text3);margin-bottom:16px;">
+              Source: <strong>norway_incidents.csv</strong> · Severe events &amp; HC releases aggregated by year ·
+              <a href="https://www.havtil.no/en/rnnp/" target="_blank" rel="noopener" style="color:var(--blue);">havtil.no/rnnp ↗</a>
+            </div>
+            <div style="height:280px;">
+              <canvas id="norwayRNNPChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Regulatory Framework — data-driven from NOR_REGULATIONS -->
+          <div class="panel cs-panel" style="margin-bottom:20px;">
+            <div class="panel-title">Norwegian Regulatory Framework — Sources &amp; Brazil Cross-Reference</div>
+            <div style="font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 4px;">
+              Sources: <a href="https://lovdata.no" target="_blank" rel="noopener" style="color:var(--blue);">lovdata.no ↗</a> ·
+              <a href="https://www.havtil.no/en/rnnp/" target="_blank" rel="noopener" style="color:var(--blue);">havtil.no ↗</a> ·
+              <a href="https://www.standard.no" target="_blank" rel="noopener" style="color:var(--blue);">standard.no ↗</a> ·
+              <a href="https://www.sodir.no" target="_blank" rel="noopener" style="color:var(--blue);">sodir.no ↗</a>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Regulation / Standard</th>
+                    <th>Authority</th>
+                    <th>Scope</th>
+                    <th>HAL Domains</th>
+                    <th>Brazil Equivalent</th>
+                  </tr>
+                </thead>
+                <tbody id="norRegulatoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- HAL Service Overlap — data-driven from NOR_HAL_OVERLAP -->
+          <div class="panel cs-panel" style="border-radius:0 0 12px 12px;">
+            <div class="panel-title">Halliburton Service Overlap — NCS Well Barrier Failures</div>
+            <div style="overflow-x:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>RNNP Failure Category</th>
+                    <th>NORSOK D-010 Barrier Element</th>
+                    <th>Halliburton Service Line</th>
+                    <th>Exposure</th>
+                  </tr>
+                </thead>
+                <tbody id="norOverlapBody"></tbody>
+              </table>
+            </div>
+            <div style="padding:16px 20px;background:#eff6ff;border-top:1px solid #bfdbfe;border-radius:0 0 12px 12px;font-size:12px;color:#1e40af;">
+              <strong>Source methodology:</strong> RNNP failure categories mapped to NORSOK D-010 rev.5 (2021) well barrier elements ·
+              HAL service overlap from NCS contract portfolio (<a href="https://www.norskpetroleum.no" target="_blank" rel="noopener" style="color:#1d4ed8;">norskpetroleum.no ↗</a>) ·
+              <strong>2024 KPIs:</strong> <a href="https://www.havtil.no/contentassets/91a4472cef014b2c92bbfbbd54d90b40/rnnp-2024-summary-report.pdf" target="_blank" rel="noopener" style="color:#1d4ed8;">RNNP 2024 Summary Report (PDF) ↗</a> · Published 20 Mar 2025 ·
+              <strong>2025 KPIs:</strong> <a href="https://www.havtil.no/globalassets/rnnp/2025/rnnp-sammendragsrapport-2025-rev.1.pdf" target="_blank" rel="noopener" style="color:#1d4ed8;">RNNP 2025 Sammendragsrapport (PDF) ↗</a> · Published Mar 2026 ·
+              2013–2023 trend: modelled from <strong>norway_incidents.csv</strong>, calibrated to RNNP proportions ·
+              Regulatory texts: <a href="https://lovdata.no" target="_blank" rel="noopener" style="color:#1d4ed8;">lovdata.no ↗</a>
+            </div>
+          </div>
+        </section><!-- /section-norway -->
 
         <!-- ── MEX CROSS-ANALYSIS ── -->
 

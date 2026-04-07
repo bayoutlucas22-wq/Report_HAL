@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const https = require("https");
+const fs = require("fs");
 const { Document, Packer } = require("docx");
 const { buildReportSections } = require("../src/document_generation/report_builder");
 const { getMetrics, getRegData, getIncidents, getTrendData } = require("../src/reporting/incident_analyzer");
@@ -8,6 +9,7 @@ const { anpData, bureauVeritasData, mteDpcData, internationalRefs } = require(".
 
 const { getDatabase } = require("./data_store");
 const { getDb }       = require("./mongo");
+const { getCache, setCache } = require("./redis");
 
 let ANP_RECORDS = [];
 let ANP_STATS   = null;
@@ -19,14 +21,33 @@ async function ensureDataLoaded() {
 
   DATA_LOADING_PROMISE = (async () => {
     try {
-      console.log("ENGINE: Loading ANP metrics from MongoDB…");
+      // 1. Try Redis first — instant if warm
+      const [cachedStats, cachedRecords] = await Promise.all([
+        getCache('anp:stats'),
+        getCache('anp:records'),
+      ]);
+      if (cachedStats && cachedRecords) {
+        ANP_STATS   = cachedStats;
+        ANP_RECORDS = cachedRecords;
+        console.log(`ENGINE: Loaded from Redis cache (${ANP_RECORDS.length} records).`);
+        return;
+      }
+
+      // 2. Fall back to MongoDB
+      console.log("ENGINE: Redis miss — loading ANP metrics from MongoDB…");
       const db = await getDb();
       ANP_RECORDS = await db.collection('anp_records').find({}, { projection: { _id: 0 } }).toArray();
       const statsDoc = await db.collection('anp_stats').findOne({}, { projection: { _id: 0 } });
       ANP_STATS = statsDoc || null;
-      console.log(`ENGINE: Load complete (${ANP_RECORDS.length} records).`);
+      console.log(`ENGINE: MongoDB load complete (${ANP_RECORDS.length} records).`);
+
+      // 3. Warm Redis for next cold start — 6 hour TTL
+      await Promise.all([
+        setCache('anp:stats',   ANP_STATS,   6 * 3600),
+        setCache('anp:records', ANP_RECORDS, 6 * 3600),
+      ]);
     } catch (err) {
-      console.error("Failed to load ANP metrics from MongoDB:", err);
+      console.error("Failed to load ANP metrics:", err);
     }
   })();
 
@@ -146,6 +167,64 @@ app.get("/api/hal-stats", async (req, res) => {
       severityBreakdown: sevCount,
       uniqueYears: Array.from(years).sort(),
     });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Norway incidents — Redis-first, paginated, filterable
+app.get("/api/norway-incidents", async (req, res) => {
+  try {
+    const year     = req.query.year     || "";
+    const category = req.query.category || "";
+    const severity = req.query.severity || "";
+    const field    = req.query.field    || "";
+    const q        = (req.query.q || "").toLowerCase().trim();
+    const page     = Math.max(1, parseInt(req.query.page)  || 1);
+    const limit    = Math.min(500, parseInt(req.query.limit) || 50);
+
+    // 1. Redis first
+    let allIncidents = await getCache('nor:incidents:all');
+
+    // 2. Redis miss — load from MongoDB and warm cache
+    if (!allIncidents) {
+      const db = await getDb();
+      allIncidents = await db.collection('nor_incidents')
+        .find({}, { projection: { _id: 0 } }).toArray();
+      setCache('nor:incidents:all', allIncidents, 6 * 3600).catch(() => {});
+      console.log(`NOR: Loaded ${allIncidents.length} incidents from MongoDB → Redis warmed`);
+    }
+
+    // 3. Apply filters in-memory
+    let data = allIncidents;
+    if (year)     data = data.filter(r => r.year     === parseInt(year));
+    if (category) data = data.filter(r => r.category === category);
+    if (severity) data = data.filter(r => r.severity === severity);
+    if (field)    data = data.filter(r => (r.field || "").toLowerCase().includes(field.toLowerCase()));
+    if (q)        data = data.filter(r =>
+      (r.numero || "").toLowerCase().includes(q) ||
+      (r.tipo   || "").toLowerCase().includes(q) ||
+      (r.evento || "").toLowerCase().includes(q) ||
+      (r.field  || "").toLowerCase().includes(q)
+    );
+
+    // Sort by numero desc
+    data = data.slice().sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
+
+    const total = data.length;
+    const items = data.slice((page - 1) * limit, page * limit);
+    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Norway contracts
+app.get("/api/norway-contracts", async (req, res) => {
+  try {
+    const db    = await getDb();
+    const items = await db.collection('nor_contracts').find({}, { projection: { _id: 0 } }).toArray();
+    res.json({ total: items.length, items });
   } catch(e) {
     res.status(500).json({ error: e.message });
   }
@@ -275,62 +354,128 @@ app.get("/api/generate-report", async (req, res) => {
 // ── Sodir Live Data (NCS Open Data) ────────────────────────────────────────
 const SODIR_CACHE = { data: null, ts: 0 };
 const SODIR_TTL_MS = 60 * 60 * 1000; // 1 hour
-const SODIR_CSV_URL = "https://factpages.sodir.no/downloads/csv/wlbPoint.csv";
+// Real Sodir FactPages — wellbore_exploration_all, NLOD licence
+// Local copy: api/data/wellbore_exploration_all.csv (2,188 rows)
+// Live fallback: factpages.sodir.no FactPages CSV export
+const SODIR_LOCAL  = path.join(__dirname, "data", "wellbore_exploration_all.csv");
+const SODIR_CSV_URL = "https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
+
+function parseSodirCsv(raw) {
+  const lines = raw.split("\n").filter(Boolean);
+  if (lines.length < 2) return [];
+  const headerLine = lines[0].replace(/^\uFEFF/, "");
+  const headers = headerLine.split(",").map(h => h.trim().replace(/^"|"$/g, ""));
+  return lines.slice(1).map(line => {
+    const cols = line.split(",").map(c => c.trim().replace(/^"|"$/g, ""));
+    const r = {};
+    headers.forEach((h, i) => { r[h] = cols[i] || ""; });
+    return {
+      wlbName:      r.wlbWellboreName || "",
+      wlbField:     r.wlbField        || "",
+      wlbOperator:  r.wlbDrillingOperator || "",
+      wlbWellType:  r.wlbWellType     || "",
+      wlbStatus:    r.wlbStatus       || "",
+      wlbYear:      r.wlbEntryYear    || "",
+      wlbTotalDepth:r.wlbTotalDepth   || "",
+    };
+  }).filter(r => r.wlbName);
+}
 
 function fetchSodirCsv() {
+  // Try local file first — fast, no network dependency
+  if (fs.existsSync(SODIR_LOCAL)) {
+    console.log("SODIR: Loading from local file api/data/wellbore_exploration_all.csv");
+    const raw = fs.readFileSync(SODIR_LOCAL, "utf8");
+    return Promise.resolve(parseSodirCsv(raw));
+  }
+  // Fallback: live fetch from Sodir FactPages
+  console.log("SODIR: Local file not found, fetching from factpages.sodir.no…");
   return new Promise((resolve, reject) => {
-    https.get(SODIR_CSV_URL, { timeout: 15000 }, (res) => {
-      if (res.statusCode !== 200) {
-        reject(new Error(`Sodir returned HTTP ${res.statusCode}`));
-        res.resume();
+    const url = new URL(SODIR_CSV_URL);
+    const options = { hostname: url.hostname, path: url.pathname + url.search, timeout: 20000,
+      headers: { "User-Agent": "HALTejasIncidentDashboard/1.0" } };
+    https.get(options, (response) => {
+      if (response.statusCode !== 200) {
+        reject(new Error(`Sodir returned HTTP ${response.statusCode}`));
+        response.resume();
         return;
       }
       let raw = "";
-      res.on("data", chunk => (raw += chunk));
-      res.on("end", () => {
-        const lines = raw.split("\n").filter(Boolean);
-        if (lines.length < 2) { resolve([]); return; }
-        const headers = lines[0].split(",").map(h => h.trim().replace(/^"|"$/g, ""));
-        const records = lines.slice(1).map(line => {
-          const cols = line.split(",").map(c => c.trim().replace(/^"|"$/g, ""));
-          const obj = {};
-          headers.forEach((h, i) => { obj[h] = cols[i] || ""; });
-          return obj;
-        });
-        resolve(records);
-      });
+      response.on("data", chunk => (raw += chunk));
+      response.on("end", () => resolve(parseSodirCsv(raw)));
     }).on("error", reject);
   });
 }
 
 app.get("/api/sodir/wellbores", async (req, res) => {
   try {
-    const now = Date.now();
-    if (!SODIR_CACHE.data || now - SODIR_CACHE.ts > SODIR_TTL_MS) {
-      console.log("SODIR: Fetching live wellbore data from factpages.sodir.no…");
-      SODIR_CACHE.data = await fetchSodirCsv();
-      SODIR_CACHE.ts = now;
-      console.log(`SODIR: Cached ${SODIR_CACHE.data.length} wellbore records.`);
+    const q      = (req.query.q || "").toLowerCase().trim();
+    const type   = req.query.type   || "";
+    const status = req.query.status || "";
+    const page   = Math.max(1, parseInt(req.query.page)  || 1);
+    const limit  = Math.min(200, parseInt(req.query.limit) || 50);
+
+    // 1. Redis first — full dataset cached, filter in-memory
+    let allWellbores = await getCache('sodir:wellbores');
+    let dataSource = "Sodir FactPages (NLOD) — Redis";
+
+    // 2. Redis miss — try MongoDB
+    if (!allWellbores) {
+      try {
+        const db = await getDb();
+        allWellbores = await db.collection('sodir_wellbores')
+          .find({}, { projection: { _id: 0 } }).toArray();
+        if (allWellbores && allWellbores.length > 0) {
+          dataSource = "Sodir FactMaps (Layer 201) — MongoDB";
+          // Warm Redis — 24hr TTL (wellbore registry is static)
+          setCache('sodir:wellbores', allWellbores, 24 * 3600).catch(() => {});
+          console.log(`SODIR: Loaded ${allWellbores.length} wellbores from MongoDB → Redis warmed`);
+        }
+      } catch (_) {
+        allWellbores = null;
+      }
     }
 
-    let data = SODIR_CACHE.data;
-    const q        = (req.query.q || "").toLowerCase().trim();
-    const type     = req.query.type || "";
-    const status   = req.query.status || "";
-    const page     = Math.max(1, parseInt(req.query.page) || 1);
-    const limit    = Math.min(200, parseInt(req.query.limit) || 50);
+    // 3. MongoDB unavailable — fall back to local CSV / live fetch
+    if (!allWellbores || allWellbores.length === 0) {
+      const now = Date.now();
+      if (!SODIR_CACHE.data || now - SODIR_CACHE.ts > SODIR_TTL_MS) {
+        SODIR_CACHE.data = await fetchSodirCsv();
+        SODIR_CACHE.ts = now;
+        console.log(`SODIR: Loaded ${SODIR_CACHE.data.length} wellbore records (CSV fallback).`);
+      }
+      allWellbores = SODIR_CACHE.data;
+      dataSource = "Sodir FactPages (NLOD / ArcGIS Layer 201)";
+    }
 
+    // Apply filters in-memory
+    let data = allWellbores;
     if (q)      data = data.filter(r => (r.wlbName || "").toLowerCase().includes(q) || (r.wlbField || "").toLowerCase().includes(q) || (r.wlbOperator || "").toLowerCase().includes(q));
     if (type)   data = data.filter(r => (r.wlbWellType || "").toUpperCase() === type.toUpperCase());
     if (status) data = data.filter(r => (r.wlbStatus || "").toUpperCase() === status.toUpperCase());
 
     const total = data.length;
     const items = data.slice((page - 1) * limit, page * limit);
-    const cachedAt = new Date(SODIR_CACHE.ts).toISOString();
-    res.json({ total, page, limit, pages: Math.ceil(total / limit), items, cachedAt, source: "Sodir FactPages (NLOD)" });
+    res.json({ total, page, limit, pages: Math.ceil(total / limit), items,
+      cachedAt: new Date().toISOString(), source: dataSource });
   } catch (e) {
     console.error("Sodir fetch error:", e.message);
-    res.status(502).json({ error: "Could not reach Sodir FactPages: " + e.message });
+    res.status(502).json({ error: "Could not load Sodir wellbore data: " + e.message });
+  }
+});
+
+// Norway Stats — real data from wellbore_exploration_all.csv
+app.get("/api/norway-stats", async (req, res) => {
+  try {
+    const statsPath = path.resolve(__dirname, 'data/processed/norway_stats.json');
+    if (fs.existsSync(statsPath)) {
+      const stats = JSON.parse(fs.readFileSync(statsPath, 'utf8'));
+      res.json(stats);
+    } else {
+      res.status(404).json({ error: "Norway stats not precomputed. Run treat_data.js first." });
+    }
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });
 

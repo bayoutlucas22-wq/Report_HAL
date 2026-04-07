@@ -184,65 +184,97 @@ function precomputeANP() {
   console.log("ANP data treated and saved.");
 }
 
-// 2. Process HAL DB (from data_store.js)
-function precomputeHAL() {
-  console.log("Treating HAL Database...");
-  let halIncidentsPath = locate("api/data/hal_incidents.csv") || locate("src/data/hal_incidents.csv") || locate("data/hal_incidents.csv");
-  let halContractsPath = locate("api/data/hal-contracts-pbr.csv");
+// 3. Process Norway Wellbore Data (from wellbore_exploration_all.csv)
+function precomputeNorway() {
+  console.log("Treating Norway Wellbore Data...");
+  const csvPath = locate("wellbore_exploration_all.csv");
+  if (!csvPath) {
+    console.log("Missing Norway raw CSV (wellbore_exploration_all.csv), skipping...");
+    return null;
+  }
 
+  const content = fs.readFileSync(csvPath, 'utf8');
+  const lines = content.split('\n').filter(l => l.trim());
+  const headers = lines[0].replace(/^\ufeff/, '').split(',');
+
+  const opIdx = headers.indexOf('wlbDrillingOperator');
+  const fieldIdx = headers.indexOf('wlbField');
+  const yearIdx = headers.indexOf('wlbEntryYear');
+  const nameIdx = headers.indexOf('wlbWellboreName');
+  const statusIdx = headers.indexOf('wlbStatus');
+  const contentIdx = headers.indexOf('wlbContent');
+
+  const norRecords = lines.slice(1).map(line => {
+    const cols = line.split(',');
+    return {
+      well: cols[nameIdx],
+      operator: cols[opIdx],
+      field: cols[fieldIdx],
+      year: cols[yearIdx],
+      status: cols[statusIdx],
+      content: cols[contentIdx]
+    };
+  }).filter(r => r.well && r.operator);
+
+  // Summarize operators and fields for Norway dashboard
+  const operators = {};
+  const fields = {};
+  const yearStats = {};
+
+  norRecords.forEach(r => {
+    if (r.operator) operators[r.operator] = (operators[r.operator] || 0) + 1;
+    if (r.field) fields[r.field] = (fields[r.field] || 0) + 1;
+    if (r.year && r.year >= "2013") {
+        yearStats[r.year] = (yearStats[r.year] || 0) + 1;
+    }
+  });
+
+  const topOps = Object.entries(operators).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => ({ name, count }));
+  const topFields = Object.entries(fields).filter(([n]) => n).sort((a,b) => b[1] - a[1]).slice(0, 15).map(([name, count]) => ({ name, count }));
+  const trend = Object.entries(yearStats).sort((a,b) => a[0].localeCompare(b[0])).map(([year, count]) => ({ year, count }));
+
+  fs.writeFileSync(path.resolve(process.cwd(), 'api/data/processed/norway_stats.json'), JSON.stringify({
+    totalWells: norRecords.length,
+    topOperators: topOps,
+    topFields: topFields,
+    trend: trend,
+    recentWells: norRecords.slice(0, 50)
+  }, null, 2));
+
+  console.log("Norway wellbore data treated.");
+}
+
+// Update the precomputeHAL to include Norway and Mexico correctly
+function precomputeHAL() {
+  console.log("Treating Integrated Regional Database...");
+  
+  // Brazil HAL-specific data (Contracts and focused incidents)
+  let halIncidentsPath = locate("api/data/hal_incidents.csv");
+  let halContractsPath = locate("api/data/hal-contracts-pbr.csv");
   const halIncidents = halIncidentsPath ? parseCSVContent(fs.readFileSync(halIncidentsPath, 'utf8'), ';') : [];
   const halContracts = halContractsPath ? parseCSVContent(fs.readFileSync(halContractsPath, 'utf8'), ';') : [];
 
-  console.log(`Loaded ${halIncidents.length} incidents and ${halContracts.length} contracts for Brazil.`);
-
-  const brzIncidents = halIncidents.map(r => {
-    let category = "Other";
-    const t = (r.Tipo_de_incidente || "").toLowerCase();
-    if (t.includes("csb") || t.includes("conjunto solidário")) category = "CSB Failure";
-    else if (t.includes("bop") || t.includes("blowout")) category = "BOP Failure";
-    else if (t.includes("kick")) category = "Kick (Primary Barrier)";
-    else if (t.includes("estrutural")) category = "Structural Failure";
-
-    const num = r.Numero || "";
-    const m = num.match(/^(\d{2})(\d{2})\//);
-    return {
-      numero: num,
-      tipo: r.Tipo_de_incidente,
-      severity: r.DSC_GRAVIDADE_TIPO || "SSO",
-      category,
-      year: m ? 2000 + parseInt(m[1]) : null
-    };
-  });
-
-  let mexPerfPath = locate("api/data/mexico_perforacion.csv");
-  let mexProdPath = locate("api/data/mexico_produccion.csv");
-
-  const mexPerf = mexPerfPath ? parseCSVContent(fs.readFileSync(mexPerfPath, 'utf8'), ',') : [];
-  const mexProd = mexProdPath ? parseCSVContent(fs.readFileSync(mexProdPath, 'utf8'), ',') : [];
-
-  const mexicoStore = mexPerf.map(p => {
-    const prod = mexProd.find(pr => pr.id_pozo === p.id_pozo) || {};
-    return { ...p, ...prod };
-  });
-
-  const mexSummary = {
-     operators: mexicoStore.reduce((acc, p) => {
-         acc[p.operador] = (acc[p.operador] || 0) + 1;
-         return acc;
-     }, {}),
-     totalLateral: mexicoStore.reduce((acc, p) => acc + (parseFloat(p.longitud_lateral_m) || 0), 0)
-  };
+  // Mexico production data (the large POR CONTRATOS file)
+  let mexProdPath = locate("api/data/NACIONAL - POR CONTRATOS.csv");
+  let mexicoData = [];
+  if (mexProdPath) {
+    const rawContent = fs.readFileSync(mexProdPath, 'utf8');
+    const mexLines = rawContent.split('\n').filter(l => l.trim()).slice(4); // Skip first few header lines
+    // Header is comma separated months
+    mexicoData = mexLines.map(l => l.split(','));
+  }
 
   const halDB = {
-    brazil: { incidents: brzIncidents, contracts: halContracts },
-    mexico: { details: mexicoStore, summary: mexSummary },
+    brazil: { incidents: halIncidents, contracts: halContracts },
+    mexico: { raw: mexicoData.slice(0, 50) },
     lastUpdated: new Date().toISOString()
   };
 
   fs.mkdirSync(path.resolve(process.cwd(), 'api/data/processed'), {recursive: true});
   fs.writeFileSync(path.resolve(process.cwd(), 'api/data/processed/hal_db.json'), JSON.stringify(halDB, null, 2));
-  console.log("HAL DB treated and saved.");
+  console.log("Integrated DB saved.");
 }
 
 precomputeANP();
+precomputeNorway();
 precomputeHAL();
