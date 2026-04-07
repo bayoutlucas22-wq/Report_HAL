@@ -65,63 +65,108 @@
   "topFields": [
     {
       "name": "TROLL",
-      "count": 50
+      "count": 50,
+      "firstYear": 1979,
+      "lastYear": 2003,
+      "topOperator": "A/S Norske Shell"
     },
     {
       "name": "OSEBERG",
-      "count": 36
+      "count": 36,
+      "firstYear": 1979,
+      "lastYear": 2023,
+      "topOperator": "Den norske stats oljeselskap a.s"
     },
     {
       "name": "BALDER",
-      "count": 33
+      "count": 33,
+      "firstYear": 1966,
+      "lastYear": 2021,
+      "topOperator": "Esso Exploration and Production Norway A/S"
     },
     {
       "name": "JOHAN SVERDRUP",
-      "count": 32
+      "count": 32,
+      "firstYear": 0,
+      "lastYear": 2017,
+      "topOperator": "Lundin Norway AS"
     },
     {
       "name": "GULLFAKS SØR",
-      "count": 32
+      "count": 32,
+      "firstYear": 1978,
+      "lastYear": 2011,
+      "topOperator": "Statoil ASA (old)"
     },
     {
       "name": "GULLFAKS",
-      "count": 32
+      "count": 32,
+      "firstYear": 1978,
+      "lastYear": 2003,
+      "topOperator": "Den norske stats oljeselskap a.s"
     },
     {
       "name": "ÅSGARD",
-      "count": 24
+      "count": 24,
+      "firstYear": 1981,
+      "lastYear": 2025,
+      "topOperator": "Den norske stats oljeselskap a.s"
     },
     {
       "name": "SNØHVIT",
-      "count": 19
+      "count": 19,
+      "firstYear": 1981,
+      "lastYear": 2008,
+      "topOperator": "Norsk Hydro Produksjon AS"
     },
     {
       "name": "OSEBERG SØR",
-      "count": 18
+      "count": 18,
+      "firstYear": 1983,
+      "lastYear": 2016,
+      "topOperator": "Norsk Hydro Produksjon AS"
     },
     {
       "name": "VISUND",
-      "count": 18
+      "count": 18,
+      "firstYear": 1985,
+      "lastYear": 2019,
+      "topOperator": "Norsk Hydro Produksjon AS"
     },
     {
       "name": "FRIGG",
-      "count": 17
+      "count": 17,
+      "firstYear": 1971,
+      "lastYear": 1991,
+      "topOperator": "Elf Petroleum Norge AS"
     },
     {
       "name": "VIGDIS",
-      "count": 16
+      "count": 16,
+      "firstYear": 1986,
+      "lastYear": 2020,
+      "topOperator": "Saga Petroleum ASA"
     },
     {
       "name": "SLEIPNER VEST",
-      "count": 14
+      "count": 14,
+      "firstYear": 1974,
+      "lastYear": 1998,
+      "topOperator": "Esso Exploration and Production Norway A/S"
     },
     {
       "name": "FRAM",
-      "count": 14
+      "count": 14,
+      "firstYear": 1990,
+      "lastYear": 2024,
+      "topOperator": "Equinor Energy AS"
     },
     {
       "name": "IVAR AASEN",
-      "count": 13
+      "count": 13,
+      "firstYear": 1976,
+      "lastYear": 2015,
+      "topOperator": "Esso Exploration and Production Norway A/S"
     }
   ],
   "trend": [

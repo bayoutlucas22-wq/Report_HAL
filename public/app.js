@@ -1466,7 +1466,17 @@ async function loadNorwayRealData() {
     // Note: stats.trend contains wellbore completion counts (Sodir), not RNNP incident data.
     // NOR_TREND uses the static RNNP-calibrated dataset above — do not overwrite.
     if (stats.topOperators) NOR_OPERATORS = stats.topOperators.map(o => ({ op: o.name, field: 'Various', contracts: o.count, tier: o.count > 100 ? 'HIGH' : 'MEDIUM' }));
-    if (stats.topFields) NOR_FIELDS = stats.topFields.map(f => ({ field: f.name, incidents: f.count, type: 'Field', depth_m: 0, hpht: false, hazard: 'Real data from Sodir' }));
+    if (stats.topFields) NOR_FIELDS = stats.topFields.map(f => ({
+      field: f.name,
+      incidents: f.count,
+      type: 'Field',
+      depth_m: 0,
+      hpht: false,
+      hazard: 'Real data from Sodir',
+      firstYear: f.firstYear || null,
+      lastYear: f.lastYear || null,
+      topOperator: f.topOperator || ''
+    }));
 
     try { renderNorwayTables(); } catch(e) { console.warn('renderNorwayTables error:', e); }
   } catch (err) {
@@ -1544,12 +1554,14 @@ function renderNorwayTables() {
   const fieldBody = document.getElementById('norFieldBody');
   if (fieldBody) {
     fieldBody.innerHTML = NOR_FIELDS.map(r => {
-      const isHpht = r.hpht;
-      return `<tr style="${isHpht ? 'background:#fef2f2;' : ''}">
-        <td style="font-weight:${isHpht ? '700' : '500'};font-size:11px;">${r.field}${isHpht ? ' <span style="font-size:9px;background:#fee2e2;color:#dc2626;padding:1px 5px;border-radius:3px;font-weight:700;">HPHT</span>' : ''}</td>
-        <td style="font-size:11px;">${r.type}</td>
+      const period = r.firstYear && r.lastYear
+        ? (r.firstYear === r.lastYear ? `${r.firstYear}` : `${r.firstYear} – ${r.lastYear}`)
+        : '—';
+      return `<tr>
+        <td style="font-weight:700;font-size:11px;">${r.field}</td>
+        <td style="font-size:11px;color:var(--text2);">${r.topOperator || '—'}</td>
         <td style="font-weight:700;">${r.incidents}</td>
-        <td>${r.depth_m.toLocaleString()} m</td>
+        <td style="font-size:11px;font-weight:600;color:#1d4ed8;">${period}</td>
         <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
       </tr>`;
     }).join('');
