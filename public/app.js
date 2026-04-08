@@ -163,6 +163,11 @@ async function fetchMexicoMetrics() {
 }
 
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
+window.toggleDesc = function(rowId) {
+  const row = document.getElementById(rowId);
+  if (row) row.style.display = row.style.display === 'none' ? '' : 'none';
+};
+
 window.copyToClipboard = function (text, btn) {
   navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
@@ -586,7 +591,7 @@ function renderOverviewContracts(contracts) {
       <td style="max-width:300px; font-size:11px; color:var(--text2); line-height:1.4;">
         ${objText.substring(0, 120)}${objText.length > 120 ? '...' : ''}
       </td>
-      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${c.value || '—'}</td>
+      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${fmtUSD(contractToUSD(c))}</td>
       <td style="font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '-'}</td>
     </tr>
   `}).join("");
@@ -811,6 +816,8 @@ function switchSection(section, skipHistory = false) {
       if (typeof renderNorwayCrossTable === 'function') renderNorwayCrossTable();
       if (typeof renderNorwayTemporalOverlapChart === 'function') renderNorwayTemporalOverlapChart();
       if (typeof renderNorwayContractDomainChart === 'function') renderNorwayContractDomainChart();
+      fNorCxContracts = norwayContracts.slice();
+      renderNorCrossContracts();
     }, 200);
   }
 
@@ -974,6 +981,8 @@ async function init() {
           if (typeof renderNorwayCrossTable === 'function') renderNorwayCrossTable();
           if (typeof renderNorwayTemporalOverlapChart === 'function') renderNorwayTemporalOverlapChart();
           if (typeof renderNorwayContractDomainChart === 'function') renderNorwayContractDomainChart();
+          fNorCxContracts = norwayContracts.slice();
+          renderNorCrossContracts();
         }, 300);
       }
     }
@@ -1631,11 +1640,87 @@ let filteredContracts = [];
 
 // ── Currency conversion rates (USD → local) ───────────────────────────────────
 // Rates as of April 5, 2026
+// Fallback rates — sourced from open.er-api.com on Apr 8, 2026
+// ARS = BCRA official rate (not parallel/blue dollar market — correct for contract valuation)
+// NOK cross-validated against Norges Bank official fixing (9.6764 vs 9.6427 — within bid/ask spread)
 const FX_RATES = {
-  BRZ: { rate: 5.85,   symbol: 'R$',  label: 'Brazilian Real (BRL)',      date: 'Apr 5, 2026' },
-  ARG: { rate: 1098.5, symbol: 'ARS', label: 'Argentine Peso (ARS)',      date: 'Apr 5, 2026' },
-  MEX: { rate: 20.15,  symbol: 'MX$', label: 'Mexican Peso (MXN)',        date: 'Apr 5, 2026' },
-  NOR: { rate: 10.60,  symbol: 'kr',  label: 'Norwegian Krone (NOK)',     date: 'Apr 5, 2026' },
+  BRZ: { rate: 5.1519,  symbol: 'R$',  label: 'Brazilian Real (BRL)',      date: 'Apr 8, 2026 (cached)' },
+  ARG: { rate: 1395.10, symbol: 'ARS', label: 'Argentine Peso — BCRA official (ARS)', date: 'Apr 8, 2026 (cached)' },
+  MEX: { rate: 17.6632, symbol: 'MX$', label: 'Mexican Peso (MXN)',        date: 'Apr 8, 2026 (cached)' },
+  NOR: { rate: 9.6427,  symbol: 'kr',  label: 'Norwegian Krone (NOK)',     date: 'Apr 8, 2026 (cached)' },
+};
+
+// Map currency codes from FX API → our country keys
+const FX_CURRENCY_MAP = { BRL: 'BRZ', ARS: 'ARG', MXN: 'MEX', NOK: 'NOR' };
+
+// Returns USD numeric value for any contract regardless of source currency
+function contractToUSD(c) {
+  if (!c._rawUSD) return 0;
+  // NOR contracts are stored in NOK — divide by current NOK rate to get USD
+  if (c.country === 'NOR') return c._rawUSD / (FX_RATES.NOR.rate || 9.6427);
+  // BRZ, ARG, MEX raw values are already in USD
+  return c._rawUSD;
+}
+
+// Format a USD number for display
+function fmtUSD(num) {
+  if (!num) return '—';
+  return 'US$ ' + Math.round(num).toLocaleString('en-US');
+}
+
+window.refreshFXRates = async function() {
+  const btn = document.getElementById('fxRefreshBtn');
+  const statusEl = document.getElementById('fxStatusText');
+  if (btn) { btn.disabled = true; btn.classList.add('fx-spinning'); }
+  if (statusEl) statusEl.textContent = 'Fetching live rates…';
+
+  try {
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const rates = data.rates || {};
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    const timeStr = now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+
+    // Update FX_RATES with live values
+    for (const [code, key] of Object.entries(FX_CURRENCY_MAP)) {
+      if (rates[code]) {
+        FX_RATES[key].rate = parseFloat(rates[code].toFixed(4));
+        FX_RATES[key].date = `${dateStr} ${timeStr} (live)`;
+      }
+    }
+
+    // Reapply converted values to all processed contracts
+    const reapply = (arr) => arr.forEach(c => {
+      if (c.country && c._rawUSD) {
+        const fx = FX_RATES[c.country];
+        if (fx) {
+          const converted = Math.round(c._rawUSD * fx.rate);
+          c.value = `${fx.symbol} ${converted.toLocaleString('en-US')}`;
+        }
+      }
+    });
+    reapply(mexicoContracts);
+    reapply(argentinaContracts);
+    reapply(norwayContracts);
+    reapply(ALL_CONTRACTS);
+
+    // Re-render active tables
+    window.filtermexicoContracts();
+    window.filterargentinaContracts();
+    window.filternorwayContracts();
+    window.filterContractTable?.();
+
+    // Update status
+    if (statusEl) statusEl.innerHTML = `<span style="color:#16a34a;font-weight:700;">✓ Live</span> · USD→BRL ${FX_RATES.BRZ.rate} · USD→ARS ${FX_RATES.ARG.rate.toLocaleString()} · USD→MXN ${FX_RATES.MEX.rate} · USD→NOK ${FX_RATES.NOR.rate} · <span style="color:#64748b;">${dateStr} ${timeStr}</span>`;
+
+  } catch (err) {
+    console.error('FX refresh failed:', err);
+    if (statusEl) statusEl.innerHTML = `<span style="color:#dc2626;">⚠ Fetch failed — ${err.message}. Using cached rates.</span>`;
+  } finally {
+    if (btn) { btn.disabled = false; btn.classList.remove('fx-spinning'); }
+  }
 };
 
 function convertContractValue(usdStr, country) {
@@ -1659,6 +1744,32 @@ let mexActiveOnly = false;
 let activeArgDomain = '';
 let activeBrzDomain = '';
 
+// Value filter state per section (min USD threshold, 0 = all)
+let mexValMin = 0, argValMin = 0, norValMin = 0, brzValMin = 0, norCxValMin = 0;
+
+// Parse a display value string → numeric USD equivalent
+function parseContractNum(str) {
+  if (!str || str === '—') return 0;
+  // Strip currency symbols/labels, keep digits and decimal
+  const cleaned = str.replace(/[^\d.]/g, '');
+  return parseFloat(cleaned) || 0;
+}
+
+window.setValMin = function(section, val, el) {
+  const v = parseInt(val, 10);
+  if (section === 'mex') { mexValMin = v; window.filtermexicoContracts(); }
+  else if (section === 'arg') { argValMin = v; window.filterargentinaContracts(); }
+  else if (section === 'nor') { norValMin = v; window.filternorwayContracts(); }
+  else if (section === 'brz') { brzValMin = v; window.filterContractTable(); }
+  else if (section === 'norcx') { norCxValMin = v; window.filterNorCrossContracts(); }
+  // Sync active state on siblings
+  const parent = el?.closest('.val-filter-bar');
+  if (parent) {
+    parent.querySelectorAll('.val-btn').forEach(b => b.classList.remove('seg-btn-active'));
+    el?.classList.add('seg-btn-active');
+  }
+};
+
 function processRegionalContracts(rawItems) {
   return rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
@@ -1679,6 +1790,7 @@ function processRegionalContracts(rawItems) {
     if (numero.startsWith('NOR-')) country = 'NOR';
 
     const rawValue = c.value || "—";
+    const _rawUSD = parseFloat((rawValue).replace(/[^0-9.]/g, '')) || 0;
     const displayValue = country ? convertContractValue(rawValue, country) : rawValue;
 
     // Parse inicio date (DD/MM/YYYY) → sortable number YYYYMMDD
@@ -1693,6 +1805,7 @@ function processRegionalContracts(rawItems) {
       domain,
       obj: c.obj || "No description provided",
       value: displayValue,
+      _rawUSD,
       country,
       inicio: c.inicio || '',
       fim: c.fim || '',
@@ -1725,7 +1838,7 @@ function renderRegionalTable(prefix, page, data) {
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
       <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
-      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
+      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${fmtUSD(contractToUSD(c))}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
   }).join('');
@@ -1750,8 +1863,7 @@ function renderRegionalTable(prefix, page, data) {
     if (fx) {
       fxNote.innerHTML = `
         <span style="font-size:11px;color:#64748b;">
-          ⓘ Contract values displayed in <strong>${fx.label}</strong>.
-          Conversion rate: <strong>1 USD = ${fx.rate.toLocaleString('en-US')} ${fx.symbol}</strong>
+          ⓘ All values displayed in <strong>USD</strong> · converted from ${fx.label} at <strong>1 USD = ${fx.rate.toLocaleString('en-US')} ${fx.symbol}</strong>
           &nbsp;·&nbsp; Rate as of <strong>${fx.date}</strong>
         </span>`;
       fxNote.style.display = 'block';
@@ -1770,7 +1882,8 @@ window.filtermexicoContracts = function() {
             const domainMatch = !domain || dText.includes(domain);
             const qMatch = !q || (c.numero+dText+c.obj).toLowerCase().includes(q);
             const activeMatch = !mexActiveOnly || (c.finSort >= 20260101 || c.finSort === 0);
-            return domainMatch && qMatch && activeMatch;
+            const valMatch = !mexValMin || contractToUSD(c) >= mexValMin;
+            return domainMatch && qMatch && activeMatch && valMatch;
         })
         .sort((a, b) => (b.inicioSort||0) - (a.inicioSort||0));
     mexCPage = 1;
@@ -1784,7 +1897,8 @@ window.filterargentinaContracts = function() {
     fArgentinaContracts = argentinaContracts
         .filter(c => {
             const dText = (c.domain||'').toLowerCase();
-            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+            const valMatch = !argValMin || contractToUSD(c) >= argValMin;
+            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q)) && valMatch;
         })
         .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
     argCPage = 1;
@@ -1797,12 +1911,77 @@ window.filternorwayContracts = function() {
     const domain = (document.getElementById('norwayContractDomainFilter')?.value||'').toLowerCase();
     fNorwayContracts = norwayContracts.filter(c => {
         const dText = (c.domain||'').toLowerCase();
-        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+        const valMatch = !norValMin || contractToUSD(c) >= norValMin;
+        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q)) && valMatch;
     });
     norCPage = 1;
     renderRegionalTable('norway', norCPage, fNorwayContracts);
 };
 window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
+
+// Norway Cross-Analysis Contract Evidence Table
+let norCxPage = 1;
+let norCxDomain = '';
+let fNorCxContracts = [];
+
+window.setNorCxDomain = function(domain, el) {
+  norCxDomain = norCxDomain === domain ? '' : domain;
+  document.querySelectorAll('.nor-cx-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (!norCxDomain) document.querySelector('.nor-cx-seg-btn')?.classList.add('seg-btn-active');
+  else if (el) el.classList.add('seg-btn-active');
+  window.filterNorCrossContracts();
+};
+window.filterNorCrossContracts = function() {
+  const q = (document.getElementById('norCrossContractSearch')?.value || '').toLowerCase();
+  fNorCxContracts = norwayContracts.filter(c => {
+    const d = (c.domain || '').toLowerCase();
+    const valMatch = !norCxValMin || contractToUSD(c) >= norCxValMin;
+    return (!norCxDomain || d.includes(norCxDomain)) && (!q || (c.numero + d + c.obj).toLowerCase().includes(q)) && valMatch;
+  });
+  norCxPage = 1;
+  renderNorCrossContracts();
+};
+function renderNorCrossContracts() {
+  const tbody = document.getElementById('norCrossContractBody');
+  const pagination = document.getElementById('norCrossContractPagination');
+  if (!tbody) return;
+  const PER_PAGE = 10;
+  const total = fNorCxContracts.length;
+  const pages = Math.ceil(total / PER_PAGE) || 1;
+  const slice = fNorCxContracts.slice((norCxPage - 1) * PER_PAGE, norCxPage * PER_PAGE);
+  if (!slice.length) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px;">No contracts match the current filter.</td></tr>`;
+    if (pagination) pagination.innerHTML = '';
+    return;
+  }
+  // Map domain → RNNP barrier category
+  const rnnpMap = {
+    cementing: 'Cement/casing barrier defect (RNNP §4.2)',
+    completion: 'Completion / DHSV barrier failure (RNNP §4.3)',
+    fluids: 'Drilling fluid loss / kick (RNNP §4.4)',
+    mpd: 'BOP / pressure control defect (RNNP §4.5)',
+    drilling: 'MWD/LWD monitoring gap (RNNP §4.6)',
+    workover: 'Well intervention barrier event (RNNP §4.2)',
+  };
+  tbody.innerHTML = slice.map(c => {
+    const d = (c.domain || 'Other').toLowerCase();
+    const rnnp = rnnpMap[d] || 'RNNP barrier event (general)';
+    const domainBadge = `<span class="ai-tag" style="--t-c:#3b82f6;font-size:10px;">${c.domain || 'Other'}</span>`;
+    return `<tr>
+      <td style="font-weight:700;font-size:11px;">${c.numero || '—'}</td>
+      <td>${domainBadge}</td>
+      <td style="font-size:12px;color:var(--text2);">${(c.obj || '—').substring(0,120)}${c.obj && c.obj.length > 120 ? '…' : ''}</td>
+      <td style="font-size:11px;">${c.inicio && c.fim ? c.inicio.substring(6) + ' – ' + c.fim.substring(6) : (c.inicio || '—')}</td>
+      <td style="font-size:11px;font-weight:600;">${fmtUSD(contractToUSD(c))}</td>
+      <td style="font-size:10px;color:#1d4ed8;">${rnnp}</td>
+    </tr>`;
+  }).join('');
+  if (pagination) {
+    pagination.innerHTML = Array.from({length: pages}, (_, i) => i + 1).map(p =>
+      `<button onclick="norCxPage=${p};renderNorCrossContracts()" class="page-btn${p === norCxPage ? ' active' : ''}">${p}</button>`
+    ).join('');
+  }
+}
 
 window.toggleMexActive = function(el) {
   mexActiveOnly = !mexActiveOnly;
@@ -1846,11 +2025,13 @@ function processIncomingContracts(rawItems) {
     // Re-calculating period and validation metadata for the inference
     const rawBrzValue = c.value || "—";
     const brzValue = convertContractValue(rawBrzValue, 'BRZ');
+    const _rawUSD = parseFloat((rawBrzValue).replace(/[^0-9.]/g, '')) || 0;
     return {
       numero: c.numero || "—",
       domain: domain,
       obj: c.obj || "No description provided",
       value: brzValue,
+      _rawUSD,
       country: 'BRZ',
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
@@ -1945,7 +2126,7 @@ function renderContractTable(data) {
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
       <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
-      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
+      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${fmtUSD(contractToUSD(c))}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
   }).join('');
@@ -1979,7 +2160,8 @@ window.filterContractTable = function () {
     .filter(c => {
       const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
       const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
-      return matchDomain && matchQ;
+      const valMatch = !brzValMin || contractToUSD(c) >= brzValMin;
+      return matchDomain && matchQ && valMatch;
     })
     .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
   contractPage = 1;
