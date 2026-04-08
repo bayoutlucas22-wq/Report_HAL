@@ -291,7 +291,7 @@ def write_study(frac: pd.DataFrame, op_exp: pd.DataFrame, form_risk: pd.DataFram
     lines = [
         "=" * 72,
         "  HALLIBURTON ARGENTINA — COMPLIANCE INTELLIGENCE STUDY",
-        "  Cortex CIS — Operational Footprint + Regulatory Exposure",
+        "  CORTEX CIS — Operational Footprint + Regulatory Exposure",
         f"  Generated: {now}",
         "  Source: SESCO Open Data (datos.energia.gob.ar) | 2015–2026",
         "=" * 72,
