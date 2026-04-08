@@ -753,6 +753,25 @@ body.lock-mode .page-content > section.active {
   user-select: none;
 }
 
+body.lock-mode .page-content > section.active {
+  filter: blur(14px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.locked-item {
+  filter: blur(10px) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: filter 0.3s ease;
+}
+
+.locked-item.unlocked {
+  filter: blur(0) !important;
+  pointer-events: auto !important;
+  user-select: auto !important;
+}
+
 .restricted-blur {
   filter: blur(12px);
   pointer-events: none;

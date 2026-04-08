@@ -82,6 +82,61 @@ function transformHalIncidents(rows) {
   }).filter(Boolean);
 }
 
+/** Transforms wellbore_exploration_all.csv — Sodir FactPages, NLOD licence */
+function transformSodirWellbores(rows) {
+  return rows.map(r => ({
+    wlbName:      r['wlbWellboreName']     || '',
+    wlbField:     r['wlbField']            || '',
+    wlbOperator:  r['wlbDrillingOperator'] || '',
+    wlbWellType:  r['wlbWellType']         || '',
+    wlbStatus:    r['wlbStatus']           || '',
+    wlbYear:      r['wlbEntryYear']        || '',
+    wlbTotalDepth:r['wlbTotalDepth']       || '',
+    wlbPurpose:   r['wlbPurpose']          || '',
+    wlbContent:   r['wlbContent']          || '',
+    wlbWaterDepth:r['wlbWaterDepth']       || '',
+    wlbLicence:   r['wlbProductionLicence']|| '',
+    wlbSubSea:    r['wlbSubSea']           || '',
+    wlbMainArea:  r['wlbMainArea']         || '',
+  })).filter(r => r.wlbName);
+}
+
+/** Transforms norway_incidents.csv — same schema as hal_incidents.csv */
+function transformNorwayIncidents(rows) {
+  return rows.map(r => {
+    const numero  = r['numero']    || '';
+    const rawTipo = r['tipo']      || '';
+    const grav    = r['gravidade'] || '';
+    const evt     = r['evento']    || '';
+
+    const tipo = rawTipo.replace(/^SSO - /, '').trim();
+    const t    = tipo.toLowerCase();
+
+    const m     = numero.match(/^(\d{2})(\d{2})\//);
+    const year  = m ? (2000 + parseInt(m[1])) : null;
+    const month = m ? parseInt(m[2]) : null;
+
+    // Extract NCS field name from evento: "(NCS-Troll A) ..."
+    const fm    = evt.match(/NCS-([^)]+)/);
+    const field = fm ? fm[1].trim() : null;
+
+    let category = 'Other';
+    if      (t.includes('csb') || t.includes('shear'))       category = 'CSB Failure';
+    else if (t.includes('bop'))                               category = 'BOP Failure';
+    else if (t.includes('kick'))                              category = 'Kick (Primary Barrier)';
+    else if (t.includes('structural') || t.includes('fatigue')) category = 'Structural Failure';
+    else if (t.includes('complete loss'))                     category = 'Loss of Well Control';
+    else if (t.includes('hydrocarbon'))                       category = 'HC Release';
+
+    let severity = 'SSO';
+    if      (grav === 'MINOR')    severity = 'Minor';
+    else if (grav === 'MODERATE') severity = 'Moderate';
+    else if (grav === 'SEVERE')   severity = 'Severe';
+
+    return { numero, tipo, rawTipo, category, severity, gravidade: grav, evento: evt, field, year, month };
+  }).filter(r => r.numero);
+}
+
 /** Mirrors parseHalContracts() / parseGenericContracts() in server.js */
 function transformContracts(rows) {
   return rows.map(r => {
@@ -121,6 +176,18 @@ async function main() {
   const rawArgContracts = readCsv('arg_contracts.csv');
   await seed(db, 'arg_contracts', transformContracts(rawArgContracts));
 
+  // 4b. Sodir Wellbore Registry — wellbore_exploration_all.csv (NLOD, comma-delimited)
+  const rawWellbores = readCsv('wellbore_exploration_all.csv', ',');
+  await seed(db, 'sodir_wellbores', transformSodirWellbores(rawWellbores));
+
+  // 4c. Norway Incidents
+  const rawNorIncidents = readCsv('norway_incidents.csv');
+  await seed(db, 'nor_incidents', transformNorwayIncidents(rawNorIncidents));
+
+  // 4c. Norway Contracts
+  const rawNorContracts = readCsv('norway_contracts.csv');
+  await seed(db, 'nor_contracts', transformContracts(rawNorContracts));
+
   // 5. ANP Records (pre-processed JSON)
   const anpRecords = readJson('api/data/processed/anp_records.json');
   if (anpRecords) await seed(db, 'anp_records', anpRecords);
@@ -140,6 +207,14 @@ async function main() {
   await db.collection('hal_incidents').createIndex({ severity: 1 });
   await db.collection('anp_records').createIndex({ year: 1 });
   await db.collection('anp_records').createIndex({ category: 1 });
+  await db.collection('sodir_wellbores').createIndex({ wlbField: 1 });
+  await db.collection('sodir_wellbores').createIndex({ wlbOperator: 1 });
+  await db.collection('sodir_wellbores').createIndex({ wlbWellType: 1 });
+  await db.collection('sodir_wellbores').createIndex({ wlbStatus: 1 });
+  await db.collection('nor_incidents').createIndex({ year: 1 });
+  await db.collection('nor_incidents').createIndex({ category: 1 });
+  await db.collection('nor_incidents').createIndex({ severity: 1 });
+  await db.collection('nor_incidents').createIndex({ field: 1 });
   console.log('  ✓  indexes ready');
 
   await client.close();
