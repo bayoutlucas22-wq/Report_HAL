@@ -454,6 +454,7 @@ app.get("/api/sodir/wellbores", async (req, res) => {
     if (type)   data = data.filter(r => (r.wlbWellType || "").toUpperCase() === type.toUpperCase());
     if (status) data = data.filter(r => (r.wlbStatus || "").toUpperCase() === status.toUpperCase());
 
+    data = data.slice().sort((a, b) => (parseInt(b.wlbYear) || 0) - (parseInt(a.wlbYear) || 0));
     const total = data.length;
     const items = data.slice((page - 1) * limit, page * limit);
     res.json({ total, page, limit, pages: Math.ceil(total / limit), items,
