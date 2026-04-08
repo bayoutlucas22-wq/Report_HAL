@@ -2,7 +2,7 @@
 
 **Date:** March 2026
 **Subject:** Assessment of Halliburton & Tejas Compliance Liability Inference / Quality Report Evaluation
-**Prepared By:** Cortex Intelligence System (CIS)
+**Prepared By:** CORTEX Intelligence System (CIS)
 
 ---
 

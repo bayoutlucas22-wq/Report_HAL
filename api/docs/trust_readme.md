@@ -275,4 +275,4 @@ The **Poços Ativos** tab in the dashboard (`section-wells`) surfaces this analy
 
 ---
 
-*Generated: March 2026 | Source: ANP Open Data (dados.gov.br) | Analysis: CIS LLC — Cortex Intelligence System*
+*Generated: March 2026 | Source: ANP Open Data (dados.gov.br) | Analysis: CIS LLC — CORTEX Intelligence System*
