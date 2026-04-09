@@ -3528,10 +3528,8 @@
               </div>
             </div>
 
-            <!-- DATA SOURCES -->
-            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;margin-top:16px;">
-              <div style="font-size:10px;font-weight:700;color:#475569;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;">Data Sources &amp; Regulatory Basis</div>
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+            <!-- DATA SOURCES REMOVED -->
+            <div style="display:none;"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
 
                 <!-- Brazil -->
                 <div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;border-top:3px solid #1d4ed8;">
@@ -3623,27 +3621,12 @@
 
               </div>
 
-              <!-- API endpoints -->
-              <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f1f5f9;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
-                <span style="font-size:10px;font-weight:700;color:#475569;">System endpoints:</span>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/stats</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/hal-incidents</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/hal-contracts</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/mexico-metrics</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/mexico-contracts</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/norway-stats</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/sodir/wellbores</code>
-                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/argentina-contracts</code>
-              </div>
             </div>
 
           </div>
 
           <script>
-          (function() {
-            if (window._frChartsInit) return;
-            window._frChartsInit = true;
-
+          window._initFrCharts = function() {
             // Brazil CSB trend chart
             (function tryFrCharts() {
               const c1 = document.getElementById('fr-csb-chart');
@@ -3700,7 +3683,7 @@
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { min: 0, ticks: { font: { size: 9 } }, grid: { color: '#f1f5f9' } } } }
               });
             })();
-          })();
+          };
           </script>
 
         </section><!-- /section-first-report -->
