@@ -795,6 +795,26 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
+  if (section === 'first-report') {
+    setTimeout(() => {
+      window._frChartsInit = false;
+      const initScript = document.querySelector('#section-first-report script');
+      if (initScript) {
+        // Re-run chart init by evaluating inline logic
+        const canvases = ['fr-csb-chart','fr-cat-chart','fr-mex-chart','fr-nor-chart'];
+        canvases.forEach(id => {
+          const canvas = document.getElementById(id);
+          if (canvas) {
+            const existing = Chart.getChart(canvas);
+            if (existing) existing.destroy();
+          }
+        });
+      }
+      // Trigger re-init
+      if (typeof window._initFrCharts === 'function') window._initFrCharts();
+    }, 60);
+  }
+
   if (section === 'brazil-registry') {
     setTimeout(renderPenaltyCharts, 200);
   }
