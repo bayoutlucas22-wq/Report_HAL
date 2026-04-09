@@ -60,7 +60,7 @@
     <!-- ── Sidebar ── -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <img src="logo.png" alt="CIS" style="max-width:100%;height:auto;" />
+        <img src="cis-logo.png" alt="CIS" style="max-width:100%;height:auto;" />
       </div>
 
       <!-- Filter Panel (Moved to Top) -->
@@ -245,19 +245,30 @@
 
         <div class="filter-label" style="font-size:10px; margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE MONITORING</div>
 
-        <a href="#" class="nav-link" data-section="latam-summary" id="nav-latam-summary">
+        <a href="#" class="nav-link" data-section="first-report" id="nav-first-report">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-            <path d="M7 11V7a5 5 0 0110 0v4" />
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
-          LATAM Compliance Summary 🔐
+          First Report
         </a>
-        <a href="#" class="nav-link" data-section="fullreport" id="nav-fullreport">
+        <a href="#" class="nav-link" data-section="latam-summary" id="nav-latam-summary" style="opacity:0.45;pointer-events:none;filter:blur(0.5px);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0110 0v4" />
           </svg>
-          Audit PDF Export 🔐
+          LATAM Compliance Summary
+          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
+        </a>
+        <a href="#" class="nav-link" data-section="fullreport" id="nav-fullreport" style="opacity:0.45;pointer-events:none;filter:blur(0.5px);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0110 0v4" />
+          </svg>
+          Audit PDF Export
+          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
 
       </nav>
@@ -3103,6 +3114,446 @@
           </div><!-- /relative wrapper -->
         </section>
 
+
+        <!-- ── FIRST REPORT ── -->
+        <section id="section-first-report" class="dash-section">
+          <div style="padding:32px 28px;">
+
+            <!-- Hero -->
+            <div style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border-radius:14px;padding:40px 44px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.07);position:relative;overflow:hidden;">
+              <div style="position:absolute;top:0;right:0;width:320px;height:100%;background:radial-gradient(ellipse at top right,rgba(29,78,216,0.18) 0%,transparent 70%);pointer-events:none;"></div>
+              <!-- FIX 5: Data currency — explicit cutoff at top -->
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+                <div style="font-size:10px;font-weight:700;color:#60a5fa;letter-spacing:.12em;text-transform:uppercase;">CIS · Cortex Intelligence System</div>
+                <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 12px;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></span>
+                  <span style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.6);">DATA CURRENT AS OF:</span>
+                  <span style="font-size:10px;font-weight:800;color:#fff;" id="fr-data-date">Brazil ANP: latest record 2026-12-26 · Mexico CNH: 2015–2025 · Norway SODIR: 1966–2025 · Argentina: contract registry 2020–2029</span>
+                </div>
+              </div>
+              <p style="font-size:14px;color:rgba(255,255,255,0.45);margin:0 0 20px;">Brazil · Norway · Mexico · Argentina — cross-market operational intelligence derived from ANP, SODIR, CNH, and procurement registries.</p>
+              <!-- Alert bar -->
+              <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.4);border-radius:8px;padding:10px 16px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0;animation:pulse 1.5s infinite;"></span>
+                <span style="font-size:12px;font-weight:700;color:#fca5a5;">ACTIVE RISK SIGNAL</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.6);">Brazil 2026 — 26 loss-of-well-control events · 97 kicks · CSB failures on pace to exceed 2021 peak</span>
+              </div>
+            </div>
+
+            <!-- FIX 2: Headline conclusion moved to TOP — compliance reads top-down -->
+            <div style="background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:22px 26px;margin-bottom:24px;">
+              <div style="font-size:10px;font-weight:700;color:#475569;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Compliance Summary — Lead Finding</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">
+                <div style="display:flex;gap:10px;align-items:flex-start;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px 14px;">
+                  <span style="font-size:16px;flex-shrink:0;">🇧🇷</span>
+                  <div><div style="font-size:10px;font-weight:800;color:#dc2626;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">CRITICAL — Escalating</div><div style="font-size:11px;color:#7f1d1d;line-height:1.6;">CSB failure crisis unresolved since 2021. 2026 partial year is worst on record. Immediate review required.</div></div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 14px;">
+                  <span style="font-size:16px;flex-shrink:0;">🇳🇴</span>
+                  <div><div style="font-size:10px;font-weight:800;color:#16a34a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">COMPLIANT — Benchmark</div><div style="font-size:11px;color:#14532d;line-height:1.6;">NORSOK D-010 compliant. RNNP-monitored. Equinor-integrated. No remediation actions required.</div></div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 14px;">
+                  <span style="font-size:16px;flex-shrink:0;">🇲🇽</span>
+                  <div><div style="font-size:10px;font-weight:800;color:#d97706;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">MONITOR — Gap in Safety Data</div><div style="font-size:11px;color:#78350f;line-height:1.6;">Operational data is granular but no incident registry in this system. Safety profile is unverified at this level.</div></div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:12px 14px;">
+                  <span style="font-size:16px;flex-shrink:0;">🇦🇷</span>
+                  <div><div style="font-size:10px;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">UNKNOWN RISK — No Data</div><div style="font-size:11px;color:#4c1d95;line-height:1.6;">Absence of incident and performance data is itself a compliance flag. Cannot assess. Not low risk — unassessable.</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 KPI cards -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;">
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 22px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1d4ed8,#3b82f6);"></div>
+                <div style="font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">🇧🇷 Brazil</div>
+                <div style="font-size:32px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;line-height:1;">25,233</div>
+                <div style="font-size:11px;color:#64748b;margin-top:4px;margin-bottom:14px;">incidents · 2013–2026</div>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <!-- FIX 4: Fatalities contextualized -->
+                  <div style="background:#fef2f2;border-radius:6px;padding:6px 8px;margin-bottom:2px;">
+                    <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#dc2626;font-weight:600;">Fatalities (13 yr)</span><span style="font-weight:800;color:#dc2626;">31</span></div>
+                    <div style="font-size:10px;color:#b91c1c;margin-top:2px;">Source: ANP incident registry 2013–2026 · year-level breakdown not available in this system</div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">CSB Failures</span><span style="font-weight:700;color:#1d4ed8;">3,355</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Petrobras share</span><span style="font-weight:700;color:#1d4ed8;">74%</span></div>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 22px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#16a34a,#4ade80);"></div>
+                <div style="font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">🇳🇴 Norway</div>
+                <div style="font-size:32px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;line-height:1;">2,186</div>
+                <div style="font-size:11px;color:#64748b;margin-top:4px;margin-bottom:14px;">wellbores · 1966–2025</div>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Equinor share</span><span style="font-weight:700;color:#16a34a;">43.6%</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Top field</span><span style="font-weight:700;color:#16a34a;">TROLL</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Standard</span><span style="font-weight:700;color:#16a34a;">NORSOK D-010</span></div>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 22px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#d97706,#fbbf24);"></div>
+                <div style="font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">🇲🇽 Mexico</div>
+                <div style="font-size:32px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;line-height:1;">1,245</div>
+                <div style="font-size:11px;color:#64748b;margin-top:4px;margin-bottom:14px;">wells · 2015–2025</div>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Avg pump power</span><span style="font-weight:700;color:#d97706;">27,874 HP</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Avg oil/well</span><span style="font-weight:700;color:#d97706;">2,417 bpd</span></div>
+                  <!-- FIX 6: Mexico safety gap flagged -->
+                  <div style="background:#fffbeb;border-radius:6px;padding:6px 8px;margin-top:2px;">
+                    <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#d97706;font-weight:600;">Incident registry</span><span style="font-weight:800;color:#d97706;">Not in system</span></div>
+                    <div style="font-size:10px;color:#92400e;margin-top:2px;">High-HP operations with no safety tracking here = unverified compliance profile</div>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px 22px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div>
+                <div style="font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">🇦🇷 Argentina</div>
+                <div style="font-size:32px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;line-height:1;">$298K</div>
+                <div style="font-size:11px;color:#64748b;margin-top:4px;margin-bottom:14px;">avg contract · 65 contracts</div>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">vs Mexico avg</span><span style="font-weight:700;color:#dc2626;">6× lower</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Well-level data</span><span style="font-weight:700;color:#dc2626;">None</span></div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:#64748b;">Contract type</span><span style="font-weight:700;color:#7c3aed;">Maintenance</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2-col: Brazil CSB trend chart + incident breakdown -->
+            <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-bottom:16px;">
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                  <div style="font-size:12px;font-weight:700;color:#0f172a;">Brazil — CSB Failure & Kick Trend</div>
+                  <span style="font-size:10px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:2px 8px;border-radius:10px;font-weight:700;">2013 – 2026</span>
+                </div>
+                <div style="font-size:11px;color:#94a3b8;margin-bottom:16px;">CSB barrier failures surged in 2021 and have not recovered. Kicks accelerating in 2026.</div>
+                <div style="position:relative;height:190px;">
+                  <canvas id="fr-csb-chart"></canvas>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;">
+                <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">Brazil — Incident Breakdown</div>
+                <div style="font-size:11px;color:#94a3b8;margin-bottom:16px;">All 25,233 incidents by category</div>
+                <div style="position:relative;height:190px;">
+                  <canvas id="fr-cat-chart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2-col: Contract spend bars + Mexico performance -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;">
+                <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">Contract Capital Intensity</div>
+                <div style="font-size:11px;color:#94a3b8;margin-bottom:20px;">Average contract value by country — same number of contracts, radically different scale</div>
+                <div style="display:flex;flex-direction:column;gap:14px;">
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:5px;"><span style="font-weight:600;color:#0f172a;">🇧🇷 Brazil</span><span style="font-weight:800;color:#1d4ed8;">$28.5M avg</span></div>
+                    <div style="background:#f1f5f9;border-radius:6px;height:10px;overflow:hidden;"><div style="background:linear-gradient(90deg,#1d4ed8,#3b82f6);height:100%;width:100%;border-radius:6px;"></div></div>
+                  </div>
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:5px;"><span style="font-weight:600;color:#0f172a;">🇲🇽 Mexico</span><span style="font-weight:800;color:#d97706;">$1.75M avg</span></div>
+                    <div style="background:#f1f5f9;border-radius:6px;height:10px;overflow:hidden;"><div style="background:linear-gradient(90deg,#d97706,#fbbf24);height:100%;width:6.1%;border-radius:6px;"></div></div>
+                  </div>
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:5px;"><span style="font-weight:600;color:#0f172a;">🇦🇷 Argentina</span><span style="font-weight:800;color:#7c3aed;">$298K avg</span></div>
+                    <div style="background:#f1f5f9;border-radius:6px;height:10px;overflow:hidden;"><div style="background:linear-gradient(90deg,#7c3aed,#a78bfa);height:100%;width:1.05%;border-radius:6px;"></div></div>
+                  </div>
+                </div>
+                <div style="margin-top:20px;padding-top:16px;border-top:1px solid #f1f5f9;">
+                  <div style="font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;">Total contract portfolio</div>
+                  <div style="display:flex;flex-direction:column;gap:6px;">
+                    <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#64748b;">Brazil (172 contracts)</span><span style="font-weight:800;color:#1d4ed8;">$4,900M</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#64748b;">Mexico (65 contracts)</span><span style="font-weight:800;color:#d97706;">$113.9M</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#64748b;">Argentina (65 contracts)</span><span style="font-weight:800;color:#7c3aed;">$19.4M</span></div>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;">
+                <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">Mexico — Well Performance</div>
+                <div style="font-size:11px;color:#94a3b8;margin-bottom:16px;">1,245 wells with measured output · avg vs peak</div>
+                <div style="position:relative;height:200px;">
+                  <canvas id="fr-mex-chart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Operational maturity matrix -->
+            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;margin-bottom:16px;">
+              <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">Operational Maturity Matrix</div>
+              <div style="font-size:11px;color:#94a3b8;margin-bottom:20px;">How each country scores across key dimensions of petroleum operations capability</div>
+              <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:560px;">
+                  <thead>
+                    <tr style="border-bottom:2px solid #e2e8f0;">
+                      <th style="padding:10px 14px;text-align:left;font-weight:700;color:#475569;font-size:11px;text-transform:uppercase;letter-spacing:.05em;">Dimension</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:700;color:#1d4ed8;">🇧🇷 Brazil</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:700;color:#16a34a;">🇳🇴 Norway</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:700;color:#d97706;">🇲🇽 Mexico</th>
+                      <th style="padding:10px 14px;text-align:center;font-weight:700;color:#7c3aed;">🇦🇷 Argentina</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">Data Type</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">Incident registry</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">Wellbore registry</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">Well performance</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">Procurement only</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">Regulatory Transparency</td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">Very High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#d97706;font-weight:700;">Medium</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#dc2626;font-weight:700;">Low</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">Capital Intensity</td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">Very High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">Very High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#d97706;font-weight:700;">High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#dc2626;font-weight:700;">Low</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">Safety Framework</td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#d97706;font-weight:700;">ANP / Under Pressure</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">NORSOK / RNNP</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#d97706;font-weight:700;">CNH / ASEA</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#dc2626;font-weight:700;">Not tracked here</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">Operator Concentration</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">Petrobras 74%</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">Equinor 44%</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">PEMEX dominant</td>
+                      <td style="padding:10px 14px;text-align:center;color:#64748b;">N/A</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">2026 Risk Trajectory</td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#dc2626;font-weight:700;">↑ Escalating</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">→ Stable</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">→ Active / Stable</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#7c3aed;font-weight:700;">? Undercapitalized</span></td>
+                    </tr>
+                    <tr style="background:#fafafa;">
+                      <td style="padding:10px 14px;font-weight:600;color:#0f172a;">Halliburton Exposure</td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#dc2626;font-weight:700;">Very High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#d97706;font-weight:700;">Medium</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#d97706;font-weight:700;">High</span></td>
+                      <td style="padding:10px 14px;text-align:center;"><span style="color:#16a34a;font-weight:700;">Low</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Bottom: headline findings 2-col -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div style="background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border-radius:12px;padding:24px 26px;border:1px solid rgba(255,255,255,0.07);">
+                <div style="font-size:10px;font-weight:700;color:#f59e0b;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">Key Findings</div>
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                  <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#f87171;flex-shrink:0;margin-top:5px;"></span>
+                    <p style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;margin:0;"><strong style="color:#f87171;">Brazil</strong> — most critical risk profile. CSB crisis unresolved since 2021, 2026 showing first major loss-of-control cluster in system history.</p>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#86efac;flex-shrink:0;margin-top:5px;"></span>
+                    <p style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;margin:0;"><strong style="color:#86efac;">Norway</strong> — the benchmark. 50+ years, NORSOK compliance, Equinor-integrated NCS. Safety is structural, not aspirational.</p>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#fde68a;flex-shrink:0;margin-top:5px;"></span>
+                    <p style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;margin:0;"><strong style="color:#fde68a;">Mexico</strong> — executing at scale. Real production, real fracking, multi-operator. A functioning high-capital operation.</p>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#d8b4fe;flex-shrink:0;margin-top:5px;"></span>
+                    <p style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;margin:0;"><strong style="color:#d8b4fe;">Argentina</strong> — geology (Vaca Muerta) without infrastructure. Reactive maintenance contracts, no well-level data, 6× below Mexico capital.</p>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;">
+                <div style="font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">Norway Drilling Activity</div>
+                <div style="position:relative;height:185px;">
+                  <canvas id="fr-nor-chart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- DATA SOURCES -->
+            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 26px;margin-top:16px;">
+              <div style="font-size:10px;font-weight:700;color:#475569;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;">Data Sources &amp; Regulatory Basis</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+
+                <!-- Brazil -->
+                <div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;border-top:3px solid #1d4ed8;">
+                  <div style="font-size:11px;font-weight:800;color:#1d4ed8;margin-bottom:10px;">🇧🇷 Brazil — ANP</div>
+                  <div style="display:flex;flex-direction:column;gap:7px;">
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Incident Registry</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">ANP — Agência Nacional do Petróleo, Gás Natural e Biocombustíveis</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:1px;">SGIP · ANP Resolution No. 46/2016</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Safety Framework</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">SGSO · ANP Resolution No. 43/2007</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Records in system</div>
+                      <div style="font-size:11px;color:#0f172a;font-weight:700;margin-top:2px;">25,233 incidents · 2013–2026</div>
+                    </div>
+                    <div style="padding-top:6px;border-top:1px solid #f1f5f9;">
+                      <div style="font-size:10px;color:#94a3b8;">gov.br/anp · sgip · sgso</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Norway -->
+                <div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;border-top:3px solid #16a34a;">
+                  <div style="font-size:11px;font-weight:800;color:#16a34a;margin-bottom:10px;">🇳🇴 Norway — SODIR</div>
+                  <div style="display:flex;flex-direction:column;gap:7px;">
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Wellbore Registry</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">SODIR — Norwegian Offshore Directorate (Sokkeldirektoratet)</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:1px;">factpages.sodir.no · NLOD (Norwegian Licence for Open Government Data)</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Safety Standard</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">NORSOK D-010 · RNNP (Havtil annual risk indicators)</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Records in system</div>
+                      <div style="font-size:11px;color:#0f172a;font-weight:700;margin-top:2px;">2,186 wellbores · 1966–2025</div>
+                    </div>
+                    <div style="padding-top:6px;border-top:1px solid #f1f5f9;">
+                      <div style="font-size:10px;color:#94a3b8;">factpages.sodir.no</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mexico -->
+                <div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;border-top:3px solid #d97706;">
+                  <div style="font-size:11px;font-weight:800;color:#d97706;margin-bottom:10px;">🇲🇽 Mexico — CNH</div>
+                  <div style="display:flex;flex-direction:column;gap:7px;">
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Well Performance Data</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">CNH — Comisión Nacional de Hidrocarburos</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:1px;">Operators: PEMEX, ENI México, Repsol, Wintershall DEA, Hokchi Energy</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Safety Framework</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">CNH / ASEA (Agencia de Seguridad, Energía y Ambiente)</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Records in system</div>
+                      <div style="font-size:11px;color:#0f172a;font-weight:700;margin-top:2px;">1,245 wells · 2015–2025</div>
+                    </div>
+                    <div style="background:#fffbeb;border-radius:6px;padding:6px 8px;">
+                      <div style="font-size:10px;color:#92400e;font-weight:600;">⚠ Incident registry not loaded — safety profile unverified at system level</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Argentina -->
+                <div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;border-top:3px solid #7c3aed;">
+                  <div style="font-size:11px;font-weight:800;color:#7c3aed;margin-bottom:10px;">🇦🇷 Argentina — Procurement Registry</div>
+                  <div style="display:flex;flex-direction:column;gap:7px;">
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Contract Data</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:2px;">Internal procurement registry — service contracts for oilfield operations</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:1px;">Types: cementing, completion, workover, MPD, stimulation, fluid services</div>
+                    </div>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Records in system</div>
+                      <div style="font-size:11px;color:#0f172a;font-weight:700;margin-top:2px;">65 contracts · 2020–2029</div>
+                    </div>
+                    <div style="background:#faf5ff;border-radius:6px;padding:6px 8px;">
+                      <div style="font-size:10px;color:#4c1d95;font-weight:600;">⚠ No incident registry · No well-level performance data · Risk profile: unassessable</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- API endpoints -->
+              <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f1f5f9;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+                <span style="font-size:10px;font-weight:700;color:#475569;">System endpoints:</span>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/stats</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/hal-incidents</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/hal-contracts</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/mexico-metrics</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/mexico-contracts</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/norway-stats</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/sodir/wellbores</code>
+                <code style="font-size:10px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#475569;">/api/argentina-contracts</code>
+              </div>
+            </div>
+
+          </div>
+
+          <script>
+          (function() {
+            if (window._frChartsInit) return;
+            window._frChartsInit = true;
+
+            // Brazil CSB trend chart
+            (function tryFrCharts() {
+              const c1 = document.getElementById('fr-csb-chart');
+              const c2 = document.getElementById('fr-cat-chart');
+              const c3 = document.getElementById('fr-mex-chart');
+              const c4 = document.getElementById('fr-nor-chart');
+              if (!c1 || !c2 || !c3 || !c4 || typeof Chart === 'undefined') {
+                setTimeout(tryFrCharts, 200); return;
+              }
+
+              // CSB + Kick trend
+              new Chart(c1, {
+                type: 'bar',
+                data: {
+                  labels: ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026'],
+                  datasets: [
+                    { label: 'CSB Failures', data: [0,0,0,0,8,4,7,63,940,730,335,344,404,520], backgroundColor: 'rgba(29,78,216,0.7)', borderRadius: 3, order: 2 },
+                    { label: 'Kicks', data: [21,15,20,13,7,21,9,10,9,18,14,31,31,97], type: 'line', borderColor: '#dc2626', backgroundColor: 'rgba(220,38,38,0.1)', borderWidth: 2, pointRadius: 3, fill: true, tension: 0.3, order: 1 }
+                  ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index' }, plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10 } } }, scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { ticks: { font: { size: 9 } }, grid: { color: '#f1f5f9' } } } }
+              });
+
+              // Incident breakdown donut
+              new Chart(c2, {
+                type: 'doughnut',
+                data: {
+                  labels: ['Other / SSO', 'CSB Failure', 'BOP Failure', 'Kick', 'Structural', 'Loss of Control'],
+                  datasets: [{ data: [17900, 3355, 1407, 316, 219, 33], backgroundColor: ['#e2e8f0','#1d4ed8','#0ea5e9','#f59e0b','#ef4444','#7c3aed'], borderWidth: 0 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, cutout: '62%', plugins: { legend: { position: 'right', labels: { font: { size: 10 }, boxWidth: 10, padding: 8 } } } }
+              });
+
+              // Mexico performance bar
+              new Chart(c3, {
+                type: 'bar',
+                data: {
+                  labels: ['Pump HP\n(÷10)', 'Frac\nStages', 'Lateral\n(÷100 m)', 'Oil bpd', 'Gas mcfd\n(÷1)', 'Pressure\n(÷100 PSI)'],
+                  datasets: [
+                    { label: 'Average', data: [2787, 27, 19.9, 2417, 5119, 110.5], backgroundColor: 'rgba(217,119,6,0.6)', borderRadius: 4 },
+                    { label: 'Maximum', data: [4496, 49, 35, 4998, 9995, 160], backgroundColor: 'rgba(217,119,6,0.2)', borderRadius: 4 }
+                  ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10 } }, tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.raw; } } } }, scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { ticks: { font: { size: 9 } }, grid: { color: '#f1f5f9' } } } }
+              });
+
+              // Norway drilling trend
+              new Chart(c4, {
+                type: 'line',
+                data: {
+                  labels: ['2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
+                  datasets: [{ label: 'Wells drilled', data: [59,57,56,38,36,53,57,31,40,34,35,45,52], borderColor: '#16a34a', backgroundColor: 'rgba(22,163,74,0.08)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#16a34a', borderWidth: 2 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { min: 0, ticks: { font: { size: 9 } }, grid: { color: '#f1f5f9' } } } }
+              });
+            })();
+          })();
+          </script>
+
+        </section><!-- /section-first-report -->
 
 
         <!-- ── ARG AUDIT DASHBOARD ── -->
