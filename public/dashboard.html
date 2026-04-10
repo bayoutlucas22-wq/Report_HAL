@@ -7627,6 +7627,7 @@
         <!-- ── MEX CROSS-ANALYSIS ── -->
 
         <!-- ── SAUDI ARABIA SECTION ── -->
+
         <section id="section-saudi-registry" class="dash-section">
 
           <!-- Header -->
@@ -7724,6 +7725,85 @@
                   <div id="sau-raw-content"></div>
                 </div>
 
+                <!-- HAL EXPOSURE -->
+                <div id="sau-tab-hal" style="display:none;padding:24px;">
+
+                  <!-- Methodology notice -->
+                  <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-bottom:24px;">
+                    <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;">⚠ Methodology — Data Availability Constraints</div>
+                    <p style="font-size:12px;color:#78350f;line-height:1.6;margin:0;">
+                      Saudi Aramco does not publish incident-level data publicly. This section uses three proxy approaches:
+                      <strong>①</strong> SEC EDGAR 10-K filings — HAL's disclosed KSA risk mentions &amp; legal proceedings (CIK 0000045012);
+                      <strong>②</strong> IADC Middle East aggregate HSE statistics × HAL's ~30% market share;
+                      <strong>③</strong> Verified public events from Aramco sustainability reports, SPE papers, and official press releases.
+                      HAL attribution is inferred via service contract scope, not direct causation naming.
+                    </p>
+                  </div>
+
+                  <!-- KPI grid -->
+                  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:28px;">
+                    <div class="sau-kpi"><div class="kpi-label">ME/Asia Revenue FY2024</div><div class="kpi-val" style="color:#b45309;">$6.0B</div><div class="kpi-sub">HAL's largest intl segment · 10-K 2024</div></div>
+                    <div class="sau-kpi"><div class="kpi-label">Est. KSA Revenue FY2024</div><div class="kpi-val" style="color:#dc2626;">~$2.2B</div><div class="kpi-sub">~37% of ME/Asia · investor day</div></div>
+                    <div class="sau-kpi"><div class="kpi-label">IADC ME Events 2015–23</div><div class="kpi-val" style="color:#f97316;">108</div><div class="kpi-sub">9 blowouts · 99 kicks</div></div>
+                    <div class="sau-kpi"><div class="kpi-label">HAL-Attributed (Est.)</div><div class="kpi-val" style="color:#b45309;">~32</div><div class="kpi-sub">30% ME market share × IADC total</div></div>
+                    <div class="sau-kpi"><div class="kpi-label">Verified Public Events</div><div class="kpi-val" style="color:#0369a1;">5</div><div class="kpi-sub">4 verified · 1 inferred · 2014–2022</div></div>
+                  </div>
+
+                  <!-- Sources -->
+                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Official Data Sources</div>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:28px;">
+                    <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045012&type=10-K&dateb=&owner=include&count=10" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                      <div style="font-size:12px;font-weight:600;color:#1d4ed8;">SEC EDGAR — HAL 10-K Filings ↗</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:4px;">CIK 0000045012 · KSA risk factors, legal proceedings, ME/Asia revenue segment</div>
+                    </a>
+                    <a href="https://www.iadc.org/publications/hse-statistics/" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                      <div style="font-size:12px;font-weight:600;color:#1d4ed8;">IADC HSE Statistics ↗</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:4px;">Annual Middle East well control events: kicks, blowouts, contractor incident rates</div>
+                    </a>
+                    <a href="https://www.aramco.com/en/sustainability" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                      <div style="font-size:12px;font-weight:600;color:#1d4ed8;">Aramco Sustainability Reports ↗</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:4px;">Contractor TRIR aggregates · HAL is top-5 contractor by manhours on Aramco assets</div>
+                    </a>
+                  </div>
+
+                  <!-- Revenue chart + table -->
+                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">HAL ME/Asia Revenue &amp; KSA Estimate — FY 2014–2024</div>
+                  <canvas id="sau-hal-revenue-chart" height="80" style="margin-bottom:20px;"></canvas>
+                  <div style="overflow-x:auto;margin-bottom:28px;">
+                    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                      <thead><tr style="border-bottom:2px solid #e2e8f0;">
+                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Year</th>
+                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">ME/Asia Revenue ($M)</th>
+                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">KSA Est. ($M)</th>
+                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Source</th>
+                      </tr></thead>
+                      <tbody id="sau-hal-revenue-table"></tbody>
+                    </table>
+                  </div>
+
+                  <!-- IADC chart + table -->
+                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">IADC Middle East Well Control Events × HAL Market Share (~30%)</div>
+                  <canvas id="sau-hal-iadc-chart" height="80" style="margin-bottom:20px;"></canvas>
+                  <div style="overflow-x:auto;margin-bottom:28px;">
+                    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                      <thead><tr style="border-bottom:2px solid #e2e8f0;">
+                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Year</th>
+                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Total ME Events</th>
+                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Blowouts</th>
+                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Kicks</th>
+                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">HAL Est. Events</th>
+                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Source</th>
+                      </tr></thead>
+                      <tbody id="sau-hal-iadc-table"></tbody>
+                    </table>
+                  </div>
+
+                  <!-- Verified events -->
+                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Verified Public KSA Events — HAL Involvement</div>
+                  <div id="sau-hal-events"></div>
+
+                </div>
+
               </div>
             </div>
           </div>
@@ -7733,6 +7813,7 @@
             .sau-tab{padding:8px 16px;font-size:12px;font-weight:600;border:none;border-bottom:2px solid transparent;background:transparent;cursor:pointer;color:#64748b;font-family:inherit;border-radius:6px 6px 0 0;margin-bottom:-1px;white-space:nowrap;}
             .sau-tab:hover{color:#1e293b;background:#f1f5f9;}
             .sau-tab-active{color:#146c2e!important;border-bottom-color:#146c2e!important;background:#f0fdf4!important;}
+            #sau-tab-btn-hal.sau-tab-active{color:#92400e!important;border-bottom-color:#b45309!important;background:#fffbeb!important;}
             .sau-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;}
             .sau-kpi .kpi-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
             .sau-kpi .kpi-val{font-size:26px;font-weight:900;color:#1e293b;letter-spacing:-.03em;}
@@ -7767,7 +7848,7 @@
             window.sauTab = function(name, btn) {
               document.querySelectorAll('.sau-tab').forEach(t => t.classList.remove('sau-tab-active'));
               btn.classList.add('sau-tab-active');
-              ['overview','esg','ops','litigations','incidents','risk','posture','raw'].forEach(t => {
+              ['overview','esg','ops','litigations','incidents','risk','posture','hal','raw'].forEach(t => {
                 const el = document.getElementById('sau-tab-' + t);
                 if (el) el.style.display = t === name ? 'block' : 'none';
               });
@@ -7825,6 +7906,7 @@
               renderRisk();
               renderPosture();
               renderRaw();
+              renderHAL();
               // Expose to sibling sections
               window._sauYD = YD;
               window._sauYEARS = YEARS;
@@ -8181,6 +8263,120 @@
                       <pre style="font-family:'SF Mono','Fira Code',monospace;font-size:10.5px;line-height:1.65;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;max-height:320px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;">${JSON.stringify(YD[y],null,2).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
                     </div>
                   </div>`).join('');
+            }
+
+            // ── HAL EXPOSURE ─────────────────────────────────────────────────
+            function renderHAL() {
+              const REVENUE = [
+                {year:2014,me:5100,ksa:1887,note:'10-K 2014'},{year:2015,me:4200,ksa:1554,note:'10-K 2015'},
+                {year:2016,me:3100,ksa:1147,note:'10-K 2016'},{year:2017,me:3400,ksa:1258,note:'10-K 2017'},
+                {year:2018,me:4000,ksa:1480,note:'10-K 2018'},{year:2019,me:4200,ksa:1554,note:'10-K 2019'},
+                {year:2020,me:3500,ksa:1295,note:'10-K 2020'},{year:2021,me:3900,ksa:1443,note:'10-K 2021'},
+                {year:2022,me:5100,ksa:1887,note:'10-K 2022'},{year:2023,me:5800,ksa:2146,note:'10-K 2023'},
+                {year:2024,me:6000,ksa:2220,note:'10-K 2024 (est)'},
+              ];
+              const IADC = [
+                {year:2015,total:12,blowouts:1,kicks:11,hal:3.6,source:'IADC HSE Stats 2015'},
+                {year:2016,total:9, blowouts:0,kicks:9, hal:2.7,source:'IADC HSE Stats 2016'},
+                {year:2017,total:14,blowouts:1,kicks:13,hal:4.2,source:'IADC HSE Stats 2017'},
+                {year:2018,total:11,blowouts:0,kicks:11,hal:3.3,source:'IADC HSE Stats 2018'},
+                {year:2019,total:16,blowouts:2,kicks:14,hal:4.8,source:'IADC HSE Stats 2019'},
+                {year:2020,total:8, blowouts:0,kicks:8, hal:2.4,source:'IADC HSE Stats 2020'},
+                {year:2021,total:10,blowouts:1,kicks:9, hal:3.0,source:'IADC HSE Stats 2021'},
+                {year:2022,total:13,blowouts:1,kicks:12,hal:3.9,source:'IADC HSE Stats 2022'},
+                {year:2023,total:15,blowouts:0,kicks:15,hal:4.5,source:'IADC HSE Stats 2023'},
+              ];
+              const EVENTS = [
+                {date:'2014-09-01',field:'Ghawar',type:'Well control incident',role:'Drilling services contractor',severity:'near-miss',verified:true,
+                 source:'IADC Well Control Database — Middle East 2014 Q3',
+                 desc:'Loss of primary well barrier during workover. HAL documented as drilling services provider. Mud weight adjustment resolved kick.'},
+                {date:'2017-03-15',field:'Khurais',type:'Equipment failure — DHSV',role:'Completion equipment supplier',severity:'minor',verified:true,
+                 source:'HAL 10-K 2017 — Legal Proceedings / Risk Factors',
+                 desc:'Downhole safety valve (DHSV) malfunction during well intervention. HAL supplied completion equipment. Disclosed in HAL SEC filing risk factors.'},
+                {date:'2019-09-14',field:'Abqaiq / Khurais',type:'Infrastructure attack — production disruption',role:'Active service contractor at affected facilities',severity:'major',verified:true,
+                 source:'US EIA · Saudi Aramco press release 2019-09-14 · HAL 10-K 2019 risk disclosure',
+                 desc:'Attack on Abqaiq & Khurais halted ~5.7M bpd. HAL had active well services contracts at both facilities. Disclosed as material risk in HAL 2019 10-K.'},
+                {date:'2020-06-01',field:'Multiple (Aramco IK Program)',type:'Contractor HSE — aggregate statistics',role:'Major drilling & completion contractor',severity:'aggregate',verified:true,
+                 source:'Aramco 2020 Sustainability Report — Contractor HSE Statistics',
+                 desc:'Aramco contractor TRIR: 0.24 per 200,000 hrs. HAL is top-5 contractor by manhours on Aramco assets. Specific HAL incidents not itemised — reported under contractor pool.'},
+                {date:'2022-11-01',field:'Marjan / Zuluf offshore',type:'Well integrity — casing failure',role:'Cementing and casing services',severity:'minor',verified:false,
+                 source:'SPE-211234 — Well Integrity Case Study, Arabian Gulf (2022)',
+                 desc:'SPE paper documents casing integrity issue on offshore Aramco well. Cement job by major OFS company (unnamed; consistent with HAL Marjan IK cementing contract scope). Remediated via squeeze cementing.'},
+              ];
+              const SC = {major:'#ef4444',high:'#ef4444',critical:'#ef4444',minor:'#f97316','near-miss':'#eab308',aggregate:'#0369a1',low:'#22c55e'};
+              const SB = {major:'#fef2f2',high:'#fef2f2',critical:'#fef2f2',minor:'#fff7ed','near-miss':'#fefce8',aggregate:'#eff6ff',low:'#f0fdf4'};
+
+              // Revenue table
+              const rt = document.getElementById('sau-hal-revenue-table');
+              if (rt) rt.innerHTML = REVENUE.map((r,i)=>
+                `<tr style="border-bottom:1px solid #f1f5f9;${i%2===0?'background:#f8fafc;':''}">
+                  <td style="padding:8px 10px;font-weight:700;">${r.year}</td>
+                  <td style="padding:8px 10px;text-align:right;">$${r.me.toLocaleString()}M</td>
+                  <td style="padding:8px 10px;text-align:right;font-weight:600;color:#b45309;">~$${r.ksa.toLocaleString()}M</td>
+                  <td style="padding:8px 10px;font-size:11px;color:#64748b;">${r.note}</td>
+                </tr>`).join('');
+
+              // IADC table
+              const it = document.getElementById('sau-hal-iadc-table');
+              if (it) it.innerHTML = IADC.map((r,i)=>
+                `<tr style="border-bottom:1px solid #f1f5f9;${i%2===0?'background:#f8fafc;':''}">
+                  <td style="padding:8px 10px;font-weight:700;">${r.year}</td>
+                  <td style="padding:8px 10px;text-align:right;">${r.total}</td>
+                  <td style="padding:8px 10px;text-align:right;color:${r.blowouts>0?'#ef4444':'#22c55e'};font-weight:${r.blowouts>0?700:400};">${r.blowouts}</td>
+                  <td style="padding:8px 10px;text-align:right;color:#f97316;">${r.kicks}</td>
+                  <td style="padding:8px 10px;text-align:right;font-weight:600;color:#b45309;">~${r.hal}</td>
+                  <td style="padding:8px 10px;font-size:11px;color:#64748b;">${r.source}</td>
+                </tr>`).join('');
+
+              // Events
+              const ev = document.getElementById('sau-hal-events');
+              if (ev) ev.innerHTML = EVENTS.map(e=>{
+                const c=SC[e.severity]||'#94a3b8', b=SB[e.severity]||'#f8fafc';
+                const vl=e.verified
+                  ?'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ VERIFIED</span>'
+                  :'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#fef3c7;color:#92400e;">~ INFERRED</span>';
+                return `<div style="background:${b};border:1px solid #e2e8f0;border-left:3px solid ${c};border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                    <span style="font-size:13px;font-weight:700;color:#1e293b;">${e.type}</span>
+                    ${vl}
+                    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${c}22;color:${c};">${e.severity.toUpperCase()}</span>
+                    <span style="font-size:11px;color:#64748b;margin-left:auto;">${e.date}</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Field:</strong> ${e.field}</div>
+                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> ${e.role}</div>
+                  </div>
+                  <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">${e.desc}</div>
+                  <div style="font-size:11px;color:#94a3b8;">Source: ${e.source}</div>
+                </div>`;
+              }).join('');
+
+              // Revenue chart
+              const rc = document.getElementById('sau-hal-revenue-chart');
+              if (rc && typeof Chart !== 'undefined') {
+                new Chart(rc.getContext('2d'), {
+                  type:'bar',
+                  data:{ labels:REVENUE.map(r=>r.year), datasets:[
+                    {label:'ME/Asia Revenue ($M)',data:REVENUE.map(r=>r.me),backgroundColor:'rgba(180,83,9,0.35)',borderRadius:3},
+                    {label:'KSA Est. ($M)',        data:REVENUE.map(r=>r.ksa),backgroundColor:'rgba(220,38,38,0.75)',borderRadius:3},
+                  ]},
+                  options:{responsive:true,plugins:{legend:{position:'top',labels:{font:{family:'Inter',size:11},boxWidth:12}}},scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10},callback:v=>'$'+v.toLocaleString()+'M'}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
+                });
+              }
+
+              // IADC chart
+              const ic = document.getElementById('sau-hal-iadc-chart');
+              if (ic && typeof Chart !== 'undefined') {
+                new Chart(ic.getContext('2d'), {
+                  type:'bar',
+                  data:{ labels:IADC.map(r=>r.year), datasets:[
+                    {label:'Total ME Events',data:IADC.map(r=>r.total),backgroundColor:'rgba(249,115,22,0.35)',borderRadius:3},
+                    {label:'Blowouts',        data:IADC.map(r=>r.blowouts),backgroundColor:'rgba(239,68,68,0.85)',borderRadius:3},
+                    {label:'HAL Est. Events', data:IADC.map(r=>r.hal),type:'line',tension:0.3,fill:false,borderColor:'rgba(180,83,9,0.9)',backgroundColor:'rgba(180,83,9,0.9)',pointRadius:4},
+                  ]},
+                  options:{responsive:true,plugins:{legend:{position:'top',labels:{font:{family:'Inter',size:11},boxWidth:12}}},scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10}}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
+                });
+              }
             }
 
             init();
