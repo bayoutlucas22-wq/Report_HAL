@@ -252,6 +252,35 @@ app.get("/api/mexico-contracts", async (req, res) => {
   }
 });
 
+app.get("/api/mexico-perforacion", async (req, res) => {
+  try {
+    const db   = await getDb();
+    const page  = Math.max(1, parseInt(req.query.page) || 1);
+    const limit = Math.min(200, parseInt(req.query.limit) || 50);
+    const q     = (req.query.q || '').toLowerCase().trim();
+    const basin = (req.query.basin || '').toUpperCase().trim();
+
+    const filter = {};
+    if (basin) filter.cuenca = { $regex: basin, $options: 'i' };
+    if (q)     filter.$or = [
+      { id_pozo:   { $regex: q, $options: 'i' } },
+      { operador:  { $regex: q, $options: 'i' } },
+      { formacion: { $regex: q, $options: 'i' } },
+    ];
+
+    const total = await db.collection('mex_perforacion').countDocuments(filter);
+    const items = await db.collection('mex_perforacion')
+      .find(filter, { projection: { _id: 0 } })
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .toArray();
+
+    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
+  } catch(e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 app.get("/api/argentina-contracts", async (req, res) => {
   try {
     const db    = await getDb();

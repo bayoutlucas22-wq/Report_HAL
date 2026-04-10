@@ -2353,6 +2353,11 @@ document.querySelectorAll('.nav-link').forEach(link => {
       setTimeout(() => renderMexTemporalOverlapChart(), 60);
     });
   }
+  if (link.dataset.section === 'mexico-registry') {
+    link.addEventListener('click', () => {
+      setTimeout(() => loadMexRegistry(1), 60);
+    });
+  }
   if (link.dataset.section === 'norway-audit') {
     link.addEventListener('click', () => {
       setTimeout(() => {
@@ -2882,4 +2887,92 @@ function renderNorwayRNNPChart() {
 document.addEventListener('DOMContentLoaded', () => {
     const navNorReg = document.getElementById('nav-norway-registry');
     if(navNorReg) navNorReg.addEventListener('click', () => loadNorwayRegistry(1));
+
+    const navMexReg = document.getElementById('nav-mexico-registry');
+    if(navMexReg) navMexReg.addEventListener('click', () => loadMexRegistry(1));
 });
+
+// ── MEX Operating Risk Registry ──────────────────────────────────────────────
+// Source: CNH SIH Perforación · api/data/mexico_perforacion.csv · 1,245 records
+// Endpoint: GET /api/mexico-perforacion?page=N&limit=50&q=&basin=
+
+let _mexPage = 1;
+let _mexTotal = 0;
+
+async function loadMexRegistry(page) {
+  _mexPage = page || 1;
+  const q     = (document.getElementById('mexSearchInput')?.value || '').trim();
+  const basin = document.getElementById('mexBasinFilter')?.value || '';
+
+  const params = new URLSearchParams({ page: _mexPage, limit: 50 });
+  if (q)     params.set('q', q);
+  if (basin) params.set('basin', basin);
+
+  const countEl = document.getElementById('mexTableCount');
+  if (countEl) countEl.textContent = 'Loading…';
+
+  try {
+    const res  = await fetch('/api/mexico-perforacion?' + params.toString());
+    const data = await res.json();
+
+    _mexTotal = data.total || 0;
+
+    // Update header stats
+    const totalEl = document.getElementById('mexMetricTotalJobs');
+    if (totalEl && !q && !basin) totalEl.textContent = _mexTotal.toLocaleString();
+
+    if (countEl) countEl.textContent = _mexTotal.toLocaleString() + ' records';
+
+    const body = document.getElementById('mexRegBody');
+    if (body) {
+      if (!data.items || data.items.length === 0) {
+        body.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:32px;color:#94a3b8;">No records found</td></tr>';
+      } else {
+        const BASIN_COLOR = {
+          'SURESTE': '#0369a1', 'BURGOS': '#7c3aed',
+          'VERACRUZ': '#0f766e', 'TAMPICO-MISANTLA': '#b45309',
+        };
+        body.innerHTML = data.items.map((r, i) => {
+          const bc = BASIN_COLOR[r.cuenca?.toUpperCase()] || '#64748b';
+          const hpht = r.presion_max_psi > 11000;
+          const deepLat = r.longitud_lateral_m > 2000;
+          return `<tr style="${i % 2 === 0 ? 'background:#f8fafc;' : ''}">
+            <td style="font-size:11px;font-weight:700;font-family:monospace;">${r.id_pozo || '—'}</td>
+            <td style="font-size:11px;">${r.operador || '—'}</td>
+            <td><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:${bc}22;color:${bc};">${r.cuenca || '—'}</span></td>
+            <td style="text-align:right;font-weight:600;">${r.etapas_fractura != null ? r.etapas_fractura : '—'}</td>
+            <td style="text-align:right;${hpht ? 'color:#dc2626;font-weight:700;' : ''}">${r.presion_max_psi != null ? Number(r.presion_max_psi).toLocaleString() : '—'}</td>
+            <td style="text-align:right;${deepLat ? 'color:#7c3aed;font-weight:700;' : ''}">${r.longitud_lateral_m != null ? Number(r.longitud_lateral_m).toLocaleString() : '—'}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    renderMexPagination(data.page, data.pages);
+  } catch(e) {
+    const body = document.getElementById('mexRegBody');
+    if (body) body.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:#ef4444;">API error: ${e.message}</td></tr>`;
+    if (countEl) countEl.textContent = 'Error';
+  }
+}
+
+function goMexPage(page) {
+  loadMexRegistry(page);
+}
+
+function renderMexPagination(current, total) {
+  const el = document.getElementById('mexRegPagination');
+  if (!el || total <= 1) { if(el) el.innerHTML = ''; return; }
+  const pages = [];
+  if (current > 1) pages.push(`<button class="page-btn" onclick="goMexPage(${current-1})">‹ Prev</button>`);
+  const start = Math.max(1, current - 2);
+  const end   = Math.min(total, current + 2);
+  for (let p = start; p <= end; p++) {
+    pages.push(`<button class="page-btn${p === current ? ' active' : ''}" onclick="goMexPage(${p})">${p}</button>`);
+  }
+  if (current < total) pages.push(`<button class="page-btn" onclick="goMexPage(${current+1})">Next ›</button>`);
+  el.innerHTML = `<div style="display:flex;gap:4px;align-items:center;padding:12px 20px;">
+    <span style="font-size:11px;color:#64748b;margin-right:8px;">Page ${current} of ${total} · ${_mexTotal.toLocaleString()} records</span>
+    ${pages.join('')}
+  </div>`;
+}
