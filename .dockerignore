@@ -5,12 +5,25 @@ node_modules
 *.md
 .DS_Store
 .vercel
-data/*.zip
-data/compranet_historico*.csv
-data/PRODUCCION_*.csv
-data/POZOS_*.csv
-data/og_contracts_summary.csv
-data/mexico_*.csv
-tejas_exposure_proxy.csv
-output/hal_mex_*.csv
 *.py
+
+# Heavy source docs — not needed at runtime (data lives in MongoDB)
+api/docs/
+
+# Raw CSVs — not needed at runtime
+api/data/*.csv
+api/data/*.zip
+api/data/*.json
+api/data/processed/anp_records.json
+api/data/processed/anp_stats.json
+api/data/processed/hal_db.json
+api/data/processed/mongo/
+
+# Keep only what server.js reads directly at runtime:
+# - api/data/wellbore_exploration_all.csv  (SODIR fallback)
+# - api/data/processed/norway_stats.json
+!api/data/wellbore_exploration_all.csv
+!api/data/processed/norway_stats.json
+
+tejas_exposure_proxy.csv
+output/
