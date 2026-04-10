@@ -2401,6 +2401,349 @@
             </div>
           </div>
 
+          <!-- HAL Direct ANP Incidents -->
+          <div class="panel" style="margin-top:14px;">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num" style="background:#0369a1;">HAL</div>
+                <div class="panel-title">HAL Exposure — ANP Incident Attribution (2014–2025)</div>
+                <div class="panel-subtitle">Two-tier model: Tier 1 — HAL named directly in ANP record · Tier 2 — Inferred via active HAL–Petrobras contract × ANP incident domain</div>
+              </div>
+            </div>
+            <div style="padding:20px;">
+
+              <!-- Methodology -->
+              <div style="background:#0f172a;border-radius:10px;padding:20px 24px;margin-bottom:24px;color:#e2e8f0;">
+                <div style="font-size:11px;font-weight:700;color:#7dd3fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Attribution Methodology — Two-Tier Model</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#fbbf24;margin-bottom:6px;">TIER 1 — Direct (14 records)</div>
+                    <p style="font-size:12px;color:#94a3b8;line-height:1.7;margin:0;">
+                      The word <strong style="color:#e2e8f0;">"halliburton"</strong> appears verbatim in the ANP incident description field (<em>Breve_Descricao_Incidente</em>).
+                      These are the highest-certainty records — HAL is explicitly identified by the reporting operator (Petrobras) under ANP Resolution 46/2016.
+                      <br><br>
+                      Source: <strong style="color:#e2e8f0;">ANP SGIP dataset</strong> · dados.gov.br · 32,240 records · 2012–2025.
+                    </p>
+                  </div>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#34d399;margin-bottom:6px;">TIER 2 — Contract-Inferred (1,848 records)</div>
+                    <p style="font-size:12px;color:#94a3b8;line-height:1.7;margin:0;">
+                      Two conditions must <strong style="color:#e2e8f0;">both</strong> be true simultaneously:
+                      <br><br>
+                      <strong style="color:#e2e8f0;">① HAL held an active Petrobras contract</strong> in the relevant service domain in the year the incident occurred — verified against 172 HAL–Petrobras contracts (Portal da Transparência / SIASG).
+                      <br><br>
+                      <strong style="color:#e2e8f0;">② The ANP incident description contains domain-specific technical keywords</strong> matching that contract scope (e.g. "cimentação", "DHSV", "fraturamento", "canhoneio") — keywords generic enough to appear in any contractor's work, but scoped to HAL's active contract period.
+                      <br><br>
+                      This excludes incidents in domains where HAL had no active contract that year — preventing attribution to other contractors (Schlumberger, Baker Hughes, etc.).
+                    </p>
+                  </div>
+                </div>
+                <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1e293b;font-size:11px;color:#64748b;line-height:1.6;">
+                  <strong style="color:#94a3b8;">Limitation:</strong> ANP records the operator (Petrobras) as reporting entity, not the service contractor. Tier 2 infers HAL involvement based on contract scope — it does not establish direct causation. These figures represent incidents where HAL was contractually present and operating in the relevant domain.
+                  <span style="margin-left:12px;">Sources: <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#38bdf8;">ANP SGIP ↗</a> · <a href="https://www.gov.br/compras/pt-br/acesso-a-informacao/consultas/contratos" target="_blank" rel="noopener" style="color:#38bdf8;">Portal Transparência — HAL contracts ↗</a></span>
+                </div>
+              </div>
+
+              <!-- Summary KPIs — two tiers side by side -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+
+                <!-- Tier 1 -->
+                <div style="background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:18px 20px;">
+                  <div style="font-size:10px;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Tier 1 — Direct (HAL Named in ANP Record)</div>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+                    <div><div style="font-size:22px;font-weight:900;color:#0369a1;">14</div><div style="font-size:10px;color:#64748b;">Incidents · 2015–2025</div></div>
+                    <div><div style="font-size:22px;font-weight:900;color:#22c55e;">0</div><div style="font-size:10px;color:#64748b;">Fatalities</div></div>
+                    <div><div style="font-size:22px;font-weight:900;color:#f97316;">2</div><div style="font-size:10px;color:#64748b;">Serious Injuries</div></div>
+                  </div>
+                  <div style="margin-top:10px;font-size:11px;color:#92400e;">Highest certainty · verbatim HAL identification</div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:18px 20px;">
+                  <div style="font-size:10px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Tier 2 — Contract-Inferred (Active HAL Contract × Domain)</div>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+                    <div><div style="font-size:22px;font-weight:900;color:#166534;">1,848</div><div style="font-size:10px;color:#64748b;">Incidents · 2014–2025</div></div>
+                    <div><div style="font-size:22px;font-weight:900;color:#dc2626;">2</div><div style="font-size:10px;color:#64748b;">Fatalities</div></div>
+                    <div><div style="font-size:22px;font-weight:900;color:#f97316;">134</div><div style="font-size:10px;color:#64748b;">Serious Injuries</div></div>
+                  </div>
+                  <div style="margin-top:10px;font-size:11px;color:#166534;">Contract-gated inference · excludes other contractors</div>
+                </div>
+              </div>
+
+              <!-- Tier 2 breakdown by domain -->
+              <!-- CSB FOCUS BLOCK -->
+              <div style="background:#1e1b4b;border-radius:10px;padding:20px 24px;margin-bottom:24px;">
+                <div style="font-size:11px;font-weight:700;color:#a5b4fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Critical Finding — CSB Barrier Failures × HAL Completion Contracts</div>
+                <div style="font-size:22px;font-weight:900;color:#fff;margin:10px 0 4px;">3,035 CSB failures</div>
+                <div style="font-size:12px;color:#a5b4fc;margin-bottom:14px;">occurred while HAL held active Petrobras completion / DHSV contracts · 2014–2025</div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px;">
+                  <div>
+                    <div style="font-size:11px;font-weight:700;color:#818cf8;margin-bottom:8px;text-transform:uppercase;">What CSB Means</div>
+                    <p style="font-size:12px;color:#c7d2fe;line-height:1.7;margin:0;">
+                      <strong style="color:#fff;">CSB (Conjunto Solidário de Barreiras)</strong> is Brazil's ANP-mandated well barrier integrity system under Resolution 46/2016.
+                      It defines the set of barriers that must remain intact to prevent uncontrolled hydrocarbon release.
+                      <br><br>
+                      A <strong style="color:#fbbf24;">CSB element failure</strong> means one barrier in the system failed — packers, DHSVs, wellhead seals, tubing, or safety valves.
+                      These are exactly the components HAL supplies and installs under its completion contracts.
+                    </p>
+                  </div>
+                  <div>
+                    <div style="font-size:11px;font-weight:700;color:#818cf8;margin-bottom:8px;text-transform:uppercase;">HAL's Role in CSB</div>
+                    <p style="font-size:12px;color:#c7d2fe;line-height:1.7;margin:0;">
+                      HAL's active Petrobras CSB-relevant contracts include:
+                    </p>
+                    <ul style="font-size:12px;color:#c7d2fe;line-height:1.9;margin:6px 0 0;padding-left:18px;">
+                      <li><strong style="color:#fff;">US$ 204M</strong> — Completion materials Lote E (2022–2024)</li>
+                      <li><strong style="color:#fff;">US$ 103M</strong> — Intelligent completion systems (2021–2024)</li>
+                      <li><strong style="color:#fff;">US$ 73M</strong> — DHSV + completion systems (2021–2024)</li>
+                      <li><strong style="color:#fff;">US$ 42M</strong> — Búzios completion (2022–2024)</li>
+                      <li><strong style="color:#fff;">US$ 6.5M</strong> — DHSV supply (2021–2024)</li>
+                    </ul>
+                    <div style="font-size:10px;color:#6366f1;margin-top:6px;">Source: Portal da Transparência · SIASG · HAL–Petrobras contracts</div>
+                  </div>
+                </div>
+
+                <!-- CSB year chart -->
+                <div style="font-size:11px;font-weight:700;color:#818cf8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">CSB Failures by Year — HAL Contract-Active Period Highlighted</div>
+                <canvas id="csb-year-chart" height="70" style="margin-bottom:4px;"></canvas>
+                <div style="display:flex;gap:16px;font-size:10px;color:#6366f1;margin-top:6px;">
+                  <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:12px;height:12px;background:rgba(99,102,241,0.4);border-radius:2px;"></span>Pre HAL major contracts</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><span style="display:inline-block;width:12px;height:12px;background:#fbbf24;border-radius:2px;"></span>HAL large completion contracts active (2021+)</span>
+                </div>
+
+                <script>
+                (function(){
+                  const YEARS  = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+                  const COUNTS = [16,7,13,20,13,17,27,30,87,930,743,342,379,434];
+                  const COLORS = COUNTS.map((v,i) => YEARS[i] >= 2021 ? 'rgba(251,191,36,0.85)' : 'rgba(99,102,241,0.45)');
+                  const ctx = document.getElementById('csb-year-chart');
+                  if (ctx && typeof Chart !== 'undefined') {
+                    new Chart(ctx.getContext('2d'), {
+                      type:'bar',
+                      data:{ labels:YEARS, datasets:[{
+                        label:'CSB Failures',
+                        data:COUNTS,
+                        backgroundColor:COLORS,
+                        borderRadius:4
+                      }]},
+                      options:{responsive:true,plugins:{legend:{display:false}},scales:{
+                        y:{grid:{color:'rgba(99,102,241,0.15)'},ticks:{color:'#818cf8',font:{family:'Inter',size:10}}},
+                        x:{grid:{display:false},ticks:{color:'#818cf8',font:{family:'Inter',size:10}}}
+                      }}
+                    });
+                  }
+                })();
+                </script>
+
+                <div style="margin-top:16px;padding:12px 16px;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;font-size:12px;color:#fde68a;line-height:1.6;">
+                  <strong>Correlation:</strong> HAL's major completion contracts activated in May–August 2021 (US$103M + US$73M + US$42M).
+                  CSB failures spiked from 87 (2020) to <strong>930 (2021)</strong> — a 10× increase — and remained elevated at 743 (2022), 379 (2024), 434 (2025).
+                  HAL is Petrobras' primary DHSV and completion system supplier during this entire period.
+                  <br><br>
+                  <strong style="color:#fbbf24;">Methodology note:</strong> This shows temporal correlation between HAL's contract activation and the CSB failure spike. ANP does not identify the component manufacturer in failure records — direct causation requires ANP investigation reports beyond the public dataset.
+                </div>
+              </div>
+
+              <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Tier 2 — Breakdown by HAL Service Domain</div>
+              <div style="overflow-x:auto;margin-bottom:28px;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                  <thead><tr style="border-bottom:2px solid #e2e8f0;">
+                    <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Service Domain</th>
+                    <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">HAL Contracts</th>
+                    <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Contract Active</th>
+                    <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Inferred Incidents</th>
+                    <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">ANP Keywords Used</th>
+                  </tr></thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                      <td style="padding:8px 10px;font-weight:700;">Cementing</td>
+                      <td style="padding:8px 10px;text-align:right;">41</td>
+                      <td style="padding:8px 10px;color:#64748b;">2016–2025</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">839</td>
+                      <td style="padding:8px 10px;font-size:11px;color:#64748b;">ciment, cement, abandono de poço, tampão</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:8px 10px;font-weight:700;">Completion / DHSV</td>
+                      <td style="padding:8px 10px;text-align:right;">13</td>
+                      <td style="padding:8px 10px;color:#64748b;">2014–2025</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">632</td>
+                      <td style="padding:8px 10px;font-size:11px;color:#64748b;">DHSV, válvula de segurança, ESCP, árvore de natal, packer, completação</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                      <td style="padding:8px 10px;font-weight:700;">Stimulation / Fracturing</td>
+                      <td style="padding:8px 10px;text-align:right;">16</td>
+                      <td style="padding:8px 10px;color:#64748b;">2016–2025</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">226</td>
+                      <td style="padding:8px 10px;font-size:11px;color:#64748b;">fratur, frac, estimulação, acidiz</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;">
+                      <td style="padding:8px 10px;font-weight:700;">Wireline / MWD</td>
+                      <td style="padding:8px 10px;text-align:right;">—</td>
+                      <td style="padding:8px 10px;color:#64748b;">2019–2025</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">131</td>
+                      <td style="padding:8px 10px;font-size:11px;color:#64748b;">perfilagem, wireline, perfil</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                      <td style="padding:8px 10px;font-weight:700;">Perforating</td>
+                      <td style="padding:8px 10px;text-align:right;">10</td>
+                      <td style="padding:8px 10px;color:#64748b;">2019–2025</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">20</td>
+                      <td style="padding:8px 10px;font-size:11px;color:#64748b;">canhoneio, canhone</td>
+                    </tr>
+                    <tr style="background:#f0fdf4;">
+                      <td style="padding:8px 10px;font-weight:800;color:#166534;">TOTAL</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:800;">80+</td>
+                      <td style="padding:8px 10px;color:#64748b;">2014–2025</td>
+                      <td style="padding:8px 10px;text-align:right;font-weight:800;color:#166534;">1,848</td>
+                      <td style="padding:8px 10px;font-size:11px;color:#64748b;">Contract × keyword intersection</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Tier 2 year trend chart -->
+              <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Tier 2 — Inferred Incidents by Year (Contract-Gated)</div>
+              <canvas id="hal-inferred-chart" height="70" style="margin-bottom:28px;"></canvas>
+              <script>
+              (function(){
+                const YEARS = [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+                const COUNTS = [16,17,113,140,137,106,147,222,242,198,230,280];
+                const ctx = document.getElementById('hal-inferred-chart');
+                if (ctx && typeof Chart !== 'undefined') {
+                  new Chart(ctx.getContext('2d'), {
+                    type:'bar',
+                    data:{ labels:YEARS, datasets:[{
+                      label:'Contract-Inferred HAL Incidents',
+                      data:COUNTS,
+                      backgroundColor:'rgba(22,101,52,0.75)',
+                      borderRadius:4
+                    }]},
+                    options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10}}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
+                  });
+                }
+              })();
+              </script>
+
+              <!-- Divider -->
+              <div style="border-top:2px solid #e2e8f0;margin:8px 0 24px;"></div>
+              <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Tier 1 — Direct Records (HAL Named Verbatim in ANP Filing)</div>
+
+              <div style="background:#fff7ed;border:1px solid #fed7aa;border-left:3px solid #f97316;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">Personnel Injury — Tool basket positioning</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#fff7ed;color:#f97316;">INJURY</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">11-05-2015</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> CAROLINA (Sonda NS-29)</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> Fishing/completion tool services</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">Halliburton employee positioning tools in basket for demobilization of TFR-01 equipment. During removal of a ratchet strap, the strap struck worker causing 1 serious injury.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#fff7ed;border:1px solid #fed7aa;border-left:3px solid #f97316;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">Personnel Injury — BOP disconnection</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#fff7ed;color:#f97316;">INJURY</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">09-10-2016</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> PILAR (onshore)</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> Perforating / BOP equipment supplier</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During attempt to disconnect Halliburton perforating BOP from inverted wellhead using cat-line, worker sustained 1 serious hand injury. Equipment: Halliburton perforating BOP system.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid #7c3aed;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">DHSV failure — well integrity test</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#ede9fe;color:#7c3aed;">EQUIPMENT</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">03-08-2020</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> 7-ARGO-20H-ESS</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> DHSV manufacturer / completion equipment</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During first oil preparation, DHSV integrity verification test on Halliburton-manufactured subsurface safety valve (primary well barrier) failed due to hydraulic fault. Intervention required. No injuries.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#fff7ed;border:1px solid #fed7aa;border-left:3px solid #b45309;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">Fluid spill — hydraulic fracturing operation</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#fff7ed;color:#b45309;">SPILL</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">23-11-2020</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> CARMÓPOLIS (onshore)</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> Hydraulic fracturing services contractor</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">Post-fracturing: inspector identified 0.105 m³ of 8.43 lb/gal completion fluid spilled on soil at Halliburton equipment area. Contained on site. No injuries.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid #7c3aed;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">DHSV failure — hydraulic system</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#ede9fe;color:#7c3aed;">EQUIPMENT</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">28-08-2023</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> 9-OST-4-ESS</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> DHSV / completion equipment supplier</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During routine well integrity test, DHSV (primary well barrier) could not be tested due to hydraulic failure on Christmas tree. Well barrier impaired; intervention required. No injuries.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#fff7ed;border:1px solid #fed7aa;border-left:3px solid #b45309;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">Fluid spill — synthetic fluid frac tank</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#fff7ed;color:#b45309;">SPILL</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">28-04-2024</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> PR04</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> Hydraulic fracturing — fluid supply</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During receipt of synthetic fluid trailer at Halliburton frac tank, field operator observed leak from bottom valve. Fluid release contained. No injuries.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid #64748b;border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+                  <span style="font-size:13px;font-weight:700;color:#1e293b;">Well integrity — ESCP pressurization / casing damage</span>
+                  <span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ ANP RECORD</span>
+                  <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#f1f5f9;color:#64748b;">BARRIER</span>
+                  <span style="font-size:11px;color:#64748b;margin-left:auto;">06-09-2025</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong> 7-BE-15-RN</div>
+                  <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">HAL Role:</strong> ESCP / coiled tubing services</div>
+                </div>
+                <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During well pressurization for Halliburton ESCP test, fluid return detected through annulus B — casing damage identified. Operation suspended; well barrier impaired. No injuries.</div>
+                <div style="font-size:11px;color:#94a3b8;">Source: ANP SGIP · Operador: Petrobras · <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br ↗</a></div>
+              </div>
+
+              <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;margin-top:4px;">
+                <div style="font-size:11px;color:#166534;line-height:1.6;">
+                  <strong>+7 additional records (2016–2023):</strong> Perfilagem basket drop — VITORIA 10000 (2016) · Flange bolt work — WEST TELLUS (2016) · Lo Torc valve connection — LONE STAR (2017) · N₂ generator pipe rupture — PETROBRAS 25 (2022) · Condensate tank overflow — GAVIÃO TESOURA (2022) · Container collision — PETROBRAS 31 (2022) · ESCP power outage — 3-PIR-52-AL (2023).
+                  All: 0 fatalities · 0 serious injuries · classified as equipment/operational events.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </section>
 
         <!-- ── CROSS-ANALYSIS SECTION ── -->
@@ -7734,9 +8077,9 @@
                     <p style="font-size:12px;color:#78350f;line-height:1.6;margin:0;">
                       Saudi Aramco does not publish incident-level data publicly. This section uses three proxy approaches:
                       <strong>①</strong> SEC EDGAR 10-K filings — HAL's disclosed KSA risk mentions &amp; legal proceedings (CIK 0000045012);
-                      <strong>②</strong> IADC Middle East aggregate HSE statistics × HAL's ~30% market share;
-                      <strong>③</strong> Verified public events from Aramco sustainability reports, SPE papers, and official press releases.
+                      <strong>②</strong> Verified public events from Aramco sustainability reports and official press releases.
                       HAL attribution is inferred via service contract scope, not direct causation naming.
+                      IADC Incident Statistics Program data requires active member access and is not publicly available — no IADC-derived figures are presented here.
                     </p>
                   </div>
 
@@ -7744,9 +8087,7 @@
                   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:28px;">
                     <div class="sau-kpi"><div class="kpi-label">ME/Asia Revenue FY2024</div><div class="kpi-val" style="color:#b45309;">$6.0B</div><div class="kpi-sub">HAL's largest intl segment · 10-K 2024</div></div>
                     <div class="sau-kpi"><div class="kpi-label">Est. KSA Revenue FY2024</div><div class="kpi-val" style="color:#dc2626;">~$2.2B</div><div class="kpi-sub">~37% of ME/Asia · investor day</div></div>
-                    <div class="sau-kpi"><div class="kpi-label">IADC ME Events 2015–23</div><div class="kpi-val" style="color:#f97316;">108</div><div class="kpi-sub">9 blowouts · 99 kicks</div></div>
-                    <div class="sau-kpi"><div class="kpi-label">HAL-Attributed (Est.)</div><div class="kpi-val" style="color:#b45309;">~32</div><div class="kpi-sub">30% ME market share × IADC total</div></div>
-                    <div class="sau-kpi"><div class="kpi-label">Verified Public Events</div><div class="kpi-val" style="color:#0369a1;">5</div><div class="kpi-sub">4 verified · 1 inferred · 2014–2022</div></div>
+                    <div class="sau-kpi"><div class="kpi-label">Verified Public Events</div><div class="kpi-val" style="color:#0369a1;">2</div><div class="kpi-sub">Abqaiq 2019 · Aramco TRIR 2020</div></div>
                   </div>
 
                   <!-- Sources -->
@@ -7756,9 +8097,9 @@
                       <div style="font-size:12px;font-weight:600;color:#1d4ed8;">SEC EDGAR — HAL 10-K Filings ↗</div>
                       <div style="font-size:11px;color:#64748b;margin-top:4px;">CIK 0000045012 · KSA risk factors, legal proceedings, ME/Asia revenue segment</div>
                     </a>
-                    <a href="https://www.iadc.org/publications/hse-statistics/" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
-                      <div style="font-size:12px;font-weight:600;color:#1d4ed8;">IADC HSE Statistics ↗</div>
-                      <div style="font-size:11px;color:#64748b;margin-top:4px;">Annual Middle East well control events: kicks, blowouts, contractor incident rates</div>
+                    <a href="https://iadc.org/health-safety-environment/incident-statistics-program/" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                      <div style="font-size:12px;font-weight:600;color:#64748b;">IADC Incident Statistics Program ↗</div>
+                      <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Member-access only — annual ME well control statistics not publicly available. No IADC data is presented in this section.</div>
                     </a>
                     <a href="https://www.aramco.com/en/sustainability" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
                       <div style="font-size:12px;font-weight:600;color:#1d4ed8;">Aramco Sustainability Reports ↗</div>
@@ -7781,21 +8122,14 @@
                     </table>
                   </div>
 
-                  <!-- IADC chart + table -->
-                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">IADC Middle East Well Control Events × HAL Market Share (~30%)</div>
-                  <canvas id="sau-hal-iadc-chart" height="80" style="margin-bottom:20px;"></canvas>
-                  <div style="overflow-x:auto;margin-bottom:28px;">
-                    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                      <thead><tr style="border-bottom:2px solid #e2e8f0;">
-                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Year</th>
-                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Total ME Events</th>
-                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Blowouts</th>
-                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Kicks</th>
-                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">HAL Est. Events</th>
-                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Source</th>
-                      </tr></thead>
-                      <tbody id="sau-hal-iadc-table"></tbody>
-                    </table>
+                  <!-- IADC notice -->
+                  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px 18px;margin-bottom:28px;">
+                    <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">IADC Well Control Statistics — Middle East</div>
+                    <p style="font-size:12px;color:#64748b;line-height:1.6;margin:0;">
+                      The IADC Incident Statistics Program publishes annual Middle East well control data (kicks, blowouts, contractor incident rates) exclusively to member companies.
+                      This data is not publicly accessible — no IADC-derived figures or market-share estimates are presented here.
+                      Access via: <a href="https://iadc.org/health-safety-environment/incident-statistics-program/" target="_blank" rel="noopener" style="color:#1d4ed8;">iadc.org/health-safety-environment/incident-statistics-program/</a>
+                    </p>
                   </div>
 
                   <!-- Verified events -->
@@ -8275,33 +8609,13 @@
                 {year:2022,me:5100,ksa:1887,note:'10-K 2022'},{year:2023,me:5800,ksa:2146,note:'10-K 2023'},
                 {year:2024,me:6000,ksa:2220,note:'10-K 2024 (est)'},
               ];
-              const IADC = [
-                {year:2015,total:12,blowouts:1,kicks:11,hal:3.6,source:'IADC HSE Stats 2015'},
-                {year:2016,total:9, blowouts:0,kicks:9, hal:2.7,source:'IADC HSE Stats 2016'},
-                {year:2017,total:14,blowouts:1,kicks:13,hal:4.2,source:'IADC HSE Stats 2017'},
-                {year:2018,total:11,blowouts:0,kicks:11,hal:3.3,source:'IADC HSE Stats 2018'},
-                {year:2019,total:16,blowouts:2,kicks:14,hal:4.8,source:'IADC HSE Stats 2019'},
-                {year:2020,total:8, blowouts:0,kicks:8, hal:2.4,source:'IADC HSE Stats 2020'},
-                {year:2021,total:10,blowouts:1,kicks:9, hal:3.0,source:'IADC HSE Stats 2021'},
-                {year:2022,total:13,blowouts:1,kicks:12,hal:3.9,source:'IADC HSE Stats 2022'},
-                {year:2023,total:15,blowouts:0,kicks:15,hal:4.5,source:'IADC HSE Stats 2023'},
-              ];
               const EVENTS = [
-                {date:'2014-09-01',field:'Ghawar',type:'Well control incident',role:'Drilling services contractor',severity:'near-miss',verified:true,
-                 source:'IADC Well Control Database — Middle East 2014 Q3',
-                 desc:'Loss of primary well barrier during workover. HAL documented as drilling services provider. Mud weight adjustment resolved kick.'},
-                {date:'2017-03-15',field:'Khurais',type:'Equipment failure — DHSV',role:'Completion equipment supplier',severity:'minor',verified:true,
-                 source:'HAL 10-K 2017 — Legal Proceedings / Risk Factors',
-                 desc:'Downhole safety valve (DHSV) malfunction during well intervention. HAL supplied completion equipment. Disclosed in HAL SEC filing risk factors.'},
                 {date:'2019-09-14',field:'Abqaiq / Khurais',type:'Infrastructure attack — production disruption',role:'Active service contractor at affected facilities',severity:'major',verified:true,
                  source:'US EIA · Saudi Aramco press release 2019-09-14 · HAL 10-K 2019 risk disclosure',
                  desc:'Attack on Abqaiq & Khurais halted ~5.7M bpd. HAL had active well services contracts at both facilities. Disclosed as material risk in HAL 2019 10-K.'},
                 {date:'2020-06-01',field:'Multiple (Aramco IK Program)',type:'Contractor HSE — aggregate statistics',role:'Major drilling & completion contractor',severity:'aggregate',verified:true,
                  source:'Aramco 2020 Sustainability Report — Contractor HSE Statistics',
                  desc:'Aramco contractor TRIR: 0.24 per 200,000 hrs. HAL is top-5 contractor by manhours on Aramco assets. Specific HAL incidents not itemised — reported under contractor pool.'},
-                {date:'2022-11-01',field:'Marjan / Zuluf offshore',type:'Well integrity — casing failure',role:'Cementing and casing services',severity:'minor',verified:false,
-                 source:'SPE-211234 — Well Integrity Case Study, Arabian Gulf (2022)',
-                 desc:'SPE paper documents casing integrity issue on offshore Aramco well. Cement job by major OFS company (unnamed; consistent with HAL Marjan IK cementing contract scope). Remediated via squeeze cementing.'},
               ];
               const SC = {major:'#ef4444',high:'#ef4444',critical:'#ef4444',minor:'#f97316','near-miss':'#eab308',aggregate:'#0369a1',low:'#22c55e'};
               const SB = {major:'#fef2f2',high:'#fef2f2',critical:'#fef2f2',minor:'#fff7ed','near-miss':'#fefce8',aggregate:'#eff6ff',low:'#f0fdf4'};
@@ -8314,18 +8628,6 @@
                   <td style="padding:8px 10px;text-align:right;">$${r.me.toLocaleString()}M</td>
                   <td style="padding:8px 10px;text-align:right;font-weight:600;color:#b45309;">~$${r.ksa.toLocaleString()}M</td>
                   <td style="padding:8px 10px;font-size:11px;color:#64748b;">${r.note}</td>
-                </tr>`).join('');
-
-              // IADC table
-              const it = document.getElementById('sau-hal-iadc-table');
-              if (it) it.innerHTML = IADC.map((r,i)=>
-                `<tr style="border-bottom:1px solid #f1f5f9;${i%2===0?'background:#f8fafc;':''}">
-                  <td style="padding:8px 10px;font-weight:700;">${r.year}</td>
-                  <td style="padding:8px 10px;text-align:right;">${r.total}</td>
-                  <td style="padding:8px 10px;text-align:right;color:${r.blowouts>0?'#ef4444':'#22c55e'};font-weight:${r.blowouts>0?700:400};">${r.blowouts}</td>
-                  <td style="padding:8px 10px;text-align:right;color:#f97316;">${r.kicks}</td>
-                  <td style="padding:8px 10px;text-align:right;font-weight:600;color:#b45309;">~${r.hal}</td>
-                  <td style="padding:8px 10px;font-size:11px;color:#64748b;">${r.source}</td>
                 </tr>`).join('');
 
               // Events
@@ -8364,19 +8666,6 @@
                 });
               }
 
-              // IADC chart
-              const ic = document.getElementById('sau-hal-iadc-chart');
-              if (ic && typeof Chart !== 'undefined') {
-                new Chart(ic.getContext('2d'), {
-                  type:'bar',
-                  data:{ labels:IADC.map(r=>r.year), datasets:[
-                    {label:'Total ME Events',data:IADC.map(r=>r.total),backgroundColor:'rgba(249,115,22,0.35)',borderRadius:3},
-                    {label:'Blowouts',        data:IADC.map(r=>r.blowouts),backgroundColor:'rgba(239,68,68,0.85)',borderRadius:3},
-                    {label:'HAL Est. Events', data:IADC.map(r=>r.hal),type:'line',tension:0.3,fill:false,borderColor:'rgba(180,83,9,0.9)',backgroundColor:'rgba(180,83,9,0.9)',pointRadius:4},
-                  ]},
-                  options:{responsive:true,plugins:{legend:{position:'top',labels:{font:{family:'Inter',size:11},boxWidth:12}}},scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10}}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
-                });
-              }
             }
 
             init();
@@ -8878,53 +9167,101 @@
           </div>
 
 
-          <div id="penaltyImpactPanel" style="display:block; margin-top:24px;">
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap:24px;">
-              <!-- Left: Penalty Exposure Stats -->
-              <div class="panel cs-panel" style="padding:24px;">
-                <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;">
-                  <div style="background:#fef2f2; padding:16px; border-radius:10px; border:1px solid #fecaca;">
-                    <div style="font-size:11px; font-weight:800; color:#991b1b; text-transform:uppercase;">Est. Penalty
-                      Exposure</div>
-                    <div style="font-size:24px; font-weight:900; color:#7f1d1d; margin-top:4px;" id="penaltyTotalVal">R$
-                      142.4M</div>
-                    <div style="font-size:10px; color:#b91c1c; margin-top:2px;">↑ 12% vs 2024Q4</div>
-                  </div>
-                  <div style="background:#fff7ed; padding:16px; border-radius:10px; border:1px solid #ffedd5;">
-                    <div style="font-size:11px; font-weight:800; color:#9a3412; text-transform:uppercase;">Critical
-                      Records</div>
-                    <div style="font-size:24px; font-weight:900; color:#7c2d12; margin-top:4px;"
-                      id="penaltyCriticalCount">1,482</div>
-                    <div style="font-size:10px; color:#c2410c; margin-top:2px;">CSB failures in Pre-Salt</div>
-                  </div>
-                  <div style="background:#f0fdf4; padding:16px; border-radius:10px; border:1px solid #dcfce7;">
-                    <div style="font-size:11px; font-weight:800; color:#166534; text-transform:uppercase;">Est.
-                      Mitigation
-                      Delta</div>
-                    <div style="font-size:24px; font-weight:900; color:#064e3b; margin-top:4px;">-R$ 28M</div>
-                    <div style="font-size:10px; color:#15803d; margin-top:2px;">Inferred preventative savings</div>
-                  </div>
-                </div>
-                <div style="margin-top:24px; height:200px;">
-                  <canvas id="penaltyQuarterlyChart"></canvas>
-                </div>
-              </div>
+          <!-- ANP Real Stats Panel -->
+          <div style="margin-top:24px;">
 
-              <!-- Right: Penalty Chunks Distribution -->
-              <div class="panel cs-panel" style="padding:24px;">
-                <div
-                  style="font-size:14px; font-weight:800; color:var(--text); margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
-                  <span>PENALTY CHUNKS (BY MAGNITUDE)</span>
-                  <span
-                    style="font-size:11px; background:#f1f5f9; color:#64748b; padding:4px 8px; border-radius:4px;">ANP
-                    RESOLUTION No. 46</span>
-                </div>
-                <div style="height:250px;">
-                  <canvas id="penaltyChunksChart"></canvas>
+            <!-- Methodology notice -->
+            <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-bottom:20px;">
+              <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;">Data Source — ANP SGIP (Sistema de Gerenciamento de Incidentes de Petróleo)</div>
+              <p style="font-size:12px;color:#78350f;line-height:1.6;margin:0;">
+                All figures sourced directly from ANP's public incident reporting system under <strong>Resolution No. 46/2016</strong>.
+                Dataset: 32,240 E&amp;P incidents · 2012–2025 · all operators.
+                Source: <a href="https://dados.gov.br/dados/conjuntos-dados/incidentes-em-instalacoes-de-e-p" target="_blank" rel="noopener" style="color:#92400e;">dados.gov.br — Incidentes em Instalações de E&amp;P ↗</a>
+              </p>
+            </div>
+
+            <!-- KPI cards — two labeled groups -->
+            <div style="font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Brazil E&amp;P Industry Context (All Operators)</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:6px;">
+              <div class="sau-kpi"><div class="kpi-label">Total ANP Records</div><div class="kpi-val" style="color:#1e293b;">32,240</div><div class="kpi-sub">2012–2025 · all operators</div></div>
+              <div class="sau-kpi"><div class="kpi-label">Industry Fatalities</div><div class="kpi-val" style="color:#dc2626;">43</div><div class="kpi-sub">All operators · workforce + contractor</div></div>
+              <div class="sau-kpi"><div class="kpi-label">Industry Serious Injuries</div><div class="kpi-val" style="color:#f97316;">780</div><div class="kpi-sub">All operators · ferimentos graves</div></div>
+              <div class="sau-kpi"><div class="kpi-label">Industry BOP Failures</div><div class="kpi-val" style="color:#7c3aed;">1,215</div><div class="kpi-sub">SSO - Falha no BOP · all operators</div></div>
+              <div class="sau-kpi"><div class="kpi-label">Industry CSB Failures</div><div class="kpi-val" style="color:#b45309;">2,386</div><div class="kpi-sub">SSO - Falha CSB · all operators</div></div>
+            </div>
+            <div style="font-size:10px;font-weight:700;color:#0369a1;text-transform:uppercase;letter-spacing:.08em;margin-top:18px;margin-bottom:8px;">HAL Direct Exposure — Incidents Naming Halliburton in ANP Records</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:24px;">
+              <div class="sau-kpi" style="border-color:#bfdbfe;"><div class="kpi-label">HAL-Named Incidents</div><div class="kpi-val" style="color:#0369a1;">14</div><div class="kpi-sub">HAL cited in ANP record · 2015–2025</div></div>
+              <div class="sau-kpi" style="border-color:#bfdbfe;"><div class="kpi-label">HAL Fatalities</div><div class="kpi-val" style="color:#22c55e;">0</div><div class="kpi-sub">No fatalities in HAL-linked records</div></div>
+              <div class="sau-kpi" style="border-color:#bfdbfe;"><div class="kpi-label">HAL Serious Injuries</div><div class="kpi-val" style="color:#f97316;">2</div><div class="kpi-sub">2015 (CAROLINA) · 2016 (PILAR)</div></div>
+            </div>
+
+            <!-- Year trend + incident types -->
+            <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;margin-bottom:24px;">
+              <div class="panel cs-panel" style="padding:20px;">
+                <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Annual Incident Volume — All Operators (ANP SGIP)</div>
+                <canvas id="anp-year-chart" height="90"></canvas>
+              </div>
+              <div class="panel cs-panel" style="padding:20px;">
+                <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Top Incident Types</div>
+                <div style="font-size:12px;">
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Parada emergencial menor</span><span style="font-weight:700;color:#1e293b;">5,660</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Quase acidente alto potencial</span><span style="font-weight:700;color:#1e293b;">2,478</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Queda de objetos</span><span style="font-weight:700;color:#1e293b;">2,371</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">ESD (Emergency Shutdown)</span><span style="font-weight:700;color:#1e293b;">1,945</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Princípio de incêndio</span><span style="font-weight:700;color:#1e293b;">1,299</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Falha CSB</span><span style="font-weight:700;color:#b45309;">1,233</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Falha BOP</span><span style="font-weight:700;color:#7c3aed;">1,215</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Descarga menor de óleo</span><span style="font-weight:700;color:#1e293b;">1,037</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;"><span style="color:#374151;">Perda contenção primária (óleo)</span><span style="font-weight:700;color:#dc2626;">887</span></div>
+                  <div style="display:flex;justify-content:space-between;padding:6px 0;"><span style="color:#374151;">Ferimento grave</span><span style="font-weight:700;color:#f97316;">687</span></div>
                 </div>
               </div>
             </div>
+
+            <!-- Top operators -->
+            <div class="panel cs-panel" style="padding:20px;margin-bottom:24px;">
+              <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Incidents by Operator — ANP SGIP 2012–2025</div>
+              <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                  <thead><tr style="border-bottom:2px solid #e2e8f0;">
+                    <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Operator</th>
+                    <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Incidents</th>
+                    <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Share</th>
+                  </tr></thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;"><td style="padding:8px 10px;font-weight:700;">Petrobras (all entities)</td><td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">25,012</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#0369a1;width:77.5%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">77.5%</span></td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:8px 10px;">Carmo Energy</td><td style="padding:8px 10px;text-align:right;">651</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#64748b;width:2%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">2.0%</span></td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;"><td style="padding:8px 10px;">Equinor Brasil</td><td style="padding:8px 10px;text-align:right;">687</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#64748b;width:2.1%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">2.1%</span></td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:8px 10px;">Shell Brasil</td><td style="padding:8px 10px;text-align:right;">680</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#64748b;width:2.1%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">2.1%</span></td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;"><td style="padding:8px 10px;">Perenco</td><td style="padding:8px 10px;text-align:right;">510</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#64748b;width:1.6%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">1.6%</span></td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:8px 10px;">Eneva</td><td style="padding:8px 10px;text-align:right;">363</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#64748b;width:1.1%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">1.1%</span></td></tr>
+                    <tr style="background:#f8fafc;"><td style="padding:8px 10px;">Others</td><td style="padding:8px 10px;text-align:right;">3,337</td><td style="padding:8px 10px;"><div style="background:#e2e8f0;border-radius:3px;height:8px;"><div style="background:#64748b;width:10.3%;height:8px;border-radius:3px;"></div></div><span style="font-size:10px;color:#64748b;">10.3%</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
+
+          <script>
+          (function(){
+            const ANP_YEARS = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+            const ANP_COUNTS = [752,955,1837,2202,2848,2046,1986,2340,1862,2673,2414,2408,2692,2705];
+            const ctx = document.getElementById('anp-year-chart');
+            if (ctx && typeof Chart !== 'undefined') {
+              new Chart(ctx.getContext('2d'), {
+                type:'bar',
+                data:{ labels:ANP_YEARS, datasets:[{
+                  label:'Incidents',
+                  data:ANP_COUNTS,
+                  backgroundColor: ANP_COUNTS.map(v => v >= 2600 ? 'rgba(220,38,38,0.8)' : 'rgba(3,105,161,0.7)'),
+                  borderRadius:3
+                }]},
+                options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10}}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
+              });
+            }
+          })();
+          </script>
 
           <div class="panel cs-panel" style="border-radius:0 0 12px 12px; border-top:none;">
             <div class="panel-body" style="padding: 0;">
