@@ -5,12 +5,47 @@ node_modules
 *.md
 .DS_Store
 .vercel
-data/*.zip
-data/compranet_historico*.csv
-data/PRODUCCION_*.csv
-data/POZOS_*.csv
-data/og_contracts_summary.csv
-data/mexico_*.csv
-tejas_exposure_proxy.csv
-output/hal_mex_*.csv
 *.py
+
+# Heavy source docs
+api/docs/
+
+# Exclude large raw CSVs not needed for seeding
+api/data/PRODUCCION_*.csv
+api/data/POZOS_*.csv
+api/data/NACIONAL*.csv
+api/data/ASEA_*.csv
+api/data/tejas_exposure_proxy.csv
+api/data/*.zip
+
+# Exclude large raw ANP source file (use utf8 version instead)
+api/data/incidentes.csv
+api/data/og_contracts_summary.csv
+api/data/mexico_produccion.csv
+api/data/arg_contracts.csv.bak
+
+# Exclude mongo binary dump
+api/data/processed/mongo/
+
+# Keep all CSVs needed for ingestion
+!api/data/hal_incidents.csv
+!api/data/hal-contracts-pbr.csv
+!api/data/mex_contracts.csv
+!api/data/arg_contracts.csv
+!api/data/norway_contracts.csv
+!api/data/norway_incidents.csv
+!api/data/wellbore_exploration_all.csv
+!api/data/incidentes_utf8.csv
+!api/data/incidentes-tipo.csv
+!api/data/mexico_perforacion.csv
+!api/data/tejas_exposure_proxy.csv
+!api/data/PRODUCCION_CAMPOS.csv
+!api/data/POZOS_PERFORADOS (1).csv
+
+# Keep processed JSONs needed for ingestion
+!api/data/processed/anp_records.json
+!api/data/processed/anp_stats.json
+!api/data/processed/hal_db.json
+!api/data/processed/norway_stats.json
+
+output/

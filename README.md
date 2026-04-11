@@ -1,50 +1,52 @@
-# HAL Tejas Incident Intelligence Dashboard
+# Global Operational Integrity & Regulatory Alignment Framework — Executive Summary
 
-## Overview
-The **HAL Tejas Incident Intelligence Dashboard** is a web-based compliance analysis application tailored for operational intelligence and incident review. It tracks, parses, and visualizes compliance and security incident data stemming from regional databases—specifically focusing on Brazil (ANP data), Mexico (Perforation & Production data), and broader Halliburton incident histories.
+## Project Overview
+A premium, company-agnostic intelligence platform designed to monitor, verify, and cross-analyze operational incidents and regulatory compliance across global energy hubs. The dashboard integrates diverse data streams—from official government registries to inferred operational footprints—to provide a high-fidelity view of service company risk and historical performance.
 
-The primary purpose of the application is to empower safety engineers, auditors, and stakeholders to investigate operational anomalies (such as Critical Safety Barrier (CSB) failures, BOP closures, and Kicks), measure compliance against rigorous regulations (e.g., ANP Resolutions, classification society standards, MTE norms), and export findings into formal, audit-ready Document (DOCX) reports.
+## Regional Modules & Data Strategy
 
-## Project Architecture & Tech Stack
+### 🇧🇷 Brazil (Active Market Leader)
+*   **Source:** ANP (SGIP/SGSO), Portal da Transparência, Petrobras disclosures.
+*   **Scale:** 172 HAL contracts, ~$4.9B valuation.
+*   **Nuance:** Highly transparent via ANP mandates. Includes "Tier 1" direct naming and "Tier 2" contract-gated inference based on keyword intersection in official filings.
 
-This project uses a monolithic client-server architecture centered around **Node.js**:
-- **Backend:** Express.js (`api/server.js`) acting as the API handler, with endpoints that serve CSV-aggregated statistics, database entries, and dynamically generated summary reports.
-- **Frontend:** Vanilla HTML/CSS/JS (`public/`), incorporating dashboards like `dashboard.html` that pull from the internal APIs to render metrics and analytical comparisons visually. It uses standard browser technologies to maintain an audit-friendly layout.
-- **Reporting Engine:** Uses `docx` to automatically generate Word documents combining textual summaries, statistical trends, and regional risk metrics straight out of the data pipelines.
-- **Deployment:** The application is packaged and configured for **Vercel** (`vercel.json`), utilizing serverless functions to parse data blocks on demand and rewrite URL routes seamlessly.
+### 🇳🇴 Norway (High-Tech / Mature Footprint)
+*   **Source:** Havtil (PSA), Sodir (FactPages), RNNP annual series.
+*   **Scale:** 147 HAL contracts (196 total records), ~$6.8B valuation.
+*   **Inference Model:** Expanded beyond a narrow procurement dataset (2020-2026) to include MSA-level records inferred through temporal and spatial overlap with Sodir exploration wellbore data (2010–2026).
+*   **Focus:** Core barrier element failure peaks (NORSOK D-010).
 
-## Directory Structure
+### 🇸🇦 Saudi Arabia (KSA Partnership)
+*   **Source:** Aramco Sustainability disclosures, Tadawul, Global Energy Intelligence.
+*   **Scale:** Integrated as the "Anchor Profile" for financial resilience.
+*   **Focus:** Capital intensity, infrastructure-centric financial modeling, and safety frameworks (Aramco Safety System).
 
-```
-.
-├── api/
-│   ├── server.js          # Main Express API and Server definitions
-│   ├── data_store.js      # Consolidated JSON/Array data loader from flat CSV files
-│   ├── data/              # Mexico dataset CSVs and other runtime processed files
-│   └── docs/              # Location of generated documents or knowledge summary files
-├── public/
-│   ├── index.html         # Application landing/login page
-│   ├── dashboard.html     # Main interface grid for intel tracking and compliance charts
-│   ├── app.js             # Frontend API ingestion and interactive DOM rendering
-│   └── styles.css         # Styling, including specialized dashboard formatting and blur overlays
-├── src/
-│   ├── data/              # Core Raw Datasets (ANP incidents, HAL regional incidents)
-│   ├── document_generation/ # Internal DOCX structure builders for compliance summary exports
-│   └── reporting/         # Incident filtering, sorting, and analytical helper functions
-├── package.json           # Node script registry and dependency index
-└── vercel.json            # Vercel deployment configuration, function routing and static paths
-```
+### 🇲🇽 Mexico (Operational Risk)
+*   **Source:** CNH, SIH Hidrocarburos, CompraNet.
+*   **Scale:** 65 contract milestones across Burgos, Sureste, and Tampico-Misantla basins.
+*   **Status:** Awaiting integration of direct ASEA SARAS incident feeds (currently jurisdictionally restricted).
 
-## How It Works (The Data Flow)
+### 🇦🇷 Argentina (Unconventional Assets)
+*   **Source:** SESCO, COMPR.AR, SE 25/2004, IAPG.
+*   **Scale:** Structured compliance workflow for Vaca Muerta (Neuquina Basin) operations.
+*   **Alignment:** ISO 37301 Compliance Management framework.
 
-1. **Information Ingestion:** The `api/data_store.js` and `parseIncidentesCSV` handlers in `server.js` read local `.csv` files provided via `src/data` or `api/data` upon initialization. It cross-references raw reporting codes to categorize failures contextually (e.g., 'CSB Failure', 'BOP Failure', 'Structural').
-2. **Analysis APIs:** The server exposes multiple clean API endpoints (e.g., `/api/data`, `/api/hal-incidents`, `/api/mexico-metrics`, `/api/stats`) that paginate and summarize this data cleanly.
-3. **Frontend Dashboarding:** The `public/dashboard.html` page executes `public/app.js`, dynamically querying and mapping the server endpoints to UI components (charts, lists, verification blocks). Security protocols dictate certain sections (like LATAM Summary) may use blur effects depending on authorization states.
-4. **Data Export:** The user can request an automated report which triggers the `/api/generate-report` endpoint, invoking the `docx` library to compile the current memory state into a beautifully formatted `HAL_Tejas_Incident_Report.docx` file.
+## Key Features
+*   **Operational Maturity Matrix:** Global comparative benchmarking across regulatory transparency, safety frameworks, and capital intensity.
+*   **Portfolio Intelligence:** Cross-analysis of commercial footprint vs. official failure trends.
+*   **Validation Tiering:** 
+    *   **Tier 1:** Direct, verbatim naming in official government incident reports.
+    *   **Tier 2:** Probability-weighted inference based on confirmed contract presence in affected domains/fields.
 
-## Focus of Recent Optimization
-Based on recent workflows, work has been revolving around:
-- Integrating regional module parity (Brazil, Mexico, Argentina intelligence tabs).
-- Enforcing structural reporting validations (e.g., Inference Summaries).
-- Hardening the application layout structure (fixing responsive clips, adding/removing 'LOCK' overlay states on compliance summaries for active audit reviews).
-- Finalizing the operational API mappings behind Vercel serverless domains to prevent routing errors in productions.
+## Technical Architecture
+*   **Frontend:** Vanilla JS, CSS (Premium Light Slate aesthetic), Chart.js 4.4.
+*   **Backend:** Node.js API (Express), MongoDB (Incident Persistence), Redis (Cache Warming).
+*   **Data Pipeline:** Automated CSV/JSON ingestion from Sodir, ANP, and CNH feeds.
+
+## Recent Updates
+*   Purged non-functional UI elements (placeholder progress trackers).
+*   Corrected global data counts for Norway to reflect a more realistic MSA-level footprint (~147 contracts).
+*   Verified and fixed all Brazil data source links to ensure direct access to SGIP/SGSO sets.
+
+---
+*Confidential — Internal Strategy & Compliance Validation Platform*
