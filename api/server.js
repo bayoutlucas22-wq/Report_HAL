@@ -515,3 +515,18 @@ if (require.main === module) {
   });
 }
 module.exports = app;
+// --- Local MongoDB KSA Routes ---
+app.get('/api/aramco/db/years', async (req, res) => {
+  try {
+    const db = await getDb();
+    const years = await db.collection('ksa_intelligence').find().project({ year: 1 }).sort({ year: -1 }).toArray();
+    res.json({ years: years.map(y => y.year) });
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
+app.get('/api/aramco/db/:year', async (req, res) => {
+  try {
+    const db = await getDb();
+    const data = await db.collection('ksa_intelligence').findOne({ year: parseInt(req.params.year) });
+    res.json(data);
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
