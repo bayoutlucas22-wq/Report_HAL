@@ -8,7 +8,8 @@ node_modules
 *.py
 
 # Heavy source docs
-api/docs/
+api/docs/*
+!api/docs/aramco/text/
 
 # Exclude large raw CSVs not needed for seeding
 api/data/PRODUCCION_*.csv
