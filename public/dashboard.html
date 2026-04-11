@@ -8035,13 +8035,7 @@
 
               <!-- SUB-TABS -->
               <div style="display:flex;gap:2px;padding:16px 24px 0;border-bottom:1px solid var(--border);overflow-x:auto;">
-                <button class="sau-tab sau-tab-active" onclick="sauTab('overview',this)">Financial</button>
-                <button class="sau-tab" onclick="sauTab('esg',this)">ESG & Safety</button>
-                <button class="sau-tab" onclick="sauTab('ops',this)">Operational</button>
-                <button class="sau-tab" onclick="sauTab('litigations',this)">Litigations</button>
-                <button class="sau-tab" onclick="sauTab('incidents',this)">Incidents</button>
-                <button class="sau-tab" onclick="sauTab('risk',this)">Risk Factors</button>
-                <button class="sau-tab" onclick="sauTab('posture',this)">Compliance Posture</button>
+                <button class="sau-tab sau-tab-active" onclick="sauTab('overview',this)">Overview & Financials</button>
                 <button class="sau-tab" onclick="sauTab('hal',this)" style="color:#0f172a;font-weight:700;border-bottom-color:#38bdf8;border-bottom-width:2px;">HAL Strategic Exposure</button>
               </div>
 
@@ -8058,37 +8052,7 @@
                   <div id="sau-fin-table" style="overflow-x:auto;"></div>
                 </div>
 
-                <!-- ESG -->
-                <div id="sau-tab-esg" style="display:none;padding:24px;">
-                  <div id="sau-esg-content"></div>
-                </div>
-
-                <!-- OPERATIONAL -->
-                <div id="sau-tab-ops" style="display:none;padding:24px;">
-                  <div id="sau-ops-content"></div>
-                </div>
-
-                <!-- LITIGATIONS -->
-                <div id="sau-tab-litigations" style="display:none;padding:24px;">
-                  <div id="sau-lit-content"></div>
-                </div>
-
-                <!-- INCIDENTS -->
-                <div id="sau-tab-incidents" style="display:none;padding:24px;">
-                  <div id="sau-inc-content"></div>
-                </div>
-
-                <!-- RISK FACTORS -->
-                <div id="sau-tab-risk" style="display:none;padding:24px;">
-                  <div id="sau-risk-content"></div>
-                </div>
-
-                <!-- COMPLIANCE POSTURE -->
-                <div id="sau-tab-posture" style="display:none;padding:24px;">
-                  <div id="sau-posture-content"></div>
-                </div>
-
-
+                <!-- Note: Sub-tabs removed to eliminate redundancy with Report Intelligence section. -->
 
                 <!-- HAL EXPOSURE -->
                 <div id="sau-tab-hal" style="display:none;padding:24px;">
@@ -8193,24 +8157,7 @@
             .sau-kpi .kpi-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
             .sau-kpi .kpi-val{font-size:26px;font-weight:900;color:#1e293b;letter-spacing:-.03em;}
             .sau-kpi .kpi-sub{font-size:11px;color:#64748b;margin-top:3px;}
-            .sau-yr-pill{display:inline-block;font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;background:#f1f5f9;color:#64748b;margin-left:4px;vertical-align:middle;}
-            .sau-lit-row{padding:14px 16px;border-radius:8px;margin-bottom:8px;border:1px solid #e2e8f0;background:#fff;}
-            .sau-lit-row.high{border-left:3px solid #f97316;}
-            .sau-lit-row.critical{border-left:3px solid #ef4444;}
-            .sau-lit-row.medium{border-left:3px solid #eab308;}
-            .sau-lit-row.low{border-left:3px solid #22c55e;}
-            .sau-inc-row{padding:14px 16px;border-radius:8px;margin-bottom:8px;border:1px solid #e2e8f0;background:#fff;}
-            .sau-inc-row.high,.sau-inc-row.critical{background:#fef2f2;border-color:#fecaca;}
-            .sau-inc-row.medium{background:#fff7ed;border-color:#fed7aa;}
-            .sau-inc-row.low{background:#f0fdf4;border-color:#bbf7d0;}
-            .sau-risk-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;margin-bottom:6px;font-size:12px;color:#374151;line-height:1.6;}
-            .sau-esg-yr{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin-bottom:16px;}
-            .posture-yr-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:flex-start;gap:16px;}
-            .posture-badge{display:flex;align-items:center;justify-content:center;flex-direction:column;width:80px;height:80px;border-radius:50%;border:3px solid #e2e8f0;flex-shrink:0;font-size:9px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.04em;color:#64748b;}
-            .posture-badge.critical{border-color:#ef4444;background:#fef2f2;color:#ef4444;}
-            .posture-badge.high{border-color:#f97316;background:#fff7ed;color:#f97316;}
-            .posture-badge.medium{border-color:#eab308;background:#fefce8;color:#b45309;}
-            .posture-badge.low{border-color:#22c55e;background:#f0fdf4;color:#166534;}
+
           </style>
 
           <script>
@@ -8223,7 +8170,7 @@
             window.sauTab = function(name, btn) {
               document.querySelectorAll('.sau-tab').forEach(t => t.classList.remove('sau-tab-active'));
               btn.classList.add('sau-tab-active');
-              ['overview','esg','ops','litigations','incidents','risk','posture','hal'].forEach(t => {
+              ['overview','hal'].forEach(t => {
                 const el = document.getElementById('sau-tab-' + t);
                 if (el) el.style.display = t === name ? 'block' : 'none';
               });
@@ -8281,12 +8228,6 @@
 
             function renderAll() {
               renderFinancials();
-              renderESG();
-              renderOps();
-              renderLitigations();
-              renderIncidents();
-              renderRisk();
-              renderPosture();
 
               renderHAL();
               // Expose to sibling sections
@@ -8356,280 +8297,7 @@
                   }).join('')}</tr>`).join('') + '</tbody></table>';
             }
 
-            // ── ESG ──────────────────────────────────────────────────────────
-            function renderESG() {
-              const metrics = [
 
-                ['TRIR',                y => YD[y]?.esg?.trir,                      'per 200k hrs'],
-                ['Fatalities',          y => YD[y]?.esg?.fatalities_workforce,      ''],
-                ['Scope 1 GHG',         y => YD[y]?.esg?.scope1_mtco2e,            'Mt CO₂e'],
-                ['Scope 2 GHG',         y => YD[y]?.esg?.scope2_mtco2e,            'Mt CO₂e'],
-              ];
-              let html = '';
-
-              // Trend table
-              html += '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">ESG Metrics by Year</div>';
-              html += '<div style="overflow-x:auto;margin-bottom:28px;"><table style="width:100%;border-collapse:collapse;font-size:12px;">';
-              html += '<thead><tr style="border-bottom:2px solid #e2e8f0;"><th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Metric</th>' +
-                YEARS.map(y => `<th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">FY ${y}</th>`).join('') + '</tr></thead><tbody>';
-              metrics.forEach(([label, getter, unit]) => {
-                html += `<tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:8px 10px;font-weight:600;color:#374151;">${label} ${unit?'<span style="font-size:10px;color:#94a3b8;">('+unit+')</span>':''}</td>` +
-                  YEARS.map(y => {
-                    const v = getter(y);
-                    return `<td style="padding:8px 10px;text-align:right;color:${v==null?'#cbd5e1':'#1e293b'};">${v==null?'—':Number(v).toLocaleString(undefined,{maximumFractionDigits:3})}</td>`;
-                  }).join('') + '</tr>';
-              });
-              html += '</tbody></table></div>';
-
-              // Flaring notes
-              const flaringNotes = YEARS.map(y => ({ year: y, note: YD[y]?.esg?.flaring_reduction_target })).filter(x => x.note);
-              if (flaringNotes.length) {
-                html += '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Flaring Disclosures</div>';
-                html += flaringNotes.map(({ year, note }) =>
-                  `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;margin-bottom:8px;">
-                    <span style="font-size:10px;font-weight:800;color:#166534;margin-right:8px;">FY ${year}</span>
-                    <span style="font-size:12px;color:#374151;">${note}</span>
-                  </div>`).join('');
-              }
-              document.getElementById('sau-esg-content').innerHTML = html;
-            }
-
-            // ── OPERATIONAL ──────────────────────────────────────────────────
-            function renderOps() {
-              const metrics = [
-                ['Total Hydrocarbon',   y => YD[y]?.operational_highlights?.total_hydrocarbon_mmboed,   'MMboe/d'],
-                ['Crude Oil Prod.',     y => YD[y]?.operational_highlights?.crude_oil_production_mmbpd, 'MMb/d'],
-                ['Natural Gas',         y => YD[y]?.operational_highlights?.natural_gas_bscfd,          'Bscfd'],
-                ['Supply Reliability',  y => YD[y]?.operational_highlights?.supply_reliability_pct,     '%'],
-                ['Proven Reserves',     y => YD[y]?.operational_highlights?.proven_reserves_bnboe,      'Bnboe'],
-              ];
-              let html = '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Operational Metrics by Year</div>';
-              html += '<div style="overflow-x:auto;margin-bottom:28px;"><table style="width:100%;border-collapse:collapse;font-size:12px;">';
-              html += '<thead><tr style="border-bottom:2px solid #e2e8f0;"><th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Metric</th>' +
-                YEARS.map(y => `<th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">FY ${y}</th>`).join('') + '</tr></thead><tbody>';
-              metrics.forEach(([label, getter, unit]) => {
-                html += `<tr style="border-bottom:1px solid #f1f5f9;">
-                  <td style="padding:8px 10px;font-weight:600;color:#374151;">${label} <span style="font-size:10px;color:#94a3b8;">(${unit})</span></td>` +
-                  YEARS.map(y => {
-                    const v = getter(y);
-                    return `<td style="padding:8px 10px;text-align:right;color:${v==null?'#cbd5e1':'#1e293b'};">${v==null?'—':Number(v).toLocaleString(undefined,{maximumFractionDigits:2})}</td>`;
-                  }).join('') + '</tr>';
-              });
-              html += '</tbody></table></div>';
-
-              // Strategy highlights across years
-              const allStrategy = [];
-              YEARS.forEach(y => (YD[y]?.strategy_highlights||[]).forEach(s => { if (!allStrategy.includes(s)) allStrategy.push(s); }));
-              if (allStrategy.length) {
-                html += '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Strategy Highlights (consolidated)</div>';
-                html += allStrategy.slice(0,10).map(s => `<div class="sau-risk-item">${s}</div>`).join('');
-              }
-              document.getElementById('sau-ops-content').innerHTML = html;
-            }
-
-            // ── LITIGATIONS ──────────────────────────────────────────────────
-            function renderLitigations() {
-              // Merge all years, deduplicate by case name (keep highest risk)
-              const seen = {};
-              YEARS.forEach(y => {
-                (YD[y]?.key_litigations || []).forEach(l => {
-                  const key = l.case;
-                  if (!seen[key]) {
-                    seen[key] = { ...l, years: [y] };
-                  } else {
-                    seen[key].years.push(y);
-                    const order = ['critical','high','medium','low'];
-                    if (order.indexOf(l.risk_level) < order.indexOf(seen[key].risk_level)) {
-                      seen[key].risk_level = l.risk_level;
-                      seen[key].description = l.description;
-                    }
-                  }
-                });
-              });
-              const merged = Object.values(seen).sort((a,b) => {
-                const o = ['critical','high','medium','low'];
-                return o.indexOf(a.risk_level) - o.indexOf(b.risk_level);
-              });
-              const riskColors = { critical:'#ef4444', high:'#f97316', medium:'#eab308', low:'#22c55e' };
-              const el = document.getElementById('sau-lit-content');
-              if (!merged.length) {
-                el.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;">No litigations identified across available filings.</div>';
-                return;
-              }
-              el.innerHTML =
-                `<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">${merged.length} unique litigation matter${merged.length!==1?'s':''} across FY ${YEARS[0]}–${YEARS[YEARS.length-1]}</div>` +
-                merged.map(l => `<div class="sau-lit-row ${l.risk_level||'medium'}">
-                  <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
-                    <span style="font-size:13px;font-weight:700;color:#1e293b;flex:1;">${l.case}</span>
-                    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${riskColors[l.risk_level]||'#94a3b8'}22;color:${riskColors[l.risk_level]||'#94a3b8'};flex-shrink:0;">${(l.risk_level||'MEDIUM').toUpperCase()}</span>
-                  </div>
-                  <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">${l.description||''}</div>
-                  <div style="font-size:10px;color:#94a3b8;">Identified in: ${l.years.map(y=>'FY '+y).join(', ')}</div>
-                </div>`).join('');
-            }
-
-            // ── INCIDENTS ────────────────────────────────────────────────────
-            function renderIncidents() {
-              const all = [];
-              YEARS.forEach(y => (YD[y]?.operational_incidents||[]).forEach(inc => all.push({...inc, fy: y})));
-              const sevColors = { critical:'#ef4444', high:'#f97316', medium:'#eab308', low:'#22c55e' };
-              const el = document.getElementById('sau-inc-content');
-              if (!all.length) {
-                el.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;">No operational incidents identified across available filings.</div>';
-                return;
-              }
-              // Group by type
-              const byType = {};
-              all.forEach(inc => {
-                const k = inc.type || 'Other';
-                if (!byType[k]) byType[k] = [];
-                byType[k].push(inc);
-              });
-              let html = `<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">${all.length} incident event${all.length!==1?'s':''} across FY ${YEARS[0]}–${YEARS[YEARS.length-1]}</div>`;
-              Object.entries(byType).forEach(([type, incs]) => {
-                const sev = incs[0].severity || 'medium';
-                html += `<div class="sau-inc-row ${sev}" style="margin-bottom:10px;">
-                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
-                    <span style="font-size:13px;font-weight:700;color:#1e293b;">${type}</span>
-                    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${sevColors[sev]||'#94a3b8'}22;color:${sevColors[sev]||'#94a3b8'};">${sev.toUpperCase()}</span>
-                    <span style="font-size:10px;color:#64748b;">${incs.map(i=>'FY '+i.fy).join(', ')}</span>
-                  </div>
-                  <div style="font-size:12px;color:#475569;line-height:1.6;">${incs[0].description||''}</div>
-                </div>`;
-              });
-              el.innerHTML = html;
-            }
-
-            // ── RISK FACTORS ─────────────────────────────────────────────────
-            function renderRisk() {
-              // Group by category name across years
-              const catMap = {};
-              YEARS.forEach(y => {
-                (YD[y]?.risk_factors||[]).forEach(r => {
-                  const rText = typeof r === 'string' ? r : (r.text || '');
-                  const key = rText.slice(0, 50);
-                  if (!key) return;
-                  if (!catMap[key]) catMap[key] = { text: rText, description: r.description || '', years: [], sources: {} };
-                  catMap[key].years.push(y);
-                  if (r.source_file) catMap[key].sources[y] = { file: r.source_file, label: r.source_label || `Annual Report ${y}` };
-                  if (r.description && r.description.length > catMap[key].description.length) catMap[key].description = r.description;
-                });
-              });
-              // Sort: persistent risks first (more years = more exposure), then alphabetical
-              const cats = Object.values(catMap).sort((a,b) => b.years.length - a.years.length || a.text.localeCompare(b.text));
-              const el = document.getElementById('sau-risk-content');
-              if (!cats.length) { el.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;">No risk factors extracted.</div>'; return; }
-
-              // Domain groupings for color coding
-              const domainColor = {
-                'Climate': '#10b981', 'Terrorism': '#ef4444', 'Cyber': '#8b5cf6',
-                'Environmental': '#10b981', 'Sanctions': '#f59e0b', 'Epidemic': '#06b6d4',
-                'Political': '#f97316', 'Crude Oil': '#eab308', 'Hydrocarbon': '#84cc16',
-                'Operational': '#ef4444', 'Government': '#6366f1', 'Currency': '#14b8a6',
-                'Acquisition': '#ec4899', 'Key Personnel': '#94a3b8', 'Insurance': '#64748b',
-              };
-              const getDomainColor = (text) => {
-                const t = text.toLowerCase();
-                for (const [k, v] of Object.entries(domainColor)) if (t.includes(k.toLowerCase())) return v;
-                return '#60a5fa';
-              };
-
-              const persistenceBar = (yearsPresent) => {
-                return YEARS.map(y => {
-                  const present = yearsPresent.includes(y);
-                  return `<span title="FY ${y}: ${present ? 'Identified' : 'Not detected'}"
-                    style="display:inline-block;width:28px;height:8px;border-radius:2px;margin:0 1px;
-                           background:${present ? '#ef4444' : '#e2e8f0'};"></span>`;
-                }).join('');
-              };
-
-              let html = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin-bottom:16px;border:1px solid var(--border);">
-                <div style="background:#f8fafc;padding:12px 14px;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.08em;">Risk Category</div>
-                <div style="background:#f8fafc;padding:12px 14px;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:6px;">
-                  Persistence
-                  <span style="font-weight:400;color:#94a3b8;">${YEARS.map(y=>`<span style="font-size:9px;margin:0 2px;">${y}</span>`).join('')}</span>
-                  <span style="margin-left:auto;">Source</span>
-                </div>`;
-
-              cats.forEach((cat, i) => {
-                const color = getDomainColor(cat.text);
-                const allYrs = cat.years.length === YEARS.length;
-                const desc = cat.description ? cat.description.replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';
-
-                // Latest source link (most recent year this appeared)
-                const latestYear = [...cat.years].sort().reverse()[0];
-                const latestSrc = cat.sources[latestYear];
-                const srcLinks = cat.years.sort().map(y => {
-                  const src = cat.sources[y];
-                  if (!src) return '';
-                  const url = `http://localhost:3344/api/aramco/${y}/source/${encodeURIComponent(src.file)}`;
-                  return `<a href="${url}" target="_blank" rel="noopener"
-                    style="font-size:9px;font-weight:700;color:#475569;text-decoration:none;
-                           background:#f1f5f9;border:1px solid #e2e8f0;border-radius:3px;padding:1px 5px;
-                           white-space:nowrap;margin:1px;" title="${src.label}">${y}</a>`;
-                }).join('');
-
-                const rowBg = i % 2 === 0 ? '#ffffff' : '#fcfcfc';
-                html += `<div style="background:${rowBg};padding:14px 14px;border-left:4px solid ${color};display:flex;align-items:center;gap:8px;">
-                  <div>
-                    <div style="font-weight:700;color:#1e293b;font-size:13px;line-height:1.3;">${cat.text}</div>
-                    ${desc ? `<div style="font-size:11px;color:#64748b;margin-top:4px;line-height:1.4;" title="${desc}">${desc.slice(0,110)}${desc.length>110?'…':''}</div>` : ''}
-                  </div>
-                  ${allYrs ? `<span style="font-size:9px;font-weight:800;color:#b45309;background:#fef3c7;border:1px solid #fde68a;border-radius:4px;padding:2px 6px;white-space:nowrap;margin-left:auto;">ALL YEARS</span>` : ''}
-                </div>
-                <div style="background:${rowBg};padding:14px 14px;display:flex;align-items:center;gap:8px;">
-                  <div style="display:flex;align-items:center;gap:2px;">${persistenceBar(cat.years)}</div>
-                  <span style="font-size:11px;font-weight:700;color:#94a3b8;min-width:30px;margin-left:4px;">${cat.years.length}/${YEARS.length}</span>
-                  <div style="margin-left:auto;display:flex;flex-wrap:wrap;gap:2px;justify-content:flex-end;">${srcLinks}</div>
-                </div>`;
-              });
-              html += '</div>';
-
-              el.innerHTML = `<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;opacity:0.8;">${cats.length} risk categories · ${cats.filter(c=>c.years.length===YEARS.length).length} persistent across all ${YEARS.length} years</div>` + html;
-            }
-
-            // ── COMPLIANCE POSTURE ────────────────────────────────────────────
-            function renderPosture() {
-              const scoreLabels = { critical:'CRITICAL', high:'HIGH RISK', medium:'MODERATE', low:'LOW RISK' };
-              let html = '';
-
-              // Year-by-year posture cards
-              html += '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Year-by-Year Compliance Assessment</div>';
-              YEARS.forEach(y => {
-                const d = YD[y] || {};
-                const cs = d.compliance_summary || {};
-                const posture = d.overall_compliance_posture || {};
-                const recs = d.recommendation_for_compliance_officer || [];
-                const level = posture.risk_level || 'medium';
-                const summary = posture.summary || cs.overall_posture || '—';
-                html += `<div class="posture-yr-card">
-                  <div class="posture-badge ${level}">${scoreLabels[level]||'REVIEW'}<br><span style="font-size:9px;font-weight:400;margin-top:2px;">FY ${y}</span></div>
-                  <div style="flex:1;">
-                    <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px;">FY ${y}</div>
-                    <div style="font-size:12px;color:#475569;margin-bottom:10px;line-height:1.6;">${summary}</div>
-                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-                      <span style="font-size:11px;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;padding:3px 10px;border-radius:20px;font-weight:700;">${cs.litigations_identified||0} litigations</span>
-                      <span style="font-size:11px;background:#fff7ed;border:1px solid #fed7aa;color:#c2410c;padding:3px 10px;border-radius:20px;font-weight:700;">${cs.incidents_identified||0} incidents</span>
-                      ${cs.material_penalties?`<span style="font-size:11px;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;padding:3px 10px;border-radius:20px;">${cs.material_penalties}</span>`:''}
-                    </div>
-                    ${recs.length?`<div style="font-size:11px;color:#64748b;line-height:1.6;">${recs.slice(0,2).map((r,i)=>`<div style="margin-bottom:3px;"><span style="font-weight:700;color:#146c2e;">${i+1}.</span> ${typeof r==='string'?r:r.action||''}</div>`).join('')}</div>`:''}
-                  </div>
-                </div>`;
-              });
-
-              // Consolidated recommendations — last available year
-              const latest = YEARS[YEARS.length - 1];
-              const allRecs = YD[latest]?.recommendation_for_compliance_officer || [];
-              if (allRecs.length) {
-                html += '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin:20px 0 12px;">Recommendations for Compliance Officer (FY ' + latest + ')</div>';
-                html += allRecs.map((r, i) =>
-                  `<div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:6px;font-size:12px;color:#374151;line-height:1.6;">
-                    <span style="font-size:10px;font-weight:800;color:#146c2e;min-width:18px;">${i+1}.</span>${typeof r==='string'?r:r.action||JSON.stringify(r)}
-                  </div>`).join('');
-              }
-              document.getElementById('sau-posture-content').innerHTML = html;
-            }
 
 
 
