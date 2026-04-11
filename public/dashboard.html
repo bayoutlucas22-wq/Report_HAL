@@ -7144,34 +7144,49 @@
                   style="font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">
                   🔬 Methodology — Norway Inference Chain</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.7;">
-                  Havtil (PSA Norway) and Sodir provide high-transparency open data but do not link failures to specific
+                  Havtil and Sodir provide high-transparency open data but do not link failures to specific
                   service companies in public summaries. The inference chain is structured as follows:
-
                   <strong>(1)</strong> <em>Contract evidence layer (1966–2030):</em> 147 HAL NCS contracts from
-                  <code>norway_contracts.csv</code> (out of 196 total records) — including 122 MSA-level records inferred from Sodir field activity (2010–2026) across major operators.
-                  <strong>(2)</strong> <em>RNNP barrier alignment:</em> Havtil RNNP annual reports (2013–2025) record
-                  Well Barrier Element failure categories — cement/casing, DHSV/completion, hydrostatic, BOP — that
-                  directly correspond to HAL's confirmed service domains.
-                  <strong>(3)</strong> <em>Historical NCS context (pre-2003):</em> Sodir FactPages records exploration
-                  wellbores per field back to 1966 (Balder), 1978 (Gullfaks), 1979 (Troll/Oseberg). HAL's NCS service
-                  presence prior to 2003 is <strong>inferred from operator relationships and field activity
-                    history</strong> — no contract records are available in this dataset for that period.
-                  <strong>(4)</strong> <em>Operator landscape:</em> Equinor (all legacy entities: ~839 NCS wellbores),
-                  Aker BP ASA (89), Shell (84) are the dominant NCS operators per Sodir data. HAL's operator assignments
-                  in this analysis are inferred from this landscape — specific client names are not present in the
-                  available contract CSV.
+                  <code>norway_contracts.csv</code> including 122 MSA-level records inferred from Sodir field activity (2010–2026).
+                  <strong>(2)</strong> <em>RNNP barrier alignment:</em> Havtil RNNP reports record
+                  Well Barrier Element failure categories that directly correspond to HAL's confirmed service domains.
                 </p>
                 <div
                   style="margin-top:10px;padding:8px 12px;background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;font-size:12px;color:#92400e;">
                   <strong>⚠ Inference scope:</strong> Contract date window confirmed: <strong>2020–2026</strong>.
-                  Pre-2020 historical presence is contextual inference only, based on Sodir field activity and RNNP
-                  2013–2025 series. No service-company attribution is made in Havtil public data.
+                  Historical presence is inferred from Sodir field activity.
                 </div>
-                <div style="margin-top:12px;">
-                  <a href="#"
-                    onclick="event.preventDefault();switchSection('fullreport');setTimeout(()=>{document.getElementById('methodology-framework')?.scrollIntoView({behavior:'smooth'})},300);"
-                    style="font-size:12px;font-weight:700;color:#3b82f6;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">📋
-                    Read full methodology framework ↗</a>
+              </div>
+            </div>
+
+            <!-- NCS Field Exposure & Regulatory Links -->
+            <div class="panel cs-panel" style="margin-top:12px;border:1px solid #e2e8f0;background:#f8fafc;">
+              <div class="panel-body" style="padding:18px 20px;">
+                <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;">
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+                      🇳🇴 Primary NCS Field Exposure
+                      <span style="font-size:10px;font-weight:600;color:#94a3b8;text-transform:none;">(Inferred Activity Top 7)</span>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/43718" target="_blank" class="seg-btn" style="text-decoration:none;">TROLL</a>
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/43734" target="_blank" class="seg-btn" style="text-decoration:none;">OSEBERG</a>
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/43746" target="_blank" class="seg-btn" style="text-decoration:none;">BALDER</a>
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/18547214" target="_blank" class="seg-btn" style="text-decoration:none;">JOHAN SVERDRUP</a>
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/43724" target="_blank" class="seg-btn" style="text-decoration:none;">GULLFAKS</a>
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/43740" target="_blank" class="seg-btn" style="text-decoration:none;">ÅSGARD</a>
+                      <a href="https://factpages.sodir.no/en/field/pageview/all/1638332" target="_blank" class="seg-btn" style="text-decoration:none;">SNØHVIT</a>
+                    </div>
+                    <p style="font-size:11px;color:#64748b;margin-top:10px;">Links lead to official <strong>Sodir FactPages</strong> for field-specific production registries.</p>
+                  </div>
+                  <div style="border-left:1px solid #e2e8f0;padding-left:24px;">
+                    <div style="font-size:12px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;">Regulatory Framework</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                      <a href="https://lovdata.no/dokument/NL/lov/1996-11-29-72" target="_blank" style="font-size:12px;color:#2563eb;text-decoration:none;display:flex;align-items:center;gap:6px;">📜 Sodir/Havtil Act</a>
+                      <a href="https://lovdata.no/dokument/SF/forskrift/2010-04-29-611" target="_blank" style="font-size:12px;color:#2563eb;text-decoration:none;display:flex;align-items:center;gap:6px;">⚖️ Framework Regs</a>
+                      <a href="https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" target="_blank" style="font-size:12px;color:#2563eb;text-decoration:none;display:flex;align-items:center;gap:6px;">⚙️ Activities (D-010)</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
