@@ -17,18 +17,32 @@ const DATA_DIR  = path.resolve(__dirname, 'api/data');
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
-function readCsv(filename, delimiter = ';') {
+function readCsv(filename, delimiter = ';', skipRows = 0) {
   const p = path.join(DATA_DIR, filename);
   if (!fs.existsSync(p)) { console.warn(`SKIP (not found): ${filename}`); return []; }
   const lines = fs.readFileSync(p, 'utf8').split('\n').filter(Boolean);
-  if (lines.length < 2) return [];
-  const headers = lines[0].split(delimiter).map(h => h.trim().replace(/^\ufeff/, ''));
-  return lines.slice(1).map(line => {
-    const parts = line.split(delimiter);
+  if (lines.length < skipRows + 2) return [];
+  const headers = lines[skipRows].split(delimiter).map(h => h.trim().replace(/^\ufeff/, '').replace(/"/g, ''));
+  return lines.slice(skipRows + 1).map(line => {
+    // handle quoted fields with commas
+    const parts = delimiter === ',' ? splitCsvLine(line) : line.split(delimiter);
     const obj   = {};
-    headers.forEach((h, i) => { obj[h] = (parts[i] || '').trim(); });
+    headers.forEach((h, i) => { obj[h] = (parts[i] || '').trim().replace(/^"|"$/g, ''); });
     return obj;
-  });
+  }).filter(r => Object.values(r).some(v => v));
+}
+
+function splitCsvLine(line) {
+  const result = [];
+  let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { inQ = !inQ; }
+    else if (c === ',' && !inQ) { result.push(cur); cur = ''; }
+    else { cur += c; }
+  }
+  result.push(cur);
+  return result;
 }
 
 function readJson(relPath) {
@@ -152,6 +166,99 @@ function transformContracts(rows) {
   });
 }
 
+/** ANP incidentes.csv — full incident registry with lat/lon */
+function transformAnpIncidentes(rows) {
+  return rows.map(r => {
+    const lat = parseFloat((r['Latitude']  || '').replace(',', '.')) || null;
+    const lon = parseFloat((r['Longitude'] || '').replace(',', '.')) || null;
+    const dateStr = r['Data_estimada_do_incidente'] || r['Data_da_primeira_observacao'] || '';
+    let year = null, month = null;
+    const m = dateStr.match(/(\d{2})-(\d{2})-(\d{4})/);
+    if (m) { year = parseInt(m[3]); month = parseInt(m[2]); }
+    return {
+      numero:      r['Numero'] || '',
+      empresa:     r['Empresa'] || '',
+      instalacao:  r['Instalacao'] || '',
+      data:        dateStr,
+      year, month, lat, lon,
+      situacao:    r['Situacao_atual_descarga'] || '',
+      fatalidades: parseInt(r['Numero_Fatalidades'] || '0') || 0,
+      feridos:     parseInt(r['Numero_de_feridos_graves'] || '0') || 0,
+      descricao:   (r['Breve_Descricao_Incidente'] || '').slice(0, 500),
+    };
+  }).filter(r => r.numero);
+}
+
+/** incidentes-tipo.csv — incident type lookup */
+function transformIncidentesTipo(rows) {
+  return rows.map(r => ({
+    numero:    r['Numero'] || '',
+    tipo:      r['Tipo_de_incidente'] || '',
+    gravidade: r['DSC_GRAVIDADE_TIPO'] || '',
+    quase:     r['DSC_QUASE_ACIDENTE_ACIDENTE'] || '',
+  })).filter(r => r.numero);
+}
+
+/** mexico_perforacion.csv — SIH drilling jobs */
+function transformMexPerforacion(rows) {
+  return rows.map(r => ({
+    id_pozo:        r['id_pozo'] || '',
+    operador:       r['operador'] || '',
+    cuenca:         r['cuenca'] || '',
+    formacion:      r['formacion'] || '',
+    year:           parseInt(r['year']) || null,
+    etapas_fractura:parseFloat(r['etapas_fractura']) || 0,
+    agua_m3:        parseFloat(r['agua_m3']) || 0,
+    presion_max_psi:parseFloat(r['presion_max_psi']) || 0,
+    potencia_hp:    parseFloat(r['potencia_hp']) || 0,
+    longitud_lateral_m: parseFloat(r['longitud_lateral_m']) || 0,
+    offshore:       r['offshore_flag'] === '1',
+  })).filter(r => r.id_pozo);
+}
+
+/** tejas_exposure_proxy.csv — Tejas/HAL well exposure */
+function transformTejasProxy(rows) {
+  return rows.map(r => ({
+    fecha:       r['FECHA'] || '',
+    cuenca:      r['CUENCA'] || '',
+    categoria:   r['CATEGORIA_POZO'] || '',
+    ubicacion:   r['UBICACION'] || '',
+    operador:    r['OPERADOR'] || '',
+    pozos_perforados: parseFloat(r['POZOS_PERFORADOS']) || 0,
+    pozos_terminados: parseFloat(r['POZOS_TERMINADOS']) || 0,
+    missing_completions: parseFloat(r['MISSING_COMPLETIONS']) || 0,
+    year:        parseInt(r['YEAR']) || null,
+    subcontractors: r['Likely Subcontractors'] || '',
+  })).filter(r => r.fecha);
+}
+
+/** PRODUCCION_CAMPOS.csv — Mexico field production (header at row 11) */
+function transformMexCampos(rows) {
+  return rows.map(r => ({
+    fecha:       r['FECHA'] || '',
+    campo:       r['CAMPO_OFICIAL'] || r['CAMPO_SIH'] || '',
+    ubicacion:   r['UBICACION'] || '',
+    liquidos_mbd:parseFloat(r['HIDROCARBUROS_LIQUIDOS_MBD']) || 0,
+    petroleo_mbd:parseFloat(r['PETROLEO_MBD']) || 0,
+    gas_asoc:    parseFloat(r['GAS_ASOC_MMPCD']) || 0,
+    gas_nasoc:   parseFloat(r['GAS_NASOC_MMPCD']) || 0,
+  })).filter(r => r.fecha && r.campo);
+}
+
+/** POZOS_PERFORADOS.csv — Mexico drilled wells (header at row 5) */
+function transformMexPozos(rows) {
+  return rows.map(r => {
+    const keys = Object.keys(r);
+    return {
+      fecha:    r[keys[0]] || '',
+      cuenca:   r[keys[1]] || '',
+      tipo:     r[keys[2]] || '',
+      ubicacion:r[keys[3]] || '',
+      pozos:    parseFloat(r[keys[4]]) || 0,
+    };
+  }).filter(r => r.fecha && r.cuenca);
+}
+
 // ── main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -200,7 +307,31 @@ async function main() {
   const halDb = readJson('api/data/processed/hal_db.json');
   if (halDb) await seed(db, 'hal_db', [halDb]);
 
-  // 8. Indexes
+  // 8. ANP full incident registry (incidentes.csv)
+  const rawAnpFull = readCsv('incidentes_utf8.csv');
+  await seed(db, 'anp_incidentes', transformAnpIncidentes(rawAnpFull));
+
+  // 9. ANP incident type lookup (incidentes-tipo.csv)
+  const rawTipos = readCsv('incidentes-tipo.csv', ';');
+  await seed(db, 'anp_incidentes_tipo', transformIncidentesTipo(rawTipos));
+
+  // 10. Mexico SIH drilling jobs
+  const rawMexPerf = readCsv('mexico_perforacion.csv', ',');
+  await seed(db, 'mex_perforacion', transformMexPerforacion(rawMexPerf));
+
+  // 11. Tejas exposure proxy
+  const rawTejas = readCsv('tejas_exposure_proxy.csv', ',');
+  await seed(db, 'tejas_proxy', transformTejasProxy(rawTejas));
+
+  // 12. Mexico field production (header at row 11, comma-delimited)
+  const rawCampos = readCsv('PRODUCCION_CAMPOS.csv', ',', 11);
+  await seed(db, 'mex_campos', transformMexCampos(rawCampos));
+
+  // 13. Mexico drilled wells (header at row 5, comma-delimited)
+  const rawPozos = readCsv('POZOS_PERFORADOS (1).csv', ',', 5);
+  await seed(db, 'mex_pozos', transformMexPozos(rawPozos));
+
+  // 14. Indexes
   console.log('\nBuilding indexes…');
   await db.collection('hal_incidents').createIndex({ year: 1 });
   await db.collection('hal_incidents').createIndex({ category: 1 });
@@ -215,6 +346,18 @@ async function main() {
   await db.collection('nor_incidents').createIndex({ category: 1 });
   await db.collection('nor_incidents').createIndex({ severity: 1 });
   await db.collection('nor_incidents').createIndex({ field: 1 });
+  await db.collection('anp_incidentes').createIndex({ year: 1 });
+  await db.collection('anp_incidentes').createIndex({ empresa: 1 });
+  await db.collection('anp_incidentes_tipo').createIndex({ numero: 1 });
+  await db.collection('anp_incidentes_tipo').createIndex({ tipo: 1 });
+  await db.collection('mex_perforacion').createIndex({ year: 1 });
+  await db.collection('mex_perforacion').createIndex({ cuenca: 1 });
+  await db.collection('mex_perforacion').createIndex({ operador: 1 });
+  await db.collection('tejas_proxy').createIndex({ year: 1 });
+  await db.collection('tejas_proxy').createIndex({ cuenca: 1 });
+  await db.collection('mex_campos').createIndex({ campo: 1 });
+  await db.collection('mex_campos').createIndex({ fecha: 1 });
+  await db.collection('mex_pozos').createIndex({ cuenca: 1 });
   console.log('  ✓  indexes ready');
 
   await client.close();

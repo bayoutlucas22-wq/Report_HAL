@@ -1,0 +1,579 @@
+--- Page 1 ---
+FY 2022 Results
+March 13, 2023
+Saudi Aramco FY 2022 Results | ‹#›
+Saudi Aramco: Company General Use
+
+--- Page 2 ---
+Cautionary notes
+This presentation may contain certain forward-looking statements with respect to The Saudi Arabian Oil Company’s ("Aramco" or the "Company" or "we") financial position, results of operations and
+business and certain of Aramco’s plans, intentions, expectations, assumptions, goals and beliefs regarding such items. These statements include all matters that are not historical fact and generally, but
+not always, may be identified by the use of words such as “believes”, “expects”, “are expected to”, “anticipates”, “intends”, “estimates”, “should”, “will”, “shall”, “may”, “is likely to”, “plans”, “outlook”
+or similar expressions, including variations and the negatives thereof or comparable terminology.
+You should be aware that forward-looking statements are not guarantees of future performance and that Aramco’s actual financial position, results of operations and business and the development of
+the industries in which it operates may differ significantly from those made in or suggested by these forward-looking statements. In addition, even if Aramco’s financial position, results of operations and
+business and the development of the industries in which it operates are consistent with these forward-looking statements, those results or developments may not be indicative of results or
+developments in subsequent periods.
+Factors that could cause actual results to differ materially from Aramco’s expectations are contained in cautionary statements in this presentation and include, among other things, the following: supply,
+demand and price fluctuations with respect to oil and gas and Aramco’s other products; global economic market conditions; natural disasters and public health pandemics or epidemics (such as COVID-
+19), and weather conditions (including those associated with climate change); risks related to our ability to successfully meet our ESG goals; competition in the industries in which Aramco operates;
+climate change concerns and related impacts on the global demand for hydrocarbons and hydrocarbon-based products; conditions affecting the transportation of products; operational risk and hazards
+common in the oil and gas, refining and petrochemicals industries; the cyclical nature of the oil and gas, refining and petrochemicals industries; terrorism and armed conflict, political and social
+instability and unrest, and actual or potential armed conflicts in the MENA region and other areas; managing Aramco’s growth and risks related to its strategic growth objectives; risks in connection with
+projects under development and recent and future acquisitions and joint ventures, including with respect to SABIC; Aramco’s dependence on the reliability and security of its IT systems; managing
+Aramco’s subsidiaries, joint operations, joint ventures, associates and entities in which it holds a minority interest; Aramco’s exposure to interest rate risk and foreign exchange risk; risks related to
+operating in a regulated industry and changes to oil, gas, environmental or other regulations that impact the industries in which Aramco operates; risks related to litigation, including international trade
+litigation, disputes or agreements; and risks related to the Kingdom; and the risks identified in our latest annual report and interim reports available on our website and filed with the Saudi Exchange. In
+light of these risks, uncertainties and assumptions, the forward-looking events described in this presentation may not occur.
+We undertake no obligation to update or revise any forward-looking statement, whether as a result of new information, future events or otherwise. All subsequent written and oral forward-looking
+statements attributable to us or to persons acting on our behalf are expressly qualified in their entirety by the cautionary statements referred to above and contained elsewhere in this presentation.
+In addition, this presentation includes certain “non‐IFRS financial measures.” These measures are not recognized measures under IFRS and do not have standard meanings prescribed by IFRS. Rather,
+these measures are provided as additional information to complement IFRS measures by providing further understanding of the Company’s results of operations from management’s perspective.
+Accordingly, they should not be considered in isolation or as a substitute for analysis of the Company’s financial information reported under IFRS.
+For a reconciliation to the nearest comparable IFRS measures, see: https://www.aramco.com/-/media/publications/corporate-reports/saudi-aramco-fy-2022-non-ifrs-english.pdf
+Our non‐IFRS financial measures may not be comparable to similarly titled measures presented by other companies.
+Saudi Aramco FY 2022 Results | 2‹#›
+Saudi Aramco: Company General Use
+
+--- Page 3 ---
+Amin Nasser
+President & CEO
+Saudi Aramco FY 2022 Results | ‹#›
+Saudi Aramco: Company General Use
+
+--- Page 4 ---
+Aramco: delivering on its advantaged position
+• 2022 net income of $161bn and free cash flow of $149bn,
+both records since IPO
+• Increased production, maintained flexibility and reliability through
+changing market conditions
+• Executing largest capital expenditure program in our history with
+key milestones on track
+• Continued financial discipline and strengthened balance sheet
+• Confident in mid to long‐term oil demand
+• Progressing a practical and orderly energy transition
+SSSaaauuudddiii AAArrraaammmcccooo FFFYYY 222000222222 RRReeesssuuullltttsss ||| 4‹4#›
+Saudi Aramco: Company General Use
+
+--- Page 5 ---
+Oil demand expected to grow despite macro downside risks
+US inflation rate1 World GDP growth2 Oil demand3 Brent oil price2
+(year-on-year) (Real, year-on-year) (mmbpd)4 ($/bbl)
+Inflation is easing, Economic growth forecasts Oil demand still expected Oil price volatility
+but remains high being revised down to grow continues
+10% 8% 105 140
+101.9
+100.5
+6.2 100.0
+120
+97.7
+100
+4% 3.4 China
+91.5
+6.1% 2.8 2.9
+2.4 80
+60
+0%
+40
+Rest of World
+20
+(3.0)
+0% -4% 70 0
+17897 18097 18297 18497 18697 18897 19097 19297 19497 19697
+2019 ‘20 ‘21 ‘22 2023 2019 ‘20 ‘21 ‘22 2023 2019 ‘20 ‘21 ‘22 2023 2019 ‘20 ‘21 ‘22 2023
+forecast
+forecast
+Forecasts: July 2022 March 2023
+1. Source: U.S. Bureau of Labor Statistics
+2. Source: Bloomberg
+3. Source: IEA
+4. mmbpd = million barrels per day SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 5‹#›
+Saudi Aramco: Company General Use
+
+--- Page 6 ---
+Need for further investment to meet demand
+Natural production decline impacting supply An industry in need of investment
+Oil supply outlook1 (mmbpd)2 Global oil capital expenditure 4 ($bn)
+120 700
+Demand scenarios3
+600
+100 c.100 mmbpd current
+demand
+Estimated capex
+required to meet expected
+500
+2027 demand
+Historic
+80
+average
+400 capex
+Based on current
+(2010-22)
+committed investment
+Estimated capex
+60
+required to meet
+300
+current demand
+40 200
+2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028
+2016 ‘17 ‘18 ‘19 ‘20 ‘21 ‘22 ‘23 ‘24 ‘25 ‘26 2027 2010 ‘15 ‘20 2027
+Substantial investment required to offset Low-cost, low upstream carbon intensity Upstream investment remains below
+natural decline barrels needed through energy transition required levels
+1. Source: Rystad: includes crude oil, condensate, NGLs, biofuels, refinery gains
+2. mmbpd = million barrels per day
+3. Source: Rystad
+4. Rystad historic capex. 2023-2030 based on IEA global oil capex SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 6‹#›
+Saudi Aramco: Company General Use
+
+--- Page 7 ---
+Sustainably supplying reliable, affordable energy
+Long-term, prudent reservoir
+Investing for technical excellence Enduring competitive advantage
+management
+1
+y
+t
+i
+s
+n
+e
+t
+n )
+e
+I
+o
+n
+b
+o
+/
+b e
+2
+r O
+a
+C
+C
+g
+m k
+(
+a
+56
+e Major oil and gas producers4
+r
+t
+s
+p
+U
+Upstream cost2 Bubble size = reserve life3 (years)
+($/boe)
+Source: Company information, IHS Markit as of October 2022, FactSet as of October 2022. Note: Bubble size 3. Based on proven reserves (as of 31 December 2021) divided by annual production for 2021. For Aramco, based on proven
+denotes magnitude of reserve life in years (for BP, excluding reserves and production attributed to stake in Rosneft) reserves of 253.6 bnboe as of 31 December 2021 (based on the initial 40-year period and 20-year extension of the Concession)
+1. Based on reported 2022 operated upstream carbon intensities for Aramco, and reported 2021 operated divided by annual total hydrocarbon production (12.3 mmboed) for 2021
+upstream carbon intensities for TotalEnergies, Shell, BP, Chevron and ExxonMobil 4. Major oil and gas producers represented by the five largest international oil companies SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 7‹#›
+Saudi Aramco: Company General Use
+2. 2021 upstream lifting costs plus upstream capex
+
+--- Page 8 ---
+Resilient growth strategy to maximize long-term value
+Strategic drivers Growth strategy
+Expanding production capacity to 13mmbpd1 by 2027;
+Crude oil
+leveraging our low-cost, low upstream carbon intensity crude oil
+Industry
+underinvestment
+Expanding gas production by more than 50% by 20302;
+Gas
+further increasing liquids supply
+Global chemicals Enabling and de-risking upstream;
+Downstream
+demand growth long-term goal of liquids-to-chemicals throughput increasing to 4mmbpd
+Low-carbon Developing low-carbon fuels and solutions including hydrogen;
+fuels & solutions aiming to be among global leaders in CCUS3, and investing in renewables
+Energy transition
+Net-zero Interim targets to achieve net-zero ambition by 20504;
+emissions near-zero methane emissions & zero routine flaring by 20305
+Supply chain Robust domestic ecosystem supporting competitiveness
+Localization
+resilience and resilience through iktva6 and Namaat
+Capital
+Market volatility Strong balance sheet enabling investment through cycles
+structure
+1. mmbpd = million barrels per day
+4. Net-zero Scope 1 and Scope 2 greenhouse gas emissions across our wholly-owned operated assets by 2050
+2. Sales gas growth vs. 2021 levels; subject to domestic demand, including Aramco’s low-carbon hydrogen business
+5. Commitment to OGCI near zero upstream methane intensity by 2030, and commitment to World Bank Zero Routine Flaring by 2030
+3. CCUS = Carbon Capture Utilization and Storage
+6. iktva = In-Kingdom Total Value Add initiative
+SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 8‹#›
+Saudi Aramco: Company General Use
+
+--- Page 9 ---
+Oil: growth to capture unique opportunities and generate shareholder value
+Investing in additional capacity Delivering MSC-131
+Aramco MSC1 evolution target (mmbpd)2 (mbpd)2
+25 50 250 300 600 700
+2024 2027 2025 2025 2026 From 2027
+DammaDmammam Berri Marjan Zuluf Safaniya3
+MSC
+13.0 Zuluf
+Marjan
+Safaniya
+MSC
+MSC
+12.0
+Berri
+11.7
+Dammam
+2017 2018-2024 2027
+Lower-cost, lower upstream carbon
+Delivery on track
+intensity barrels
+1. MSC = Maximum Sustainable Capacity
+2. mmbpd = million barrels per day; mbpd = thousand barrels per day
+3. Safaniya currently pending final investment decision; c.350mbpd planned delivery in 2027, with remainder after 2027
+SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 9‹#›
+Saudi Aramco: Company General Use
+
+--- Page 10 ---
+Gas: growth from captive demand, supporting KSA decarbonization
+Significant need for gas Delivering the gas strategy
+Haradh, Hawiyah, Tanajib
+>50% target gas production growth1 by 2030 From
+Conventional
+Compression of 1.3 bscfd raw gas;
+2023
+processing of 3.7 bscfd raw gas4,5
+Jafurah
+From
+Unconventional
+Phased development
+2025
+2 bscfd sales gas6
+Hawiyah Unayzah
+Key demand centers Unlocking additional flexibility From
+Storage
+Optimize system design
+2024
+Up to 2 bscfd natural gas7
+Utilities ~1 mmbpd2 from displacing liquids
+Tanajib
+Replacement of oil-fired power burning by gas switching
+capacity with gas
+Industry & Petrochemicals
+Up to ~1 mmbpd2 of incremental
+Growing consumption enabling blue high-value associated liquids3 Jafurah
+hydrogen exports
+Hawiyah
+Haradh
+Source: Company information 4. Rate is for raw gas processing capacity: 1.3 bscfd relates to Haradh, Hawiyah compression project is progressing towards completion and planned to reach full capacity by 2023.
+1. Sales gas growth vs. 2021 levels; subject to domestic 1.1 bscfd relates to Hawiyah processing capacity expansion expected to be on-stream in 2023. 2.6 bscfd relates to Tanajib Gas Plant additional processing capacity expected by 2025
+demand, including Aramco’s low-carbon hydrogen business 5. bscfd= billion standard cubic feet per day
+2. mmbpd = million barrels per day 6. Rate is for sales gas with full capacity targeted by 2030 SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 1‹#0›
+Saudi Aramco: Company General Use
+3. Subject to production levels 7. Natural gas to be reintroduced into the Master Gas System
+
+--- Page 11 ---
+Downstream: de-risking upstream and balancing our portfolio
+Downstream capturing integration benefits Increasing placement to lower-emission markets
+Crude oil into downstream operations (%) IHS forecast of global refinery output by 2050 (%)
++6 44%
+38%
+Fuel & 72%-78%
+85%
+Others2
+Chemicals 22%-28%
+15%
+Aramco today
+2019 2022 2021 2050¹
+Expansion in strategic markets
+Forward integration: trading, marketing and retail Increasing liquids-to-chemicals throughput to up to 4 mmbpd3,4
+Oil supplied for 2022 is c.1.1x Aramco’s net refining capacity
+Source: Company information, IHS Markit as of October 2022
+1. Chemicals share of refinery output will differ depending on the decarbonisation scenario; an accelerated decarbonisation scenario will result in the highest share of chemicals in refinery output by 2050
+2. Includes fuel oil, naphtha, liquefied petroleum gas (LPG) and asphalt
+3. Liquids-to-chemicals throughput in integrated refining and petrochemical complexes SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 1‹#1›
+Saudi Aramco: Company General Use
+4. mmbpd = million barrels per day
+
+--- Page 12 ---
+Low-carbon energy: supporting a stable energy transition
+Near-term projects
+CCUS Target to capture
+under design leveraging
+Aiming to be a up to 11 mmtCO e1
+2
+unique reservoirs for
+global leader by 2035
+CO sequestration
+2
+Target up to
+Blue Hydrogen World’s first commercial
+11 mmtpa3
+Pioneering the use
+blue ammonia cargo,
+blue ammonia
+of blue hydrogen
+certification and delivery2
+production by 2030
+Renewables
+Target FID5 in 12
+Directly investing Investment in 1.5 GW
+GW net capacity by
+in PIF renewables under development4
+20306
+program
+Source: Company information
+1. mmtCO2e = million metric tons of carbon dioxide equivalent 4. Aramco acquired 30% stake in 1.5 GW Sudair PV solar project in 2021
+2. Coordinated by Aramco, SABIC and Japanese Ministry of Economy, 5. FID = Final Investment Decision
+Trade and Industry –TUV certification received by SABIC Agri-Nutrients 6. Aramco’s share of KSA National Renewable Program 2030 target of 58.7 GW SSSaaauuudddiii AAArrraaammmcccooo FFFYYY 222000222222 RRReeesssuuullltttsss ||| 11‹#22›
+Saudi Aramco: Company General Use
+3. mmtpa = million metric tons per annum
+
+--- Page 13 ---
+Committed to the long-term transition and social responsibility
+Decarbonization targets enabling transition Growing societal value
+Ambition:
+10.7 10.3 -15% c.44% c.63% 70%
+Enabling domestic
+Upstream carbon
+2021 2022 (by 20352 vs. 2018) industry through 2016 2022 Target4
+intensity1
+IKTVA4
+(kgCO e/boe)
+2 Domestic procurement (%)
+Ambition:
+4,700 16
+0.06% 0.05%
+Near Zero
+Methane intensity3 Championing
+(by 2030) Graduates, interns, Training centers
+2020 2021
+(% of marketed talent apprentices hired6 across KSA
+natural gas)
+5.5 4.6 28%
+Flaring Promoting
+2021 2022 Proportion of female hires in 20227
+intensity diversity
+(scf/boe)
+Sustainability goals support creating Committed to growing societal value
+Net-zero5 ambition by 2050
+long-term shareholder value wherever we operate
+Source: Company information 3. Includes wholly-owned in-Kingdom operated assets, SASREF, Motiva and ARLANXEO
+1. Scope 1 and Scope 2 emissions. kg of CO e/boe= kilograms of carbon dioxide equivalent per barrel of oil equivalent 4. IKTVA = In-Kingdom Total Value Add initiative; goal to localize 70% of expenditure for goods and services
+2
+2. Target reduction on Scope 1 and Scope 2 emissions from wholly-owned operated assets relative to 2018 baseline (10.2 kgCO e/boe). 5. Net-zero Scope 1 and Scope 2 greenhouse gas emissions (GHG) by 2050 from wholly-owned operated assets
+2
+The target accounts for anticipated increases in oil production and MSC (Maximum Sustainable Capacity), and the expansion of 6. In 2021 SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 1‹#3›
+Saudi Aramco: Company General Use
+Aramco’s gas business 7. Applies to Saudi Arabian Oil Company
+
+--- Page 14 ---
+Maximizing long-term value: investing in our growing, integrated portfolio
+Producer of choice Reliable, affordable, sustainable
+Supply chain
+Oil
+resilience
+Lower-cost resource Higher-value markets
+MSC-131
+Localization
+Through-cycle
+Gas
+investment
+>50%2 target growth by 2030
+Strong balance sheet
+Where Energy Is Opportunity
+Portfolio
+Integration
+optimization
+Powered by how
+Production assurance
+Unlock value
+Lower-carbon solutions Higher-need consumers
+Net-zero
+Low-carbon
+ambition4
+solutions
+Emissions (by 2050)
+CCUS3, Renewables, H
+2
+Source: Company information
+1. MSC = Maximum Sustainable Capacity
+2. Growth vs. 2021 levels; subject to domestic demand, including from the Company’s low-carbon hydrogen business
+3. CCUS = Carbon Capture, Utilization and Storage SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 1‹#4›
+Saudi Aramco: Company General Use
+4. Net zero scope 1 and scope 2 greenhouse gas emissions across Aramco’s wholly-owned, operated assets
+
+--- Page 15 ---
+Ziad Al-Murshed
+Executive Vice President & CFO
+Saudi Aramco FY 2022 Results | ‹#›
+Saudi Aramco: Company General Use
+
+--- Page 16 ---
+Strategic achievements
+• •
+Expansion of MSC to 13mmbpd on track Joint agreement with Ministry of Energy to construct one
+of world’s largest CCUS hubs in Jubail
+•
+Manifa awarded Upstream Project of the Year at
+•
+SABIC & SASREF received independent certifications for
+2022 Middle East Energy Awards
+Low-carbon blue ammonia and hydrogen production
+Crude oil • Ghawar-1 supercomputer deployed, 2nd largest in fuels & •
+Inaugural partner to MENA1 Voluntary Carbon Market
+MENA1 after Dammam-7 solutions
+•
+$1.5bn sustainability fund created; investing in innovative
+technologies supporting 2050 net-zero ambition
+• •
+Conventional: Haradh & Hawiyah compression 63% local content of supply chain achieved through
+projects started commissioning with full capacity in IKTVA3
+2023; Hawiyah gas plant began commissioning and
+•
+onstream in 2023 Taleed program accelerating growth of SMEs4
+Localization
+• •
+Gas Unconventional: Jafurah gas plant on track Namaat program expansion ongoing; developing a
+resilient and sustainable supply chain
+•
+Gas storage: Hawiyah Unayzah Reservoir Storage
+commenced injection activities
+•
+PKN Orlen transaction completed •
+$20bn deleveraging and $2.2bn saving by partial
+•
+Valvoline global products acquisition completed prepayment of SABIC acquisition
+• Developing new LTC2 complex in China and petrochemical • Proactive debt management optimizing funding costs
+steam cracker in South Korea
+Capital
+Downstream •
+High investment-grade credit rating maintained
+•
+Constructing new petrochemical facility with TotalEnergies structure
+•
+Gas pipeline deal completed, expanding investor base
+•
+SABIC synergies: reached c.$2.2bn; on track for $3bn-$4bn
+per year by 2025 •
+Luberef and Marafiq successfully completed their IPOs
+1. MENA = Middle East and North Africa region
+2. LTC = Liquids-to-Chemicals
+3. IKTVA = In-Kingdom Total Value Add initiative
+4. SME = Small and Medium-sized Enterprises SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 1‹#6›
+Saudi Aramco: Company General Use
+
+--- Page 17 ---
+2022 operational and financial highlights
+Operational Financial
+Hydrocarbon production Net income Capital expenditure
+mmboed1 $Bn $Bn
+13.6 161.1 37.6
+FY 2021: 12.3 FY 2021: 110.0 FY 2021: 31.9
+Supply reliability2 Dividends paid Free cash flow3
+$Bn $Bn
+99.9%
+75.0 148.5
+FY 2021: 99.9% FY 2021: 75.0 FY 2021: 107.5
+Balance sheet
+gearing2,3
+(8)%
+FY 2021: 12%
+1. mmboed = million barrels of oil equivalent per day
+2. Applies to Saudi Aramco Oil Company
+3. Please refer to www.saudiaramco.com/investors for reconciliation of non-IFRS measures
+SSSaaauuudddiii AAArrraaammmcccooo FFFYYY 222000222222 RRReeesssuuullltttsss ||| 1‹1#77›
+Saudi Aramco: Company General Use
+
+--- Page 18 ---
+Financial results: 2022 versus 2021
+$Bn, unless otherwise indicated 2021 2022 Key drivers
+Realized oil prices ($/bbl) 70.5 100.2
+• Higher crude oil prices
+Hydrocarbon production (mmboed1) 12.3 13.6
+• Higher volumes
+Upstream EBIT 200.0 291.3
+• Stronger refining and trading
+Downstream EBIT 16.6 21.1
+margins
+Group net income
+110.0 161.1
+• Non recurring non cash items –
+Capital expenditure 31.9 37.6
+impairments and tax provisions
+2
+Free cash flow 107.5 148.5
+2
+Net debt / (cash) 46.7 (32.7)
+2
+Balance sheet gearing 12% (8)%
+1. mmboed = million barrels of oil equivalent per day
+2. Please refer to www.saudiaramco.com/investors for reconciliation of non-IFRS measures
+SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 1‹#8›
+Saudi Aramco: Company General Use
+
+--- Page 19 ---
+Investing in growth opportunities
+Capex
+($Bn)
+70 Growing until
+around middle of
+decade
+60
+45-55
+Low-cost, low upstream carbon
+50
+intensity advantages at scale
+40 37.6 Advantaged and unique
+0.5
+31.9 opportunities
+30 0.6 7.9
+Growth in oil, gas, liquids-to-
+7.7
+chemicals and low-carbon fuels &
+20
+29.3
+solutions
+23.7
+10
+Capital discipline integral to plans
+0
+Drives long-term free cash flow growth
+2021 2022 2023 2024 +
+Upstream Downstream Corporate Guidance
+SSSaaauuudddiii AAArrraaammmcccooo FFFYYY 222000222222 RRReeesssuuullltttsss ||| 11‹#99›
+Saudi Aramco: Company General Use
+
+--- Page 20 ---
+Confidence in underlying free cash flow
+growth supports progressive dividend
+Growth strategy in oil, gas, downstream and low carbon
+fuels and solutions
+‒ Expected to deliver significant growth in
+sustainable long-term future free cash flow
+Strength of balance sheet
+‒ Protects growth capital spending program
+through cyclical industry downturns
+SSSaaauuudddiii AAArrraaammmcccooo FFFYYY 222000222222 RRReeesssuuullltttsss ||| 2‹2#00›
+Saudi Aramco: Company General Use
+
+--- Page 21 ---
+Delivering shareholder value through the cycle
+Fiscal discipline Financial strength Dividends
+Capex program delivering Maintain discipline and strong Sustainable & progressive
+growth and long-term value investment grade rating dividend policy
+Robust: stress-tested returns Optimize capital structure Cash dividend increase of 4%
+and 1 bonus share issued for
+every 10 shares
+Balance sheet Balanced shareholder
+High returns on capex
+resilience through-cycle returns: growth and yield
+investments
+SSaauuddii AArraammccoo FFYY 22002222 RReessuullttss || 2‹#1›
+Saudi Aramco: Company General Use
+
+--- Page 22 ---
+Questions
+& Answers
+Saudi Aramco FY 2022 Results | ‹#›
+Saudi Aramco: Company General Use

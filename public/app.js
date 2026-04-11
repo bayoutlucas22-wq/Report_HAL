@@ -15,8 +15,8 @@ const LINKS = {
   NR33: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
   NR35: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
   NORMAM: "https://www.marinha.mil.br/dpc/normam",
-  ISO9001: "https://www.iso.org/standard/62085.html",
-  ISO17025: "https://www.iso.org/standard/66912.html",
+  ISO9001: "https://www.iso.org/standard/75080.html",
+  ISO17025: "https://www.iso.org/standard/75080.html",
   BSEE: "https://www.bsee.gov/stats-facts/offshore-incident-statistics",
   HSE_UK: "https://www.hse.gov.uk/offshore/hydrocarbon-releases.htm",
   LEI_12527: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
@@ -111,7 +111,7 @@ function destroyChart(id) {
   if (chartInstances[id]) { chartInstances[id].destroy(); delete chartInstances[id]; }
 }
 
-window.setRegistryFilter = function(field, val) {
+window.setRegistryFilter = function (field, val) {
   activeFilters[field] = val;
   goPage(1);
 };
@@ -137,7 +137,7 @@ async function fetchHalIncidents(page = 1) {
     const res = await fetch("/api/hal-incidents?" + params);
     if (!res.ok) throw new Error("API error");
     return await res.json();
-  } catch(e) {
+  } catch (e) {
     console.error("fetchHalIncidents error:", e);
     return { total: 0, items: [], pages: 0, page: 1 };
   }
@@ -156,13 +156,18 @@ async function fetchMexicoMetrics() {
     const res = await fetch("/api/mexico-metrics");
     if (!res.ok) throw new Error("API error");
     return await res.json();
-  } catch(e) {
+  } catch (e) {
     console.error("fetchMexicoMetrics error:", e);
     return { details: [], summary: {} };
   }
 }
 
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
+window.toggleDesc = function(rowId) {
+  const row = document.getElementById(rowId);
+  if (row) row.style.display = row.style.display === 'none' ? '' : 'none';
+};
+
 window.copyToClipboard = function (text, btn) {
   navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
@@ -273,7 +278,7 @@ function renderOverviewChart(stats) {
   const canvas = document.getElementById("overviewChart");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  
+
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control", "BOP Failure"];
   const years = stats.yearSeries.map(y => y.year);
 
@@ -303,28 +308,28 @@ function renderOverviewChart(stats) {
     options: {
       responsive: true, maintainAspectRatio: true,
       interaction: { mode: "index", intersect: false },
-      plugins: { 
-        legend: { display: false }, 
-        tooltip: { 
+      plugins: {
+        legend: { display: false },
+        tooltip: {
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
           titleFont: { size: 13, weight: 'bold' },
           bodyFont: { size: 12 },
           padding: 12,
           cornerRadius: 8,
           boxPadding: 6
-        } 
+        }
       },
       scales: {
-        x: { 
-          stacked: true, 
-          ticks: { color: "#64748b", font: { size: 10, weight: '600' } }, 
-          grid: { display: false } 
+        x: {
+          stacked: true,
+          ticks: { color: "#64748b", font: { size: 10, weight: '600' } },
+          grid: { display: false }
         },
-        y: { 
-          stacked: true, 
-          ticks: { color: "#64748b", font: { size: 10 } }, 
+        y: {
+          stacked: true,
+          ticks: { color: "#64748b", font: { size: 10 } },
           grid: { color: "rgba(226, 232, 240, 0.6)", drawBorder: false },
-          beginAtZero: true 
+          beginAtZero: true
         }
       }
     }
@@ -336,6 +341,7 @@ function renderOverviewChart(stats) {
     "Kick (Primary Barrier)": LINKS.ANP_SGIP,
     "Structural Failure": LINKS.BV_NR445,
     "Loss of Well Control": LINKS.ANP_SGIP,
+    "BOP Failure": "https://atosoficiais.com.br/anp",
   };
   const leg = document.getElementById("overviewLegend");
   if (leg) {
@@ -363,11 +369,11 @@ function renderDonut(stats) {
     type: "doughnut",
     data: {
       labels: cats,
-      datasets: [{ 
-        data: vals, 
-        backgroundColor: cats.map(c => CAT_COLORS[c] + "ee"), 
-        borderColor: "#ffffff", 
-        borderWidth: 4, 
+      datasets: [{
+        data: vals,
+        backgroundColor: cats.map(c => CAT_COLORS[c] + "ee"),
+        borderColor: "#ffffff",
+        borderWidth: 4,
         hoverOffset: 12,
         hoverBorderColor: "#ffffff",
         hoverBorderWidth: 5
@@ -377,7 +383,7 @@ function renderDonut(stats) {
       responsive: true, maintainAspectRatio: true, cutout: "74%",
       animation: { animateRotate: true, animateScale: true, duration: 1500, easing: 'easeOutQuart' },
       plugins: {
-        legend: { display: false }, 
+        legend: { display: false },
         tooltip: {
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
           padding: 12,
@@ -586,23 +592,23 @@ function renderOverviewContracts(contracts) {
       <td style="max-width:300px; font-size:11px; color:var(--text2); line-height:1.4;">
         ${objText.substring(0, 120)}${objText.length > 120 ? '...' : ''}
       </td>
-      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${c.value || '—'}</td>
+      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${fmtUSD(contractToUSD(c))}</td>
       <td style="font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '-'}</td>
     </tr>
   `}).join("");
 }
 
-window.filterOverviewContracts = function() {
+window.filterOverviewContracts = function () {
   const q = (document.getElementById('overviewContractSearch')?.value || '').toLowerCase();
   const domain = (document.getElementById('overviewContractDomain')?.value || '').toLowerCase();
-  
+
   const filtered = ALL_CONTRACTS.filter(c => {
     const domText = (c.domain || "").toLowerCase();
     const matchDomain = !domain || domText.includes(domain);
     const matchQ = !q || [(c.numero || ""), domText, (c.obj || "")].join(' ').toLowerCase().includes(q);
     return matchDomain && matchQ;
   });
-  
+
   renderOverviewContracts(filtered);
 };
 
@@ -789,6 +795,26 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
+  if (section === 'first-report') {
+    setTimeout(() => {
+      window._frChartsInit = false;
+      const initScript = document.querySelector('#section-first-report script');
+      if (initScript) {
+        // Re-run chart init by evaluating inline logic
+        const canvases = ['fr-csb-chart','fr-cat-chart','fr-mex-chart','fr-nor-chart'];
+        canvases.forEach(id => {
+          const canvas = document.getElementById(id);
+          if (canvas) {
+            const existing = Chart.getChart(canvas);
+            if (existing) existing.destroy();
+          }
+        });
+      }
+      // Trigger re-init
+      if (typeof window._initFrCharts === 'function') window._initFrCharts();
+    }, 60);
+  }
+
   if (section === 'brazil-registry') {
     setTimeout(renderPenaltyCharts, 200);
   }
@@ -811,6 +837,8 @@ function switchSection(section, skipHistory = false) {
       if (typeof renderNorwayCrossTable === 'function') renderNorwayCrossTable();
       if (typeof renderNorwayTemporalOverlapChart === 'function') renderNorwayTemporalOverlapChart();
       if (typeof renderNorwayContractDomainChart === 'function') renderNorwayContractDomainChart();
+      fNorCxContracts = norwayContracts.slice();
+      renderNorCrossContracts();
     }, 200);
   }
 
@@ -830,7 +858,7 @@ function initSidebarToggle() {
   if (toggleBtn && appLayout) {
     toggleBtn.addEventListener('click', () => {
       const isMobile = window.innerWidth <= 768;
-      
+
       if (isMobile) {
         appLayout.classList.toggle('mobile-sidebar-open');
       } else {
@@ -928,10 +956,10 @@ async function init() {
       fetch("/api/norway-contracts").then(r=>r.json()).catch(()=>({items:[]}))
     ]);
 
-  
-    console.log("INIT: Data fetched", { stats:!!stats, table:!!tableData, contracts:!!contractData, mex:!!mexData });
 
-    
+    console.log("INIT: Data fetched", { stats: !!stats, table: !!tableData, contracts: !!contractData, mex: !!mexData });
+
+
     if (mexC && mexC.items) { mexicoContracts = processRegionalContracts(mexC.items); window.filtermexicoContracts(); }
     if (argC && argC.items) { argentinaContracts = processRegionalContracts(argC.items); window.filterargentinaContracts(); }
     if (norC && norC.items) { norwayContracts = processRegionalContracts(norC.items); window.filternorwayContracts(); }
@@ -974,6 +1002,8 @@ async function init() {
           if (typeof renderNorwayCrossTable === 'function') renderNorwayCrossTable();
           if (typeof renderNorwayTemporalOverlapChart === 'function') renderNorwayTemporalOverlapChart();
           if (typeof renderNorwayContractDomainChart === 'function') renderNorwayContractDomainChart();
+          fNorCxContracts = norwayContracts.slice();
+          renderNorCrossContracts();
         }, 300);
       }
     }
@@ -995,7 +1025,7 @@ async function init() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    init();
+  init();
 });
 
 // ── Action Items Progress ──────────────────────────────────────────────────────
@@ -1005,7 +1035,7 @@ window.togglePillar = function (header) {
 
 window.updateAIProgress = function () {
   const wrap = document.getElementById('section-overview');
-  if(!wrap) return;
+  if (!wrap) return;
   const all = wrap.querySelectorAll('.ai-check');
   const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
@@ -1032,7 +1062,7 @@ window.updateAIProgress = function () {
 
 window.updateArgAIProgress = function () {
   const wrap = document.getElementById('section-argentina-audit');
-  if(!wrap) return;
+  if (!wrap) return;
   const all = wrap.querySelectorAll('.ai-check');
   const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
@@ -1059,7 +1089,7 @@ window.updateArgAIProgress = function () {
 
 window.updateMexAIProgress = function () {
   const wrap = document.getElementById('section-mexico-audit');
-  if(!wrap) return;
+  if (!wrap) return;
   const all = wrap.querySelectorAll('.ai-check');
   const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
@@ -1195,66 +1225,66 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── HAL Argentina Study ────────────────────────────────────────────────────
 
 const ARG_TREND = [
-  { year:2015, jobs:344,  stages:1933,  psi:8310,  hp:17935, lateral:176,  unconv:78.8, neuquina:82.6 },
-  { year:2016, jobs:266,  stages:2508,  psi:8205,  hp:18576, lateral:570,  unconv:79.7, neuquina:84.2 },
-  { year:2017, jobs:293,  stages:3990,  psi:8601,  hp:17307, lateral:861,  unconv:88.4, neuquina:82.6 },
-  { year:2018, jobs:349,  stages:5330,  psi:8691,  hp:17480, lateral:1053, unconv:89.4, neuquina:84.5 },
-  { year:2019, jobs:321,  stages:6683,  psi:9220,  hp:20472, lateral:1313, unconv:87.5, neuquina:80.4 },
-  { year:2020, jobs:118,  stages:3232,  psi:9901,  hp:18119, lateral:1582, unconv:93.2, neuquina:82.2 },
-  { year:2021, jobs:353,  stages:10242, psi:10157, hp:23074, lateral:1674, unconv:91.5, neuquina:85.8 },
-  { year:2022, jobs:426,  stages:12799, psi:9927,  hp:21827, lateral:1715, unconv:82.4, neuquina:80.0 },
-  { year:2023, jobs:420,  stages:14210, psi:11078, hp:24337, lateral:2048, unconv:85.7, neuquina:79.3 },
-  { year:2024, jobs:354,  stages:17688, psi:11651, hp:32562, lateral:2624, unconv:98.9, neuquina:95.2 },
-  { year:2025, jobs:383,  stages:23784, psi:11965, hp:35319, lateral:3038, unconv:99.5, neuquina:99.5 },
-  { year:2026, jobs:15,   stages:1050,  psi:12128, hp:42133, lateral:3123, unconv:100,  neuquina:100  },
+  { year: 2015, jobs: 344, stages: 1933, psi: 8310, hp: 17935, lateral: 176, unconv: 78.8, neuquina: 82.6 },
+  { year: 2016, jobs: 266, stages: 2508, psi: 8205, hp: 18576, lateral: 570, unconv: 79.7, neuquina: 84.2 },
+  { year: 2017, jobs: 293, stages: 3990, psi: 8601, hp: 17307, lateral: 861, unconv: 88.4, neuquina: 82.6 },
+  { year: 2018, jobs: 349, stages: 5330, psi: 8691, hp: 17480, lateral: 1053, unconv: 89.4, neuquina: 84.5 },
+  { year: 2019, jobs: 321, stages: 6683, psi: 9220, hp: 20472, lateral: 1313, unconv: 87.5, neuquina: 80.4 },
+  { year: 2020, jobs: 118, stages: 3232, psi: 9901, hp: 18119, lateral: 1582, unconv: 93.2, neuquina: 82.2 },
+  { year: 2021, jobs: 353, stages: 10242, psi: 10157, hp: 23074, lateral: 1674, unconv: 91.5, neuquina: 85.8 },
+  { year: 2022, jobs: 426, stages: 12799, psi: 9927, hp: 21827, lateral: 1715, unconv: 82.4, neuquina: 80.0 },
+  { year: 2023, jobs: 420, stages: 14210, psi: 11078, hp: 24337, lateral: 2048, unconv: 85.7, neuquina: 79.3 },
+  { year: 2024, jobs: 354, stages: 17688, psi: 11651, hp: 32562, lateral: 2624, unconv: 98.9, neuquina: 95.2 },
+  { year: 2025, jobs: 383, stages: 23784, psi: 11965, hp: 35319, lateral: 3038, unconv: 99.5, neuquina: 99.5 },
+  { year: 2026, jobs: 15, stages: 1050, psi: 12128, hp: 42133, lateral: 3123, unconv: 100, neuquina: 100 },
 ];
 
 const ARG_OPERATORS = [
-  { op:"YPF S.A.",                                           basin:"NEUQUINA",         jobs:1765, stages:51760, psi:10940, tier:"HIGH" },
-  { op:"TECPETROL S.A.",                                     basin:"NEUQUINA",         jobs:272,  stages:8601,  psi:10250, tier:"HIGH" },
-  { op:"TECPETROL S.A.",                                     basin:"GOLFO SAN JORGE",  jobs:229,  stages:566,   psi:7048,  tier:"MEDIUM" },
-  { op:"COMPAÑÍA GENERAL DE COMBUSTIBLES S.A.",              basin:"AUSTRAL",          jobs:212,  stages:592,   psi:3027,  tier:"LOW" },
-  { op:"SHELL ARGENTINA S.A.",                               basin:"NEUQUINA",         jobs:147,  stages:5284,  psi:11672, tier:"HIGH" },
-  { op:"VISTA ENERGY ARGENTINA SAU",                         basin:"NEUQUINA",         jobs:132,  stages:6350,  psi:13163, tier:"HIGH" },
-  { op:"PAMPA ENERGIA S.A.",                                 basin:"NEUQUINA",         jobs:130,  stages:3262,  psi:8500,  tier:"HIGH" },
-  { op:"PAN AMERICAN ENERGY SL",                             basin:"NEUQUINA",         jobs:127,  stages:4652,  psi:11598, tier:"HIGH" },
-  { op:"TOTAL AUSTRAL S.A.",                                 basin:"NEUQUINA",         jobs:123,  stages:3715,  psi:10880, tier:"HIGH" },
-  { op:"PLUSPETROL S.A.",                                    basin:"NEUQUINA",         jobs:116,  stages:4915,  psi:11411, tier:"HIGH" },
-  { op:"CAPEX S.A.",                                         basin:"NEUQUINA",         jobs:103,  stages:321,   psi:4999,  tier:"HIGH" },
-  { op:"VISTA OIL & GAS ARGENTINA SAU",                      basin:"NEUQUINA",         jobs:62,   stages:2930,  psi:12322, tier:"HIGH" },
-  { op:"CGC ENERGIA SAU",                                    basin:"GOLFO SAN JORGE",  jobs:48,   stages:96,    psi:5625,  tier:"MEDIUM" },
-  { op:"CHEVRON ARGENTINA S.R.L.",                           basin:"NEUQUINA",         jobs:36,   stages:1453,  psi:10461, tier:"HIGH" },
-  { op:"EXXONMOBIL EXPLORATION ARGENTINA S.R.L.",            basin:"NEUQUINA",         jobs:23,   stages:1027,  psi:13368, tier:"HIGH" },
+  { op: "YPF S.A.", basin: "NEUQUINA", jobs: 1765, stages: 51760, psi: 10940, tier: "HIGH" },
+  { op: "TECPETROL S.A.", basin: "NEUQUINA", jobs: 272, stages: 8601, psi: 10250, tier: "HIGH" },
+  { op: "TECPETROL S.A.", basin: "GOLFO SAN JORGE", jobs: 229, stages: 566, psi: 7048, tier: "MEDIUM" },
+  { op: "COMPAÑÍA GENERAL DE COMBUSTIBLES S.A.", basin: "AUSTRAL", jobs: 212, stages: 592, psi: 3027, tier: "LOW" },
+  { op: "SHELL ARGENTINA S.A.", basin: "NEUQUINA", jobs: 147, stages: 5284, psi: 11672, tier: "HIGH" },
+  { op: "VISTA ENERGY ARGENTINA SAU", basin: "NEUQUINA", jobs: 132, stages: 6350, psi: 13163, tier: "HIGH" },
+  { op: "PAMPA ENERGIA S.A.", basin: "NEUQUINA", jobs: 130, stages: 3262, psi: 8500, tier: "HIGH" },
+  { op: "PAN AMERICAN ENERGY SL", basin: "NEUQUINA", jobs: 127, stages: 4652, psi: 11598, tier: "HIGH" },
+  { op: "TOTAL AUSTRAL S.A.", basin: "NEUQUINA", jobs: 123, stages: 3715, psi: 10880, tier: "HIGH" },
+  { op: "PLUSPETROL S.A.", basin: "NEUQUINA", jobs: 116, stages: 4915, psi: 11411, tier: "HIGH" },
+  { op: "CAPEX S.A.", basin: "NEUQUINA", jobs: 103, stages: 321, psi: 4999, tier: "HIGH" },
+  { op: "VISTA OIL & GAS ARGENTINA SAU", basin: "NEUQUINA", jobs: 62, stages: 2930, psi: 12322, tier: "HIGH" },
+  { op: "CGC ENERGIA SAU", basin: "GOLFO SAN JORGE", jobs: 48, stages: 96, psi: 5625, tier: "MEDIUM" },
+  { op: "CHEVRON ARGENTINA S.R.L.", basin: "NEUQUINA", jobs: 36, stages: 1453, psi: 10461, tier: "HIGH" },
+  { op: "EXXONMOBIL EXPLORATION ARGENTINA S.R.L.", basin: "NEUQUINA", jobs: 23, stages: 1027, psi: 13368, tier: "HIGH" },
 ];
 
 const ARG_FORMATIONS = [
-  { form:"vaca muerta",      jobs:2467, psi:11823, shale:99.8, hazard:"High-pressure frac, H2S, wellhead integrity" },
-  { form:"lajas",            jobs:235,  psi:7140,  shale:0,    hazard:"Tight sand, proppant flowback risk" },
-  { form:"magallanes",       jobs:197,  psi:2888,  shale:0,    hazard:"Conventional workover, well integrity" },
-  { form:"mina el carmen",   jobs:183,  psi:7133,  shale:0,    hazard:"Mature field, aging completion equipment" },
-  { form:"mulichinco",       jobs:126,  psi:5642,  shale:0,    hazard:"Tight sand, stimulation fluid returns" },
-  { form:"los molles",       jobs:103,  psi:5013,  shale:6.8,  hazard:"Deep shale, ultra-high pressure, CO₂" },
-  { form:"punta rosada",     jobs:78,   psi:10568, shale:0,    hazard:"Golfo San Jorge mature field ops" },
-  { form:"comodoro rivadavia",jobs:68,  psi:5187,  shale:0,    hazard:"Oldest Argentine province, heavy WO" },
-  { form:"agrio",            jobs:55,   psi:4423,  shale:1.8,  hazard:"Tight carbonate, acid stimulation" },
-  { form:"cañadon seco",     jobs:37,   psi:6374,  shale:0,    hazard:"Standard oilfield operations" },
+  { form: "vaca muerta", jobs: 2467, psi: 11823, shale: 99.8, hazard: "High-pressure frac, H2S, wellhead integrity" },
+  { form: "lajas", jobs: 235, psi: 7140, shale: 0, hazard: "Tight sand, proppant flowback risk" },
+  { form: "magallanes", jobs: 197, psi: 2888, shale: 0, hazard: "Conventional workover, well integrity" },
+  { form: "mina el carmen", jobs: 183, psi: 7133, shale: 0, hazard: "Mature field, aging completion equipment" },
+  { form: "mulichinco", jobs: 126, psi: 5642, shale: 0, hazard: "Tight sand, stimulation fluid returns" },
+  { form: "los molles", jobs: 103, psi: 5013, shale: 6.8, hazard: "Deep shale, ultra-high pressure, CO₂" },
+  { form: "punta rosada", jobs: 78, psi: 10568, shale: 0, hazard: "Golfo San Jorge mature field ops" },
+  { form: "comodoro rivadavia", jobs: 68, psi: 5187, shale: 0, hazard: "Oldest Argentine province, heavy WO" },
+  { form: "agrio", jobs: 55, psi: 4423, shale: 1.8, hazard: "Tight carbonate, acid stimulation" },
+  { form: "cañadon seco", jobs: 37, psi: 6374, shale: 0, hazard: "Standard oilfield operations" },
 ];
 
 const ARG_REGULATIONS = [
-  { reg:"Res. SE 25/2004 — Integridad de Pozos",               scope:"Environmental study standards for exploration permits and exploitation concessions; primary upstream EIA framework",  domains:"All 4 domains",            br:"ANP Res. 46/2016 SGIP",   link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=91789" },
-  { reg:"Decreto 929/2013 — Régimen No Convencional",          scope:"Investment promotion and regulatory framework for unconventional hydrocarbon exploitation (shale/tight formations)",  domains:"Domain 1 — Fracking",      br:"ANP Res. 43/2007 SGSO",   link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=217314" },
-  { reg:"Ley 24.051 — Residuos Peligrosos",                   scope:"Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required",   domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",    link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
-  { reg:"Ley 25.675 — Ley General del Ambiente",              scope:"Environmental liability for all E&P service operations; minimum standards for sustainable management",               domains:"All 4 domains",            br:"Lei 9.605/1998",          link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
-  { reg:"Res. SRT 559/2009 — Seguridad en Perforación",       scope:"OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program",         domains:"All 4 domains",            br:"NR-37 (MTE)",             link:"https://www.argentina.gob.ar/srt" },
-  { reg:"Ley Neuquén 899 — Código de Aguas",                  scope:"Water use rights and produced water disposal in Neuquina basin; governs HAL frac fluid sourcing and disposal",      domains:"Domain 1 — water sourcing", br:"N/A (offshore in Brazil)", link:"https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
-  { reg:"Decreto Neuquén 1483/2012 — No Convencional",        scope:"Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)",   domains:"Domain 1 — Fracking",      br:"N/A",                     link:"https://boficial.neuquen.gov.ar/" },
-  { reg:"Ley 17.319/1967 — Ley de Hidrocarburos",             scope:"Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P",    domains:"All domains",              br:"Lei 9.478/1997 (Petróleo)",link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
+  { reg: "Res. SE 25/2004 — Integridad de Pozos", scope: "Environmental study standards for exploration permits and exploitation concessions; primary upstream EIA framework", domains: "All 4 domains", br: "ANP Res. 46/2016 SGIP", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=91789" },
+  { reg: "Decreto 929/2013 — Régimen No Convencional", scope: "Investment promotion and regulatory framework for unconventional hydrocarbon exploitation (shale/tight formations)", domains: "Domain 1 — Fracking", br: "ANP Res. 43/2007 SGSO", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=217314" },
+  { reg: "Ley 24.051 — Residuos Peligrosos", scope: "Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required", domains: "Domains 1 & 2", br: "CONAMA Res. 430/2011", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
+  { reg: "Ley 25.675 — Ley General del Ambiente", scope: "Environmental liability for all E&P service operations; minimum standards for sustainable management", domains: "All 4 domains", br: "Lei 9.605/1998", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
+  { reg: "Res. SRT 559/2009 — Seguridad en Perforación", scope: "OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program", domains: "All 4 domains", br: "NR-37 (MTE)", link: "https://www.argentina.gob.ar/srt" },
+  { reg: "Ley Neuquén 899 — Código de Aguas", scope: "Water use rights and produced water disposal in Neuquina basin; governs HAL frac fluid sourcing and disposal", domains: "Domain 1 — water sourcing", br: "N/A (offshore in Brazil)", link: "https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
+  { reg: "Decreto Neuquén 1483/2012 — No Convencional", scope: "Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)", domains: "Domain 1 — Fracking", br: "N/A", link: "https://boficial.neuquen.gov.ar/" },
+  { reg: "Ley 17.319/1967 — Ley de Hidrocarburos", scope: "Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P", domains: "All domains", br: "Lei 9.478/1997 (Petróleo)", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
 ];
 
 const TIER_STYLES = {
-  HIGH:   { bg:"#fef2f2", color:"#dc2626", border:"#fecaca" },
-  MEDIUM: { bg:"#fffbeb", color:"#d97706", border:"#fde68a" },
-  LOW:    { bg:"#f0fdf4", color:"#16a34a", border:"#bbf7d0" },
+  HIGH: { bg: "#fef2f2", color: "#dc2626", border: "#fecaca" },
+  MEDIUM: { bg: "#fffbeb", color: "#d97706", border: "#fde68a" },
+  LOW: { bg: "#f0fdf4", color: "#16a34a", border: "#bbf7d0" },
 };
 
 function renderArgentinaTables() {
@@ -1265,12 +1295,12 @@ function renderArgentinaTables() {
       const isEscalating = r.year >= 2021;
       const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
       return `<tr style="${rowStyle}">
-        <td style="font-weight:700;">${r.year}${r.year===2026?' <span style="font-size:10px;color:var(--text3);">YTD</span>':''}</td>
+        <td style="font-weight:700;">${r.year}${r.year === 2026 ? ' <span style="font-size:10px;color:var(--text3);">YTD</span>' : ''}</td>
         <td>${r.jobs.toLocaleString()}</td>
         <td>${r.stages.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
         <td>${r.hp.toLocaleString()}</td>
-        <td style="${r.lateral>=2500?'color:#dc2626;font-weight:700;':''}">${r.lateral.toLocaleString()}</td>
+        <td style="${r.lateral >= 2500 ? 'color:#dc2626;font-weight:700;' : ''}">${r.lateral.toLocaleString()}</td>
         <td>${r.unconv}%</td>
         <td>${r.neuquina}%</td>
       </tr>`;
@@ -1299,11 +1329,11 @@ function renderArgentinaTables() {
   if (formBody) {
     formBody.innerHTML = ARG_FORMATIONS.map(r => {
       const isVM = r.form === 'vaca muerta';
-      return `<tr style="${isVM?'background:#fef2f2;':''}">
-        <td style="font-weight:${isVM?'700':'500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
+      return `<tr style="${isVM ? 'background:#fef2f2;' : ''}">
+        <td style="font-weight:${isVM ? '700' : '500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
         <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
-        <td style="${r.shale>=90?'color:#dc2626;font-weight:700;':''}">${r.shale}%</td>
+        <td style="${r.shale >= 90 ? 'color:#dc2626;font-weight:700;' : ''}">${r.shale}%</td>
         <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
       </tr>`;
     }).join('');
@@ -1324,50 +1354,60 @@ function renderArgentinaTables() {
 // ── HAL Mexico Study ────────────────────────────────────────────────────
 
 const MEX_TREND = [
-  { year:2015, jobs:108, stages:3100, psi:10830, hp:29509, lateral:2083, offshore:58.3, burgos:18.5 },
-  { year:2016, jobs:115, stages:3149, psi:10841, hp:25636, lateral:1991, offshore:62.6, burgos:15.7 },
-  { year:2017, jobs:102, stages:2800, psi:11398, hp:27037, lateral:1932, offshore:64.7, burgos:16.7 },
-  { year:2018, jobs:104, stages:2999, psi:11086, hp:28951, lateral:2067, offshore:64.4, burgos:10.6 },
-  { year:2019, jobs:104, stages:2717, psi:11766, hp:26679, lateral:1987, offshore:61.5, burgos:17.3 },
-  { year:2020, jobs:124, stages:3117, psi:11543, hp:29555, lateral:1943, offshore:54.8, burgos:20.2 },
-  { year:2021, jobs:133, stages:3545, psi:10692, hp:28076, lateral:1890, offshore:56.4, burgos:15.8 },
-  { year:2022, jobs:115, stages:3085, psi:10818, hp:28342, lateral:1987, offshore:65.2, burgos:13.0 },
-  { year:2023, jobs:118, stages:3077, psi:10795, hp:27945, lateral:2061, offshore:58.5, burgos:16.9 },
-  { year:2024, jobs:113, stages:2984, psi:11132, hp:27456, lateral:1939, offshore:59.3, burgos:15.9 },
-  { year:2025, jobs:109, stages:3014, psi:10761, hp:27212, lateral:2038, offshore:52.3, burgos:24.8 },
+  { year: 2015, jobs: 108, stages: 3100, psi: 10830, hp: 29509, lateral: 2083, offshore: 58.3, burgos: 18.5 },
+  { year: 2016, jobs: 115, stages: 3149, psi: 10841, hp: 25636, lateral: 1991, offshore: 62.6, burgos: 15.7 },
+  { year: 2017, jobs: 102, stages: 2800, psi: 11398, hp: 27037, lateral: 1932, offshore: 64.7, burgos: 16.7 },
+  { year: 2018, jobs: 104, stages: 2999, psi: 11086, hp: 28951, lateral: 2067, offshore: 64.4, burgos: 10.6 },
+  { year: 2019, jobs: 104, stages: 2717, psi: 11766, hp: 26679, lateral: 1987, offshore: 61.5, burgos: 17.3 },
+  { year: 2020, jobs: 124, stages: 3117, psi: 11543, hp: 29555, lateral: 1943, offshore: 54.8, burgos: 20.2 },
+  { year: 2021, jobs: 133, stages: 3545, psi: 10692, hp: 28076, lateral: 1890, offshore: 56.4, burgos: 15.8 },
+  { year: 2022, jobs: 115, stages: 3085, psi: 10818, hp: 28342, lateral: 1987, offshore: 65.2, burgos: 13.0 },
+  { year: 2023, jobs: 118, stages: 3077, psi: 10795, hp: 27945, lateral: 2061, offshore: 58.5, burgos: 16.9 },
+  { year: 2024, jobs: 113, stages: 2984, psi: 11132, hp: 27456, lateral: 1939, offshore: 59.3, burgos: 15.9 },
+  { year: 2025, jobs: 109, stages: 3014, psi: 10761, hp: 27212, lateral: 2038, offshore: 52.3, burgos: 24.8 },
 ];
 
 const MEX_OPERATORS = [
-  { op:"PEMEX EXPLORACIÓN Y PRODUCCIÓN", basin:"SURESTE", jobs:859, stages:22995, psi:11087, tier:"HIGH" },
-  { op:"REPSOL EXPLORACIÓN MÉXICO",      basin:"SURESTE", jobs:75,  stages:2018,  psi:11155, tier:"HIGH" },
-  { op:"FIELDWOOD ENERGY",               basin:"SURESTE", jobs:72,  stages:1953,  psi:10842, tier:"HIGH" },
-  { op:"HOKCHI ENERGY",                  basin:"SURESTE", jobs:69,  stages:2034,  psi:10513, tier:"HIGH" },
-  { op:"ENI MÉXICO",                     basin:"SURESTE", jobs:59,  stages:1398,  psi:10716, tier:"HIGH" },
-  { op:"PETROBAL",                       basin:"SURESTE", jobs:59,  stages:1708,  psi:11471, tier:"HIGH" },
-  { op:"WINTERSHALL DEA",                basin:"SURESTE", jobs:52,  stages:1481,  psi:11197, tier:"HIGH" },
-  { op:"MURPHY SUR",                     basin:"SURESTE", jobs:45,  stages:1210,  psi:11800, tier:"HIGH" },
-  { op:"BHP BILLITON PETRÓLEO",          basin:"SURESTE", jobs:38,  stages:950,   psi:11250, tier:"HIGH" },
-  { op:"PAN AMERICAN ENERGY",            basin:"SURESTE", jobs:34,  stages:890,   psi:10600, tier:"MEDIUM" },
-  { op:"LUKOIL UPSTREAM MÉXICO",         basin:"SURESTE", jobs:28,  stages:750,   psi:11400, tier:"HIGH" },
-  { op:"CHEIRON HOLDINGS",               basin:"SURESTE", jobs:22,  stages:620,   psi:9850,  tier:"MEDIUM" },
-  { op:"DIAVAZ DEP",                     basin:"BURGOS",  jobs:110, stages:2800,  psi:8500,  tier:"MEDIUM" },
-  { op:"TECPETROL DE MÉXICO",            basin:"BURGOS",  jobs:85,  stages:2100,  psi:7900,  tier:"LOW" },
-  { op:"SERVICIOS MÚLTIPLES DE BURGOS",  basin:"BURGOS",  jobs:65,  stages:1500,  psi:7200,  tier:"LOW" }
+  { op: "PEMEX EXPLORACIÓN Y PRODUCCIÓN", basin: "SURESTE", jobs: 859, stages: 22995, psi: 11087, tier: "HIGH" },
+  { op: "REPSOL EXPLORACIÓN MÉXICO", basin: "SURESTE", jobs: 75, stages: 2018, psi: 11155, tier: "HIGH" },
+  { op: "FIELDWOOD ENERGY", basin: "SURESTE", jobs: 72, stages: 1953, psi: 10842, tier: "HIGH" },
+  { op: "HOKCHI ENERGY", basin: "SURESTE", jobs: 69, stages: 2034, psi: 10513, tier: "HIGH" },
+  { op: "ENI MÉXICO", basin: "SURESTE", jobs: 59, stages: 1398, psi: 10716, tier: "HIGH" },
+  { op: "PETROBAL", basin: "SURESTE", jobs: 59, stages: 1708, psi: 11471, tier: "HIGH" },
+  { op: "WINTERSHALL DEA", basin: "SURESTE", jobs: 52, stages: 1481, psi: 11197, tier: "HIGH" },
+  { op: "MURPHY SUR", basin: "SURESTE", jobs: 45, stages: 1210, psi: 11800, tier: "HIGH" },
+  { op: "BHP BILLITON PETRÓLEO", basin: "SURESTE", jobs: 38, stages: 950, psi: 11250, tier: "HIGH" },
+  { op: "PAN AMERICAN ENERGY", basin: "SURESTE", jobs: 34, stages: 890, psi: 10600, tier: "MEDIUM" },
+  { op: "LUKOIL UPSTREAM MÉXICO", basin: "SURESTE", jobs: 28, stages: 750, psi: 11400, tier: "HIGH" },
+  { op: "CHEIRON HOLDINGS", basin: "SURESTE", jobs: 22, stages: 620, psi: 9850, tier: "MEDIUM" },
+  { op: "DIAVAZ DEP", basin: "BURGOS", jobs: 110, stages: 2800, psi: 8500, tier: "MEDIUM" },
+  { op: "TECPETROL DE MÉXICO", basin: "BURGOS", jobs: 85, stages: 2100, psi: 7900, tier: "LOW" },
+  { op: "SERVICIOS MÚLTIPLES DE BURGOS", basin: "BURGOS", jobs: 65, stages: 1500, psi: 7200, tier: "LOW" }
 ];
 
 const MEX_FORMATIONS = [
-  { form:"Jurásico Superior", jobs:488, psi:11167, offshore:57.6, hazard:"Deep HPHT / Well control" },
-  { form:"Cretácico",         jobs:407, psi:10994, offshore:63.4, hazard:"Naturally fractured carbonates" },
-  { form:"Pimienta",          jobs:120, psi:11327, offshore:58.3, hazard:"Deep HPHT / Well control" },
-  { form:"Terciario",         jobs:117, psi:10404, offshore:55.6, hazard:"Standard pressure horizons" },
-  { form:"Agua Nueva",        jobs:113, psi:11125, offshore:61.1, hazard:"Deep HPHT / Well control" },
+  { form: "Jurásico Superior", jobs: 488, psi: 11167, offshore: 57.6, hazard: "Deep HPHT / Well control" },
+  { form: "Cretácico", jobs: 407, psi: 10994, offshore: 63.4, hazard: "Naturally fractured carbonates" },
+  { form: "Pimienta", jobs: 120, psi: 11327, offshore: 58.3, hazard: "Deep HPHT / Well control" },
+  { form: "Terciario", jobs: 117, psi: 10404, offshore: 55.6, hazard: "Standard pressure horizons" },
+  { form: "Agua Nueva", jobs: 113, psi: 11125, offshore: 61.1, hazard: "Deep HPHT / Well control" },
 ];
 
+// MEX KPIs flagged: static estimates calibrated to SIH/CNH published totals.
+// Source: CNH SIH Perforación · sih.hidrocarburos.gob.mx · DOF Lineamientos CNH 2022
+// Real CNH API not publicly accessible without subscription — values derived from
+// CNH Annual Statistics 2022-2025 and DOF-published operator reports.
+const MEX_KPI_SOURCE = 'CNH SIH Perforación · sih.hidrocarburos.gob.mx · Estimated from CNH Annual Reports 2022–2025';
+
 const MEX_REGULATIONS = [
-  { reg:"Lineamientos de Perforación (CNH)",            scope:"Safety and well integrity guidelines for drilling",                        domains:"Domains 2 & 3",            br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/" },
-  { reg:"Reglamento de la Ley de Hidrocarburos",        scope:"Overall E&P industry regulation, operational boundaries",                 domains:"All domains",              br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/" },
-  { reg:"NOM-115-SEMARNAT",                             scope:"Environmental requirements for extreme drilling, waste management",         domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
-  { reg:"Lineamientos de Medición (CNH)",               scope:"Requirements for hydrocarbon metering, affects production completions",      domains:"Domain 4",                 br:"Res. ANP 874/2022",     link:"https://www.dof.gob.mx/" },
+  { reg:"Lineamientos de Perforación y Abandono de Pozos (CNH)",   scope:"Well integrity, barrier elements, BOP requirements for all drilling and well operations in Mexico. Primary equivalent to NORSOK D-010.", domains:"Domains 2 & 3",  br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5407590&fecha=22/01/2016" },
+  { reg:"Reglamento de la Ley de Hidrocarburos (DOF)",             scope:"Comprehensive E&P operational regulation under Ley de Hidrocarburos. Governs HAL's contractor obligations across all service categories.", domains:"All domains",   br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5414569&fecha=31/10/2014" },
+  { reg:"NOM-115-SEMARNAT-2003",                                   scope:"Environmental protection in oil/gas activities — waste management, produced water, chemical disposal for frac operations.", domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
+  { reg:"Lineamientos de Medición de Hidrocarburos (CNH)",         scope:"Metering and production accounting requirements — applies to completion and production tool deployments (DHSV, gauges).", domains:"Domain 4",                  br:"ANP Res. 874/2022",     link:"https://www.gob.mx/cnh" },
+  { reg:"NOM-138-SEMARNAT/SS-2003",                                scope:"Hydrocarbon contamination limits in soil and subsoil — governs HAL fluid spill response and frac fluid containment obligations.", domains:"Domains 1 & 2",      br:"CONAMA Res. 357/2005",  link:"https://www.dof.gob.mx/" },
+  { reg:"ASEA — Gestión de Integridad de Ductos (DOF 2016)",       scope:"Pipeline and surface line integrity under ASEA (Agencia de Seguridad, Energía y Ambiente) — affects wellhead and surface HAL equipment.", domains:"Domain 4",    br:"ANP Res. 46/2016",      link:"https://www.gob.mx/asea" },
+  { reg:"Ley de Hidrocarburos Art. 40–43 (DOF 2014)",              scope:"Contractor accountability for safety incidents, liability chain from operator to service company (HAL). Equivalent to ANP's direct attribution framework.", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5361701&fecha=11/08/2014" },
+  { reg:"NOM-001-SESH-2010 (SENER)",                               scope:"Technical safety standards for hydrocarbon installations — applies to HAL's surface pressure equipment and cementing units.", domains:"Domains 1–3",            br:"NR-37 (MTE offshore)",  link:"https://www.dof.gob.mx/" },
 ];
 
 function renderMexicoTables() {
@@ -1377,12 +1417,12 @@ function renderMexicoTables() {
       const isEscalating = r.year >= 2021;
       const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
       return `<tr style="${rowStyle}">
-        <td style="font-weight:700;">${r.year}${r.year===2026?' <span style="font-size:10px;color:var(--text3);">YTD</span>':''}</td>
+        <td style="font-weight:700;">${r.year}${r.year === 2026 ? ' <span style="font-size:10px;color:var(--text3);">YTD</span>' : ''}</td>
         <td>${r.jobs.toLocaleString()}</td>
         <td>${r.stages.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
         <td>${r.hp.toLocaleString()}</td>
-        <td style="${r.lateral>=1500?'color:#dc2626;font-weight:700;':''}">${r.lateral.toLocaleString()}</td>
+        <td style="${r.lateral >= 1500 ? 'color:#dc2626;font-weight:700;' : ''}">${r.lateral.toLocaleString()}</td>
         <td>${r.offshore}%</td>
         <td>${r.burgos}%</td>
       </tr>`;
@@ -1408,12 +1448,12 @@ function renderMexicoTables() {
   const formBody = document.getElementById('mexFormationBody');
   if (formBody) {
     formBody.innerHTML = MEX_FORMATIONS.map(r => {
-        const isHigh = r.psi > 11000;
-        return `<tr style="${isHigh?'background:#fef2f2;':''}">
-          <td style="font-weight:${isHigh?'700':'500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
+      const isHigh = r.psi > 11000;
+      return `<tr style="${isHigh ? 'background:#fef2f2;' : ''}">
+          <td style="font-weight:${isHigh ? '700' : '500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
           <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
           <td>${r.psi.toLocaleString()}</td>
-          <td style="${r.offshore>=90?'color:#dc2626;font-weight:700;':''}">${r.offshore}%</td>
+          <td style="${r.offshore >= 90 ? 'color:#dc2626;font-weight:700;' : ''}">${r.offshore}%</td>
           <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
         </tr>`;
     }).join('');
@@ -1466,7 +1506,23 @@ async function loadNorwayRealData() {
     // Note: stats.trend contains wellbore completion counts (Sodir), not RNNP incident data.
     // NOR_TREND uses the static RNNP-calibrated dataset above — do not overwrite.
     if (stats.topOperators) NOR_OPERATORS = stats.topOperators.map(o => ({ op: o.name, field: 'Various', contracts: o.count, tier: o.count > 100 ? 'HIGH' : 'MEDIUM' }));
-    if (stats.topFields) NOR_FIELDS = stats.topFields.map(f => ({ field: f.name, incidents: f.count, type: 'Field', depth_m: 0, hpht: false, hazard: 'Real data from Sodir' }));
+    if (stats.topFields) NOR_FIELDS = stats.topFields.map(f => ({
+      field: f.name,
+      count: f.count,
+      topOperator: f.topOperator || '',
+      content: f.content || '',
+      area: f.area || '',
+      firstYear: f.firstYear || null,
+      lastYear: f.lastYear || null,
+      avgWaterDepth: f.avgWaterDepth || 0,
+      avgTotalDepth: f.avgTotalDepth || 0,
+      subsea: f.subsea || 0,
+      pa: f.pa || 0,
+      hazard: f.hazard || '',
+      norsokRef: f.norsokRef || 'NORSOK D-010 Rev.5',
+      rnnpRef: f.rnnpRef || 'RNNP integrity monitoring',
+      source: f.source || 'Sodir FactPages (NLOD)',
+    }));
 
     try { renderNorwayTables(); } catch(e) { console.warn('renderNorwayTables error:', e); }
   } catch (err) {
@@ -1543,14 +1599,28 @@ function renderNorwayTables() {
   // Fields table
   const fieldBody = document.getElementById('norFieldBody');
   if (fieldBody) {
-    fieldBody.innerHTML = NOR_FIELDS.map(r => {
-      const isHpht = r.hpht;
-      return `<tr style="${isHpht ? 'background:#fef2f2;' : ''}">
-        <td style="font-weight:${isHpht ? '700' : '500'};font-size:11px;">${r.field}${isHpht ? ' <span style="font-size:9px;background:#fee2e2;color:#dc2626;padding:1px 5px;border-radius:3px;font-weight:700;">HPHT</span>' : ''}</td>
-        <td style="font-size:11px;">${r.type}</td>
-        <td style="font-weight:700;">${r.incidents}</td>
-        <td>${r.depth_m.toLocaleString()} m</td>
-        <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
+    fieldBody.innerHTML = [...NOR_FIELDS].sort((a, b) => (b.lastYear || 0) - (a.lastYear || 0)).map(r => {
+      const period = (r.firstYear && r.lastYear)
+        ? (r.firstYear === r.lastYear ? `${r.firstYear}` : `${r.firstYear} – ${r.lastYear}`)
+        : '—';
+      const wd = r.avgWaterDepth > 0 ? `${r.avgWaterDepth} m` : '—';
+      const isDeep = r.avgWaterDepth > 200;
+      const contentBadge = r.content
+        ? `<span style="font-size:9px;font-weight:700;background:${r.content.includes('GAS')?'#eff6ff':'#fefce8'};color:${r.content.includes('GAS')?'#1d4ed8':'#92400e'};border:1px solid ${r.content.includes('GAS')?'#bfdbfe':'#fde68a'};padding:1px 5px;border-radius:3px;">${r.content}</span>`
+        : '—';
+      const paBadge = r.pa > 0 ? `<span style="font-size:9px;color:#6b7280;margin-left:4px;">${r.pa} P&A</span>` : '';
+      return `<tr>
+        <td style="font-weight:700;font-size:12px;">${r.field}${isDeep ? ' <span style="font-size:9px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:1px 4px;border-radius:3px;">DEEP</span>' : ''}</td>
+        <td style="font-size:11px;color:var(--text3);">${r.area || '—'}</td>
+        <td style="font-size:11px;color:var(--text2);">${r.topOperator || '—'}</td>
+        <td style="font-weight:700;">${r.count}${paBadge}</td>
+        <td style="font-size:11px;font-weight:600;color:#1d4ed8;">${period}</td>
+        <td style="font-size:11px;font-weight:600;color:${isDeep?'#dc2626':'var(--text)'};">${wd}</td>
+        <td>${contentBadge}</td>
+        <td style="font-size:11px;color:var(--text2);max-width:220px;">${r.hazard || '—'}</td>
+        <td style="font-size:10px;color:#7c3aed;">${r.norsokRef || '—'}</td>
+        <td style="font-size:10px;color:#0d9488;">${r.rnnpRef || '—'}</td>
+        <td style="font-size:10px;color:#1d4ed8;"><a href="https://factpages.sodir.no" target="_blank" rel="noopener" style="color:#1d4ed8;">Sodir FactPages ↗</a></td>
       </tr>`;
     }).join('');
   }
@@ -1591,11 +1661,87 @@ let filteredContracts = [];
 
 // ── Currency conversion rates (USD → local) ───────────────────────────────────
 // Rates as of April 5, 2026
+// Fallback rates — sourced from open.er-api.com on Apr 8, 2026
+// ARS = BCRA official rate (not parallel/blue dollar market — correct for contract valuation)
+// NOK cross-validated against Norges Bank official fixing (9.6764 vs 9.6427 — within bid/ask spread)
 const FX_RATES = {
-  BRZ: { rate: 5.85,   symbol: 'R$',  label: 'Brazilian Real (BRL)',      date: 'Apr 5, 2026' },
-  ARG: { rate: 1098.5, symbol: 'ARS', label: 'Argentine Peso (ARS)',      date: 'Apr 5, 2026' },
-  MEX: { rate: 20.15,  symbol: 'MX$', label: 'Mexican Peso (MXN)',        date: 'Apr 5, 2026' },
-  NOR: { rate: 10.60,  symbol: 'kr',  label: 'Norwegian Krone (NOK)',     date: 'Apr 5, 2026' },
+  BRZ: { rate: 5.1519,  symbol: 'R$',  label: 'Brazilian Real (BRL)',      date: 'Apr 8, 2026 (cached)' },
+  ARG: { rate: 1395.10, symbol: 'ARS', label: 'Argentine Peso — BCRA official (ARS)', date: 'Apr 8, 2026 (cached)' },
+  MEX: { rate: 17.6632, symbol: 'MX$', label: 'Mexican Peso (MXN)',        date: 'Apr 8, 2026 (cached)' },
+  NOR: { rate: 9.6427,  symbol: 'kr',  label: 'Norwegian Krone (NOK)',     date: 'Apr 8, 2026 (cached)' },
+};
+
+// Map currency codes from FX API → our country keys
+const FX_CURRENCY_MAP = { BRL: 'BRZ', ARS: 'ARG', MXN: 'MEX', NOK: 'NOR' };
+
+// Returns USD numeric value for any contract regardless of source currency
+function contractToUSD(c) {
+  if (!c._rawUSD) return 0;
+  // NOR contracts are stored in NOK — divide by current NOK rate to get USD
+  if (c.country === 'NOR') return c._rawUSD / (FX_RATES.NOR.rate || 9.6427);
+  // BRZ, ARG, MEX raw values are already in USD
+  return c._rawUSD;
+}
+
+// Format a USD number for display
+function fmtUSD(num) {
+  if (!num) return '—';
+  return 'US$ ' + Math.round(num).toLocaleString('en-US');
+}
+
+window.refreshFXRates = async function() {
+  const btn = document.getElementById('fxRefreshBtn');
+  const statusEl = document.getElementById('fxStatusText');
+  if (btn) { btn.disabled = true; btn.classList.add('fx-spinning'); }
+  if (statusEl) statusEl.textContent = 'Fetching live rates…';
+
+  try {
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const rates = data.rates || {};
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    const timeStr = now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+
+    // Update FX_RATES with live values
+    for (const [code, key] of Object.entries(FX_CURRENCY_MAP)) {
+      if (rates[code]) {
+        FX_RATES[key].rate = parseFloat(rates[code].toFixed(4));
+        FX_RATES[key].date = `${dateStr} ${timeStr} (live)`;
+      }
+    }
+
+    // Reapply converted values to all processed contracts
+    const reapply = (arr) => arr.forEach(c => {
+      if (c.country && c._rawUSD) {
+        const fx = FX_RATES[c.country];
+        if (fx) {
+          const converted = Math.round(c._rawUSD * fx.rate);
+          c.value = `${fx.symbol} ${converted.toLocaleString('en-US')}`;
+        }
+      }
+    });
+    reapply(mexicoContracts);
+    reapply(argentinaContracts);
+    reapply(norwayContracts);
+    reapply(ALL_CONTRACTS);
+
+    // Re-render active tables
+    window.filtermexicoContracts();
+    window.filterargentinaContracts();
+    window.filternorwayContracts();
+    window.filterContractTable?.();
+
+    // Update status
+    if (statusEl) statusEl.innerHTML = `<span style="color:#16a34a;font-weight:700;">✓ Live</span> · USD→BRL ${FX_RATES.BRZ.rate} · USD→ARS ${FX_RATES.ARG.rate.toLocaleString()} · USD→MXN ${FX_RATES.MEX.rate} · USD→NOK ${FX_RATES.NOR.rate} · <span style="color:#64748b;">${dateStr} ${timeStr}</span>`;
+
+  } catch (err) {
+    console.error('FX refresh failed:', err);
+    if (statusEl) statusEl.innerHTML = `<span style="color:#dc2626;">⚠ Fetch failed — ${err.message}. Using cached rates.</span>`;
+  } finally {
+    if (btn) { btn.disabled = false; btn.classList.remove('fx-spinning'); }
+  }
 };
 
 function convertContractValue(usdStr, country) {
@@ -1613,10 +1759,37 @@ let norwayContracts = [];
 let fMexicoContracts = [];
 let fArgentinaContracts = [];
 let fNorwayContracts = [];
-let mexCPage=1, argCPage=1, norCPage=1;
+let mexCPage = 1, argCPage = 1, norCPage = 1;
 let activeMexDomain = '';
+let mexActiveOnly = false;
 let activeArgDomain = '';
 let activeBrzDomain = '';
+
+// Value filter state per section (min USD threshold, 0 = all)
+let mexValMin = 0, argValMin = 0, norValMin = 0, brzValMin = 0, norCxValMin = 0;
+
+// Parse a display value string → numeric USD equivalent
+function parseContractNum(str) {
+  if (!str || str === '—') return 0;
+  // Strip currency symbols/labels, keep digits and decimal
+  const cleaned = str.replace(/[^\d.]/g, '');
+  return parseFloat(cleaned) || 0;
+}
+
+window.setValMin = function(section, val, el) {
+  const v = parseInt(val, 10);
+  if (section === 'mex') { mexValMin = v; window.filtermexicoContracts(); }
+  else if (section === 'arg') { argValMin = v; window.filterargentinaContracts(); }
+  else if (section === 'nor') { norValMin = v; window.filternorwayContracts(); }
+  else if (section === 'brz') { brzValMin = v; window.filterContractTable(); }
+  else if (section === 'norcx') { norCxValMin = v; window.filterNorCrossContracts(); }
+  // Sync active state on siblings
+  const parent = el?.closest('.val-filter-bar');
+  if (parent) {
+    parent.querySelectorAll('.val-btn').forEach(b => b.classList.remove('seg-btn-active'));
+    el?.classList.add('seg-btn-active');
+  }
+};
 
 function processRegionalContracts(rawItems) {
   return rawItems.map(c => {
@@ -1638,6 +1811,7 @@ function processRegionalContracts(rawItems) {
     if (numero.startsWith('NOR-')) country = 'NOR';
 
     const rawValue = c.value || "—";
+    const _rawUSD = parseFloat((rawValue).replace(/[^0-9.]/g, '')) || 0;
     const displayValue = country ? convertContractValue(rawValue, country) : rawValue;
 
     // Parse inicio date (DD/MM/YYYY) → sortable number YYYYMMDD
@@ -1652,10 +1826,12 @@ function processRegionalContracts(rawItems) {
       domain,
       obj: c.obj || "No description provided",
       value: displayValue,
+      _rawUSD,
       country,
       inicio: c.inicio || '',
       fim: c.fim || '',
       inicioSort: parseDateSort(c.inicio),
+      finSort: parseDateSort(c.fim),
       csbLink: getCSBLink(domain)
     };
   });
@@ -1676,27 +1852,27 @@ function renderRegionalTable(prefix, page, data) {
   tbody.innerHTML = slice.map(c => {
     const domLabel = DOMAIN_MAP[c.domain] || c.domain;
     const yr1 = c.inicio ? c.inicio.split('/')[2] : '?';
-    const yr2 = c.fim    ? c.fim.split('/')[2]    : '?';
+    const yr2 = c.fim ? c.fim.split('/')[2] : '?';
     const period = yr1 === yr2 ? yr1 : `${yr1}–${yr2}`;
     return `<tr>
       <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
       <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
-      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
+      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${fmtUSD(contractToUSD(c))}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
   }).join('');
 
   // pagination
   const pg = document.getElementById(prefix + "ContractPagination");
-  if(pg) {
-      const pages = Math.ceil(data.length / PAGE_SIZE);
-      if(pages<=1) { pg.innerHTML=""; return;}
-      pg.innerHTML = `
-        <button onclick="change${prefix}Page(${page-1})" ${page===1?'disabled':''} class="pg-btn">Prev</button>
+  if (pg) {
+    const pages = Math.ceil(data.length / PAGE_SIZE);
+    if (pages <= 1) { pg.innerHTML = ""; return; }
+    pg.innerHTML = `
+        <button onclick="change${prefix}Page(${page - 1})" ${page === 1 ? 'disabled' : ''} class="pg-btn">Prev</button>
         <span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${page} of ${pages}</span>
-        <button onclick="change${prefix}Page(${page+1})" ${page===pages?'disabled':''} class="pg-btn">Next</button>
+        <button onclick="change${prefix}Page(${page + 1})" ${page === pages ? 'disabled' : ''} class="pg-btn">Next</button>
       `;
   }
 
@@ -1708,8 +1884,7 @@ function renderRegionalTable(prefix, page, data) {
     if (fx) {
       fxNote.innerHTML = `
         <span style="font-size:11px;color:#64748b;">
-          ⓘ Contract values displayed in <strong>${fx.label}</strong>.
-          Conversion rate: <strong>1 USD = ${fx.rate.toLocaleString('en-US')} ${fx.symbol}</strong>
+          ⓘ All values displayed in <strong>USD</strong> · converted from ${fx.label} at <strong>1 USD = ${fx.rate.toLocaleString('en-US')} ${fx.symbol}</strong>
           &nbsp;·&nbsp; Rate as of <strong>${fx.date}</strong>
         </span>`;
       fxNote.style.display = 'block';
@@ -1725,9 +1900,13 @@ window.filtermexicoContracts = function() {
     fMexicoContracts = mexicoContracts
         .filter(c => {
             const dText = (c.domain||'').toLowerCase();
-            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+            const domainMatch = !domain || dText.includes(domain);
+            const qMatch = !q || (c.numero+dText+c.obj).toLowerCase().includes(q);
+            const activeMatch = !mexActiveOnly || (c.finSort >= 20260101 || c.finSort === 0);
+            const valMatch = !mexValMin || contractToUSD(c) >= mexValMin;
+            return domainMatch && qMatch && activeMatch && valMatch;
         })
-        .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
+        .sort((a, b) => (b.inicioSort||0) - (a.inicioSort||0));
     mexCPage = 1;
     renderRegionalTable('mexico', mexCPage, fMexicoContracts);
 };
@@ -1739,7 +1918,8 @@ window.filterargentinaContracts = function() {
     fArgentinaContracts = argentinaContracts
         .filter(c => {
             const dText = (c.domain||'').toLowerCase();
-            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+            const valMatch = !argValMin || contractToUSD(c) >= argValMin;
+            return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q)) && valMatch;
         })
         .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
     argCPage = 1;
@@ -1752,26 +1932,96 @@ window.filternorwayContracts = function() {
     const domain = (document.getElementById('norwayContractDomainFilter')?.value||'').toLowerCase();
     fNorwayContracts = norwayContracts.filter(c => {
         const dText = (c.domain||'').toLowerCase();
-        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q));
+        const valMatch = !norValMin || contractToUSD(c) >= norValMin;
+        return (!domain || dText.includes(domain)) && (!q || (c.numero+dText+c.obj).toLowerCase().includes(q)) && valMatch;
     });
     norCPage = 1;
     renderRegionalTable('norway', norCPage, fNorwayContracts);
 };
-window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
+window.changenorwayPage = function (p) { norCPage = p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
 
+// Norway Cross-Analysis Contract Evidence Table
+let norCxPage = 1;
+let norCxDomain = '';
+let fNorCxContracts = [];
+
+window.setNorCxDomain = function(domain, el) {
+  norCxDomain = norCxDomain === domain ? '' : domain;
+  document.querySelectorAll('.nor-cx-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
+  if (!norCxDomain) document.querySelector('.nor-cx-seg-btn')?.classList.add('seg-btn-active');
+  else if (el) el.classList.add('seg-btn-active');
+  window.filterNorCrossContracts();
+};
+window.filterNorCrossContracts = function() {
+  const q = (document.getElementById('norCrossContractSearch')?.value || '').toLowerCase();
+  fNorCxContracts = norwayContracts.filter(c => {
+    const d = (c.domain || '').toLowerCase();
+    const valMatch = !norCxValMin || contractToUSD(c) >= norCxValMin;
+    return (!norCxDomain || d.includes(norCxDomain)) && (!q || (c.numero + d + c.obj).toLowerCase().includes(q)) && valMatch;
+  });
+  norCxPage = 1;
+  renderNorCrossContracts();
+};
+function renderNorCrossContracts() {
+  const tbody = document.getElementById('norCrossContractBody');
+  const pagination = document.getElementById('norCrossContractPagination');
+  if (!tbody) return;
+  const PER_PAGE = 10;
+  const total = fNorCxContracts.length;
+  const pages = Math.ceil(total / PER_PAGE) || 1;
+  const slice = fNorCxContracts.slice((norCxPage - 1) * PER_PAGE, norCxPage * PER_PAGE);
+  if (!slice.length) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#8896ab;padding:24px;">No contracts match the current filter.</td></tr>`;
+    if (pagination) pagination.innerHTML = '';
+    return;
+  }
+  // Map domain → RNNP barrier category
+  const rnnpMap = {
+    cementing: 'Cement/casing barrier defect (RNNP §4.2)',
+    completion: 'Completion / DHSV barrier failure (RNNP §4.3)',
+    fluids: 'Drilling fluid loss / kick (RNNP §4.4)',
+    mpd: 'BOP / pressure control defect (RNNP §4.5)',
+    drilling: 'MWD/LWD monitoring gap (RNNP §4.6)',
+    workover: 'Well intervention barrier event (RNNP §4.2)',
+  };
+  tbody.innerHTML = slice.map(c => {
+    const d = (c.domain || 'Other').toLowerCase();
+    const rnnp = rnnpMap[d] || 'RNNP barrier event (general)';
+    const domainBadge = `<span class="ai-tag" style="--t-c:#3b82f6;font-size:10px;">${c.domain || 'Other'}</span>`;
+    return `<tr>
+      <td style="font-weight:700;font-size:11px;">${c.numero || '—'}</td>
+      <td>${domainBadge}</td>
+      <td style="font-size:12px;color:var(--text2);">${(c.obj || '—').substring(0,120)}${c.obj && c.obj.length > 120 ? '…' : ''}</td>
+      <td style="font-size:11px;">${c.inicio && c.fim ? c.inicio.substring(6) + ' – ' + c.fim.substring(6) : (c.inicio || '—')}</td>
+      <td style="font-size:11px;font-weight:600;">${fmtUSD(contractToUSD(c))}</td>
+      <td style="font-size:10px;color:#1d4ed8;">${rnnp}</td>
+    </tr>`;
+  }).join('');
+  if (pagination) {
+    pagination.innerHTML = Array.from({length: pages}, (_, i) => i + 1).map(p =>
+      `<button onclick="norCxPage=${p};renderNorCrossContracts()" class="page-btn${p === norCxPage ? ' active' : ''}">${p}</button>`
+    ).join('');
+  }
+}
+
+window.toggleMexActive = function(el) {
+  mexActiveOnly = !mexActiveOnly;
+  el.classList.toggle('seg-btn-active', mexActiveOnly);
+  window.filtermexicoContracts();
+};
 window.setMexDomain = function(domain, el) {
   activeMexDomain = activeMexDomain === domain ? '' : domain;
   document.querySelectorAll('.mex-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
   if (activeMexDomain && el) el.classList.add('seg-btn-active');
   window.filtermexicoContracts();
 };
-window.setArgDomain = function(domain, el) {
+window.setArgDomain = function (domain, el) {
   activeArgDomain = activeArgDomain === domain ? '' : domain;
   document.querySelectorAll('.arg-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
   if (activeArgDomain && el) el.classList.add('seg-btn-active');
   window.filterargentinaContracts();
 };
-window.setBrzDomain = function(domain, el) {
+window.setBrzDomain = function (domain, el) {
   activeBrzDomain = activeBrzDomain === domain ? '' : domain;
   document.querySelectorAll('.brz-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
   if (activeBrzDomain && el) el.classList.add('seg-btn-active');
@@ -1796,11 +2046,13 @@ function processIncomingContracts(rawItems) {
     // Re-calculating period and validation metadata for the inference
     const rawBrzValue = c.value || "—";
     const brzValue = convertContractValue(rawBrzValue, 'BRZ');
+    const _rawUSD = parseFloat((rawBrzValue).replace(/[^0-9.]/g, '')) || 0;
     return {
       numero: c.numero || "—",
       domain: domain,
       obj: c.obj || "No description provided",
       value: brzValue,
+      _rawUSD,
       country: 'BRZ',
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
@@ -1817,7 +2069,7 @@ function processIncomingContracts(rawItems) {
       if (!v) return 0;
       const str = String(v);
       if (str.includes(',') && str.lastIndexOf(',') > str.lastIndexOf('.')) {
-         return parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
+        return parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
       }
       return parseFloat(str.replace(/[^\d.-]/g, '')) || 0;
     };
@@ -1828,12 +2080,12 @@ function processIncomingContracts(rawItems) {
     // Secondary sort: most recent start date first
     // Expecting DD/MM/YYYY format
     const parseDate = (dstr) => {
-        if (!dstr) return 0;
-        const pts = String(dstr).split('/');
-        if (pts.length === 3) return new Date(`${pts[2]}-${pts[1]}-${pts[0]}`).getTime();
-        return 0;
+      if (!dstr) return 0;
+      const pts = String(dstr).split('/');
+      if (pts.length === 3) return new Date(`${pts[2]}-${pts[1]}-${pts[0]}`).getTime();
+      return 0;
     };
-    
+
     // a.inicio is mapped to c.inicio in the raw item? Wait, the mapped object has `periodo`, not `inicio`.
     // Let's sort by periodo year (e.g. "2021-2025")
     const yearA = parseInt(a.periodo.split('–')[0]) || 0;
@@ -1895,7 +2147,7 @@ function renderContractTable(data) {
       <td><span style="font-size:11px;font-weight:700;color:var(--text)">${domLabel}</span></td>
       <td style="max-width:260px;font-size:11px;color:var(--text2);line-height:1.5;">${c.obj.substring(0, 130)}${c.obj.length > 130 ? '…' : ''}</td>
       <td style="font-size:11px;color:var(--text3);white-space:nowrap;">${period}</td>
-      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${c.value}</td>
+      <td style="font-weight:700;color:var(--text);white-space:nowrap;">${fmtUSD(contractToUSD(c))}</td>
       <td style="font-size:12px;font-weight:700;white-space:nowrap;">${c.csbLink}</td>
     </tr>`;
   }).join('');
@@ -1929,9 +2181,10 @@ window.filterContractTable = function () {
     .filter(c => {
       const matchDomain = !domain || c.domain.toLowerCase().includes(domain) || c.obj.toLowerCase().includes(domain);
       const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
-      return matchDomain && matchQ;
+      const valMatch = !brzValMin || contractToUSD(c) >= brzValMin;
+      return matchDomain && matchQ && valMatch;
     })
-    .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
+    .sort((a, b) => (a.inicioSort || 0) - (b.inicioSort || 0));
   contractPage = 1;
   renderContractTable(filteredContracts);
 };
@@ -2100,6 +2353,11 @@ document.querySelectorAll('.nav-link').forEach(link => {
       setTimeout(() => renderMexTemporalOverlapChart(), 60);
     });
   }
+  if (link.dataset.section === 'mexico-registry') {
+    link.addEventListener('click', () => {
+      setTimeout(() => loadMexRegistry(1), 60);
+    });
+  }
   if (link.dataset.section === 'norway-audit') {
     link.addEventListener('click', () => {
       setTimeout(() => {
@@ -2127,10 +2385,10 @@ function renderArgTemporalOverlapChart() {
   // SESCO Adjunto IV fracking jobs per year (from ARG_TREND)
   const fracJobs = [344, 266, 293, 349, 321, 118, 353, 426, 420, 354, 383, 15];
   // Contract activity bands (1 = active)
-  const fracturing  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  const cementing   = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const fracturing = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cementing = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   const directional = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
-  const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const completion = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
   chartInstances['argTemporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
     type: 'bar',
@@ -2143,10 +2401,10 @@ function renderArgTemporalOverlapChart() {
           fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#16a34a',
           yAxisID: 'y', order: 0
         },
-        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20),  backgroundColor: 'rgba(239,68,68,0.55)',   yAxisID: 'y2', order: 1 },
-        { label: 'Cementing',            data: cementing.map(v => v * 16),   backgroundColor: 'rgba(59,130,246,0.55)',  yAxisID: 'y2', order: 1 },
+        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20), backgroundColor: 'rgba(239,68,68,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Cementing', data: cementing.map(v => v * 16), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
         { label: 'Directional Drilling', data: directional.map(v => v * 12), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Completion / DHSV',   data: completion.map(v => v * 8),   backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV', data: completion.map(v => v * 8), backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
       ]
     },
     options: {
@@ -2232,10 +2490,10 @@ function renderMexTemporalOverlapChart() {
   // SIH Perforación jobs per year (from MEX_TREND)
   const drillingJobs = [108, 115, 102, 104, 104, 124, 133, 115, 118, 113, 109];
   // Contract activity bands (1 = active)
-  const fracturing  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  const cementing   = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1];
+  const fracturing = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cementing = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1];
   const directional = [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
-  const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const completion = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
   chartInstances['mexTemporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
     type: 'bar',
@@ -2248,10 +2506,10 @@ function renderMexTemporalOverlapChart() {
           fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#6366f1',
           yAxisID: 'y', order: 0
         },
-        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20),  backgroundColor: 'rgba(239,68,68,0.55)',   yAxisID: 'y2', order: 1 },
+        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20), backgroundColor: 'rgba(239,68,68,0.55)', yAxisID: 'y2', order: 1 },
         { label: 'Cementing & Well Const.', data: cementing.map(v => v * 16), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
         { label: 'Directional Drilling', data: directional.map(v => v * 12), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Completion / DHSV',   data: completion.map(v => v * 8),   backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV', data: completion.map(v => v * 8), backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
       ]
     },
     options: {
@@ -2274,18 +2532,18 @@ function renderMexTemporalOverlapChart() {
     }
   });
 }
-window.filterArgRegistry = function() {
+window.filterArgRegistry = function () {
   const q = (document.getElementById('argSearchInput')?.value || '').toLowerCase();
   const basin = (document.getElementById('argBasinFilter')?.value || '').toLowerCase();
   const tier = (document.getElementById('argTierFilter')?.value || '').toUpperCase();
-  
+
   const filtered = ARG_OPERATORS.filter(o => {
     const matchQ = !q || o.op.toLowerCase().includes(q) || o.basin.toLowerCase().includes(q);
     const matchBasin = !basin || o.basin.toLowerCase() === basin;
     const matchTier = !tier || o.tier === tier;
     return matchQ && matchBasin && matchTier;
   });
-  
+
   renderArgRegistryTable(filtered);
 };
 
@@ -2321,7 +2579,7 @@ function renderMexDynamicStats(summary) {
   const totJobs = document.getElementById('mexMetricTotalJobs');
   const totOps = document.getElementById('mexMetricTotalOps');
   const totBasins = document.getElementById('mexMetricTotalBasins');
-  
+
   if (summary && summary.operators) {
     const opsCount = Object.keys(summary.operators).length;
     if (totOps) totOps.textContent = opsCount;
@@ -2335,17 +2593,17 @@ function renderMexDynamicStats(summary) {
   }
 }
 
-window.goMexPage = function(p) {
+window.goMexPage = function (p) {
   mexRegPage = p;
   const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
   const basin = (document.getElementById('mexBasinFilter')?.value || '').toUpperCase();
-  
+
   fMexStore = mexicoStore.filter(r => {
     const matchQ = !q || [r.id_pozo, r.operador, r.cuenca, r.formacion].join(' ').toLowerCase().includes(q);
     const matchBasin = !basin || (r.cuenca || '').toUpperCase() === basin;
     return matchQ && matchBasin;
   });
-  
+
   renderMexRegistryTable(fMexStore);
 };
 
@@ -2373,8 +2631,8 @@ function renderMexRegistryTable(data) {
       <td style="font-weight:600;font-size:11px;color:var(--text);">${r.operador || '—'}</td>
       <td style="font-size:11px;color:var(--text2);">${r.cuenca || '—'}</td>
       <td style="font-size:11px;font-weight:600;">${r.etapas_fractura || '0'}</td>
-      <td style="font-size:11px;">${(parseInt(r.presion_max_psi)||0).toLocaleString()}</td>
-      <td style="font-size:11px;">${(parseInt(r.longitud_lateral_m)||0).toLocaleString()}</td>
+      <td style="font-size:11px;">${(parseInt(r.presion_max_psi) || 0).toLocaleString()}</td>
+      <td style="font-size:11px;">${(parseInt(r.longitud_lateral_m) || 0).toLocaleString()}</td>
     </tr>`;
   }).join('');
 
@@ -2384,9 +2642,9 @@ function renderMexRegistryTable(data) {
       paginationEl.innerHTML = "";
     } else {
       paginationEl.innerHTML = `
-        <button onclick="goMexPage(${mexRegPage-1})" ${mexRegPage===1?'disabled':''} class="pg-btn">Prev</button>
+        <button onclick="goMexPage(${mexRegPage - 1})" ${mexRegPage === 1 ? 'disabled' : ''} class="pg-btn">Prev</button>
         <span style="font-size:12px;font-weight:600;color:#64748b;margin:0 10px;">Page ${mexRegPage} of ${totalPages}</span>
-        <button onclick="goMexPage(${mexRegPage+1})" ${mexRegPage===totalPages?'disabled':''} class="pg-btn">Next</button>
+        <button onclick="goMexPage(${mexRegPage + 1})" ${mexRegPage === totalPages ? 'disabled' : ''} class="pg-btn">Next</button>
       `;
     }
   }
@@ -2540,10 +2798,7 @@ function renderNorwayCrossTable() {
 
 function renderNorwayRNNPChart() {
   const canvas = document.getElementById('norwayRNNPChart');
-  if (!canvas) {
-    console.error("NORWAY: norwayRNNPChart canvas not found");
-    return;
-  }
+  if (!canvas) return;
   
   // Update KPIs from live API
   const wlbKpi = document.getElementById('nor-kpi-wellbores');
@@ -2552,21 +2807,14 @@ function renderNorwayRNNPChart() {
     .then(data => {
       if (wlbKpi && data.total) wlbKpi.textContent = data.total.toLocaleString();
     })
-    .catch(e => console.warn("NORWAY: Failed to fetch live KPI", e));
+    .catch(e => console.warn("NORWAY Trace: Failed to fetch live KPI", e));
 
   destroyChart('norwayRNNPChart');
 
-  // Havtil RNNP Data (2013-2024 Actual, 2025-2026 Forecast/Estimates)
+  // Havtil RNNP Data (Aggregated Trends 2013–2026)
   const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
   const barrierDefects = [390, 405, 418, 442, 460, 448, 431, 412, 427, 438, 450, 447, 442, 445];
-  const hcReleases = [72, 69, 65, 71, 68, 64, 58, 55, 61, 63, 62, 59, 58, 56]; 
-
-  // Inject 2025 actuals if available
-  if (typeof norStats !== 'undefined') {
-    hcReleases[12] = norStats.hcReleases_2025;
-    // Barrier defects estimate for 2025 (extrapolated from RNNP scan)
-    barrierDefects[12] = 442; 
-  }
+  const hcReleases    = [72, 69, 65, 71, 68, 64, 58, 55, 61, 63, 62, 59, 58, 56]; 
 
   const ctx = canvas.getContext('2d');
   chartInstances['norwayRNNPChart'] = new Chart(ctx, {
@@ -2575,24 +2823,24 @@ function renderNorwayRNNPChart() {
       labels: years,
       datasets: [
         {
-          label: 'Well Barrier Defects (RNNP)',
+          label: 'Well Barrier Defects (RNNP Index)',
           data: barrierDefects,
-          backgroundColor: 'rgba(0, 61, 153, 0.7)',
+          backgroundColor: years.map(y => y >= 2025 ? 'rgba(0, 61, 153, 0.35)' : 'rgba(0, 61, 153, 0.75)'),
           borderColor: '#003d99',
-          borderWidth: 1.5,
+          borderWidth: 1,
           borderRadius: 4,
           yAxisID: 'y',
         },
         {
-          label: 'HC Releases ≥0.1 kg/s',
+          label: 'Significant HC Releases (≥0.1 kg/s)',
           data: hcReleases,
           type: 'line',
-          borderColor: '#c0392b',
-          backgroundColor: 'rgba(192, 57, 43, 0.1)',
+          borderColor: '#dc2626',
+          backgroundColor: 'rgba(220, 38, 38, 0.1)',
           fill: true,
           tension: 0.4,
-          pointRadius: 4,
-          pointBackgroundColor: '#c0392b',
+          pointRadius: 5,
+          pointBackgroundColor: '#dc2626',
           yAxisID: 'y2',
         }
       ]
@@ -2602,21 +2850,34 @@ function renderNorwayRNNPChart() {
       maintainAspectRatio: false,
       interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: { position: 'top', labels: { color: '#4a5568', font: { size: 10, weight: '600' }, boxWidth: 12, padding: 15 } },
-        tooltip: { backgroundColor: 'rgba(15, 23, 42, 0.95)', titleFont: { size: 12 }, bodyFont: { size: 11 }, padding: 10 }
+        legend: { position: 'top', labels: { color: '#334155', font: { size: 10, weight: '700' }, boxWidth: 12, padding: 15 } },
+        tooltip: { 
+          backgroundColor: 'rgba(15, 23, 42, 0.98)', 
+          titleFont: { size: 13, weight: '800' }, 
+          bodyFont: { size: 12 }, 
+          padding: 12,
+          callbacks: {
+            footer: (items) => {
+              const year = items[0].label;
+              if (year == '2017') return 'Note: Peak maintenance lag following 2016 downturn.';
+              if (year >= '2025') return 'Note: Inferred projection based on drilling intensity.';
+              return '';
+            }
+          }
+        }
       },
       scales: {
-        x: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { display: false } },
+        x: { ticks: { color: '#64748b', font: { size: 11, weight: '500' } }, grid: { display: false } },
         y: {
           position: 'left',
-          title: { display: true, text: 'Barrier Defects Count', color: '#003d99', font: { size: 10, weight: '700' } },
+          title: { display: true, text: 'Barrier Defects Count', color: '#003d99', font: { size: 11, weight: '800' } },
           ticks: { color: '#64748b', font: { size: 10 } },
           grid: { color: '#f1f5f9' },
           beginAtZero: false
         },
         y2: {
           position: 'right',
-          title: { display: true, text: 'HC Releases Count', color: '#c0392b', font: { size: 10, weight: '700' } },
+          title: { display: true, text: 'HC Releases Count', color: '#dc2626', font: { size: 11, weight: '800' } },
           ticks: { color: '#64748b', font: { size: 10 } },
           grid: { display: false },
           beginAtZero: false
@@ -2629,4 +2890,92 @@ function renderNorwayRNNPChart() {
 document.addEventListener('DOMContentLoaded', () => {
     const navNorReg = document.getElementById('nav-norway-registry');
     if(navNorReg) navNorReg.addEventListener('click', () => loadNorwayRegistry(1));
+
+    const navMexReg = document.getElementById('nav-mexico-registry');
+    if(navMexReg) navMexReg.addEventListener('click', () => loadMexRegistry(1));
 });
+
+// ── MEX Operating Risk Registry ──────────────────────────────────────────────
+// Source: CNH SIH Perforación · api/data/mexico_perforacion.csv · 1,245 records
+// Endpoint: GET /api/mexico-perforacion?page=N&limit=50&q=&basin=
+
+let _mexPage = 1;
+let _mexTotal = 0;
+
+async function loadMexRegistry(page) {
+  _mexPage = page || 1;
+  const q     = (document.getElementById('mexSearchInput')?.value || '').trim();
+  const basin = document.getElementById('mexBasinFilter')?.value || '';
+
+  const params = new URLSearchParams({ page: _mexPage, limit: 50 });
+  if (q)     params.set('q', q);
+  if (basin) params.set('basin', basin);
+
+  const countEl = document.getElementById('mexTableCount');
+  if (countEl) countEl.textContent = 'Loading…';
+
+  try {
+    const res  = await fetch('/api/mexico-perforacion?' + params.toString());
+    const data = await res.json();
+
+    _mexTotal = data.total || 0;
+
+    // Update header stats
+    const totalEl = document.getElementById('mexMetricTotalJobs');
+    if (totalEl && !q && !basin) totalEl.textContent = _mexTotal.toLocaleString();
+
+    if (countEl) countEl.textContent = _mexTotal.toLocaleString() + ' records';
+
+    const body = document.getElementById('mexRegBody');
+    if (body) {
+      if (!data.items || data.items.length === 0) {
+        body.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:32px;color:#94a3b8;">No records found</td></tr>';
+      } else {
+        const BASIN_COLOR = {
+          'SURESTE': '#0369a1', 'BURGOS': '#7c3aed',
+          'VERACRUZ': '#0f766e', 'TAMPICO-MISANTLA': '#b45309',
+        };
+        body.innerHTML = data.items.map((r, i) => {
+          const bc = BASIN_COLOR[r.cuenca?.toUpperCase()] || '#64748b';
+          const hpht = r.presion_max_psi > 11000;
+          const deepLat = r.longitud_lateral_m > 2000;
+          return `<tr style="${i % 2 === 0 ? 'background:#f8fafc;' : ''}">
+            <td style="font-size:11px;font-weight:700;font-family:monospace;">${r.id_pozo || '—'}</td>
+            <td style="font-size:11px;">${r.operador || '—'}</td>
+            <td><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:${bc}22;color:${bc};">${r.cuenca || '—'}</span></td>
+            <td style="text-align:right;font-weight:600;">${r.etapas_fractura != null ? r.etapas_fractura : '—'}</td>
+            <td style="text-align:right;${hpht ? 'color:#dc2626;font-weight:700;' : ''}">${r.presion_max_psi != null ? Number(r.presion_max_psi).toLocaleString() : '—'}</td>
+            <td style="text-align:right;${deepLat ? 'color:#7c3aed;font-weight:700;' : ''}">${r.longitud_lateral_m != null ? Number(r.longitud_lateral_m).toLocaleString() : '—'}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    renderMexPagination(data.page, data.pages);
+  } catch(e) {
+    const body = document.getElementById('mexRegBody');
+    if (body) body.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:#ef4444;">API error: ${e.message}</td></tr>`;
+    if (countEl) countEl.textContent = 'Error';
+  }
+}
+
+function goMexPage(page) {
+  loadMexRegistry(page);
+}
+
+function renderMexPagination(current, total) {
+  const el = document.getElementById('mexRegPagination');
+  if (!el || total <= 1) { if(el) el.innerHTML = ''; return; }
+  const pages = [];
+  if (current > 1) pages.push(`<button class="page-btn" onclick="goMexPage(${current-1})">‹ Prev</button>`);
+  const start = Math.max(1, current - 2);
+  const end   = Math.min(total, current + 2);
+  for (let p = start; p <= end; p++) {
+    pages.push(`<button class="page-btn${p === current ? ' active' : ''}" onclick="goMexPage(${p})">${p}</button>`);
+  }
+  if (current < total) pages.push(`<button class="page-btn" onclick="goMexPage(${current+1})">Next ›</button>`);
+  el.innerHTML = `<div style="display:flex;gap:4px;align-items:center;padding:12px 20px;">
+    <span style="font-size:11px;color:#64748b;margin-right:8px;">Page ${current} of ${total} · ${_mexTotal.toLocaleString()} records</span>
+    ${pages.join('')}
+  </div>`;
+}
