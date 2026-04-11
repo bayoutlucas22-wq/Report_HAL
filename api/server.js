@@ -524,7 +524,7 @@ app.get('/api/ksa/years', async (req, res) => {
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-app.get('/api/ksa/report/:year', async (req, res) => {
+    app.get('/api/ksa/report/:year', async (req, res) => {
   try {
     const db = await getDb();
     const year = parseInt(req.params.year);
@@ -532,8 +532,43 @@ app.get('/api/ksa/report/:year', async (req, res) => {
         region: 'KSA', 
         wlbEntryYear: year 
     }).toArray();
+
+    // Helper to find relevant excerpts
+    function extractMentions(doc, keywords) {
+        const text = doc.raw_content || "";
+        const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
+        const matches = sentences.filter(s => keywords.some(k => s.toLowerCase().includes(k)));
+        return matches.map(m => m.trim().replace(/\n/g, ' '));
+    }
+
+    let allLitigations = [];
+    let allIncidents = [];
     
-    // Group multiple filings into one structured object for the dashboard
+    docs.forEach(d => {
+        const litExcerpts = extractMentions(d, ['litig', 'court', 'lawsuit', 'legal', 'arbitration', 'penalty']);
+        const incExcerpts = extractMentions(d, ['spill', 'incident', 'accident', 'fatal', 'breach', 'failure']);
+        
+        litExcerpts.forEach(ex => allLitigations.push({
+            case: "Corporate Filing Disclosure excerpt: " + d.wlbWellboreName,
+            risk_level: "high",
+            description: ex.slice(0, 300) + (ex.length > 300 ? "..." : "")
+        }));
+        
+        incExcerpts.forEach(ex => allIncidents.push({
+            type: "Operational / HSE Event",
+            severity: "medium",
+            description: ex.slice(0, 300) + (ex.length > 300 ? "..." : "")
+        }));
+    });
+
+    // Make sure we have a fallback if the document is too clean
+    if (allLitigations.length === 0) {
+        allLitigations.push({ case: "General ESG / Legal Risk", risk_level: "low", description: "No explicit material litigation matters identified in this filing period." });
+    }
+    if (allIncidents.length === 0) {
+        allIncidents.push({ type: "Routine Operation", severity: "low", description: "No material severe incidents reported in the analyzed text." });
+    }
+
     const structuredReport = {
         year: year,
         metadata: { source: "Saudi Aramco Annual Filings", total_filings_analyzed: docs.length },
@@ -565,20 +600,9 @@ app.get('/api/ksa/report/:year', async (req, res) => {
             "Targeting net-zero Scope 1 and 2 emissions by 2050",
             "Increasing maximum sustainable capacity (MSC)"
         ],
-        litigation_exposure: docs.slice(0, 3).map(d => ({
-            case_id: d.wlbWellboreName || "Unknown",
-            description: (d.raw_content || "").slice(0, 150) + "..."
-        })),
-        key_litigations: docs.slice(0, 3).map(d => ({
-            case: d.wlbWellboreName || "Litigation Matter",
-            risk_level: "high",
-            description: (d.raw_content || "").slice(0, 150) + "..."
-        })),
-        operational_incidents: docs.slice(3, 8).map(d => ({
-            type: "Operational Incident",
-            severity: "medium",
-            description: (d.raw_content || "").slice(100, 250) + "..."
-        })),
+        litigation_exposure: allLitigations.slice(0, 3).map(l => ({ case_id: l.case, description: l.description })),
+        key_litigations: allLitigations.slice(0, 4),
+        operational_incidents: allIncidents.slice(0, 4),
         risk_factors: [
             { text: "Climate Change Regulation", description: "Stringent global ESG policies impacts.", source_file: "10-k" },
             { text: "Political Instability", description: "Regional tensions in the Middle East.", source_file: "10-k" },
@@ -586,8 +610,8 @@ app.get('/api/ksa/report/:year', async (req, res) => {
         ],
         compliance_summary: {
             overall_posture: "Generally sound, with focused areas for improvement.",
-            litigations_identified: docs.length ? 3 : 0,
-            incidents_identified: docs.length ? 5 : 0,
+            litigations_identified: allLitigations.length,
+            incidents_identified: allIncidents.length,
             material_penalties: "None"
         },
         overall_compliance_posture: {
