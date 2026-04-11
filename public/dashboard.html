@@ -8233,42 +8233,49 @@
             async function init() {
               try {
                 const badge = document.getElementById('sau-status-badge');
-                const { years } = await fetch(API + '/api/aramco/years').then(r => r.json());
+                
+                // Fetch years (Returns a flat array)
+                const years = await fetch('/api/ksa/years').then(r => r.json());
                 YEARS = years;
 
                 document.getElementById('sau-load-label').textContent =
                   'Analyzing ' + years.join(', ') + '…';
 
+                // Fetch reports (Each returns a structured KSA object)
                 const results = await Promise.all(
-                  years.map(y => fetch(API + '/api/aramco/' + y + '/analyze').then(r => r.json()))
+                  years.map(y => fetch('/api/ksa/report/' + y).then(r => r.json()))
                 );
                 years.forEach((y, i) => YD[y] = results[i]);
 
                 document.getElementById('sau-load-bar').style.display = 'none';
                 document.getElementById('sau-tab-content').style.display = 'block';
-                if (badge) { badge.textContent = years.length + ' years · live'; badge.style.color = '#4ade80'; }
+                if (badge) { 
+                    badge.textContent = years.length + ' YEARS · CONNECTED'; 
+                    badge.style.color = '#4ade80'; 
+                }
 
-                // Summary bar
-                const allLit = years.reduce((s,y) => s + (YD[y].compliance_summary?.litigations_identified||0), 0);
-                const allInc = years.reduce((s,y) => s + (YD[y].compliance_summary?.incidents_identified||0), 0);
+                // Update labels (Summary bar logic)
+                const allLit = years.reduce((s,y) => s + (YD[y].litigation_exposure?.length || 0), 0);
+                const allInc = years.reduce((s,y) => s + (YD[y].compliance_summary?.incidents_identified || 0), 0);
                 const niVals = years.map(y => YD[y].financial_performance?.net_income_usd_bn).filter(v => v != null);
                 const peakNI = niVals.length ? Math.max(...niVals) : null;
                 const peakYear = peakNI ? years[years.indexOf(years.find(y => YD[y].financial_performance?.net_income_usd_bn === peakNI))] : null;
-                const totalSrc = years.reduce((s,y) => s + (YD[y].sources_loaded||0), 0);
-                document.getElementById('sau-cov-label').textContent = 'FY ' + years[0] + ' – ' + years[years.length-1];
+                
+                document.getElementById('sau-cov-label').textContent = 'Aramco Unified Intel FY ' + years[0] + ' – ' + years[years.length-1];
                 document.getElementById('sau-tot-lit').textContent = allLit + ' matters';
                 document.getElementById('sau-tot-inc').textContent = allInc + ' events';
                 document.getElementById('sau-peak-ni').textContent = peakNI ? '$' + peakNI + 'B (FY ' + peakYear + ')' : '—';
-                document.getElementById('sau-src-label').textContent = totalSrc + ' source documents analyzed';
+                document.getElementById('sau-src-label').textContent = 'KSA Intelligence Active (MongoDB Master)';
                 document.getElementById('sau-summary-bar').style.display = 'flex';
 
                 renderAll();
               } catch(e) {
-                document.getElementById('sau-load-label').textContent = '⚠ API offline — run: cd ~/Downloads && node adobe_proxy.js';
+                console.error("KSA ENGINE ERROR:", e);
+                document.getElementById('sau-load-label').textContent = '⚠ SECURE CONNECTION ERROR — Check Local MongoDB';
                 document.getElementById('sau-load-label').style.color = '#ef4444';
                 document.querySelector('#sau-load-bar div').style.display = 'none';
                 const badge = document.getElementById('sau-status-badge');
-                if (badge) { badge.textContent = 'API offline'; badge.style.color = '#ef4444'; }
+                if (badge) { badge.textContent = 'DB OFFLINE'; badge.style.color = '#ef4444'; }
               }
             }
 
