@@ -3,27 +3,39 @@ const fs = require('fs');
 const path = require('path');
 
 async function start() {
-    // Local MongoDB - Adjust if your local port is different
-    const MONGO_URL = "mongodb://localhost:27017/hal_tejas_db";
-    const client = await MongoClient.connect(MONGO_URL);
-    const db = client.db();
+    const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/';
+    const client = new MongoClient(mongoUrl);
+    await client.connect();
+    const db = client.db('hal_tejas_db');
     
-    // Path to your local Aramco text files
-    const target = './api/docs/aramco/text';
+    // Clean old KSA records
+    await db.collection('hal_incidents').deleteMany({ region: 'KSA' });
     
-    if (!fs.existsSync(target)) {
-        console.error("Could not find KSA data at:", path.resolve(target));
-        process.exit(1);
+    const baseDir = './api/docs/aramco/text';
+    const years = ['2020','2021','2022','2024','2025'];
+    let allRecords = [];
+
+    for (const year of years) {
+        const yearDir = path.join(baseDir, year);
+        if (!fs.existsSync(yearDir)) continue;
+        const files = fs.readdirSync(yearDir);
+        for (const file of files) {
+            const content = fs.readFileSync(path.join(yearDir, file), 'utf8');
+            allRecords.push({
+                region: 'KSA',
+                wlbEntryYear: parseInt(year),
+                wlbWellboreName: file.replace('.txt', ''),
+                wlbDrillingOperator: 'Saudi Aramco',
+                raw_content: content,
+                category: 'Corporate Filing',
+                severity: 'Financial/ESG'
+            });
+        }
     }
 
-    const years = fs.readdirSync(target).filter(d => /^\d{4}$/.test(d));
-    for (const year of years) {
-        await db.collection('ksa_intelligence').updateOne(
-            { year: parseInt(year) }, 
-            { $set: { year: parseInt(year), company: 'Saudi Aramco', last_updated: new Date(), status: 'Ready' } }, 
-            { upsert: true }
-        );
-        console.log(`  ✓ FY ${year} is now READY in your LOCAL MongoDB.`);
+    if (allRecords.length > 0) {
+        await db.collection('hal_incidents').insertMany(allRecords);
+        console.log('✓ SUCCESS: Loaded ' + allRecords.length + ' KSA records into your LOCAL MongoDB!');
     }
     process.exit(0);
 }
