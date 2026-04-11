@@ -8235,7 +8235,7 @@
                 const badge = document.getElementById('sau-status-badge');
                 
                 // Fetch years (Returns a flat array)
-                const years = await fetch('/api/ksa/years').then(r => r.json());
+                const years = await fetch('/api/ksa/years?v=' + Date.now()).then(r => r.json());
                 YEARS = years;
 
                 document.getElementById('sau-load-label').textContent =
@@ -8243,7 +8243,7 @@
 
                 // Fetch reports (Each returns a structured KSA object)
                 const results = await Promise.all(
-                  years.map(y => fetch('/api/ksa/report/' + y).then(r => r.json()))
+                  years.map(y => fetch('/api/ksa/report/' + y + '?v=' + Date.now()).then(r => r.json()))
                 );
                 years.forEach((y, i) => YD[y] = results[i]);
 
