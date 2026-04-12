@@ -8816,11 +8816,8 @@
                   <div style="font-size:12px;color:#475569;line-height:1.6;">${incs[0].description || ''}</div>
                 </div>`;
                 });
-              });
-              // Sort: persistent risks first (more years = more exposure), then alphabetical
-              const cats = Object.values(catMap).sort((a,b) => b.years.length - a.years.length || a.text.localeCompare(b.text));
-              const el = document.getElementById('sau-risk-content');
-              if (!cats.length) { el.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;">No risk factors extracted.</div>'; return; }
+                el.innerHTML = html;
+              }
 
               // Domain groupings for color coding
               const domainColor = {
