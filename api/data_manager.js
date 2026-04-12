@@ -82,6 +82,7 @@ class DataManager {
             'arg_contracts': 'arg_contracts.csv',
             'sodir_wellbores': 'wellbore_exploration_all.csv',
             'nor_incidents': 'norway_incidents.csv',
+            'nor_contracts': 'norway_contracts.csv',
             'mex_perforacion': 'mexico_perforacion.csv',
             'hal_db': 'processed/hal_db.json'
         };
@@ -102,7 +103,10 @@ class DataManager {
                 const raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
                 data = Array.isArray(raw) ? raw : [raw];
             } else if (fileName.endsWith('.csv')) {
-                const delimiter = (collectionName.includes('sodir') || collectionName.includes('mex') || collectionName.includes('perforacion')) ? ',' : ';';
+                let delimiter = ';';
+                if (collectionName.includes('sodir') || collectionName.includes('perforacion')) {
+                  delimiter = ',';
+                }
                 const rawData = this.parseCsv(fs.readFileSync(filePath, 'utf8'), delimiter);
                 
                 // Normalization layer for common regional headers
@@ -116,6 +120,15 @@ class DataManager {
                     if (row['Fim da vigência']) normalized.fim = row['Fim da vigência'];
                     if (row['Número do processo']) normalized.proc = row['Número do processo'];
                     
+                    // Norway Sodir FactPages mapping
+                    if (row['wlbWellboreName']) normalized.wlbName = row['wlbWellboreName'];
+                    if (row['wlbDrillingOperator']) normalized.wlbOperator = row['wlbDrillingOperator'];
+                    if (row['wlbWellType']) normalized.wlbWellType = row['wlbWellType'];
+                    if (row['wlbStatus']) normalized.wlbStatus = row['wlbStatus'];
+                    if (row['wlbEntryYear']) normalized.wlbYear = row['wlbEntryYear'];
+                    if (row['wlbField']) normalized.wlbField = row['wlbField'];
+                    if (row['wlbTotalDepth']) normalized.wlbTotalDepth = row['wlbTotalDepth'];
+
                     // Maintain original property names too
                     return normalized;
                 });

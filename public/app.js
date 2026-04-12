@@ -1847,14 +1847,14 @@ function processRegionalContracts(rawItems) {
   return rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("ciment")) domain = "Cementing";
-    else if (obj.includes("estimul")) domain = "Stimulation";
-    else if (obj.includes("fluidos") || obj.includes("fluid")) domain = "Fluids";
-    else if (obj.includes("complet")) domain = "Completion";
-    else if (obj.includes("mpd")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("operations")) domain = "Workover";
-    else if (obj.includes("constru") || obj.includes("execution")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+    if (obj.includes("ciment") || obj.includes("cement")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("frac") || obj.includes("stimul")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid") || obj.includes("lodo")) domain = "Fluids";
+    else if (obj.includes("complet") || obj.includes("terminaci")) domain = "Completion";
+    else if (obj.includes("mpd") || obj.includes("managed press")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("operations") || obj.includes("reparaci")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("execution") || obj.includes("perfora")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol") || obj.includes("software")) domain = "G&G Software";
 
     const numero = c.numero || "—";
     // MEX contracts are denominated in USD — keep as-is; only ARG converts to local currency
