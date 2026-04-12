@@ -111,7 +111,7 @@ function destroyChart(id) {
   if (chartInstances[id]) { chartInstances[id].destroy(); delete chartInstances[id]; }
 }
 
-window.setRegistryFilter = function(field, val) {
+window.setRegistryFilter = function (field, val) {
   activeFilters[field] = val;
   goPage(1);
 };
@@ -137,7 +137,7 @@ async function fetchHalIncidents(page = 1) {
     const res = await fetch("/api/hal-incidents?" + params);
     if (!res.ok) throw new Error("API error");
     return await res.json();
-  } catch(e) {
+  } catch (e) {
     console.error("fetchHalIncidents error:", e);
     return { total: 0, items: [], pages: 0, page: 1 };
   }
@@ -156,7 +156,7 @@ async function fetchMexicoMetrics() {
     const res = await fetch("/api/mexico-metrics");
     if (!res.ok) throw new Error("API error");
     return await res.json();
-  } catch(e) {
+  } catch (e) {
     console.error("fetchMexicoMetrics error:", e);
     return { details: [], summary: {} };
   }
@@ -256,6 +256,7 @@ function renderKPIs(stats) {
   ];
 
   const grid = document.getElementById("kpiGrid");
+  if (!grid) return;
   grid.innerHTML = cards.map(c => `
     <div class="kpi-card" style="--kpi-accent:${c.accent}">
       <div class="kpi-label">${c.label}</div>
@@ -278,7 +279,7 @@ function renderOverviewChart(stats) {
   const canvas = document.getElementById("overviewChart");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  
+
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control", "BOP Failure"];
   const years = stats.yearSeries.map(y => y.year);
 
@@ -308,28 +309,28 @@ function renderOverviewChart(stats) {
     options: {
       responsive: true, maintainAspectRatio: true,
       interaction: { mode: "index", intersect: false },
-      plugins: { 
-        legend: { display: false }, 
-        tooltip: { 
+      plugins: {
+        legend: { display: false },
+        tooltip: {
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
           titleFont: { size: 13, weight: 'bold' },
           bodyFont: { size: 12 },
           padding: 12,
           cornerRadius: 8,
           boxPadding: 6
-        } 
+        }
       },
       scales: {
-        x: { 
-          stacked: true, 
-          ticks: { color: "#64748b", font: { size: 10, weight: '600' } }, 
-          grid: { display: false } 
+        x: {
+          stacked: true,
+          ticks: { color: "#64748b", font: { size: 10, weight: '600' } },
+          grid: { display: false }
         },
-        y: { 
-          stacked: true, 
-          ticks: { color: "#64748b", font: { size: 10 } }, 
+        y: {
+          stacked: true,
+          ticks: { color: "#64748b", font: { size: 10 } },
           grid: { color: "rgba(226, 232, 240, 0.6)", drawBorder: false },
-          beginAtZero: true 
+          beginAtZero: true
         }
       }
     }
@@ -341,6 +342,7 @@ function renderOverviewChart(stats) {
     "Kick (Primary Barrier)": LINKS.ANP_SGIP,
     "Structural Failure": LINKS.BV_NR445,
     "Loss of Well Control": LINKS.ANP_SGIP,
+    "BOP Failure": "https://atosoficiais.com.br/anp",
   };
   const leg = document.getElementById("overviewLegend");
   if (leg) {
@@ -368,11 +370,11 @@ function renderDonut(stats) {
     type: "doughnut",
     data: {
       labels: cats,
-      datasets: [{ 
-        data: vals, 
-        backgroundColor: cats.map(c => CAT_COLORS[c] + "ee"), 
-        borderColor: "#ffffff", 
-        borderWidth: 4, 
+      datasets: [{
+        data: vals,
+        backgroundColor: cats.map(c => CAT_COLORS[c] + "ee"),
+        borderColor: "#ffffff",
+        borderWidth: 4,
         hoverOffset: 12,
         hoverBorderColor: "#ffffff",
         hoverBorderWidth: 5
@@ -382,7 +384,7 @@ function renderDonut(stats) {
       responsive: true, maintainAspectRatio: true, cutout: "74%",
       animation: { animateRotate: true, animateScale: true, duration: 1500, easing: 'easeOutQuart' },
       plugins: {
-        legend: { display: false }, 
+        legend: { display: false },
         tooltip: {
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
           padding: 12,
@@ -412,7 +414,9 @@ function renderDonut(stats) {
 // ── CSB Trend Chart ───────────────────────────────────────────────────────────
 function renderCsbTrend(stats) {
   destroyChart("csbTrendChart");
-  const ctx = document.getElementById("csbTrendChart").getContext("2d");
+  const _csbEl = document.getElementById("csbTrendChart");
+  if (!_csbEl) return;
+  const ctx = _csbEl.getContext("2d");
   const series = stats.yearSeries;
   const years = series.map(y => y.year);
 
@@ -452,7 +456,9 @@ function renderCsbTrend(stats) {
 // ── Month Pattern Chart ───────────────────────────────────────────────────────
 function renderMonthChart(stats) {
   destroyChart("monthChart");
-  const ctx = document.getElementById("monthChart").getContext("2d");
+  const _mcEl = document.getElementById("monthChart");
+  if (!_mcEl) return;
+  const ctx = _mcEl.getContext("2d");
   const pattern = stats.monthPattern || {};
   const vals = Array.from({ length: 12 }, (_, i) => pattern[i + 1] || 0);
 
@@ -483,7 +489,9 @@ function renderMonthChart(stats) {
 // ── Multi-line Chart ──────────────────────────────────────────────────────────
 function renderMultiLine(stats) {
   destroyChart("multiLineChart");
-  const ctx = document.getElementById("multiLineChart").getContext("2d");
+  const _mlEl = document.getElementById("multiLineChart");
+  if (!_mlEl) return;
+  const ctx = _mlEl.getContext("2d");
   const series = stats.yearSeries;
   const years = series.map(y => y.year);
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
@@ -513,7 +521,9 @@ function renderMultiLine(stats) {
 // ── Severity Chart ────────────────────────────────────────────────────────────
 function renderSeverityChart(stats) {
   destroyChart("severityChart");
-  const ctx = document.getElementById("severityChart").getContext("2d");
+  const _svEl = document.getElementById("severityChart");
+  if (!_svEl) return;
+  const ctx = _svEl.getContext("2d");
   const order = ["SSO", "Minor", "Moderate", "Severe"];
   const vals = order.map(s => stats.severityBreakdown[s] || 0);
 
@@ -584,6 +594,8 @@ function renderOverviewContracts(contracts) {
   tbody.innerHTML = displaySet.map(c => {
     const objText = c.obj || "";
     const domText = c.domain || "";
+    const period = c.periodo || (c.inicio ? `${c.inicio.split('/')[2] || '?'}–${(c.fim || '').split('/')[2] || '?'}` : '—');
+    const usdVal = contractToUSD(c);
     return `
     <tr>
       <td style="font-family:monospace;font-weight:700;color:var(--blue)">${c.numero || "Unknown"}</td>
@@ -591,23 +603,42 @@ function renderOverviewContracts(contracts) {
       <td style="max-width:300px; font-size:11px; color:var(--text2); line-height:1.4;">
         ${objText.substring(0, 120)}${objText.length > 120 ? '...' : ''}
       </td>
-      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${fmtUSD(contractToUSD(c))}</td>
-      <td style="font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '-'}</td>
+      <td style="white-space:nowrap; font-size:11px; color:var(--text3);">${period}</td>
+      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${usdVal ? fmtUSD(usdVal) : '—'}</td>
+      <td style="font-size:12px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '—'}</td>
     </tr>
   `}).join("");
 }
 
-window.filterOverviewContracts = function() {
+let _overviewSortKey = 'date';
+let _overviewSortDir = -1; // -1 = desc, 1 = asc
+
+window.sortOverviewContracts = function(key) {
+  if (_overviewSortKey === key) { _overviewSortDir *= -1; }
+  else { _overviewSortKey = key; _overviewSortDir = -1; }
+  document.getElementById('sort-overview-date').textContent = _overviewSortKey === 'date' ? (_overviewSortDir === -1 ? '↓' : '↑') : '↕';
+  document.getElementById('sort-overview-value').textContent = _overviewSortKey === 'value' ? (_overviewSortDir === -1 ? '↓' : '↑') : '↕';
+  window.filterOverviewContracts();
+};
+
+window.filterOverviewContracts = function () {
   const q = (document.getElementById('overviewContractSearch')?.value || '').toLowerCase();
   const domain = (document.getElementById('overviewContractDomain')?.value || '').toLowerCase();
-  
+
   const filtered = ALL_CONTRACTS.filter(c => {
     const domText = (c.domain || "").toLowerCase();
     const matchDomain = !domain || domText.includes(domain);
     const matchQ = !q || [(c.numero || ""), domText, (c.obj || "")].join(' ').toLowerCase().includes(q);
     return matchDomain && matchQ;
   });
-  
+
+  const dir = _overviewSortDir;
+  if (_overviewSortKey === 'date') {
+    filtered.sort((a, b) => dir * ((a.inicioSort || 0) - (b.inicioSort || 0)));
+  } else if (_overviewSortKey === 'value') {
+    filtered.sort((a, b) => dir * (contractToUSD(a) - contractToUSD(b)));
+  }
+
   renderOverviewContracts(filtered);
 };
 
@@ -692,7 +723,7 @@ function renderTable(data) {
     const injCount = parseInt(r.feridos) || 0;
     const fatCount = parseInt(r.fatalidades) || 0;
     const situacao = r.situacao || "—";
-    const sitColor = situacao === "Fechada" ? "#16a34a" : situacao === "Aberta" ? "#c0392b" : "#8896ab";
+    const sitColor = situacao === "Closed" || situacao === "Approved" ? "#16a34a" : situacao === "Awaiting Action" ? "#c0392b" : "#8896ab";
     return `
     <tr style="cursor:${hasDesc ? 'pointer' : 'default'}" onclick="${hasDesc ? `toggleDesc('${rowId}')` : ''}">
       <td class="num-cell" style="white-space:nowrap;">
@@ -794,6 +825,26 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
+  if (section === 'first-report') {
+    setTimeout(() => {
+      window._frChartsInit = false;
+      const initScript = document.querySelector('#section-first-report script');
+      if (initScript) {
+        // Re-run chart init by evaluating inline logic
+        const canvases = ['fr-csb-chart','fr-cat-chart','fr-mex-chart','fr-nor-chart'];
+        canvases.forEach(id => {
+          const canvas = document.getElementById(id);
+          if (canvas) {
+            const existing = Chart.getChart(canvas);
+            if (existing) existing.destroy();
+          }
+        });
+      }
+      // Trigger re-init
+      if (typeof window._initFrCharts === 'function') window._initFrCharts();
+    }, 60);
+  }
+
   if (section === 'brazil-registry') {
     setTimeout(renderPenaltyCharts, 200);
   }
@@ -821,6 +872,24 @@ function switchSection(section, skipHistory = false) {
     }, 200);
   }
 
+  if (section === 'crossanalysis') {
+    setTimeout(() => {
+      if (filteredContracts && filteredContracts.length) {
+        renderContractTable(filteredContracts);
+        if (typeof renderTemporalOverlapChart === 'function') renderTemporalOverlapChart();
+        if (typeof renderContractMethodChart === 'function') renderContractMethodChart();
+      }
+    }, 100);
+  }
+
+  if (section === 'mexico' || section === 'mexico-crossanalysis') {
+    setTimeout(() => { window.filtermexicoContracts && window.filtermexicoContracts(); }, 100);
+  }
+
+  if (section === 'argentina' || section === 'argentina-crossanalysis') {
+    setTimeout(() => { window.filterargentinaContracts && window.filterargentinaContracts(); }, 100);
+  }
+
   // Reset scroll position to top on section switch
   const pageContent = document.querySelector('.page-content');
   if (pageContent) pageContent.scrollTop = 0;
@@ -837,7 +906,7 @@ function initSidebarToggle() {
   if (toggleBtn && appLayout) {
     toggleBtn.addEventListener('click', () => {
       const isMobile = window.innerWidth <= 768;
-      
+
       if (isMobile) {
         appLayout.classList.toggle('mobile-sidebar-open');
       } else {
@@ -935,10 +1004,10 @@ async function init() {
       fetch("/api/norway-contracts").then(r=>r.json()).catch(()=>({items:[]}))
     ]);
 
-  
-    console.log("INIT: Data fetched", { stats:!!stats, table:!!tableData, contracts:!!contractData, mex:!!mexData });
 
-    
+    console.log("INIT: Data fetched", { stats: !!stats, table: !!tableData, contracts: !!contractData, mex: !!mexData });
+
+
     if (mexC && mexC.items) { mexicoContracts = processRegionalContracts(mexC.items); window.filtermexicoContracts(); }
     if (argC && argC.items) { argentinaContracts = processRegionalContracts(argC.items); window.filterargentinaContracts(); }
     if (norC && norC.items) { norwayContracts = processRegionalContracts(norC.items); window.filternorwayContracts(); }
@@ -1004,7 +1073,7 @@ async function init() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    init();
+  init();
 });
 
 // ── Action Items Progress ──────────────────────────────────────────────────────
@@ -1014,7 +1083,7 @@ window.togglePillar = function (header) {
 
 window.updateAIProgress = function () {
   const wrap = document.getElementById('section-overview');
-  if(!wrap) return;
+  if (!wrap) return;
   const all = wrap.querySelectorAll('.ai-check');
   const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
@@ -1041,7 +1110,7 @@ window.updateAIProgress = function () {
 
 window.updateArgAIProgress = function () {
   const wrap = document.getElementById('section-argentina-audit');
-  if(!wrap) return;
+  if (!wrap) return;
   const all = wrap.querySelectorAll('.ai-check');
   const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
@@ -1068,7 +1137,7 @@ window.updateArgAIProgress = function () {
 
 window.updateMexAIProgress = function () {
   const wrap = document.getElementById('section-mexico-audit');
-  if(!wrap) return;
+  if (!wrap) return;
   const all = wrap.querySelectorAll('.ai-check');
   const done = wrap.querySelectorAll('.ai-check:checked');
   const total = all.length;
@@ -1204,66 +1273,66 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── HAL Argentina Study ────────────────────────────────────────────────────
 
 const ARG_TREND = [
-  { year:2015, jobs:344,  stages:1933,  psi:8310,  hp:17935, lateral:176,  unconv:78.8, neuquina:82.6 },
-  { year:2016, jobs:266,  stages:2508,  psi:8205,  hp:18576, lateral:570,  unconv:79.7, neuquina:84.2 },
-  { year:2017, jobs:293,  stages:3990,  psi:8601,  hp:17307, lateral:861,  unconv:88.4, neuquina:82.6 },
-  { year:2018, jobs:349,  stages:5330,  psi:8691,  hp:17480, lateral:1053, unconv:89.4, neuquina:84.5 },
-  { year:2019, jobs:321,  stages:6683,  psi:9220,  hp:20472, lateral:1313, unconv:87.5, neuquina:80.4 },
-  { year:2020, jobs:118,  stages:3232,  psi:9901,  hp:18119, lateral:1582, unconv:93.2, neuquina:82.2 },
-  { year:2021, jobs:353,  stages:10242, psi:10157, hp:23074, lateral:1674, unconv:91.5, neuquina:85.8 },
-  { year:2022, jobs:426,  stages:12799, psi:9927,  hp:21827, lateral:1715, unconv:82.4, neuquina:80.0 },
-  { year:2023, jobs:420,  stages:14210, psi:11078, hp:24337, lateral:2048, unconv:85.7, neuquina:79.3 },
-  { year:2024, jobs:354,  stages:17688, psi:11651, hp:32562, lateral:2624, unconv:98.9, neuquina:95.2 },
-  { year:2025, jobs:383,  stages:23784, psi:11965, hp:35319, lateral:3038, unconv:99.5, neuquina:99.5 },
-  { year:2026, jobs:15,   stages:1050,  psi:12128, hp:42133, lateral:3123, unconv:100,  neuquina:100  },
+  { year: 2015, jobs: 344, stages: 1933, psi: 8310, hp: 17935, lateral: 176, unconv: 78.8, neuquina: 82.6 },
+  { year: 2016, jobs: 266, stages: 2508, psi: 8205, hp: 18576, lateral: 570, unconv: 79.7, neuquina: 84.2 },
+  { year: 2017, jobs: 293, stages: 3990, psi: 8601, hp: 17307, lateral: 861, unconv: 88.4, neuquina: 82.6 },
+  { year: 2018, jobs: 349, stages: 5330, psi: 8691, hp: 17480, lateral: 1053, unconv: 89.4, neuquina: 84.5 },
+  { year: 2019, jobs: 321, stages: 6683, psi: 9220, hp: 20472, lateral: 1313, unconv: 87.5, neuquina: 80.4 },
+  { year: 2020, jobs: 118, stages: 3232, psi: 9901, hp: 18119, lateral: 1582, unconv: 93.2, neuquina: 82.2 },
+  { year: 2021, jobs: 353, stages: 10242, psi: 10157, hp: 23074, lateral: 1674, unconv: 91.5, neuquina: 85.8 },
+  { year: 2022, jobs: 426, stages: 12799, psi: 9927, hp: 21827, lateral: 1715, unconv: 82.4, neuquina: 80.0 },
+  { year: 2023, jobs: 420, stages: 14210, psi: 11078, hp: 24337, lateral: 2048, unconv: 85.7, neuquina: 79.3 },
+  { year: 2024, jobs: 354, stages: 17688, psi: 11651, hp: 32562, lateral: 2624, unconv: 98.9, neuquina: 95.2 },
+  { year: 2025, jobs: 383, stages: 23784, psi: 11965, hp: 35319, lateral: 3038, unconv: 99.5, neuquina: 99.5 },
+  { year: 2026, jobs: 15, stages: 1050, psi: 12128, hp: 42133, lateral: 3123, unconv: 100, neuquina: 100 },
 ];
 
 const ARG_OPERATORS = [
-  { op:"YPF S.A.",                                           basin:"NEUQUINA",         jobs:1765, stages:51760, psi:10940, tier:"HIGH" },
-  { op:"TECPETROL S.A.",                                     basin:"NEUQUINA",         jobs:272,  stages:8601,  psi:10250, tier:"HIGH" },
-  { op:"TECPETROL S.A.",                                     basin:"GOLFO SAN JORGE",  jobs:229,  stages:566,   psi:7048,  tier:"MEDIUM" },
-  { op:"COMPAÑÍA GENERAL DE COMBUSTIBLES S.A.",              basin:"AUSTRAL",          jobs:212,  stages:592,   psi:3027,  tier:"LOW" },
-  { op:"SHELL ARGENTINA S.A.",                               basin:"NEUQUINA",         jobs:147,  stages:5284,  psi:11672, tier:"HIGH" },
-  { op:"VISTA ENERGY ARGENTINA SAU",                         basin:"NEUQUINA",         jobs:132,  stages:6350,  psi:13163, tier:"HIGH" },
-  { op:"PAMPA ENERGIA S.A.",                                 basin:"NEUQUINA",         jobs:130,  stages:3262,  psi:8500,  tier:"HIGH" },
-  { op:"PAN AMERICAN ENERGY SL",                             basin:"NEUQUINA",         jobs:127,  stages:4652,  psi:11598, tier:"HIGH" },
-  { op:"TOTAL AUSTRAL S.A.",                                 basin:"NEUQUINA",         jobs:123,  stages:3715,  psi:10880, tier:"HIGH" },
-  { op:"PLUSPETROL S.A.",                                    basin:"NEUQUINA",         jobs:116,  stages:4915,  psi:11411, tier:"HIGH" },
-  { op:"CAPEX S.A.",                                         basin:"NEUQUINA",         jobs:103,  stages:321,   psi:4999,  tier:"HIGH" },
-  { op:"VISTA OIL & GAS ARGENTINA SAU",                      basin:"NEUQUINA",         jobs:62,   stages:2930,  psi:12322, tier:"HIGH" },
-  { op:"CGC ENERGIA SAU",                                    basin:"GOLFO SAN JORGE",  jobs:48,   stages:96,    psi:5625,  tier:"MEDIUM" },
-  { op:"CHEVRON ARGENTINA S.R.L.",                           basin:"NEUQUINA",         jobs:36,   stages:1453,  psi:10461, tier:"HIGH" },
-  { op:"EXXONMOBIL EXPLORATION ARGENTINA S.R.L.",            basin:"NEUQUINA",         jobs:23,   stages:1027,  psi:13368, tier:"HIGH" },
+  { op: "YPF S.A.", basin: "NEUQUINA", jobs: 1765, stages: 51760, psi: 10940, tier: "HIGH" },
+  { op: "TECPETROL S.A.", basin: "NEUQUINA", jobs: 272, stages: 8601, psi: 10250, tier: "HIGH" },
+  { op: "TECPETROL S.A.", basin: "GOLFO SAN JORGE", jobs: 229, stages: 566, psi: 7048, tier: "MEDIUM" },
+  { op: "COMPAÑÍA GENERAL DE COMBUSTIBLES S.A.", basin: "AUSTRAL", jobs: 212, stages: 592, psi: 3027, tier: "LOW" },
+  { op: "SHELL ARGENTINA S.A.", basin: "NEUQUINA", jobs: 147, stages: 5284, psi: 11672, tier: "HIGH" },
+  { op: "VISTA ENERGY ARGENTINA SAU", basin: "NEUQUINA", jobs: 132, stages: 6350, psi: 13163, tier: "HIGH" },
+  { op: "PAMPA ENERGIA S.A.", basin: "NEUQUINA", jobs: 130, stages: 3262, psi: 8500, tier: "HIGH" },
+  { op: "PAN AMERICAN ENERGY SL", basin: "NEUQUINA", jobs: 127, stages: 4652, psi: 11598, tier: "HIGH" },
+  { op: "TOTAL AUSTRAL S.A.", basin: "NEUQUINA", jobs: 123, stages: 3715, psi: 10880, tier: "HIGH" },
+  { op: "PLUSPETROL S.A.", basin: "NEUQUINA", jobs: 116, stages: 4915, psi: 11411, tier: "HIGH" },
+  { op: "CAPEX S.A.", basin: "NEUQUINA", jobs: 103, stages: 321, psi: 4999, tier: "HIGH" },
+  { op: "VISTA OIL & GAS ARGENTINA SAU", basin: "NEUQUINA", jobs: 62, stages: 2930, psi: 12322, tier: "HIGH" },
+  { op: "CGC ENERGIA SAU", basin: "GOLFO SAN JORGE", jobs: 48, stages: 96, psi: 5625, tier: "MEDIUM" },
+  { op: "CHEVRON ARGENTINA S.R.L.", basin: "NEUQUINA", jobs: 36, stages: 1453, psi: 10461, tier: "HIGH" },
+  { op: "EXXONMOBIL EXPLORATION ARGENTINA S.R.L.", basin: "NEUQUINA", jobs: 23, stages: 1027, psi: 13368, tier: "HIGH" },
 ];
 
 const ARG_FORMATIONS = [
-  { form:"vaca muerta",      jobs:2467, psi:11823, shale:99.8, hazard:"High-pressure frac, H2S, wellhead integrity" },
-  { form:"lajas",            jobs:235,  psi:7140,  shale:0,    hazard:"Tight sand, proppant flowback risk" },
-  { form:"magallanes",       jobs:197,  psi:2888,  shale:0,    hazard:"Conventional workover, well integrity" },
-  { form:"mina el carmen",   jobs:183,  psi:7133,  shale:0,    hazard:"Mature field, aging completion equipment" },
-  { form:"mulichinco",       jobs:126,  psi:5642,  shale:0,    hazard:"Tight sand, stimulation fluid returns" },
-  { form:"los molles",       jobs:103,  psi:5013,  shale:6.8,  hazard:"Deep shale, ultra-high pressure, CO₂" },
-  { form:"punta rosada",     jobs:78,   psi:10568, shale:0,    hazard:"Golfo San Jorge mature field ops" },
-  { form:"comodoro rivadavia",jobs:68,  psi:5187,  shale:0,    hazard:"Oldest Argentine province, heavy WO" },
-  { form:"agrio",            jobs:55,   psi:4423,  shale:1.8,  hazard:"Tight carbonate, acid stimulation" },
-  { form:"cañadon seco",     jobs:37,   psi:6374,  shale:0,    hazard:"Standard oilfield operations" },
+  { form: "vaca muerta", jobs: 2467, psi: 11823, shale: 99.8, hazard: "High-pressure frac, H2S, wellhead integrity" },
+  { form: "lajas", jobs: 235, psi: 7140, shale: 0, hazard: "Tight sand, proppant flowback risk" },
+  { form: "magallanes", jobs: 197, psi: 2888, shale: 0, hazard: "Conventional workover, well integrity" },
+  { form: "mina el carmen", jobs: 183, psi: 7133, shale: 0, hazard: "Mature field, aging completion equipment" },
+  { form: "mulichinco", jobs: 126, psi: 5642, shale: 0, hazard: "Tight sand, stimulation fluid returns" },
+  { form: "los molles", jobs: 103, psi: 5013, shale: 6.8, hazard: "Deep shale, ultra-high pressure, CO₂" },
+  { form: "punta rosada", jobs: 78, psi: 10568, shale: 0, hazard: "Golfo San Jorge mature field ops" },
+  { form: "comodoro rivadavia", jobs: 68, psi: 5187, shale: 0, hazard: "Oldest Argentine province, heavy WO" },
+  { form: "agrio", jobs: 55, psi: 4423, shale: 1.8, hazard: "Tight carbonate, acid stimulation" },
+  { form: "cañadon seco", jobs: 37, psi: 6374, shale: 0, hazard: "Standard oilfield operations" },
 ];
 
 const ARG_REGULATIONS = [
-  { reg:"Res. SE 25/2004 — Integridad de Pozos",               scope:"Environmental study standards for exploration permits and exploitation concessions; primary upstream EIA framework",  domains:"All 4 domains",            br:"ANP Res. 46/2016 SGIP",   link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=91789" },
-  { reg:"Decreto 929/2013 — Régimen No Convencional",          scope:"Investment promotion and regulatory framework for unconventional hydrocarbon exploitation (shale/tight formations)",  domains:"Domain 1 — Fracking",      br:"ANP Res. 43/2007 SGSO",   link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=217314" },
-  { reg:"Ley 24.051 — Residuos Peligrosos",                   scope:"Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required",   domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",    link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
-  { reg:"Ley 25.675 — Ley General del Ambiente",              scope:"Environmental liability for all E&P service operations; minimum standards for sustainable management",               domains:"All 4 domains",            br:"Lei 9.605/1998",          link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
-  { reg:"Res. SRT 559/2009 — Seguridad en Perforación",       scope:"OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program",         domains:"All 4 domains",            br:"NR-37 (MTE)",             link:"https://www.argentina.gob.ar/srt" },
-  { reg:"Ley Neuquén 899 — Código de Aguas",                  scope:"Water use rights and produced water disposal in Neuquina basin; governs HAL frac fluid sourcing and disposal",      domains:"Domain 1 — water sourcing", br:"N/A (offshore in Brazil)", link:"https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
-  { reg:"Decreto Neuquén 1483/2012 — No Convencional",        scope:"Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)",   domains:"Domain 1 — Fracking",      br:"N/A",                     link:"https://boficial.neuquen.gov.ar/" },
-  { reg:"Ley 17.319/1967 — Ley de Hidrocarburos",             scope:"Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P",    domains:"All domains",              br:"Lei 9.478/1997 (Petróleo)",link:"https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
+  { reg: "Res. SE 25/2004 — Integridad de Pozos", scope: "Environmental study standards for exploration permits and exploitation concessions; primary upstream EIA framework", domains: "All 4 domains", br: "ANP Res. 46/2016 SGIP", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=91789" },
+  { reg: "Decreto 929/2013 — Régimen No Convencional", scope: "Investment promotion and regulatory framework for unconventional hydrocarbon exploitation (shale/tight formations)", domains: "Domain 1 — Fracking", br: "ANP Res. 43/2007 SGSO", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=217314" },
+  { reg: "Ley 24.051 — Residuos Peligrosos", scope: "Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required", domains: "Domains 1 & 2", br: "CONAMA Res. 430/2011", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
+  { reg: "Ley 25.675 — Ley General del Ambiente", scope: "Environmental liability for all E&P service operations; minimum standards for sustainable management", domains: "All 4 domains", br: "Lei 9.605/1998", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
+  { reg: "Res. SRT 559/2009 — Seguridad en Perforación", scope: "OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program", domains: "All 4 domains", br: "NR-37 (MTE)", link: "https://www.argentina.gob.ar/srt" },
+  { reg: "Ley Neuquén 899 — Código de Aguas", scope: "Water use rights and produced water disposal in Neuquina basin; governs HAL frac fluid sourcing and disposal", domains: "Domain 1 — water sourcing", br: "N/A (offshore in Brazil)", link: "https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
+  { reg: "Decreto Neuquén 1483/2012 — No Convencional", scope: "Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)", domains: "Domain 1 — Fracking", br: "N/A", link: "https://boficial.neuquen.gov.ar/" },
+  { reg: "Ley 17.319/1967 — Ley de Hidrocarburos", scope: "Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P", domains: "All domains", br: "Lei 9.478/1997 (Petróleo)", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
 ];
 
 const TIER_STYLES = {
-  HIGH:   { bg:"#fef2f2", color:"#dc2626", border:"#fecaca" },
-  MEDIUM: { bg:"#fffbeb", color:"#d97706", border:"#fde68a" },
-  LOW:    { bg:"#f0fdf4", color:"#16a34a", border:"#bbf7d0" },
+  HIGH: { bg: "#fef2f2", color: "#dc2626", border: "#fecaca" },
+  MEDIUM: { bg: "#fffbeb", color: "#d97706", border: "#fde68a" },
+  LOW: { bg: "#f0fdf4", color: "#16a34a", border: "#bbf7d0" },
 };
 
 function renderArgentinaTables() {
@@ -1274,12 +1343,12 @@ function renderArgentinaTables() {
       const isEscalating = r.year >= 2021;
       const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
       return `<tr style="${rowStyle}">
-        <td style="font-weight:700;">${r.year}${r.year===2026?' <span style="font-size:10px;color:var(--text3);">YTD</span>':''}</td>
+        <td style="font-weight:700;">${r.year}${r.year === 2026 ? ' <span style="font-size:10px;color:var(--text3);">YTD</span>' : ''}</td>
         <td>${r.jobs.toLocaleString()}</td>
         <td>${r.stages.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
         <td>${r.hp.toLocaleString()}</td>
-        <td style="${r.lateral>=2500?'color:#dc2626;font-weight:700;':''}">${r.lateral.toLocaleString()}</td>
+        <td style="${r.lateral >= 2500 ? 'color:#dc2626;font-weight:700;' : ''}">${r.lateral.toLocaleString()}</td>
         <td>${r.unconv}%</td>
         <td>${r.neuquina}%</td>
       </tr>`;
@@ -1308,11 +1377,11 @@ function renderArgentinaTables() {
   if (formBody) {
     formBody.innerHTML = ARG_FORMATIONS.map(r => {
       const isVM = r.form === 'vaca muerta';
-      return `<tr style="${isVM?'background:#fef2f2;':''}">
-        <td style="font-weight:${isVM?'700':'500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
+      return `<tr style="${isVM ? 'background:#fef2f2;' : ''}">
+        <td style="font-weight:${isVM ? '700' : '500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
         <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
-        <td style="${r.shale>=90?'color:#dc2626;font-weight:700;':''}">${r.shale}%</td>
+        <td style="${r.shale >= 90 ? 'color:#dc2626;font-weight:700;' : ''}">${r.shale}%</td>
         <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
       </tr>`;
     }).join('');
@@ -1333,43 +1402,43 @@ function renderArgentinaTables() {
 // ── HAL Mexico Study ────────────────────────────────────────────────────
 
 const MEX_TREND = [
-  { year:2015, jobs:108, stages:3100, psi:10830, hp:29509, lateral:2083, offshore:58.3, burgos:18.5 },
-  { year:2016, jobs:115, stages:3149, psi:10841, hp:25636, lateral:1991, offshore:62.6, burgos:15.7 },
-  { year:2017, jobs:102, stages:2800, psi:11398, hp:27037, lateral:1932, offshore:64.7, burgos:16.7 },
-  { year:2018, jobs:104, stages:2999, psi:11086, hp:28951, lateral:2067, offshore:64.4, burgos:10.6 },
-  { year:2019, jobs:104, stages:2717, psi:11766, hp:26679, lateral:1987, offshore:61.5, burgos:17.3 },
-  { year:2020, jobs:124, stages:3117, psi:11543, hp:29555, lateral:1943, offshore:54.8, burgos:20.2 },
-  { year:2021, jobs:133, stages:3545, psi:10692, hp:28076, lateral:1890, offshore:56.4, burgos:15.8 },
-  { year:2022, jobs:115, stages:3085, psi:10818, hp:28342, lateral:1987, offshore:65.2, burgos:13.0 },
-  { year:2023, jobs:118, stages:3077, psi:10795, hp:27945, lateral:2061, offshore:58.5, burgos:16.9 },
-  { year:2024, jobs:113, stages:2984, psi:11132, hp:27456, lateral:1939, offshore:59.3, burgos:15.9 },
-  { year:2025, jobs:109, stages:3014, psi:10761, hp:27212, lateral:2038, offshore:52.3, burgos:24.8 },
+  { year: 2015, jobs: 108, stages: 3100, psi: 10830, hp: 29509, lateral: 2083, offshore: 58.3, burgos: 18.5 },
+  { year: 2016, jobs: 115, stages: 3149, psi: 10841, hp: 25636, lateral: 1991, offshore: 62.6, burgos: 15.7 },
+  { year: 2017, jobs: 102, stages: 2800, psi: 11398, hp: 27037, lateral: 1932, offshore: 64.7, burgos: 16.7 },
+  { year: 2018, jobs: 104, stages: 2999, psi: 11086, hp: 28951, lateral: 2067, offshore: 64.4, burgos: 10.6 },
+  { year: 2019, jobs: 104, stages: 2717, psi: 11766, hp: 26679, lateral: 1987, offshore: 61.5, burgos: 17.3 },
+  { year: 2020, jobs: 124, stages: 3117, psi: 11543, hp: 29555, lateral: 1943, offshore: 54.8, burgos: 20.2 },
+  { year: 2021, jobs: 133, stages: 3545, psi: 10692, hp: 28076, lateral: 1890, offshore: 56.4, burgos: 15.8 },
+  { year: 2022, jobs: 115, stages: 3085, psi: 10818, hp: 28342, lateral: 1987, offshore: 65.2, burgos: 13.0 },
+  { year: 2023, jobs: 118, stages: 3077, psi: 10795, hp: 27945, lateral: 2061, offshore: 58.5, burgos: 16.9 },
+  { year: 2024, jobs: 113, stages: 2984, psi: 11132, hp: 27456, lateral: 1939, offshore: 59.3, burgos: 15.9 },
+  { year: 2025, jobs: 109, stages: 3014, psi: 10761, hp: 27212, lateral: 2038, offshore: 52.3, burgos: 24.8 },
 ];
 
 const MEX_OPERATORS = [
-  { op:"PEMEX EXPLORACIÓN Y PRODUCCIÓN", basin:"SURESTE", jobs:859, stages:22995, psi:11087, tier:"HIGH" },
-  { op:"REPSOL EXPLORACIÓN MÉXICO",      basin:"SURESTE", jobs:75,  stages:2018,  psi:11155, tier:"HIGH" },
-  { op:"FIELDWOOD ENERGY",               basin:"SURESTE", jobs:72,  stages:1953,  psi:10842, tier:"HIGH" },
-  { op:"HOKCHI ENERGY",                  basin:"SURESTE", jobs:69,  stages:2034,  psi:10513, tier:"HIGH" },
-  { op:"ENI MÉXICO",                     basin:"SURESTE", jobs:59,  stages:1398,  psi:10716, tier:"HIGH" },
-  { op:"PETROBAL",                       basin:"SURESTE", jobs:59,  stages:1708,  psi:11471, tier:"HIGH" },
-  { op:"WINTERSHALL DEA",                basin:"SURESTE", jobs:52,  stages:1481,  psi:11197, tier:"HIGH" },
-  { op:"MURPHY SUR",                     basin:"SURESTE", jobs:45,  stages:1210,  psi:11800, tier:"HIGH" },
-  { op:"BHP BILLITON PETRÓLEO",          basin:"SURESTE", jobs:38,  stages:950,   psi:11250, tier:"HIGH" },
-  { op:"PAN AMERICAN ENERGY",            basin:"SURESTE", jobs:34,  stages:890,   psi:10600, tier:"MEDIUM" },
-  { op:"LUKOIL UPSTREAM MÉXICO",         basin:"SURESTE", jobs:28,  stages:750,   psi:11400, tier:"HIGH" },
-  { op:"CHEIRON HOLDINGS",               basin:"SURESTE", jobs:22,  stages:620,   psi:9850,  tier:"MEDIUM" },
-  { op:"DIAVAZ DEP",                     basin:"BURGOS",  jobs:110, stages:2800,  psi:8500,  tier:"MEDIUM" },
-  { op:"TECPETROL DE MÉXICO",            basin:"BURGOS",  jobs:85,  stages:2100,  psi:7900,  tier:"LOW" },
-  { op:"SERVICIOS MÚLTIPLES DE BURGOS",  basin:"BURGOS",  jobs:65,  stages:1500,  psi:7200,  tier:"LOW" }
+  { op: "PEMEX EXPLORACIÓN Y PRODUCCIÓN", basin: "SURESTE", jobs: 859, stages: 22995, psi: 11087, tier: "HIGH" },
+  { op: "REPSOL EXPLORACIÓN MÉXICO", basin: "SURESTE", jobs: 75, stages: 2018, psi: 11155, tier: "HIGH" },
+  { op: "FIELDWOOD ENERGY", basin: "SURESTE", jobs: 72, stages: 1953, psi: 10842, tier: "HIGH" },
+  { op: "HOKCHI ENERGY", basin: "SURESTE", jobs: 69, stages: 2034, psi: 10513, tier: "HIGH" },
+  { op: "ENI MÉXICO", basin: "SURESTE", jobs: 59, stages: 1398, psi: 10716, tier: "HIGH" },
+  { op: "PETROBAL", basin: "SURESTE", jobs: 59, stages: 1708, psi: 11471, tier: "HIGH" },
+  { op: "WINTERSHALL DEA", basin: "SURESTE", jobs: 52, stages: 1481, psi: 11197, tier: "HIGH" },
+  { op: "MURPHY SUR", basin: "SURESTE", jobs: 45, stages: 1210, psi: 11800, tier: "HIGH" },
+  { op: "BHP BILLITON PETRÓLEO", basin: "SURESTE", jobs: 38, stages: 950, psi: 11250, tier: "HIGH" },
+  { op: "PAN AMERICAN ENERGY", basin: "SURESTE", jobs: 34, stages: 890, psi: 10600, tier: "MEDIUM" },
+  { op: "LUKOIL UPSTREAM MÉXICO", basin: "SURESTE", jobs: 28, stages: 750, psi: 11400, tier: "HIGH" },
+  { op: "CHEIRON HOLDINGS", basin: "SURESTE", jobs: 22, stages: 620, psi: 9850, tier: "MEDIUM" },
+  { op: "DIAVAZ DEP", basin: "BURGOS", jobs: 110, stages: 2800, psi: 8500, tier: "MEDIUM" },
+  { op: "TECPETROL DE MÉXICO", basin: "BURGOS", jobs: 85, stages: 2100, psi: 7900, tier: "LOW" },
+  { op: "SERVICIOS MÚLTIPLES DE BURGOS", basin: "BURGOS", jobs: 65, stages: 1500, psi: 7200, tier: "LOW" }
 ];
 
 const MEX_FORMATIONS = [
-  { form:"Jurásico Superior", jobs:488, psi:11167, offshore:57.6, hazard:"Deep HPHT / Well control" },
-  { form:"Cretácico",         jobs:407, psi:10994, offshore:63.4, hazard:"Naturally fractured carbonates" },
-  { form:"Pimienta",          jobs:120, psi:11327, offshore:58.3, hazard:"Deep HPHT / Well control" },
-  { form:"Terciario",         jobs:117, psi:10404, offshore:55.6, hazard:"Standard pressure horizons" },
-  { form:"Agua Nueva",        jobs:113, psi:11125, offshore:61.1, hazard:"Deep HPHT / Well control" },
+  { form: "Jurásico Superior", jobs: 488, psi: 11167, offshore: 57.6, hazard: "Deep HPHT / Well control" },
+  { form: "Cretácico", jobs: 407, psi: 10994, offshore: 63.4, hazard: "Naturally fractured carbonates" },
+  { form: "Pimienta", jobs: 120, psi: 11327, offshore: 58.3, hazard: "Deep HPHT / Well control" },
+  { form: "Terciario", jobs: 117, psi: 10404, offshore: 55.6, hazard: "Standard pressure horizons" },
+  { form: "Agua Nueva", jobs: 113, psi: 11125, offshore: 61.1, hazard: "Deep HPHT / Well control" },
 ];
 
 // MEX KPIs flagged: static estimates calibrated to SIH/CNH published totals.
@@ -1396,12 +1465,12 @@ function renderMexicoTables() {
       const isEscalating = r.year >= 2021;
       const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
       return `<tr style="${rowStyle}">
-        <td style="font-weight:700;">${r.year}${r.year===2026?' <span style="font-size:10px;color:var(--text3);">YTD</span>':''}</td>
+        <td style="font-weight:700;">${r.year}${r.year === 2026 ? ' <span style="font-size:10px;color:var(--text3);">YTD</span>' : ''}</td>
         <td>${r.jobs.toLocaleString()}</td>
         <td>${r.stages.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
         <td>${r.hp.toLocaleString()}</td>
-        <td style="${r.lateral>=1500?'color:#dc2626;font-weight:700;':''}">${r.lateral.toLocaleString()}</td>
+        <td style="${r.lateral >= 1500 ? 'color:#dc2626;font-weight:700;' : ''}">${r.lateral.toLocaleString()}</td>
         <td>${r.offshore}%</td>
         <td>${r.burgos}%</td>
       </tr>`;
@@ -1427,12 +1496,12 @@ function renderMexicoTables() {
   const formBody = document.getElementById('mexFormationBody');
   if (formBody) {
     formBody.innerHTML = MEX_FORMATIONS.map(r => {
-        const isHigh = r.psi > 11000;
-        return `<tr style="${isHigh?'background:#fef2f2;':''}">
-          <td style="font-weight:${isHigh?'700':'500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
+      const isHigh = r.psi > 11000;
+      return `<tr style="${isHigh ? 'background:#fef2f2;' : ''}">
+          <td style="font-weight:${isHigh ? '700' : '500'};text-transform:capitalize;font-size:11px;">${r.form}</td>
           <td style="font-weight:700;">${r.jobs.toLocaleString()}</td>
           <td>${r.psi.toLocaleString()}</td>
-          <td style="${r.offshore>=90?'color:#dc2626;font-weight:700;':''}">${r.offshore}%</td>
+          <td style="${r.offshore >= 90 ? 'color:#dc2626;font-weight:700;' : ''}">${r.offshore}%</td>
           <td style="font-size:11px;color:var(--text2);">${r.hazard}</td>
         </tr>`;
     }).join('');
@@ -1738,7 +1807,7 @@ let norwayContracts = [];
 let fMexicoContracts = [];
 let fArgentinaContracts = [];
 let fNorwayContracts = [];
-let mexCPage=1, argCPage=1, norCPage=1;
+let mexCPage = 1, argCPage = 1, norCPage = 1;
 let activeMexDomain = '';
 let mexActiveOnly = false;
 let activeArgDomain = '';
@@ -1831,7 +1900,7 @@ function renderRegionalTable(prefix, page, data) {
   tbody.innerHTML = slice.map(c => {
     const domLabel = DOMAIN_MAP[c.domain] || c.domain;
     const yr1 = c.inicio ? c.inicio.split('/')[2] : '?';
-    const yr2 = c.fim    ? c.fim.split('/')[2]    : '?';
+    const yr2 = c.fim ? c.fim.split('/')[2] : '?';
     const period = yr1 === yr2 ? yr1 : `${yr1}–${yr2}`;
     return `<tr>
       <td style="font-family:monospace;font-size:11px;font-weight:700;color:var(--blue)">${c.numero}</td>
@@ -1845,13 +1914,13 @@ function renderRegionalTable(prefix, page, data) {
 
   // pagination
   const pg = document.getElementById(prefix + "ContractPagination");
-  if(pg) {
-      const pages = Math.ceil(data.length / PAGE_SIZE);
-      if(pages<=1) { pg.innerHTML=""; return;}
-      pg.innerHTML = `
-        <button onclick="change${prefix}Page(${page-1})" ${page===1?'disabled':''} class="pg-btn">Prev</button>
+  if (pg) {
+    const pages = Math.ceil(data.length / PAGE_SIZE);
+    if (pages <= 1) { pg.innerHTML = ""; return; }
+    pg.innerHTML = `
+        <button onclick="change${prefix}Page(${page - 1})" ${page === 1 ? 'disabled' : ''} class="pg-btn">Prev</button>
         <span style="font-size:13px;font-weight:600;color:#64748b;margin:0 10px;">Page ${page} of ${pages}</span>
-        <button onclick="change${prefix}Page(${page+1})" ${page===pages?'disabled':''} class="pg-btn">Next</button>
+        <button onclick="change${prefix}Page(${page + 1})" ${page === pages ? 'disabled' : ''} class="pg-btn">Next</button>
       `;
   }
 
@@ -1917,7 +1986,7 @@ window.filternorwayContracts = function() {
     norCPage = 1;
     renderRegionalTable('norway', norCPage, fNorwayContracts);
 };
-window.changenorwayPage = function(p) { norCPage=p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
+window.changenorwayPage = function (p) { norCPage = p; renderRegionalTable('norway', norCPage, fNorwayContracts); };
 
 // Norway Cross-Analysis Contract Evidence Table
 let norCxPage = 1;
@@ -1994,13 +2063,13 @@ window.setMexDomain = function(domain, el) {
   if (activeMexDomain && el) el.classList.add('seg-btn-active');
   window.filtermexicoContracts();
 };
-window.setArgDomain = function(domain, el) {
+window.setArgDomain = function (domain, el) {
   activeArgDomain = activeArgDomain === domain ? '' : domain;
   document.querySelectorAll('.arg-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
   if (activeArgDomain && el) el.classList.add('seg-btn-active');
   window.filterargentinaContracts();
 };
-window.setBrzDomain = function(domain, el) {
+window.setBrzDomain = function (domain, el) {
   activeBrzDomain = activeBrzDomain === domain ? '' : domain;
   document.querySelectorAll('.brz-seg-btn').forEach(b => b.classList.remove('seg-btn-active'));
   if (activeBrzDomain && el) el.classList.add('seg-btn-active');
@@ -2013,14 +2082,14 @@ function processIncomingContracts(rawItems) {
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("ciment")) domain = "Cementing";
-    else if (obj.includes("estimul") || obj.includes("flexitubo")) domain = "Stimulation";
-    else if (obj.includes("fluidos")) domain = "Fluids";
-    else if (obj.includes("complet") || obj.includes("dhsv")) domain = "Completion";
-    else if (obj.includes("mpd") || obj.includes("pressure drilling")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("interven")) domain = "Workover";
-    else if (obj.includes("constru")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+    if (obj.includes("ciment") || obj.includes("cimentaç")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("flexitubo") || obj.includes("acidiz") || obj.includes("fratur")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid") || obj.includes("químic") || obj.includes("quimic") || obj.includes("produto quím")) domain = "Fluids";
+    else if (obj.includes("complet") || obj.includes("dhsv") || obj.includes("completaç") || obj.includes("instalaç") && obj.includes("sistem")) domain = "Completion";
+    else if (obj.includes("mpd") || obj.includes("pressure drilling") || obj.includes("gerenciamento de pressão")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("intervençã") || obj.includes("reentrada")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("perfur") || obj.includes("sondagem") || obj.includes("well construction")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol") || obj.includes("sísmic") || obj.includes("sismic") || obj.includes("software") || obj.includes("licen")) domain = "G&G Software";
 
     // Re-calculating period and validation metadata for the inference
     const rawBrzValue = c.value || "—";
@@ -2048,7 +2117,7 @@ function processIncomingContracts(rawItems) {
       if (!v) return 0;
       const str = String(v);
       if (str.includes(',') && str.lastIndexOf(',') > str.lastIndexOf('.')) {
-         return parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
+        return parseFloat(str.replace(/[^\d,-]/g, '').replace(',', '.')) || 0;
       }
       return parseFloat(str.replace(/[^\d.-]/g, '')) || 0;
     };
@@ -2059,12 +2128,12 @@ function processIncomingContracts(rawItems) {
     // Secondary sort: most recent start date first
     // Expecting DD/MM/YYYY format
     const parseDate = (dstr) => {
-        if (!dstr) return 0;
-        const pts = String(dstr).split('/');
-        if (pts.length === 3) return new Date(`${pts[2]}-${pts[1]}-${pts[0]}`).getTime();
-        return 0;
+      if (!dstr) return 0;
+      const pts = String(dstr).split('/');
+      if (pts.length === 3) return new Date(`${pts[2]}-${pts[1]}-${pts[0]}`).getTime();
+      return 0;
     };
-    
+
     // a.inicio is mapped to c.inicio in the raw item? Wait, the mapped object has `periodo`, not `inicio`.
     // Let's sort by periodo year (e.g. "2021-2025")
     const yearA = parseInt(a.periodo.split('–')[0]) || 0;
@@ -2163,7 +2232,7 @@ window.filterContractTable = function () {
       const valMatch = !brzValMin || contractToUSD(c) >= brzValMin;
       return matchDomain && matchQ && valMatch;
     })
-    .sort((a, b) => (a.inicioSort||0) - (b.inicioSort||0));
+    .sort((a, b) => (a.inicioSort || 0) - (b.inicioSort || 0));
   contractPage = 1;
   renderContractTable(filteredContracts);
 };
@@ -2332,6 +2401,11 @@ document.querySelectorAll('.nav-link').forEach(link => {
       setTimeout(() => renderMexTemporalOverlapChart(), 60);
     });
   }
+  if (link.dataset.section === 'mexico-registry') {
+    link.addEventListener('click', () => {
+      setTimeout(() => loadMexRegistry(1), 60);
+    });
+  }
   if (link.dataset.section === 'norway-audit') {
     link.addEventListener('click', () => {
       setTimeout(() => {
@@ -2359,10 +2433,10 @@ function renderArgTemporalOverlapChart() {
   // SESCO Adjunto IV fracking jobs per year (from ARG_TREND)
   const fracJobs = [344, 266, 293, 349, 321, 118, 353, 426, 420, 354, 383, 15];
   // Contract activity bands (1 = active)
-  const fracturing  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  const cementing   = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const fracturing = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cementing = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   const directional = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
-  const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const completion = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
   chartInstances['argTemporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
     type: 'bar',
@@ -2375,10 +2449,10 @@ function renderArgTemporalOverlapChart() {
           fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#16a34a',
           yAxisID: 'y', order: 0
         },
-        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20),  backgroundColor: 'rgba(239,68,68,0.55)',   yAxisID: 'y2', order: 1 },
-        { label: 'Cementing',            data: cementing.map(v => v * 16),   backgroundColor: 'rgba(59,130,246,0.55)',  yAxisID: 'y2', order: 1 },
+        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20), backgroundColor: 'rgba(239,68,68,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Cementing', data: cementing.map(v => v * 16), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
         { label: 'Directional Drilling', data: directional.map(v => v * 12), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Completion / DHSV',   data: completion.map(v => v * 8),   backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV', data: completion.map(v => v * 8), backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
       ]
     },
     options: {
@@ -2464,10 +2538,10 @@ function renderMexTemporalOverlapChart() {
   // SIH Perforación jobs per year (from MEX_TREND)
   const drillingJobs = [108, 115, 102, 104, 104, 124, 133, 115, 118, 113, 109];
   // Contract activity bands (1 = active)
-  const fracturing  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  const cementing   = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1];
+  const fracturing = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const cementing = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1];
   const directional = [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1];
-  const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const completion = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
   chartInstances['mexTemporalOverlapChart'] = new Chart(ctx.getContext('2d'), {
     type: 'bar',
@@ -2480,10 +2554,10 @@ function renderMexTemporalOverlapChart() {
           fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#6366f1',
           yAxisID: 'y', order: 0
         },
-        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20),  backgroundColor: 'rgba(239,68,68,0.55)',   yAxisID: 'y2', order: 1 },
+        { label: 'Hydraulic Fracturing', data: fracturing.map(v => v * 20), backgroundColor: 'rgba(239,68,68,0.55)', yAxisID: 'y2', order: 1 },
         { label: 'Cementing & Well Const.', data: cementing.map(v => v * 16), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
         { label: 'Directional Drilling', data: directional.map(v => v * 12), backgroundColor: 'rgba(139,92,246,0.55)', yAxisID: 'y2', order: 1 },
-        { label: 'Completion / DHSV',   data: completion.map(v => v * 8),   backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
+        { label: 'Completion / DHSV', data: completion.map(v => v * 8), backgroundColor: 'rgba(245,158,11,0.55)', yAxisID: 'y2', order: 1 },
       ]
     },
     options: {
@@ -2506,18 +2580,18 @@ function renderMexTemporalOverlapChart() {
     }
   });
 }
-window.filterArgRegistry = function() {
+window.filterArgRegistry = function () {
   const q = (document.getElementById('argSearchInput')?.value || '').toLowerCase();
   const basin = (document.getElementById('argBasinFilter')?.value || '').toLowerCase();
   const tier = (document.getElementById('argTierFilter')?.value || '').toUpperCase();
-  
+
   const filtered = ARG_OPERATORS.filter(o => {
     const matchQ = !q || o.op.toLowerCase().includes(q) || o.basin.toLowerCase().includes(q);
     const matchBasin = !basin || o.basin.toLowerCase() === basin;
     const matchTier = !tier || o.tier === tier;
     return matchQ && matchBasin && matchTier;
   });
-  
+
   renderArgRegistryTable(filtered);
 };
 
@@ -2553,7 +2627,7 @@ function renderMexDynamicStats(summary) {
   const totJobs = document.getElementById('mexMetricTotalJobs');
   const totOps = document.getElementById('mexMetricTotalOps');
   const totBasins = document.getElementById('mexMetricTotalBasins');
-  
+
   if (summary && summary.operators) {
     const opsCount = Object.keys(summary.operators).length;
     if (totOps) totOps.textContent = opsCount;
@@ -2567,17 +2641,17 @@ function renderMexDynamicStats(summary) {
   }
 }
 
-window.goMexPage = function(p) {
+window.goMexPage = function (p) {
   mexRegPage = p;
   const q = (document.getElementById('mexSearchInput')?.value || '').toLowerCase();
   const basin = (document.getElementById('mexBasinFilter')?.value || '').toUpperCase();
-  
+
   fMexStore = mexicoStore.filter(r => {
     const matchQ = !q || [r.id_pozo, r.operador, r.cuenca, r.formacion].join(' ').toLowerCase().includes(q);
     const matchBasin = !basin || (r.cuenca || '').toUpperCase() === basin;
     return matchQ && matchBasin;
   });
-  
+
   renderMexRegistryTable(fMexStore);
 };
 
@@ -2605,8 +2679,8 @@ function renderMexRegistryTable(data) {
       <td style="font-weight:600;font-size:11px;color:var(--text);">${r.operador || '—'}</td>
       <td style="font-size:11px;color:var(--text2);">${r.cuenca || '—'}</td>
       <td style="font-size:11px;font-weight:600;">${r.etapas_fractura || '0'}</td>
-      <td style="font-size:11px;">${(parseInt(r.presion_max_psi)||0).toLocaleString()}</td>
-      <td style="font-size:11px;">${(parseInt(r.longitud_lateral_m)||0).toLocaleString()}</td>
+      <td style="font-size:11px;">${(parseInt(r.presion_max_psi) || 0).toLocaleString()}</td>
+      <td style="font-size:11px;">${(parseInt(r.longitud_lateral_m) || 0).toLocaleString()}</td>
     </tr>`;
   }).join('');
 
@@ -2616,9 +2690,9 @@ function renderMexRegistryTable(data) {
       paginationEl.innerHTML = "";
     } else {
       paginationEl.innerHTML = `
-        <button onclick="goMexPage(${mexRegPage-1})" ${mexRegPage===1?'disabled':''} class="pg-btn">Prev</button>
+        <button onclick="goMexPage(${mexRegPage - 1})" ${mexRegPage === 1 ? 'disabled' : ''} class="pg-btn">Prev</button>
         <span style="font-size:12px;font-weight:600;color:#64748b;margin:0 10px;">Page ${mexRegPage} of ${totalPages}</span>
-        <button onclick="goMexPage(${mexRegPage+1})" ${mexRegPage===totalPages?'disabled':''} class="pg-btn">Next</button>
+        <button onclick="goMexPage(${mexRegPage + 1})" ${mexRegPage === totalPages ? 'disabled' : ''} class="pg-btn">Next</button>
       `;
     }
   }
@@ -2861,4 +2935,92 @@ function renderNorwayRNNPChart() {
 document.addEventListener('DOMContentLoaded', () => {
     const navNorReg = document.getElementById('nav-norway-registry');
     if(navNorReg) navNorReg.addEventListener('click', () => loadNorwayRegistry(1));
+
+    const navMexReg = document.getElementById('nav-mexico-registry');
+    if(navMexReg) navMexReg.addEventListener('click', () => loadMexRegistry(1));
 });
+
+// ── MEX Operating Risk Registry ──────────────────────────────────────────────
+// Source: CNH SIH Perforación · api/data/mexico_perforacion.csv · 1,245 records
+// Endpoint: GET /api/mexico-perforacion?page=N&limit=50&q=&basin=
+
+let _mexPage = 1;
+let _mexTotal = 0;
+
+async function loadMexRegistry(page) {
+  _mexPage = page || 1;
+  const q     = (document.getElementById('mexSearchInput')?.value || '').trim();
+  const basin = document.getElementById('mexBasinFilter')?.value || '';
+
+  const params = new URLSearchParams({ page: _mexPage, limit: 50 });
+  if (q)     params.set('q', q);
+  if (basin) params.set('basin', basin);
+
+  const countEl = document.getElementById('mexTableCount');
+  if (countEl) countEl.textContent = 'Loading…';
+
+  try {
+    const res  = await fetch('/api/mexico-perforacion?' + params.toString());
+    const data = await res.json();
+
+    _mexTotal = data.total || 0;
+
+    // Update header stats
+    const totalEl = document.getElementById('mexMetricTotalJobs');
+    if (totalEl && !q && !basin) totalEl.textContent = _mexTotal.toLocaleString();
+
+    if (countEl) countEl.textContent = _mexTotal.toLocaleString() + ' records';
+
+    const body = document.getElementById('mexRegBody');
+    if (body) {
+      if (!data.items || data.items.length === 0) {
+        body.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:32px;color:#94a3b8;">No records found</td></tr>';
+      } else {
+        const BASIN_COLOR = {
+          'SURESTE': '#0369a1', 'BURGOS': '#7c3aed',
+          'VERACRUZ': '#0f766e', 'TAMPICO-MISANTLA': '#b45309',
+        };
+        body.innerHTML = data.items.map((r, i) => {
+          const bc = BASIN_COLOR[r.cuenca?.toUpperCase()] || '#64748b';
+          const hpht = r.presion_max_psi > 11000;
+          const deepLat = r.longitud_lateral_m > 2000;
+          return `<tr style="${i % 2 === 0 ? 'background:#f8fafc;' : ''}">
+            <td style="font-size:11px;font-weight:700;font-family:monospace;">${r.id_pozo || '—'}</td>
+            <td style="font-size:11px;">${r.operador || '—'}</td>
+            <td><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:${bc}22;color:${bc};">${r.cuenca || '—'}</span></td>
+            <td style="text-align:right;font-weight:600;">${r.etapas_fractura != null ? r.etapas_fractura : '—'}</td>
+            <td style="text-align:right;${hpht ? 'color:#dc2626;font-weight:700;' : ''}">${r.presion_max_psi != null ? Number(r.presion_max_psi).toLocaleString() : '—'}</td>
+            <td style="text-align:right;${deepLat ? 'color:#7c3aed;font-weight:700;' : ''}">${r.longitud_lateral_m != null ? Number(r.longitud_lateral_m).toLocaleString() : '—'}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    renderMexPagination(data.page, data.pages);
+  } catch(e) {
+    const body = document.getElementById('mexRegBody');
+    if (body) body.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:#ef4444;">API error: ${e.message}</td></tr>`;
+    if (countEl) countEl.textContent = 'Error';
+  }
+}
+
+function goMexPage(page) {
+  loadMexRegistry(page);
+}
+
+function renderMexPagination(current, total) {
+  const el = document.getElementById('mexRegPagination');
+  if (!el || total <= 1) { if(el) el.innerHTML = ''; return; }
+  const pages = [];
+  if (current > 1) pages.push(`<button class="page-btn" onclick="goMexPage(${current-1})">‹ Prev</button>`);
+  const start = Math.max(1, current - 2);
+  const end   = Math.min(total, current + 2);
+  for (let p = start; p <= end; p++) {
+    pages.push(`<button class="page-btn${p === current ? ' active' : ''}" onclick="goMexPage(${p})">${p}</button>`);
+  }
+  if (current < total) pages.push(`<button class="page-btn" onclick="goMexPage(${current+1})">Next ›</button>`);
+  el.innerHTML = `<div style="display:flex;gap:4px;align-items:center;padding:12px 20px;">
+    <span style="font-size:11px;color:#64748b;margin-right:8px;">Page ${current} of ${total} · ${_mexTotal.toLocaleString()} records</span>
+    ${pages.join('')}
+  </div>`;
+}

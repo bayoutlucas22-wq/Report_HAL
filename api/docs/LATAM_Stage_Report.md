@@ -7,7 +7,7 @@
 ## 1. Executive Summary
 This milestone marks the successful architectural setup of a tripartite compliance and intelligence framework tracking Halliburton’s operations and regulatory exposure across the three defining pillars of the Latin American energy sector.
 
-With the deployment of individual modules for **Brazil**, **Argentina**, and **Mexico**, the foundation is fully laid. While these three independently cover distinct regulatory environments and distinct geological challenges, they share the unified Cortex CIS UI and identical intelligence paradigms.
+With the deployment of individual modules for **Brazil**, **Argentina**, and **Mexico**, the foundation is fully laid. While these three independently cover distinct regulatory environments and distinct geological challenges, they share the unified CORTEX CIS UI and identical intelligence paradigms.
 
 > **Note on Future Architecture:** This structural alignment establishes the groundwork for a future unified *"LATAM GEOMARKET"* roll-up view. However, at this stage, the focus remains strictly on the individual, country-specific intelligence integrations. 
 
