@@ -1011,6 +1011,10 @@ async function init() {
     if (mexC && mexC.items) { mexicoContracts = processRegionalContracts(mexC.items); window.filtermexicoContracts(); }
     if (argC && argC.items) { argentinaContracts = processRegionalContracts(argC.items); window.filterargentinaContracts(); }
     if (norC && norC.items) { norwayContracts = processRegionalContracts(norC.items); window.filternorwayContracts(); }
+    
+    // Load Mexico Compact Well Data
+    loadMexicoCompactData().catch(e => console.warn("Mexico Wells fail", e));
+
     if (stats) {
       halStats = stats;
       renderBadge(stats.total);
@@ -2802,7 +2806,11 @@ window.loadNorwayRegistry = async function(p = 1) {
         </tr>
       `).join('');
       if (countEl) countEl.textContent = `Showing ${data.items.length} of ${data.total.toLocaleString()} records`;
-      if (cachedEl) cachedEl.textContent = `Source: Sodir FactMaps ArcGIS Service · Updated: ${data.cachedAt.split('T')[0]}`;
+      if (cachedEl && data.cachedAt) {
+        cachedEl.textContent = `Source: Sodir FactMaps ArcGIS Service · Updated: ${data.cachedAt.split('T')[0]}`;
+      } else if (cachedEl) {
+        cachedEl.textContent = 'Source: Sodir FactMaps ArcGIS Service (Live)';
+      }
 
       if (pagEl && data.pages > 1) {
         pagEl.innerHTML = `
@@ -2827,21 +2835,66 @@ function renderNorwayCrossTable() {
   if (!tbody) return;
 
   // Use precomputed fields and regulations
-  const fields = NOR_FIELDS.slice(0, 10);
-  const regs = NOR_REGULATIONS;
+  const fields = (NOR_FIELDS || []).slice(0, 10);
+  const regs = NOR_REGULATIONS || [];
+
+  if (fields.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:#64748b;">Awaiting Sodir FactMap Ingestion…</td></tr>';
+    return;
+  }
 
   tbody.innerHTML = fields.map((f, i) => {
     const reg = regs[i % regs.length];
+    const regName = (reg && reg.reg) ? reg.reg.split('(')[0] : 'Regulation Pending';
+    const link = (reg && reg.link) ? reg.link : '#';
+    const service = (NOR_HAL_OVERLAP[i % NOR_HAL_OVERLAP.length] || {}).halService || 'HAL Service Line';
+    
     return `
       <tr>
-        <td style="font-weight:700;color:var(--blue);font-size:12px;">${f.field}</td>
+        <td style="font-weight:700;color:var(--blue);font-size:12px;">${f.field || 'Global NCS'}</td>
         <td style="font-size:11px;font-weight:600;">Main NCS Operator</td>
-        <td style="font-size:11px;color:var(--text2);">${NOR_HAL_OVERLAP[i % NOR_HAL_OVERLAP.length].halService}</td>
-        <td style="font-size:11px;"><span style="font-weight:700;color:#c0392b;">${reg.reg.split('(')[0]}</span></td>
-        <td><a href="${reg.link}" target="_blank" rel="noopener" class="reg-link" style="color:var(--blue);font-weight:700;font-size:11px;">Lovedata ↗</a></td>
+        <td style="font-size:11px;color:var(--text2);">${service}</td>
+        <td style="font-size:11px;"><span style="font-weight:700;color:#c0392b;">${regName}</span></td>
+        <td><a href="${link}" target="_blank" rel="noopener" class="reg-link" style="color:var(--blue);font-weight:700;font-size:11px;">Lovedata ↗</a></td>
       </tr>
     `;
   }).join('');
+}
+
+// ── Mexico Compact Data Ingestion ───────────────────────────────────────────
+let MEXICO_COMPACT_POZOS = [];
+
+async function loadMexicoCompactData() {
+  try {
+    const res = await fetch('/api/data/processed/mexico_pozos_compact.json');
+    if (!res.ok) throw new Error("Could not find compact data");
+    const json = await res.json();
+    
+    // Map Columns+Rows back to objects for the existing UI logic
+    MEXICO_COMPACT_POZOS = json.rows.map(row => {
+        const obj = {};
+        json.columns.forEach((col, i) => obj[col] = row[i]);
+        
+        // Map to expected UI keys
+        return {
+            id_pozo: obj.well,
+            operador: "CNH / PEMEX", // Logic or lookup if needed
+            cuenca: obj.basin,
+            etapas_fractura: "—",
+            presion_max_psi: 0,
+            longitud_lateral_m: 0
+        };
+    });
+    
+    // Auto-update specific components
+    const countEl = document.getElementById('mexTableCount');
+    if (countEl) countEl.innerHTML = `${MEXICO_COMPACT_POZOS.length.toLocaleString()} records`;
+    
+    // Render first page
+    renderMexicoRegistry(MEXICO_COMPACT_POZOS);
+  } catch (e) {
+    console.warn("Mexico Compact Data Load fail:", e);
+  }
 }
 
 function renderNorwayRNNPChart() {
