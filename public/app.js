@@ -256,6 +256,7 @@ function renderKPIs(stats) {
   ];
 
   const grid = document.getElementById("kpiGrid");
+  if (!grid) return;
   grid.innerHTML = cards.map(c => `
     <div class="kpi-card" style="--kpi-accent:${c.accent}">
       <div class="kpi-label">${c.label}</div>
@@ -413,7 +414,9 @@ function renderDonut(stats) {
 // ── CSB Trend Chart ───────────────────────────────────────────────────────────
 function renderCsbTrend(stats) {
   destroyChart("csbTrendChart");
-  const ctx = document.getElementById("csbTrendChart").getContext("2d");
+  const _csbEl = document.getElementById("csbTrendChart");
+  if (!_csbEl) return;
+  const ctx = _csbEl.getContext("2d");
   const series = stats.yearSeries;
   const years = series.map(y => y.year);
 
@@ -453,7 +456,9 @@ function renderCsbTrend(stats) {
 // ── Month Pattern Chart ───────────────────────────────────────────────────────
 function renderMonthChart(stats) {
   destroyChart("monthChart");
-  const ctx = document.getElementById("monthChart").getContext("2d");
+  const _mcEl = document.getElementById("monthChart");
+  if (!_mcEl) return;
+  const ctx = _mcEl.getContext("2d");
   const pattern = stats.monthPattern || {};
   const vals = Array.from({ length: 12 }, (_, i) => pattern[i + 1] || 0);
 
@@ -484,7 +489,9 @@ function renderMonthChart(stats) {
 // ── Multi-line Chart ──────────────────────────────────────────────────────────
 function renderMultiLine(stats) {
   destroyChart("multiLineChart");
-  const ctx = document.getElementById("multiLineChart").getContext("2d");
+  const _mlEl = document.getElementById("multiLineChart");
+  if (!_mlEl) return;
+  const ctx = _mlEl.getContext("2d");
   const series = stats.yearSeries;
   const years = series.map(y => y.year);
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
@@ -514,7 +521,9 @@ function renderMultiLine(stats) {
 // ── Severity Chart ────────────────────────────────────────────────────────────
 function renderSeverityChart(stats) {
   destroyChart("severityChart");
-  const ctx = document.getElementById("severityChart").getContext("2d");
+  const _svEl = document.getElementById("severityChart");
+  if (!_svEl) return;
+  const ctx = _svEl.getContext("2d");
   const order = ["SSO", "Minor", "Moderate", "Severe"];
   const vals = order.map(s => stats.severityBreakdown[s] || 0);
 
@@ -585,6 +594,8 @@ function renderOverviewContracts(contracts) {
   tbody.innerHTML = displaySet.map(c => {
     const objText = c.obj || "";
     const domText = c.domain || "";
+    const period = c.periodo || (c.inicio ? `${c.inicio.split('/')[2] || '?'}–${(c.fim || '').split('/')[2] || '?'}` : '—');
+    const usdVal = contractToUSD(c);
     return `
     <tr>
       <td style="font-family:monospace;font-weight:700;color:var(--blue)">${c.numero || "Unknown"}</td>
@@ -592,11 +603,23 @@ function renderOverviewContracts(contracts) {
       <td style="max-width:300px; font-size:11px; color:var(--text2); line-height:1.4;">
         ${objText.substring(0, 120)}${objText.length > 120 ? '...' : ''}
       </td>
-      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${fmtUSD(contractToUSD(c))}</td>
-      <td style="font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '-'}</td>
+      <td style="white-space:nowrap; font-size:11px; color:var(--text3);">${period}</td>
+      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${usdVal ? fmtUSD(usdVal) : '—'}</td>
+      <td style="font-size:12px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '—'}</td>
     </tr>
   `}).join("");
 }
+
+let _overviewSortKey = 'date';
+let _overviewSortDir = -1; // -1 = desc, 1 = asc
+
+window.sortOverviewContracts = function(key) {
+  if (_overviewSortKey === key) { _overviewSortDir *= -1; }
+  else { _overviewSortKey = key; _overviewSortDir = -1; }
+  document.getElementById('sort-overview-date').textContent = _overviewSortKey === 'date' ? (_overviewSortDir === -1 ? '↓' : '↑') : '↕';
+  document.getElementById('sort-overview-value').textContent = _overviewSortKey === 'value' ? (_overviewSortDir === -1 ? '↓' : '↑') : '↕';
+  window.filterOverviewContracts();
+};
 
 window.filterOverviewContracts = function () {
   const q = (document.getElementById('overviewContractSearch')?.value || '').toLowerCase();
@@ -608,6 +631,13 @@ window.filterOverviewContracts = function () {
     const matchQ = !q || [(c.numero || ""), domText, (c.obj || "")].join(' ').toLowerCase().includes(q);
     return matchDomain && matchQ;
   });
+
+  const dir = _overviewSortDir;
+  if (_overviewSortKey === 'date') {
+    filtered.sort((a, b) => dir * ((a.inicioSort || 0) - (b.inicioSort || 0)));
+  } else if (_overviewSortKey === 'value') {
+    filtered.sort((a, b) => dir * (contractToUSD(a) - contractToUSD(b)));
+  }
 
   renderOverviewContracts(filtered);
 };
@@ -693,7 +723,7 @@ function renderTable(data) {
     const injCount = parseInt(r.feridos) || 0;
     const fatCount = parseInt(r.fatalidades) || 0;
     const situacao = r.situacao || "—";
-    const sitColor = situacao === "Fechada" ? "#16a34a" : situacao === "Aberta" ? "#c0392b" : "#8896ab";
+    const sitColor = situacao === "Closed" || situacao === "Approved" ? "#16a34a" : situacao === "Awaiting Action" ? "#c0392b" : "#8896ab";
     return `
     <tr style="cursor:${hasDesc ? 'pointer' : 'default'}" onclick="${hasDesc ? `toggleDesc('${rowId}')` : ''}">
       <td class="num-cell" style="white-space:nowrap;">
@@ -840,6 +870,24 @@ function switchSection(section, skipHistory = false) {
       fNorCxContracts = norwayContracts.slice();
       renderNorCrossContracts();
     }, 200);
+  }
+
+  if (section === 'crossanalysis') {
+    setTimeout(() => {
+      if (filteredContracts && filteredContracts.length) {
+        renderContractTable(filteredContracts);
+        if (typeof renderTemporalOverlapChart === 'function') renderTemporalOverlapChart();
+        if (typeof renderContractMethodChart === 'function') renderContractMethodChart();
+      }
+    }, 100);
+  }
+
+  if (section === 'mexico' || section === 'mexico-crossanalysis') {
+    setTimeout(() => { window.filtermexicoContracts && window.filtermexicoContracts(); }, 100);
+  }
+
+  if (section === 'argentina' || section === 'argentina-crossanalysis') {
+    setTimeout(() => { window.filterargentinaContracts && window.filterargentinaContracts(); }, 100);
   }
 
   // Reset scroll position to top on section switch
@@ -2034,14 +2082,14 @@ function processIncomingContracts(rawItems) {
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("ciment")) domain = "Cementing";
-    else if (obj.includes("estimul") || obj.includes("flexitubo")) domain = "Stimulation";
-    else if (obj.includes("fluidos")) domain = "Fluids";
-    else if (obj.includes("complet") || obj.includes("dhsv")) domain = "Completion";
-    else if (obj.includes("mpd") || obj.includes("pressure drilling")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("interven")) domain = "Workover";
-    else if (obj.includes("constru")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+    if (obj.includes("ciment") || obj.includes("cimentaç")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("flexitubo") || obj.includes("acidiz") || obj.includes("fratur")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid") || obj.includes("químic") || obj.includes("quimic") || obj.includes("produto quím")) domain = "Fluids";
+    else if (obj.includes("complet") || obj.includes("dhsv") || obj.includes("completaç") || obj.includes("instalaç") && obj.includes("sistem")) domain = "Completion";
+    else if (obj.includes("mpd") || obj.includes("pressure drilling") || obj.includes("gerenciamento de pressão")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("intervençã") || obj.includes("reentrada")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("perfur") || obj.includes("sondagem") || obj.includes("well construction")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol") || obj.includes("sísmic") || obj.includes("sismic") || obj.includes("software") || obj.includes("licen")) domain = "G&G Software";
 
     // Re-calculating period and validation metadata for the inference
     const rawBrzValue = c.value || "—";
