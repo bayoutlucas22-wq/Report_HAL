@@ -208,14 +208,15 @@
           HAL NOR
         </a>
 
-        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.6;">🇸🇦 KSA</div>
-        <a href="#" class="nav-link" data-section="saudi-registry" id="nav-saudi-registry">
+        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.3;filter:blur(0.5px);">🇸🇦 KSA</div>
+        <a href="#" class="nav-link" data-section="saudi-registry" id="nav-saudi-registry" style="opacity:0.45;pointer-events:none;filter:blur(0.8px);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
           </svg>
           KSA Audit Dashboard
+          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
-        <a href="#" class="nav-link" data-section="saudi-report" id="nav-saudi-report">
+        <a href="#" class="nav-link" data-section="saudi-report" id="nav-saudi-report" style="opacity:0.45;pointer-events:none;filter:blur(1px);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
             <polyline points="14 2 14 8 20 8"></polyline>
@@ -223,18 +224,21 @@
             <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
           KSA Report Intelligence
+          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
-        <a href="#" class="nav-link" data-section="saudi-crossanalysis" id="nav-saudi-crossanalysis">
+        <a href="#" class="nav-link" data-section="saudi-crossanalysis" id="nav-saudi-crossanalysis" style="opacity:0.45;pointer-events:none;filter:blur(1px);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
           </svg>
           KSA Cross-Analysis
+          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
-        <a href="#" class="nav-link" data-section="saudi-esg" id="nav-saudi-esg">
+        <a href="#" class="nav-link" data-section="saudi-esg" id="nav-saudi-esg" style="opacity:0.45;pointer-events:none;filter:blur(1px);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
           ESG Compliance
+          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
 
         <div class="filter-label" style="font-size:10px; margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE
@@ -8262,22 +8266,25 @@
                   </div>`;
                 }).join('') + '</div>';
 
-              // Chart
-              if (sauChart) sauChart.destroy();
-              const ctx = document.getElementById('sau-chart').getContext('2d');
-              sauChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                  labels: YEARS.map(y => 'FY ' + y),
-                  datasets: [
-                    { label: 'Net Income ($B)', data: YEARS.map(y => YD[y]?.financial_performance?.net_income_usd_bn ?? null), backgroundColor: 'rgba(20,108,46,0.85)', borderRadius: 4 },
-                    { label: 'FCF ($B)',         data: YEARS.map(y => YD[y]?.financial_performance?.free_cash_flow_usd_bn ?? null), backgroundColor: 'rgba(3,105,161,0.8)', borderRadius: 4 },
-                    { label: 'Capex ($B)',       data: YEARS.map(y => YD[y]?.financial_performance?.capex_usd_bn ?? null), backgroundColor: 'rgba(180,83,9,0.7)', borderRadius: 4 },
-                    { label: 'Dividends ($B)',   data: YEARS.map(y => YD[y]?.financial_performance?.total_dividends_usd_bn ?? null), backgroundColor: 'rgba(15,118,110,0.7)', borderRadius: 4 },
-                  ]
-                },
-                options: { responsive:true, plugins:{legend:{position:'top',labels:{font:{family:'Inter',size:11},boxWidth:12}}}, scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10},callback:v=>'$'+v+'B'}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
-              });
+              // Chart — null guard prevents crash if canvas not yet in DOM
+              const chartEl = document.getElementById('sau-chart');
+              if (chartEl) {
+                if (sauChart) sauChart.destroy();
+                const ctx = chartEl.getContext('2d');
+                sauChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: YEARS.map(y => 'FY ' + y),
+                    datasets: [
+                      { label: 'Net Income ($B)', data: YEARS.map(y => YD[y]?.financial_performance?.net_income_usd_bn ?? null), backgroundColor: 'rgba(20,108,46,0.85)', borderRadius: 4 },
+                      { label: 'FCF ($B)',         data: YEARS.map(y => YD[y]?.financial_performance?.free_cash_flow_usd_bn ?? null), backgroundColor: 'rgba(3,105,161,0.8)', borderRadius: 4 },
+                      { label: 'Capex ($B)',       data: YEARS.map(y => YD[y]?.financial_performance?.capex_usd_bn ?? null), backgroundColor: 'rgba(180,83,9,0.7)', borderRadius: 4 },
+                      { label: 'Dividends ($B)',   data: YEARS.map(y => YD[y]?.financial_performance?.total_dividends_usd_bn ?? null), backgroundColor: 'rgba(15,118,110,0.7)', borderRadius: 4 },
+                    ]
+                  },
+                  options: { responsive: true, plugins: { legend: { position: 'top', labels: { font: { family: 'Inter', size: 11 }, boxWidth: 12 } } }, scales: { y: { grid: { color: '#f1f5f9' }, ticks: { font: { family: 'Inter', size: 10 }, callback: v => '$' + v + 'B' } }, x: { grid: { display: false }, ticks: { font: { family: 'Inter', size: 10 } } } } }
+                });
+              }
 
               // Table
               const cols = ['Year','Net Income ($B)','FCF ($B)','Cash Ops ($B)','Capex ($B)','Dividends ($B)','Gearing (%)','ROACE (%)'];

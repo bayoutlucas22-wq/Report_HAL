@@ -783,7 +783,9 @@ function switchSection(section, skipHistory = false) {
 
   // Toggle global lock-mode for restricted sections
   const globalOverlay = document.getElementById('globalLockOverlay');
-  if (section === 'fullreport' || section === 'latam-summary') {
+  const restricted = ['fullreport', 'latam-summary', 'saudi-registry', 'saudi-report', 'saudi-crossanalysis', 'saudi-esg'];
+  
+  if (restricted.includes(section)) {
     document.body.classList.add('lock-mode');
     if (globalOverlay) {
       globalOverlay.style.setProperty('display', 'flex', 'important');
