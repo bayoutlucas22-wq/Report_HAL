@@ -153,6 +153,23 @@ class DataManager {
 
         if (options.countOnly) return results.length;
 
+        if (options.sort) {
+            results = [...results].sort((a, b) => {
+                for (let [key, dir] of Object.entries(options.sort)) {
+                    let aVal = a[key] !== undefined ? a[key] : '';
+                    let bVal = b[key] !== undefined ? b[key] : '';
+                    if (typeof aVal === 'string' && typeof bVal === 'string') {
+                        let cmp = aVal.localeCompare(bVal);
+                        if (cmp !== 0) return dir === -1 ? -cmp : cmp;
+                    } else {
+                        if (aVal > bVal) return dir === -1 ? -1 : 1;
+                        if (aVal < bVal) return dir === -1 ? 1 : -1;
+                    }
+                }
+                return 0;
+            });
+        }
+
         // Apply pagination
         const start = options.skip || 0;
         const limit = options.limit || results.length;
