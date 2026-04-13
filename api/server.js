@@ -58,7 +58,7 @@ app.get("/api/hal-incidents", async (req, res) => {
         const skip = (parseInt(page) - 1) * parseInt(limit);
         const [total, items] = await Promise.all([
             dataManager.getCollection('anp_records', filter, { countOnly: true }),
-            dataManager.getCollection('anp_records', filter, { skip, limit: parseInt(limit), sort: { numero: -1 } })
+            dataManager.getCollection('anp_records', filter, { skip, limit: parseInt(limit), sort: { year: -1, numero: -1 } })
         ]);
 
         res.json({ total, page: parseInt(page), limit: parseInt(limit), pages: Math.ceil(total / limit), items });
