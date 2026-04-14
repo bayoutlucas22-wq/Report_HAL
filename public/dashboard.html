@@ -8311,6 +8311,10 @@
                   const crossStatus = document.getElementById('sau-cross-status');
                   if (crossBody) crossBody.innerHTML = offlineMsg;
                   if (crossStatus) { crossStatus.textContent = 'API offline'; crossStatus.style.color = '#ef4444'; }
+                  const esgBody = document.getElementById('sau-esg-body');
+                  const esgStatus = document.getElementById('sau-esg-status');
+                  if (esgBody) esgBody.innerHTML = offlineMsg;
+                  if (esgStatus) { esgStatus.textContent = 'API offline'; esgStatus.style.color = '#ef4444'; }
                 }
               }
 
@@ -8681,7 +8685,9 @@
 
               // ── RAW JSON ─────────────────────────────────────────────────────
               function renderRaw() {
-                document.getElementById('sau-raw-content').innerHTML =
+                const rawEl = document.getElementById('sau-raw-content');
+                if (!rawEl) return;
+                rawEl.innerHTML =
                   '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Full intelligence data — all years</div>' +
                   YEARS.map(y => `
                   <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:10px;">
