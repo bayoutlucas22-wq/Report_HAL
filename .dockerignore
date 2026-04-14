@@ -7,23 +7,16 @@ node_modules
 .vercel
 *.py
 
-# Heavy source docs — not needed at runtime (data lives in MongoDB)
-api/docs/
+# Ignore heavy PDFs / binary documents
+api/docs/**/*.pdf
+docs/**/*.pdf
 
-# Raw CSVs — not needed at runtime
-api/data/*.csv
-api/data/*.zip
-api/data/*.json
-api/data/processed/anp_records.json
-api/data/processed/anp_stats.json
-api/data/processed/hal_db.json
+# Ignore mongo binary dump
 api/data/processed/mongo/
 
-# Keep only what server.js reads directly at runtime:
-# - api/data/wellbore_exploration_all.csv  (SODIR fallback)
-# - api/data/processed/norway_stats.json
-!api/data/wellbore_exploration_all.csv
-!api/data/processed/norway_stats.json
+# Ensure all data files are included
+!api/data/**/*.csv
+!api/data/**/*.json
 
-tejas_exposure_proxy.csv
+# Exclude output dir
 output/
