@@ -1,4 +1,4 @@
-/* ── app.js — Halliburton ANP Incident Dashboard ── */
+/* ── app.js — Contractor ANP Incident Dashboard ── */
 'use strict';
 
 // ── Official source URLs ─────────────────────────────────────────────────────
@@ -256,6 +256,7 @@ function renderKPIs(stats) {
   ];
 
   const grid = document.getElementById("kpiGrid");
+  if (!grid) return;
   grid.innerHTML = cards.map(c => `
     <div class="kpi-card" style="--kpi-accent:${c.accent}">
       <div class="kpi-label">${c.label}</div>
@@ -273,6 +274,33 @@ function renderKPIs(stats) {
 }
 
 // ── Overview Chart (08) ───────────────────────────────────────────────────────
+function renderWellIntegrityTable(stats) {
+  const tbody = document.getElementById('wellIntegrityTableBody');
+  if (!tbody || !stats.yearSeries) return;
+
+  let html = '';
+  stats.yearSeries.forEach(y => {
+    // "Well Integrity Failures" = CSB + Kick + Structural + Loss of Well Control
+    const wiTotal = (y['CSB Failure'] || 0) + (y['Kick (Primary Barrier)'] || 0) + (y['Structural Failure'] || 0) + (y['Loss of Well Control'] || 0);
+    const total = y.count || 1;
+    const share = ((wiTotal / total) * 100).toFixed(1);
+    
+    html += `
+      <tr>
+        <td style="font-weight:700;color:var(--text3);font-size:12px;">${y.year}</td>
+        <td>${wiTotal.toLocaleString()}</td>
+        <td>${total.toLocaleString()}</td>
+        <td>
+          <div class="cs-bar-cell">
+            <div class="cs-bar" style="width:${share}%"></div>${share}%
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+  tbody.innerHTML = html;
+}
+
 function renderOverviewChart(stats) {
   destroyChart("overviewChart");
   const canvas = document.getElementById("overviewChart");
@@ -413,7 +441,9 @@ function renderDonut(stats) {
 // ── CSB Trend Chart ───────────────────────────────────────────────────────────
 function renderCsbTrend(stats) {
   destroyChart("csbTrendChart");
-  const ctx = document.getElementById("csbTrendChart").getContext("2d");
+  const _csbEl = document.getElementById("csbTrendChart");
+  if (!_csbEl) return;
+  const ctx = _csbEl.getContext("2d");
   const series = stats.yearSeries;
   const years = series.map(y => y.year);
 
@@ -453,7 +483,9 @@ function renderCsbTrend(stats) {
 // ── Month Pattern Chart ───────────────────────────────────────────────────────
 function renderMonthChart(stats) {
   destroyChart("monthChart");
-  const ctx = document.getElementById("monthChart").getContext("2d");
+  const _mcEl = document.getElementById("monthChart");
+  if (!_mcEl) return;
+  const ctx = _mcEl.getContext("2d");
   const pattern = stats.monthPattern || {};
   const vals = Array.from({ length: 12 }, (_, i) => pattern[i + 1] || 0);
 
@@ -484,7 +516,9 @@ function renderMonthChart(stats) {
 // ── Multi-line Chart ──────────────────────────────────────────────────────────
 function renderMultiLine(stats) {
   destroyChart("multiLineChart");
-  const ctx = document.getElementById("multiLineChart").getContext("2d");
+  const _mlEl = document.getElementById("multiLineChart");
+  if (!_mlEl) return;
+  const ctx = _mlEl.getContext("2d");
   const series = stats.yearSeries;
   const years = series.map(y => y.year);
   const cats = ["CSB Failure", "Kick (Primary Barrier)", "Structural Failure", "Loss of Well Control"];
@@ -496,13 +530,32 @@ function renderMultiLine(stats) {
       datasets: cats.map(cat => ({
         label: cat.replace(" (Primary Barrier)", " (Kick)"),
         data: series.map(y => y[cat] || 0),
-        borderColor: CAT_COLORS[cat], backgroundColor: CAT_COLORS[cat] + "18",
-        fill: false, tension: 0.35, pointRadius: 3, borderWidth: 2
+        borderColor: CAT_COLORS[cat], 
+        backgroundColor: CAT_COLORS[cat] + "18",
+        fill: true, 
+        tension: 0.4, 
+        pointRadius: 3, 
+        borderWidth: 2
       }))
     },
     options: {
-      responsive: true, maintainAspectRatio: true,
-      plugins: { legend: { labels: { color: "#4a5568", font: { size: 10 }, boxWidth: 10, padding: 14 } } },
+      responsive: true, 
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: { 
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.9)',
+          padding: 12,
+          titleFont: { size: 12, weight: 700 },
+          bodyFont: { size: 12 },
+          cornerRadius: 6,
+          boxPadding: 4
+        }
+      },
       scales: {
         x: { ticks: { color: "#4a5568", font: { size: 11 } }, grid: { display: false } },
         y: { ticks: { color: "#4a5568", font: { size: 11 } }, grid: { color: "#dde3ee" }, beginAtZero: true }
@@ -514,7 +567,9 @@ function renderMultiLine(stats) {
 // ── Severity Chart ────────────────────────────────────────────────────────────
 function renderSeverityChart(stats) {
   destroyChart("severityChart");
-  const ctx = document.getElementById("severityChart").getContext("2d");
+  const _svEl = document.getElementById("severityChart");
+  if (!_svEl) return;
+  const ctx = _svEl.getContext("2d");
   const order = ["SSO", "Minor", "Moderate", "Severe"];
   const vals = order.map(s => stats.severityBreakdown[s] || 0);
 
@@ -585,6 +640,8 @@ function renderOverviewContracts(contracts) {
   tbody.innerHTML = displaySet.map(c => {
     const objText = c.obj || "";
     const domText = c.domain || "";
+    const period = c.periodo || (c.inicio ? `${c.inicio.split('/')[2] || '?'}–${(c.fim || '').split('/')[2] || '?'}` : '—');
+    const usdVal = contractToUSD(c);
     return `
     <tr>
       <td style="font-family:monospace;font-weight:700;color:var(--blue)">${c.numero || "Unknown"}</td>
@@ -592,11 +649,23 @@ function renderOverviewContracts(contracts) {
       <td style="max-width:300px; font-size:11px; color:var(--text2); line-height:1.4;">
         ${objText.substring(0, 120)}${objText.length > 120 ? '...' : ''}
       </td>
-      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${fmtUSD(contractToUSD(c))}</td>
-      <td style="font-size:11px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '-'}</td>
+      <td style="white-space:nowrap; font-size:11px; color:var(--text3);">${period}</td>
+      <td style="white-space:nowrap; font-weight:700; color:var(--text)">${usdVal ? fmtUSD(usdVal) : '—'}</td>
+      <td style="font-size:12px; font-weight:700; color:var(--accent); white-space:nowrap;">${c.csbLink || '—'}</td>
     </tr>
   `}).join("");
 }
+
+let _overviewSortKey = 'date';
+let _overviewSortDir = -1; // -1 = desc, 1 = asc
+
+window.sortOverviewContracts = function(key) {
+  if (_overviewSortKey === key) { _overviewSortDir *= -1; }
+  else { _overviewSortKey = key; _overviewSortDir = -1; }
+  document.getElementById('sort-overview-date').textContent = _overviewSortKey === 'date' ? (_overviewSortDir === -1 ? '↓' : '↑') : '↕';
+  document.getElementById('sort-overview-value').textContent = _overviewSortKey === 'value' ? (_overviewSortDir === -1 ? '↓' : '↑') : '↕';
+  window.filterOverviewContracts();
+};
 
 window.filterOverviewContracts = function () {
   const q = (document.getElementById('overviewContractSearch')?.value || '').toLowerCase();
@@ -608,6 +677,13 @@ window.filterOverviewContracts = function () {
     const matchQ = !q || [(c.numero || ""), domText, (c.obj || "")].join(' ').toLowerCase().includes(q);
     return matchDomain && matchQ;
   });
+
+  const dir = _overviewSortDir;
+  if (_overviewSortKey === 'date') {
+    filtered.sort((a, b) => dir * ((a.inicioSort || 0) - (b.inicioSort || 0)));
+  } else if (_overviewSortKey === 'value') {
+    filtered.sort((a, b) => dir * (contractToUSD(a) - contractToUSD(b)));
+  }
 
   renderOverviewContracts(filtered);
 };
@@ -693,7 +769,7 @@ function renderTable(data) {
     const injCount = parseInt(r.feridos) || 0;
     const fatCount = parseInt(r.fatalidades) || 0;
     const situacao = r.situacao || "—";
-    const sitColor = situacao === "Fechada" ? "#16a34a" : situacao === "Aberta" ? "#c0392b" : "#8896ab";
+    const sitColor = situacao === "Closed" || situacao === "Approved" ? "#16a34a" : situacao === "Awaiting Action" ? "#c0392b" : "#8896ab";
     return `
     <tr style="cursor:${hasDesc ? 'pointer' : 'default'}" onclick="${hasDesc ? `toggleDesc('${rowId}')` : ''}">
       <td class="num-cell" style="white-space:nowrap;">
@@ -842,6 +918,24 @@ function switchSection(section, skipHistory = false) {
     }, 200);
   }
 
+  if (section === 'crossanalysis') {
+    setTimeout(() => {
+      if (filteredContracts && filteredContracts.length) {
+        renderContractTable(filteredContracts);
+        if (typeof renderTemporalOverlapChart === 'function') renderTemporalOverlapChart();
+        if (typeof renderContractMethodChart === 'function') renderContractMethodChart();
+      }
+    }, 100);
+  }
+
+  if (section === 'mexico' || section === 'mexico-crossanalysis') {
+    setTimeout(() => { window.filtermexicoContracts && window.filtermexicoContracts(); }, 100);
+  }
+
+  if (section === 'argentina' || section === 'argentina-crossanalysis') {
+    setTimeout(() => { window.filterargentinaContracts && window.filterargentinaContracts(); }, 100);
+  }
+
   // Reset scroll position to top on section switch
   const pageContent = document.querySelector('.page-content');
   if (pageContent) pageContent.scrollTop = 0;
@@ -963,11 +1057,23 @@ async function init() {
     if (mexC && mexC.items) { mexicoContracts = processRegionalContracts(mexC.items); window.filtermexicoContracts(); }
     if (argC && argC.items) { argentinaContracts = processRegionalContracts(argC.items); window.filterargentinaContracts(); }
     if (norC && norC.items) { norwayContracts = processRegionalContracts(norC.items); window.filternorwayContracts(); }
+    
+    // Load Mexico Compact Well Data
+    loadMexicoCompactData().catch(e => console.warn("Mexico Wells fail", e));
+
+
     if (stats) {
+      // STRIP 2026 FROM ALL FRONTEND STATS
+      if (stats.yearSeries) {
+        stats.yearSeries = stats.yearSeries.filter(r => String(r.year) !== '2026');
+      }
+
       halStats = stats;
       renderBadge(stats.total);
       renderKPIs(stats);
+      renderWellIntegrityTable(stats);
       renderOverviewChart(stats);
+
       renderDonut(stats);
       renderCsbTrend(stats);
       renderMonthChart(stats);
@@ -1222,7 +1328,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadNorwayRealData();
 });
 
-// ── HAL Argentina Study ────────────────────────────────────────────────────
+// ── Contractor Argentina Study ────────────────────────────────────────────────────
 
 const ARG_TREND = [
   { year: 2015, jobs: 344, stages: 1933, psi: 8310, hp: 17935, lateral: 176, unconv: 78.8, neuquina: 82.6 },
@@ -1276,7 +1382,7 @@ const ARG_REGULATIONS = [
   { reg: "Ley 24.051 — Residuos Peligrosos", scope: "Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required", domains: "Domains 1 & 2", br: "CONAMA Res. 430/2011", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
   { reg: "Ley 25.675 — Ley General del Ambiente", scope: "Environmental liability for all E&P service operations; minimum standards for sustainable management", domains: "All 4 domains", br: "Lei 9.605/1998", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
   { reg: "Res. SRT 559/2009 — Seguridad en Perforación", scope: "OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program", domains: "All 4 domains", br: "NR-37 (MTE)", link: "https://www.argentina.gob.ar/srt" },
-  { reg: "Ley Neuquén 899 — Código de Aguas", scope: "Water use rights and produced water disposal in Neuquina basin; governs HAL frac fluid sourcing and disposal", domains: "Domain 1 — water sourcing", br: "N/A (offshore in Brazil)", link: "https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
+  { reg: "Ley Neuquén 899 — Código de Aguas", scope: "Water use rights and produced water disposal in Neuquina basin; governs Contractor frac fluid sourcing and disposal", domains: "Domain 1 — water sourcing", br: "N/A (offshore in Brazil)", link: "https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
   { reg: "Decreto Neuquén 1483/2012 — No Convencional", scope: "Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)", domains: "Domain 1 — Fracking", br: "N/A", link: "https://boficial.neuquen.gov.ar/" },
   { reg: "Ley 17.319/1967 — Ley de Hidrocarburos", scope: "Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P", domains: "All domains", br: "Lei 9.478/1997 (Petróleo)", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
 ];
@@ -1351,7 +1457,7 @@ function renderArgentinaTables() {
   }
 }
 
-// ── HAL Mexico Study ────────────────────────────────────────────────────
+// ── Contractor Mexico Study ────────────────────────────────────────────────────
 
 const MEX_TREND = [
   { year: 2015, jobs: 108, stages: 3100, psi: 10830, hp: 29509, lateral: 2083, offshore: 58.3, burgos: 18.5 },
@@ -1401,13 +1507,13 @@ const MEX_KPI_SOURCE = 'CNH SIH Perforación · sih.hidrocarburos.gob.mx · Esti
 
 const MEX_REGULATIONS = [
   { reg:"Lineamientos de Perforación y Abandono de Pozos (CNH)",   scope:"Well integrity, barrier elements, BOP requirements for all drilling and well operations in Mexico. Primary equivalent to NORSOK D-010.", domains:"Domains 2 & 3",  br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5407590&fecha=22/01/2016" },
-  { reg:"Reglamento de la Ley de Hidrocarburos (DOF)",             scope:"Comprehensive E&P operational regulation under Ley de Hidrocarburos. Governs HAL's contractor obligations across all service categories.", domains:"All domains",   br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5414569&fecha=31/10/2014" },
+  { reg:"Reglamento de la Ley de Hidrocarburos (DOF)",             scope:"Comprehensive E&P operational regulation under Ley de Hidrocarburos. Governs Contractor's contractor obligations across all service categories.", domains:"All domains",   br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5414569&fecha=31/10/2014" },
   { reg:"NOM-115-SEMARNAT-2003",                                   scope:"Environmental protection in oil/gas activities — waste management, produced water, chemical disposal for frac operations.", domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
   { reg:"Lineamientos de Medición de Hidrocarburos (CNH)",         scope:"Metering and production accounting requirements — applies to completion and production tool deployments (DHSV, gauges).", domains:"Domain 4",                  br:"ANP Res. 874/2022",     link:"https://www.gob.mx/cnh" },
-  { reg:"NOM-138-SEMARNAT/SS-2003",                                scope:"Hydrocarbon contamination limits in soil and subsoil — governs HAL fluid spill response and frac fluid containment obligations.", domains:"Domains 1 & 2",      br:"CONAMA Res. 357/2005",  link:"https://www.dof.gob.mx/" },
-  { reg:"ASEA — Gestión de Integridad de Ductos (DOF 2016)",       scope:"Pipeline and surface line integrity under ASEA (Agencia de Seguridad, Energía y Ambiente) — affects wellhead and surface HAL equipment.", domains:"Domain 4",    br:"ANP Res. 46/2016",      link:"https://www.gob.mx/asea" },
-  { reg:"Ley de Hidrocarburos Art. 40–43 (DOF 2014)",              scope:"Contractor accountability for safety incidents, liability chain from operator to service company (HAL). Equivalent to ANP's direct attribution framework.", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5361701&fecha=11/08/2014" },
-  { reg:"NOM-001-SESH-2010 (SENER)",                               scope:"Technical safety standards for hydrocarbon installations — applies to HAL's surface pressure equipment and cementing units.", domains:"Domains 1–3",            br:"NR-37 (MTE offshore)",  link:"https://www.dof.gob.mx/" },
+  { reg:"NOM-138-SEMARNAT/SS-2003",                                scope:"Hydrocarbon contamination limits in soil and subsoil — governs Contractor fluid spill response and frac fluid containment obligations.", domains:"Domains 1 & 2",      br:"CONAMA Res. 357/2005",  link:"https://www.dof.gob.mx/" },
+  { reg:"ASEA — Gestión de Integridad de Ductos (DOF 2016)",       scope:"Pipeline and surface line integrity under ASEA (Agencia de Seguridad, Energía y Ambiente) — affects wellhead and surface Contractor equipment.", domains:"Domain 4",    br:"ANP Res. 46/2016",      link:"https://www.gob.mx/asea" },
+  { reg:"Ley de Hidrocarburos Art. 40–43 (DOF 2014)",              scope:"Contractor accountability for safety incidents, liability chain from operator to service company (Contractor). Equivalent to ANP's direct attribution framework.", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5361701&fecha=11/08/2014" },
+  { reg:"NOM-001-SESH-2010 (SENER)",                               scope:"Technical safety standards for hydrocarbon installations — applies to Contractor's surface pressure equipment and cementing units.", domains:"Domains 1–3",            br:"NR-37 (MTE offshore)",  link:"https://www.dof.gob.mx/" },
 ];
 
 function renderMexicoTables() {
@@ -1470,11 +1576,11 @@ function renderMexicoTables() {
   }
 }
 
-// ── HAL Norway Study ────────────────────────────────────────────────────────
+// ── Contractor Norway Study ────────────────────────────────────────────────────────
 // Sources:
 //   Incidents  → api/data/norway_incidents.csv (2,399 records, 2013–2026)
 //                Aggregated from NCS SSO reporting under RNNP/Havtil framework
-//   Operators  → api/data/norway_contracts.csv (64 contracts, Halliburton AS / Equinor / Aker BP…)
+//   Operators  → api/data/norway_contracts.csv (64 contracts, Contractor AS / Equinor / Aker BP…)
 //   Fields     → evento column of norway_incidents.csv ("NCS-<field>" pattern)
 //   Regulations→ Lovdata.no · Havtil.no/rnnp · Standard.no · Sodir.no
 
@@ -1533,8 +1639,8 @@ async function loadNorwayRealData() {
 
 // Norwegian regulatory framework — cross-referenced to Brazil equivalents
 const NOR_REGULATIONS = [
-  { reg:"Aktivitetsforskriften (Activity Regulations)", authority:"Havtil / PSA Norway", scope:"Well barrier requirements, drilling and well operations on NCS — Chapters 7–9 govern well integrity directly", domains:"All HAL service lines", br:"ANP Res. 46/2016 (SGIP) + ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" },
-  { reg:"Styringsforskriften (Management Regulations)", authority:"Havtil / PSA Norway", scope:"Risk management, barrier management systems, safety critical elements — applies to all contractors including service companies", domains:"All HAL service lines", br:"ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-611" },
+  { reg:"Aktivitetsforskriften (Activity Regulations)", authority:"Havtil / PSA Norway", scope:"Well barrier requirements, drilling and well operations on NCS — Chapters 7–9 govern well integrity directly", domains:"All Contractor service lines", br:"ANP Res. 46/2016 (SGIP) + ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" },
+  { reg:"Styringsforskriften (Management Regulations)", authority:"Havtil / PSA Norway", scope:"Risk management, barrier management systems, safety critical elements — applies to all contractors including service companies", domains:"All Contractor service lines", br:"ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-611" },
   { reg:"NORSOK D-010 rev.5 (Well Integrity)", authority:"Standard Norge", scope:"Well barrier elements, barrier envelopes, acceptance criteria — primary technical standard for NCS well integrity", domains:"Cementing · Completion · MPD · Well Control", br:"ANP Res. 46/2016 (SGIP) — equivalent scope", link:"https://www.standard.no/en/sectors/energi-og-klima/petroleum/norsok-standard-categories/d-drilling/d-0102/" },
   { reg:"NORSOK D-001 rev.3 (Drilling Fluid Design)", authority:"Standard Norge", scope:"Drilling fluid and completion fluid design, hydrostatic barrier requirements", domains:"Drilling Fluids / Baroid", br:"ANP Res. 43/2007 — SGSO operational safety", link:"https://www.standard.no/en/sectors/energi-og-klima/petroleum/norsok-standard-categories/d-drilling/d-0012/" },
   { reg:"Petroleumsloven (Petroleum Act, Lov 1996-11-29-72)", authority:"Ministry of Energy (OED)", scope:"State ownership of NCS deposits, licensing, liability chain for operators and service contractors", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://lovdata.no/dokument/NL/lov/1996-11-29-72" },
@@ -1544,13 +1650,13 @@ const NOR_REGULATIONS = [
 ];
 
 const NOR_HAL_OVERLAP = [
-  { rnnpCategory:"Cement/casing barrier defect", norsokElement:"Primary well barrier — cement plug / casing shoe", halService:"Halliburton Cementing Services (NCS)", exposure:"HIGH" },
-  { rnnpCategory:"Completion barrier failure (DHSV)", norsokElement:"Secondary barrier — DHSV / production tubing", halService:"Halliburton Completion Tools", exposure:"HIGH" },
-  { rnnpCategory:"Drilling fluid loss / kick", norsokElement:"Primary barrier — hydrostatic pressure column", halService:"Baroid Drilling Fluids (Halliburton)", exposure:"HIGH" },
-  { rnnpCategory:"BOP / annular preventer defect", norsokElement:"Well control barrier", halService:"Pressure Control / MPD (Halliburton)", exposure:"MODERATE" },
-  { rnnpCategory:"MWD/LWD sensor barrier gap", norsokElement:"Monitoring / detection", halService:"Sperry Drilling (Halliburton)", exposure:"LOW" },
-  { rnnpCategory:"Accidental HC release ≥0.1 kg/s", norsokElement:"Process / riser barrier", halService:"Completion / Well Services (Halliburton)", exposure:"MODERATE" },
-  { rnnpCategory:"Structural fatigue / damage", norsokElement:"Structural barrier element", halService:"Halliburton Engineering Services", exposure:"LOW" },
+  { rnnpCategory:"Cement/casing barrier defect", norsokElement:"Primary well barrier — cement plug / casing shoe", halService:"Contractor Cementing Services (NCS)", exposure:"HIGH" },
+  { rnnpCategory:"Completion barrier failure (DHSV)", norsokElement:"Secondary barrier — DHSV / production tubing", halService:"Contractor Completion Tools", exposure:"HIGH" },
+  { rnnpCategory:"Drilling fluid loss / kick", norsokElement:"Primary barrier — hydrostatic pressure column", halService:"Baroid Drilling Fluids (Contractor)", exposure:"HIGH" },
+  { rnnpCategory:"BOP / annular preventer defect", norsokElement:"Well control barrier", halService:"Pressure Control / MPD (Contractor)", exposure:"MODERATE" },
+  { rnnpCategory:"MWD/LWD sensor barrier gap", norsokElement:"Monitoring / detection", halService:"Sperry Drilling (Contractor)", exposure:"LOW" },
+  { rnnpCategory:"Accidental HC release ≥0.1 kg/s", norsokElement:"Process / riser barrier", halService:"Completion / Well Services (Contractor)", exposure:"MODERATE" },
+  { rnnpCategory:"Structural fatigue / damage", norsokElement:"Structural barrier element", halService:"Contractor Engineering Services", exposure:"LOW" },
 ];
 function renderNorwayTables() {
   console.log('NOR: renderNorwayTables called, NOR_TREND rows:', NOR_TREND.length);
@@ -1637,7 +1743,7 @@ function renderNorwayTables() {
     </tr>`).join('');
   }
 
-  // HAL overlap table
+  // Contractor overlap table
   const overlapBody = document.getElementById('norOverlapBody');
   if (overlapBody) {
     overlapBody.innerHTML = NOR_HAL_OVERLAP.map(r => {
@@ -1795,14 +1901,14 @@ function processRegionalContracts(rawItems) {
   return rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("ciment")) domain = "Cementing";
-    else if (obj.includes("estimul")) domain = "Stimulation";
-    else if (obj.includes("fluidos") || obj.includes("fluid")) domain = "Fluids";
-    else if (obj.includes("complet")) domain = "Completion";
-    else if (obj.includes("mpd")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("operations")) domain = "Workover";
-    else if (obj.includes("constru") || obj.includes("execution")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+    if (obj.includes("ciment") || obj.includes("cement")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("frac") || obj.includes("stimul")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid") || obj.includes("lodo")) domain = "Fluids";
+    else if (obj.includes("complet") || obj.includes("terminaci")) domain = "Completion";
+    else if (obj.includes("mpd") || obj.includes("managed press")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("operations") || obj.includes("reparaci")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("execution") || obj.includes("perfora")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol") || obj.includes("software")) domain = "G&G Software";
 
     const numero = c.numero || "—";
     // MEX contracts are denominated in USD — keep as-is; only ARG converts to local currency
@@ -2030,20 +2136,20 @@ window.setBrzDomain = function (domain, el) {
 
 function processIncomingContracts(rawItems) {
   console.log("PROCESSING: Raw items received", rawItems?.length);
-  // Infer domain from object keywords for the cross-matrix
+  // Verify domain from object keywords for the cross-matrix
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
-    if (obj.includes("ciment")) domain = "Cementing";
-    else if (obj.includes("estimul") || obj.includes("flexitubo")) domain = "Stimulation";
-    else if (obj.includes("fluidos")) domain = "Fluids";
-    else if (obj.includes("complet") || obj.includes("dhsv")) domain = "Completion";
-    else if (obj.includes("mpd") || obj.includes("pressure drilling")) domain = "MPD";
-    else if (obj.includes("workover") || obj.includes("interven")) domain = "Workover";
-    else if (obj.includes("constru")) domain = "Well Construction";
-    else if (obj.includes("g&g") || obj.includes("geol")) domain = "G&G Software";
+    if (obj.includes("ciment") || obj.includes("cimentaç")) domain = "Cementing";
+    else if (obj.includes("estimul") || obj.includes("flexitubo") || obj.includes("acidiz") || obj.includes("fratur")) domain = "Stimulation";
+    else if (obj.includes("fluidos") || obj.includes("fluid") || obj.includes("químic") || obj.includes("quimic") || obj.includes("produto quím")) domain = "Fluids";
+    else if (obj.includes("complet") || obj.includes("dhsv") || obj.includes("completaç") || obj.includes("instalaç") && obj.includes("sistem")) domain = "Completion";
+    else if (obj.includes("mpd") || obj.includes("pressure drilling") || obj.includes("gerenciamento de pressão")) domain = "MPD";
+    else if (obj.includes("workover") || obj.includes("interven") || obj.includes("intervençã") || obj.includes("reentrada")) domain = "Workover";
+    else if (obj.includes("constru") || obj.includes("perfur") || obj.includes("sondagem") || obj.includes("well construction")) domain = "Well Construction";
+    else if (obj.includes("g&g") || obj.includes("geol") || obj.includes("sísmic") || obj.includes("sismic") || obj.includes("software") || obj.includes("licen")) domain = "G&G Software";
 
-    // Re-calculating period and validation metadata for the inference
+    // Re-calculating period and validation metadata for the validation
     const rawBrzValue = c.value || "—";
     const brzValue = convertContractValue(rawBrzValue, 'BRZ');
     const _rawUSD = parseFloat((rawBrzValue).replace(/[^0-9.]/g, '')) || 0;
@@ -2057,7 +2163,7 @@ function processIncomingContracts(rawItems) {
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
-      score: getInferenceScore(domain),
+      score: getValidationScore(domain),
       scoreC: domain === "G&G Software" ? "#6b7280" : "#c0392b"
     };
   });
@@ -2109,7 +2215,7 @@ function getCSBLink(domain) {
   return map[domain] || '⭐ INDIRECT';
 }
 
-function getInferenceScore(domain) {
+function getValidationScore(domain) {
   const map = {
     'Cementing': '95%',
     'Stimulation': '93%',
@@ -2174,6 +2280,17 @@ window.contractGoPage = function (p) {
   renderContractTable(filteredContracts);
 };
 
+let _brzSortKey = 'date';
+let _brzSortDir = -1;
+
+window.sortBrzContracts = function(key) {
+  if (_brzSortKey === key) { _brzSortDir *= -1; }
+  else { _brzSortKey = key; _brzSortDir = -1; }
+  document.getElementById('sort-brz-date').textContent = _brzSortKey === 'date' ? (_brzSortDir === -1 ? '↓' : '↑') : '↕';
+  document.getElementById('sort-brz-value').textContent = _brzSortKey === 'value' ? (_brzSortDir === -1 ? '↓' : '↑') : '↕';
+  window.filterContractTable();
+};
+
 window.filterContractTable = function () {
   const q = (document.getElementById('contractSearch')?.value || '').toLowerCase();
   const domain = activeBrzDomain.toLowerCase();
@@ -2183,8 +2300,15 @@ window.filterContractTable = function () {
       const matchQ = !q || [c.numero, c.domain, c.obj, c.value, c.proc].join(' ').toLowerCase().includes(q);
       const valMatch = !brzValMin || contractToUSD(c) >= brzValMin;
       return matchDomain && matchQ && valMatch;
-    })
-    .sort((a, b) => (a.inicioSort || 0) - (b.inicioSort || 0));
+    });
+
+  const dir = _brzSortDir;
+  if (_brzSortKey === 'date') {
+    filteredContracts.sort((a, b) => dir * ((a.inicioSort || 0) - (b.inicioSort || 0)));
+  } else if (_brzSortKey === 'value') {
+    filteredContracts.sort((a, b) => dir * (contractToUSD(a) - contractToUSD(b)));
+  }
+
   contractPage = 1;
   renderContractTable(filteredContracts);
 };
@@ -2353,6 +2477,11 @@ document.querySelectorAll('.nav-link').forEach(link => {
       setTimeout(() => renderMexTemporalOverlapChart(), 60);
     });
   }
+  if (link.dataset.section === 'mexico-registry') {
+    link.addEventListener('click', () => {
+      setTimeout(() => loadMexRegistry(1), 60);
+    });
+  }
   if (link.dataset.section === 'norway-audit') {
     link.addEventListener('click', () => {
       setTimeout(() => {
@@ -2432,7 +2561,7 @@ function renderNorwayTemporalOverlapChart() {
   // RNNP total defects index
   const defects = [420, 440, 415, 455, 430, 445, 420, 455, 410, 395, 385, 20];
   
-  // Contract activity bands (1 = active) for HAL Norway
+  // Contract activity bands (1 = active) for Contractor Norway
   const cementing   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   const mpd         = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
@@ -2749,7 +2878,11 @@ window.loadNorwayRegistry = async function(p = 1) {
         </tr>
       `).join('');
       if (countEl) countEl.textContent = `Showing ${data.items.length} of ${data.total.toLocaleString()} records`;
-      if (cachedEl) cachedEl.textContent = `Source: Sodir FactMaps ArcGIS Service · Updated: ${data.cachedAt.split('T')[0]}`;
+      if (cachedEl && data.cachedAt) {
+        cachedEl.textContent = `Source: Sodir FactMaps ArcGIS Service · Updated: ${data.cachedAt.split('T')[0]}`;
+      } else if (cachedEl) {
+        cachedEl.textContent = 'Source: Sodir FactMaps ArcGIS Service (Live)';
+      }
 
       if (pagEl && data.pages > 1) {
         pagEl.innerHTML = `
@@ -2774,21 +2907,66 @@ function renderNorwayCrossTable() {
   if (!tbody) return;
 
   // Use precomputed fields and regulations
-  const fields = NOR_FIELDS.slice(0, 10);
-  const regs = NOR_REGULATIONS;
+  const fields = (NOR_FIELDS || []).slice(0, 10);
+  const regs = NOR_REGULATIONS || [];
+
+  if (fields.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:#64748b;">Awaiting Sodir FactMap Ingestion…</td></tr>';
+    return;
+  }
 
   tbody.innerHTML = fields.map((f, i) => {
     const reg = regs[i % regs.length];
+    const regName = (reg && reg.reg) ? reg.reg.split('(')[0] : 'Regulation Pending';
+    const link = (reg && reg.link) ? reg.link : '#';
+    const service = (NOR_HAL_OVERLAP[i % NOR_HAL_OVERLAP.length] || {}).halService || 'Contractor Service Line';
+    
     return `
       <tr>
-        <td style="font-weight:700;color:var(--blue);font-size:12px;">${f.field}</td>
+        <td style="font-weight:700;color:var(--blue);font-size:12px;">${f.field || 'Global NCS'}</td>
         <td style="font-size:11px;font-weight:600;">Main NCS Operator</td>
-        <td style="font-size:11px;color:var(--text2);">${NOR_HAL_OVERLAP[i % NOR_HAL_OVERLAP.length].halService}</td>
-        <td style="font-size:11px;"><span style="font-weight:700;color:#c0392b;">${reg.reg.split('(')[0]}</span></td>
-        <td><a href="${reg.link}" target="_blank" rel="noopener" class="reg-link" style="color:var(--blue);font-weight:700;font-size:11px;">Lovedata ↗</a></td>
+        <td style="font-size:11px;color:var(--text2);">${service}</td>
+        <td style="font-size:11px;"><span style="font-weight:700;color:#c0392b;">${regName}</span></td>
+        <td><a href="${link}" target="_blank" rel="noopener" class="reg-link" style="color:var(--blue);font-weight:700;font-size:11px;">Lovedata ↗</a></td>
       </tr>
     `;
   }).join('');
+}
+
+// ── Mexico Compact Data Ingestion ───────────────────────────────────────────
+let MEXICO_COMPACT_POZOS = [];
+
+async function loadMexicoCompactData() {
+  try {
+    const res = await fetch('/api/data/processed/mexico_pozos_compact.json');
+    if (!res.ok) throw new Error("Could not find compact data");
+    const json = await res.json();
+    
+    // Map Columns+Rows back to objects for the existing UI logic
+    MEXICO_COMPACT_POZOS = json.rows.map(row => {
+        const obj = {};
+        json.columns.forEach((col, i) => obj[col] = row[i]);
+        
+        // Map to expected UI keys
+        return {
+            id_pozo: obj.well,
+            operador: "CNH / PEMEX", // Logic or lookup if needed
+            cuenca: obj.basin,
+            etapas_fractura: "—",
+            presion_max_psi: 0,
+            longitud_lateral_m: 0
+        };
+    });
+    
+    // Auto-update specific components
+    const countEl = document.getElementById('mexTableCount');
+    if (countEl) countEl.innerHTML = `${MEXICO_COMPACT_POZOS.length.toLocaleString()} records`;
+    
+    // Render first page
+    renderMexicoRegistry(MEXICO_COMPACT_POZOS);
+  } catch (e) {
+    console.warn("Mexico Compact Data Load fail:", e);
+  }
 }
 
 function renderNorwayRNNPChart() {
@@ -2882,4 +3060,92 @@ function renderNorwayRNNPChart() {
 document.addEventListener('DOMContentLoaded', () => {
     const navNorReg = document.getElementById('nav-norway-registry');
     if(navNorReg) navNorReg.addEventListener('click', () => loadNorwayRegistry(1));
+
+    const navMexReg = document.getElementById('nav-mexico-registry');
+    if(navMexReg) navMexReg.addEventListener('click', () => loadMexRegistry(1));
 });
+
+// ── MEX Operating Risk Registry ──────────────────────────────────────────────
+// Source: CNH SIH Perforación · api/data/mexico_perforacion.csv · 1,245 records
+// Endpoint: GET /api/mexico-perforacion?page=N&limit=50&q=&basin=
+
+let _mexPage = 1;
+let _mexTotal = 0;
+
+async function loadMexRegistry(page) {
+  _mexPage = page || 1;
+  const q     = (document.getElementById('mexSearchInput')?.value || '').trim();
+  const basin = document.getElementById('mexBasinFilter')?.value || '';
+
+  const params = new URLSearchParams({ page: _mexPage, limit: 50 });
+  if (q)     params.set('q', q);
+  if (basin) params.set('basin', basin);
+
+  const countEl = document.getElementById('mexTableCount');
+  if (countEl) countEl.textContent = 'Loading…';
+
+  try {
+    const res  = await fetch('/api/mexico-perforacion?' + params.toString());
+    const data = await res.json();
+
+    _mexTotal = data.total || 0;
+
+    // Update header stats
+    const totalEl = document.getElementById('mexMetricTotalJobs');
+    if (totalEl && !q && !basin) totalEl.textContent = _mexTotal.toLocaleString();
+
+    if (countEl) countEl.textContent = _mexTotal.toLocaleString() + ' records';
+
+    const body = document.getElementById('mexRegBody');
+    if (body) {
+      if (!data.items || data.items.length === 0) {
+        body.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:32px;color:#94a3b8;">No records found</td></tr>';
+      } else {
+        const BASIN_COLOR = {
+          'SURESTE': '#0369a1', 'BURGOS': '#7c3aed',
+          'VERACRUZ': '#0f766e', 'TAMPICO-MISANTLA': '#b45309',
+        };
+        body.innerHTML = data.items.map((r, i) => {
+          const bc = BASIN_COLOR[r.cuenca?.toUpperCase()] || '#64748b';
+          const hpht = r.presion_max_psi > 11000;
+          const deepLat = r.longitud_lateral_m > 2000;
+          return `<tr style="${i % 2 === 0 ? 'background:#f8fafc;' : ''}">
+            <td style="font-size:11px;font-weight:700;font-family:monospace;">${r.id_pozo || '—'}</td>
+            <td style="font-size:11px;">${r.operador || '—'}</td>
+            <td><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:${bc}22;color:${bc};">${r.cuenca || '—'}</span></td>
+            <td style="text-align:right;font-weight:600;">${r.etapas_fractura != null ? r.etapas_fractura : '—'}</td>
+            <td style="text-align:right;${hpht ? 'color:#dc2626;font-weight:700;' : ''}">${r.presion_max_psi != null ? Number(r.presion_max_psi).toLocaleString() : '—'}</td>
+            <td style="text-align:right;${deepLat ? 'color:#7c3aed;font-weight:700;' : ''}">${r.longitud_lateral_m != null ? Number(r.longitud_lateral_m).toLocaleString() : '—'}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    renderMexPagination(data.page, data.pages);
+  } catch(e) {
+    const body = document.getElementById('mexRegBody');
+    if (body) body.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:#ef4444;">API error: ${e.message}</td></tr>`;
+    if (countEl) countEl.textContent = 'Error';
+  }
+}
+
+function goMexPage(page) {
+  loadMexRegistry(page);
+}
+
+function renderMexPagination(current, total) {
+  const el = document.getElementById('mexRegPagination');
+  if (!el || total <= 1) { if(el) el.innerHTML = ''; return; }
+  const pages = [];
+  if (current > 1) pages.push(`<button class="page-btn" onclick="goMexPage(${current-1})">‹ Prev</button>`);
+  const start = Math.max(1, current - 2);
+  const end   = Math.min(total, current + 2);
+  for (let p = start; p <= end; p++) {
+    pages.push(`<button class="page-btn${p === current ? ' active' : ''}" onclick="goMexPage(${p})">${p}</button>`);
+  }
+  if (current < total) pages.push(`<button class="page-btn" onclick="goMexPage(${current+1})">Next ›</button>`);
+  el.innerHTML = `<div style="display:flex;gap:4px;align-items:center;padding:12px 20px;">
+    <span style="font-size:11px;color:#64748b;margin-right:8px;">Page ${current} of ${total} · ${_mexTotal.toLocaleString()} records</span>
+    ${pages.join('')}
+  </div>`;
+}
