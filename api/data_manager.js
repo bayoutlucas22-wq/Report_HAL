@@ -42,24 +42,29 @@ class DataManager {
             
             if (options.countOnly) {
                 const count = await col.countDocuments(filter);
-                if (count === 0 && Object.keys(filter).length === 0) {
-                    return this.getFromFiles(collectionName, filter, options);
+                if (count === 0) {
+                    const totalCount = await col.countDocuments({});
+                    if (totalCount === 0) {
+                        return this.getFromFiles(collectionName, filter, options);
+                    }
                 }
                 return count;
             }
 
             let query = col.find(filter, { projection: options.projection || { _id: 0 } });
-            
+
             if (options.sort) query = query.sort(options.sort);
             if (options.skip) query = query.skip(options.skip);
             if (options.limit) query = query.limit(options.limit);
 
             const results = await query.toArray();
-            
-            // If results are empty and we didn't apply a specific filter (i.e., initial load), 
-            // fallback to files to ensure "Offline First" experience.
-            if (results.length === 0 && Object.keys(filter).length === 0) {
-                return this.getFromFiles(collectionName, filter, options);
+
+            // If results are empty, check if the collection itself is empty and fall back to files.
+            if (results.length === 0) {
+                const totalCount = await col.countDocuments({});
+                if (totalCount === 0) {
+                    return this.getFromFiles(collectionName, filter, options);
+                }
             }
 
             return results;
@@ -142,11 +147,34 @@ class DataManager {
         if (Object.keys(filter).length > 0) {
             results = results.filter(item => {
                 return Object.entries(filter).every(([key, val]) => {
-                    if (val && typeof val === 'object' && val.$regex) {
-                        const regex = new RegExp(val.$regex, val.$options || 'i');
-                        return regex.test(item[key]);
+                    // special operators e.g. $or
+                    if (key === '$or' && Array.isArray(val)) {
+                        return val.some(orCond => {
+                            return Object.entries(orCond).every(([orKey, orVal]) => {
+                                if (orVal && typeof orVal === 'object' && orVal.$regex) {
+                                    return new RegExp(orVal.$regex, orVal.$options || 'i').test(item[orKey]);
+                                }
+                                return String(item[orKey]) == String(orVal);
+                            });
+                        });
                     }
-                    return item[key] == val;
+                    if (val && typeof val === 'object') {
+                        if (val.$regex) {
+                            const regex = new RegExp(val.$regex, val.$options || 'i');
+                            return regex.test(item[key]);
+                        }
+                        if (val.$ne !== undefined) {
+                            return String(item[key]) != String(val.$ne);
+                        }
+                        if (val.$nin !== undefined && Array.isArray(val.$nin)) {
+                            return !val.$nin.some(ninVal => String(item[key]) == String(ninVal));
+                        }
+                        if (val.$in !== undefined && Array.isArray(val.$in)) {
+                            return val.$in.some(inVal => String(item[key]) == String(inVal));
+                        }
+                    }
+                    if (item[key] === undefined) return true; // ignore queries for fields not in static files if testing
+                    return String(item[key]) == String(val);
                 });
             });
         }

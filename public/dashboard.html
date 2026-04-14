@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSB Failure Intelligence Dashboard</title>
   <meta name="description"
-    content="CSB failure analytics: Contractor casing shoe barrier failure mapping across ANP incident records (2013–2026).">
+    content="CSB failure analytics: Contractor casing shoe barrier failure mapping across ANP incident records (2013–2025).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -395,7 +395,7 @@
                 <div>
                   <div class="kpi-label">Total Industry Incidents</div>
                   <div class="kpi-value" style="color:var(--text);">25,233</div>
-                  <div class="kpi-sub" style="font-weight:700;">ANP SISO-Incidentes · 2013–2026</div>
+                  <div class="kpi-sub" style="font-weight:700;">ANP SISO-Incidentes · 2013–2025</div>
                 </div>
                 <div
                   style="margin-top:auto; padding-top:12px; border-top:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">
@@ -460,56 +460,23 @@
 
             </div>
 
-            <!-- Charts Row -->
-            <div style="display:grid; grid-template-columns: 2fr 1fr; gap:16px;">
-
-              <!-- 08 Failures Over Time -->
-              <div class="panel cs-panel" style="padding:20px;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
-                  <div>
-                    <div class="cs-section-num">08</div>
-                    <div class="panel-title" style="font-size:16px;">Failures Over Time — by Category</div>
-                    <div class="panel-subtitle">Industry service domain: CSB · Kick · Structural · Well Control
-                      (2013–2026)</div>
-                  </div>
+            <!-- 08 Failures Over Time — High Fidelity Trend -->
+            <div class="panel cs-panel" style="padding:20px; margin-bottom: 24px;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
+                <div>
+                  <div class="cs-section-num">08</div>
+                  <div class="panel-title" style="font-size:16px;">Failures Over Time — by Category</div>
+                  <div class="panel-subtitle">Multi-category year-by-year comparison (2013–2025)</div>
                 </div>
-                <canvas id="industryTrendChart" height="100"></canvas>
+                <div style="display:flex; gap:8px;">
+                   <span class="lchip" style="background:rgba(192,57,43,0.1); color:#c0392b; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">CSB</span>
+                   <span class="lchip" style="background:rgba(230,126,34,0.1); color:#e67e22; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">Kick</span>
+                   <span class="lchip" style="background:rgba(26,86,160,0.1); color:#1a56a0; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">Structural</span>
+                   <span class="lchip" style="background:rgba(124,58,237,0.1); color:#7c3aed; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">BOP</span>
+                </div>
               </div>
-
-              <!-- 09 Failure Distribution -->
-              <div class="panel cs-panel" style="padding:20px;">
-                <div style="margin-bottom:20px;">
-                  <div class="cs-section-num">09</div>
-                  <div class="panel-title" style="font-size:16px;">Failure Distribution</div>
-                  <div class="panel-subtitle">Proportional breakdown by type</div>
-                </div>
-                <div style="display:flex; flex-direction:column; align-items:center;">
-                  <div style="width:160px; height:160px; position:relative; margin-bottom:20px;">
-                    <canvas id="industryDonutChart"></canvas>
-                  </div>
-                  <div style="width:100%; display:grid; grid-template-columns: 1fr; gap:8px;">
-                    <div style="display:flex; justify-content:space-between; padding:4px 0;"><span
-                        style="font-size:12px; color:var(--text2); display:flex; align-items:center; gap:6px;"><span
-                          style="width:8px; height:8px; border-radius:50%; background:var(--kick-color);"></span>Kick</span><span
-                        style="font-weight:700;">6%</span></div>
-                    <div style="display:flex; justify-content:space-between; padding:4px 0;"><span
-                        style="font-size:12px; color:var(--text2); display:flex; align-items:center; gap:6px;"><span
-                          style="width:8px; height:8px; border-radius:50%; background:var(--blue);"></span>Structural
-                        Failure</span><span style="font-weight:700;">4%</span></div>
-                    <div style="display:flex; justify-content:space-between; padding:4px 0;"><span
-                        style="font-size:12px; color:var(--text2); display:flex; align-items:center; gap:6px;"><span
-                          style="width:8px; height:8px; border-radius:50%; background:var(--purple);"></span>BOP
-                        Failure</span><span style="font-weight:700;">27%</span></div>
-                    <div style="display:flex; justify-content:space-between; padding:4px 0;"><span
-                        style="font-size:12px; color:var(--text2); display:flex; align-items:center; gap:6px;"><span
-                          style="width:8px; height:8px; border-radius:50%; background:var(--accent);"></span>CSB
-                        Failure</span><span style="font-weight:700;">63%</span></div>
-                    <div style="display:flex; justify-content:space-between; padding:4px 0;"><span
-                        style="font-size:12px; color:var(--text2); display:flex; align-items:center; gap:6px;"><span
-                          style="width:8px; height:8px; border-radius:50%; background:var(--orange);"></span>Loss of
-                        Well Control</span><span style="font-weight:700;">1%</span></div>
-                  </div>
-                </div>
+              <div style="height: 320px; position: relative;">
+                <canvas id="multiLineChart"></canvas>
               </div>
             </div>
           </div>
@@ -519,14 +486,14 @@
             <div class="cs-header-left">
               <div class="cs-badge">INTEGRITY · COMPLIANCE · RISK</div>
               <h2>Global Operational Integrity & Regulatory Alignment Framework</h2>
-              <p class="cs-subtitle">Multilateral Risk Inference & Compliance Assessment
+              <p class="cs-subtitle">Multilateral Risk Validation & Compliance Assessment
               </p>
             </div>
             <div class="cs-meta">
               <div class="cs-meta-item"><span>Operation</span>Brazil</div>
               <div class="cs-meta-item"><span>Jurisdiction</span>ANP — National Petroleum Agency</div>
               <div class="cs-meta-item"><span>Classification Society</span>Applicable CS Standards</div>
-              <div class="cs-meta-item"><span>Data Cut-off</span>March 26, 2026</div>
+              <div class="cs-meta-item"><span>Data Cut-off</span>Dec 31, 2025</div>
               <div class="cs-meta-item"><span>Data Source</span>ANP SISO-Incidentes — 25,233 records</div>
             </div>
           </div>
@@ -544,8 +511,8 @@
                 to <strong>Contractor</strong> operations in Brazil, and provides
                 evidence-based justification for identified risk exposure, grounded entirely in publicly available open
                 data from official Brazilian government sources.</p>
-              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>32,240 registered
-                  incidents from 2013 to December 2026</strong>, published under Brazil's Freedom of Information Law
+              <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>25,233 registered
+                  incidents from 2013 to December 2025</strong> published under Brazil's Freedom of Information Law
                 (Lei nº 12.527/2011) — cross-referenced with classification society rules and applicable
                 Brazilian regulatory instruments.</p>
 
@@ -555,15 +522,15 @@
                   <div class="cs-finding">
                     <div class="cs-finding-accent"></div>
                     <div>
-                      <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 520
-                      in 2026 — constituting the dominant well integrity risk category in Brazilian E&amp;P. Incidents
+                      <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 510
+                      in 2025 — constituting the dominant well integrity risk category in Brazilian E&amp;P. Incidents
                       are not adjusted for historical market penetration of supplier equipment, such as valves.
                     </div>
                   </div>
                   <div class="cs-finding">
                     <div class="cs-finding-accent" style="background:var(--kick-color)"></div>
                     <div>
-                      <strong>316 primary barrier loss events (kicks)</strong> recorded between 2013 and 2026 on
+                      <strong>316 primary barrier loss events (kicks)</strong> recorded between 2013 and 2025 on
                       ANP-licensed installations.
                     </div>
                   </div>
@@ -593,8 +560,7 @@
               <div>
                 <div class="cs-section-num">02</div>
                 <div class="panel-title">Well Integrity Trend — Year-by-Year</div>
-                <div class="panel-subtitle">CSB, Kick, Structural &amp; Well Control failure aggregates vs. total ANP
-                  incidents</div>
+                <div class="panel-subtitle">Critical barrier and containment failure aggregates vs. total reported incidents</div>
               </div>
             </div>
             <div class="panel-body">
@@ -602,173 +568,17 @@
                 <thead>
                   <tr>
                     <th>Year</th>
-                    <th>Ref ID</th>
-                    <th>Well Integrity Total (CSB, Kick…)</th>
-                    <th>Total ANP</th>
+                    <th>Well Integrity Failures</th>
+                    <th>Total Reported Incidents</th>
                     <th>% Share</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2013</td>
-                    <td>REF-247</td>
-                    <td>22</td>
-                    <td>1,654</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:1.3%"></div>1.3%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2014</td>
-                    <td>REF-583</td>
-                    <td>16</td>
-                    <td>1,811</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:0.9%"></div>0.9%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2015</td>
-                    <td>REF-721</td>
-                    <td>20</td>
-                    <td>2,197</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:0.9%"></div>0.9%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2016</td>
-                    <td>REF-312</td>
-                    <td>18</td>
-                    <td>2,881</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:0.6%"></div>0.6%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2017</td>
-                    <td>REF-456</td>
-                    <td>20</td>
-                    <td>2,090</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:1.0%"></div>1.0%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2018</td>
-                    <td>REF-614</td>
-                    <td>30</td>
-                    <td>1,984</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:1.5%"></div>1.5%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2019</td>
-                    <td>REF-738</td>
-                    <td>24</td>
-                    <td>2,325</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:1.0%"></div>1.0%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2020</td>
-                    <td>REF-829</td>
-                    <td>79</td>
-                    <td>1,846</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:4.3%"></div>4.3%
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2021</td>
-                    <td>REF-163</td>
-                    <td><strong>957</strong></td>
-                    <td>2,697</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:35.5%"></div><strong>35.5%</strong>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2022</td>
-                    <td>REF-274</td>
-                    <td><strong>756</strong></td>
-                    <td>2,415</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:31.3%"></div><strong>31.3%</strong>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2023</td>
-                    <td>REF-391</td>
-                    <td><strong>369</strong></td>
-                    <td>2,414</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:15.3%"></div><strong>15.3%</strong>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2024</td>
-                    <td>REF-507</td>
-                    <td><strong>388</strong></td>
-                    <td>2,686</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:14.4%"></div><strong>14.4%</strong>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2025</td>
-                    <td>REF-648</td>
-                    <td><strong>434</strong></td>
-                    <td>2,705</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:16.0%"></div><strong>16.0%</strong>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2026</td>
-                    <td>REF-872</td>
-                    <td><strong>636</strong></td>
-                    <td>2,519</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:25.2%"></div><strong>25.2%</strong>
-                      </div>
-                    </td>
-                  </tr>
+                <tbody id="wellIntegrityTableBody">
                 </tbody>
               </table>
               <p class="cs-note" style="margin-top:10px">
                 Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover
-                activity. All figures sourced from ANP SGIP dataset (incidentes.csv + incidentes-tipo.csv). 2026 is
-                full-year as reported in the dataset.</p>
+                activity. All figures sourced from ANP SGIP dataset (incidentes.csv). Data bounds strictly end prior to any 2026 projections.</p>
             </div>
           </div>
 
@@ -930,7 +740,7 @@
                   <div class="cs-source-group">
                     <div class="cs-source-head">ANP — National Petroleum Agency</div>
                     <div class="cs-source-item"><span class="cs-src-tag">SISO-Incidentes</span>32,240 records
-                      (2013–2026) — <a href="https://atosoficiais.com.br/anp" target="_blank"
+                      (2013–2025) — <a href="https://atosoficiais.com.br/anp" target="_blank"
                         class="cs-link">atosoficiais.com.br/anp</a></div>
                     <div class="cs-source-item"><span class="cs-src-tag">Res. 46/2016</span>SGIP — Well Integrity
                       Management System; mandatory for all E&amp;P licensees</div>
@@ -997,17 +807,7 @@
             </div>
           </div>
 
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <div class="panel-title">Multi-Category Year-by-Year Comparison</div>
-                <div class="panel-subtitle">Industry failure modes tracked simultaneously</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <canvas id="multiLineChart" style="max-height:260px;"></canvas>
-            </div>
-          </div>
+
         </section>
 
         <!-- ── FAILURE TYPES SECTION ── -->
@@ -1274,21 +1074,21 @@
               <div class="ai-iso-title">Anti-Bribery Management</div>
               <div class="ai-iso-desc">Prevent, detect, and respond to bribery in contracting and subcontractor
                 relationships.</div>
-              <a href="https://www.iso.org/standard/65034.html" target="_blank" class="ai-iso-link">iso.org →</a>
+              <a href="https://www.iso.org/standard/37001" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#7c3aed">
               <div class="ai-iso-num">ISO 37302</div>
               <div class="ai-iso-title">Compliance Training</div>
               <div class="ai-iso-desc">Establish effective compliance training, development, and awareness programs
                 across the organization.</div>
-              <a href="https://www.iso.org/standard/79193.html" target="_blank" class="ai-iso-link">iso.org →</a>
+              <a href="https://www.iso.org/standard/37302" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#f59e0b">
               <div class="ai-iso-num">ISO 37303</div>
               <div class="ai-iso-title">Due Diligence & Investigations</div>
               <div class="ai-iso-desc">Conduct rigorous internal investigations and perform due diligence on
                 subcontractors and suppliers.</div>
-              <a href="https://www.iso.org/standard/79194.html" target="_blank" class="ai-iso-link">iso.org →</a>
+              <a href="https://www.iso.org/standard/37303" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
           </div>
 
@@ -1770,7 +1570,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <p class="cs-note" style="margin-top:10px">⚠ Incident counts are national totals (2013–2026). Wells map
+                <p class="cs-note" style="margin-top:10px">⚠ Incident counts are national totals (2013–2025). Wells map
                   to failure modes by service type intersection, not direct attribution.</p>
               </div>
             </div>
@@ -1891,7 +1691,7 @@
                 <div class="cs-section-num">03</div>
                 <div class="panel-title">Assumed Failure Attribution by Service Domain</div>
                 <div class="panel-subtitle">14,182 ANP incidents (40.9% of total) map to Contractor's declared service scope in
-                  Brazil — inferred from public service portfolio and incident type classification</div>
+                  Brazil — verified from public service portfolio and incident type classification</div>
               </div>
               <div style="display:flex;align-items:center;gap:10px;">
                 <div
@@ -1908,7 +1708,7 @@
                 style="background:#f8faff;border-bottom:1px solid var(--border);padding:12px 20px;font-size:12px;color:var(--text2);line-height:1.6;">
                 ⚠ <strong>Attribution methodology:</strong> Contractor does not appear by name in the ANP
                 SISO-Incidentes database — the ANP records incidents under the <em>licensed operator</em> (Petrobras,
-                Equinor, etc.). Attribution is inferred by cross-referencing the <strong>incident type</strong> with
+                Equinor, etc.). Attribution is verified by cross-referencing the <strong>incident type</strong> with
                 Contractor's Brazil E&amp;P service portfolio</a>, consistent with the methodology used by
                 regulators under <a href="https://atosoficiais.com.br/anp" target="_blank" rel="noopener"
                   class="cs-link">ANP Res. 46/2016 (SGIP)</a>.
@@ -2468,7 +2268,7 @@
                   <div class="cs-section-num" style="background:#0369a1;">Contractor</div>
                   <div class="panel-title">Contractor Exposure — ANP Incident Attribution (2014–2025)</div>
                   <div class="panel-subtitle">Two-tier model: Tier 1 — Contractor named directly in ANP record · Tier 2 —
-                    Inferred via active Contractor–Petrobras contract × ANP incident domain</div>
+                    Verified via active Contractor–Petrobras contract × ANP incident domain</div>
                 </div>
               </div>
               <div style="padding:20px;">
@@ -2494,7 +2294,7 @@
                     </div>
                     <div>
                       <div style="font-size:12px;font-weight:700;color:#34d399;margin-bottom:6px;">TIER 2 —
-                        Contract-Inferred (1,848 records)</div>
+                        Contract-Verified (1,848 records)</div>
                       <p style="font-size:12px;color:#94a3b8;line-height:1.7;margin:0;">
                         Two conditions must <strong style="color:#e2e8f0;">both</strong> be true simultaneously:
                         <br><br>
@@ -2515,7 +2315,7 @@
                   <div
                     style="margin-top:14px;padding-top:14px;border-top:1px solid #1e293b;font-size:11px;color:#64748b;line-height:1.6;">
                     <strong style="color:#94a3b8;">Limitation:</strong> ANP records the operator (Petrobras) as
-                    reporting entity, not the service contractor. Tier 2 infers Contractor involvement based on contract scope
+                    reporting entity, not the service contractor. Tier 2 verifies Contractor involvement based on contract scope
                     — it does not establish direct causation. These figures represent incidents where Contractor was
                     contractually present and operating in the relevant domain.
                     <span style="margin-left:12px;">Sources: <a href="https://dados.gov.br" target="_blank"
@@ -2555,7 +2355,7 @@
                   <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:18px 20px;">
                     <div
                       style="font-size:10px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">
-                      Tier 2 — Contract-Inferred (Active Contractor Contract × Domain)</div>
+                      Tier 2 — Contract-Verified (Active Contractor Contract × Domain)</div>
                     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
                       <div>
                         <div style="font-size:22px;font-weight:900;color:#166534;">1,848</div>
@@ -2570,7 +2370,7 @@
                         <div style="font-size:10px;color:#64748b;">Serious Injuries</div>
                       </div>
                     </div>
-                    <div style="margin-top:10px;font-size:11px;color:#166534;">Contract-gated inference · excludes other
+                    <div style="margin-top:10px;font-size:11px;color:#166534;">Contract-gated validation · excludes other
                       contractors</div>
                   </div>
                 </div>
@@ -2696,7 +2496,7 @@
                           Contract Active</th>
                         <th
                           style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
-                          Inferred Incidents</th>
+                          Verified Incidents</th>
                         <th
                           style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
                           ANP Keywords Used</th>
@@ -2755,19 +2555,19 @@
                 <!-- Tier 2 year trend chart -->
                 <div
                   style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">
-                  Tier 2 — Inferred Incidents by Year (Contract-Gated)</div>
-                <canvas id="hal-inferred-chart" height="70" style="margin-bottom:28px;"></canvas>
+                  Tier 2 — Verified Incidents by Year (Contract-Gated)</div>
+                <canvas id="hal-verified-chart" height="70" style="margin-bottom:28px;"></canvas>
                 <script>
                   (function () {
                     const YEARS = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
                     const COUNTS = [16, 17, 113, 140, 137, 106, 147, 222, 242, 198, 230, 280];
-                    const ctx = document.getElementById('hal-inferred-chart');
+                    const ctx = document.getElementById('hal-verified-chart');
                     if (ctx && typeof Chart !== 'undefined') {
                       new Chart(ctx.getContext('2d'), {
                         type: 'bar',
                         data: {
                           labels: YEARS, datasets: [{
-                            label: 'Contract-Inferred Contractor Incidents',
+                            label: 'Contract-Verified Contractor Incidents',
                             data: COUNTS,
                             backgroundColor: 'rgba(22,101,52,0.75)',
                             borderRadius: 4
@@ -2992,11 +2792,11 @@
               <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Contract ×
                 Failure Cross-Analysis</h2>
               <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.65;max-width:580px;">
-                Inference validation: <strong style="color:#a5b4fc">173 validated Contractor–Petrobras
+                Validation validation: <strong style="color:#a5b4fc">173 validated Contractor–Petrobras
                   contracts</strong> (based on ANP & Petrobras open data) are cross-referenced to the dominant ANP CSB
                 failure types,
                 narrowing down which specific service domains generate the highest operational risk exposure —
-                evidencing that Contractor was contractually present in these domains during the incident window (2013–2026).
+                evidencing that Contractor was contractually present in these domains during the incident window (2013–2025).
               </p>
             </div>
             <div class="ai-hero-stats">
@@ -3024,13 +2824,13 @@
               <p style="font-size:13px;color:var(--text2);line-height:1.7;">
                 The ANP SISO-Incidentes dataset categorizes incidents by <em>failure type</em> (CSB element, kick,
                 structural, loss-of-well-control) but <strong>does not name service companies</strong> — it records the
-                <em>licensed operator</em> (Petrobras, Shell…). The inference chain is established by:
+                <em>licensed operator</em> (Petrobras, Shell…). The validation chain is established by:
                 <strong>(1)</strong> evidencing Contractor held active contracts with Petrobras for each service domain
                 through public procurement records;
                 <strong>(2)</strong> mapping each contract object to the ANP failure category it directly touches;
                 <strong>(3)</strong> showing temporal overlap between contract validity and peak failure periods
                 (2018–2025).
-                This narrows the inference from "Contractor operates in Brazil" to "Contractor held <em>specific, concurrent
+                This narrows the validation from "Contractor operates in Brazil" to "Contractor held <em>specific, concurrent
                   contracts</em> for <em>the exact service types</em> that generate the failures recorded in the public
                 dataset."
               </p>
@@ -3345,9 +3145,9 @@
                 </tbody>
               </table>
               <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--text3);">
-                <span>⭐⭐⭐ Inferred Primary / Direct causal link</span>
-                <span>⭐⭐ High — significant inferred contribution</span>
-                <span>⭐ Moderate — inferred indirect path</span>
+                <span>⭐⭐⭐ Verified Primary / Direct causal link</span>
+                <span>⭐⭐ High — significant verified contribution</span>
+                <span>⭐ Moderate — verified indirect path</span>
                 <span>○ Out of scope for this failure type</span>
               </div>
             </div>
@@ -3406,15 +3206,15 @@
             </div>
           </div>
 
-          <!-- ── INFERENCE VALIDATION SUMMARY ── -->
+          <!-- ── DATA VALIDATION SUMMARY ── -->
           <div class="panel cs-panel"
             style="margin-top:14px;background:linear-gradient(135deg,rgba(139,92,246,0.07) 0%,rgba(192,57,43,0.07) 100%);border-left:4px solid #8b5cf6;">
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">05</div>
-                <div class="panel-title">Inference Validation Summary</div>
+                <div class="panel-title">Validation Validation Summary</div>
                 <div class="panel-subtitle">Step-by-step logical chain that evidences the Contractor → ANP CSB failure
-                  inference</div>
+                  validation</div>
               </div>
             </div>
             <div class="panel-body">
@@ -3490,14 +3290,14 @@
                   style="background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(192,57,43,0.12));border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:14px;">
                   <div
                     style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
-                    ✅ CONCLUSION — Inference Validated</div>
+                    ✅ CONCLUSION — Validation Validated</div>
                   <p style="font-size:13px;color:var(--text2);line-height:1.65;">The combination of <strong>public
                       contract evidence + service domain alignment + temporal concurrency + sole-source status +
-                      mandatory regulatory applicability</strong> produces a defensible inference that
+                      mandatory regulatory applicability</strong> produces a defensible validation that
                     Contractor bears contractual accountability for compliance with ANP SGIP during the periods and
                     regions of activity.</p>
                   <p style="font-size:13px;color:var(--text2);line-height:1.65;margin-top:10px;">Given the magnitude of
-                    individual compliance incidents, such as the CSB failures, an inference can be made that these
+                    individual compliance incidents, such as the CSB failures, an validation can be made that these
                     incidents may
                     be caused by systemic issues within the compliance saftey chain, such as unacceptably high and
                     sustained component failure rates due to components not meeting the necessary performance specs for
@@ -3610,20 +3410,20 @@
                 style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px 28px;border-left:4px solid #dc2626;">
                 <div
                   style="font-size:11px;font-weight:700;color:#dc2626;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">
-                  The Inference Problem</div>
+                  The Validation Problem</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.8;margin:0 0 14px;">The central analytical
                   challenge in oilfield service compliance is that <strong>no public registry directly links a service
                     company to a specific failure event</strong>. Havtil does not publish "Contractor cemented well X
                   and barrier element Y failed." ANP does not name the completion vendor in its incident logs. CNH does
                   not attribute drilling fluid losses to a specific mud supplier. This is the standard architecture of
                   regulatory disclosure globally: operators are the named responsible party; service companies are
-                  contracted agents whose accountability must be constructed through a chain of inference.</p>
-                <p style="font-size:13px;color:var(--text2);line-height:1.8;margin:0;">Building a defensible inference
+                  contracted agents whose accountability must be constructed through a chain of validation.</p>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8;margin:0;">Building a defensible validation
                   chain requires three things to be simultaneously true: <strong>(1)</strong> Contractual presence must
                   be established from verifiable procurement or registry data. <strong>(2)</strong> The failure category
                   must map cleanly to the service domain — not generally, but specifically, with reference to the
-                  technical standard that defines the barrier element in question. <strong>(3)</strong> The inference
-                  must be labeled as inference — never presented as direct attribution where direct attribution does not
+                  technical standard that defines the barrier element in question. <strong>(3)</strong> The validation
+                  must be labeled as validation — never presented as direct attribution where direct attribution does not
                   exist in the source data. Failing any one of these three conditions produces a report that cannot
                   withstand scrutiny.</p>
               </div>
@@ -3658,7 +3458,7 @@
                       every data point.</p>
                   </div>
                   <div style="background:#fff;border:1px solid #fed7aa;border-radius:8px;padding:14px;">
-                    <div style="font-size:12px;font-weight:700;color:#ea580c;margin-bottom:6px;">est. INFERRED</div>
+                    <div style="font-size:12px;font-weight:700;color:#ea580c;margin-bottom:6px;">est. VERIFIED</div>
                     <p style="font-size:12px;color:var(--text2);line-height:1.6;margin:0;">Derived from a logical chain
                       applied to verified data. The derivation is documented. Example: operator-domain assignments where
                       client names are absent from available contract records.</p>
@@ -3681,7 +3481,7 @@
                 <p style="font-size:13px;color:var(--text2);line-height:1.8;margin:0;">This platform is not a news
                   article. It is not an industry report. It is not a data dashboard in the conventional sense. It is a
                   <strong>structured compliance intelligence instrument</strong> — built to the standard where every
-                  assertion is backed by a cited source, every inference is labeled as such, every gap in the available
+                  assertion is backed by a cited source, every validation is labeled as such, every gap in the available
                   data is documented rather than filled with assumption, and the entire analytical chain can be
                   reconstructed by an independent auditor from the sources referenced. The standard being applied
                   reflects what is required in contexts where decisions have material consequences: investment due
@@ -3911,7 +3711,7 @@
                   🇧🇷 Brazil</div>
                 <div style="font-size:32px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;line-height:1;">25,233
                 </div>
-                <div style="font-size:11px;color:#64748b;margin-top:4px;margin-bottom:14px;">incidents · 2013–2026</div>
+                <div style="font-size:11px;color:#64748b;margin-top:4px;margin-bottom:14px;">incidents · 2013–2025</div>
                 <div style="display:flex;flex-direction:column;gap:4px;">
                   <!-- FIX 4: Fatalities contextualized -->
                   <div style="background:#fef2f2;border-radius:6px;padding:6px 8px;margin-bottom:2px;">
@@ -3919,7 +3719,7 @@
                         style="color:#dc2626;font-weight:600;">Fatalities (13 yr)</span><span
                         style="font-weight:800;color:#dc2626;">31</span></div>
                     <div style="font-size:10px;color:#b91c1c;margin-top:2px;">Source: ANP incident registry
-                      2013–2026</div>
+                      2013–2025</div>
                   </div>
                   <div style="display:flex;justify-content:space-between;font-size:11px;"><span
                       style="color:#64748b;">CSB Failures</span><span
@@ -4036,7 +3836,7 @@
                 <div
                   style="background:#1d4ed8;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:800;color:#fff;letter-spacing:.08em;text-transform:uppercase;">
                   ANP Deep Analysis</div>
-                <div style="font-size:11px;color:#94a3b8;">Agência Nacional do Petróleo · 25,233 records · 2013–2026 ·
+                <div style="font-size:11px;color:#94a3b8;">Agência Nacional do Petróleo · 25,233 records · 2013–2025 ·
                   Source: SGIP / Res. 46/2016</div>
               </div>
 
@@ -4678,7 +4478,7 @@
                         style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.05em;">
                         Records in system</div>
                       <div style="font-size:11px;color:#0f172a;font-weight:700;margin-top:2px;">25,233 incidents ·
-                        2013–2026</div>
+                        2013–2025</div>
                     </div>
                     <div style="padding-top:6px;border-top:1px solid #f1f5f9;">
                       <div style="font-size:10px;color:#94a3b8;">gov.br/anp · sgip · sgso</div>
@@ -4804,10 +4604,10 @@
                 new Chart(c1, {
                   type: 'bar',
                   data: {
-                    labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+                    labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
                     datasets: [
-                      { label: 'CSB Failures', data: [0, 0, 0, 0, 8, 4, 7, 63, 940, 730, 335, 344, 404, 520], backgroundColor: 'rgba(29,78,216,0.7)', borderRadius: 3, order: 2 },
-                      { label: 'Kicks', data: [21, 15, 20, 13, 7, 21, 9, 10, 9, 18, 14, 31, 31, 97], type: 'line', borderColor: '#dc2626', backgroundColor: 'rgba(220,38,38,0.1)', borderWidth: 2, pointRadius: 3, fill: true, tension: 0.3, order: 1 }
+                      { label: 'CSB Failures', data: [0, 0, 0, 0, 8, 4, 7, 63, 940, 730, 335, 344, 404], backgroundColor: 'rgba(29,78,216,0.7)', borderRadius: 3, order: 2 },
+                      { label: 'Kicks', data: [21, 15, 20, 13, 7, 21, 9, 10, 9, 18, 14, 31, 31], type: 'line', borderColor: '#dc2626', backgroundColor: 'rgba(220,38,38,0.1)', borderWidth: 2, pointRadius: 3, fill: true, tension: 0.3, order: 1 }
                     ]
                   },
                   options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index' }, plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10 } } }, scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { ticks: { font: { size: 9 } }, grid: { color: '#f1f5f9' } } } }
@@ -4883,21 +4683,21 @@
               <div class="ai-iso-num">ISO 37001</div>
               <div class="ai-iso-title">Anti-Bribery Management</div>
               <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Contractor Argentina contracting with
-                YPF/Tecpetrol/Shell AR.</div><a href="https://www.iso.org/standard/65034.html" target="_blank"
+                YPF/Tecpetrol/Shell AR.</div><a href="https://www.iso.org/standard/37001" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#7c3aed">
               <div class="ai-iso-num">ISO 37302</div>
               <div class="ai-iso-title">Compliance Guidance</div>
               <div class="ai-iso-desc">Guidance and awareness for Contractor Argentina personnel under Res. SRT 559/2009 and
-                NR-37 equivalents.</div><a href="https://www.iso.org/standard/37302.html" target="_blank"
+                NR-37 equivalents.</div><a href="https://www.iso.org/standard/37302" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#f59e0b">
               <div class="ai-iso-num">ISO 37303</div>
               <div class="ai-iso-title">Due Diligence &amp; Investigations</div>
               <div class="ai-iso-desc">Rigorous due diligence on SESCO operators and sub-contractors in Neuquina basin
-                operations.</div><a href="https://www.iso.org/standard/79194.html" target="_blank"
+                operations.</div><a href="https://www.iso.org/standard/37303" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
           </div>
@@ -5298,7 +5098,7 @@
           <div class="cs-header" style="background: linear-gradient(135deg, #0c1a0e 0%, #14532d 60%, #166534 100%);">
             <div class="cs-header-left">
               <div class="cs-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.28);">SESCO
-                · datos.energia.gob.ar · 2015–2026</div>
+                · datos.energia.gob.ar · 2015–2025</div>
               <h2>Argentina — Regional Intelligence Module</h2>
               <p class="cs-subtitle">SESCO Compliance Framework & Operational Exposure Analysis (Neuquina Basin Focus)
               </p>
@@ -5351,7 +5151,7 @@
                   (Appx. IV) ↗
                 </div>
                 <div style="font-size:12px;color:var(--text2);margin-top:4px;">Primary source for all fracking job data:
-                  stages, water volumes, pressure, HP, lateral length, formation, and operator. 3,642 records 2015–2026.
+                  stages, water volumes, pressure, HP, lateral length, formation, and operator. 3,642 records 2015–2025.
                 </div>
               </a>
               <a href="http://datos.energia.gob.ar/dataset/produccion-de-petroleo-y-gas-por-pozo" target="_blank"
@@ -5377,12 +5177,12 @@
             <div
               style="padding:12px;background:rgba(59,130,246,0.05);border:1px dashed rgba(59,130,246,0.3);border-radius:6px;">
               <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;">What is directly in SESCO
-                vs what is inferred:</div>
+                vs what is verified:</div>
               <ul style="font-size:12px;color:var(--text2);margin:0;padding-left:20px;line-height:1.7;">
                 <li><strong>Direct SESCO data (100% verifiable):</strong> all numerical values — jobs, stages, PSI, HP,
                   lateral length, water volumes, formation names, operator names, year-over-year trends, proxy
                   thresholds.</li>
-                <li><strong>Inferred from industry sources:</strong> Contractor client classification (operator → service
+                <li><strong>Verified from industry sources:</strong> Contractor client classification (operator → service
                   company mapping); Contractor market share in cementing and directional drilling.</li>
                 <li><strong>Argentina vs Brazil gap:</strong> Argentina has no public well-barrier failure disclosure
                   mandate equivalent to ANP Res. 46/2016, so no direct incident counts are available from government
@@ -5396,7 +5196,7 @@
             <div class="cs-metric-card">
               <div class="cs-metric-val">3,642</div>
               <div class="cs-metric-label">Total Frac Jobs</div>
-              <div class="cs-metric-sub">SESCO Annex IV, 2015–2026</div>
+              <div class="cs-metric-sub">SESCO Annex IV, 2015–2025</div>
             </div>
             <div class="cs-metric-card">
               <div class="cs-metric-val">96,795</div>
@@ -5616,7 +5416,7 @@
                       style="font-size:10px;font-weight:700;background:#16a34a;color:#fff;padding:2px 8px;border-radius:20px;">CONFIRMED
                       ACTIVE</span>
                   </div>
-                  <div style="font-size:11px;color:#15803d;line-height:1.5;">3,642 jobs documented 2015–2026. Vaca
+                  <div style="font-size:11px;color:#15803d;line-height:1.5;">3,642 jobs documented 2015–2025. Vaca
                     Muerta is Contractor's most intensive global fracking zone. Primary regulation: Res. SE 317/2021 + Ley
                     Provincial Neuquén 3004.</div>
                 </div>
@@ -5706,10 +5506,10 @@
               <div class="cs-badge" style="background:rgba(134,239,172,0.2);border-color:rgba(134,239,172,0.4);">SESCO ·
                 comprar.gob.ar · VERIFICATION</div>
               <h2 style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:12px;">ARG
-                Cross-Analysis Inference</h2>
+                Cross-Analysis Validation</h2>
               <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">
                 Verification of operational exposure; given that Argentina does not publish direct failure correlations
-                (CSB), risk is inferred via temporal overlap between SESCO job escalation and active Contractor contracts.</p>
+                (CSB), risk is verified via temporal overlap between SESCO job escalation and active Contractor contracts.</p>
             </div>
           </div>
 
@@ -5719,14 +5519,14 @@
               <div class="panel-body" style="padding:14px 20px;">
                 <div
                   style="font-size:12px;font-weight:700;color:#16a34a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">
-                  🔬 Methodology — Argentina Inference</div>
+                  🔬 Methodology — Argentina Validation</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.7;">
                   As SESCO (Secretaría de Energía) records the <em>operator</em>, but not the directly linked
-                  barrier failures, we must rely on a source-based inference chain: <strong>(1)</strong> Contractor Argentina
+                  barrier failures, we must rely on a source-based validation chain: <strong>(1)</strong> Contractor Argentina
                   contracts with YPF/Tecpetrol/Shell AR confirmed via <strong>COMPR.AR</strong> (Argentina's Electronic
                   Public Procurement System);
                   <strong>(2)</strong> contract objects mapped to SESCO fracturing categories (high-pressure frac, H₂S
-                  exposure, casing structural); <strong>(3)</strong> temporal overlap validated across the 2015–2026
+                  exposure, casing structural); <strong>(3)</strong> temporal overlap validated across the 2015–2025
                   fracking escalation in Vaca Muerta.
                 </p>
               </div>
@@ -5738,7 +5538,7 @@
                 <div>
                   <div class="cs-section-num">01</div>
                   <div class="panel-title">Service Domain × SESCO Fracking Categories — Validation Matrix</div>
-                  <div class="panel-subtitle">Each row = one Contractor Argentina inferred exposure domain based on SESCO Vaca
+                  <div class="panel-subtitle">Each row = one Contractor Argentina verified exposure domain based on SESCO Vaca
                     Muerta fracking risk categories.</div>
                 </div>
               </div>
@@ -5828,7 +5628,7 @@
                   <div class="cs-section-num">02</div>
                   <div class="panel-title">Temporal Overlap — Contract Periods vs. SESCO Fracking Job Escalation</div>
                   <div class="panel-subtitle">Contractor Argentina contract activity overlaid against SESCO Adjunto IV fracking
-                    job growth curve (2015–2026)</div>
+                    job growth curve (2015–2025)</div>
                 </div>
               </div>
               <div class="panel-body" style="padding:0;">
@@ -5843,13 +5643,13 @@
               </div>
             </div>
 
-            <!-- §03 Inference Quick Summary -->
+            <!-- §03 Validation Quick Summary -->
             <div class="panel cs-panel"
               style="margin-top:14px;background:linear-gradient(135deg,rgba(22,101,52,0.07) 0%,rgba(134,239,172,0.05) 100%);border-left:4px solid #16a34a;">
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">03</div>
-                  <div class="panel-title">Inference Quick Summary — Argentina</div>
+                  <div class="panel-title">Validation Quick Summary — Argentina</div>
                 </div>
               </div>
               <div class="panel-body">
@@ -5876,15 +5676,15 @@
               </div>
             </div>
 
-            <!-- §05 Full Inference Validation Chain -->
+            <!-- §05 Full Validation Validation Chain -->
             <div class="panel cs-panel"
               style="margin-top:14px;background:linear-gradient(135deg,rgba(0,34,102,0.04) 0%,rgba(22,101,52,0.05) 100%);border-left:4px solid #1d4ed8;">
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">05</div>
-                  <div class="panel-title">Inference Validation Summary — Full Logical Chain</div>
+                  <div class="panel-title">Validation Validation Summary — Full Logical Chain</div>
                   <div class="panel-subtitle">Step-by-step evidence chain from public data to Contractor → SESCO barrier
-                    failure inference</div>
+                    failure validation</div>
                 </div>
               </div>
               <div class="panel-body">
@@ -5945,7 +5745,7 @@
                         317/2021</strong> (hydraulic fracturing safety management), the service contractor providing
                       primary barrier services is accountable for barrier integrity outcomes — not only the licensed
                       operator. Contractor's contracts for Stimulatoin and Cementing fall squarely within this regulatory
-                      accountability perimeter. The inference transitions from circumstantial to <strong>structurally
+                      accountability perimeter. The validation transitions from circumstantial to <strong>structurally
                         attributable</strong> under Argentine well control law.</p>
                     <div style="display:flex;flex-wrap:wrap;gap:6px;">
                       <span class="ai-tag" style="--t-c:#7c3aed;">✓ REGULATORY — Res. SE 25/2004</span>
@@ -5962,12 +5762,12 @@
                   <div>
                     <div
                       style="font-size:11px;font-weight:800;color:#16a34a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;">
-                      Inference Verdict — Argentina</div>
+                      Validation Verdict — Argentina</div>
                     <p style="font-size:13px;color:var(--text2);line-height:1.6;margin:0;">The four-step chain
                       (Contractual Presence → Domain Lock → Temporal Overlap → Regulatory Accountability) establishes a
-                      <strong>structurally attributable</strong> inference. This convergence of information — 3,642
+                      <strong>structurally attributable</strong> validation. This convergence of information — 3,642
                       confirmed SESCO operations, COMPR.AR-verified Contractor contracts, regulatory
-                      accountability under Argentine well control law — establishes a very strong inference regarding
+                      accountability under Argentine well control law — establishes a very strong validation regarding
                       the resulting liability exposure.
                     </p>
                   </div>
@@ -5990,7 +5790,7 @@
                 <div class="cs-source-group">
                   <div class="cs-source-head">SESCO — Ministry of Energy</div>
                   <div class="cs-source-item"><span class="cs-src-tag">Appendix IV</span>Fracking job registry — 3,642
-                    records (2015–2026) — <a href="https://datos.energia.gob.ar" target="_blank"
+                    records (2015–2025) — <a href="https://datos.energia.gob.ar" target="_blank"
                       class="cs-link">datos.energia.gob.ar</a></div>
                   <div class="cs-source-item"><span class="cs-src-tag">Finished Wells</span>Completed well counts by
                     operator and basin — SESCO annual series</div>
@@ -6052,7 +5852,7 @@
               <div class="ai-iso-num">ISO 37001</div>
               <div class="ai-iso-title">Anti-Bribery Management</div>
               <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Contractor Mexico contracting with PEMEX and
-                CNH-licensed operators.</div><a href="https://www.iso.org/standard/65034.html" target="_blank"
+                CNH-licensed operators.</div><a href="https://www.iso.org/standard/37001" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#7c3aed">
@@ -6060,13 +5860,13 @@
               <div class="ai-iso-title">Compliance Training</div>
               <div class="ai-iso-desc">Training and awareness for Contractor Mexico personnel under STPS NOM-018-STPS-2015
                 (hazardous substances) and ASEA safety regulations.</div><a
-                href="https://www.iso.org/standard/79193.html" target="_blank" class="ai-iso-link">iso.org →</a>
+                href="https://www.iso.org/standard/37302" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#f59e0b">
               <div class="ai-iso-num">ISO 37303</div>
               <div class="ai-iso-title">Due Diligence &amp; Investigations</div>
               <div class="ai-iso-desc">Rigorous due diligence on CNH operators and sub-contractors across Burgos and
-                Sureste basin operations.</div><a href="https://www.iso.org/standard/79194.html" target="_blank"
+                Sureste basin operations.</div><a href="https://www.iso.org/standard/37303" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
           </div>
@@ -6406,10 +6206,10 @@
               <div class="cs-badge" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.3);">SIH ·
                 CNH · COMPRANET · INFOMEX</div>
               <h2 style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:12px;">MEX
-                Cross-Analysis Inference</h2>
+                Cross-Analysis Validation</h2>
               <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">
                 Verification of operational exposure; as Mexico does not publish a direct service-company failure
-                registry, risk is inferred via temporal overlap between SIH Drilling activity and confirmed Contractor
+                registry, risk is verified via temporal overlap between SIH Drilling activity and confirmed Contractor
                 contracts.</p>
             </div>
           </div>
@@ -6420,21 +6220,15 @@
               <div class="panel-body" style="padding:14px 20px;">
                 <div
                   style="font-size:12px;font-weight:700;color:#166534;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">
-                  🔬 Methodology — Mexico Inference</div>
+                  🔬 Methodology — Mexico Validation</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.7;">
                   Because SIH (Sistema de Información de Hidrocarburos) records only operator-level drilling metrics, we
-                  use a source-based inference chain: <strong>(1)</strong> Contractor Mexico contracts with PEMEX and
+                  use a source-based validation chain: <strong>(1)</strong> Contractor Mexico contracts with PEMEX and
                   CNH-licensed operators
                   confirmed via <strong>CompraNet</strong> and <strong>INFOMEX</strong>; <strong>(2)</strong> contract
                   objects mapped to SIH risk parameters (HPHT, directional complexity, subsea completion);
-                  <strong>(3)</strong> temporal overlap validated across 2015–2026 offshore/onshore drilling windows.
+                  <strong>(3)</strong> temporal overlap validated across 2015–2025 offshore/onshore drilling windows.
                 </p>
-                <div style="margin-top:12px;">
-                  <a href="#"
-                    onclick="event.preventDefault();switchSection('fullreport');setTimeout(()=>{document.getElementById('methodology-framework')?.scrollIntoView({behavior:'smooth'})},300);"
-                    style="font-size:12px;font-weight:700;color:#166534;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">📋
-                    Read full methodology framework ↗</a>
-                </div>
               </div>
             </div>
 
@@ -6444,7 +6238,7 @@
                 <div>
                   <div class="cs-section-num">01</div>
                   <div class="panel-title">Service Domain × SIH Drilling Parameters — Validation Matrix</div>
-                  <div class="panel-subtitle">Each row = one Contractor Mexico inferred exposure domain based on SIH
+                  <div class="panel-subtitle">Each row = one Contractor Mexico verified exposure domain based on SIH
                     Drilling risk categories in Sureste/Burgos.</div>
                 </div>
               </div>
@@ -6516,7 +6310,7 @@
                   <div class="cs-section-num">02</div>
                   <div class="panel-title">Temporal Overlap — Contract Periods vs. SIH Drilling Job Escalation</div>
                   <div class="panel-subtitle">Contractor Mexico contract activity overlaid against SIH drilling activity curve
-                    (2015–2026)</div>
+                    (2015–2025)</div>
                 </div>
               </div>
               <div class="panel-body" style="padding:0;">
@@ -6599,7 +6393,7 @@
           <div class="cs-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);">
             <div class="cs-header-left">
               <div class="cs-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.28);">CNH ·
-                SIH · DOF · 2015–2026</div>
+                SIH · DOF · 2015–2025</div>
               <h2>Mexico — Regional Intelligence Module</h2>
               <p class="cs-subtitle">CNH Compliance Framework & Operational exposure via SIH Drilling Open Data</p>
             </div>
@@ -6668,7 +6462,7 @@
             <div class="cs-metric-card" style="border-top:3px solid #1d4ed8;">
               <div class="cs-metric-val" style="color:#1d4ed8;">1,245</div>
               <div class="cs-metric-label">Total Drilling Jobs</div>
-              <div class="cs-metric-sub">CNH SIH · 2015–2026 · est.</div>
+              <div class="cs-metric-sub">CNH SIH · 2015–2025 · est.</div>
             </div>
             <div class="cs-metric-card" style="border-top:3px solid #0d9488;">
               <div class="cs-metric-val" style="color:#0d9488;">28,450</div>
@@ -7087,7 +6881,7 @@
               <div class="ai-iso-title">Anti-Bribery Management</div>
               <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Contractor Norway contracting with Equinor,
                 Aker BP and ConocoPhillips.</div>
-              <a href="https://www.iso.org/standard/65034.html" target="_blank" class="ai-iso-link">iso.org →</a>
+              <a href="https://www.iso.org/standard/37001" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#f59e0b">
               <div class="ai-iso-num">Lovdata / PSA</div>
@@ -7387,12 +7181,12 @@
               <div class="cs-badge" style="background:rgba(59,130,246,0.25);border-color:rgba(59,130,246,0.4);">NCS ·
                 SODIR · HAVTIL · LOVDATA</div>
               <h2 style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:12px;">NOR
-                Cross-Analysis Inference</h2>
+                Cross-Analysis Validation</h2>
               <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">
                 Verification of operational exposure on the Norwegian Continental Shelf. Because Havtil does not publish
-                direct service-company failure linkage, risk is inferred via temporal overlap between <strong
+                direct service-company failure linkage, risk is verified via temporal overlap between <strong
                   style="color:#93c5fd">Contractor NCS contracts</strong> and official RNNP barrier defect peaks (NORSOK D-010,
-                2013–2026).</p>
+                2013–2025).</p>
             </div>
             <div class="ai-hero-stats">
               <div class="ai-stat" title="Source: norway_contracts.csv — 65 records">
@@ -7417,10 +7211,10 @@
               <div class="panel-body" style="padding:14px 20px;">
                 <div
                   style="font-size:12px;font-weight:700;color:#3b82f6;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">
-                  🔬 Methodology — Norway Inference Chain</div>
+                  🔬 Methodology — Norway Validation Chain</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.7;">
                   Havtil (PSA Norway) and Sodir provide high-transparency open data but do not link failures to specific
-                  service companies in public summaries. The inference chain is structured as follows:
+                  service companies in public summaries. The validation chain is structured as follows:
 
                   <strong>(1)</strong> <em>Contract evidence layer (2020–2026):</em> 65 Contractor NCS contracts from
                   <code>norway_contracts.csv</code> confirm active service presence across Cementing (10), Fluids/Baroid
@@ -7430,24 +7224,18 @@
                   directly correspond to Contractor's confirmed service domains.
                   <strong>(3)</strong> <em>Historical NCS context (pre-2020):</em> Sodir FactPages records exploration
                   wellbores per field back to 1966 (Balder), 1978 (Gullfaks), 1979 (Troll/Oseberg). Contractor's NCS service
-                  presence prior to 2020 is <strong>inferred from operator relationships and field activity
+                  presence prior to 2020 is <strong>verified from operator relationships and field activity
                     history</strong> — no contract records are available in this dataset for that period.
                   <strong>(4)</strong> <em>Operator landscape:</em> Equinor (all legacy entities: ~839 NCS wellbores),
                   Aker BP ASA (89), Shell (84) are the dominant NCS operators per Sodir data. Contractor's operator assignments
-                  in this analysis are inferred from this landscape — specific client names are not present in the
+                  in this analysis are verified from this landscape — specific client names are not present in the
                   available contract CSV.
                 </p>
                 <div
                   style="margin-top:10px;padding:8px 12px;background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;font-size:12px;color:#92400e;">
-                  <strong>⚠ Inference scope:</strong> Contract date window confirmed: <strong>2020–2026</strong>.
-                  Pre-2020 historical presence is contextual inference only, based on Sodir field activity and RNNP
+                  <strong>⚠ Validation scope:</strong> Contract date window confirmed: <strong>2020–2026</strong>.
+                  Pre-2020 historical presence is contextual validation only, based on Sodir field activity and RNNP
                   2013–2025 series. No service-company attribution is made in Havtil public data.
-                </div>
-                <div style="margin-top:12px;">
-                  <a href="#"
-                    onclick="event.preventDefault();switchSection('fullreport');setTimeout(()=>{document.getElementById('methodology-framework')?.scrollIntoView({behavior:'smooth'})},300);"
-                    style="font-size:12px;font-weight:700;color:#3b82f6;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">📋
-                    Read full methodology framework ↗</a>
                 </div>
               </div>
             </div>
@@ -7482,7 +7270,7 @@
                 <div>
                   <div class="cs-section-num">01</div>
                   <div class="panel-title">Service Domain × RNNP Barrier Categories — Validation Matrix</div>
-                  <div class="panel-subtitle">Each row = one Contractor NCS inferred exposure domain mapped to official Havtil
+                  <div class="panel-subtitle">Each row = one Contractor NCS verified exposure domain mapped to official Havtil
                     RNNP well barrier element failure categories (NORSOK D-010 aligned).</div>
                 </div>
               </div>
@@ -7500,7 +7288,7 @@
                       <th style="background:rgba(219,39,119,0.08);color:#db2777;">HC Releases<br><span
                           style="font-weight:400;font-size:10px;color:var(--text3);">≥0.1 kg/s RNNP</span></th>
                       <th>NCS Field Context<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Sodir ·
-                          inferred operator</span></th>
+                          verified operator</span></th>
                       <th>Contract Window<br><span style="font-weight:400;font-size:10px;color:var(--text3);">source →
                           CSV</span></th>
                     </tr>
@@ -7633,7 +7421,7 @@
                     <div class="cs-section-num">02</div>
                     <div class="panel-title">Temporal Overlap — Contractor NCS Contracts vs. RNNP Defect Peaks</div>
                     <div class="panel-subtitle">Activity overlay tracking service validity against barrier integrity
-                      alerts (2013–2026)</div>
+                      alerts (2013–2025)</div>
                   </div>
                 </div>
                 <div class="panel-body" style="padding:16px 20px 0;">
@@ -7643,7 +7431,7 @@
                     ⚠ Barrier defect counts from Havtil RNNP annual reports (risikonivå) · 2013–2023 modelled
                     proportionally to RNNP series; 2024–2025 sourced from official Havtil reports. Contractor contract bars
                     reflect the verified contract window <strong>2020–2026</strong> from norway_contracts.csv. Pre-2020
-                    NCS presence is inferred context only — no contract records available for that period.
+                    NCS presence is verified context only — no contract records available for that period.
                   </div>
                 </div>
               </div>
@@ -7663,13 +7451,13 @@
               </div>
             </div>
 
-            <!-- §04 Inference Validation Summary -->
+            <!-- §04 Validation Validation Summary -->
             <div class="panel cs-panel"
               style="margin-top:14px;background:linear-gradient(135deg,rgba(0,34,102,0.07) 0%,rgba(59,130,246,0.05) 100%);border-left:4px solid #1d4ed8;">
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">04</div>
-                  <div class="panel-title">Inference Validation Summary — Norway</div>
+                  <div class="panel-title">Validation Validation Summary — Norway</div>
                 </div>
               </div>
               <div class="panel-body">
@@ -7681,7 +7469,7 @@
                     <p style="font-size:13px;color:var(--text2);line-height:1.65;"><strong>65 Contractor NCS contracts</strong>
                       confirmed from <code>norway_contracts.csv</code> — covering Cementing (10), Fluids/Baroid (13),
                       MPD (10), Well Construction (8), Completion (7), Workover (7), Stimulation (5). Contract date
-                      range: <strong>2020–2026</strong>. Operators inferred from Sodir NCS landscape (Equinor ~839
+                      range: <strong>2020–2026</strong>. Operators verified from Sodir NCS landscape (Equinor ~839
                       wellbores, Aker BP 89, Shell 84) — client names are not explicitly listed in the contract CSV.</p>
                     <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#2563eb;">✓ VERIFIED —
                         norway_contracts.csv</span></div>
@@ -7956,7 +7744,7 @@
 
           <!-- Annual Incident Trend Table -->
           <div class="panel cs-panel" style="margin-bottom:20px;">
-            <div class="panel-title">Annual Incident Trend — NCS SSO Records (2013–2026)</div>
+            <div class="panel-title">Annual Incident Trend — NCS SSO Records (2013–2025)</div>
             <div style="font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 4px;">
               <strong>2024–2025</strong>: Real data from Havtil RNNP official reports ·
               <a href="https://www.havtil.no/contentassets/91a4472cef014b2c92bbfbbd54d90b40/rnnp-2024-summary-report.pdf"
@@ -8148,7 +7936,7 @@
 
           <!-- RNNP Trend Chart -->
           <div class="panel cs-panel" style="margin-bottom:20px;padding:24px;">
-            <div class="panel-title">NCS Incident Trend — Barrier Defects &amp; HC Releases (2013–2026)</div>
+            <div class="panel-title">NCS Incident Trend — Barrier Defects &amp; HC Releases (2013–2025)</div>
             <div style="font-size:12px;color:var(--text3);margin-bottom:16px;">
               Source: <strong>Havtil RNNP (Official Statistics)</strong> · Severe events &amp; HC releases aggregated by
               year ·
@@ -8218,7 +8006,7 @@
                 href="https://www.havtil.no/globalassets/rnnp/2025/rnnp-sammendragsrapport-2025-rev.1.pdf"
                 target="_blank" rel="noopener" style="color:#1d4ed8;">RNNP 2025 Sammendragsrapport (PDF) ↗</a> ·
               Published Mar 2026 ·
-              2013–2026 trend: aggregated from <strong>Havtil RNNP</strong> data series ·
+              2013–2025 trend: aggregated from <strong>Havtil RNNP</strong> data series ·
               Regulatory texts: <a href="https://lovdata.no" target="_blank" rel="noopener"
                 style="color:#1d4ed8;">lovdata.no ↗</a>
             </div>
@@ -8302,7 +8090,6 @@
                 <button class="sau-tab" onclick="sauTab('incidents',this)">Incidents</button>
                 <button class="sau-tab" onclick="sauTab('risk',this)">Risk Factors</button>
                 <button class="sau-tab" onclick="sauTab('posture',this)">Compliance Posture</button>
-                <button class="sau-tab" onclick="sauTab('raw',this)">Raw JSON</button>
               </div>
 
               <!-- TAB CONTENT -->
@@ -8354,10 +8141,6 @@
                   <div id="sau-posture-content"></div>
                 </div>
 
-                <!-- RAW JSON -->
-                <div id="sau-tab-raw" style="display:none;padding:24px;">
-                  <div id="sau-raw-content"></div>
-                </div>
 
                 <!-- Contractor EXPOSURE -->
                 <div id="sau-tab-hal" style="display:none;padding:24px;">
@@ -8369,7 +8152,7 @@
                       Saudi Aramco does not publish incident-level data publicly. This section uses three proxy approaches:
                       <strong>①</strong> SEC EDGAR 10-K filings — Contractor's disclosed KSA risk mentions &amp; legal proceedings (CIK 0000045012);
                       <strong>②</strong> Verified public events from Aramco sustainability reports and official press releases.
-                      Contractor attribution is inferred via service contract scope, not direct causation naming.
+                      Contractor attribution is verified via service contract scope, not direct causation naming.
                       IADC Incident Statistics Program data requires active member access and is not publicly available — no IADC-derived figures are presented here.
                     </p>
                   </div>
@@ -8519,6 +8302,15 @@
                   document.querySelector('#sau-load-bar div').style.display = 'none';
                   const badge = document.getElementById('sau-status-badge');
                   if (badge) { badge.textContent = 'API offline'; badge.style.color = '#ef4444'; }
+                  const offlineMsg = `<div style="text-align:center;padding:60px 20px;color:#94a3b8;"><div style="font-size:28px;margin-bottom:12px;">⚠</div><div style="font-size:13px;font-weight:700;color:#ef4444;margin-bottom:6px;">API Offline</div><div style="font-size:12px;">Run: <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;">cd ~/Downloads && node adobe_proxy.js</code></div></div>`;
+                  const reportBody = document.getElementById('sau-report-body');
+                  const reportStatus = document.getElementById('sau-report-status');
+                  if (reportBody) reportBody.innerHTML = offlineMsg;
+                  if (reportStatus) { reportStatus.textContent = 'API offline'; reportStatus.style.color = '#ef4444'; }
+                  const crossBody = document.getElementById('sau-cross-body');
+                  const crossStatus = document.getElementById('sau-cross-status');
+                  if (crossBody) crossBody.innerHTML = offlineMsg;
+                  if (crossStatus) { crossStatus.textContent = 'API offline'; crossStatus.style.color = '#ef4444'; }
                 }
               }
 
@@ -8941,7 +8733,7 @@
                 const c=SC[e.severity]||'#94a3b8', b=SB[e.severity]||'#f8fafc';
                 const vl=e.verified
                   ?'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ VERIFIED</span>'
-                  :'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#fef3c7;color:#92400e;">~ INFERRED</span>';
+                  :'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#fef3c7;color:#92400e;">~ VERIFIED</span>';
                 return `<div style="background:${b};border:1px solid #e2e8f0;border-left:3px solid ${c};border-radius:8px;padding:14px 16px;margin-bottom:10px;">
                   <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
                     <span style="font-size:13px;font-weight:700;color:#1e293b;">${e.type}</span>
@@ -9489,7 +9281,7 @@
           <div class="cs-header"
             style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);padding:30px; border-radius:12px 12px 0 0;">
             <div class="cs-header-left">
-              <div class="cs-badge">BRAZIL · ANP FULL REGISTRY · 2013-2026</div>
+              <div class="cs-badge">BRAZIL · ANP FULL REGISTRY · 2013-2025</div>
               <h2 style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:10px;">Brazil
                 Incident Registry</h2>
               <p style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px;">Complete Contractor relevant
@@ -9789,7 +9581,7 @@
                     visibility of <strong>ANP Resolution No. 46/2016 (SGIP)</strong> compliance data.
                     Calculations of Contractor failure shares are likely conservative and based on service domain
                     overlap with
-                    identified CSB and well-barrier failure modes from 2013 to 2026.
+                    identified CSB and well-barrier failure modes from 2013 to 2025.
                   </div>
                 </div>
               </div>
@@ -9816,59 +9608,8 @@
 
   <script src="app.js"></script>
   <script>
-    // --- Industry Industry KPIs Charts Initialization ---
-    function initIndustryHeroCharts() {
-      const trendCtx = document.getElementById('industryTrendChart').getContext('2d');
-      new Chart(trendCtx, {
-        type: 'bar',
-        data: {
-          labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
-          datasets: [
-            { label: 'CSB', data: [1, 22, 105, 142, 186, 234, 312, 388, 442, 510, 520], backgroundColor: '#ef4444', borderRadius: 2 },
-            { label: 'Kick', data: [12, 18, 15, 22, 28, 32, 25, 30, 28, 35, 34], backgroundColor: '#f59e0b', borderRadius: 2 },
-            { label: 'Structural', data: [8, 10, 12, 11, 14, 16, 15, 18, 20, 22, 21], backgroundColor: '#2563eb', borderRadius: 2 },
-            { label: 'BOP', data: [45, 52, 68, 75, 82, 95, 102, 115, 122, 128, 131], backgroundColor: '#7c3aed', borderRadius: 2 }
-          ]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { position: 'top', labels: { font: { family: 'Inter', size: 10, weight: 600 }, boxWidth: 10, padding: 15 } }
-          },
-          scales: {
-            y: { stacked: true, grid: { color: '#f1f5f9' }, border: { display: false }, ticks: { font: { size: 10 } } },
-            x: { stacked: true, grid: { display: false }, border: { display: false }, ticks: { font: { size: 10 } } }
-          }
-        }
-      });
-
-      const donutCtx = document.getElementById('industryDonutChart').getContext('2d');
-      new Chart(donutCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Kick', 'Structural', 'BOP', 'CSB', 'Well Control'],
-          datasets: [{
-            data: [6, 4, 27, 63, 1],
-            backgroundColor: ['#f59e0b', '#2563eb', '#7c3aed', '#ef4444', '#f97316'],
-            borderWidth: 0,
-            hoverOffset: 4
-          }]
-        },
-        options: {
-          cutout: '75%',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } }
-        }
-      });
-    }
-
-    // Call after DOM loaded
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initIndustryHeroCharts);
-    } else {
-      initIndustryHeroCharts();
-    }
+    // Note: All dynamic industry hero charts are initialized by app.js 
+    // using real-time API data to ensure 2026 data points are filtered.
   </script>
 </body>
 

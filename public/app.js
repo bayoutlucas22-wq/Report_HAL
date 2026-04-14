@@ -274,6 +274,33 @@ function renderKPIs(stats) {
 }
 
 // ── Overview Chart (08) ───────────────────────────────────────────────────────
+function renderWellIntegrityTable(stats) {
+  const tbody = document.getElementById('wellIntegrityTableBody');
+  if (!tbody || !stats.yearSeries) return;
+
+  let html = '';
+  stats.yearSeries.forEach(y => {
+    // "Well Integrity Failures" = CSB + Kick + Structural + Loss of Well Control
+    const wiTotal = (y['CSB Failure'] || 0) + (y['Kick (Primary Barrier)'] || 0) + (y['Structural Failure'] || 0) + (y['Loss of Well Control'] || 0);
+    const total = y.count || 1;
+    const share = ((wiTotal / total) * 100).toFixed(1);
+    
+    html += `
+      <tr>
+        <td style="font-weight:700;color:var(--text3);font-size:12px;">${y.year}</td>
+        <td>${wiTotal.toLocaleString()}</td>
+        <td>${total.toLocaleString()}</td>
+        <td>
+          <div class="cs-bar-cell">
+            <div class="cs-bar" style="width:${share}%"></div>${share}%
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+  tbody.innerHTML = html;
+}
+
 function renderOverviewChart(stats) {
   destroyChart("overviewChart");
   const canvas = document.getElementById("overviewChart");
@@ -503,13 +530,32 @@ function renderMultiLine(stats) {
       datasets: cats.map(cat => ({
         label: cat.replace(" (Primary Barrier)", " (Kick)"),
         data: series.map(y => y[cat] || 0),
-        borderColor: CAT_COLORS[cat], backgroundColor: CAT_COLORS[cat] + "18",
-        fill: false, tension: 0.35, pointRadius: 3, borderWidth: 2
+        borderColor: CAT_COLORS[cat], 
+        backgroundColor: CAT_COLORS[cat] + "18",
+        fill: true, 
+        tension: 0.4, 
+        pointRadius: 3, 
+        borderWidth: 2
       }))
     },
     options: {
-      responsive: true, maintainAspectRatio: true,
-      plugins: { legend: { labels: { color: "#4a5568", font: { size: 10 }, boxWidth: 10, padding: 14 } } },
+      responsive: true, 
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: { 
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.9)',
+          padding: 12,
+          titleFont: { size: 12, weight: 700 },
+          bodyFont: { size: 12 },
+          cornerRadius: 6,
+          boxPadding: 4
+        }
+      },
       scales: {
         x: { ticks: { color: "#4a5568", font: { size: 11 } }, grid: { display: false } },
         y: { ticks: { color: "#4a5568", font: { size: 11 } }, grid: { color: "#dde3ee" }, beginAtZero: true }
@@ -1015,11 +1061,19 @@ async function init() {
     // Load Mexico Compact Well Data
     loadMexicoCompactData().catch(e => console.warn("Mexico Wells fail", e));
 
+
     if (stats) {
+      // STRIP 2026 FROM ALL FRONTEND STATS
+      if (stats.yearSeries) {
+        stats.yearSeries = stats.yearSeries.filter(r => String(r.year) !== '2026');
+      }
+
       halStats = stats;
       renderBadge(stats.total);
       renderKPIs(stats);
+      renderWellIntegrityTable(stats);
       renderOverviewChart(stats);
+
       renderDonut(stats);
       renderCsbTrend(stats);
       renderMonthChart(stats);
@@ -2082,7 +2136,7 @@ window.setBrzDomain = function (domain, el) {
 
 function processIncomingContracts(rawItems) {
   console.log("PROCESSING: Raw items received", rawItems?.length);
-  // Infer domain from object keywords for the cross-matrix
+  // Verify domain from object keywords for the cross-matrix
   ALL_CONTRACTS = rawItems.map(c => {
     const obj = (c.obj || "").toLowerCase();
     let domain = "Other";
@@ -2095,7 +2149,7 @@ function processIncomingContracts(rawItems) {
     else if (obj.includes("constru") || obj.includes("perfur") || obj.includes("sondagem") || obj.includes("well construction")) domain = "Well Construction";
     else if (obj.includes("g&g") || obj.includes("geol") || obj.includes("sísmic") || obj.includes("sismic") || obj.includes("software") || obj.includes("licen")) domain = "G&G Software";
 
-    // Re-calculating period and validation metadata for the inference
+    // Re-calculating period and validation metadata for the validation
     const rawBrzValue = c.value || "—";
     const brzValue = convertContractValue(rawBrzValue, 'BRZ');
     const _rawUSD = parseFloat((rawBrzValue).replace(/[^0-9.]/g, '')) || 0;
@@ -2109,7 +2163,7 @@ function processIncomingContracts(rawItems) {
       periodo: `${c.inicio?.split('/')[2] || '?'}–${c.fim?.split('/')[2] || '?'}`,
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
-      score: getInferenceScore(domain),
+      score: getValidationScore(domain),
       scoreC: domain === "G&G Software" ? "#6b7280" : "#c0392b"
     };
   });
@@ -2161,7 +2215,7 @@ function getCSBLink(domain) {
   return map[domain] || '⭐ INDIRECT';
 }
 
-function getInferenceScore(domain) {
+function getValidationScore(domain) {
   const map = {
     'Cementing': '95%',
     'Stimulation': '93%',
