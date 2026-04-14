@@ -42,8 +42,11 @@ app.get("/api/stats", async (req, res) => {
 app.get("/api/hal-incidents", async (req, res) => {
     try {
         const { year, category, severity, q, page = 1, limit = 50 } = req.query;
-        const filter = {};
-        if (year) filter.year = parseInt(year);
+        const filter = { year: { $nin: [2026, '2026'] } };
+        
+        if (year) {
+            filter.year = parseInt(year);
+        }
         if (category) filter.category = category;
         if (severity) filter.severity = severity;
         if (q) {
