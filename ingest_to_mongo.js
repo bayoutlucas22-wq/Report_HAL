@@ -331,7 +331,41 @@ async function main() {
   const rawPozos = readCsv('POZOS_PERFORADOS (1).csv', ',', 5);
   await seed(db, 'mex_pozos', transformMexPozos(rawPozos));
 
-  // 14. Indexes
+  // 14. KSA (Saudi Aramco) Text Data
+  console.log('Ingesting KSA (Aramco) text data…');
+  const ksaBaseDir = path.resolve(__dirname, 'api/docs/aramco/text');
+  const ksaYears = ['2020','2021','2022','2024','2025'];
+  let ksaRecords = [];
+
+  for (const year of ksaYears) {
+    const yearDir = path.join(ksaBaseDir, year);
+    if (!fs.existsSync(yearDir)) continue;
+    const files = fs.readdirSync(yearDir);
+    for (const file of files) {
+      if (!file.endsWith('.txt')) continue;
+      const content = fs.readFileSync(path.join(yearDir, file), 'utf8');
+      ksaRecords.push({
+        region: 'KSA',
+        wlbEntryYear: parseInt(year),
+        wlbWellboreName: file.replace('.txt', ''),
+        wlbDrillingOperator: 'Saudi Aramco',
+        raw_content: content.slice(0, 10000), // Limit size per doc
+        category: 'Corporate Filing',
+        severity: 'Financial/ESG'
+      });
+    }
+  }
+  if (ksaRecords.length > 0) {
+    // We append to hal_incidents or use a specific collection? 
+    // server.js queries hal_incidents for KSA.
+    const col = db.collection('hal_incidents');
+    // Clean old KSA records to avoid duplicates on re-run
+    await col.deleteMany({ region: 'KSA' });
+    await col.insertMany(ksaRecords);
+    console.log(`  ✓  KSA Data: ${ksaRecords.length} docs added to hal_incidents`);
+  }
+
+  // 15. Indexes
   console.log('\nBuilding indexes…');
   await db.collection('hal_incidents').createIndex({ year: 1 });
   await db.collection('hal_incidents').createIndex({ category: 1 });
@@ -358,6 +392,8 @@ async function main() {
   await db.collection('mex_campos').createIndex({ campo: 1 });
   await db.collection('mex_campos').createIndex({ fecha: 1 });
   await db.collection('mex_pozos').createIndex({ cuenca: 1 });
+  await db.collection('hal_incidents').createIndex({ region: 1 });
+  await db.collection('hal_incidents').createIndex({ wlbEntryYear: 1 });
   console.log('  ✓  indexes ready');
 
   await client.close();
