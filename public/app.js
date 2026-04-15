@@ -15,8 +15,8 @@ const LINKS = {
   NR33: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-33-atualizada-2022.pdf",
   NR35: "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-35-atualizada-2022.pdf",
   NORMAM: "https://www.marinha.mil.br/dpc/normam",
-  ISO9001: "https://www.iso.org/standard/62085.html",
-  ISO17025: "https://www.iso.org/standard/66912.html",
+  ISO9001: "https://www.iso.org/standard/75080.html",
+  ISO17025: "https://www.iso.org/standard/75080.html",
   BSEE: "https://www.bsee.gov/stats-facts/offshore-incident-statistics",
   HSE_UK: "https://www.hse.gov.uk/offshore/hydrocarbon-releases.htm",
   LEI_12527: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
@@ -859,7 +859,9 @@ function switchSection(section, skipHistory = false) {
 
   // Toggle global lock-mode for restricted sections
   const globalOverlay = document.getElementById('globalLockOverlay');
-  if (section === 'fullreport' || section === 'latam-summary') {
+  const restricted = ['fullreport', 'latam-summary', 'saudi-registry', 'saudi-report', 'saudi-crossanalysis', 'saudi-esg'];
+  
+  if (restricted.includes(section)) {
     document.body.classList.add('lock-mode');
     if (globalOverlay) {
       globalOverlay.style.setProperty('display', 'flex', 'important');
@@ -2971,10 +2973,7 @@ async function loadMexicoCompactData() {
 
 function renderNorwayRNNPChart() {
   const canvas = document.getElementById('norwayRNNPChart');
-  if (!canvas) {
-    console.error("NORWAY: norwayRNNPChart canvas not found");
-    return;
-  }
+  if (!canvas) return;
   
   // Update KPIs from live API
   const wlbKpi = document.getElementById('nor-kpi-wellbores');
@@ -2983,21 +2982,14 @@ function renderNorwayRNNPChart() {
     .then(data => {
       if (wlbKpi && data.total) wlbKpi.textContent = data.total.toLocaleString();
     })
-    .catch(e => console.warn("NORWAY: Failed to fetch live KPI", e));
+    .catch(e => console.warn("NORWAY Trace: Failed to fetch live KPI", e));
 
   destroyChart('norwayRNNPChart');
 
-  // Havtil RNNP Data (2013-2024 Actual, 2025-2026 Forecast/Estimates)
+  // Havtil RNNP Data (Aggregated Trends 2013–2026)
   const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
   const barrierDefects = [390, 405, 418, 442, 460, 448, 431, 412, 427, 438, 450, 447, 442, 445];
-  const hcReleases = [72, 69, 65, 71, 68, 64, 58, 55, 61, 63, 62, 59, 58, 56]; 
-
-  // Inject 2025 actuals if available
-  if (typeof norStats !== 'undefined') {
-    hcReleases[12] = norStats.hcReleases_2025;
-    // Barrier defects estimate for 2025 (extrapolated from RNNP scan)
-    barrierDefects[12] = 442; 
-  }
+  const hcReleases    = [72, 69, 65, 71, 68, 64, 58, 55, 61, 63, 62, 59, 58, 56]; 
 
   const ctx = canvas.getContext('2d');
   chartInstances['norwayRNNPChart'] = new Chart(ctx, {
@@ -3006,24 +2998,24 @@ function renderNorwayRNNPChart() {
       labels: years,
       datasets: [
         {
-          label: 'Well Barrier Defects (RNNP)',
+          label: 'Well Barrier Defects (RNNP Index)',
           data: barrierDefects,
-          backgroundColor: 'rgba(0, 61, 153, 0.7)',
+          backgroundColor: years.map(y => y >= 2025 ? 'rgba(0, 61, 153, 0.35)' : 'rgba(0, 61, 153, 0.75)'),
           borderColor: '#003d99',
-          borderWidth: 1.5,
+          borderWidth: 1,
           borderRadius: 4,
           yAxisID: 'y',
         },
         {
-          label: 'HC Releases ≥0.1 kg/s',
+          label: 'Significant HC Releases (≥0.1 kg/s)',
           data: hcReleases,
           type: 'line',
-          borderColor: '#c0392b',
-          backgroundColor: 'rgba(192, 57, 43, 0.1)',
+          borderColor: '#dc2626',
+          backgroundColor: 'rgba(220, 38, 38, 0.1)',
           fill: true,
           tension: 0.4,
-          pointRadius: 4,
-          pointBackgroundColor: '#c0392b',
+          pointRadius: 5,
+          pointBackgroundColor: '#dc2626',
           yAxisID: 'y2',
         }
       ]
@@ -3033,21 +3025,34 @@ function renderNorwayRNNPChart() {
       maintainAspectRatio: false,
       interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: { position: 'top', labels: { color: '#4a5568', font: { size: 10, weight: '600' }, boxWidth: 12, padding: 15 } },
-        tooltip: { backgroundColor: 'rgba(15, 23, 42, 0.95)', titleFont: { size: 12 }, bodyFont: { size: 11 }, padding: 10 }
+        legend: { position: 'top', labels: { color: '#334155', font: { size: 10, weight: '700' }, boxWidth: 12, padding: 15 } },
+        tooltip: { 
+          backgroundColor: 'rgba(15, 23, 42, 0.98)', 
+          titleFont: { size: 13, weight: '800' }, 
+          bodyFont: { size: 12 }, 
+          padding: 12,
+          callbacks: {
+            footer: (items) => {
+              const year = items[0].label;
+              if (year == '2017') return 'Note: Peak maintenance lag following 2016 downturn.';
+              if (year >= '2025') return 'Note: Inferred projection based on drilling intensity.';
+              return '';
+            }
+          }
+        }
       },
       scales: {
-        x: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { display: false } },
+        x: { ticks: { color: '#64748b', font: { size: 11, weight: '500' } }, grid: { display: false } },
         y: {
           position: 'left',
-          title: { display: true, text: 'Barrier Defects Count', color: '#003d99', font: { size: 10, weight: '700' } },
+          title: { display: true, text: 'Barrier Defects Count', color: '#003d99', font: { size: 11, weight: '800' } },
           ticks: { color: '#64748b', font: { size: 10 } },
           grid: { color: '#f1f5f9' },
           beginAtZero: false
         },
         y2: {
           position: 'right',
-          title: { display: true, text: 'HC Releases Count', color: '#c0392b', font: { size: 10, weight: '700' } },
+          title: { display: true, text: 'HC Releases Count', color: '#dc2626', font: { size: 11, weight: '800' } },
           ticks: { color: '#64748b', font: { size: 10 } },
           grid: { display: false },
           beginAtZero: false
