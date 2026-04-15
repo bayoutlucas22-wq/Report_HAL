@@ -12,19 +12,27 @@ Thumbs.db
 
 # Build / deploy
 .vercel/
+.vercel
 
-# Large raw data files
-# data/incidentes.csv removed for deployment
-# src/data/incidentes.csv removed for deployment
-# data/og_contracts_summary.csv removed for deployment
-
-# Generated output files
-output/
-
-# Generated binary exports (re-generated on demand via /api/generate-report)
-*.docx
+# Large binary files (Ignore only big PDFs and large datasets >100MB)
+docs/**/*.pdf
+api/docs/**/*.pdf
+*.pdf
+api/data/*.zip
 *.zip
 
-# Keep the versioned report artifact
-!docs/reports/HAL_Tejas_Incident_Report.docx
-.vercel
+# Ignore specific large files that block GitHub
+api/data/PRODUCCION_POZOS*.csv
+api/data/PRODUCCION_POZOS*.zip
+
+# Generated output files (Ignore entire output directories)
+output/
+api/output/
+*.xlsx
+
+# Generated output files (Keep data files, ignore generated documents if needed)
+# !api/data/processed/*.json
+# !api/data/*.csv
+
+# Allow report artifacts if specific
+!docs/reports/*.docx
