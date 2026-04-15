@@ -1,628 +1,236 @@
 const express = require("express");
 const path = require("path");
-const https = require("https");
 const fs = require("fs");
 const { Document, Packer } = require("docx");
 const { buildReportSections } = require("../src/document_generation/report_builder");
-const { getMetrics, getRegData, getIncidents, getTrendData } = require("../src/reporting/incident_analyzer");
-const { anpData, bureauVeritasData, mteDpcData, internationalRefs } = require("../src/data/anp_data");
+const dataManager = require("./data_manager");
 
-const { getDatabase } = require("./data_store");
-const { getDb }       = require("./mongo");
-const { getCache, setCache } = require("./redis");
-
-let ANP_RECORDS = [];
-let ANP_STATS   = null;
-let DATA_LOADING_PROMISE = null;
-
-async function ensureDataLoaded() {
-  if (ANP_STATS && ANP_RECORDS.length > 0) return;
-  if (DATA_LOADING_PROMISE) return DATA_LOADING_PROMISE;
-
-  DATA_LOADING_PROMISE = (async () => {
-    try {
-      // 1. Try Redis first — instant if warm
-      const [cachedStats, cachedRecords] = await Promise.all([
-        getCache('anp:stats'),
-        getCache('anp:records'),
-      ]);
-      if (cachedStats && cachedRecords) {
-        ANP_STATS   = cachedStats;
-        ANP_RECORDS = cachedRecords;
-        console.log(`ENGINE: Loaded from Redis cache (${ANP_RECORDS.length} records).`);
-        return;
-      }
-
-      // 2. Fall back to MongoDB
-      console.log("ENGINE: Redis miss — loading ANP metrics from MongoDB…");
-      const db = await getDb();
-      ANP_RECORDS = await db.collection('anp_records').find({}, { projection: { _id: 0 } }).toArray();
-      const statsDoc = await db.collection('anp_stats').findOne({}, { projection: { _id: 0 } });
-      ANP_STATS = statsDoc || null;
-      console.log(`ENGINE: MongoDB load complete (${ANP_RECORDS.length} records).`);
-
-      // 3. Warm Redis for next cold start — 6 hour TTL
-      await Promise.all([
-        setCache('anp:stats',   ANP_STATS,   6 * 3600),
-        setCache('anp:records', ANP_RECORDS, 6 * 3600),
-      ]);
-    } catch (err) {
-      console.error("Failed to load ANP metrics:", err);
-    }
-  })();
-
-  return DATA_LOADING_PROMISE;
-}
+/**
+ * HAL Tejas / CORTEX Dashboard Server
+ * Refactored for maximum resilience: "Don't believe in API"
+ * Fallback mechanism: MongoDB -> Local JSON -> Local CSV
+ */
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3333; // Standardized to 3333 for the VPS/local consistency
 
-// Explicit page routes come FIRST — before static middleware
-app.get("/", (req, res) => {
-  res.set("Cache-Control", "no-store");
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-});
-app.get("/dashboard", (req, res) => {
-  res.set("Cache-Control", "no-store");
-  res.sendFile(path.join(__dirname, "..", "public", "dashboard.html"));
-});
-
-// Static assets (CSS, JS, images) — index:false prevents auto-serving index.html
+// 1. Static Setup
 app.use(express.static(path.join(__dirname, "..", "public"), { index: false }));
 
-const SOURCE_LABELS = {
-  sisoIncidentes: "SISO-Incidentes Dataset",
-  resolucao46: "ANP Resolution No. 46/2016 (SGIP)",
-  resolucao43: "ANP Resolution No. 43/2007 (SGSO)",
-  resolucao41: "ANP Resolution No. 41/2015",
-  nr445: "NR 445 — Classification of Offshore Units",
-  nr459: "NR 459 — Process Systems on Offshore Units",
-  nr493: "NR 493 — Mooring Systems",
-  ivbsBra: "IVBS-BRA Notation",
-  nr37: "NR-37 (MTE)",
-  nr33_35: "NR-33 / NR-35 (MTE)",
-  normam01: "NORMAM-01/DPC",
-  bsee: "BSEE Offshore Incident Statistics (US)",
-  hseUk: "HSE UK Hydrocarbon Release Database",
-};
-
-function formatSources(obj) {
-  return Object.entries(obj).map(([key, val]) => ({
-    name: SOURCE_LABELS[key] || key,
-    description: val.description,
-    url: val.url,
-  }));
-}
-
-app.get("/api/health", (req, res) => res.json({ status: "ok" }));
-
-// API: Get report data for frontend — all driven by live ANP CSV data
-app.get("/api/data", (req, res) => {
-  if (!ANP_STATS) return res.status(503).json({ error: 'ANP data not loaded' });
-  const sampleRecords = ANP_RECORDS.filter(r => r.category !== "Other").slice(0, 10);
-  res.json({
-    metrics: getMetrics(ANP_STATS),
-    regulations: getRegData(),
-    incidents: getIncidents(sampleRecords),
-    trends: getTrendData(ANP_STATS.halYearSeries, ANP_STATS.yearSeries),
-    sources: {
-      anp: formatSources(anpData),
-      bureauVeritas: formatSources(bureauVeritasData),
-      mteDpc: formatSources(mteDpcData),
-      international: formatSources(internationalRefs),
-    },
-  });
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
-// ── MongoDB-backed routes ────────────────────────────────────────────────────
-
-app.get("/api/hal-incidents", async (req, res) => {
-  try {
-    const year     = req.query.year     || "";
-    const category = req.query.category || "";
-    const severity = req.query.severity || "";
-    const q        = (req.query.q || "").toLowerCase().trim();
-    const page     = Math.max(1, parseInt(req.query.page)  || 1);
-    const limit    = Math.min(500, parseInt(req.query.limit) || 50);
-
-    const db    = await getDb();
-    const filter = {};
-    if (year)     filter.year     = parseInt(year);
-    if (category) filter.category = category;
-    if (severity) filter.severity = severity;
-    if (q)        filter.$or = [
-      { numero:    { $regex: q, $options: 'i' } },
-      { empresa:   { $regex: q, $options: 'i' } },
-      { instalacao:{ $regex: q, $options: 'i' } },
-      { descricao: { $regex: q, $options: 'i' } },
-    ];
-
-    const total = await db.collection('anp_records').countDocuments(filter);
-    const items = await db.collection('anp_records')
-      .find(filter, { projection: { _id: 0 } })
-      .sort({ numero: -1 })
-      .skip((page - 1) * limit)
-      .limit(limit)
-      .toArray();
-
-    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
+app.get("/dashboard", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "public", "dashboard.html"));
 });
 
-app.get("/api/hal-stats", async (req, res) => {
-  try {
-    const db      = await getDb();
-    const records = await db.collection('hal_incidents').find({}, { projection: { _id: 0 } }).toArray();
-    const catCount = {}, sevCount = {}, years = new Set();
-    records.forEach(r => {
-      catCount[r.category] = (catCount[r.category] || 0) + 1;
-      sevCount[r.severity] = (sevCount[r.severity] || 0) + 1;
-      if (r.year) years.add(r.year);
-    });
-    res.json({
-      total: records.length,
-      categoryBreakdown: catCount,
-      severityBreakdown: sevCount,
-      uniqueYears: Array.from(years).sort(),
-    });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
-});
+// 2. Health check
+app.get("/api/health", (req, res) => res.json({ status: "ok", mode: dataManager.isStaticMode ? "static" : "live" }));
 
-// Norway incidents — Redis-first, paginated, filterable
-app.get("/api/norway-incidents", async (req, res) => {
-  try {
-    const year     = req.query.year     || "";
-    const category = req.query.category || "";
-    const severity = req.query.severity || "";
-    const field    = req.query.field    || "";
-    const q        = (req.query.q || "").toLowerCase().trim();
-    const page     = Math.max(1, parseInt(req.query.page)  || 1);
-    const limit    = Math.min(500, parseInt(req.query.limit) || 50);
-
-    // 1. Redis first
-    let allIncidents = await getCache('nor:incidents:all');
-
-    // 2. Redis miss — load from MongoDB and warm cache
-    if (!allIncidents) {
-      const db = await getDb();
-      allIncidents = await db.collection('nor_incidents')
-        .find({}, { projection: { _id: 0 } }).toArray();
-      setCache('nor:incidents:all', allIncidents, 6 * 3600).catch(() => {});
-      console.log(`NOR: Loaded ${allIncidents.length} incidents from MongoDB → Redis warmed`);
+// 3. Consolidated Statistics
+app.get("/api/stats", async (req, res) => {
+    try {
+        const stats = await dataManager.getStats('anp');
+        res.json(stats);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
     }
-
-    // 3. Apply filters in-memory
-    let data = allIncidents;
-    if (year)     data = data.filter(r => r.year     === parseInt(year));
-    if (category) data = data.filter(r => r.category === category);
-    if (severity) data = data.filter(r => r.severity === severity);
-    if (field)    data = data.filter(r => (r.field || "").toLowerCase().includes(field.toLowerCase()));
-    if (q)        data = data.filter(r =>
-      (r.numero || "").toLowerCase().includes(q) ||
-      (r.tipo   || "").toLowerCase().includes(q) ||
-      (r.evento || "").toLowerCase().includes(q) ||
-      (r.field  || "").toLowerCase().includes(q)
-    );
-
-    // Sort by numero desc
-    data = data.slice().sort((a, b) => (b.numero || "").localeCompare(a.numero || ""));
-
-    const total = data.length;
-    const items = data.slice((page - 1) * limit, page * limit);
-    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
 });
 
-// Norway contracts
-app.get("/api/norway-contracts", async (req, res) => {
-  try {
-    const db    = await getDb();
-    const items = await db.collection('nor_contracts').find({}, { projection: { _id: 0 } }).toArray();
-    res.json({ total: items.length, items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
+// 4. Incident Registry with Advanced Filtering
+app.get("/api/hal-incidents", async (req, res) => {
+    try {
+        const { year, category, severity, q, page = 1, limit = 50 } = req.query;
+        const filter = { year: { $nin: [2026, '2026'] } };
+        
+        if (year) {
+            filter.year = parseInt(year);
+        }
+        if (category) filter.category = category;
+        if (severity) filter.severity = severity;
+        if (q) {
+            filter.$or = [
+                { numero: { $regex: q, $options: 'i' } },
+                { empresa: { $regex: q, $options: 'i' } },
+                { instalacao: { $regex: q, $options: 'i' } },
+                { descricao: { $regex: q, $options: 'i' } }
+            ];
+        }
+
+        const skip = (parseInt(page) - 1) * parseInt(limit);
+        const [total, items] = await Promise.all([
+            dataManager.getCollection('anp_records', filter, { countOnly: true }),
+            dataManager.getCollection('anp_records', filter, { skip, limit: parseInt(limit), sort: { year: -1, numero: -1 } })
+        ]);
+
+        res.json({ total, page: parseInt(page), limit: parseInt(limit), pages: Math.ceil(total / limit), items });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
 });
 
-// HAL contracts (Brazil / Petrobras)
+// 5. Contracts & Proof of Service Evidence
 app.get("/api/hal-contracts", async (req, res) => {
-  try {
-    const db    = await getDb();
-    const items = await db.collection('hal_contracts').find({}, { projection: { _id: 0 } }).toArray();
+    const items = await dataManager.getCollection('hal_contracts');
     res.json({ total: items.length, items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
 });
 
-// Regional contracts
 app.get("/api/mexico-contracts", async (req, res) => {
-  try {
-    const db    = await getDb();
-    const items = await db.collection('mex_contracts').find({}, { projection: { _id: 0 } }).toArray();
+    const items = await dataManager.getCollection('mex_contracts');
     res.json({ items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
-app.get("/api/mexico-perforacion", async (req, res) => {
-  try {
-    const db   = await getDb();
-    const page  = Math.max(1, parseInt(req.query.page) || 1);
-    const limit = Math.min(200, parseInt(req.query.limit) || 50);
-    const q     = (req.query.q || '').toLowerCase().trim();
-    const basin = (req.query.basin || '').toUpperCase().trim();
-
-    const filter = {};
-    if (basin) filter.cuenca = { $regex: basin, $options: 'i' };
-    if (q)     filter.$or = [
-      { id_pozo:   { $regex: q, $options: 'i' } },
-      { operador:  { $regex: q, $options: 'i' } },
-      { formacion: { $regex: q, $options: 'i' } },
-    ];
-
-    const total = await db.collection('mex_perforacion').countDocuments(filter);
-    const items = await db.collection('mex_perforacion')
-      .find(filter, { projection: { _id: 0 } })
-      .skip((page - 1) * limit)
-      .limit(limit)
-      .toArray();
-
-    res.json({ total, page, limit, pages: Math.ceil(total / limit), items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
 });
 
 app.get("/api/argentina-contracts", async (req, res) => {
-  try {
-    const db    = await getDb();
-    const items = await db.collection('arg_contracts').find({}, { projection: { _id: 0 } }).toArray();
+    const items = await dataManager.getCollection('arg_contracts');
     res.json({ items });
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
 });
 
-// API: Mexico Operational Metrics
-app.get("/api/mexico-metrics", async (req, res) => {
-  try {
-    const HAL_DB = await getDatabase();
-    res.json(HAL_DB.mexico);
-  } catch(e) {
-    res.status(500).json({ error: e.message });
-  }
+// 6. Norway / Sodir Strategy Module
+app.get("/api/norway-stats", async (req, res) => {
+    const filePath = path.join(__dirname, 'data/processed/norway_stats.json');
+    if (fs.existsSync(filePath)) {
+        res.json(JSON.parse(fs.readFileSync(filePath, 'utf8')));
+    } else {
+        res.status(404).json({ error: "Norway stats not precomputed" });
+    }
 });
-
-// API: Real ANP incidents — paginated
-// API: Real ANP incidents — paginated
-app.get("/api/incidents", async (req, res) => {
-  await ensureDataLoaded();
-  const page     = Math.max(1, parseInt(req.query.page) || 1);
-  const limit    = Math.min(100, parseInt(req.query.limit) || 20);
-  const q        = (req.query.q || '').toLowerCase().trim();
-  const year     = req.query.year || '';
-  const category = req.query.category || '';
-  const severity = req.query.severity || '';
-
-  let data = ANP_RECORDS;
-  if (q)    data = data.filter(r => 
-    r.numero.toLowerCase().includes(q) || 
-    r.empresa.toLowerCase().includes(q) || 
-    r.descricao.toLowerCase().includes(q) ||
-    r.instalacao?.toLowerCase().includes(q)
-  );
-  if (year)     data = data.filter(r => String(r.year) === String(year));
-  if (category) data = data.filter(r => r.category === category);
-  if (severity) data = data.filter(r => r.severity === severity);
-
-  const total = data.length;
-  const start = (page - 1) * limit;
-  const items = data.slice(start, start + limit);
-
-  res.json({ total, page, limit, pages: Math.ceil(total/limit), items });
-});
-
-// API: Pre-aggregated stats from real ANP data
-app.get("/api/stats", async (req, res) => {
-  await ensureDataLoaded();
-  if (!ANP_STATS) return res.status(503).json({ error: 'Data not loaded' });
-  res.json(ANP_STATS);
-});
-
-// API: Generate and download DOCX report
-app.get("/api/generate-report", async (req, res) => {
-  try {
-    const doc = new Document({
-      numbering: {
-        config: [
-          {
-            reference: "bullets",
-            levels: [{
-              level: 0, format: "bullet", text: "\u2022", alignment: "left",
-              style: { paragraph: { indent: { left: 720, hanging: 360 } } }
-            }]
-          }
-        ]
-      },
-      styles: {
-        default: { document: { run: { font: "Arial", size: 22 } } },
-        paragraphStyles: [
-          {
-            id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
-            run: { size: 32, bold: true, font: "Arial", color: "1F4E79" },
-            paragraph: { spacing: { before: 360, after: 160 }, outlineLevel: 0 }
-          },
-          {
-            id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true,
-            run: { size: 26, bold: true, font: "Arial", color: "2E74B5" },
-            paragraph: { spacing: { before: 280, after: 120 }, outlineLevel: 1 }
-          }
-        ]
-      },
-      sections: [buildReportSections(ANP_STATS, ANP_RECORDS.filter(r => r.category !== "Other").slice(0, 15))],
-    });
-
-    const buffer = await Packer.toBuffer(doc);
-    res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-    res.setHeader("Content-Disposition", "attachment; filename=HAL_Tejas_Incident_Report.docx");
-    res.send(buffer);
-  } catch (err) {
-    console.error("Report generation error:", err);
-    res.status(500).json({ error: "Failed to generate report" });
-  }
-});
-
-// ── Sodir Live Data (NCS Open Data) ────────────────────────────────────────
-const SODIR_CACHE = { data: null, ts: 0 };
-const SODIR_TTL_MS = 60 * 60 * 1000; // 1 hour
-// Real Sodir FactPages — wellbore_exploration_all, NLOD licence
-// Local copy: api/data/wellbore_exploration_all.csv (2,188 rows)
-// Live fallback: factpages.sodir.no FactPages CSV export
-const SODIR_LOCAL  = path.join(__dirname, "data", "wellbore_exploration_all.csv");
-const SODIR_CSV_URL = "https://factpages.sodir.no/public?/Factpages/external/tableview/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&IpAddress=not_used&CultureCode=en&rs:Format=CSV&Top100=false";
-
-function parseSodirCsv(raw) {
-  const lines = raw.split("\n").filter(Boolean);
-  if (lines.length < 2) return [];
-  const headerLine = lines[0].replace(/^\uFEFF/, "");
-  const headers = headerLine.split(",").map(h => h.trim().replace(/^"|"$/g, ""));
-  return lines.slice(1).map(line => {
-    const cols = line.split(",").map(c => c.trim().replace(/^"|"$/g, ""));
-    const r = {};
-    headers.forEach((h, i) => { r[h] = cols[i] || ""; });
-    return {
-      wlbName:      r.wlbWellboreName || "",
-      wlbField:     r.wlbField        || "",
-      wlbOperator:  r.wlbDrillingOperator || "",
-      wlbWellType:  r.wlbWellType     || "",
-      wlbStatus:    r.wlbStatus       || "",
-      wlbYear:      r.wlbEntryYear    || "",
-      wlbTotalDepth:r.wlbTotalDepth   || "",
-    };
-  }).filter(r => r.wlbName);
-}
-
-function fetchSodirCsv() {
-  // Try local file first — fast, no network dependency
-  if (fs.existsSync(SODIR_LOCAL)) {
-    console.log("SODIR: Loading from local file api/data/wellbore_exploration_all.csv");
-    const raw = fs.readFileSync(SODIR_LOCAL, "utf8");
-    return Promise.resolve(parseSodirCsv(raw));
-  }
-  // Fallback: live fetch from Sodir FactPages
-  console.log("SODIR: Local file not found, fetching from factpages.sodir.no…");
-  return new Promise((resolve, reject) => {
-    const url = new URL(SODIR_CSV_URL);
-    const options = { hostname: url.hostname, path: url.pathname + url.search, timeout: 20000,
-      headers: { "User-Agent": "HALTejasIncidentDashboard/1.0" } };
-    https.get(options, (response) => {
-      if (response.statusCode !== 200) {
-        reject(new Error(`Sodir returned HTTP ${response.statusCode}`));
-        response.resume();
-        return;
-      }
-      let raw = "";
-      response.on("data", chunk => (raw += chunk));
-      response.on("end", () => resolve(parseSodirCsv(raw)));
-    }).on("error", reject);
-  });
-}
 
 app.get("/api/sodir/wellbores", async (req, res) => {
-  try {
-    const q      = (req.query.q || "").toLowerCase().trim();
-    const type   = req.query.type   || "";
-    const status = req.query.status || "";
-    const page   = Math.max(1, parseInt(req.query.page)  || 1);
-    const limit  = Math.min(200, parseInt(req.query.limit) || 50);
+    const { q, type, status, page = 1, limit = 50 } = req.query;
+    const filter = {};
+    if (q) filter.wlbName = { $regex: q, $options: 'i' };
+    if (type) filter.wlbWellType = type;
+    if (status) filter.wlbStatus = status;
 
-    // 1. Redis first — full dataset cached, filter in-memory
-    let allWellbores = await getCache('sodir:wellbores');
-    let dataSource = "Sodir FactPages (NLOD) — Redis";
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const [total, items] = await Promise.all([
+        dataManager.getCollection('sodir_wellbores', filter, { countOnly: true }),
+        dataManager.getCollection('sodir_wellbores', filter, { skip, limit: parseInt(limit), sort: { wlbYear: -1 } })
+    ]);
 
-    // 2. Redis miss — try MongoDB
-    if (!allWellbores) {
-      try {
-        const db = await getDb();
-        allWellbores = await db.collection('sodir_wellbores')
-          .find({}, { projection: { _id: 0 } }).toArray();
-        if (allWellbores && allWellbores.length > 0) {
-          dataSource = "Sodir FactMaps (Layer 201) — MongoDB";
-          // Warm Redis — 24hr TTL (wellbore registry is static)
-          setCache('sodir:wellbores', allWellbores, 24 * 3600).catch(() => {});
-          console.log(`SODIR: Loaded ${allWellbores.length} wellbores from MongoDB → Redis warmed`);
+    res.json({ total, page: parseInt(page), limit: parseInt(limit), pages: Math.ceil(total / limit), items, source: "Sodir FactPages" });
+});
+
+// 7. Report Generation (DOCX)
+app.get("/api/generate-report", async (req, res) => {
+    try {
+        const stats = await dataManager.getStats('anp');
+        const records = await dataManager.getCollection('anp_records', { category: { $ne: 'Other' } }, { limit: 15 });
+        
+        const doc = new Document({
+            sections: [buildReportSections(stats, records)],
+        });
+
+        const buffer = await Packer.toBuffer(doc);
+        res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+        res.setHeader("Content-Disposition", "attachment; filename=HAL_Tejas_Intelligence_Report.docx");
+        res.send(buffer);
+    } catch (err) {
+        res.status(500).json({ error: "Failed to generate report" });
+    }
+});
+
+// 8. Mexico Operational Drill Down
+app.get("/api/mexico-perforacion", async (req, res) => {
+    const { basin, q, page = 1, limit = 50 } = req.query;
+    const filter = {};
+    if (basin) filter.cuenca = basin;
+    if (q) filter.id_pozo = { $regex: q, $options: 'i' };
+
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const [total, items] = await Promise.all([
+        dataManager.getCollection('mex_perforacion', filter, { countOnly: true }),
+        dataManager.getCollection('mex_perforacion', filter, { skip, limit: parseInt(limit) })
+    ]);
+
+    res.json({ total, page: parseInt(page), limit: parseInt(limit), pages: Math.ceil(total / limit), items });
+});
+
+app.get("/api/mexico-metrics", async (req, res) => {
+    try {
+        const halDb = await dataManager.getCollection('hal_db');
+        if (halDb && halDb[0] && halDb[0].mexico) {
+            res.json(halDb[0].mexico);
+        } else {
+            res.json({ details: [], summary: {} });
         }
-      } catch (_) {
-        allWellbores = null;
-      }
+    } catch (e) {
+        res.status(500).json({ error: e.message });
     }
-
-    // 3. MongoDB unavailable — fall back to local CSV / live fetch
-    if (!allWellbores || allWellbores.length === 0) {
-      const now = Date.now();
-      if (!SODIR_CACHE.data || now - SODIR_CACHE.ts > SODIR_TTL_MS) {
-        SODIR_CACHE.data = await fetchSodirCsv();
-        SODIR_CACHE.ts = now;
-        console.log(`SODIR: Loaded ${SODIR_CACHE.data.length} wellbore records (CSV fallback).`);
-      }
-      allWellbores = SODIR_CACHE.data;
-      dataSource = "Sodir FactPages (NLOD / ArcGIS Layer 201)";
-    }
-
-    // Apply filters in-memory
-    let data = allWellbores;
-    if (q)      data = data.filter(r => (r.wlbName || "").toLowerCase().includes(q) || (r.wlbField || "").toLowerCase().includes(q) || (r.wlbOperator || "").toLowerCase().includes(q));
-    if (type)   data = data.filter(r => (r.wlbWellType || "").toUpperCase() === type.toUpperCase());
-    if (status) data = data.filter(r => (r.wlbStatus || "").toUpperCase() === status.toUpperCase());
-
-    data = data.slice().sort((a, b) => (parseInt(b.wlbYear) || 0) - (parseInt(a.wlbYear) || 0));
-    const total = data.length;
-    const items = data.slice((page - 1) * limit, page * limit);
-    res.json({ total, page, limit, pages: Math.ceil(total / limit), items,
-      cachedAt: new Date().toISOString(), source: dataSource });
-  } catch (e) {
-    console.error("Sodir fetch error:", e.message);
-    res.status(502).json({ error: "Could not load Sodir wellbore data: " + e.message });
-  }
 });
 
-// Norway Stats — real data from wellbore_exploration_all.csv
-app.get("/api/norway-stats", async (req, res) => {
-  try {
-    const statsPath = path.resolve(__dirname, 'data/processed/norway_stats.json');
-    if (fs.existsSync(statsPath)) {
-      const stats = JSON.parse(fs.readFileSync(statsPath, 'utf8'));
-      res.json(stats);
-    } else {
-      res.status(404).json({ error: "Norway stats not precomputed. Run treat_data.js first." });
-    }
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
+// 9. Norway Extended
+app.get("/api/norway-incidents", async (req, res) => {
+    const { page = 1, limit = 50 } = req.query;
+    const skip = (parseInt(page)-1) * parseInt(limit);
+    const [total, items] = await Promise.all([
+        dataManager.getCollection('nor_incidents', {}, { countOnly: true }),
+        dataManager.getCollection('nor_incidents', {}, { skip, limit: parseInt(limit) })
+    ]);
+    res.json({ total, page: parseInt(page), limit: parseInt(limit), items });
 });
 
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`Incident Report App running at http://localhost:${PORT}`);
-  });
-}
-module.exports = app;
-// --- Unified KSA MongoDB Routes ---
-app.get('/api/ksa/years', async (req, res) => {
-  try {
-    const db = await getDb();
-    const years = await db.collection('hal_incidents').distinct('wlbEntryYear', { region: 'KSA' });
-    res.json(years.sort((a,b) => b - a));
-  } catch(e) { res.status(500).json({ error: e.message }); }
+app.get("/api/norway-contracts", async (req, res) => {
+    const items = await dataManager.getCollection('nor_contracts');
+    res.json({ items });
 });
 
-    app.get('/api/ksa/report/:year', async (req, res) => {
-  try {
-    const db = await getDb();
+// 10. KSA / Aramco Intelligence
+app.get("/api/ksa/config", async (req, res) => {
+    const filings = await dataManager.getCollection('ksa_filings');
+    const years = [...new Set(filings.map(f => f.year))].sort((a,b) => b-a);
+    res.json({ availableYears: years });
+});
+
+app.get("/api/ksa/reports/:year", async (req, res) => {
     const year = parseInt(req.params.year);
-    const docs = await db.collection('hal_incidents').find({ 
-        region: 'KSA', 
-        wlbEntryYear: year 
-    }).toArray();
+    const filings = await dataManager.getCollection('ksa_filings', { year });
+    const risks = await dataManager.getCollection('ksa_risks', { year });
+    res.json({ year, filings, risks, metrics: { total_filings: filings.length } });
+});
 
-    // Helper to find relevant excerpts
-    function extractMentions(doc, keywords) {
-        const text = doc.raw_content || "";
-        const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
-        const matches = sentences.filter(s => keywords.some(k => s.toLowerCase().includes(k)));
-        return matches.map(m => m.trim().replace(/\n/g, ' '));
+app.get("/api/aramco/:year/source/:file", (req, res) => {
+    const { year, file } = req.params;
+    const safeFile = path.basename(file);
+    const filePath = path.join(__dirname, 'docs', 'aramco', 'text', year, safeFile);
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        res.status(404).send("Filing not found on disk");
     }
+});
 
-    let allLitigations = [];
-    let allIncidents = [];
+// 11. Vault
+app.post("/api/report/vault", express.json(), async (req, res) => {
+    const db = await require('./mongo').getDb();
+    await db.collection("report_vault").updateOne({ reportId: req.body.reportId }, { $set: { ...req.body, updatedAt: new Date() } }, { upsert: true });
+    res.json({ status: "saved" });
+});
+
+app.get("/api/report/vault/:id", async (req, res) => {
+    const db = await require('./mongo').getDb();
+    const doc = await db.collection("report_vault").findOne({ reportId: req.params.id }, { projection: { _id: 0 } });
+    res.json(doc || { error: "Not found" });
+});
+
+// Start the engine
+app.listen(PORT, async () => {
+    console.log(`\x1b[32m\n🚀 CORTEX HUB RUNNING AT http://localhost:${PORT}\x1b[0m`);
     
-    docs.forEach(d => {
-        const litExcerpts = extractMentions(d, ['litig', 'court', 'lawsuit', 'legal', 'arbitration', 'penalty']);
-        const incExcerpts = extractMentions(d, ['spill', 'incident', 'accident', 'fatal', 'breach', 'failure']);
+    // Check if we can connect to Mongo, if not, warn and set static mode
+    try {
+        const { getDb } = require('./mongo');
+        const db = await getDb();
+        console.log("\x1b[36m💎 Engine: Database connectivity established.\x1b[0m");
         
-        litExcerpts.forEach(ex => allLitigations.push({
-            case: "Corporate Filing Disclosure excerpt: " + d.wlbWellboreName,
-            risk_level: "high",
-            description: ex.slice(0, 300) + (ex.length > 300 ? "..." : "")
-        }));
-        
-        incExcerpts.forEach(ex => allIncidents.push({
-            type: "Operational / HSE Event",
-            severity: "medium",
-            description: ex.slice(0, 300) + (ex.length > 300 ? "..." : "")
-        }));
-    });
-
-    // Make sure we have a fallback if the document is too clean
-    if (allLitigations.length === 0) {
-        allLitigations.push({ case: "General ESG / Legal Risk", risk_level: "low", description: "No explicit material litigation matters identified in this filing period." });
+        // Check if any collection has data
+        const statsCount = await db.collection('anp_stats').countDocuments();
+        if (statsCount === 0) {
+            console.log("\x1b[33m💡 Engine: Database is empty. DataManager will use Local Files.\x1b[0m");
+        }
+    } catch (err) {
+        console.warn("\x1b[33m⚠️ Engine: Database unavailable. Switching to Static Mode (Local Resources Only).\x1b[0m");
+        dataManager.setStaticMode(true);
     }
-    if (allIncidents.length === 0) {
-        allIncidents.push({ type: "Routine Operation", severity: "low", description: "No material severe incidents reported in the analyzed text." });
-    }
-
-    const structuredReport = {
-        year: year,
-        metadata: { source: "Saudi Aramco Annual Filings", total_filings_analyzed: docs.length },
-        financial_performance: {
-            net_income_usd_bn: 110 + (Math.random() * 60),
-            free_cash_flow_usd_bn: 100 + (Math.random() * 20),
-            cash_from_operations_usd_bn: 140 + (Math.random() * 30),
-            total_dividends_usd_bn: 75 + (Math.random() * 10),
-            capex_usd_bn: 30 + (Math.random() * 20),
-            gearing_ratio_pct: 2 + (Math.random() * 5),
-            roace_pct: 15 + (Math.random() * 10)
-        },
-        esg: {
-            trir: 0.05 + (Math.random() * 0.02),
-            fatalities_workforce: Math.floor(Math.random() * 2),
-            scope1_mtco2e: 50 - (Math.random() * 10),
-            scope2_mtco2e: 20 - (Math.random() * 5),
-            flaring_reduction_target: "Targeted 15% reduction in upstream flaring intensity"
-        },
-        operational_highlights: {
-            total_hydrocarbon_mmboed: 13 + (Math.random() * 1),
-            crude_oil_production_mmbpd: 9 + (Math.random() * 1),
-            natural_gas_bscfd: 10 + (Math.random() * 2),
-            supply_reliability_pct: 99.9,
-            proven_reserves_bnboe: 250 + (Math.random() * 10)
-        },
-        strategy_highlights: [
-            "Expanding unconventional gas production in Jafurah basin",
-            "Targeting net-zero Scope 1 and 2 emissions by 2050",
-            "Increasing maximum sustainable capacity (MSC)"
-        ],
-        litigation_exposure: allLitigations.slice(0, 3).map(l => ({ case_id: l.case, description: l.description })),
-        key_litigations: allLitigations.slice(0, 4),
-        operational_incidents: allIncidents.slice(0, 4),
-        risk_factors: [
-            { text: "Climate Change Regulation", description: "Stringent global ESG policies impacts.", source_file: "10-k" },
-            { text: "Political Instability", description: "Regional tensions in the Middle East.", source_file: "10-k" },
-            { text: "Operational Hazards", description: "Risk of structural failures and kicks.", source_file: "10-k" }
-        ],
-        compliance_summary: {
-            overall_posture: "Generally sound, with focused areas for improvement.",
-            litigations_identified: allLitigations.length,
-            incidents_identified: allIncidents.length,
-            material_penalties: "None"
-        },
-        overall_compliance_posture: {
-            risk_level: "medium",
-            summary: "Moderate risk due to scale of operations."
-        },
-        recommendation_for_compliance_officer: [
-            "Enhance safety audits in offshore drilling.",
-            "Review legal risks across joint ventures."
-        ]
-    };
-    res.json(structuredReport);
-  } catch(e) { res.status(500).json({ error: e.message }); }
 });

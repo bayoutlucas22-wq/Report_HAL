@@ -1,316 +1,374 @@
 {
-  "total": 25233,
+  "total": 26630,
   "fatalidades": 31,
   "feridos": 2,
   "csbCount": 3355,
   "bopCount": 1407,
   "kickCount": 316,
-  "structCount": 219,
+  "structCount": 220,
   "yearSeries": [
     {
       "year": "2013",
-      "count": 1127,
+      "count": 1259,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 21,
       "Structural Failure": 6,
       "Loss of Well Control": 0,
       "BOP Failure": 19,
-      "Other": 1081
+      "Fire/Explosion": 139,
+      "Leak/Spill": 2,
+      "Other": 1072
     },
     {
       "year": "2014",
-      "count": 1118,
+      "count": 1197,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 15,
       "Structural Failure": 6,
       "Loss of Well Control": 0,
       "BOP Failure": 160,
-      "Other": 937
+      "Fire/Explosion": 91,
+      "Leak/Spill": 1,
+      "Other": 924
     },
     {
       "year": "2015",
-      "count": 1254,
+      "count": 1367,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 20,
       "Structural Failure": 5,
       "Loss of Well Control": 0,
       "BOP Failure": 171,
-      "Other": 1058
+      "Fire/Explosion": 116,
+      "Leak/Spill": 1,
+      "Other": 1054
     },
     {
       "year": "2016",
-      "count": 1370,
+      "count": 1502,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 13,
       "Structural Failure": 8,
       "Loss of Well Control": 0,
       "BOP Failure": 136,
-      "Other": 1213
+      "Fire/Explosion": 137,
+      "Leak/Spill": 0,
+      "Other": 1208
     },
     {
       "year": "2017",
-      "count": 1779,
+      "count": 1900,
       "CSB Failure": 8,
       "Kick (Primary Barrier)": 7,
       "Structural Failure": 10,
       "Loss of Well Control": 0,
       "BOP Failure": 132,
-      "Other": 1622
+      "Fire/Explosion": 124,
+      "Leak/Spill": 0,
+      "Other": 1619
     },
     {
       "year": "2018",
-      "count": 1695,
+      "count": 1802,
       "CSB Failure": 4,
       "Kick (Primary Barrier)": 21,
       "Structural Failure": 8,
       "Loss of Well Control": 0,
       "BOP Failure": 87,
-      "Other": 1575
+      "Fire/Explosion": 108,
+      "Leak/Spill": 0,
+      "Other": 1574
     },
     {
       "year": "2019",
-      "count": 2002,
+      "count": 2108,
       "CSB Failure": 7,
       "Kick (Primary Barrier)": 9,
       "Structural Failure": 12,
       "Loss of Well Control": 1,
       "BOP Failure": 79,
-      "Other": 1894
+      "Fire/Explosion": 108,
+      "Leak/Spill": 0,
+      "Other": 1892
     },
     {
       "year": "2020",
-      "count": 1568,
+      "count": 1664,
       "CSB Failure": 63,
       "Kick (Primary Barrier)": 10,
       "Structural Failure": 13,
       "Loss of Well Control": 1,
       "BOP Failure": 83,
-      "Other": 1398
+      "Fire/Explosion": 100,
+      "Leak/Spill": 0,
+      "Other": 1394
     },
     {
       "year": "2021",
-      "count": 2386,
+      "count": 2490,
       "CSB Failure": 940,
       "Kick (Primary Barrier)": 9,
       "Structural Failure": 16,
       "Loss of Well Control": 0,
       "BOP Failure": 109,
-      "Other": 1312
+      "Fire/Explosion": 106,
+      "Leak/Spill": 0,
+      "Other": 1310
     },
     {
       "year": "2022",
-      "count": 2126,
+      "count": 2231,
       "CSB Failure": 730,
       "Kick (Primary Barrier)": 18,
       "Structural Failure": 9,
       "Loss of Well Control": 2,
       "BOP Failure": 65,
-      "Other": 1302
+      "Fire/Explosion": 112,
+      "Leak/Spill": 3,
+      "Other": 1292
     },
     {
       "year": "2023",
-      "count": 2035,
+      "count": 2135,
       "CSB Failure": 335,
       "Kick (Primary Barrier)": 14,
       "Structural Failure": 24,
       "Loss of Well Control": 2,
       "BOP Failure": 103,
-      "Other": 1557
+      "Fire/Explosion": 115,
+      "Leak/Spill": 41,
+      "Other": 1501
     },
     {
       "year": "2024",
-      "count": 2250,
+      "count": 2349,
       "CSB Failure": 344,
       "Kick (Primary Barrier)": 31,
       "Structural Failure": 14,
       "Loss of Well Control": 1,
       "BOP Failure": 115,
-      "Other": 1745
+      "Fire/Explosion": 114,
+      "Leak/Spill": 63,
+      "Other": 1667
     },
     {
       "year": "2025",
-      "count": 2272,
+      "count": 2362,
       "CSB Failure": 404,
       "Kick (Primary Barrier)": 31,
-      "Structural Failure": 12,
+      "Structural Failure": 13,
       "Loss of Well Control": 0,
       "BOP Failure": 138,
-      "Other": 1687
+      "Fire/Explosion": 104,
+      "Leak/Spill": 75,
+      "Other": 1597
     },
     {
       "year": "2026",
-      "count": 2251,
+      "count": 2264,
       "CSB Failure": 520,
       "Kick (Primary Barrier)": 97,
       "Structural Failure": 43,
       "Loss of Well Control": 26,
       "BOP Failure": 10,
-      "Other": 1555
+      "Fire/Explosion": 132,
+      "Leak/Spill": 269,
+      "Other": 1167
     }
   ],
   "halYearSeries": [
     {
       "year": "2013",
-      "count": 46,
+      "count": 187,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 21,
       "Structural Failure": 6,
       "Loss of Well Control": 0,
       "BOP Failure": 19,
+      "Fire/Explosion": 139,
+      "Leak/Spill": 2,
       "Other": 0
     },
     {
       "year": "2014",
-      "count": 181,
+      "count": 273,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 15,
       "Structural Failure": 6,
       "Loss of Well Control": 0,
       "BOP Failure": 160,
+      "Fire/Explosion": 91,
+      "Leak/Spill": 1,
       "Other": 0
     },
     {
       "year": "2015",
-      "count": 196,
+      "count": 313,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 20,
       "Structural Failure": 5,
       "Loss of Well Control": 0,
       "BOP Failure": 171,
+      "Fire/Explosion": 116,
+      "Leak/Spill": 1,
       "Other": 0
     },
     {
       "year": "2016",
-      "count": 157,
+      "count": 294,
       "CSB Failure": 0,
       "Kick (Primary Barrier)": 13,
       "Structural Failure": 8,
       "Loss of Well Control": 0,
       "BOP Failure": 136,
+      "Fire/Explosion": 137,
+      "Leak/Spill": 0,
       "Other": 0
     },
     {
       "year": "2017",
-      "count": 157,
+      "count": 281,
       "CSB Failure": 8,
       "Kick (Primary Barrier)": 7,
       "Structural Failure": 10,
       "Loss of Well Control": 0,
       "BOP Failure": 132,
+      "Fire/Explosion": 124,
+      "Leak/Spill": 0,
       "Other": 0
     },
     {
       "year": "2018",
-      "count": 120,
+      "count": 228,
       "CSB Failure": 4,
       "Kick (Primary Barrier)": 21,
       "Structural Failure": 8,
       "Loss of Well Control": 0,
       "BOP Failure": 87,
+      "Fire/Explosion": 108,
+      "Leak/Spill": 0,
       "Other": 0
     },
     {
       "year": "2019",
-      "count": 108,
+      "count": 216,
       "CSB Failure": 7,
       "Kick (Primary Barrier)": 9,
       "Structural Failure": 12,
       "Loss of Well Control": 1,
       "BOP Failure": 79,
+      "Fire/Explosion": 108,
+      "Leak/Spill": 0,
       "Other": 0
     },
     {
       "year": "2020",
-      "count": 170,
+      "count": 270,
       "CSB Failure": 63,
       "Kick (Primary Barrier)": 10,
       "Structural Failure": 13,
       "Loss of Well Control": 1,
       "BOP Failure": 83,
+      "Fire/Explosion": 100,
+      "Leak/Spill": 0,
       "Other": 0
     },
     {
       "year": "2021",
-      "count": 1074,
+      "count": 1180,
       "CSB Failure": 940,
       "Kick (Primary Barrier)": 9,
       "Structural Failure": 16,
       "Loss of Well Control": 0,
       "BOP Failure": 109,
+      "Fire/Explosion": 106,
+      "Leak/Spill": 0,
       "Other": 0
     },
     {
       "year": "2022",
-      "count": 824,
+      "count": 939,
       "CSB Failure": 730,
       "Kick (Primary Barrier)": 18,
       "Structural Failure": 9,
       "Loss of Well Control": 2,
       "BOP Failure": 65,
+      "Fire/Explosion": 112,
+      "Leak/Spill": 3,
       "Other": 0
     },
     {
       "year": "2023",
-      "count": 478,
+      "count": 634,
       "CSB Failure": 335,
       "Kick (Primary Barrier)": 14,
       "Structural Failure": 24,
       "Loss of Well Control": 2,
       "BOP Failure": 103,
+      "Fire/Explosion": 115,
+      "Leak/Spill": 41,
       "Other": 0
     },
     {
       "year": "2024",
-      "count": 505,
+      "count": 682,
       "CSB Failure": 344,
       "Kick (Primary Barrier)": 31,
       "Structural Failure": 14,
       "Loss of Well Control": 1,
       "BOP Failure": 115,
+      "Fire/Explosion": 114,
+      "Leak/Spill": 63,
       "Other": 0
     },
     {
       "year": "2025",
-      "count": 585,
+      "count": 765,
       "CSB Failure": 404,
       "Kick (Primary Barrier)": 31,
-      "Structural Failure": 12,
+      "Structural Failure": 13,
       "Loss of Well Control": 0,
       "BOP Failure": 138,
+      "Fire/Explosion": 104,
+      "Leak/Spill": 75,
       "Other": 0
     },
     {
       "year": "2026",
-      "count": 696,
+      "count": 1097,
       "CSB Failure": 520,
       "Kick (Primary Barrier)": 97,
       "Structural Failure": 43,
       "Loss of Well Control": 26,
       "BOP Failure": 10,
+      "Fire/Explosion": 132,
+      "Leak/Spill": 269,
       "Other": 0
     }
   ],
   "categoryBreakdown": {
+    "Fire/Explosion": 1606,
     "Kick (Primary Barrier)": 316,
-    "Structural Failure": 186,
+    "Structural Failure": 187,
+    "Leak/Spill": 455,
     "BOP Failure": 1407,
     "CSB Failure": 3355,
     "Loss of Well Control": 33
   },
   "severityBreakdown": {
-    "Minor": 3307,
+    "Minor": 3411,
     "Moderate": 371,
     "Severe": 76,
-    "SSO": 21479
+    "SSO": 22772
   },
   "topCompanies": [
     {
       "name": "PETRÓLEO BRASILEIRO S.A.",
-      "count": 13779
+      "count": 14720
     },
     {
       "name": "PETRÓLEO BRASILEIRO S.A. - PETROBRAS",
-      "count": 4917
+      "count": 5114
     },
     {
       "name": "PETROLEO BRASILEIRO S.A. - PETROBRAS",
@@ -318,31 +376,31 @@
     },
     {
       "name": "CARMO ENERGY S.A.",
-      "count": 639
+      "count": 644
     },
     {
       "name": "PERENCO PETRÓLEO E GÁS DO BRASIL LTDA.",
-      "count": 438
+      "count": 467
     },
     {
       "name": "SHELL BRASIL PETRÓLEO LTDA.",
-      "count": 396
+      "count": 417
     },
     {
       "name": "EQUINOR BRASIL ENERGIA LTDA.",
-      "count": 356
+      "count": 398
     },
     {
       "name": "ENEVA S.A.",
-      "count": 319
+      "count": 328
     },
     {
       "name": "TRIDENT ENERGY DO BRASIL LTDA.",
-      "count": 224
+      "count": 255
     },
     {
       "name": "3R POTIGUAR S.A.",
-      "count": 207
+      "count": 209
     }
   ]
 }
