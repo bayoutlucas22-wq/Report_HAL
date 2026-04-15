@@ -306,8 +306,8 @@
           <div style="min-width: 0;">
             <h1 class="brand-gradient-text"
               style="font-size: clamp(16px, 2.5vw, 22px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              CSB Failure Analysis</h1>
-            <p style="margin-top: 2px; font-size: 11px; color: var(--text3); font-weight: 500;">CSB Well Barrier Failure
+              Halliburton Operational Risk Intelligence</h1>
+            <p style="margin-top: 2px; font-size: 11px; color: var(--text3); font-weight: 500;">Cross-Jurisdictional Well Barrier Failure & Compliance Exposure · Official Data
               Intelligence (Official Data)</p>
           </div>
         </div>
@@ -9031,7 +9031,9 @@
 
               // ── RAW JSON ─────────────────────────────────────────────────────
               function renderRaw() {
-                document.getElementById('sau-raw-content').innerHTML =
+                const rawEl = document.getElementById('sau-raw-content');
+                if (!rawEl) return;
+                rawEl.innerHTML =
                   '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Full intelligence data — all years</div>' +
                   YEARS.map(y => `
                   <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:10px;">
@@ -9725,7 +9727,6 @@
                 </table>
               </div>
             </div>
-          </div>
 
           <script>
             (function () {
