@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3333; // Standardized to 3333 for the VPS/local
 
 // 1. Static Setup
 app.use(express.static(path.join(__dirname, "..", "public"), { index: false }));
+app.use('/api/data', express.static(path.join(__dirname, 'data'), { index: false }));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "public", "index.html"));

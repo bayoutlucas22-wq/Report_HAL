@@ -2968,7 +2968,7 @@ async function loadMexicoCompactData() {
     if (countEl) countEl.innerHTML = `${MEXICO_COMPACT_POZOS.length.toLocaleString()} records`;
     
     // Render first page
-    renderMexicoRegistry(MEXICO_COMPACT_POZOS);
+    if (typeof renderMexicoRegistry === 'function') renderMexicoRegistry(MEXICO_COMPACT_POZOS);
   } catch (e) {
     console.warn("Mexico Compact Data Load fail:", e);
   }
