@@ -1,19 +1,25 @@
 FROM node:20-alpine
 
-# tini: proper PID 1 — forwards SIGTERM/SIGINT so `docker stop` works cleanly
+# Use tini for proper signal handling
 RUN apk add --no-cache tini
 
 WORKDIR /app
 
+# Install dependencies first for better caching
 COPY package*.json ./
 RUN npm install --omit=dev
 
+# Copy application source
 COPY . .
 
-# Must match server.js: PORT || 5001
+# Ensure data directories exist
+RUN mkdir -p api/data/processed
+
+# Standardize Port
 EXPOSE 3333
 
-# Seed is a one-time operation — run via: railway run node ingest_to_mongo.js
-# Never seed on every container start (drops + re-inserts all collections each restart)
+# Command to pre-process data and then start the server
+# Note: In a real VPS, you might want to run ingest_to_mongo.js as a separate job,
+# but for maximum reliability, we'll ensure treat_data.js runs to populate fallbacks.
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["node", "api/server.js"]
+CMD ["sh", "-c", "node treat_data.js && node api/server.js"]
