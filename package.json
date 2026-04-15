@@ -5,6 +5,9 @@
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
+    "dev": "nodemon api/server.js",
+    "ingest": "node treat_data.js && node ingest_to_mongo.js",
+    "ingest:ksa": "node ingest_ksa_local.js",
     "generate": "node main.js",
     "build:static": "node main.js && cp HAL_Tejas_Incident_Report.docx docs/"
   },

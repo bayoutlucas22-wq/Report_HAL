@@ -193,7 +193,7 @@ function buildReportSections(stats, sampleIncidents) {
 
       // --- SECTION 1: EXECUTIVE SUMMARY ----------------------------------------
       h1("1. Executive Summary"),
-      p("This report establishes the regulatory and operational compliance framework applicable to Halliburton and Tejas operations in Brazil, and provides evidence-based justification for the identified risk exposure, grounded entirely in publicly available open data from official Brazilian government sources."),
+      p("This report establishes the regulatory and operational compliance framework applicable to Halliburton operations in Brazil, and provides evidence-based justification for the identified risk exposure, grounded entirely in publicly available open data from official Brazilian government sources."),
       spacer(),
       p("The analysis draws on the ANP\'s SISO-Incidentes database — 30,054 registered incidents from 2013 to March 26, 2026, published under Brazil\'s Freedom of Information Law (Lei nº 12.527/2011) — cross-referenced with classification society rules and applicable Brazilian regulatory instruments."),
       spacer(),

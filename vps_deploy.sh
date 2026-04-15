@@ -34,13 +34,20 @@ fi
 echo "🏗 Building and Starting Containers..."
 docker-compose up -d --build
 
-echo "⏳ Waiting for MongoDB to be ready..."
-sleep 10
+echo "⏳ Waiting for Services to stabilize (20s)..."
+sleep 20
+
+# Check if app is actually running
+if [ "$(docker inspect -f '{{.State.Running}}' hal-tejas-app)" != "true" ]; then
+    echo "⚠️ App container is not running (it might be crashing). Checking logs..."
+    docker-compose logs --tail=20 app
+fi
 
 echo "💉 Running Data Ingestion..."
-docker-compose exec -T app node treat_data.js
-docker-compose exec -T app node ingest_to_mongo.js
+# Use 'run' instead of 'exec' as it is safer for initialization tasks
+docker-compose run --rm app node treat_data.js
+docker-compose run --rm app node ingest_to_mongo.js
 
 echo "✅ Deployment Complete!"
 echo "🌐 Access your dashboard at http://YOUR_VPS_IP:3333"
-echo "📜 To view logs, run: docker-compose logs -f"
+echo "📜 To view live logs, run: docker-compose logs -f"

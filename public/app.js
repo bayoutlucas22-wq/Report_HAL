@@ -1131,6 +1131,11 @@ async function init() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Failsafe: force-hide loading overlay after 5s regardless of init state
+  setTimeout(() => {
+    const loader = document.getElementById("loadingOverlay");
+    if (loader) loader.style.display = "none";
+  }, 5000);
   init();
 });
 
