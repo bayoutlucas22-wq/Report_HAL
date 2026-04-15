@@ -2785,35 +2785,37 @@ function renderPenaltyCharts() {
 
   const qCtx = document.getElementById('penaltyQuarterlyChart');
   const cCtx = document.getElementById('penaltyChunksChart');
-  if (!qCtx || !cCtx) return;
 
-  // Quarterly Trend
-  chartInstances['penaltyQuarterlyChart'] = new Chart(qCtx.getContext('2d'), {
-    type: 'line',
-    data: {
-      labels: ['2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4', '2026 Q1'],
-      datasets: [{
-        label: 'Est. Quarterly Exposure (M R$)',
-        data: [28.4, 32.1, 29.8, 35.6, 16.5],
-        borderColor: '#059669',
-        backgroundColor: 'rgba(5, 150, 105, 0.1)',
-        fill: true,
-        tension: 0.4,
-        borderWidth: 3,
-        pointRadius: 5,
-        pointBackgroundColor: '#059669'
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
-      scales: {
-        y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 }, color: '#64748b' } },
-        x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748b' } }
+  if (qCtx) {
+    chartInstances['penaltyQuarterlyChart'] = new Chart(qCtx.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4', '2026 Q1'],
+        datasets: [{
+          label: 'Est. Quarterly Exposure (M R$)',
+          data: [28.4, 32.1, 29.8, 35.6, 16.5],
+          borderColor: '#059669',
+          backgroundColor: 'rgba(5, 150, 105, 0.1)',
+          fill: true,
+          tension: 0.4,
+          borderWidth: 3,
+          pointRadius: 5,
+          pointBackgroundColor: '#059669'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 }, color: '#64748b' } },
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748b' } }
+        }
       }
-    }
-  });
+    });
+  }
+
+  if (cCtx) {
 
   // Magnitude Chunks
   chartInstances['penaltyChunksChart'] = new Chart(cCtx.getContext('2d'), {
@@ -2838,6 +2840,7 @@ function renderPenaltyCharts() {
       }
     }
   });
+  }
 }
 
 // ── Norway Wellbore Registry (Consolidated) ───────────────────────────────────
