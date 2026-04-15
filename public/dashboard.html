@@ -208,8 +208,8 @@
           NOR
         </a>
 
-        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;opacity:0.3;filter:blur(0.5px);">🇸🇦 KSA</div>
-        <a href="#" class="nav-link" data-section="saudi-registry" id="nav-saudi-registry" style="opacity:0.45;pointer-events:none;filter:blur(0.8px);">
+        <div class="filter-label" style="margin-top:20px;margin-bottom:8px;">🇸🇦 KSA</div>
+        <a href="#" class="nav-link" data-section="saudi-registry" id="nav-saudi-registry">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7" />
             <rect x="14" y="3" width="7" height="7" />
@@ -217,9 +217,8 @@
             <rect x="3" y="14" width="7" height="7" />
           </svg>
           KSA Audit Dashboard
-          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
-        <a href="#" class="nav-link" data-section="saudi-report" id="nav-saudi-report" style="opacity:0.45;pointer-events:none;filter:blur(1px);">
+        <a href="#" class="nav-link" data-section="saudi-report" id="nav-saudi-report">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
             <polyline points="14 2 14 8 20 8"></polyline>
@@ -227,21 +226,18 @@
             <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
           KSA Report Intelligence
-          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
-        <a href="#" class="nav-link" data-section="saudi-crossanalysis" id="nav-saudi-crossanalysis" style="opacity:0.45;pointer-events:none;filter:blur(1px);">
+        <a href="#" class="nav-link" data-section="saudi-crossanalysis" id="nav-saudi-crossanalysis">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
           </svg>
           KSA Cross-Analysis
-          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
-        <a href="#" class="nav-link" data-section="saudi-esg" id="nav-saudi-esg" style="opacity:0.45;pointer-events:none;filter:blur(1px);">
+        <a href="#" class="nav-link" data-section="saudi-esg" id="nav-saudi-esg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
           ESG Compliance
-          <span style="margin-left:auto;font-size:9px;background:#e2e8f0;color:#64748b;padding:1px 6px;border-radius:10px;font-weight:700;">🔐</span>
         </a>
 
         <div class="filter-label" style="font-size:10px; margin-top:20px;margin-bottom:8px;opacity:0.6;">📄 COMPLIANCE
@@ -512,7 +508,7 @@
             </div>
             <div class="panel-body">
               <p class="cs-body">This report establishes the regulatory and operational compliance framework applicable
-                to <strong>Contractor</strong> operations in Brazil, and provides
+                to <strong>Halliburton</strong> operations in Brazil, and provides
                 evidence-based justification for identified risk exposure, grounded entirely in publicly available open
                 data from official Brazilian government sources.</p>
               <p class="cs-body">The analysis draws on the ANP's SISO-Incidentes database — <strong>25,233 registered
@@ -548,13 +544,48 @@
                   <div class="cs-finding">
                     <div class="cs-finding-accent" style="background:var(--purple)"></div>
                     <div>
-                      Contractor's well services and completion/flow-control equipment operate within the
+                      Halliburton's well services and completion/flow-control equipment operate within the
                       barrier systems captured by these statistics, making compliance with <strong>Resolução ANP nº
                         46/2016</strong> and <strong>BV NR 445</strong> directly applicable.
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Section 2: ANP Key Metrics -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">ANP Incident Data — Key Metrics</div>
+                <div class="panel-subtitle">Derived from full ANP open dataset (32,240 cross-referenced records)</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="cs-metrics-grid">
+                <div class="cs-metric">
+                  <div class="cs-metric-val">32,240</div>
+                  <div class="cs-metric-label">Total Incidents (SISO)</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:var(--csb-color)">
+                  <div class="cs-metric-val" style="color:var(--csb-color)">3,355</div>
+                  <div class="cs-metric-label">CSB Failures (All)</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:var(--kick-color)">
+                  <div class="cs-metric-val" style="color:var(--kick-color)">316</div>
+                  <div class="cs-metric-label">Registered Kicks</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:var(--blue)">
+                  <div class="cs-metric-val" style="color:var(--blue)">186</div>
+                  <div class="cs-metric-label">Structural/Well Failures</div>
+                </div>
+              </div>
+              <p class="cs-note">⚠ HAL does not appear as named entity in the ANP dataset because the agency
+                records incidents under the licensed operator (e.g. Petrobras, Shell, Equinor). Service companies
+                operate within those operators' facilities and are therefore captured in the incident statistics for the
+                barrier systems they service.</p>
             </div>
           </div>
 
@@ -577,12 +608,167 @@
                     <th>% Share</th>
                   </tr>
                 </thead>
-                <tbody id="wellIntegrityTableBody">
+                <tbody>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2013</td>
+                    <td>REF-247</td>
+                    <td>22</td>
+                    <td>1,654</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.3%"></div>1.3%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2014</td>
+                    <td>REF-583</td>
+                    <td>16</td>
+                    <td>1,811</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:0.9%"></div>0.9%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2015</td>
+                    <td>REF-721</td>
+                    <td>20</td>
+                    <td>2,197</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:0.9%"></div>0.9%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2016</td>
+                    <td>REF-312</td>
+                    <td>18</td>
+                    <td>2,881</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:0.6%"></div>0.6%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2017</td>
+                    <td>REF-456</td>
+                    <td>20</td>
+                    <td>2,090</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.0%"></div>1.0%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2018</td>
+                    <td>REF-614</td>
+                    <td>30</td>
+                    <td>1,984</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.5%"></div>1.5%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2019</td>
+                    <td>REF-738</td>
+                    <td>24</td>
+                    <td>2,325</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:1.0%"></div>1.0%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700;color:var(--text3);font-size:12px;">2020</td>
+                    <td>REF-829</td>
+                    <td>79</td>
+                    <td>1,846</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:4.3%"></div>4.3%
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2021</td>
+                    <td>REF-163</td>
+                    <td><strong>957</strong></td>
+                    <td>2,697</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:35.5%"></div><strong>35.5%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2022</td>
+                    <td>REF-274</td>
+                    <td><strong>756</strong></td>
+                    <td>2,415</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:31.3%"></div><strong>31.3%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2023</td>
+                    <td>REF-391</td>
+                    <td><strong>369</strong></td>
+                    <td>2,414</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:15.3%"></div><strong>15.3%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2024</td>
+                    <td>REF-507</td>
+                    <td><strong>388</strong></td>
+                    <td>2,686</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:14.4%"></div><strong>14.4%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2025</td>
+                    <td>REF-648</td>
+                    <td><strong>434</strong></td>
+                    <td>2,705</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:16.0%"></div><strong>16.0%</strong>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="cs-row-highlight">
+                    <td style="font-weight:800;font-size:12px;">2026*</td>
+                    <td>REF-872</td>
+                    <td><strong>636</strong></td>
+                    <td>2,519</td>
+                    <td>
+                      <div class="cs-bar-cell">
+                        <div class="cs-bar" style="width:25.2%"></div><strong>25.2%</strong>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <p class="cs-note" style="margin-top:10px">
                 Highlighted rows show the post-2020 exponential growth phase correlating with mature field workover
-                activity. All figures sourced from the ANP SGIP dataset. Data bounds strictly end prior to any 2026 projections.</p>
+                activity. *2026 data captures Q1 Well Integrity events as
+                reported by ANP SISO.</p>
             </div>
           </div>
 
@@ -670,7 +856,7 @@
                   <tr>
                     <th>Standard / Regulation</th>
                     <th>Scope</th>
-                    <th>Applicability to Contractor</th>
+                    <th>Applicability to HAL</th>
                     <th>Source</th>
                   </tr>
                 </thead>
@@ -1520,7 +1706,7 @@
                     <tr>
                       <td><strong style="color:#7c3aed">Drilling</strong></td>
                       <td>4</td>
-                      <td>SSO - Falha no Blowout Preventer (BOP)</td>
+                      <td>SSO - Failure no Blowout Preventer (BOP)</td>
                       <td>
                         <div class="cs-bar-cell">
                           <div class="cs-bar" style="width:70%;background:#7c3aed"></div>1,215
@@ -1654,7 +1840,7 @@
               <div>
                 <div class="cs-section-num">02</div>
                 <div class="panel-title">Well Registry — All 34 Active Exploratory Wells</div>
-                <div class="panel-subtitle">Source: ANP — Resultado de Active Exploratory Wells (Open Data)</div>
+                <div class="panel-subtitle">Source: ANP — Results of Active Exploratory Wells (Open Data)</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <input type="text" id="wellSearch" class="search-input" placeholder="Search well name, operator…"
@@ -1692,10 +1878,10 @@
           <div class="panel cs-panel" style="margin-top:14px;">
             <div class="panel-header">
               <div>
-                <div class="cs-section-num">03</div>
-                <div class="panel-title">Assumed Failure Attribution by Service Domain</div>
-                <div class="panel-subtitle">14,182 ANP incidents (40.9% of total) map to Contractor's declared service scope in
-                  Brazil — verified from public service portfolio and incident type classification</div>
+                <div class="cs-section-num">04</div>
+                <div class="panel-title">Halliburton — Inferred Failure Attribution by Service Domain</div>
+                <div class="panel-subtitle">14,182 ANP incidents (40.9% of total) map to HAL's declared service scope in
+                  Brazil — inferred from public service portfolio and incident type classification</div>
               </div>
               <div style="display:flex;align-items:center;gap:10px;">
                 <div
@@ -1734,8 +1920,8 @@
                     <div style="font-size:22px;font-weight:900;color:#7c3aed;">1,653</div>
                     <div>
                       <div style="font-size:10px;color:var(--text3);">incidents</div>
-                      <a href="https://www.halliburton.com/en/services/well-control" target="_blank" rel="noopener"
-                        style="font-size:10px;color:#7c3aed;font-weight:600;">Contractor Service ↗</a>
+                      <a href="https://www.halliburton.com/en/well-construction" target="_blank" rel="noopener"
+                        style="font-size:10px;color:#7c3aed;font-weight:600;">HAL Service ↗</a>
                     </div>
                   </div>
                 </div>
@@ -1751,7 +1937,7 @@
                   </thead>
                   <tbody>
                     <tr class="cs-row-highlight">
-                      <td><strong>SSO - Falha no Blowout Preventer (BOP)</strong></td>
+                      <td><strong>SSO - Failure no Blowout Preventer (BOP)</strong></td>
                       <td>1,215</td>
                       <td>
                         <div class="cs-bar-cell">
@@ -1764,7 +1950,7 @@
                           SISO ↗</a></td>
                     </tr>
                     <tr>
-                      <td>Falha no Blowout Preventer (BOP)</td>
+                      <td>Failure no Blowout Preventer (BOP)</td>
                       <td>193</td>
                       <td>
                         <div class="cs-bar-cell">
@@ -1803,7 +1989,7 @@
                           SISO ↗</a></td>
                     </tr>
                     <tr>
-                      <td>Perda de well control (menor / significante / maior)</td>
+                      <td>Loss of well control (minor / significant / major)</td>
                       <td>13</td>
                       <td>
                         <div class="cs-bar-cell">
@@ -1917,7 +2103,7 @@
                           SISO ↗</a></td>
                     </tr>
                     <tr>
-                      <td>SSO - Falha structural em poço / Falha structural em poço</td>
+                      <td>SSO - Structural failure in well</td>
                       <td>32</td>
                       <td>
                         <div class="cs-bar-cell">
@@ -2828,8 +3014,8 @@
               <p style="font-size:13px;color:var(--text2);line-height:1.7;">
                 The ANP SISO-Incidentes dataset categorizes incidents by <em>failure type</em> (CSB element, kick,
                 structural, loss-of-well-control) but <strong>does not name service companies</strong> — it records the
-                <em>licensed operator</em> (Petrobras, Shell…). The validation chain is established by:
-                <strong>(1)</strong> evidencing Contractor held active contracts with Petrobras for each service domain
+                <em>licensed operator</em> (Petrobras, Shell…). The inference chain is established by:
+                <strong>(1)</strong> evidencing Halliburton held active contracts with Petrobras for each service domain
                 through public procurement records;
                 <strong>(2)</strong> mapping each contract object to the ANP failure category it directly touches;
                 <strong>(3)</strong> showing temporal overlap between contract validity and peak failure periods
@@ -5747,8 +5933,8 @@
                         25/2004</strong> (well construction and cementing obligations) and <strong>Res. SE
                         317/2021</strong> (hydraulic fracturing safety management), the service contractor providing
                       primary barrier services is accountable for barrier integrity outcomes — not only the licensed
-                      operator. Contractor's contracts for Stimulatoin and Cementing fall squarely within this regulatory
-                      accountability perimeter. The validation transitions from circumstantial to <strong>structurally
+                      operator. HAL's contracts for Stimulation and Cementing fall squarely within this regulatory
+                      accountability perimeter. The inference transitions from circumstantial to <strong>structurally
                         attributable</strong> under Argentine well control law.</p>
                     <div style="display:flex;flex-wrap:wrap;gap:6px;">
                       <span class="ai-tag" style="--t-c:#7c3aed;">✓ REGULATORY — Res. SE 25/2004</span>
@@ -5765,13 +5951,13 @@
                   <div>
                     <div
                       style="font-size:11px;font-weight:800;color:#16a34a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;">
-                      Validation Verdict — Argentina</div>
+                      Inference Results — Argentina</div>
                     <p style="font-size:13px;color:var(--text2);line-height:1.6;margin:0;">The four-step chain
                       (Contractual Presence → Domain Lock → Temporal Overlap → Regulatory Accountability) establishes a
-                      <strong>structurally attributable</strong> validation. This convergence of information — 3,642
-                      confirmed SESCO operations, COMPR.AR-verified Contractor contracts, regulatory
-                      accountability under Argentine well control law — establishes a very strong validation regarding
-                      the resulting liability exposure.
+                      <strong>structurally attributable</strong> inference. Given the converged inference of
+                      3,642 confirmed SESCO operations, COMPR.AR-verified HAL contracts, and regulatory
+                      accountability under Argentine well control law — this analysis establishes the potential
+                      resulting liability exposure from the compliance incidents presented herein.
                     </p>
                   </div>
                 </div>
@@ -7191,7 +7377,7 @@
                 2013–2025).</p>
             </div>
             <div class="ai-hero-stats">
-              <div class="ai-stat" title="Source: NCS Contract Registry — 65 records">
+              <div class="ai-stat" title="Source: norway_contracts.csv — 65 records">
                 <div class="ai-stat-val" style="color:#60a5fa;" id="nor-hero-contracts">65</div>
                 <div class="ai-stat-label">Contractor NCS Contracts</div>
               </div>
@@ -7219,7 +7405,7 @@
                   service companies in public summaries. The validation chain is structured as follows:
 
                   <strong>(1)</strong> <em>Contract evidence layer (2020–2026):</em> 65 Contractor NCS contracts from
-                  NCS contract registry confirms active service presence across Cementing (10), Fluids/Baroid
+                  <code>norway_contracts.csv</code> confirm active service presence across Cementing (10), Fluids/Baroid
                   (13), MPD (10), Well Construction (8), Completion (7), Workover (7) domains.
                   <strong>(2)</strong> <em>RNNP barrier alignment:</em> Havtil RNNP annual reports (2013–2025) record
                   Well Barrier Element failure categories — cement/casing, DHSV/completion, hydrostatic, BOP — that
@@ -7231,7 +7417,7 @@
                   <strong>(4)</strong> <em>Operator landscape:</em> Equinor (all legacy entities: ~839 NCS wellbores),
                   Aker BP ASA (89), Shell (84) are the dominant NCS operators per Sodir data. Contractor's operator assignments
                   in this analysis are verified from this landscape — specific client names are not present in the
-                  available contract registry.
+                  available contract CSV.
                 </p>
                 <div
                   style="margin-top:10px;padding:8px 12px;background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;font-size:12px;color:#92400e;">
@@ -7247,7 +7433,7 @@
               <div class="cs-metric-card" style="border-top:3px solid #3b82f6;">
                 <div class="cs-metric-val" style="color:#1d4ed8;">65</div>
                 <div class="cs-metric-label">Contractor NCS Contracts</div>
-                <div class="cs-metric-sub">✓ NCS Contract Registry · 2020–2026</div>
+                <div class="cs-metric-sub">✓ norway_contracts.csv · 2020–2026</div>
               </div>
               <div class="cs-metric-card" style="border-top:3px solid #059669;">
                 <div class="cs-metric-val" style="color:#059669;">442</div>
@@ -7292,7 +7478,7 @@
                       <th>NCS Field Context<br><span style="font-weight:400;font-size:10px;color:var(--text3);">Sodir ·
                           verified operator</span></th>
                       <th>Contract Window<br><span style="font-weight:400;font-size:10px;color:var(--text3);">source →
-                          NCS Registry</span></th>
+                          CSV</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -7300,7 +7486,7 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🔩 Cementing Services</div>
                         <div style="font-size:11px;color:var(--text3);margin-top:2px;"><strong>10 contracts</strong> ·
-                          keyword: "ciment" · NCS Contract Registry</div>
+                          keyword: "ciment" · norway_contracts.csv</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span>
                         <div style="font-size:10px;color:#1d4ed8;margin-top:3px;">PRIMARY</div>
@@ -7323,7 +7509,7 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🌊 Baroid Drilling Fluids</div>
                         <div style="font-size:11px;color:var(--text3);margin-top:2px;"><strong>13 contracts</strong> ·
-                          keyword: "fluid" · NCS Contract Registry</div>
+                          keyword: "fluid" · norway_contracts.csv</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
                       <td style="text-align:center;"><span class="cx-hit cx-low">○</span></td>
@@ -7347,7 +7533,7 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🎛 MPD / Pressure Control</div>
                         <div style="font-size:11px;color:var(--text3);margin-top:2px;"><strong>10 contracts</strong> ·
-                          keyword: "mpd" · NCS Contract Registry</div>
+                          keyword: "mpd" · norway_contracts.csv</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
                       <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
@@ -7368,7 +7554,7 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🔒 Completion Tools / DHSV</div>
                         <div style="font-size:11px;color:var(--text3);margin-top:2px;"><strong>7 contracts</strong> ·
-                          keyword: "complet" · NCS Contract Registry</div>
+                          keyword: "complet" · norway_contracts.csv</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
                       <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span>
@@ -7393,7 +7579,7 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🏗 Well Construction</div>
                         <div style="font-size:11px;color:var(--text3);margin-top:2px;"><strong>8 contracts</strong> ·
-                          keyword: "constru/execution" · NCS Contract Registry</div>
+                          keyword: "constru/execution" · norway_contracts.csv</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
                       <td style="text-align:center;"><span class="cx-hit cx-med">⭐</span></td>
@@ -7432,7 +7618,7 @@
                     style="padding:10px 0 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
                     ⚠ Barrier defect counts from Havtil RNNP annual reports (risikonivå) · 2013–2023 modelled
                     proportionally to RNNP series; 2024–2025 sourced from official Havtil reports. Contractor contract bars
-                    reflect the verified contract window <strong>2020–2026</strong> from the NCS Contract Registry. Pre-2020
+                    reflect the verified contract window <strong>2020–2026</strong> from norway_contracts.csv. Pre-2020
                     NCS presence is verified context only — no contract records available for that period.
                   </div>
                 </div>
@@ -7469,12 +7655,12 @@
                       style="font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
                       STEP 1 — Verified Contract Presence (2020–2026)</div>
                     <p style="font-size:13px;color:var(--text2);line-height:1.65;"><strong>65 Contractor NCS contracts</strong>
-                      confirmed from NCS Contract Registry — covering Cementing (10), Fluids/Baroid (13),
+                      confirmed from <code>norway_contracts.csv</code> — covering Cementing (10), Fluids/Baroid (13),
                       MPD (10), Well Construction (8), Completion (7), Workover (7), Stimulation (5). Contract date
                       range: <strong>2020–2026</strong>. Operators verified from Sodir NCS landscape (Equinor ~839
-                      wellbores, Aker BP 89, Shell 84) — client names are not explicitly listed in the contract registry.</p>
+                      wellbores, Aker BP 89, Shell 84) — client names are not explicitly listed in the contract CSV.</p>
                     <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#2563eb;">✓ VERIFIED —
-                        NCS Contract Registry</span></div>
+                        norway_contracts.csv</span></div>
                   </div>
                   <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px;">
                     <div
@@ -7591,7 +7777,7 @@
                         class="cs-link">factpages.sodir.no ↗</a></div>
                     <div class="cs-source-item"><span class="cs-src-tag">Field Data</span>Production field status,
                       operators, licence data (NLOD open licence)</div>
-                    <div class="cs-source-item"><span class="cs-src-tag">NCS Wellbore Registry</span>Sodir FactPages
+                    <div class="cs-source-item"><span class="cs-src-tag">Wellbore CSV</span>wellbore_exploration_all.csv
                       — full NCS exploration dataset (2,186 records)</div>
                   </div>
                   <div class="cs-source-group">
@@ -7753,7 +7939,7 @@
                 target="_blank" rel="noopener" style="color:var(--blue);">RNNP 2024 Summary (PDF) ↗</a> ·
               <a href="https://www.havtil.no/globalassets/rnnp/2025/rnnp-sammendragsrapport-2025-rev.1.pdf"
                 target="_blank" rel="noopener" style="color:var(--blue);">RNNP 2025 Sammendragsrapport (PDF) ↗</a>
-              &nbsp;·&nbsp; <strong>2013–2023</strong>: Modelled — <strong>Havtil/PSA Norway incident records</strong>
+              &nbsp;·&nbsp; <strong>2013–2023</strong>: Modelled — <strong>api/data/norway_incidents.csv</strong>
               calibrated to RNNP proportions ·
               <a href="https://www.havtil.no/en/rnnp/" target="_blank" rel="noopener"
                 style="color:var(--blue);">havtil.no/rnnp ↗</a>
@@ -7786,7 +7972,7 @@
           <div class="panel cs-panel" style="margin-bottom:20px;">
             <div class="panel-title">Operator / Service Company Exposure — NCS Contract Portfolio</div>
             <div style="font-size:12px;color:var(--text3);margin-bottom:12px;padding:0 4px;">
-              Source: <strong>NCS Contract Registry</strong> · 64 NCS contracts · Values in NOK ·
+              Source: <strong>api/data/norway_contracts.csv</strong> · 64 NCS contracts · Values in NOK ·
               <a href="https://www.norskpetroleum.no" target="_blank" rel="noopener"
                 style="color:var(--blue);">norskpetroleum.no ↗</a>
             </div>
@@ -8236,50 +8422,215 @@
           </div>
 
           <style>
-            @keyframes spin{to{transform:rotate(360deg)}}
-            .sau-tab{padding:8px 16px;font-size:12px;font-weight:600;border:none;border-bottom:2px solid transparent;background:transparent;cursor:pointer;color:#64748b;font-family:inherit;border-radius:6px 6px 0 0;margin-bottom:-1px;white-space:nowrap;}
-            .sau-tab:hover{color:#1e293b;background:#f1f5f9;}
-            .sau-tab-active{color:#146c2e!important;border-bottom-color:#146c2e!important;background:#f0fdf4!important;}
-            #sau-tab-btn-hal.sau-tab-active{color:#92400e!important;border-bottom-color:#b45309!important;background:#fffbeb!important;}
-            .sau-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;}
-            .sau-kpi .kpi-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
-            .sau-kpi .kpi-val{font-size:26px;font-weight:900;color:#1e293b;letter-spacing:-.03em;}
-            .sau-kpi .kpi-sub{font-size:11px;color:#64748b;margin-top:3px;}
-            .sau-yr-pill{display:inline-block;font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;background:#f1f5f9;color:#64748b;margin-left:4px;vertical-align:middle;}
-            .sau-lit-row{padding:14px 16px;border-radius:8px;margin-bottom:8px;border:1px solid #e2e8f0;background:#fff;}
-            .sau-lit-row.high{border-left:3px solid #f97316;}
-            .sau-lit-row.critical{border-left:3px solid #ef4444;}
-            .sau-lit-row.medium{border-left:3px solid #eab308;}
-            .sau-lit-row.low{border-left:3px solid #22c55e;}
-            .sau-inc-row{padding:14px 16px;border-radius:8px;margin-bottom:8px;border:1px solid #e2e8f0;background:#fff;}
-            .sau-inc-row.high,.sau-inc-row.critical{background:#fef2f2;border-color:#fecaca;}
-            .sau-inc-row.medium{background:#fff7ed;border-color:#fed7aa;}
-            .sau-inc-row.low{background:#f0fdf4;border-color:#bbf7d0;}
-            .sau-risk-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;margin-bottom:6px;font-size:12px;color:#374151;line-height:1.6;}
-            .sau-esg-yr{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin-bottom:16px;}
-            .posture-yr-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:flex-start;gap:16px;}
-            .posture-badge{display:flex;align-items:center;justify-content:center;flex-direction:column;width:80px;height:80px;border-radius:50%;border:3px solid #e2e8f0;flex-shrink:0;font-size:9px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.04em;color:#64748b;}
-            .posture-badge.critical{border-color:#ef4444;background:#fef2f2;color:#ef4444;}
-            .posture-badge.high{border-color:#f97316;background:#fff7ed;color:#f97316;}
-            .posture-badge.medium{border-color:#eab308;background:#fefce8;color:#b45309;}
-            .posture-badge.low{border-color:#22c55e;background:#f0fdf4;color:#166534;}
+            @keyframes spin {
+              to {
+                transform: rotate(360deg)
+              }
+            }
+
+            .sau-tab {
+              padding: 8px 16px;
+              font-size: 12px;
+              font-weight: 600;
+              border: none;
+              border-bottom: 2px solid transparent;
+              background: transparent;
+              cursor: pointer;
+              color: #64748b;
+              font-family: inherit;
+              border-radius: 6px 6px 0 0;
+              margin-bottom: -1px;
+              white-space: nowrap;
+            }
+
+            .sau-tab:hover {
+              color: #1e293b;
+              background: #f1f5f9;
+            }
+
+            .sau-tab-active {
+              color: #146c2e !important;
+              border-bottom-color: #146c2e !important;
+              background: #f0fdf4 !important;
+            }
+
+            .sau-kpi {
+              background: #fff;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+              padding: 18px 20px;
+            }
+
+            .sau-kpi .kpi-label {
+              font-size: 10px;
+              font-weight: 700;
+              color: #94a3b8;
+              text-transform: uppercase;
+              letter-spacing: .08em;
+              margin-bottom: 6px;
+            }
+
+            .sau-kpi .kpi-val {
+              font-size: 26px;
+              font-weight: 900;
+              color: #1e293b;
+              letter-spacing: -.03em;
+            }
+
+            .sau-kpi .kpi-sub {
+              font-size: 11px;
+              color: #64748b;
+              margin-top: 3px;
+            }
+
+            .sau-yr-pill {
+              display: inline-block;
+              font-size: 9px;
+              font-weight: 800;
+              padding: 2px 6px;
+              border-radius: 4px;
+              background: #f1f5f9;
+              color: #64748b;
+              margin-left: 4px;
+              vertical-align: middle;
+            }
+
+            .sau-lit-row {
+              padding: 14px 16px;
+              border-radius: 8px;
+              margin-bottom: 8px;
+              border: 1px solid #e2e8f0;
+              background: #fff;
+            }
+
+            .sau-lit-row.high {
+              border-left: 3px solid #f97316;
+            }
+
+            .sau-lit-row.critical {
+              border-left: 3px solid #ef4444;
+            }
+
+            .sau-lit-row.medium {
+              border-left: 3px solid #eab308;
+            }
+
+            .sau-lit-row.low {
+              border-left: 3px solid #22c55e;
+            }
+
+            .sau-inc-row {
+              padding: 14px 16px;
+              border-radius: 8px;
+              margin-bottom: 8px;
+              border: 1px solid #e2e8f0;
+              background: #fff;
+            }
+
+            .sau-inc-row.high,
+            .sau-inc-row.critical {
+              background: #fef2f2;
+              border-color: #fecaca;
+            }
+
+            .sau-inc-row.medium {
+              background: #fff7ed;
+              border-color: #fed7aa;
+            }
+
+            .sau-inc-row.low {
+              background: #f0fdf4;
+              border-color: #bbf7d0;
+            }
+
+            .sau-risk-item {
+              background: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 8px;
+              padding: 12px 16px;
+              margin-bottom: 6px;
+              font-size: 12px;
+              color: #374151;
+              line-height: 1.6;
+            }
+
+            .sau-esg-yr {
+              background: #fff;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+              padding: 16px 20px;
+              margin-bottom: 16px;
+            }
+
+            .posture-yr-card {
+              background: #fff;
+              border: 1px solid #e2e8f0;
+              border-radius: 10px;
+              padding: 16px 20px;
+              margin-bottom: 12px;
+              display: flex;
+              align-items: flex-start;
+              gap: 16px;
+            }
+
+            .posture-badge {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              border: 3px solid #e2e8f0;
+              flex-shrink: 0;
+              font-size: 9px;
+              font-weight: 800;
+              text-align: center;
+              text-transform: uppercase;
+              letter-spacing: .04em;
+              color: #64748b;
+            }
+
+            .posture-badge.critical {
+              border-color: #ef4444;
+              background: #fef2f2;
+              color: #ef4444;
+            }
+
+            .posture-badge.high {
+              border-color: #f97316;
+              background: #fff7ed;
+              color: #f97316;
+            }
+
+            .posture-badge.medium {
+              border-color: #eab308;
+              background: #fefce8;
+              color: #b45309;
+            }
+
+            .posture-badge.low {
+              border-color: #22c55e;
+              background: #f0fdf4;
+              color: #166534;
+            }
           </style>
 
           <script>
-          (function(){
-            const API = 'http://localhost:3344';
-            let YD = {}; // year -> data
-            let YEARS = [];
-            let sauChart = null;
+            (function () {
+              const API = 'http://localhost:3333';
+              let YD = {}; // year -> data
+              let YEARS = [];
+              let sauChart = null;
 
-            window.sauTab = function(name, btn) {
-              document.querySelectorAll('.sau-tab').forEach(t => t.classList.remove('sau-tab-active'));
-              btn.classList.add('sau-tab-active');
-              ['overview','esg','ops','litigations','incidents','risk','posture','hal','raw'].forEach(t => {
-                const el = document.getElementById('sau-tab-' + t);
-                if (el) el.style.display = t === name ? 'block' : 'none';
-              });
-            };
+              window.sauTab = function (name, btn) {
+                document.querySelectorAll('.sau-tab').forEach(t => t.classList.remove('sau-tab-active'));
+                btn.classList.add('sau-tab-active');
+                ['overview', 'esg', 'ops', 'litigations', 'incidents', 'risk', 'posture', 'raw'].forEach(t => {
+                  const el = document.getElementById('sau-tab-' + t);
+                  if (el) el.style.display = t === name ? 'block' : 'none';
+                });
+              };
 
               // ── Load all years on init ────────────────────────────────────────
               async function init() {
@@ -8316,44 +8667,30 @@
 
                   renderAll();
                 } catch (e) {
-                  document.getElementById('sau-load-label').textContent = '⚠ API offline — run: cd ~/Downloads && node adobe_proxy.js';
+                  document.getElementById('sau-load-label').textContent = '⚠ API offline — Verify server is running on port 3333';
                   document.getElementById('sau-load-label').style.color = '#ef4444';
                   document.querySelector('#sau-load-bar div').style.display = 'none';
                   const badge = document.getElementById('sau-status-badge');
                   if (badge) { badge.textContent = 'API offline'; badge.style.color = '#ef4444'; }
-                  const offlineMsg = `<div style="text-align:center;padding:60px 20px;color:#94a3b8;"><div style="font-size:28px;margin-bottom:12px;">⚠</div><div style="font-size:13px;font-weight:700;color:#ef4444;margin-bottom:6px;">API Offline</div><div style="font-size:12px;">Run: <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;">cd ~/Downloads && node adobe_proxy.js</code></div></div>`;
-                  const reportBody = document.getElementById('sau-report-body');
-                  const reportStatus = document.getElementById('sau-report-status');
-                  if (reportBody) reportBody.innerHTML = offlineMsg;
-                  if (reportStatus) { reportStatus.textContent = 'API offline'; reportStatus.style.color = '#ef4444'; }
-                  const crossBody = document.getElementById('sau-cross-body');
-                  const crossStatus = document.getElementById('sau-cross-status');
-                  if (crossBody) crossBody.innerHTML = offlineMsg;
-                  if (crossStatus) { crossStatus.textContent = 'API offline'; crossStatus.style.color = '#ef4444'; }
-                  const esgBody = document.getElementById('sau-esg-body');
-                  const esgStatus = document.getElementById('sau-esg-status');
-                  if (esgBody) esgBody.innerHTML = offlineMsg;
-                  if (esgStatus) { esgStatus.textContent = 'API offline'; esgStatus.style.color = '#ef4444'; }
                 }
               }
 
-            function renderAll() {
-              renderFinancials();
-              renderESG();
-              renderOps();
-              renderLitigations();
-              renderIncidents();
-              renderRisk();
-              renderPosture();
-              renderRaw();
-              renderHAL();
-              // Expose to sibling sections
-              window._sauYD = YD;
-              window._sauYEARS = YEARS;
-              if (typeof sauRenderReport === 'function') sauRenderReport();
-              if (typeof sauRenderCross === 'function') sauRenderCross();
-              if (typeof sauRenderESG === 'function') sauRenderESG();
-            }
+              function renderAll() {
+                renderFinancials();
+                renderESG();
+                renderOps();
+                renderLitigations();
+                renderIncidents();
+                renderRisk();
+                renderPosture();
+                renderRaw();
+                // Expose to sibling sections
+                window._sauYD = YD;
+                window._sauYEARS = YEARS;
+                if (typeof sauRenderReport === 'function') sauRenderReport();
+                if (typeof sauRenderCross === 'function') sauRenderCross();
+                if (typeof sauRenderESG === 'function') sauRenderESG();
+              }
 
               // ── FINANCIAL ────────────────────────────────────────────────────
               function renderFinancials() {
@@ -8560,20 +8897,6 @@
                 el.innerHTML = html;
               }
 
-              // Domain groupings for color coding
-              const domainColor = {
-                'Climate': '#10b981', 'Terrorism': '#ef4444', 'Cyber': '#8b5cf6',
-                'Environmental': '#10b981', 'Sanctions': '#f59e0b', 'Epidemic': '#06b6d4',
-                'Political': '#f97316', 'Crude Oil': '#eab308', 'Hydrocarbon': '#84cc16',
-                'Operational': '#ef4444', 'Government': '#6366f1', 'Currency': '#14b8a6',
-                'Acquisition': '#ec4899', 'Key Personnel': '#94a3b8', 'Insurance': '#64748b',
-              };
-              const getDomainColor = (text) => {
-                const t = text.toLowerCase();
-                for (const [k, v] of Object.entries(domainColor)) if (t.includes(k.toLowerCase())) return v;
-                return '#60a5fa';
-              };
-
               // ── RISK FACTORS ─────────────────────────────────────────────────
               function renderRisk() {
                 // Group by category name across years
@@ -8616,29 +8939,29 @@
                   }).join('');
                 };
 
-              let html = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden;margin-bottom:16px;">
-                <div style="background:#0f172a;padding:8px 14px;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.08em;">Risk Category</div>
-                <div style="background:#0f172a;padding:8px 14px;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:6px;">
+                let html = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden;margin-bottom:16px;">
+                <div style="background:#0f172a;padding:8px 14px;font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.08em;">Risk Category</div>
+                <div style="background:#0f172a;padding:8px 14px;font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:6px;">
                   Persistence
-                  <span style="font-weight:400;color:#475569;">${YEARS.map(y=>`<span style="font-size:9px;margin:0 2px;">${y}</span>`).join('')}</span>
+                  <span style="font-weight:400;color:#334155;">${YEARS.map(y => `<span style="font-size:9px;margin:0 2px;">${y}</span>`).join('')}</span>
                   <span style="margin-left:auto;">Source</span>
                 </div>`;
 
-              cats.forEach((cat, i) => {
-                const color = getDomainColor(cat.text);
-                const allYrs = cat.years.length === YEARS.length;
-                const desc = cat.description ? cat.description.replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';
+                cats.forEach((cat, i) => {
+                  const color = getDomainColor(cat.text);
+                  const allYrs = cat.years.length === YEARS.length;
+                  const desc = cat.description ? cat.description.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
 
-                // Latest source link (most recent year this appeared)
-                const latestYear = [...cat.years].sort().reverse()[0];
-                const latestSrc = cat.sources[latestYear];
-                const srcLinks = cat.years.sort().map(y => {
-                  const src = cat.sources[y];
-                  if (!src) return '';
-                  const url = `http://localhost:3344/api/aramco/${y}/source/${encodeURIComponent(src.file)}`;
-                  return `<a href="${url}" target="_blank" rel="noopener"
-                    style="font-size:9px;font-weight:700;color:#94a3b8;text-decoration:none;
-                           background:rgba(148,163,184,.1);border-radius:3px;padding:1px 5px;
+                  // Latest source link (most recent year this appeared)
+                  const latestYear = [...cat.years].sort().reverse()[0];
+                  const latestSrc = cat.sources[latestYear];
+                  const srcLinks = cat.years.sort().map(y => {
+                    const src = cat.sources[y];
+                    if (!src) return '';
+                    const url = `http://localhost:3333/api/aramco/${y}/source/${encodeURIComponent(src.file)}`;
+                    return `<a href="${url}" target="_blank" rel="noopener"
+                    style="font-size:9px;font-weight:700;color:#60a5fa;text-decoration:none;
+                           background:rgba(96,165,250,.1);border-radius:3px;padding:1px 5px;
                            white-space:nowrap;margin:1px;" title="${src.label}">${y}</a>`;
                   }).join('');
 
@@ -8657,8 +8980,8 @@
                 });
                 html += '</div>';
 
-              el.innerHTML = `<div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">${cats.length} risk categories · ${cats.filter(c=>c.years.length===YEARS.length).length} persistent across all ${YEARS.length} years</div>` + html;
-            }
+                el.innerHTML = `<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">${cats.length} risk categories · ${cats.filter(c => c.years.length === YEARS.length).length} persistent across all ${YEARS.length} years</div>` + html;
+              }
 
               // ── COMPLIANCE POSTURE ────────────────────────────────────────────
               function renderPosture() {
@@ -8721,77 +9044,8 @@
                   </div>`).join('');
               }
 
-            // ── Contractor EXPOSURE ─────────────────────────────────────────────────
-            function renderHAL() {
-              const REVENUE = [
-                {year:2014,me:5100,ksa:1887,note:'10-K 2014'},{year:2015,me:4200,ksa:1554,note:'10-K 2015'},
-                {year:2016,me:3100,ksa:1147,note:'10-K 2016'},{year:2017,me:3400,ksa:1258,note:'10-K 2017'},
-                {year:2018,me:4000,ksa:1480,note:'10-K 2018'},{year:2019,me:4200,ksa:1554,note:'10-K 2019'},
-                {year:2020,me:3500,ksa:1295,note:'10-K 2020'},{year:2021,me:3900,ksa:1443,note:'10-K 2021'},
-                {year:2022,me:5100,ksa:1887,note:'10-K 2022'},{year:2023,me:5800,ksa:2146,note:'10-K 2023'},
-                {year:2024,me:6000,ksa:2220,note:'10-K 2024 (est)'},
-              ];
-              const EVENTS = [
-                {date:'2019-09-14',field:'Abqaiq / Khurais',type:'Infrastructure attack — production disruption',role:'Active service contractor at affected facilities',severity:'major',verified:true,
-                 source:'US EIA · Saudi Aramco press release 2019-09-14 · Contractor 10-K 2019 risk disclosure',
-                 desc:'Attack on Abqaiq & Khurais halted ~5.7M bpd. Contractor had active well services contracts at both facilities. Disclosed as material risk in Contractor 2019 10-K.'},
-                {date:'2020-06-01',field:'Multiple (Aramco IK Program)',type:'Contractor HSE — aggregate statistics',role:'Major drilling & completion contractor',severity:'aggregate',verified:true,
-                 source:'Aramco 2020 Sustainability Report — Contractor HSE Statistics',
-                 desc:'Aramco contractor TRIR: 0.24 per 200,000 hrs. Contractor is top-5 contractor by manhours on Aramco assets. Specific Contractor incidents not itemised — reported under contractor pool.'},
-              ];
-              const SC = {major:'#ef4444',high:'#ef4444',critical:'#ef4444',minor:'#f97316','near-miss':'#eab308',aggregate:'#0369a1',low:'#22c55e'};
-              const SB = {major:'#fef2f2',high:'#fef2f2',critical:'#fef2f2',minor:'#fff7ed','near-miss':'#fefce8',aggregate:'#eff6ff',low:'#f0fdf4'};
-
-              // Revenue table
-              const rt = document.getElementById('sau-hal-revenue-table');
-              if (rt) rt.innerHTML = REVENUE.map((r,i)=>
-                `<tr style="border-bottom:1px solid #f1f5f9;${i%2===0?'background:#f8fafc;':''}">
-                  <td style="padding:8px 10px;font-weight:700;">${r.year}</td>
-                  <td style="padding:8px 10px;text-align:right;">$${r.me.toLocaleString()}M</td>
-                  <td style="padding:8px 10px;text-align:right;font-weight:600;color:#b45309;">~$${r.ksa.toLocaleString()}M</td>
-                  <td style="padding:8px 10px;font-size:11px;color:#64748b;">${r.note}</td>
-                </tr>`).join('');
-
-              // Events
-              const ev = document.getElementById('sau-hal-events');
-              if (ev) ev.innerHTML = EVENTS.map(e=>{
-                const c=SC[e.severity]||'#94a3b8', b=SB[e.severity]||'#f8fafc';
-                const vl=e.verified
-                  ?'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#dcfce7;color:#166534;">✓ VERIFIED</span>'
-                  :'<span style="font-size:9px;font-weight:800;padding:2px 7px;border-radius:4px;background:#fef3c7;color:#92400e;">~ VERIFIED</span>';
-                return `<div style="background:${b};border:1px solid #e2e8f0;border-left:3px solid ${c};border-radius:8px;padding:14px 16px;margin-bottom:10px;">
-                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-                    <span style="font-size:13px;font-weight:700;color:#1e293b;">${e.type}</span>
-                    ${vl}
-                    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${c}22;color:${c};">${e.severity.toUpperCase()}</span>
-                    <span style="font-size:11px;color:#64748b;margin-left:auto;">${e.date}</span>
-                  </div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
-                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Field:</strong> ${e.field}</div>
-                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Contractor Role:</strong> ${e.role}</div>
-                  </div>
-                  <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">${e.desc}</div>
-                  <div style="font-size:11px;color:#94a3b8;">Source: ${e.source}</div>
-                </div>`;
-              }).join('');
-
-              // Revenue chart
-              const rc = document.getElementById('sau-hal-revenue-chart');
-              if (rc && typeof Chart !== 'undefined') {
-                new Chart(rc.getContext('2d'), {
-                  type:'bar',
-                  data:{ labels:REVENUE.map(r=>r.year), datasets:[
-                    {label:'ME/Asia Revenue ($M)',data:REVENUE.map(r=>r.me),backgroundColor:'rgba(180,83,9,0.35)',borderRadius:3},
-                    {label:'KSA Est. ($M)',        data:REVENUE.map(r=>r.ksa),backgroundColor:'rgba(220,38,38,0.75)',borderRadius:3},
-                  ]},
-                  options:{responsive:true,plugins:{legend:{position:'top',labels:{font:{family:'Inter',size:11},boxWidth:12}}},scales:{y:{grid:{color:'#f1f5f9'},ticks:{font:{family:'Inter',size:10},callback:v=>'$'+v.toLocaleString()+'M'}},x:{grid:{display:false},ticks:{font:{family:'Inter',size:10}}}}}
-                });
-              }
-
-            }
-
-            init();
-          })();
+              init();
+            })();
           </script>
 
         </section><!-- /section-saudi-registry -->
@@ -9366,58 +9620,17 @@
               </div>
             </div>
 
-            <!-- Year trend + incident types -->
-            <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;margin-bottom:24px;">
-              <div class="panel cs-panel" style="padding:20px;">
+              <!-- Right: Penalty Tranche Distribution -->
+              <div class="panel cs-panel" style="padding:24px;">
                 <div
-                  style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">
-                  Annual Incident Volume — All Operators (ANP SGIP)</div>
-                <canvas id="anp-year-chart" height="90"></canvas>
-              </div>
-              <div class="panel cs-panel" style="padding:20px;">
-                <div
-                  style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">
-                  Top Incident Types</div>
-                <div style="font-size:12px;">
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Parada emergencial menor</span><span
-                      style="font-weight:700;color:#1e293b;">5,660</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Quase acidente alto potencial</span><span
-                      style="font-weight:700;color:#1e293b;">2,478</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Queda de objetos</span><span
-                      style="font-weight:700;color:#1e293b;">2,371</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">ESD (Emergency Shutdown)</span><span
-                      style="font-weight:700;color:#1e293b;">1,945</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Princípio de incêndio</span><span
-                      style="font-weight:700;color:#1e293b;">1,299</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Falha CSB</span><span
-                      style="font-weight:700;color:#b45309;">1,233</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Falha BOP</span><span
-                      style="font-weight:700;color:#7c3aed;">1,215</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Descarga menor de óleo</span><span
-                      style="font-weight:700;color:#1e293b;">1,037</span></div>
-                  <div
-                    style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                    <span style="color:#374151;">Perda contenção primária (óleo)</span><span
-                      style="font-weight:700;color:#dc2626;">887</span></div>
-                  <div style="display:flex;justify-content:space-between;padding:6px 0;"><span
-                      style="color:#374151;">Ferimento grave</span><span
-                      style="font-weight:700;color:#f97316;">687</span></div>
+                  style="font-size:14px; font-weight:800; color:var(--text); margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+                  <span>PENALTY TRANCHES (BY MAGNITUDE)</span>
+                  <span
+                    style="font-size:11px; background:#f1f5f9; color:#64748b; padding:4px 8px; border-radius:4px;">ANP
+                    RESOLUTION No. 46</span>
+                </div>
+                <div style="height:250px;">
+                  <canvas id="penaltyChunksChart"></canvas>
                 </div>
               </div>
             </div>

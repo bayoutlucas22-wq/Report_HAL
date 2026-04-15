@@ -857,18 +857,11 @@ function switchSection(section, skipHistory = false) {
     }
   }
 
-  // Toggle global lock-mode for restricted sections
+  // Ensure all sections are unlocked
+  document.body.classList.remove('lock-mode');
   const globalOverlay = document.getElementById('globalLockOverlay');
-  if (section === 'fullreport' || section === 'latam-summary') {
-    document.body.classList.add('lock-mode');
-    if (globalOverlay) {
-      globalOverlay.style.setProperty('display', 'flex', 'important');
-    }
-  } else {
-    document.body.classList.remove('lock-mode');
-    if (globalOverlay) {
-      globalOverlay.style.display = 'none';
-    }
+  if (globalOverlay) {
+    globalOverlay.style.display = 'none';
   }
 
   if (section === 'first-report') {
@@ -2968,7 +2961,7 @@ async function loadMexicoCompactData() {
     if (countEl) countEl.innerHTML = `${MEXICO_COMPACT_POZOS.length.toLocaleString()} records`;
     
     // Render first page
-    if (typeof renderMexicoRegistry === 'function') renderMexicoRegistry(MEXICO_COMPACT_POZOS);
+    renderMexicoRegistry(MEXICO_COMPACT_POZOS);
   } catch (e) {
     console.warn("Mexico Compact Data Load fail:", e);
   }
