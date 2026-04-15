@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: hal-tejas-app
+    container_name: cortex-hub
     ports:
       - "3333:3333"
     restart: unless-stopped
@@ -19,7 +19,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
     healthcheck:
       test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
       interval: 5s
@@ -27,4 +27,4 @@ services:
       retries: 10
 
 volumes:
-  mongo-data:
+  mongo_data:
