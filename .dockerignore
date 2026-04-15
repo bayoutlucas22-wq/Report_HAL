@@ -10,6 +10,9 @@ node_modules
 # Ignore heavy PDFs / binary documents
 api/docs/**/*.pdf
 docs/**/*.pdf
+# Heavy source docs
+api/docs/*
+!api/docs/aramco/text/
 
 # Ignore mongo binary dump
 api/data/processed/mongo/
