@@ -6,7 +6,7 @@
 
 ## Overview
 
-This system system aggregates oil & gas operational data across **4 countries**: Brazil, Norway, Mexico, and Argentina. Each country is tracked through a different data lens — incidents, wellbore registries, well performance metrics, and procurement contracts — reflecting both the available data infrastructure in each region and their maturity as petroleum operators.
+The HAL Tejas system aggregates oil & gas operational data across **4 countries**: Brazil, Norway, Mexico, and Argentina. Each country is tracked through a different data lens — incidents, wellbore registries, well performance metrics, and procurement contracts — reflecting both the available data infrastructure in each region and their maturity as petroleum operators.
 
 ---
 
