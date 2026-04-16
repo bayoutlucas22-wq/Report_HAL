@@ -1,4 +1,4 @@
-/* ── app.js — Contractor ANP Incident Dashboard ── */
+/* ── app.js — Halliburton ANP Incident Dashboard ── */
 'use strict';
 
 // ── Official source URLs ─────────────────────────────────────────────────────
@@ -1326,7 +1326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadNorwayRealData();
 });
 
-// ── Contractor Argentina Study ────────────────────────────────────────────────────
+// ── Halliburton Argentina Study ────────────────────────────────────────────────────
 
 const ARG_TREND = [
   { year: 2015, jobs: 344, stages: 1933, psi: 8310, hp: 17935, lateral: 176, unconv: 78.8, neuquina: 82.6 },
@@ -1380,7 +1380,7 @@ const ARG_REGULATIONS = [
   { reg: "Ley 24.051 — Residuos Peligrosos", scope: "Hazardous waste management: drilling fluids, produced water, chemical additives — generator registration required", domains: "Domains 1 & 2", br: "CONAMA Res. 430/2011", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=450" },
   { reg: "Ley 25.675 — Ley General del Ambiente", scope: "Environmental liability for all E&P service operations; minimum standards for sustainable management", domains: "All 4 domains", br: "Lei 9.605/1998", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=79980" },
   { reg: "Res. SRT 559/2009 — Seguridad en Perforación", scope: "OHS for drilling, completion, and workover personnel; high-accident-rate enterprise rehabilitation program", domains: "All 4 domains", br: "NR-37 (MTE)", link: "https://www.argentina.gob.ar/srt" },
-  { reg: "Ley Neuquén 899 — Código de Aguas", scope: "Water use rights and produced water disposal in Neuquina basin; governs Contractor frac fluid sourcing and disposal", domains: "Domain 1 — water sourcing", br: "N/A (offshore in Brazil)", link: "https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
+  { reg: "Ley Neuquén 899 — Código de Aguas", scope: "Water use rights and produced water disposal in Neuquina basin; governs Halliburton frac fluid sourcing and disposal", domains: "Domain 1 — water sourcing", br: "N/A (offshore in Brazil)", link: "https://www.argentina.gob.ar/sites/default/files/agua-neuquen.pdf" },
   { reg: "Decreto Neuquén 1483/2012 — No Convencional", scope: "Neuquén provincial norms and procedures for unconventional reservoir exploration and exploitation (Vaca Muerta)", domains: "Domain 1 — Fracking", br: "N/A", link: "https://boficial.neuquen.gov.ar/" },
   { reg: "Ley 17.319/1967 — Ley de Hidrocarburos", scope: "Foundational hydrocarbon law: state ownership of deposits, licensing, service company obligations for all E&P", domains: "All domains", br: "Lei 9.478/1997 (Petróleo)", link: "https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=16078" },
 ];
@@ -1455,7 +1455,7 @@ function renderArgentinaTables() {
   }
 }
 
-// ── Contractor Mexico Study ────────────────────────────────────────────────────
+// ── Halliburton Mexico Study ────────────────────────────────────────────────────
 
 const MEX_TREND = [
   { year: 2015, jobs: 108, stages: 3100, psi: 10830, hp: 29509, lateral: 2083, offshore: 58.3, burgos: 18.5 },
@@ -1505,13 +1505,13 @@ const MEX_KPI_SOURCE = 'CNH SIH Perforación · sih.hidrocarburos.gob.mx · Esti
 
 const MEX_REGULATIONS = [
   { reg:"Lineamientos de Perforación y Abandono de Pozos (CNH)",   scope:"Well integrity, barrier elements, BOP requirements for all drilling and well operations in Mexico. Primary equivalent to NORSOK D-010.", domains:"Domains 2 & 3",  br:"ANP Res. 46/2016 SGIP", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5407590&fecha=22/01/2016" },
-  { reg:"Reglamento de la Ley de Hidrocarburos (DOF)",             scope:"Comprehensive E&P operational regulation under Ley de Hidrocarburos. Governs Contractor's contractor obligations across all service categories.", domains:"All domains",   br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5414569&fecha=31/10/2014" },
+  { reg:"Reglamento de la Ley de Hidrocarburos (DOF)",             scope:"Comprehensive E&P operational regulation under Ley de Hidrocarburos. Governs Halliburton's contractor obligations across all service categories.", domains:"All domains",   br:"ANP Res. 43/2007 SGSO", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5414569&fecha=31/10/2014" },
   { reg:"NOM-115-SEMARNAT-2003",                                   scope:"Environmental protection in oil/gas activities — waste management, produced water, chemical disposal for frac operations.", domains:"Domains 1 & 2",            br:"CONAMA Res. 430/2011",  link:"https://www.dof.gob.mx/" },
   { reg:"Lineamientos de Medición de Hidrocarburos (CNH)",         scope:"Metering and production accounting requirements — applies to completion and production tool deployments (DHSV, gauges).", domains:"Domain 4",                  br:"ANP Res. 874/2022",     link:"https://www.gob.mx/cnh" },
-  { reg:"NOM-138-SEMARNAT/SS-2003",                                scope:"Hydrocarbon contamination limits in soil and subsoil — governs Contractor fluid spill response and frac fluid containment obligations.", domains:"Domains 1 & 2",      br:"CONAMA Res. 357/2005",  link:"https://www.dof.gob.mx/" },
-  { reg:"ASEA — Gestión de Integridad de Ductos (DOF 2016)",       scope:"Pipeline and surface line integrity under ASEA (Agencia de Seguridad, Energía y Ambiente) — affects wellhead and surface Contractor equipment.", domains:"Domain 4",    br:"ANP Res. 46/2016",      link:"https://www.gob.mx/asea" },
-  { reg:"Ley de Hidrocarburos Art. 40–43 (DOF 2014)",              scope:"Contractor accountability for safety incidents, liability chain from operator to service company (Contractor). Equivalent to ANP's direct attribution framework.", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5361701&fecha=11/08/2014" },
-  { reg:"NOM-001-SESH-2010 (SENER)",                               scope:"Technical safety standards for hydrocarbon installations — applies to Contractor's surface pressure equipment and cementing units.", domains:"Domains 1–3",            br:"NR-37 (MTE offshore)",  link:"https://www.dof.gob.mx/" },
+  { reg:"NOM-138-SEMARNAT/SS-2003",                                scope:"Hydrocarbon contamination limits in soil and subsoil — governs Halliburton fluid spill response and frac fluid containment obligations.", domains:"Domains 1 & 2",      br:"CONAMA Res. 357/2005",  link:"https://www.dof.gob.mx/" },
+  { reg:"ASEA — Gestión de Integridad de Ductos (DOF 2016)",       scope:"Pipeline and surface line integrity under ASEA (Agencia de Seguridad, Energía y Ambiente) — affects wellhead and surface Halliburton equipment.", domains:"Domain 4",    br:"ANP Res. 46/2016",      link:"https://www.gob.mx/asea" },
+  { reg:"Ley de Hidrocarburos Art. 40–43 (DOF 2014)",              scope:"Halliburton accountability for safety incidents, liability chain from operator to service company (Halliburton). Equivalent to ANP's direct attribution framework.", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://www.dof.gob.mx/nota_detalle.php?codigo=5361701&fecha=11/08/2014" },
+  { reg:"NOM-001-SESH-2010 (SENER)",                               scope:"Technical safety standards for hydrocarbon installations — applies to Halliburton's surface pressure equipment and cementing units.", domains:"Domains 1–3",            br:"NR-37 (MTE offshore)",  link:"https://www.dof.gob.mx/" },
 ];
 
 function renderMexicoTables() {
@@ -1574,11 +1574,11 @@ function renderMexicoTables() {
   }
 }
 
-// ── Contractor Norway Study ────────────────────────────────────────────────────────
+// ── Halliburton Norway Study ────────────────────────────────────────────────────────
 // Sources:
 //   Incidents  → api/data/norway_incidents.csv (2,399 records, 2013–2026)
 //                Aggregated from NCS SSO reporting under RNNP/Havtil framework
-//   Operators  → api/data/norway_contracts.csv (64 contracts, Contractor AS / Equinor / Aker BP…)
+//   Operators  → api/data/norway_contracts.csv (64 contracts, Halliburton AS / Equinor / Aker BP…)
 //   Fields     → evento column of norway_incidents.csv ("NCS-<field>" pattern)
 //   Regulations→ Lovdata.no · Havtil.no/rnnp · Standard.no · Sodir.no
 
@@ -1637,8 +1637,8 @@ async function loadNorwayRealData() {
 
 // Norwegian regulatory framework — cross-referenced to Brazil equivalents
 const NOR_REGULATIONS = [
-  { reg:"Aktivitetsforskriften (Activity Regulations)", authority:"Havtil / PSA Norway", scope:"Well barrier requirements, drilling and well operations on NCS — Chapters 7–9 govern well integrity directly", domains:"All Contractor service lines", br:"ANP Res. 46/2016 (SGIP) + ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" },
-  { reg:"Styringsforskriften (Management Regulations)", authority:"Havtil / PSA Norway", scope:"Risk management, barrier management systems, safety critical elements — applies to all contractors including service companies", domains:"All Contractor service lines", br:"ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-611" },
+  { reg:"Aktivitetsforskriften (Activity Regulations)", authority:"Havtil / PSA Norway", scope:"Well barrier requirements, drilling and well operations on NCS — Chapters 7–9 govern well integrity directly", domains:"All Halliburton service lines", br:"ANP Res. 46/2016 (SGIP) + ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" },
+  { reg:"Styringsforskriften (Management Regulations)", authority:"Havtil / PSA Norway", scope:"Risk management, barrier management systems, safety critical elements — applies to all contractors including service companies", domains:"All Halliburton service lines", br:"ANP Res. 43/2007 (SGSO)", link:"https://lovdata.no/dokument/SF/forskrift/2010-04-29-611" },
   { reg:"NORSOK D-010 rev.5 (Well Integrity)", authority:"Standard Norge", scope:"Well barrier elements, barrier envelopes, acceptance criteria — primary technical standard for NCS well integrity", domains:"Cementing · Completion · MPD · Well Control", br:"ANP Res. 46/2016 (SGIP) — equivalent scope", link:"https://www.standard.no/en/sectors/energi-og-klima/petroleum/norsok-standard-categories/d-drilling/d-0102/" },
   { reg:"NORSOK D-001 rev.3 (Drilling Fluid Design)", authority:"Standard Norge", scope:"Drilling fluid and completion fluid design, hydrostatic barrier requirements", domains:"Drilling Fluids / Baroid", br:"ANP Res. 43/2007 — SGSO operational safety", link:"https://www.standard.no/en/sectors/energi-og-klima/petroleum/norsok-standard-categories/d-drilling/d-0012/" },
   { reg:"Petroleumsloven (Petroleum Act, Lov 1996-11-29-72)", authority:"Ministry of Energy (OED)", scope:"State ownership of NCS deposits, licensing, liability chain for operators and service contractors", domains:"All domains", br:"Lei 9.478/1997 (Lei do Petróleo)", link:"https://lovdata.no/dokument/NL/lov/1996-11-29-72" },
@@ -1648,13 +1648,13 @@ const NOR_REGULATIONS = [
 ];
 
 const NOR_HAL_OVERLAP = [
-  { rnnpCategory:"Cement/casing barrier defect", norsokElement:"Primary well barrier — cement plug / casing shoe", halService:"Contractor Cementing Services (NCS)", exposure:"HIGH" },
-  { rnnpCategory:"Completion barrier failure (DHSV)", norsokElement:"Secondary barrier — DHSV / production tubing", halService:"Contractor Completion Tools", exposure:"HIGH" },
-  { rnnpCategory:"Drilling fluid loss / kick", norsokElement:"Primary barrier — hydrostatic pressure column", halService:"Baroid Drilling Fluids (Contractor)", exposure:"HIGH" },
-  { rnnpCategory:"BOP / annular preventer defect", norsokElement:"Well control barrier", halService:"Pressure Control / MPD (Contractor)", exposure:"MODERATE" },
-  { rnnpCategory:"MWD/LWD sensor barrier gap", norsokElement:"Monitoring / detection", halService:"Sperry Drilling (Contractor)", exposure:"LOW" },
-  { rnnpCategory:"Accidental HC release ≥0.1 kg/s", norsokElement:"Process / riser barrier", halService:"Completion / Well Services (Contractor)", exposure:"MODERATE" },
-  { rnnpCategory:"Structural fatigue / damage", norsokElement:"Structural barrier element", halService:"Contractor Engineering Services", exposure:"LOW" },
+  { rnnpCategory:"Cement/casing barrier defect", norsokElement:"Primary well barrier — cement plug / casing shoe", halService:"Halliburton Cementing Services (NCS)", exposure:"HIGH" },
+  { rnnpCategory:"Completion barrier failure (DHSV)", norsokElement:"Secondary barrier — DHSV / production tubing", halService:"Halliburton Completion Tools", exposure:"HIGH" },
+  { rnnpCategory:"Drilling fluid loss / kick", norsokElement:"Primary barrier — hydrostatic pressure column", halService:"Baroid Drilling Fluids (Halliburton)", exposure:"HIGH" },
+  { rnnpCategory:"BOP / annular preventer defect", norsokElement:"Well control barrier", halService:"Pressure Control / MPD (Halliburton)", exposure:"MODERATE" },
+  { rnnpCategory:"MWD/LWD sensor barrier gap", norsokElement:"Monitoring / detection", halService:"Sperry Drilling (Halliburton)", exposure:"LOW" },
+  { rnnpCategory:"Accidental HC release ≥0.1 kg/s", norsokElement:"Process / riser barrier", halService:"Completion / Well Services (Halliburton)", exposure:"MODERATE" },
+  { rnnpCategory:"Structural fatigue / damage", norsokElement:"Structural barrier element", halService:"Halliburton Engineering Services", exposure:"LOW" },
 ];
 function renderNorwayTables() {
   console.log('NOR: renderNorwayTables called, NOR_TREND rows:', NOR_TREND.length);
@@ -1741,7 +1741,7 @@ function renderNorwayTables() {
     </tr>`).join('');
   }
 
-  // Contractor overlap table
+  // Halliburton overlap table
   const overlapBody = document.getElementById('norOverlapBody');
   if (overlapBody) {
     overlapBody.innerHTML = NOR_HAL_OVERLAP.map(r => {
@@ -2559,7 +2559,7 @@ function renderNorwayTemporalOverlapChart() {
   // RNNP total defects index
   const defects = [420, 440, 415, 455, 430, 445, 420, 455, 410, 395, 385, 20];
   
-  // Contract activity bands (1 = active) for Contractor Norway
+  // Contract activity bands (1 = active) for Halliburton Norway
   const cementing   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   const completion  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   const mpd         = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1];
@@ -2920,7 +2920,7 @@ function renderNorwayCrossTable() {
     const reg = regs[i % regs.length];
     const regName = (reg && reg.reg) ? reg.reg.split('(')[0] : 'Regulation Pending';
     const link = (reg && reg.link) ? reg.link : '#';
-    const service = (NOR_HAL_OVERLAP[i % NOR_HAL_OVERLAP.length] || {}).halService || 'Contractor Service Line';
+    const service = (NOR_HAL_OVERLAP[i % NOR_HAL_OVERLAP.length] || {}).halService || 'Halliburton Service Line';
     
     return `
       <tr>

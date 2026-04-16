@@ -50,4 +50,5 @@ docker-compose run --rm app node ingest_to_mongo.js
 
 echo "✅ Deployment Complete!"
 echo "🌐 Access your dashboard at http://YOUR_VPS_IP:3333"
+echo "   (or configure a reverse proxy for port 80/443)"
 echo "📜 To view live logs, run: docker-compose logs -f"
