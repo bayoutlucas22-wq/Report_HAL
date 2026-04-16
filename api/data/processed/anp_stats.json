@@ -162,6 +162,18 @@
       "Fire/Explosion": 104,
       "Leak/Spill": 75,
       "Other": 1597
+    },
+    {
+      "year": "2026",
+      "count": 2264,
+      "CSB Failure": 520,
+      "Kick (Primary Barrier)": 97,
+      "Structural Failure": 43,
+      "Loss of Well Control": 26,
+      "BOP Failure": 10,
+      "Fire/Explosion": 132,
+      "Leak/Spill": 269,
+      "Other": 1167
     }
   ],
   "halYearSeries": [
@@ -319,6 +331,18 @@
       "BOP Failure": 138,
       "Fire/Explosion": 104,
       "Leak/Spill": 75,
+      "Other": 0
+    },
+    {
+      "year": "2026",
+      "count": 1097,
+      "CSB Failure": 520,
+      "Kick (Primary Barrier)": 97,
+      "Structural Failure": 43,
+      "Loss of Well Control": 26,
+      "BOP Failure": 10,
+      "Fire/Explosion": 132,
+      "Leak/Spill": 269,
       "Other": 0
     }
   ],
