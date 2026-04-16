@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSB Failure Intelligence Dashboard</title>
+  <title>CORTEX Contract & Bid Intelligence</title>
   <meta name="description"
-    content="CSB failure analytics: Halliburton casing shoe barrier failure mapping across ANP incident records (2013–2025).">
+    content="Commercial analytics: Contract award mapping and bid opportunity tracking across major regional operators (2013–2025).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -50,7 +50,7 @@
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loader-inner">
       <div class="spinner"></div>
-      <p>Loading Halliburton incident database…</p>
+      <p>Loading CORTEX financial database…</p>
     </div>
   </div>
 
@@ -76,7 +76,7 @@
             <rect x="14" y="14" width="7" height="7" />
             <rect x="3" y="14" width="7" height="7" />
           </svg>
-          BRZ Audit Dashboard
+          Contract Award Dashboard
         </a>
         <a href="#" class="nav-link" data-section="brazil-registry" id="nav-registry">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -85,14 +85,14 @@
             <line x1="16" y1="13" x2="8" y2="13"></line>
             <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
-          BRZ Incident Registry
+          BRZ Bidding Registry
         </a>
         <a href="#" class="nav-link" data-section="crossanalysis" id="nav-crossanalysis">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
             <line x1="21" y1="3" x2="3" y2="21" />
           </svg>
-          BRZ Cross-Analysis
+          Commercial Analysis
         </a>
         <a href="#" class="nav-link" data-section="wells" id="nav-wells">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -755,17 +755,6 @@
                     <td>
                       <div class="cs-bar-cell">
                         <div class="cs-bar" style="width:16.0%"></div><strong>16.0%</strong>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="cs-row-highlight">
-                    <td style="font-weight:800;font-size:12px;">2026*</td>
-                    <td>REF-872</td>
-                    <td><strong>636</strong></td>
-                    <td>2,519</td>
-                    <td>
-                      <div class="cs-bar-cell">
-                        <div class="cs-bar" style="width:25.2%"></div><strong>25.2%</strong>
                       </div>
                     </td>
                   </tr>
@@ -9664,8 +9653,8 @@
         <!-- ── SAU REPORT INTELLIGENCE ── -->
         <section id="section-saudi-report" class="dash-section">
 
-          <!-- Report Header — same structure as Brazil section -->
-          <div class="cs-header">
+          <!-- Report Header -->
+          <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
             <div class="cs-header-left">
               <div class="cs-badge">HAL · KSA · ARAMCO FILINGS FY 2020&ndash;2025</div>
               <h2>Halliburton &mdash; KSA Operator Compliance Intelligence</h2>
@@ -9960,6 +9949,54 @@
             </div>
           </div>
 
+            function renderComplianceTab(YD, YEARS) {
+               // Merge litigations and incidents across all years
+               const lits = [];
+               const incs = [];
+               const risks = [];
+               YEARS.forEach(y => {
+                 (YD[y]?.key_litigations || []).forEach(l => lits.push({...l, fy: y}));
+                 (YD[y]?.operational_incidents || []).forEach(i => incs.push({...i, fy: y}));
+               });
+
+               return `
+                 <div class="sau-trend-card">
+                   <div style="font-size:14px; font-weight:700; color:#1e293b; margin-bottom:16px;">Consolidated Compliance Intelligence</div>
+                   <div style="display:flex; gap:12px; margin-bottom:24px;">
+                     <div style="flex:1; padding:15px; background:#fef2f2; border-radius:10px;">
+                        <div style="font-size:10px; font-weight:800; color:#991b1b; margin-bottom:4px; text-transform:uppercase;">Identified Litigations</div>
+                        <div style="font-size:24px; font-weight:900; color:#991b1b;">${lits.length}</div>
+                     </div>
+                     <div style="flex:1; padding:15px; background:#fff7ed; border-radius:10px;">
+                        <div style="font-size:10px; font-weight:800; color:#9a3412; margin-bottom:4px; text-transform:uppercase;">Operational Incidents</div>
+                        <div style="font-size:24px; font-weight:900; color:#9a3412;">${incs.length}</div>
+                     </div>
+                   </div>
+
+                   <div style="font-size:12px; font-weight:700; color:#64748b; margin-bottom:12px;">Recent Incident Context</div>
+                   ${incs.slice(0,5).map(i => `
+                     <div style="margin-bottom:12px; padding:12px; border-left:3px solid #f97316; background:#fffaf0; border-radius:0 6px 6px 0;">
+                       <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                         <strong style="color:#1e293b;">${i.type}</strong>
+                         <span style="font-size:10px; font-weight:800; color:#94a3b8;">FY ${i.fy}</span>
+                       </div>
+                       <div style="font-size:12px; color:#475569;">${i.description}</div>
+                     </div>
+                   `).join('')}
+
+                   ${lits.length > 0 ? `
+                     <div style="font-size:12px; font-weight:700; color:#64748b; margin:24px 0 12px;">Material Litigations</div>
+                     ${lits.slice(0,3).map(l => `
+                        <div style="margin-bottom:10px; padding:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; font-size:12px;">
+                          <strong>${l.case}</strong> <span style="font-size:10px; color:#94a3b8;">(FY ${l.fy})</span>
+                          <p style="margin:5px 0 0; color:#64748b;">${l.description || 'Reference case in AR.'}</p>
+                        </div>
+                     `).join('')}
+                   ` : ''}
+                 </div>
+               `;
+            }
+          </script>
         </section><!-- /section-saudi-report -->
 
         <!-- ── SAU CROSS-ANALYSIS ── -->

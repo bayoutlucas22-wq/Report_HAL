@@ -73,3 +73,14 @@ shell:
 .PHONY: clean
 clean:
 	$(DOCKER_COMPOSE) down --rmi all --volumes --remove-orphans
+
+# Remote VPS Targets
+.PHONY: deploy remote-logs
+deploy:
+	@if [ -z "$(TARGET)" ]; then echo "❌ Error: TARGET is required. Usage: make deploy TARGET=user@123.45.67.89 [KEY=path/to/key]"; exit 1; fi
+	chmod +x deploy/*.sh
+	npm run deploy -- $(TARGET) $(KEY)
+
+remote-logs:
+	@if [ -z "$(TARGET)" ]; then echo "❌ Error: TARGET is required. Usage: make remote-logs TARGET=user@123.45.67.89 [KEY=path/to/key]"; exit 1; fi
+	ssh $(if $(KEY),-i $(KEY)) $(TARGET) "cd ~/cortex-hub && docker compose -f deploy/docker-compose.prod.yml logs -f"
