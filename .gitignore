@@ -37,3 +37,4 @@ api/output/
 # Allow report artifacts if specific
 !docs/reports/*.docx
 api/data/POZOS_COMPILADO.csv
+api/data/POZOS_COMPILADO.csv
