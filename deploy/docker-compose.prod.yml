@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: cortex-mongodb-prod
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+
+  hub:
+    build: .
+    container_name: cortex-hub-prod
+    restart: always
+    ports:
+      - "3333:3333"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongodb:27017/cortex
+      - PORT=3333
+    depends_on:
+      - mongodb
+    volumes:
+      - ./api:/app/api
+      - ./public:/app/public
+
+volumes:
+  mongodb_data:
