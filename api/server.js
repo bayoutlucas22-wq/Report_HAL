@@ -86,6 +86,16 @@ app.get("/api/argentina-contracts", async (req, res) => {
     res.json({ items });
 });
 
+// Mexico Pozos Compact Data
+app.get("/api/data/processed/mexico_pozos_compact.json", (_req, res) => {
+    const filePath = path.join(__dirname, 'data/processed/mexico_pozos_compact.json');
+    if (fs.existsSync(filePath)) {
+        res.json(JSON.parse(fs.readFileSync(filePath, 'utf8')));
+    } else {
+        res.status(404).json({ error: "Mexico pozos data not precomputed" });
+    }
+});
+
 // 6. Norway / Sodir Strategy Module
 app.get("/api/norway-stats", async (req, res) => {
     const filePath = path.join(__dirname, 'data/processed/norway_stats.json');

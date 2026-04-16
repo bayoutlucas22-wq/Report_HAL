@@ -2959,12 +2959,8 @@ async function loadMexicoCompactData() {
         };
     });
     
-    // Auto-update specific components
-    const countEl = document.getElementById('mexTableCount');
-    if (countEl) countEl.innerHTML = `${MEXICO_COMPACT_POZOS.length.toLocaleString()} records`;
-    
-    // Render first page
-    renderMexicoRegistry(MEXICO_COMPACT_POZOS);
+    mexicoStore = MEXICO_COMPACT_POZOS;
+    goMexPage(1);
   } catch (e) {
     console.warn("Mexico Compact Data Load fail:", e);
   }
