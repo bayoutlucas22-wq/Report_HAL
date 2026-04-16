@@ -9436,215 +9436,277 @@
         <!-- ── SAU REPORT INTELLIGENCE ── -->
         <section id="section-saudi-report" class="dash-section">
 
-          <!-- Report Header — same structure as Brazil section -->
-          <div class="cs-header">
+          <!-- Report Header -->
+          <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
             <div class="cs-header-left">
-              <div class="cs-badge">HAL · KSA · ARAMCO FILINGS FY 2020&ndash;2025</div>
-              <h2>Halliburton &mdash; KSA Operator Compliance Intelligence</h2>
-              <p class="cs-subtitle">Contractor Safety &amp; Subcontractor Liability Analysis &mdash; Saudi Aramco Official Filings</p>
+              <div class="cs-badge">KSA · INTELLIGENCE · FY 2020–2025</div>
+              <h2>KSA Report Intelligence</h2>
+              <p class="cs-subtitle">Cross-sector performance and regulatory compliance assessment.</p>
             </div>
             <div class="cs-meta">
               <div class="cs-meta-item"><span>Operator</span>Saudi Aramco</div>
-              <div class="cs-meta-item"><span>Jurisdiction</span>Kingdom of Saudi Arabia</div>
-              <div class="cs-meta-item"><span>Data Source</span>Aramco ARA + Full Financials + Sustainability Reports</div>
-              <div class="cs-meta-item"><span>Data Cut-off</span>FY 2025 (ARA 2025)</div>
-              <div class="cs-meta-item"><span>HAL Named in Filings</span>0 &mdash; Aramco reports at operator level only</div>
+              <div class="cs-meta-item"><span>Source</span>Official Aramco Filings</div>
+              <div class="cs-meta-item"><span>Status</span><span id="sau-report-tab-status" style="color:#4ade80;">Verified Data</span></div>
             </div>
           </div>
 
-          <!-- Section 01: Executive Summary -->
-          <div class="panel cs-panel">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num">01</div>
-                <div class="panel-title">Executive Summary</div>
-              </div>
+          <!-- Tab Navigation -->
+          <div class="panel" style="margin-bottom:0; border-radius:0; border-top:none; border-bottom:1px solid #e2e8f0; background:#f8fafc; padding:0 24px;">
+            <div style="display:flex; gap:24px;">
+              <button class="report-tab-btn active" onclick="sauSwitchTab('financial', this)">Financial</button>
+              <button class="report-tab-btn" onclick="sauSwitchTab('esg', this)">ESG & Safety</button>
+              <button class="report-tab-btn" onclick="sauSwitchTab('operational', this)">Operational</button>
+              <button class="report-tab-btn" onclick="sauSwitchTab('compliance', this)">Compliance & Risk</button>
             </div>
-            <div class="panel-body">
-              <p class="cs-body">This section establishes the contractor safety and subcontractor liability framework applicable to <strong>Halliburton</strong> operations in Saudi Arabia, derived entirely from Saudi Aramco&rsquo;s official annual filings. Aramco is one of Halliburton&rsquo;s largest clients in the Middle East, operating across drilling, cementing, completion, and well-integrity services.</p>
-              <p class="cs-body">All data is sourced verbatim from Aramco&rsquo;s Annual Reports (ARA), Full Financial Statements, and Sustainability Reports &mdash; public filings available on Aramco&rsquo;s investor relations portal. <strong>Halliburton is not named individually</strong> in these filings; all contractor and subcontractor data covers the full Aramco contractor workforce on Aramco-operated installations.</p>
+          </div>
 
-              <div class="cs-findings">
-                <div class="cs-finding-title">Key Findings</div>
-                <div class="cs-finding-list">
-                  <div class="cs-finding">
-                    <div class="cs-finding-accent" style="background:#dc2626"></div>
-                    <div><strong>17 contractor fatalities on Aramco sites FY 2020&ndash;2025</strong> confirmed in ARA filings. FY 2024 alone recorded 8 fatalities (6 contractors). HAL workforce is included in this population under Aramco&rsquo;s site safety protocols.</div>
+          <!-- Tab Content Area -->
+          <div id="sau-report-tab-body" style="padding:28px;">
+             <!-- Loading state -->
+             <div style="text-align:center; padding:100px; color:#94a3b8;">
+               Loading intelligence modules...
+             </div>
+          </div>
+
+          <style>
+            .report-tab-btn {
+              background: none;
+              border: none;
+              padding: 16px 4px;
+              font-size: 13px;
+              font-weight: 700;
+              color: #64748b;
+              cursor: pointer;
+              position: relative;
+              transition: all 0.2s;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+            }
+            .report-tab-btn:hover { color: #1e293b; }
+            .report-tab-btn.active { color: #146c2e; }
+            .report-tab-btn.active::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: 3px;
+              background: #146c2e;
+              border-radius: 3px 3px 0 0;
+            }
+            .sau-trend-card {
+              background: #fff;
+              border: 1px solid #e2e8f0;
+              border-radius: 12px;
+              padding: 24px;
+              margin-bottom: 20px;
+            }
+            .sau-tab-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+              gap: 20px;
+            }
+          </style>
+
+          <script>
+            // Tab switching logic for KSA Report
+            function sauSwitchTab(tabName, btn) {
+              // Update UI
+              const btns = btn.parentElement.querySelectorAll('.report-tab-btn');
+              btns.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              
+              const container = document.getElementById('sau-report-tab-body');
+              const YD = window._sauYD || {};
+              const YEARS = window._sauYEARS || [];
+              if (!YEARS.length) return;
+              
+              const latest = YEARS[YEARS.length - 1];
+              const data = YD[latest] || {};
+              
+              let html = '';
+              
+              if (tabName === 'financial') {
+                html = renderFinancialTab(YD, YEARS);
+              } else if (tabName === 'esg') {
+                html = renderESGTab(YD, YEARS);
+              } else if (tabName === 'operational') {
+                html = renderOpsTab(YD, YEARS);
+              } else if (tabName === 'compliance') {
+                html = renderComplianceTab(YD, YEARS);
+              }
+              
+              container.innerHTML = html;
+            }
+
+            function renderFinancialTab(YD, YEARS) {
+              const latest = YEARS[YEARS.length - 1];
+              const d = YD[latest]?.financials || {};
+              const n = (v) => v != null ? '$' + (Number(v)/1000).toFixed(1) + 'B' : '—';
+              
+              return `
+                <div class="sau-tab-grid">
+                  <div class="sau-trend-card">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Net Income (FY ${latest})</div>
+                    <div style="font-size:32px; font-weight:900; color:#1e293b;">${n(d.net_income)}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Derived from official income statement.</div>
                   </div>
-                  <div class="cs-finding">
-                    <div class="cs-finding-accent" style="background:#ea580c"></div>
-                    <div><strong>31+ Tier 1 Process Safety Events</strong> confirmed across FY 2020&ndash;2022 (2020: 9, 2021: 11, 2022: 11). These are the highest-severity safety events under Aramco&rsquo;s classification system &mdash; incidents that could affect HAL-supplied equipment and personnel directly.</div>
+                  <div class="sau-trend-card">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Free Cash Flow</div>
+                    <div style="font-size:32px; font-weight:900; color:#146c2e;">${n(d.free_cash_flow)}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Standardized FCF calculation.</div>
                   </div>
-                  <div class="cs-finding">
-                    <div class="cs-finding-accent" style="background:#7c3aed"></div>
-                    <div><strong>Active subcontractor liability risk</strong> explicitly disclosed in ARA 2022 and Full Financials 2025: &ldquo;Aramco&rsquo;s recourse to the relevant subcontractor may be limited by contract or the <strong>financial viability of such subcontractor</strong>.&rdquo; This clause creates material exposure for HAL performance bonds.</div>
-                  </div>
-                  <div class="cs-finding">
-                    <div class="cs-finding-accent" style="background:#0369a1"></div>
-                    <div>TRIR improved from <strong>0.046 (FY 2024) to 0.028 (FY 2025)</strong> &mdash; a 39% improvement across the full Aramco contractor workforce including HAL. This is the site-level benchmark HAL must meet to maintain KSA contract eligibility.</div>
+                  <div class="sau-trend-card">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Gearing Ratio</div>
+                    <div style="font-size:32px; font-weight:900; color:#0369a1;">${d.gearing != null ? d.gearing + '%' : '—'}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Leverage assessment.</div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+                <div class="sau-trend-card">
+                  <div style="font-size:14px; font-weight:700; color:#1e293b; margin-bottom:16px;">Financial Trajectory (FY 2020–2025)</div>
+                  <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:12px;">
+                      <thead style="background:#f8fafc; border-bottom:2px solid #e2e8f0;">
+                        <tr>
+                          <th style="padding:12px; text-align:left; color:#64748b;">Year</th>
+                          <th style="padding:12px; text-align:right; color:#64748b;">Net Income</th>
+                          <th style="padding:12px; text-align:right; color:#64748b;">FCF</th>
+                          <th style="padding:12px; text-align:right; color:#64748b;">ROACE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${YEARS.map(y => {
+                          const f = YD[y]?.financials || {};
+                          return `<tr style="border-bottom:1px solid #f1f5f9;">
+                            <td style="padding:12px; font-weight:700;">FY ${y}</td>
+                            <td style="padding:12px; text-align:right;">${n(f.net_income)}</td>
+                            <td style="padding:12px; text-align:right;">${n(f.free_cash_flow)}</td>
+                            <td style="padding:12px; text-align:right;">${f.roace != null ? f.roace + '%' : '—'}</td>
+                          </tr>`;
+                        }).join('')}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              `;
+            }
 
-          <!-- Section 02: Key Metrics Grid -->
-          <div class="panel cs-panel">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num">02</div>
-                <div class="panel-title">Aramco Verified Metrics &mdash; HAL Exposure (FY 2020&ndash;2025)</div>
-                <div class="panel-subtitle">All figures sourced verbatim from Aramco ARA filings &mdash; null fields not disclosed in filing text</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="cs-metrics-grid">
-                <div class="cs-metric" style="--m-accent:#dc2626">
-                  <div class="cs-metric-val" style="color:#dc2626">17</div>
-                  <div class="cs-metric-label">Contractor Fatalities<br>FY 2020&ndash;2025</div>
+            function renderESGTab(YD, YEARS) {
+              const latest = YEARS[YEARS.length - 1];
+              const d = YD[latest]?.esg || {};
+              return `
+                <div class="sau-tab-grid">
+                  <div class="sau-trend-card" style="border-left:4px solid #ef4444;">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Workforce Fatalities</div>
+                    <div style="font-size:32px; font-weight:900; color:#ef4444;">${d.fatalities_workforce || 0}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Reported in sustainable development disclosure.</div>
+                  </div>
+                  <div class="sau-trend-card" style="border-left:4px solid #f97316;">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">TRC Rate</div>
+                    <div style="font-size:32px; font-weight:900; color:#f97316;">${d.trc_rate || '—'}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Total Recordable Cases.</div>
+                  </div>
+                  <div class="sau-trend-card" style="border-left:4px solid #10b981;">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Scope 1 Emissions</div>
+                    <div style="font-size:32px; font-weight:900; color:#10b981;">${d.scope1_mtco2e ? d.scope1_mtco2e + 'M' : '—'}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">MT CO2e.</div>
+                  </div>
                 </div>
-                <div class="cs-metric" style="--m-accent:#ea580c">
-                  <div class="cs-metric-val" style="color:#ea580c">31+</div>
-                  <div class="cs-metric-label">Tier 1 PSE Events<br>FY 2020&ndash;2022</div>
+                <div class="sau-trend-card">
+                  <div style="font-size:14px; font-weight:700; color:#1e293b; margin-bottom:16px;">Safety & ESG Persistence</div>
+                  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:15px;">
+                    ${YEARS.map(y => {
+                      const e = YD[y]?.esg || {};
+                      return `<div style="padding:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px;">
+                        <div style="font-size:10px; font-weight:800; color:#94a3b8; margin-bottom:8px;">FY ${y}</div>
+                        <div style="display:flex; justify-content:space-between; font-size:12px;">
+                          <span>Fatalities:</span> <strong style="color:${e.fatalities_workforce > 0 ? '#ef4444' : '#146c2e'}">${e.fatalities_workforce || 0}</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:12px;">
+                          <span>Methane Intensity:</span> <strong>${e.methane_intensity || '—'}%</strong>
+                        </div>
+                      </div>`;
+                    }).join('')}
+                  </div>
                 </div>
-                <div class="cs-metric" style="--m-accent:#0369a1">
-                  <div class="cs-metric-val" style="color:#0369a1">0.028</div>
-                  <div class="cs-metric-label">TRIR (FY 2025)<br>All contractors incl. HAL</div>
-                </div>
-                <div class="cs-metric" style="--m-accent:#7c3aed">
-                  <div class="cs-metric-val" style="color:#7c3aed">Active</div>
-                  <div class="cs-metric-label">Subcontractor<br>Liability Risk</div>
-                </div>
-                <div class="cs-metric" style="--m-accent:#16a34a">
-                  <div class="cs-metric-val" style="color:#16a34a">5</div>
-                  <div class="cs-metric-label">Aramco Filing Years<br>Analyzed (2020&ndash;2025)</div>
-                </div>
-                <div class="cs-metric" style="--m-accent:#64748b">
-                  <div class="cs-metric-val" style="color:#64748b">0</div>
-                  <div class="cs-metric-label">HAL Named<br>in Aramco Filings</div>
-                </div>
-              </div>
-            </div>
-          </div>
+              `;
+            }
 
-          <!-- Section 03: Fatalities Year-by-Year -->
-          <div class="panel cs-panel">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num" style="background:#dc2626">03</div>
-                <div class="panel-title">Contractor Fatalities on Aramco Sites &mdash; FY 2020&ndash;2025</div>
-                <div class="panel-subtitle">Verbatim from Aramco Annual Reports &middot; HAL workforce included in contractor population</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;">
-                <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2020</div>
-                  <div style="font-size:28px;font-weight:900;color:#dc2626;">1</div>
-                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2020: "the Company suffered one fatality"</div>
+            function renderOpsTab(YD, YEARS) {
+              const latest = YEARS[YEARS.length - 1];
+              const d = YD[latest]?.operational_metrics || {};
+              return `
+                <div class="sau-tab-grid">
+                  <div class="sau-trend-card">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Hydrocarbon Production</div>
+                    <div style="font-size:32px; font-weight:900; color:#1e293b;">${d.hydrocarbon_production || '—'}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">MMboed.</div>
+                  </div>
+                  <div class="sau-trend-card">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Reliability Factor</div>
+                    <div style="font-size:32px; font-weight:900; color:#0d9488;">${d.reliability || '—'}%</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Supply reliability.</div>
+                  </div>
+                  <div class="sau-trend-card">
+                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">MSC Capacity</div>
+                    <div style="font-size:32px; font-weight:900; color:#7c3aed;">${d.msc || '—'}</div>
+                    <div style="font-size:11px; color:#64748b; margin-top:8px;">MMbpd.</div>
+                  </div>
                 </div>
-                <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2021</div>
-                  <div style="font-size:28px;font-weight:900;color:#dc2626;">1</div>
-                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2021: "Number of fatalities 1"</div>
+                <div class="sau-trend-card">
+                   <div style="text-align:center; padding:40px; color:#94a3b8; font-style:italic;">Operational data is extracted from annual management discussions. Precise figures may vary based on reporting context.</div>
                 </div>
-                <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2022</div>
-                  <div style="font-size:28px;font-weight:900;color:#dc2626;">3</div>
-                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2022: "1 employee &amp; 4 contractors" across events; table col 2022 = 3</div>
-                </div>
-                <div style="background:#7f1d1d;border:1px solid #dc2626;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#fca5a5;margin-bottom:6px;">FY 2024</div>
-                  <div style="font-size:28px;font-weight:900;color:#fca5a5;">8</div>
-                  <div style="font-size:9px;color:#fcc;margin-top:6px;font-family:monospace;">ARA 2024: "eight of our people (six contractors)"</div>
-                </div>
-                <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2025</div>
-                  <div style="font-size:28px;font-weight:900;color:#dc2626;">4</div>
-                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2025: "regrettably had four contractor fatalities"</div>
-                </div>
-              </div>
-              <!-- Source receipts -->
-              <div style="background:#0f172a;border-radius:8px;padding:14px 16px;">
-                <div style="font-size:10px;font-weight:700;color:#7dd3fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">&#128196; Verbatim ANP Receipts &mdash; Aramco Annual Reports</div>
-                <div style="display:grid;gap:6px;">
-                  <details><summary style="font-size:10px;font-weight:700;color:#60a5fa;cursor:pointer;list-style:none;">&#128196; ARA 2022 &mdash; Fatality disclosure &darr;</summary><div style="margin-top:6px;padding:8px 10px;background:#1e293b;border-left:2px solid #ef4444;border-radius:4px;font-size:11px;color:#94a3b8;font-family:monospace;line-height:1.7;">"employee and four contractors) sadly occurred" &middot; Table row: "Number of fatalities&nbsp;&nbsp;3&nbsp;&nbsp;5&nbsp;&nbsp;1" [2022=3, 2021=5, 2020=1]</div></details>
-                  <details><summary style="font-size:10px;font-weight:700;color:#60a5fa;cursor:pointer;list-style:none;">&#128196; ARA 2024 &mdash; Fatality disclosure &darr;</summary><div style="margin-top:6px;padding:8px 10px;background:#1e293b;border-left:2px solid #ef4444;border-radius:4px;font-size:11px;color:#94a3b8;font-family:monospace;line-height:1.7;">"saddened that eight of our people (six contractors and...) fatalities in 2024. Any loss of life is never acceptable" &middot; Table: "Number of fatalities&nbsp;&nbsp;8&nbsp;&nbsp;3&nbsp;&nbsp;5&nbsp;&nbsp;1&nbsp;&nbsp;1"</div></details>
-                  <details><summary style="font-size:10px;font-weight:700;color:#60a5fa;cursor:pointer;list-style:none;">&#128196; ARA 2025 &mdash; Fatality disclosure &darr;</summary><div style="margin-top:6px;padding:8px 10px;background:#1e293b;border-left:2px solid #ef4444;border-radius:4px;font-size:11px;color:#94a3b8;font-family:monospace;line-height:1.7;">"Aramco regrettably had four contractor fatalities" &middot; Table: "Number of fatalities&nbsp;&nbsp;4&nbsp;&nbsp;8&nbsp;&nbsp;3&nbsp;&nbsp;5&nbsp;&nbsp;1"</div></details>
-                </div>
-              </div>
-            </div>
-          </div>
+              `;
+            }
 
-          <!-- Section 04: Subcontractor Liability Risk -->
-          <div class="panel cs-panel">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num" style="background:#7c3aed">04</div>
-                <div class="panel-title">Subcontractor Liability Risk &mdash; Verbatim Filing Language</div>
-                <div class="panel-subtitle">Aramco ARA 2022 and Full Financials 2025 &middot; applies to all contractors on Aramco sites including HAL</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-                <div style="background:#faf5ff;border:1px solid #ddd6fe;border-left:3px solid #7c3aed;border-radius:8px;padding:16px;">
-                  <div style="font-size:10px;font-weight:700;color:#7c3aed;margin-bottom:8px;font-family:monospace;">ARA 2022 &mdash; Risk Factor (Contractor/Subcontractor)</div>
-                  <p class="cs-body" style="font-size:12px;">"To the extent a <strong>subcontractor is responsible for</strong> the damage&hellip; Aramco&rsquo;s recourse to the relevant subcontractor may be <strong>limited by contract or the financial viability of such subcontractor.</strong> Such occurrences could expose us to significant liabilities."</p>
-                  <div style="font-size:10px;color:#94a3b8;margin-top:8px;font-family:monospace;">Aramco Annual Report 2022</div>
-                </div>
-                <div style="background:#faf5ff;border:1px solid #ddd6fe;border-left:3px solid #7c3aed;border-radius:8px;padding:16px;">
-                  <div style="font-size:10px;font-weight:700;color:#7c3aed;margin-bottom:8px;font-family:monospace;">Full Financials 2025 &mdash; Contingent Liabilities Note</div>
-                  <p class="cs-body" style="font-size:12px;">"Saudi Aramco has <strong>contingent assets and liabilities</strong> with respect to certain disputed matters, including <strong>claims by and against contractors</strong> and [subcontractors] arising in the ordinary course of business."</p>
-                  <div style="font-size:10px;color:#94a3b8;margin-top:8px;font-family:monospace;">Aramco Full Financials 2025</div>
-                </div>
-              </div>
-              <div style="background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #d97706;border-radius:8px;padding:14px 16px;">
-                <p class="cs-body" style="margin:0;font-size:12px;"><strong>HAL Compliance Implication:</strong> Aramco explicitly flags subcontractor financial viability as a risk factor limiting its own recourse. Any HAL incident on an Aramco installation creates dual exposure: HAL is liable to Aramco, and Aramco acknowledges it may not be fully covered if the subcontractor&rsquo;s financial position is insufficient. This clause is material for HAL contract performance bonds and indemnification provisions in KSA.</p>
-              </div>
-            </div>
-          </div>
+            function renderComplianceTab(YD, YEARS) {
+               // Merge litigations and incidents across all years
+               const lits = [];
+               const incs = [];
+               const risks = [];
+               YEARS.forEach(y => {
+                 (YD[y]?.key_litigations || []).forEach(l => lits.push({...l, fy: y}));
+                 (YD[y]?.operational_incidents || []).forEach(i => incs.push({...i, fy: y}));
+               });
 
-          <!-- Section 05: TRIR Trend -->
-          <div class="panel cs-panel">
-            <div class="panel-header">
-              <div>
-                <div class="cs-section-num">05</div>
-                <div class="panel-title">Total Recordable Case Rate (TRIR) Trend &mdash; Aramco Verified</div>
-                <div class="panel-subtitle">Includes employees AND contractors &middot; HAL workers covered &middot; &ldquo;&mdash;&rdquo; = not disclosed in that year&rsquo;s filing</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px;">
-                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;">FY 2020</div>
-                  <div style="font-size:26px;font-weight:900;color:#94a3b8;margin:6px 0;">&mdash;</div>
-                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">Not disclosed in ARA 2020</div>
-                </div>
-                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;">FY 2021</div>
-                  <div style="font-size:26px;font-weight:900;color:#94a3b8;margin:6px 0;">&mdash;</div>
-                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">Not disclosed in ARA 2021</div>
-                </div>
-                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;">FY 2022</div>
-                  <div style="font-size:26px;font-weight:900;color:#94a3b8;margin:6px 0;">&mdash;</div>
-                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">Not disclosed in ARA 2022</div>
-                </div>
-                <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#ea580c;">FY 2024</div>
-                  <div style="font-size:26px;font-weight:900;color:#ea580c;margin:6px 0;">0.046</div>
-                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">ARA 2024: "Total recordable case rate 0.046"</div>
-                </div>
-                <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;text-align:center;">
-                  <div style="font-size:11px;font-weight:700;color:#16a34a;">FY 2025</div>
-                  <div style="font-size:26px;font-weight:900;color:#16a34a;margin:6px 0;">0.028</div>
-                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">ARA 2025: "Total recordable case rate 0.028"</div>
-                </div>
-              </div>
-              <p class="cs-body" style="font-size:12px;">The 39% TRIR improvement from 0.046 (2024) to 0.028 (2025) covers the <strong>entire Aramco contractor workforce</strong> &mdash; HAL personnel included. HAL&rsquo;s own global TRIR is separately reported under HAL SEC filings. The Aramco site-level figure sets the benchmark HAL must meet to maintain contract eligibility in KSA under Aramco&rsquo;s HSE prequalification requirements.</p>
-            </div>
-          </div>
+               return `
+                 <div class="sau-trend-card">
+                   <div style="font-size:14px; font-weight:700; color:#1e293b; margin-bottom:16px;">Consolidated Compliance Intelligence</div>
+                   <div style="display:flex; gap:12px; margin-bottom:24px;">
+                     <div style="flex:1; padding:15px; background:#fef2f2; border-radius:10px;">
+                        <div style="font-size:10px; font-weight:800; color:#991b1b; margin-bottom:4px; text-transform:uppercase;">Identified Litigations</div>
+                        <div style="font-size:24px; font-weight:900; color:#991b1b;">${lits.length}</div>
+                     </div>
+                     <div style="flex:1; padding:15px; background:#fff7ed; border-radius:10px;">
+                        <div style="font-size:10px; font-weight:800; color:#9a3412; margin-bottom:4px; text-transform:uppercase;">Operational Incidents</div>
+                        <div style="font-size:24px; font-weight:900; color:#9a3412;">${incs.length}</div>
+                     </div>
+                   </div>
 
+                   <div style="font-size:12px; font-weight:700; color:#64748b; margin-bottom:12px;">Recent Incident Context</div>
+                   ${incs.slice(0,5).map(i => `
+                     <div style="margin-bottom:12px; padding:12px; border-left:3px solid #f97316; background:#fffaf0; border-radius:0 6px 6px 0;">
+                       <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                         <strong style="color:#1e293b;">${i.type}</strong>
+                         <span style="font-size:10px; font-weight:800; color:#94a3b8;">FY ${i.fy}</span>
+                       </div>
+                       <div style="font-size:12px; color:#475569;">${i.description}</div>
+                     </div>
+                   `).join('')}
+
+                   ${lits.length > 0 ? `
+                     <div style="font-size:12px; font-weight:700; color:#64748b; margin:24px 0 12px;">Material Litigations</div>
+                     ${lits.slice(0,3).map(l => `
+                        <div style="margin-bottom:10px; padding:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; font-size:12px;">
+                          <strong>${l.case}</strong> <span style="font-size:10px; color:#94a3b8;">(FY ${l.fy})</span>
+                          <p style="margin:5px 0 0; color:#64748b;">${l.description || 'Reference case in AR.'}</p>
+                        </div>
+                     `).join('')}
+                   ` : ''}
+                 </div>
+               `;
+            }
+          </script>
         </section><!-- /section-saudi-report -->
 
         <!-- ── SAU CROSS-ANALYSIS ── -->
