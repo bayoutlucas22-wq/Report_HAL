@@ -219,7 +219,7 @@ function renderKPIs(stats) {
   const cards = [
     {
       label: "Total Industry Incidents", value: total.toLocaleString(),
-      sub: "ANP SISO-Incidentes · 2013–2026",
+      sub: "ANP SISO-Incidentes · 2013–2025",
       accent: "#1a56a0",
       badge: "Open Data · Lei 12.527/2011",
       badgeUrl: LINKS.LEI_12527,
@@ -1340,7 +1340,7 @@ const ARG_TREND = [
   { year: 2023, jobs: 420, stages: 14210, psi: 11078, hp: 24337, lateral: 2048, unconv: 85.7, neuquina: 79.3 },
   { year: 2024, jobs: 354, stages: 17688, psi: 11651, hp: 32562, lateral: 2624, unconv: 98.9, neuquina: 95.2 },
   { year: 2025, jobs: 383, stages: 23784, psi: 11965, hp: 35319, lateral: 3038, unconv: 99.5, neuquina: 99.5 },
-  { year: 2026, jobs: 15, stages: 1050, psi: 12128, hp: 42133, lateral: 3123, unconv: 100, neuquina: 100 },
+  //{ year: 2026, jobs: 15, stages: 1050, psi: 12128, hp: 42133, lateral: 3123, unconv: 100, neuquina: 100 },
 ];
 
 const ARG_OPERATORS = [
@@ -1399,7 +1399,7 @@ function renderArgentinaTables() {
       const isEscalating = r.year >= 2021;
       const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
       return `<tr style="${rowStyle}">
-        <td style="font-weight:700;">${r.year}${r.year === 2026 ? ' <span style="font-size:10px;color:var(--text3);">YTD</span>' : ''}</td>
+        <td style="font-weight:700;">${r.year}</td>
         <td>${r.jobs.toLocaleString()}</td>
         <td>${r.stages.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
@@ -1521,7 +1521,7 @@ function renderMexicoTables() {
       const isEscalating = r.year >= 2021;
       const rowStyle = isEscalating ? 'background:#f0fdf4;' : '';
       return `<tr style="${rowStyle}">
-        <td style="font-weight:700;">${r.year}${r.year === 2026 ? ' <span style="font-size:10px;color:var(--text3);">YTD</span>' : ''}</td>
+        <td style="font-weight:700;">${r.year}</td>
         <td>${r.jobs.toLocaleString()}</td>
         <td>${r.stages.toLocaleString()}</td>
         <td>${r.psi.toLocaleString()}</td>
@@ -2371,8 +2371,8 @@ function renderTemporalOverlapChart() {
   if (!ctx) return;
 
   // CSB failures by year (from existing dashboard data)
-  const csbByYear = [0, 1, 2, 0, 5, 14, 18, 79, 957, 756, 369, 388, 447, 50]; // 2013-2026
-  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+  const csbByYear = [0, 1, 2, 0, 5, 14, 18, 79, 957, 756, 369, 388, 447]; // 2013-2025
+  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
   // Contract activity bands (1 = active, 0 = not)
   const cementing = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0];
@@ -2503,7 +2503,7 @@ function renderArgTemporalOverlapChart() {
   const ctx = document.getElementById('argTemporalOverlapChart');
   if (!ctx) return;
 
-  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
   // SESCO Adjunto IV fracking jobs per year (from ARG_TREND)
   const fracJobs = [344, 266, 293, 349, 321, 118, 353, 426, 420, 354, 383, 15];
   // Contract activity bands (1 = active)
@@ -2555,7 +2555,7 @@ function renderNorwayTemporalOverlapChart() {
   const ctx = document.getElementById('norwayTemporalOverlapChart');
   if (!ctx) return;
 
-  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+  const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
   // RNNP total defects index
   const defects = [420, 440, 415, 455, 430, 445, 420, 455, 410, 395, 385, 20];
   
@@ -2790,7 +2790,7 @@ function renderPenaltyCharts() {
     chartInstances['penaltyQuarterlyChart'] = new Chart(qCtx.getContext('2d'), {
       type: 'line',
       data: {
-        labels: ['2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4', '2026 Q1'],
+        labels: ['2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4'],
         datasets: [{
           label: 'Est. Quarterly Exposure (M R$)',
           data: [28.4, 32.1, 29.8, 35.6, 16.5],
@@ -2988,8 +2988,8 @@ function renderNorwayRNNPChart() {
 
   destroyChart('norwayRNNPChart');
 
-  // Havtil RNNP Data (2013-2024 Actual, 2025-2026 Forecast/Estimates)
-  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+  // Havtil RNNP Data (2013-2024 Actual, 2025 Forecast/Estimates)
+  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
   const barrierDefects = [390, 405, 418, 442, 460, 448, 431, 412, 427, 438, 450, 447, 442, 445];
   const hcReleases = [72, 69, 65, 71, 68, 64, 58, 55, 61, 63, 62, 59, 58, 56]; 
 

@@ -144,8 +144,15 @@ class DataManager {
         let results = this.cache.get(fileName);
 
         // Apply filters (very basic implementation)
-        if (Object.keys(filter).length > 0) {
+        if (Object.keys(filter).length > 0 || true) {
             results = results.filter(item => {
+                // GLOBAL PURGE: No 2026 data allowed in this platform
+                if (item.year == 2026 || item.year == '2026' || item.wlbYear == 2026 || item.wlbYear == '2026') {
+                    return false;
+                }
+                
+                if (Object.keys(filter).length === 0) return true;
+
                 return Object.entries(filter).every(([key, val]) => {
                     // special operators e.g. $or
                     if (key === '$or' && Array.isArray(val)) {
