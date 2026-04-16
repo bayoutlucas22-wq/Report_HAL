@@ -3894,14 +3894,13 @@
                   </div>
                 </div>
                 <div
-                  style="display:flex;gap:10px;align-items:flex-start;background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:12px 14px;">
+                  style="display:flex;gap:10px;align-items:flex-start;background:#1c1917;border:1px solid #57534e;border-radius:8px;padding:12px 14px;">
                   <span style="font-size:16px;flex-shrink:0;">🇸🇦</span>
                   <div>
                     <div
-                      style="font-size:10px;font-weight:800;color:#0369a1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">
-                      STABLE — High Resilience</div>
-                    <div style="font-size:11px;color:#0c4a6e;line-height:1.6;">Strong financial trajectory. Targeted
-                      monitoring of litigation and environmental risks identified in Aramco annual filings.</div>
+                      style="font-size:10px;font-weight:800;color:#f97316;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">
+                      NO OPEN DATA — Structural Gap</div>
+                    <div style="font-size:11px;color:#d6d3d1;line-height:1.6;">No independent regulator. No public wellbore registry. No incident database. All intelligence inferred from Aramco voluntary filings only. Data gaps are themselves a risk signal. <strong style="color:#f97316;">Peak HAL revenue exposure.</strong></div>
                   </div>
                 </div>
               </div>
@@ -4482,7 +4481,7 @@
                     <p style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;margin:0;"><strong
                         style="color:#38bdf8;">KSA (Aramco)</strong> — peak capital intensity. Halliburton faces <strong
                         style="color:#ef4444;">Ultra High Exposure</strong> here; total system compliance and continuous
-                      risk awareness are mandatory to protect market share.</p>
+                      risk awareness are mandatory to protect market share. <strong style="color:#f97316;">No open data registry exists — no wellbore records, no incident database, no independent regulator.</strong></p>
                   </div>
                 </div>
               </div>
@@ -6346,8 +6345,7 @@
               </div>
               <div style="font-size:13px;color:var(--text2);margin-top:4px;">Partner with Compliance Informatics
                 Solutions to transform Halliburton
-                Mexico's compliance posture — governing CNH, SRT, IAPG and NOM 24.051 obligations across 3,642 Vaca
-                Muerta fracking records.</div>
+                Mexico's compliance posture — governing CNH, ASEA, STPS and NOM obligations across Burgos, Sureste and Tampico-Misantla basin operations.</div>
             </div>
             <a href="https://www.iso.org/standard/75080.html" target="_blank" class="cs-download-btn"
               style="flex-shrink:0;background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;">
@@ -6658,9 +6656,7 @@
                 Verified Open Data Portals for Mexico
               </h3>
               <p style="font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:6px;">
-                These verified data sources support the analysis of Halliburton Mexico operations, substituting the
-                equivalent
-                platforms found in Argentina and Brazil.
+                These verified data sources support the analysis of Halliburton Mexico operations across Burgos, Sureste, Tampico-Misantla and Veracruz basins.
               </p>
             </div>
 
@@ -6677,7 +6673,7 @@
                 <div style="font-size:13px;font-weight:600;color:var(--blue);">SIH - Sistema de Información de
                   Hidrocarburos ↗</div>
                 <div style="font-size:12px;color:var(--text2);margin-top:4px;">Maintained by CNH. Provides well-by-well
-                  production metrics, equivalent to Capítulo IV in Argentina.</div>
+                  production metrics, equivalent to the SESCO registry used in Argentina.</div>
               </a>
               <a href="https://www.dof.gob.mx/" target="_blank" rel="noopener"
                 style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
@@ -8325,17 +8321,17 @@
 
                 <!-- TAB NAVIGATION -->
                 <div style="display:flex;gap:2px;padding:12px 24px 0;border-bottom:1px solid var(--border);background:#f8fafc;overflow-x:auto;flex-wrap:nowrap;">
-                  <button class="sau-tab sau-tab-active" onclick="sauTab('compliance_consolidated',this)">Compliance Overview</button>
+                  <button class="sau-tab" onclick="sauTab('compliance_consolidated',this)">Compliance Overview</button>
                   <button class="sau-tab" onclick="sauTab('financials',this)">Financials &amp; ESG</button>
                   <button class="sau-tab" onclick="sauTab('litigations',this)">Litigations</button>
                   <button class="sau-tab" onclick="sauTab('incidents',this)">Incidents</button>
                   <button class="sau-tab" onclick="sauTab('risk',this)">Risk Factors</button>
                   <button class="sau-tab" onclick="sauTab('hal',this)">HAL Exposure</button>
-                  <button class="sau-tab" onclick="sauTab('data_gaps',this)" style="color:#b45309;">&#9888; Data Gaps</button>
+                  <button class="sau-tab sau-tab-active" onclick="sauTab('data_gaps',this)" style="color:#b45309;">&#9888; Data Gaps</button>
                 </div>
 
                 <!-- CONSOLIDATED COMPLIANCE & RISK -->
-                <div id="sau-tab-compliance_consolidated" style="padding:24px;">
+                <div id="sau-tab-compliance_consolidated" style="display:none;padding:24px;">
                   <!-- KSA Ultra-High Exposure Alert -->
                   <div style="background:linear-gradient(135deg,#7f1d1d,#991b1b);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;">
                     <div style="font-size:28px;flex-shrink:0;line-height:1;">&#9888;</div>
@@ -8349,7 +8345,7 @@
 
                 <!-- FINANCIALS & ESG -->
                 <div id="sau-tab-financials" style="display:none;padding:24px;">
-                  <canvas id="sau-chart" height="70" style="margin-bottom:28px;"></canvas>
+                  <canvas id="sau-chart" height="70" style="display:none;"></canvas>
                   <div id="sau-fin-table" style="overflow-x:auto;margin-bottom:32px;"></div>
                   <div style="border-top:1px solid #e2e8f0;padding-top:24px;">
                     <div id="sau-esg-content"></div>
@@ -8442,7 +8438,7 @@
                 </div>
 
                 <!-- DATA GAPS & OPEN DATA LANDSCAPE -->
-                <div id="sau-tab-data_gaps" style="display:none;padding:24px;">
+                <div id="sau-tab-data_gaps" style="padding:24px;">
 
                   <!-- Hero alert -->
                   <div style="background:linear-gradient(135deg,#431407,#7c2d12);border-radius:12px;padding:20px 24px;margin-bottom:24px;">
