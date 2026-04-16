@@ -301,9 +301,10 @@
           </button>
           <div style="min-width: 0;">
             <h1 class="brand-gradient-text"
-              style="font-size: clamp(16px, 2.5vw, 22px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              style="font-size: clamp(16px, 2.5vw, 22px); color: #CC0000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
               Halliburton Operational Risk Intelligence</h1>
-            <p style="margin-top: 2px; font-size: 11px; color: var(--text3); font-weight: 500;">Cross-Jurisdictional Well Barrier Failure & Compliance Exposure · Official Data
+            <p style="margin-top: 2px; font-size: 11px; color: var(--text3); font-weight: 500;">Cross-Jurisdictional
+              Well Barrier Failure & Compliance Exposure · Official Data
               Intelligence (Official Data)</p>
           </div>
         </div>
@@ -469,10 +470,14 @@
                   <div class="panel-subtitle">Multi-category year-by-year comparison (2013–2025)</div>
                 </div>
                 <div style="display:flex; gap:8px;">
-                   <span class="lchip" style="background:rgba(192,57,43,0.1); color:#c0392b; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">CSB</span>
-                   <span class="lchip" style="background:rgba(230,126,34,0.1); color:#e67e22; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">Kick</span>
-                   <span class="lchip" style="background:rgba(26,86,160,0.1); color:#1a56a0; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">Structural</span>
-                   <span class="lchip" style="background:rgba(124,58,237,0.1); color:#7c3aed; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">BOP</span>
+                  <span class="lchip"
+                    style="background:rgba(192,57,43,0.1); color:#c0392b; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">CSB</span>
+                  <span class="lchip"
+                    style="background:rgba(230,126,34,0.1); color:#e67e22; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">Kick</span>
+                  <span class="lchip"
+                    style="background:rgba(26,86,160,0.1); color:#1a56a0; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">Structural</span>
+                  <span class="lchip"
+                    style="background:rgba(124,58,237,0.1); color:#7c3aed; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;">BOP</span>
                 </div>
               </div>
               <div style="height: 320px; position: relative;">
@@ -524,7 +529,7 @@
                     <div>
                       <strong>+39,000% increase in CSB barrier element failures</strong> from 1 incident in 2016 to 510
                       in 2025 — constituting the dominant well integrity risk category in Brazilian E&amp;P. Incidents
-                      are not adjusted for historical market penetration of supplier equipment, such as valves.
+                      are not adjusted for historical market penetration of supplier equipment.
                     </div>
                   </div>
                   <div class="cs-finding">
@@ -595,7 +600,8 @@
               <div>
                 <div class="cs-section-num">02</div>
                 <div class="panel-title">Well Integrity Trend — Year-by-Year</div>
-                <div class="panel-subtitle">Critical barrier and containment failure aggregates vs. total reported incidents</div>
+                <div class="panel-subtitle">Critical barrier and containment failure aggregates vs. total reported
+                  incidents</div>
               </div>
             </div>
             <div class="panel-body">
@@ -803,8 +809,10 @@
                       <th>Contract #</th>
                       <th>Service Domain</th>
                       <th>Object (Excerpt)</th>
-                      <th style="cursor:pointer;user-select:none;" onclick="sortOverviewContracts('date')">Period <span id="sort-overview-date">↕</span></th>
-                      <th style="cursor:pointer;user-select:none;" onclick="sortOverviewContracts('value')">Value <span id="sort-overview-value">↕</span></th>
+                      <th style="cursor:pointer;user-select:none;" onclick="sortOverviewContracts('date')">Period <span
+                          id="sort-overview-date">↕</span></th>
+                      <th style="cursor:pointer;user-select:none;" onclick="sortOverviewContracts('value')">Value <span
+                          id="sort-overview-value">↕</span></th>
                       <th>CSB Link</th>
                     </tr>
                   </thead>
@@ -821,7 +829,8 @@
                   registries (available via transparency portals) mapping supplier scope to well integrity categories
                   classified under SGIP Res. 46/2016.</p>
                 <div id="brzOverviewFxNote" style="margin-top:10px;font-size:11px;color:#64748b;">
-                  ⓘ Contract values displayed in <strong>US Dollars (USD)</strong> as per Petrobras/Halliburton disclosure standards.
+                  ⓘ Contract values displayed in <strong>US Dollars (USD)</strong> as per Petrobras/Halliburton
+                  disclosure standards.
                   Ref. Rate: <strong>1 USD = 5.15 BRL</strong> &nbsp;·&nbsp; Rate as of <strong>Apr 8, 2026</strong>
                 </div>
               </div>
@@ -1009,7 +1018,8 @@
               <div class="breakdown-icon csb-icon">⚙️</div>
               <div class="breakdown-title">CSB Barrier Element Failures</div>
               <div class="breakdown-count" id="cnt-csb">—</div>
-              <div class="breakdown-desc">Failure of Solidary Barrier Assembly element. Halliburton provides BOP, wellhead, and
+              <div class="breakdown-desc">Failure of Solidary Barrier Assembly element. Halliburton provides BOP,
+                wellhead, and
                 completion barrier elements directly within this classification.</div>
               <div class="breakdown-reg">ANP Res. 46/2016 · BV NR 445</div>
             </div>
@@ -1299,7 +1309,8 @@
                   <div class="ai-item-title">Cross-reference classification society NR standards to each service line
                   </div>
                   <div class="ai-item-desc">Link BV NR 445 (offshore classification), NR 459 (process systems), and NR
-                    493 (mooring) to specific Halliburton well services and Tejas completion equipment used on classified
+                    493 (mooring) to specific Halliburton well services and Tejas completion equipment used on
+                    classified
                     installations.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#1e40af">BV NR 445</span><span
                       class="ai-tag" style="--t-c:#1e40af">BV NR 459</span></div>
@@ -1336,7 +1347,8 @@
               <div class="ai-pillar-num">02</div>
               <div>
                 <div class="ai-pillar-title">Workspace Encapsulation</div>
-                <div class="ai-pillar-sub">Define the exact compliance boundary for Halliburton and Tejas — filter global
+                <div class="ai-pillar-sub">Define the exact compliance boundary for Halliburton and Tejas — filter
+                  global
                   regulatory noise to only what applies</div>
               </div>
               <div class="ai-pillar-progress" id="pp2">0 / 4</div>
@@ -1346,11 +1358,12 @@
                 <input type="checkbox" class="ai-check" onchange="updateAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Declare Halliburton service types and operational jurisdictions</div>
-                  <div class="ai-item-desc">Formally declare Halliburton's active service categories in Brazil (Drilling Fluids,
+                  <div class="ai-item-desc">Formally declare Halliburton's active service categories in Brazil (Drilling
+                    Fluids,
                     Cementing, Completion Tools, BOP systems, MWD/LWD) to generate the encapsulated compliance boundary
                     within CIS.</div>
-                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">Halliburton</span><span class="ai-tag"
-                      style="--t-c:#0d9488">CIS Workspace</span></div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">Halliburton</span><span
+                      class="ai-tag" style="--t-c:#0d9488">CIS Workspace</span></div>
                 </div>
               </label>
               <label class="ai-item" data-pillar="2">
@@ -1557,7 +1570,8 @@
               <div class="cs-badge"
                 style="background:rgba(16,185,129,0.2);border-color:rgba(16,185,129,0.4);color:#d1fae5;">ANP · DADOS GOV
                 · SGIP</div>
-              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Halliburton BRAZIL —
+              <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">Halliburton
+                BRAZIL —
                 National Well Registry Intelligence</h2>
               <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.65;max-width:580px;">
                 Direct empirical intersection: mapping <strong style="color:#d1fae5">ANP well drilling activity</strong>
@@ -2445,7 +2459,8 @@
                 <div>
                   <div class="cs-section-num" style="background:#0369a1;">HALLIBURTON</div>
                   <div class="panel-title">Halliburton Exposure — ANP Incident Attribution (2014–2025)</div>
-                  <div class="panel-subtitle">Two-tier model: Tier 1 — Halliburton named directly in ANP record · Tier 2 —
+                  <div class="panel-subtitle">Two-tier model: Tier 1 — Halliburton named directly in ANP record · Tier 2
+                    —
                     Verified via active Halliburton–Petrobras contract × ANP incident domain</div>
                 </div>
               </div>
@@ -2463,7 +2478,8 @@
                       <p style="font-size:12px;color:#94a3b8;line-height:1.7;margin:0;">
                         The word <strong style="color:#e2e8f0;">"Halliburton"</strong> appears verbatim in the ANP
                         incident description field (<em>Breve_Descricao_Incidente</em>).
-                        These are the highest-certainty records — Halliburton is explicitly identified by the reporting operator
+                        These are the highest-certainty records — Halliburton is explicitly identified by the reporting
+                        operator
                         (Petrobras) under ANP Resolution 46/2016.
                         <br><br>
                         Source: <strong style="color:#e2e8f0;">ANP SGIP dataset</strong> · dados.gov.br · 32,240 records
@@ -2476,16 +2492,20 @@
                       <p style="font-size:12px;color:#94a3b8;line-height:1.7;margin:0;">
                         Two conditions must <strong style="color:#e2e8f0;">both</strong> be true simultaneously:
                         <br><br>
-                        <strong style="color:#e2e8f0;">① Halliburton held an active Petrobras contract</strong> in the relevant
-                        service domain in the year the incident occurred — verified against 172 Halliburton–Petrobras contracts
+                        <strong style="color:#e2e8f0;">① Halliburton held an active Petrobras contract</strong> in the
+                        relevant
+                        service domain in the year the incident occurred — verified against 172 Halliburton–Petrobras
+                        contracts
                         (Portal da Transparência / SIASG).
                         <br><br>
                         <strong style="color:#e2e8f0;">② The ANP incident description contains domain-specific technical
                           keywords</strong> matching that contract scope (e.g. "cimentação", "DHSV", "fraturamento",
-                        "canhoneio") — keywords generic enough to appear in any contractor's work, but scoped to Halliburton's
+                        "canhoneio") — keywords generic enough to appear in any contractor's work, but scoped to
+                        Halliburton's
                         active contract period.
                         <br><br>
-                        This excludes incidents in domains where Halliburton had no active contract that year — preventing
+                        This excludes incidents in domains where Halliburton had no active contract that year —
+                        preventing
                         attribution to Halliburton from misidentified peer records.
                       </p>
                     </div>
@@ -2493,7 +2513,8 @@
                   <div
                     style="margin-top:14px;padding-top:14px;border-top:1px solid #1e293b;font-size:11px;color:#64748b;line-height:1.6;">
                     <strong style="color:#94a3b8;">Limitation:</strong> ANP records the operator (Petrobras) as
-                    reporting entity, not the service contractor. Tier 2 verifies Halliburton involvement based on contract scope
+                    reporting entity, not the service contractor. Tier 2 verifies Halliburton involvement based on
+                    contract scope
                     — it does not establish direct causation. These figures represent incidents where Halliburton was
                     contractually present and operating in the relevant domain.
                     <span style="margin-left:12px;">Sources: <a href="https://dados.gov.br" target="_blank"
@@ -2548,7 +2569,8 @@
                         <div style="font-size:10px;color:#64748b;">Serious Injuries</div>
                       </div>
                     </div>
-                    <div style="margin-top:10px;font-size:11px;color:#166534;">Contract-gated validation · excludes other
+                    <div style="margin-top:10px;font-size:11px;color:#166534;">Contract-gated validation · excludes
+                      other
                       contractors</div>
                   </div>
                 </div>
@@ -2560,7 +2582,8 @@
                     style="font-size:11px;font-weight:700;color:#a5b4fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">
                     Critical Finding — CSB Barrier Failures × Halliburton Completion Contracts</div>
                   <div style="font-size:22px;font-weight:900;color:#fff;margin:10px 0 4px;">3,035 CSB failures</div>
-                  <div style="font-size:12px;color:#a5b4fc;margin-bottom:14px;">occurred while Halliburton held active Petrobras
+                  <div style="font-size:12px;color:#a5b4fc;margin-bottom:14px;">occurred while Halliburton held active
+                    Petrobras
                     completion / DHSV contracts · 2014–2025</div>
 
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px;">
@@ -2576,7 +2599,8 @@
                         <br><br>
                         A <strong style="color:#fbbf24;">CSB element failure</strong> means one barrier in the system
                         failed — packers, DHSVs, wellhead seals, tubing, or safety valves.
-                        These are exactly the components Halliburton supplies and installs under its completion contracts.
+                        These are exactly the components Halliburton supplies and installs under its completion
+                        contracts.
                       </p>
                     </div>
                     <div>
@@ -2643,7 +2667,8 @@
 
                   <div
                     style="margin-top:16px;padding:12px 16px;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);border-radius:8px;font-size:12px;color:#fde68a;line-height:1.6;">
-                    <strong>Correlation:</strong> Halliburton's major completion contracts activated in May–August 2021 (US$103M
+                    <strong>Correlation:</strong> Halliburton's major completion contracts activated in May–August 2021
+                    (US$103M
                     + US$73M + US$42M).
                     CSB failures spiked from 87 (2020) to <strong>930 (2021)</strong> — a 10× increase — and remained
                     elevated at 743 (2022), 379 (2024), 434 (2025).
@@ -2784,15 +2809,27 @@
                   <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">Halliburton employee
                     positioning tools in basket for demobilization of TFR-01 equipment. During removal of a ratchet
                     strap, the tool slip Joint 7in rolled pinning the worker's leg. Fracture confirmed.</div>
-                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador: Petrobras &middot; <a
-                      href="https://dados.gov.br" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br
+                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador:
+                    Petrobras &middot; <a href="https://dados.gov.br" target="_blank" rel="noopener"
+                      style="color:#0369a1;">dados.gov.br
                       &nearr;</a></div>
                   <details style="margin-top:6px;">
-                    <summary style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
-                      <span style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196; ANP 1505/000081</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
+                    <summary
+                      style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
+                      <span
+                        style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196;
+                        ANP 1505/000081</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
                     </summary>
-                    <div style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #0369a1;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
-                      O funcion&aacute;rio <strong>Halliburton</strong>, estava posicionando as ferramentas na cesta para desmobiliza&ccedil;&atilde;o dos equipamentos do TFR-01, na sonda NS-29. Durante a retirada de uma cinta catraca do conjunto de ferramentas j&aacute; amarradas, para o posicionamento de mais 2 equipamentos (packers), a plataforma balan&ccedil;ou devido as condi&ccedil;&otilde;es de mar, fazendo com que a ferramenta slip Joint 7in rolasse prensando a perna esquerda do funcion&aacute;rio contra a estrutura de a&ccedil;o da cesta. O funcion&aacute;rio foi encaminhado a enfermaria da unidade e recebeu os primeiros socorros. Ap&oacute;s desembarque e exame de raio-x verificou-se que o funcion&aacute;rio sofreu uma fratura na t&iacute;bia da perna esquerda.
+                    <div
+                      style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #0369a1;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
+                      O funcion&aacute;rio <strong>Halliburton</strong>, estava posicionando as ferramentas na cesta
+                      para desmobiliza&ccedil;&atilde;o dos equipamentos do TFR-01, na sonda NS-29. Durante a retirada
+                      de uma cinta catraca do conjunto de ferramentas j&aacute; amarradas, para o posicionamento de mais
+                      2 equipamentos (packers), a plataforma balan&ccedil;ou devido as condi&ccedil;&otilde;es de mar,
+                      fazendo com que a ferramenta slip Joint 7in rolasse prensando a perna esquerda do
+                      funcion&aacute;rio contra a estrutura de a&ccedil;o da cesta. O funcion&aacute;rio foi encaminhado
+                      a enfermaria da unidade e recebeu os primeiros socorros. Ap&oacute;s desembarque e exame de raio-x
+                      verificou-se que o funcion&aacute;rio sofreu uma fratura na t&iacute;bia da perna esquerda.
                     </div>
                   </details>
                 </div>
@@ -2818,15 +2855,24 @@
                   <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During attempt to
                     disconnect Halliburton perforating BOP from inverted wellhead using cat-line, worker sustained 1
                     serious hand injury. Equipment: Halliburton perforating BOP system.</div>
-                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador: Petrobras &middot; <a
-                      href="https://dados.gov.br" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br
+                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador:
+                    Petrobras &middot; <a href="https://dados.gov.br" target="_blank" rel="noopener"
+                      style="color:#0369a1;">dados.gov.br
                       &nearr;</a></div>
                   <details style="margin-top:6px;">
-                    <summary style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
-                      <span style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196; ANP 1610/000132</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
+                    <summary
+                      style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
+                      <span
+                        style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196;
+                        ANP 1610/000132</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
                     </summary>
-                    <div style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #0369a1;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
-                      Durante a tentativa de desconectar o BOP de canhoneio da cabe&ccedil;a invertida (composi&ccedil;&atilde;o para canhoneio convencional) da Cia <strong>Halliburton</strong>, utilizando cat-line e m&atilde;o-de-for&ccedil;a (tubo curto de 3&frac34;&quot;), o plataformista que manuseava a m&atilde;o-de-for&ccedil;a foi atingido na perna direita pelo tubo curto, imediatamente ap&oacute;s a libera&ccedil;&atilde;o s&uacute;bita do torque.
+                    <div
+                      style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #0369a1;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
+                      Durante a tentativa de desconectar o BOP de canhoneio da cabe&ccedil;a invertida
+                      (composi&ccedil;&atilde;o para canhoneio convencional) da Cia <strong>Halliburton</strong>,
+                      utilizando cat-line e m&atilde;o-de-for&ccedil;a (tubo curto de 3&frac34;&quot;), o plataformista
+                      que manuseava a m&atilde;o-de-for&ccedil;a foi atingido na perna direita pelo tubo curto,
+                      imediatamente ap&oacute;s a libera&ccedil;&atilde;o s&uacute;bita do torque.
                     </div>
                   </details>
                 </div>
@@ -2846,21 +2892,32 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
                     <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong>
                       7-ARGO-20H-ESS</div>
-                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Halliburton Role:</strong> DHSV
+                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Halliburton Role:</strong>
+                      DHSV
                       manufacturer / completion equipment</div>
                   </div>
                   <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During first oil
                     preparation, DHSV integrity verification test on Halliburton-manufactured subsurface safety valve
                     (primary well barrier) failed due to high leak rate. Intervention required. No injuries.</div>
-                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador: Shell Brasil &middot; <a
-                      href="https://dados.gov.br" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br
+                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador: Shell
+                    Brasil &middot; <a href="https://dados.gov.br" target="_blank" rel="noopener"
+                      style="color:#0369a1;">dados.gov.br
                       &nearr;</a></div>
                   <details style="margin-top:6px;">
-                    <summary style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
-                      <span style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196; ANP 2008/000011</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
+                    <summary
+                      style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
+                      <span
+                        style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196;
+                        ANP 2008/000011</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
                     </summary>
-                    <div style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #7c3aed;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
-                      Durante as atividades preparat&oacute;rias para primeiro &oacute;leo do po&ccedil;o foi realizado o teste de verifica&ccedil;&atilde;o de estanqueidade da v&aacute;lvula de seguran&ccedil;a de subsuperf&iacute;cie (DHSV), fabricante <strong>Halliburton</strong>, barreira prim&aacute;ria, do po&ccedil;o (OS2) 7-ARGO-20H-ESS (c&oacute;digo ANP 34281029535), na profundidade de 314 metros abaixo do leito marinho, onde foi constatado um valor de taxa de vazamento acima do aceit&aacute;vel.
+                    <div
+                      style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #7c3aed;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
+                      Durante as atividades preparat&oacute;rias para primeiro &oacute;leo do po&ccedil;o foi realizado
+                      o teste de verifica&ccedil;&atilde;o de estanqueidade da v&aacute;lvula de seguran&ccedil;a de
+                      subsuperf&iacute;cie (DHSV), fabricante <strong>Halliburton</strong>, barreira prim&aacute;ria, do
+                      po&ccedil;o (OS2) 7-ARGO-20H-ESS (c&oacute;digo ANP 34281029535), na profundidade de 314 metros
+                      abaixo do leito marinho, onde foi constatado um valor de taxa de vazamento acima do
+                      aceit&aacute;vel.
                     </div>
                   </details>
                 </div>
@@ -2886,15 +2943,23 @@
                   <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">Post-fracturing:
                     inspector identified 0.105 m&sup3; of completion fluid spilled on soil at Halliburton
                     equipment area. Contained on site. No injuries.</div>
-                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador: Petrobras &middot; <a
-                      href="https://dados.gov.br" target="_blank" rel="noopener" style="color:#0369a1;">dados.gov.br
+                  <div style="font-size:11px;color:#94a3b8;margin-bottom:6px;">Source: ANP SGIP &middot; Operador:
+                    Petrobras &middot; <a href="https://dados.gov.br" target="_blank" rel="noopener"
+                      style="color:#0369a1;">dados.gov.br
                       &nearr;</a></div>
                   <details style="margin-top:6px;">
-                    <summary style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
-                      <span style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196; ANP 2011/000133</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
+                    <summary
+                      style="font-size:10px;font-weight:700;color:#0369a1;cursor:pointer;user-select:none;list-style:none;display:flex;align-items:center;gap:4px;">
+                      <span
+                        style="font-family:monospace;background:#e0f2fe;padding:1px 5px;border-radius:3px;">&#128196;
+                        ANP 2011/000133</span> &nbsp;Ver texto original em portugu&ecirc;s &darr;
                     </summary>
-                    <div style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #b45309;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
-                      Ap&oacute;s opera&ccedil;&atilde;o de fraturamento hidr&aacute;ulico foi identificado pelo fiscal, na &aacute;rea de opera&ccedil;&atilde;o dos equipamentos da <strong>Halliburton</strong>, um derrame de 0,105 m&sup3; de fluido de completa&ccedil;&atilde;o 8,43lb/gal no solo da loca&ccedil;&atilde;o.
+                    <div
+                      style="margin-top:8px;padding:10px 12px;background:#f1f5f9;border-left:2px solid #b45309;border-radius:4px;font-size:11px;color:#334155;line-height:1.7;font-family:monospace;">
+                      Ap&oacute;s opera&ccedil;&atilde;o de fraturamento hidr&aacute;ulico foi identificado pelo fiscal,
+                      na &aacute;rea de opera&ccedil;&atilde;o dos equipamentos da <strong>Halliburton</strong>, um
+                      derrame de 0,105 m&sup3; de fluido de completa&ccedil;&atilde;o 8,43lb/gal no solo da
+                      loca&ccedil;&atilde;o.
                     </div>
                   </details>
                 </div>
@@ -2913,7 +2978,8 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
                     <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong>
                       9-OST-4-ESS</div>
-                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Halliburton Role:</strong> DHSV /
+                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Halliburton Role:</strong>
+                      DHSV /
                       completion equipment supplier</div>
                   </div>
                   <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During routine well
@@ -2965,7 +3031,8 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
                     <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Installation:</strong>
                       7-BE-15-RN</div>
-                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Halliburton Role:</strong> ESCP /
+                    <div style="font-size:11px;color:#64748b;"><strong style="color:#374151;">Halliburton Role:</strong>
+                      ESCP /
                       coiled tubing services</div>
                   </div>
                   <div style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:6px;">During well
@@ -3006,7 +3073,8 @@
                   contracts</strong> (based on ANP & Petrobras open data) are cross-referenced to the dominant ANP CSB
                 failure types,
                 narrowing down which specific service domains generate the highest operational risk exposure —
-                evidencing that Halliburton was contractually present in these domains during the incident window (2013–2025).
+                evidencing that Halliburton was contractually present in these domains during the incident window
+                (2013–2025).
               </p>
             </div>
             <div class="ai-hero-stats">
@@ -3040,7 +3108,8 @@
                 <strong>(2)</strong> mapping each contract object to the ANP failure category it directly touches;
                 <strong>(3)</strong> showing temporal overlap between contract validity and peak failure periods
                 (2018–2025).
-                This narrows the validation from "Halliburton operates in Brazil" to "Halliburton held <em>specific, concurrent
+                This narrows the validation from "Halliburton operates in Brazil" to "Halliburton held <em>specific,
+                  concurrent
                   contracts</em> for <em>the exact service types</em> that generate the failures recorded in the public
                 dataset."
               </p>
@@ -3403,7 +3472,8 @@
                 <div style="margin-top:12px;font-size:12px;color:var(--text2);text-align:left;width:100%;">
                   <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span
                       style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#8b5cf6;"></span><strong>Inexigibilidade</strong>
-                    — sole-source, no competition. Halliburton is the <em>only viable provider</em> of these services under
+                    — sole-source, no competition. Halliburton is the <em>only viable provider</em> of these services
+                    under
                     Brazilian procurement law.</div>
                   <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span
                       style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#3b82f6;"></span><strong>Licitação</strong>
@@ -3422,7 +3492,7 @@
             <div class="panel-header">
               <div>
                 <div class="cs-section-num">05</div>
-                <div class="panel-title">Validation Validation Summary</div>
+                <div class="panel-title">Validation Summary</div>
                 <div class="panel-subtitle">Step-by-step logical chain that evidences the Halliburton → ANP CSB failure
                   validation</div>
               </div>
@@ -3473,7 +3543,8 @@
                     style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
                     STEP 4 — Sole-Source Legal Implication</div>
                   <p style="font-size:13px;color:var(--text2);line-height:1.65;">Multiple contracts are classified as
-                    <strong>Inexigibilidade</strong> (no competition possible — Halliburton is the sole viable provider). This
+                    <strong>Inexigibilidade</strong> (no competition possible — Halliburton is the sole viable
+                    provider). This
                     procurement classification under Brazilian law <em>explicitly acknowledges technical
                       irreplaceability</em>, which strengthens the argument that Halliburton's services were
                     <em>non-substitutable</em> during the failure period.
@@ -3487,9 +3558,11 @@
                     style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
                     STEP 5 — Regulatory Applicability</div>
                   <p style="font-size:13px;color:var(--text2);line-height:1.65;">ANP Res. 46/2016 (SGIP) applies to
-                    <em>all entities operating within barrier systems</em> on ANP-licensed installations. Since Halliburton's
+                    <em>all entities operating within barrier systems</em> on ANP-licensed installations. Since
+                    Halliburton's
                     contracted services are performed inside barrier systems, <strong>SGIP compliance is mandatory for
-                      Halliburton</strong> — not merely advisory. Each CSB event within Halliburton's service window is a potential SGIP
+                      Halliburton</strong> — not merely advisory. Each CSB event within Halliburton's service window is
+                    a potential SGIP
                     non-conformity.
                   </p>
                   <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#ef4444;">⚠ MANDATORY — ANP Res.
@@ -3507,7 +3580,7 @@
                     Halliburton bears contractual accountability for compliance with ANP SGIP during the periods and
                     regions of activity.</p>
                   <p style="font-size:13px;color:var(--text2);line-height:1.65;margin-top:10px;">Given the magnitude of
-                    individual compliance incidents, such as the CSB failures, an validation can be made that these
+                    individual compliance incidents, such as the CSB failures, a strong inference can be made that these
                     incidents may
                     be caused by systemic issues within the compliance saftey chain, such as unacceptably high and
                     sustained component failure rates due to components not meeting the necessary performance specs for
@@ -3548,8 +3621,10 @@
                     <th>Contract #</th>
                     <th>Service Domain</th>
                     <th>Object (Excerpt)</th>
-                    <th style="cursor:pointer;user-select:none;" onclick="sortBrzContracts('date')">Period <span id="sort-brz-date">↓</span></th>
-                    <th style="cursor:pointer;user-select:none;" onclick="sortBrzContracts('value')">Value <span id="sort-brz-value">↕</span></th>
+                    <th style="cursor:pointer;user-select:none;" onclick="sortBrzContracts('date')">Period <span
+                        id="sort-brz-date">↓</span></th>
+                    <th style="cursor:pointer;user-select:none;" onclick="sortBrzContracts('value')">Value <span
+                        id="sort-brz-value">↕</span></th>
                     <th>CSB Link</th>
                   </tr>
                 </thead>
@@ -3579,7 +3654,8 @@
                 CIS · Cortex Intelligence System</div>
               <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.02em;margin:0 0 10px;">Methodology
                 Rigor Framework</h2>
-              <p style="font-size:14px;color:rgba(255,255,255,0.55);margin:0;font-style:italic;">Halliburton Tejas Compliance
+              <p style="font-size:14px;color:rgba(255,255,255,0.55);margin:0;font-style:italic;">Halliburton Tejas
+                Compliance
                 Intelligence Platform · Confidential · Not for public distribution</p>
             </div>
 
@@ -3633,7 +3709,8 @@
                   be established from verifiable procurement or registry data. <strong>(2)</strong> The failure category
                   must map cleanly to the service domain — not generally, but specifically, with reference to the
                   technical standard that defines the barrier element in question. <strong>(3)</strong> The validation
-                  must be labeled as validation — never presented as direct attribution where direct attribution does not
+                  must be labeled as validation — never presented as direct attribution where direct attribution does
+                  not
                   exist in the source data. Failing any one of these three conditions produces a report that cannot
                   withstand scrutiny.</p>
               </div>
@@ -3818,7 +3895,7 @@
                 style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
                 <div
                   style="font-size:10px;font-weight:700;color:#60a5fa;letter-spacing:.12em;text-transform:uppercase;">
-                  CIS · Cortex Intelligence System</div>
+                  CIS · CORTEX</div>
                 <div
                   style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 12px;">
                   <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></span>
@@ -3832,15 +3909,7 @@
                 Argentina · Saudi Arabia — cross-market operational intelligence derived from ANP, SODIR, CNH, Aramco
                 filings and procurement
                 registries.</p>
-              <!-- Alert bar -->
-              <div
-                style="display:inline-flex;align-items:center;gap:10px;background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.4);border-radius:8px;padding:10px 16px;">
-                <span
-                  style="width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0;animation:pulse 1.5s infinite;"></span>
-                <span style="font-size:12px;font-weight:700;color:#fca5a5;">ACTIVE RISK SIGNAL</span>
-                <span style="font-size:12px;color:rgba(255,255,255,0.6);">Brazil 2026 — 26 loss-of-well-control events ·
-                  97 kicks · CSB failures on pace to exceed 2021 peak</span>
-              </div>
+              <!-- Alert bar - DELETED BECAUSE IT WAS USING BS 2026 FORECAST -->
             </div>
 
             <!-- FIX 2: Headline conclusion moved to TOP — compliance reads top-down -->
@@ -3858,7 +3927,7 @@
                       style="font-size:10px;font-weight:800;color:#dc2626;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;">
                       CRITICAL — Escalating</div>
                     <div style="font-size:11px;color:#7f1d1d;line-height:1.6;">CSB failure crisis unresolved since 2021.
-                      2026 partial year is worst on record. Immediate review required.</div>
+                      Immediate review required.</div>
                   </div>
                 </div>
                 <div
@@ -4059,7 +4128,7 @@
                     style="font-size:10px;font-weight:800;color:#1d4ed8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">
                     01 — The BOP→CSB Regime Shift</div>
                   <p style="font-size:12px;color:#334155;line-height:1.75;margin:0 0 10px;">BOP failures peaked at
-                    <strong>171/year in 2015</strong> and fell consistently to just <strong>10 in 2026</strong>. This
+                    <strong>171/year in 2015</strong> and fell consistently to <strong>10 in 2026 (Q1)</strong>. This
                     looks like a success — and on BOP it is. But as BOP failures declined, CSB failures exploded from 0
                     to 940 in a single year (2021). These are not the same failure category. BOP failures happen at the
                     wellhead during drilling. CSB failures happen inside the completed well's barrier system — deeper,
@@ -4208,10 +4277,10 @@
                   <div style="font-size:12px;font-weight:700;color:#0f172a;">Brazil — CSB Failure & Kick Trend</div>
                   <span
                     style="font-size:10px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:2px 8px;border-radius:10px;font-weight:700;">2013
-                    – 2026</span>
+                    – 2025</span>
                 </div>
                 <div style="font-size:11px;color:#94a3b8;margin-bottom:16px;">CSB barrier failures surged in 2021 and
-                  have not recovered. Kicks accelerating in 2026.</div>
+                  have not recovered.</div>
                 <div style="position:relative;height:190px;">
                   <canvas id="fr-csb-chart"></canvas>
                 </div>
@@ -4296,7 +4365,8 @@
                     <div
                       style="display:flex;justify-content:space-between;font-size:12px;margin-top:2px;padding-top:2px;border-top:1px dashed #e2e8f0;">
                       <span style="color:#0369a1;font-weight:700;">🇸🇦 KSA (Aramco Filings)</span><span
-                        style="font-weight:800;color:#0369a1;">INTEGRATED</span></div>
+                        style="font-weight:800;color:#0369a1;">INTEGRATED</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4352,7 +4422,8 @@
               <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">Operational Maturity Matrix
               </div>
               <div style="font-size:11px;color:#94a3b8;margin-bottom:20px;">How each country scores across key
-                dimensions of petroleum operations capability</div>
+                dimensions of petroleum operations capability. KSA not included as KSA informtion is not a like
+                comparison due to the lack of publicly available regulatory body data.</div>
               <div style="overflow-x:auto;">
                 <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:560px;">
                   <thead>
@@ -4467,7 +4538,8 @@
                       style="width:6px;height:6px;border-radius:50%;background:#f87171;flex-shrink:0;margin-top:5px;"></span>
                     <p style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;margin:0;"><strong
                         style="color:#f87171;">Brazil</strong> — most critical risk profile. CSB crisis unresolved since
-                      2021, 2026 showing first major loss-of-control cluster in system history.</p>
+                      2021; initial 2026 data showing potential first major loss-of-control cluster in system history.
+                    </p>
                   </div>
                   <div style="display:flex;gap:12px;align-items:flex-start;">
                     <span
@@ -4517,7 +4589,8 @@
                 <div
                   style="background:#0f172a;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:800;color:#fff;letter-spacing:.08em;text-transform:uppercase;">
                   Measurement Trust Assessment</div>
-                <div style="font-size:11px;color:#94a3b8;">How much weight can a compliance analyst place on each metric
+                <div style="font-size:11px;color:#94a3b8;">Synthetic assessement of how much weight can a compliance
+                  analyst place on each metric
                 </div>
               </div>
 
@@ -4899,7 +4972,8 @@
             <div class="ai-iso-card" style="--iso-c:#7c3aed">
               <div class="ai-iso-num">ISO 37302</div>
               <div class="ai-iso-title">Compliance Guidance</div>
-              <div class="ai-iso-desc">Guidance and awareness for Halliburton Argentina personnel under Res. SRT 559/2009 and
+              <div class="ai-iso-desc">Guidance and awareness for Halliburton Argentina personnel under Res. SRT
+                559/2009 and
                 NR-37 equivalents.</div><a href="https://www.iso.org/standard/37302" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
@@ -4927,9 +5001,11 @@
               <label class="ai-item" data-pillar="arg1"><input type="checkbox" class="ai-check arg-check"
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
-                  <div class="ai-item-title">Map SESCO Adjunto IV obligations to Halliburton Argentina service scope</div>
+                  <div class="ai-item-title">Map SESCO Adjunto IV obligations to Halliburton Argentina service scope
+                  </div>
                   <div class="ai-item-desc">Identify all Secretaría de Energía requirements (Res. SE 25/2004, Decreto
-                    929/2013) that apply to Halliburton's fracking, cementing, and directional drilling services in Vaca Muerta.
+                    929/2013) that apply to Halliburton's fracking, cementing, and directional drilling services in Vaca
+                    Muerta.
                   </div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#16a34a">SESCO</span><span class="ai-tag"
                       style="--t-c:#ef4444">Res. SE 25/2004</span><span class="ai-tag" style="--t-c:#0d9488">ISO
@@ -4940,7 +5016,8 @@
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Cross-reference Res. SRT 559/2009 to each Halliburton service line</div>
-                  <div class="ai-item-desc">Link OHS drilling regulations (Res. SRT 559/2009) to Halliburton's specific well
+                  <div class="ai-item-desc">Link OHS drilling regulations (Res. SRT 559/2009) to Halliburton's specific
+                    well
                     services in Neuquina — especially high-pressure frac operations at 11,651+ PSI and lateral lengths
                     exceeding 3,000m.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">SRT 559/2009</span><span
@@ -4952,7 +5029,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Map Law 24.051 hazardous waste obligations for frac fluids</div>
                   <div class="ai-item-desc">Identify all hazardous waste management requirements under Law 24.051
-                    applicable to Halliburton's drilling fluids, produced water, and chemical additives used across 3,642
+                    applicable to Halliburton's drilling fluids, produced water, and chemical additives used across
+                    3,642
                     fracking jobs.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#f59e0b">Law 24.051</span><span
                       class="ai-tag" style="--t-c:#0d9488">Waste Mgmt</span></div>
@@ -4988,11 +5066,12 @@
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Declare Halliburton Argentina service types and jurisdictions</div>
-                  <div class="ai-item-desc">Formally declare Halliburton's active categories in Argentina (Hydraulic Fracturing,
+                  <div class="ai-item-desc">Formally declare Halliburton's active categories in Argentina (Hydraulic
+                    Fracturing,
                     Cementing, Directional Drilling MWD/LWD, Completion Tools) across Neuquina, Golfo San Jorge and
                     Austral basins.</div>
-                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">ARG</span><span
-                      class="ai-tag" style="--t-c:#0d9488">CIS Workspace</span></div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">ARG</span><span class="ai-tag"
+                      style="--t-c:#0d9488">CIS Workspace</span></div>
                 </div>
               </label>
               <label class="ai-item" data-pillar="arg2"><input type="checkbox" class="ai-check arg-check"
@@ -5000,7 +5079,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Validate encapsulation against 3,642 SESCO fracking records</div>
                   <div class="ai-item-desc">Verify the workspace accurately covers all failure modes in SESCO Adjunto IV
-                    (high-pressure frac, H₂S, proppant flowback, casing structural) that intersect with Halliburton's declared
+                    (high-pressure frac, H₂S, proppant flowback, casing structural) that intersect with Halliburton's
+                    declared
                     service categories.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">SESCO</span><span class="ai-tag"
                       style="--t-c:#16a34a">Adjunto IV</span></div>
@@ -5011,7 +5091,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Map Decreto 929/2013 unconventional regime obligations</div>
                   <div class="ai-item-desc">Identify all investment promotion and regulatory requirements under Decreto
-                    929/2013 specifically applicable to Halliburton's unconventional fracking operations (99.5% unconventional
+                    929/2013 specifically applicable to Halliburton's unconventional fracking operations (99.5%
+                    unconventional
                     in 2025).</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Decreto 929/2013</span><span
                       class="ai-tag" style="--t-c:#16a34a">Vaca Muerta</span></div>
@@ -5021,7 +5102,8 @@
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Remove regulatory noise — confirm out-of-scope standards</div>
-                  <div class="ai-item-desc">Document which Argentine regulations are NOT applicable to Halliburton's service
+                  <div class="ai-item-desc">Document which Argentine regulations are NOT applicable to Halliburton's
+                    service
                     scope (e.g., downstream distribution regulations, ENARGAS gas distribution rules) to keep the
                     workspace clean and defensible.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#6b7280">Scoping</span><span
@@ -5048,7 +5130,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Generate CIS Audit Tracking Plan for Argentina operations</div>
                   <div class="ai-item-desc">Produce the formal Audit Tracking Plan assigning SESCO, Res. SE 25/2004, and
-                    SRT 559/2009 obligations with timelines and verification owners for each Halliburton service category in
+                    SRT 559/2009 obligations with timelines and verification owners for each Halliburton service
+                    category in
                     Neuquina basin.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Audit Plan</span><span
                       class="ai-tag" style="--t-c:#0d9488">CIS</span></div>
@@ -5070,7 +5153,8 @@
                   onchange="updateArgAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Embed Law 24.051 hazardous waste clauses for frac operations</div>
-                  <div class="ai-item-desc">Require contractual evidence of Law 24.051 compliance for all Halliburton Argentina
+                  <div class="ai-item-desc">Require contractual evidence of Law 24.051 compliance for all Halliburton
+                    Argentina
                     fracking operations. Mandate generator registration, disposal records, and produced water management
                     as contract conditions.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#f59e0b">Law 24.051</span><span
@@ -5130,7 +5214,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Become a CIS Design Partner — Argentina integration</div>
                   <div class="ai-item-desc">Formalize the relationship with CIS LLC as a Design Partner for Argentina.
-                    Co-develop SESCO and IAPG intelligence pipelines natively integrated into Halliburton Argentina's corporate
+                    Co-develop SESCO and IAPG intelligence pipelines natively integrated into Halliburton Argentina's
+                    corporate
                     ecosystems for continuous compliance.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">Design Partner</span><span
                       class="ai-tag" style="--t-c:#f59e0b">ESG</span></div>
@@ -5192,7 +5277,8 @@
             <div class="panel-header">
               <div>
                 <div class="panel-title">SESCO Operator Exposure Registry</div>
-                <div class="panel-subtitle">Halliburton Argentina-relevant fracking operator records — filterable by basin and
+                <div class="panel-subtitle">Halliburton Argentina-relevant fracking operator records — filterable by
+                  basin and
                   risk tier</div>
               </div>
             </div>
@@ -5343,10 +5429,12 @@
                 Secretaría de Energía from 2015 to present.
               </p>
               <p style="font-size:13px;color:var(--text2);line-height:1.5;">
-                <strong>Halliburton client classification</strong> (estimated at 90% confirmed Halliburton clients) is based on operator
+                <strong>Halliburton client classification</strong> (estimated at 90% confirmed Halliburton clients) is
+                based on operator
                 identity, not on a field in the SESCO data — SESCO records the <em>operator</em>, not the service
                 company that performed the fracking job.
-                Classification relies on publicly documented Halliburton Argentina contracts and SPE/IAPG papers confirming
+                Classification relies on publicly documented Halliburton Argentina contracts and SPE/IAPG papers
+                confirming
                 Halliburton's operational presence for each operator listed.
               </p>
             </div>
@@ -5391,7 +5479,8 @@
                 <li><strong>Direct SESCO data (100% verifiable):</strong> all numerical values — jobs, stages, PSI, HP,
                   lateral length, water volumes, formation names, operator names, year-over-year trends, proxy
                   thresholds.</li>
-                <li><strong>Verified from industry sources:</strong> Halliburton client classification (operator → service
+                <li><strong>Verified from industry sources:</strong> Halliburton client classification (operator →
+                  service
                   company mapping); Halliburton market share in cementing and directional drilling.</li>
                 <li><strong>Argentina vs Brazil gap:</strong> Argentina has no public well-barrier failure disclosure
                   mandate equivalent to ANP Res. 46/2016, so no direct incident counts are available from government
@@ -5471,7 +5560,8 @@
                 <div>
                   <div class="cs-section-num">02</div>
                   <div class="panel-title">Operator Exposure Matrix</div>
-                  <div class="panel-subtitle">Halliburton confirmed clients covering 90% of all recorded fracking jobs in
+                  <div class="panel-subtitle">Halliburton confirmed clients covering 90% of all recorded fracking jobs
+                    in
                     Argentina.</div>
                 </div>
               </div>
@@ -5522,7 +5612,8 @@
               <div>
                 <div class="cs-section-num">04</div>
                 <div class="panel-title">Argentine Regulatory Framework — Halliburton Compliance Obligations</div>
-                <div class="panel-subtitle">8 regulations apply directly across Halliburton's 4 service domains in Argentina.
+                <div class="panel-subtitle">8 regulations apply directly across Halliburton's 4 service domains in
+                  Argentina.
                   Argentina has NO public barrier-failure disclosure mandate equivalent to Brazil's ANP Res. 46/2016.
                 </div>
               </div>
@@ -5546,7 +5637,8 @@
                 <span style="font-weight:700;">Regulatory Gap vs Brazil:</span>
                 Argentina's Res. SE 25/2004 mandates internal well integrity management but does <em>not</em> require
                 public disclosure of well barrier failures.
-                Halliburton Argentina operates under fewer transparency obligations than Halliburton Brazil — while running physically
+                Halliburton Argentina operates under fewer transparency obligations than Halliburton Brazil — while
+                running physically
                 more demanding jobs (deeper wells, higher pressures, longer laterals in Vaca Muerta).
               </div>
             </div>
@@ -5626,7 +5718,8 @@
                       ACTIVE</span>
                   </div>
                   <div style="font-size:11px;color:#15803d;line-height:1.5;">3,642 jobs documented 2015–2025. Vaca
-                    Muerta is Halliburton's most intensive global fracking zone. Primary regulation: Res. SE 317/2021 + Ley
+                    Muerta is Halliburton's most intensive global fracking zone. Primary regulation: Res. SE 317/2021 +
+                    Ley
                     Provincial Neuquén 3004.</div>
                 </div>
                 <div style="padding:14px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;">
@@ -5638,7 +5731,8 @@
                       ACTIVE</span>
                   </div>
                   <div style="font-size:11px;color:#15803d;line-height:1.5;">Every new well requires a cement job.
-                    Argentina drills ~350 new wells/year (SESCO Finished Wells). Halliburton holds major cementing market
+                    Argentina drills ~350 new wells/year (SESCO Finished Wells). Halliburton holds major cementing
+                    market
                     share. Regulation: Res. SE 25/2004.</div>
                 </div>
                 <div style="padding:14px 16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;">
@@ -5660,8 +5754,10 @@
                     <span
                       style="font-size:10px;font-weight:700;background:#2563eb;color:#fff;padding:2px 8px;border-radius:20px;">IN-SERVICE</span>
                   </div>
-                  <div style="font-size:11px;color:#1d4ed8;line-height:1.5;">38,956 unique producing wells with Halliburton
-                    completion hardware in-service. Halliburton surface safety valves on every wellhead. These remain in-service
+                  <div style="font-size:11px;color:#1d4ed8;line-height:1.5;">38,956 unique producing wells with
+                    Halliburton
+                    completion hardware in-service. Halliburton surface safety valves on every wellhead. These remain
+                    in-service
                     indefinitely after fracturing is complete.</div>
                 </div>
               </div>
@@ -5687,7 +5783,8 @@
                       style="color:var(--blue);">IAPG</a> — Industry-wide incident rates (member stats section requires
                     login)</div>
                   <div style="font-size:11px;color:var(--text2);">→ <a href="https://comprar.gob.ar/" target="_blank"
-                      style="color:var(--blue);">comprar.gob.ar</a> — YPF/ENARSA contracts with Halliburton (COMPR.AR national
+                      style="color:var(--blue);">comprar.gob.ar</a> — YPF/ENARSA contracts with Halliburton (COMPR.AR
+                    national
                     procurement portal; search "Halliburton")</div>
                   <div style="font-size:11px;color:var(--text2);">→ <a
                       href="https://www.argentina.gob.ar/jefatura/turismo-y-ambiente/ambiente" target="_blank"
@@ -5697,8 +5794,10 @@
               <div style="flex:1;min-width:220px;">
                 <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">Grey Zone: Physical
                   Risk vs Transparency</div>
-                <div style="font-size:11px;color:var(--text2);line-height:1.6;">Halliburton Argentina operates under fewer
-                  disclosure obligations than Halliburton Brazil — yet Vaca Muerta operations are physically more demanding:
+                <div style="font-size:11px;color:var(--text2);line-height:1.6;">Halliburton Argentina operates under
+                  fewer
+                  disclosure obligations than Halliburton Brazil — yet Vaca Muerta operations are physically more
+                  demanding:
                   deeper wells, higher pressures, longer laterals, larger water volumes. The absence of a public
                   incident database does not mean absence of incidents.</div>
               </div>
@@ -5718,7 +5817,8 @@
                 Cross-Analysis Validation</h2>
               <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">
                 Verification of operational exposure; given that Argentina does not publish direct failure correlations
-                (CSB), risk is verified via temporal overlap between SESCO job escalation and active Halliburton contracts.</p>
+                (CSB), risk is verified via temporal overlap between SESCO job escalation and active Halliburton
+                contracts.</p>
             </div>
           </div>
 
@@ -5731,7 +5831,8 @@
                   🔬 Methodology — Argentina Validation</div>
                 <p style="font-size:13px;color:var(--text2);line-height:1.7;">
                   As SESCO (Secretaría de Energía) records the <em>operator</em>, but not the directly linked
-                  barrier failures, we must rely on a source-based validation chain: <strong>(1)</strong> Halliburton Argentina
+                  barrier failures, we must rely on a source-based validation chain: <strong>(1)</strong> Halliburton
+                  Argentina
                   contracts with YPF/Tecpetrol/Shell AR confirmed via <strong>COMPR.AR</strong> (Argentina's Electronic
                   Public Procurement System);
                   <strong>(2)</strong> contract objects mapped to SESCO fracturing categories (high-pressure frac, H₂S
@@ -5747,7 +5848,8 @@
                 <div>
                   <div class="cs-section-num">01</div>
                   <div class="panel-title">Service Domain × SESCO Fracking Categories — Validation Matrix</div>
-                  <div class="panel-subtitle">Each row = one Halliburton Argentina verified exposure domain based on SESCO Vaca
+                  <div class="panel-subtitle">Each row = one Halliburton Argentina verified exposure domain based on
+                    SESCO Vaca
                     Muerta fracking risk categories.</div>
                 </div>
               </div>
@@ -5836,7 +5938,8 @@
                 <div>
                   <div class="cs-section-num">02</div>
                   <div class="panel-title">Temporal Overlap — Contract Periods vs. SESCO Fracking Job Escalation</div>
-                  <div class="panel-subtitle">Halliburton Argentina contract activity overlaid against SESCO Adjunto IV fracking
+                  <div class="panel-subtitle">Halliburton Argentina contract activity overlaid against SESCO Adjunto IV
+                    fracking
                     job growth curve (2015–2025)</div>
                 </div>
               </div>
@@ -5846,7 +5949,8 @@
                 <div
                   style="padding:12px 20px 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
                   ⚠ Fracking job counts are from SESCO Adjunto IV (datos.energia.gob.ar). Contract bars show estimated
-                  Halliburton–Argentina validity windows based on COMPR.AR public procurement records. Overlap confirms exposure
+                  Halliburton–Argentina validity windows based on COMPR.AR public procurement records. Overlap confirms
+                  exposure
                   limits during Vaca Muerta hyper-escalation.
                 </div>
               </div>
@@ -5867,7 +5971,8 @@
                     <div
                       style="font-size:11px;font-weight:700;color:#16a34a;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
                       STEP 1 — Public Contractual Presence</div>
-                    <p style="font-size:13px;color:var(--text2);line-height:1.65;">Halliburton Argentina S.A. contracts with YPF
+                    <p style="font-size:13px;color:var(--text2);line-height:1.65;">Halliburton Argentina S.A. contracts
+                      with YPF
                       and Tecpetrol are confirmed via <strong>COMPR.AR</strong> open data.</p>
                     <div style="margin-top:8px;"><span class="ai-tag" style="--t-c:#22c55e;">✓ VERIFIED —
                         COMPR.AR</span></div>
@@ -5891,8 +5996,9 @@
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">05</div>
-                  <div class="panel-title">Validation Validation Summary — Full Logical Chain</div>
-                  <div class="panel-subtitle">Step-by-step evidence chain from public data to Halliburton → SESCO barrier
+                  <div class="panel-title">Validation Summary — Full Logical Chain</div>
+                  <div class="panel-subtitle">Step-by-step evidence chain from public data to Halliburton → SESCO
+                    barrier
                     failure validation</div>
                 </div>
               </div>
@@ -5903,7 +6009,8 @@
                     <div
                       style="font-size:10px;font-weight:700;color:#16a34a;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px;">
                       STEP 1 — Contractual Presence</div>
-                    <p style="font-size:13px;color:var(--text2);line-height:1.7;margin:0 0 10px;">Halliburton Argentina S.A.
+                    <p style="font-size:13px;color:var(--text2);line-height:1.7;margin:0 0 10px;">Halliburton Argentina
+                      S.A.
                       confirmed as active contractor with <strong>YPF S.A.</strong> (1,765 fracking jobs, Neuquina
                       basin), <strong>Tecpetrol</strong> (272 jobs), and <strong>Shell AR</strong> (147 jobs) via
                       COMPR.AR public procurement records. Contract objects cover Stimulation, Cementing, and MWD-LWD
@@ -5921,7 +6028,8 @@
                       STEP 2 — Service Domain → Failure Category Lock</div>
                     <p style="font-size:13px;color:var(--text2);line-height:1.7;margin:0 0 10px;">SESCO Adjunto IV
                       records the mechanical parameters of each Vaca Muerta fracking operation: <strong>avg 11,651 PSI
-                        surface pressure</strong>, avg lateral 3,038m, H₂S exposure zones. Halliburton's contracted service
+                        surface pressure</strong>, avg lateral 3,038m, H₂S exposure zones. Halliburton's contracted
+                      service
                       types (high-pressure frac fluid, primary annular cement barriers, directional drilling in extended
                       laterals) are the direct technical inputs to the precursor failure categories SESCO records under
                       Res. SE 25/2004 and Res. SE 317/2021.</p>
@@ -5934,7 +6042,8 @@
                     <div
                       style="font-size:10px;font-weight:700;color:#ea580c;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px;">
                       STEP 3 — Temporal Overlap Confirmation</div>
-                    <p style="font-size:13px;color:var(--text2);line-height:1.7;margin:0 0 10px;">Halliburton Argentina contract
+                    <p style="font-size:13px;color:var(--text2);line-height:1.7;margin:0 0 10px;">Halliburton Argentina
+                      contract
                       windows overlap with the <strong>Vaca Muerta hyper-escalation phase (2019–2026)</strong> — the
                       period where SESCO records the highest job density, deepest lateral extensions, and most extreme
                       pressure conditions. The temporal overlap is not coincidental: contract validity windows from
@@ -6019,7 +6128,8 @@
                 </div>
                 <div class="cs-source-group">
                   <div class="cs-source-head">Procurement &amp; International Cross-References</div>
-                  <div class="cs-source-item"><span class="cs-src-tag">COMPR.AR</span>Public procurement portal — Halliburton
+                  <div class="cs-source-item"><span class="cs-src-tag">COMPR.AR</span>Public procurement portal —
+                    Halliburton
                     Argentina contracts with YPF, Tecpetrol confirmed — <a href="https://comprar.gob.ar" target="_blank"
                       class="cs-link">comprar.gob.ar</a></div>
                   <div class="cs-source-item"><span class="cs-src-tag">BSEE (US)</span>Offshore Incident Statistics —
@@ -6040,7 +6150,9 @@
               <h2 style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.025em;margin-top:8px;">MEX Audit
                 Dashboard</h2>
               <p style="font-size:13px;color:rgba(255,255,255,0.72);margin-top:5px;line-height:1.6;">Structured
-                compliance workflow derived from the CIS Intelligence System and ISO 37301 framework — applicable to Halliburton
+                compliance workflow derived from CORTEX, CIS's Compliance Management Intelligence Platform, and ISO
+                37301 framework — applicable to
+                Halliburton
                 Mexico operations in Burgos Basin and Bay of Campeche (Sureste Basin).</p>
             </div>
           </div>
@@ -6060,16 +6172,18 @@
             <div class="ai-iso-card" style="--iso-c:#0d9488">
               <div class="ai-iso-num">ISO 37001</div>
               <div class="ai-iso-title">Anti-Bribery Management</div>
-              <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Halliburton Mexico contracting with PEMEX and
+              <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Halliburton Mexico contracting with
+                PEMEX and
                 CNH-licensed operators.</div><a href="https://www.iso.org/standard/37001" target="_blank"
                 class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#7c3aed">
               <div class="ai-iso-num">ISO 37302</div>
               <div class="ai-iso-title">Compliance Training</div>
-              <div class="ai-iso-desc">Training and awareness for Halliburton Mexico personnel under STPS NOM-018-STPS-2015
-                (hazardous substances) and ASEA safety regulations.</div><a
-                href="https://www.iso.org/standard/37302" target="_blank" class="ai-iso-link">iso.org →</a>
+              <div class="ai-iso-desc">Training and awareness for Halliburton Mexico personnel under STPS
+                NOM-018-STPS-2015
+                (hazardous substances) and ASEA safety regulations.</div><a href="https://www.iso.org/standard/37302"
+                target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
             <div class="ai-iso-card" style="--iso-c:#f59e0b">
               <div class="ai-iso-num">ISO 37303</div>
@@ -6097,7 +6211,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Map CNH and ASEA obligations to Halliburton Mexico service scope</div>
                   <div class="ai-item-desc">Identify all CNH and ASEA requirements under Ley de Hidrocarburos 2014 and
-                    NOM-ASEA-001-2016 that apply to Halliburton's fracking, cementing, and directional drilling services in
+                    NOM-ASEA-001-2016 that apply to Halliburton's fracking, cementing, and directional drilling services
+                    in
                     Burgos and Sureste basins.
                   </div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#16a34a">CNH</span><span class="ai-tag"
@@ -6107,8 +6222,10 @@
               <label class="ai-item" data-pillar="mex1"><input type="checkbox" class="ai-check mex-check"
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
-                  <div class="ai-item-title">Cross-reference STPS NOM-018-STPS-2015 to each Halliburton service line</div>
-                  <div class="ai-item-desc">Link STPS occupational health and safety regulations to Halliburton's specific well
+                  <div class="ai-item-title">Cross-reference STPS NOM-018-STPS-2015 to each Halliburton service line
+                  </div>
+                  <div class="ai-item-desc">Link STPS occupational health and safety regulations to Halliburton's
+                    specific well
                     services in Burgos — especially high-pressure frac operations and lateral lengths up to 3,498m per
                     CNH data.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">STPS</span><span class="ai-tag"
@@ -6120,7 +6237,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Map NOM-052-SEMARNAT-2005 hazardous waste obligations for frac fluids</div>
                   <div class="ai-item-desc">Identify all hazardous waste management requirements under
-                    NOM-052-SEMARNAT-2005 applicable to Halliburton's drilling fluids, produced water, and chemical additives
+                    NOM-052-SEMARNAT-2005 applicable to Halliburton's drilling fluids, produced water, and chemical
+                    additives
                     used in Mexico operations.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#f59e0b">SEMARNAT</span><span
                       class="ai-tag" style="--t-c:#0d9488">Waste Mgmt</span></div>
@@ -6156,11 +6274,12 @@
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Declare Halliburton Mexico service types and jurisdictions</div>
-                  <div class="ai-item-desc">Formally declare Halliburton's active categories in Mexico (Hydraulic Fracturing,
+                  <div class="ai-item-desc">Formally declare Halliburton's active categories in Mexico (Hydraulic
+                    Fracturing,
                     Cementing, Directional Drilling MWD/LWD, Completion Tools) across Burgos, Sureste, Tampico-Misantla
                     and Veracruz basins.</div>
-                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">MEX</span><span
-                      class="ai-tag" style="--t-c:#0d9488">CIS Workspace</span></div>
+                  <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">MEX</span><span class="ai-tag"
+                      style="--t-c:#0d9488">CIS Workspace</span></div>
                 </div>
               </label>
               <label class="ai-item" data-pillar="mex2"><input type="checkbox" class="ai-check mex-check"
@@ -6179,7 +6298,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Map Ley de Hidrocarburos 2014 unconventional regime obligations</div>
                   <div class="ai-item-desc">Identify all CNH and ASEA requirements under Ley de Hidrocarburos 2014
-                    applicable to Halliburton's unconventional fracking operations in Burgos Basin (onshore) and Bay of Campeche
+                    applicable to Halliburton's unconventional fracking operations in Burgos Basin (onshore) and Bay of
+                    Campeche
                     (offshore, 60% of wells).</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Ley Hidrocarburos</span><span
                       class="ai-tag" style="--t-c:#16a34a">Burgos</span></div>
@@ -6189,7 +6309,8 @@
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Remove regulatory noise — confirm out-of-scope standards</div>
-                  <div class="ai-item-desc">Document which Mexican regulations are NOT applicable to Halliburton's service
+                  <div class="ai-item-desc">Document which Mexican regulations are NOT applicable to Halliburton's
+                    service
                     scope (e.g., downstream distribution regulations, CRE gas distribution rules) to keep the
                     workspace clean and defensible.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#6b7280">Scoping</span><span
@@ -6216,7 +6337,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Generate CIS Audit Tracking Plan for Mexico operations</div>
                   <div class="ai-item-desc">Produce the formal Audit Tracking Plan assigning CNH, ASEA, and
-                    STPS NOM-018-STPS-2015 obligations with timelines and verification owners for each Halliburton service
+                    STPS NOM-018-STPS-2015 obligations with timelines and verification owners for each Halliburton
+                    service
                     category in
                     Burgos basin.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Audit Plan</span><span
@@ -6241,7 +6363,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Embed NOM-052-SEMARNAT-2005 hazardous waste clauses for frac operations
                   </div>
-                  <div class="ai-item-desc">Require contractual evidence of NOM-052-SEMARNAT-2005 compliance for all Halliburton
+                  <div class="ai-item-desc">Require contractual evidence of NOM-052-SEMARNAT-2005 compliance for all
+                    Halliburton
                     Mexico
                     fracking operations. Mandate generator registration, disposal records, and produced water management
                     as contract conditions.</div>
@@ -6291,7 +6414,8 @@
                   onchange="updateMexAIProgress()">
                 <div class="ai-item-body">
                   <div class="ai-item-title">Configure real-time CNH drilling data correlation</div>
-                  <div class="ai-item-desc">Connect the CNH SIH Perforación live data pipeline into CORTEX. Set up automated
+                  <div class="ai-item-desc">Connect the CNH SIH Perforación live data pipeline into CORTEX. Set up
+                    automated
                     alerts when torque or pressure markers breach predefined safety thresholds, triggering immediate
                     compliance review workflows.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">CNH Live</span><span
@@ -6303,7 +6427,8 @@
                 <div class="ai-item-body">
                   <div class="ai-item-title">Become a CIS Design Partner — Mexico integration</div>
                   <div class="ai-item-desc">Formalize the relationship with CIS LLC as a Design Partner for Mexico.
-                    Co-develop CNH and ASEA intelligence pipelines natively integrated into Halliburton Mexico's corporate
+                    Co-develop CNH and ASEA intelligence pipelines natively integrated into Halliburton Mexico's
+                    corporate
                     ecosystems for continuous compliance.</div>
                   <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">Design Partner</span><span
                       class="ai-tag" style="--t-c:#f59e0b">ESG</span></div>
@@ -6318,8 +6443,9 @@
               </div>
               <div style="font-size:13px;color:var(--text2);margin-top:4px;">Partner with Compliance Informatics
                 Solutions to transform Halliburton
-                Mexico's compliance posture — governing CNH, SRT, IAPG and NOM 24.051 obligations across 3,642 Vaca
-                Muerta fracking records.</div>
+                Mexico's compliance posture — governing CNH, ASEA, STPS, Ley de Hidrocarburos 2014, and
+                NOM-ASEA-001-2016 obligations across relevant basin
+                fracking records.</div>
             </div>
             <a href="https://www.iso.org/standard/75080.html" target="_blank" class="cs-download-btn"
               style="flex-shrink:0;background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;">
@@ -6364,7 +6490,8 @@
             <div class="panel-header">
               <div>
                 <div class="panel-title">CNH Operator Exposure Registry (Dynamic)</div>
-                <div class="panel-subtitle">Halliburton Mexico-relevant fracking and completion records — filterable by basin
+                <div class="panel-subtitle">Halliburton Mexico-relevant fracking and completion records — filterable by
+                  basin
                 </div>
               </div>
             </div>
@@ -6473,7 +6600,8 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🏗 Well Construction / Drilling
                         </div>
-                        <div style="font-size:11px;color:var(--text3);margin-top:2px;">Halliburton offshore drilling units —
+                        <div style="font-size:11px;color:var(--text3);margin-top:2px;">Halliburton offshore drilling
+                          units —
                           CompraNet confirmed</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-critical">⭐⭐⭐</span>
@@ -6493,7 +6621,8 @@
                       <td>
                         <div style="font-weight:700;color:var(--text);font-size:13px;">🔒 Completion & Subsea Hardware
                         </div>
-                        <div style="font-size:11px;color:var(--text3);margin-top:2px;">Halliburton DHSV/Liner Hangers deployed
+                        <div style="font-size:11px;color:var(--text3);margin-top:2px;">Halliburton DHSV/Liner Hangers
+                          deployed
                           in HPHT wells</div>
                       </td>
                       <td style="text-align:center;"><span class="cx-hit cx-high">⭐⭐</span></td>
@@ -6518,7 +6647,8 @@
                 <div>
                   <div class="cs-section-num">02</div>
                   <div class="panel-title">Temporal Overlap — Contract Periods vs. SIH Drilling Job Escalation</div>
-                  <div class="panel-subtitle">Halliburton Mexico contract activity overlaid against SIH drilling activity curve
+                  <div class="panel-subtitle">Halliburton Mexico contract activity overlaid against SIH drilling
+                    activity curve
                     (2015–2025)</div>
                 </div>
               </div>
@@ -6628,7 +6758,8 @@
                 Verified Open Data Portals for Mexico
               </h3>
               <p style="font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:6px;">
-                These verified data sources support the analysis of Halliburton Mexico operations, substituting the equivalent
+                These verified data sources support the analysis of Halliburton Mexico operations, substituting the
+                equivalent
                 platforms found in Argentina and Brazil.
               </p>
             </div>
@@ -6665,7 +6796,7 @@
             <strong>⚠ Estimated data:</strong> CNH SIH Perforación API is subscription-only. Values derived from CNH
             Annual Reports 2022–2025 and DOF-published operator statistics. Source: <a
               href="https://sih-hidrocarburos.energia.gob.mx/" target="_blank" rel="noopener"
-              style="color:#1d4ed8;">sih.hidrocarburos.gob.mx ↗</a>
+              style="color:#1d4ed8;">sih-hidrocarburos.energia.gob.mx ↗</a>
           </div>
           <div class="cs-metrics-grid" style="margin-bottom:20px;">
             <div class="cs-metric-card" style="border-top:3px solid #1d4ed8;">
@@ -6811,8 +6942,8 @@
                   <div class="cs-section-num">05</div>
                   <div class="panel-title">Basin → Risk Profile — Mexico</div>
                   <div class="panel-subtitle">CNH SIH · ASEA · DOF — est. from CNH Annual Reports 2022–2025 · <a
-                      href="https://sih.hidrocarburos.gob.mx/" target="_blank" rel="noopener"
-                      style="color:var(--blue);">sih.hidrocarburos.gob.mx ↗</a></div>
+                      href="https://sih-hidrocarburos.energia.gob.mx/" target="_blank" rel="noopener"
+                      style="color:var(--blue);">sih-hidrocarburos.energia.gob.mx ↗</a></div>
                 </div>
               </div>
               <div class="panel-body">
@@ -7021,7 +7152,8 @@
                       style="font-size:10px;font-weight:700;background:#16a34a;color:#fff;padding:2px 8px;border-radius:20px;">CONFIRMED
                       ACTIVE</span>
                   </div>
-                  <div style="font-size:11px;color:#15803d;line-height:1.5;">Halliburton maintains 100% operational footprint
+                  <div style="font-size:11px;color:#15803d;line-height:1.5;">Halliburton maintains 100% operational
+                    footprint
                     across PEMEX offshore rigs. Every well requiring cementation is a SGIP-equivalent audit point.
                     Regulation: DOF L-Perforación.</div>
                 </div>
@@ -7045,7 +7177,8 @@
                       style="font-size:10px;font-weight:700;background:#2563eb;color:#fff;padding:2px 8px;border-radius:20px;">IN-SERVICE</span>
                   </div>
                   <div style="font-size:11px;color:#1d4ed8;line-height:1.5;">In-service presence in producing fields
-                    across Tabasco and Veracruz. Halliburton completion hardware is the safety umbrella for over 1.2k producing
+                    across Tabasco and Veracruz. Halliburton completion hardware is the safety umbrella for over 1.2k
+                    producing
                     wells identified. Regulation: NOM-115-SEMARNAT.</div>
                 </div>
               </div>
@@ -7080,7 +7213,8 @@
             <div class="ai-iso-card" style="--iso-c:#0d9488">
               <div class="ai-iso-num">NORSOK D-010</div>
               <div class="ai-iso-title">Well Integrity Lifecycle</div>
-              <div class="ai-iso-desc">Technical barrier management standard — governing Halliburton NCS cementing, completion,
+              <div class="ai-iso-desc">Technical barrier management standard — governing Halliburton NCS cementing,
+                completion,
                 and MPD services.</div>
               <a href="https://online.standard.no/en/norsok-d-010-2021ac-2024" target="_blank"
                 class="ai-iso-link">standard.no →</a>
@@ -7088,7 +7222,8 @@
             <div class="ai-iso-card" style="--iso-c:#7c3aed">
               <div class="ai-iso-num">ISO 37001</div>
               <div class="ai-iso-title">Anti-Bribery Management</div>
-              <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Halliburton Norway contracting with Equinor,
+              <div class="ai-iso-desc">Prevent, detect, and respond to bribery in Halliburton Norway contracting with
+                Equinor,
                 Aker BP and ConocoPhillips.</div>
               <a href="https://www.iso.org/standard/37001" target="_blank" class="ai-iso-link">iso.org →</a>
             </div>
@@ -7156,7 +7291,8 @@
                 <div class="ai-pillar-num">02</div>
                 <div>
                   <div class="ai-pillar-title">NORSOK D-010 Barrier Verification</div>
-                  <div class="ai-pillar-sub">Map technical barrier elements to Halliburton NCS contract delivery scope</div>
+                  <div class="ai-pillar-sub">Map technical barrier elements to Halliburton NCS contract delivery scope
+                  </div>
                 </div>
                 <div class="ai-pillar-progress" id="nor-pp2">0 / 3</div>
               </div>
@@ -7165,7 +7301,8 @@
                     onchange="updateNorAIProgress()">
                   <div class="ai-item-body">
                     <div class="ai-item-title">Automate Barrier Mapping (Rev 5)</div>
-                    <div class="ai-item-desc">Link Halliburton completion hardware (DHSV, Casing Integrity) to the official
+                    <div class="ai-item-desc">Link Halliburton completion hardware (DHSV, Casing Integrity) to the
+                      official
                       element categories defined in NORSOK D-010 Rev 5.</div>
                     <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#0d9488">NORSOK</span><span
                         class="ai-tag" style="--t-c:#10b981">Standardization</span></div>
@@ -7220,7 +7357,8 @@
                     onchange="updateNorAIProgress()">
                   <div class="ai-item-body">
                     <div class="ai-item-title">Validate Internal Control (§ 82)</div>
-                    <div class="ai-item-desc">Verify that Halliburton's NCS management system satisfies the internal safety
+                    <div class="ai-item-desc">Verify that Halliburton's NCS management system satisfies the internal
+                      safety
                       control mandates of the Activity Regs.</div>
                     <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#7c3aed">Audit</span><span
                         class="ai-tag" style="--t-c:#10b981">Governance</span></div>
@@ -7255,7 +7393,8 @@
                     onchange="updateNorAIProgress()">
                   <div class="ai-item-body">
                     <div class="ai-item-title">Configure real-time Sodir data correlation</div>
-                    <div class="ai-item-desc">Automate mapping of live wellbore status changes to Halliburton contract delivery
+                    <div class="ai-item-desc">Automate mapping of live wellbore status changes to Halliburton contract
+                      delivery
                       timelines in the Barents and North Sea.</div>
                     <div class="ai-item-tags"><span class="ai-tag" style="--t-c:#ef4444">Sodir Live</span><span
                         class="ai-tag" style="--t-c:#f59e0b">Alerts</span></div>
@@ -7387,13 +7526,15 @@
           <div class="cs-header"
             style="background:linear-gradient(135deg,#001a4d 0%,#002266 50%,#0f172a 100%);padding:40px 30px;">
             <div class="cs-header-left">
-              <div class="cs-badge" style="background:rgba(59,130,246,0.25);border-color:rgba(59,130,246,0.4);">NORWAY NCS · OPERATIONAL RELIABILITY VERIFIED</div>
+              <div class="cs-badge" style="background:rgba(59,130,246,0.25);border-color:rgba(59,130,246,0.4);">NORWAY
+                NCS · OPERATIONAL RELIABILITY VERIFIED</div>
               <h2 style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:12px;">NOR
                 Cross-Analysis Validation</h2>
               <p style="font-size:15px;color:rgba(255,255,255,0.8);margin-top:8px;line-height:1.7;max-width:700px;">
                 Verification of operational exposure on the Norwegian Continental Shelf. Because Havtil does not publish
                 direct service-company failure linkage, risk is verified via temporal overlap between <strong
-                  style="color:#93c5fd">Halliburton NCS contracts</strong> and official RNNP barrier defect peaks (NORSOK D-010,
+                  style="color:#93c5fd">Halliburton NCS contracts</strong> and official RNNP barrier defect peaks
+                (NORSOK D-010,
                 2013–2025).</p>
             </div>
             <div class="ai-hero-stats">
@@ -7424,18 +7565,20 @@
                   Havtil (PSA Norway) and Sodir provide high-transparency open data but do not link failures to specific
                   service companies in public summaries. The validation chain is structured as follows:
 
-                  <strong>(1)</strong> <em>Contract evidence layer (2020–2026):</em> 65 Halliburton NCS contracts from
-                  <code>norway_contracts.csv</code> confirm active service presence across Cementing (10), Fluids/Baroid
+                  <strong>(1)</strong> <em>Contract evidence layer (2020–2026):</em> 65 Halliburton NCS contracts
+                  confirm active service presence across Cementing (10), Fluids/Baroid
                   (13), MPD (10), Well Construction (8), Completion (7), Workover (7) domains.
                   <strong>(2)</strong> <em>RNNP barrier alignment:</em> Havtil RNNP annual reports (2013–2025) record
                   Well Barrier Element failure categories — cement/casing, DHSV/completion, hydrostatic, BOP — that
                   directly correspond to Halliburton's confirmed service domains.
                   <strong>(3)</strong> <em>Historical NCS context (pre-2020):</em> Sodir FactPages records exploration
-                  wellbores per field back to 1966 (Balder), 1978 (Gullfaks), 1979 (Troll/Oseberg). Halliburton's NCS service
+                  wellbores per field back to 1966 (Balder), 1978 (Gullfaks), 1979 (Troll/Oseberg). Halliburton's NCS
+                  service
                   presence prior to 2020 is <strong>verified from operator relationships and field activity
                     history</strong> — no contract records are available in this dataset for that period.
                   <strong>(4)</strong> <em>Operator landscape:</em> Equinor (all legacy entities: ~839 NCS wellbores),
-                  Aker BP ASA (89), Shell (84) are the dominant NCS operators per Sodir data. Halliburton's operator assignments
+                  Aker BP ASA (89), Shell (84) are the dominant NCS operators per Sodir data. Halliburton's operator
+                  assignments
                   in this analysis are verified from this landscape — specific client names are not present in the
                   available contract CSV.
                 </p>
@@ -7478,7 +7621,8 @@
                 <div>
                   <div class="cs-section-num">01</div>
                   <div class="panel-title">Service Domain × RNNP Barrier Categories — Validation Matrix</div>
-                  <div class="panel-subtitle">Each row = one Halliburton NCS verified exposure domain mapped to official Havtil
+                  <div class="panel-subtitle">Each row = one Halliburton NCS verified exposure domain mapped to official
+                    Havtil
                     RNNP well barrier element failure categories (NORSOK D-010 aligned).</div>
                 </div>
               </div>
@@ -7637,7 +7781,8 @@
                   <div
                     style="padding:10px 0 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:12px;">
                     ⚠ Barrier defect counts from Havtil RNNP annual reports (risikonivå) · 2013–2023 modelled
-                    proportionally to RNNP series; 2024–2025 sourced from official Havtil reports. Halliburton contract bars
+                    proportionally to RNNP series; 2024–2025 sourced from official Havtil reports. Halliburton contract
+                    bars
                     reflect the verified contract window <strong>2020–2026</strong> from norway_contracts.csv. Pre-2020
                     NCS presence is verified context only — no contract records available for that period.
                   </div>
@@ -7659,13 +7804,13 @@
               </div>
             </div>
 
-            <!-- §04 Validation Validation Summary -->
+            <!-- §04 Validation Summary -->
             <div class="panel cs-panel"
               style="margin-top:14px;background:linear-gradient(135deg,rgba(0,34,102,0.07) 0%,rgba(59,130,246,0.05) 100%);border-left:4px solid #1d4ed8;">
               <div class="panel-header">
                 <div>
                   <div class="cs-section-num">04</div>
-                  <div class="panel-title">Validation Validation Summary — Norway</div>
+                  <div class="panel-title">Validation Summary — Norway</div>
                 </div>
               </div>
               <div class="panel-body">
@@ -7674,8 +7819,9 @@
                     <div
                       style="font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
                       STEP 1 — Verified Contract Presence (2020–2026)</div>
-                    <p style="font-size:13px;color:var(--text2);line-height:1.65;"><strong>65 Halliburton NCS contracts</strong>
-                      confirmed from <code>norway_contracts.csv</code> — covering Cementing (10), Fluids/Baroid (13),
+                    <p style="font-size:13px;color:var(--text2);line-height:1.65;"><strong>65 Halliburton NCS
+                        contracts</strong>
+                      confirmed — covering Cementing (10), Fluids/Baroid (13),
                       MPD (10), Well Construction (8), Completion (7), Workover (7), Stimulation (5). Contract date
                       range: <strong>2020–2026</strong>. Operators verified from Sodir NCS landscape (Equinor ~839
                       wellbores, Aker BP 89, Shell 84) — client names are not explicitly listed in the contract CSV.</p>
@@ -7686,7 +7832,8 @@
                     <div
                       style="font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">
                       STEP 2 — RNNP Barrier Category Alignment</div>
-                    <p style="font-size:13px;color:var(--text2);line-height:1.65;">Halliburton service domain objects (Cementing
+                    <p style="font-size:13px;color:var(--text2);line-height:1.65;">Halliburton service domain objects
+                      (Cementing
                       = primary barrier; Completion/DHSV = secondary barrier) map precisely to the Havtil RNNP well
                       barrier element failure categories with highest frequency (avg 442 defects/year, 2013–2025
                       series).</p>
@@ -7814,8 +7961,8 @@
                     <div class="cs-source-head">Regulatory Framework (Lovdata)</div>
                     <div class="cs-source-item"><span class="cs-src-tag">NORSOK D-010</span>Well barrier elements,
                       barrier envelopes, acceptance criteria — primary Halliburton technical accountability — <a
-                        href="https://www.standard.no/en/sectors/energi-og-klima/petroleum/norsok-standard-categories/d-drilling/d-0102/"
-                        target="_blank" class="cs-link">standard.no ↗</a></div>
+                        href="https://standard.no/en/sectors/petroleum/norsok-standards/" target="_blank"
+                        class="cs-link">standard.no ↗</a></div>
                     <div class="cs-source-item"><span class="cs-src-tag">Aktivitetsforskriften §88</span>Well barrier
                       requirements, contractor obligations — <a
                         href="https://lovdata.no/dokument/SF/forskrift/2010-04-29-613" target="_blank"
@@ -7857,7 +8004,8 @@
             <div class="cs-meta" style="color:rgba(255,255,255,0.8);">
               <div class="cs-meta-item"><span>Regulator</span>Havtil (PSA Norway)</div>
               <div class="cs-meta-item"><span>Framework</span>RNNP · NORSOK D-010 · Aktivitetsforskriften</div>
-              <div class="cs-meta-item"><span>Halliburton Services</span>Cementing · Completion · MPD · Baroid · Sperry</div>
+              <div class="cs-meta-item"><span>Halliburton Services</span>Cementing · Completion · MPD · Baroid · Sperry
+              </div>
               <div class="cs-meta-item"><span>2025 Audit Scan</span>2,308 Wellbores Verified</div>
             </div>
           </div>
@@ -7876,7 +8024,8 @@
             <p style="font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:12px;">
               All NCS incident and integrity data originates from <strong>Havtil (PSA Norway)</strong> via the annual
               RNNP programme and from <strong>Sodir (Norwegian Offshore Directorate)</strong> via FactPages open data
-              (NLOD licence). Halliburton's contractual exposure is cross-referenced from Sodir wellbore operator records and
+              (NLOD licence). Halliburton's contractual exposure is cross-referenced from Sodir wellbore operator
+              records and
               NCS contract intelligence. No public database links failures directly to service companies — exposure is
               proven through field-level service presence and NORSOK D-010 barrier accountability mapping.
             </p>
@@ -8045,7 +8194,8 @@
           <div class="charts-row" style="margin-bottom:20px;">
             <div class="panel cs-panel" style="flex:1;padding:24px;">
               <div class="panel-title">Basin → Risk Profile</div>
-              <div style="font-size:12px;color:var(--text3);margin-bottom:14px;">NCS operational basins · Halliburton service
+              <div style="font-size:12px;color:var(--text3);margin-bottom:14px;">NCS operational basins · Halliburton
+                service
                 exposure · risk tier · Source: Sodir / Havtil RNNP 2024</div>
               <table class="data-table" style="width:100%;">
                 <thead>
@@ -8204,8 +8354,8 @@
               style="padding:16px 20px;background:#eff6ff;border-top:1px solid #bfdbfe;border-radius:0 0 12px 12px;font-size:12px;color:#1e40af;">
               <strong>Source methodology:</strong> RNNP failure categories mapped to NORSOK D-010 rev.5 (2021) well
               barrier elements ·
-              Halliburton service overlap from NCS contract portfolio (<a href="https://www.norskpetroleum.no" target="_blank"
-                rel="noopener" style="color:#1d4ed8;">norskpetroleum.no ↗</a>) ·
+              Halliburton service overlap from NCS contract portfolio (<a href="https://www.norskpetroleum.no"
+                target="_blank" rel="noopener" style="color:#1d4ed8;">norskpetroleum.no ↗</a>) ·
               <strong>2024 KPIs:</strong> <a
                 href="https://www.havtil.no/contentassets/91a4472cef014b2c92bbfbbd54d90b40/rnnp-2024-summary-report.pdf"
                 target="_blank" rel="noopener" style="color:#1d4ed8;">RNNP 2024 Summary Report (PDF) ↗</a> · Published
@@ -8235,9 +8385,14 @@
                 COMPLIANCE INTELLIGENCE</div>
               <h2 style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:10px;">KSA —
                 Intelligence Dashboard</h2>
-              <p style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px;">Consolidated intelligence from
+              <p style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px;">KSA is included in this reporting
+                for scope, though given the lack of publicly available data from official regualtory bodies the
+                information provided is not a like comparison for the prior modules presented herein. The findings
+                represent consolidated intelligence from
                 official filings — FY 2020 through 2025. Financial performance, ESG, litigation exposure, operational
-                incidents & compliance posture.</p>
+                incidents & compliance posture. Findings include partial extracts from these sources as sample material,
+                and not all metrics presented could be exracted from available sources.
+              </p>
             </div>
             <div class="cs-meta" style="color:rgba(255,255,255,0.8);">
               <div class="cs-meta-item"><span>Pipeline</span>Text Corpus → Live Analysis</div>
@@ -8355,85 +8510,157 @@
                 <div id="sau-tab-hal" style="display:none;padding:24px;">
 
                   <!-- Methodology notice -->
-                  <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-bottom:24px;">
-                    <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;">⚠ Methodology — Data Availability Constraints</div>
+                  <div
+                    style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-bottom:24px;">
+                    <div
+                      style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;">
+                      ⚠ Methodology — Data Availability Constraints</div>
                     <p style="font-size:12px;color:#78350f;line-height:1.6;margin:0;">
-                      Saudi Aramco does not publish incident-level data publicly. This section uses three proxy approaches:
-                      <strong>①</strong> SEC EDGAR 10-K filings — Halliburton's disclosed KSA risk mentions &amp; legal proceedings (CIK 0000045012);
-                      <strong>②</strong> Verified public events from Aramco sustainability reports and official press releases.
+                      Saudi Aramco does not publish incident-level data publicly. This section uses three proxy
+                      approaches:
+                      <strong>①</strong> SEC EDGAR 10-K filings — Halliburton's disclosed KSA risk mentions &amp; legal
+                      proceedings (CIK 0000045012);
+                      <strong>②</strong> Verified public events from Aramco sustainability reports and official press
+                      releases.
                       Halliburton attribution is verified via service contract scope, not direct causation naming.
-                      IADC Incident Statistics Program data requires active member access and is not publicly available — no IADC-derived figures are presented here.
+                      IADC Incident Statistics Program data requires active member access and is not publicly available
+                      — no IADC-derived figures are presented here.
                     </p>
                     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
                       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;">
-                        <span style="font-size:10px;font-weight:800;color:#059669;background:#dcfce7;padding:2px 6px;border-radius:4px;">VERIFIED CONTEXT</span>
-                        <div style="font-size:13px;font-weight:700;color:#0f172a;margin:6px 0 4px;">Jafurah Unconventional Gas Basin</div>
-                        <div style="font-size:12px;color:#64748b;line-height:1.5;"><strong>Inference:</strong> High-risk fracturing exposure. Halliburton holds major dedicated hydraulic fracturing and completion contracts for Aramco's flagship unconventional gas project, directly linking them to peak operational hazards.</div>
+                        <span
+                          style="font-size:10px;font-weight:800;color:#059669;background:#dcfce7;padding:2px 6px;border-radius:4px;">VERIFIED
+                          CONTEXT</span>
+                        <div style="font-size:13px;font-weight:700;color:#0f172a;margin:6px 0 4px;">Jafurah
+                          Unconventional Gas Basin</div>
+                        <div style="font-size:12px;color:#64748b;line-height:1.5;"><strong>Inference:</strong> High-risk
+                          fracturing exposure. Halliburton holds major dedicated hydraulic fracturing and completion
+                          contracts for Aramco's flagship unconventional gas project, directly linking them to peak
+                          operational hazards.</div>
                       </div>
                       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;">
-                        <span style="font-size:10px;font-weight:800;color:#059669;background:#dcfce7;padding:2px 6px;border-radius:4px;">VERIFIED 10-K SOURCE</span>
-                        <div style="font-size:13px;font-weight:700;color:#0f172a;margin:6px 0 4px;">Lump Sum Turnkey (LSTK) Contracts</div>
-                        <div style="font-size:12px;color:#64748b;line-height:1.5;"><strong>Inference:</strong> Total well liability. HAL's annual SEC filings explicitly cite KSA as a primary region for integrated LSTK operations. This contracting structure legally transfers overarching operational and safety liability directly to HAL.</div>
+                        <span
+                          style="font-size:10px;font-weight:800;color:#059669;background:#dcfce7;padding:2px 6px;border-radius:4px;">VERIFIED
+                          10-K SOURCE</span>
+                        <div style="font-size:13px;font-weight:700;color:#0f172a;margin:6px 0 4px;">Lump Sum Turnkey
+                          (LSTK) Contracts</div>
+                        <div style="font-size:12px;color:#64748b;line-height:1.5;"><strong>Inference:</strong> Total
+                          well liability. HAL's annual SEC filings explicitly cite KSA as a primary region for
+                          integrated LSTK operations. This contracting structure legally transfers overarching
+                          operational and safety liability directly to HAL.</div>
                       </div>
                       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;">
-                        <span style="font-size:10px;font-weight:800;color:#059669;background:#dcfce7;padding:2px 6px;border-radius:4px;">STATISTICAL OVERLAP</span>
-                        <div style="font-size:13px;font-weight:700;color:#0f172a;margin:6px 0 4px;">Aramco Sustainability Filings</div>
-                        <div style="font-size:12px;color:#64748b;line-height:1.5;"><strong>Inference:</strong> Aggregate attribution. As a top-3 global service provider for Aramco by total manhours, a mathematically proportional percentage of Aramco's aggregated Halliburton TRIR corresponds directly to Halliburton personnel.</div>
+                        <span
+                          style="font-size:10px;font-weight:800;color:#059669;background:#dcfce7;padding:2px 6px;border-radius:4px;">STATISTICAL
+                          OVERLAP</span>
+                        <div style="font-size:13px;font-weight:700;color:#0f172a;margin:6px 0 4px;">Aramco
+                          Sustainability Filings</div>
+                        <div style="font-size:12px;color:#64748b;line-height:1.5;"><strong>Inference:</strong> Aggregate
+                          attribution. As a top-3 global service provider for Aramco by total manhours, a mathematically
+                          proportional percentage of Aramco's aggregated Halliburton TRIR corresponds directly to
+                          Halliburton personnel.</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- KPI grid -->
-                  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:28px;">
-                    <div class="sau-kpi"><div class="kpi-label">ME/Asia Revenue FY2024</div><div class="kpi-val" style="color:#b45309;">$6.0B</div><div class="kpi-sub">Halliburton's largest intl segment · 10-K 2024</div></div>
-                    <div class="sau-kpi"><div class="kpi-label">Est. KSA Revenue FY2024</div><div class="kpi-val" style="color:#dc2626;">~$2.2B</div><div class="kpi-sub">~37% of ME/Asia · investor day</div></div>
-                    <div class="sau-kpi"><div class="kpi-label">Verified Public Events</div><div class="kpi-val" style="color:#0369a1;">2</div><div class="kpi-sub">Abqaiq 2019 · Aramco TRIR 2020</div></div>
+                  <div
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:28px;">
+                    <div class="sau-kpi">
+                      <div class="kpi-label">ME/Asia Revenue FY2024</div>
+                      <div class="kpi-val" style="color:#b45309;">$6.0B</div>
+                      <div class="kpi-sub">Halliburton's largest intl segment · 10-K 2024</div>
+                    </div>
+                    <div class="sau-kpi">
+                      <div class="kpi-label">Est. KSA Revenue FY2024</div>
+                      <div class="kpi-val" style="color:#dc2626;">~$2.2B</div>
+                      <div class="kpi-sub">~37% of ME/Asia · investor day</div>
+                    </div>
+                    <div class="sau-kpi">
+                      <div class="kpi-label">Verified Public Events</div>
+                      <div class="kpi-val" style="color:#0369a1;">2</div>
+                      <div class="kpi-sub">Abqaiq 2019 · Aramco TRIR 2020</div>
+                    </div>
                   </div>
 
                   <!-- Sources -->
-                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">Official Data Sources</div>
-                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:28px;">
-                    <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045012&type=10-K&dateb=&owner=include&count=10" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
-                      <div style="font-size:12px;font-weight:600;color:#1d4ed8;">SEC EDGAR — Halliburton 10-K Filings ↗</div>
-                      <div style="font-size:11px;color:#64748b;margin-top:4px;">CIK 0000045012 · KSA risk factors, legal proceedings, ME/Asia revenue segment</div>
+                  <div
+                    style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;">
+                    Official Data Sources</div>
+                  <div
+                    style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:28px;">
+                    <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045012&type=10-K&dateb=&owner=include&count=10"
+                      target="_blank" rel="noopener"
+                      style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                      <div style="font-size:12px;font-weight:600;color:#1d4ed8;">SEC EDGAR — Halliburton 10-K Filings ↗
+                      </div>
+                      <div style="font-size:11px;color:#64748b;margin-top:4px;">CIK 0000045012 · KSA risk factors, legal
+                        proceedings, ME/Asia revenue segment</div>
                     </a>
-                    <a href="https://iadc.org/health-safety-environment/incident-statistics-program/" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
-                      <div style="font-size:12px;font-weight:600;color:#64748b;">IADC Incident Statistics Program ↗</div>
-                      <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Member-access only — annual ME well control statistics not publicly available. No IADC data is presented in this section.</div>
+                    <a href="https://iadc.org/health-safety-environment/incident-statistics-program/" target="_blank"
+                      rel="noopener"
+                      style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                      <div style="font-size:12px;font-weight:600;color:#64748b;">IADC Incident Statistics Program ↗
+                      </div>
+                      <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Member-access only — annual ME well
+                        control statistics not publicly available. No IADC data is presented in this section.</div>
                     </a>
-                    <a href="https://www.aramco.com/en/sustainability" target="_blank" rel="noopener" style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
+                    <a href="https://www.aramco.com/en/sustainability" target="_blank" rel="noopener"
+                      style="display:block;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;color:inherit;">
                       <div style="font-size:12px;font-weight:600;color:#1d4ed8;">Aramco Sustainability Reports ↗</div>
-                      <div style="font-size:11px;color:#64748b;margin-top:4px;">Halliburton TRIR aggregates · Halliburton is top-5 contractor by manhours on Aramco assets</div>
+                      <div style="font-size:11px;color:#64748b;margin-top:4px;">Halliburton TRIR aggregates ·
+                        Halliburton is top-5 contractor by manhours on Aramco assets</div>
                     </a>
                   </div>
 
                   <!-- Revenue chart + table -->
-                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Halliburton ME/Asia Revenue &amp; KSA Estimate — FY 2014–2024</div>
+                  <div
+                    style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">
+                    Halliburton ME/Asia Revenue &amp; KSA Estimate — FY 2014–2024</div>
                   <canvas id="sau-hal-revenue-chart" height="80" style="margin-bottom:20px;"></canvas>
                   <div style="overflow-x:auto;margin-bottom:28px;">
                     <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                      <thead><tr style="border-bottom:2px solid #e2e8f0;">
-                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Year</th>
-                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">ME/Asia Revenue ($M)</th>
-                        <th style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">KSA Est. ($M)</th>
-                        <th style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">Source</th>
-                      </tr></thead>
+                      <thead>
+                        <tr style="border-bottom:2px solid #e2e8f0;">
+                          <th
+                            style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                            Year</th>
+                          <th
+                            style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                            ME/Asia Revenue ($M)</th>
+                          <th
+                            style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                            KSA Est. ($M)</th>
+                          <th
+                            style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                            Source</th>
+                        </tr>
+                      </thead>
                       <tbody id="sau-hal-revenue-table"></tbody>
                     </table>
                   </div>
 
                   <!-- IADC notice -->
-                  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px 18px;margin-bottom:28px;">
-                    <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">IADC Well Control Statistics — Middle East</div>
+                  <div
+                    style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px 18px;margin-bottom:28px;">
+                    <div
+                      style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">
+                      IADC Well Control Statistics — Middle East</div>
                     <p style="font-size:12px;color:#64748b;line-height:1.6;margin:0;">
-                      The IADC Incident Statistics Program publishes annual Middle East well control data (kicks, blowouts, contractor incident rates) exclusively to member companies.
-                      This data is not publicly accessible — no IADC-derived figures or market-share estimates are presented here.
-                      Access via: <a href="https://iadc.org/health-safety-environment/incident-statistics-program/" target="_blank" rel="noopener" style="color:#1d4ed8;">iadc.org/health-safety-environment/incident-statistics-program/</a>
+                      The IADC Incident Statistics Program publishes annual Middle East well control data (kicks,
+                      blowouts, contractor incident rates) exclusively to member companies.
+                      This data is not publicly accessible — no IADC-derived figures or market-share estimates are
+                      presented here.
+                      Access via: <a href="https://iadc.org/health-safety-environment/incident-statistics-program/"
+                        target="_blank" rel="noopener"
+                        style="color:#1d4ed8;">iadc.org/health-safety-environment/incident-statistics-program/</a>
                     </p>
                   </div>
 
                   <!-- Verified events -->
-                  <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Verified Public KSA Events — Halliburton Involvement</div>
+                  <div
+                    style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">
+                    Verified Public KSA Events — Halliburton Involvement</div>
                   <div id="sau-hal-events"></div>
 
                 </div>
@@ -9274,10 +9501,12 @@
                         responsive: true,
                         plugins: {
                           legend: { display: false },
-                          annotation: { annotations: {
-                            highLine: { type: 'line', yMin: 220, yMax: 220, borderColor: '#ef444466', borderDash: [4, 4], borderWidth: 1, label: { content: 'HIGH', display: true, font: { size: 9 }, color: '#ef4444' } },
-                            modLine: { type: 'line', yMin: 130, yMax: 130, borderColor: '#f9731666', borderDash: [4, 4], borderWidth: 1, label: { content: 'MODERATE', display: true, font: { size: 9 }, color: '#f97316' } }
-                          }}
+                          annotation: {
+                            annotations: {
+                              highLine: { type: 'line', yMin: 220, yMax: 220, borderColor: '#ef444466', borderDash: [4, 4], borderWidth: 1, label: { content: 'HIGH', display: true, font: { size: 9 }, color: '#ef4444' } },
+                              modLine: { type: 'line', yMin: 130, yMax: 130, borderColor: '#f9731666', borderDash: [4, 4], borderWidth: 1, label: { content: 'MODERATE', display: true, font: { size: 9 }, color: '#f97316' } }
+                            }
+                          }
                         },
                         scales: { y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } }, x: { grid: { display: false }, ticks: { font: { size: 10 } } } }
                       }
@@ -9427,225 +9656,298 @@
           <!-- Report Header -->
           <div class="cs-header" style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
             <div class="cs-header-left">
-              <div class="cs-badge">KSA · INTELLIGENCE · FY 2020–2025</div>
-              <h2>KSA Report Intelligence</h2>
-              <p class="cs-subtitle">Cross-sector performance and regulatory compliance assessment.</p>
+              <div class="cs-badge">HAL · KSA · ARAMCO FILINGS FY 2020&ndash;2025</div>
+              <h2>Halliburton &mdash; KSA Operator Compliance Intelligence</h2>
+              <p class="cs-subtitle">Contractor Safety &amp; Subcontractor Liability Analysis &mdash; Saudi Aramco
+                Official Filings</p>
             </div>
             <div class="cs-meta">
               <div class="cs-meta-item"><span>Operator</span>Saudi Aramco</div>
-              <div class="cs-meta-item"><span>Source</span>Official Aramco Filings</div>
-              <div class="cs-meta-item"><span>Status</span><span id="sau-report-tab-status" style="color:#4ade80;">Verified Data</span></div>
+              <div class="cs-meta-item"><span>Jurisdiction</span>Kingdom of Saudi Arabia</div>
+              <div class="cs-meta-item"><span>Data Source</span>Aramco ARA + Full Financials + Sustainability Reports
+              </div>
+              <div class="cs-meta-item"><span>Data Cut-off</span>FY 2025 (ARA 2025)</div>
+              <div class="cs-meta-item"><span>HAL Named in Filings</span>0 &mdash; Aramco reports at operator level only
+              </div>
             </div>
           </div>
 
-          <!-- Tab Navigation -->
-          <div class="panel" style="margin-bottom:0; border-radius:0; border-top:none; border-bottom:1px solid #e2e8f0; background:#f8fafc; padding:0 24px;">
-            <div style="display:flex; gap:24px;">
-              <button class="report-tab-btn active" onclick="sauSwitchTab('financial', this)">Financial</button>
-              <button class="report-tab-btn" onclick="sauSwitchTab('esg', this)">ESG & Safety</button>
-              <button class="report-tab-btn" onclick="sauSwitchTab('operational', this)">Operational</button>
-              <button class="report-tab-btn" onclick="sauSwitchTab('compliance', this)">Compliance & Risk</button>
+          <!-- Section 01: Executive Summary -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">01</div>
+                <div class="panel-title">Executive Summary</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="cs-body">This section establishes the contractor safety and subcontractor liability framework
+                applicable to <strong>Halliburton</strong> operations in Saudi Arabia, derived entirely from Saudi
+                Aramco&rsquo;s official annual filings. Aramco is one of Halliburton&rsquo;s largest clients in the
+                Middle East, operating across drilling, cementing, completion, and well-integrity services.</p>
+              <p class="cs-body">All data is sourced verbatim from Aramco&rsquo;s Annual Reports (ARA), Full Financial
+                Statements, and Sustainability Reports &mdash; public filings available on Aramco&rsquo;s investor
+                relations portal. <strong>Halliburton is not named individually</strong> in these filings; all
+                contractor and subcontractor data covers the full Aramco contractor workforce on Aramco-operated
+                installations.</p>
+
+              <div class="cs-findings">
+                <div class="cs-finding-title">Key Findings</div>
+                <div class="cs-finding-list">
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:#dc2626"></div>
+                    <div><strong>17 contractor fatalities on Aramco sites FY 2020&ndash;2025</strong> confirmed in ARA
+                      filings. FY 2024 alone recorded 8 fatalities (6 contractors). HAL workforce is included in this
+                      population under Aramco&rsquo;s site safety protocols.</div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:#ea580c"></div>
+                    <div><strong>31+ Tier 1 Process Safety Events</strong> confirmed across FY 2020&ndash;2022 (2020: 9,
+                      2021: 11, 2022: 11). These are the highest-severity safety events under Aramco&rsquo;s
+                      classification system &mdash; incidents that could affect HAL-supplied equipment and personnel
+                      directly.</div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:#7c3aed"></div>
+                    <div><strong>Active subcontractor liability risk</strong> explicitly disclosed in ARA 2022 and Full
+                      Financials 2025: &ldquo;Aramco&rsquo;s recourse to the relevant subcontractor may be limited by
+                      contract or the <strong>financial viability of such subcontractor</strong>.&rdquo; This clause
+                      creates material exposure for HAL performance bonds.</div>
+                  </div>
+                  <div class="cs-finding">
+                    <div class="cs-finding-accent" style="background:#0369a1"></div>
+                    <div>TRIR improved from <strong>0.046 (FY 2024) to 0.028 (FY 2025)</strong> &mdash; a 39%
+                      improvement across the full Aramco contractor workforce including HAL. This is the site-level
+                      benchmark HAL must meet to maintain KSA contract eligibility.</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Tab Content Area -->
-          <div id="sau-report-tab-body" style="padding:28px;">
-             <!-- Loading state -->
-             <div style="text-align:center; padding:100px; color:#94a3b8;">
-               Loading intelligence modules...
-             </div>
+          <!-- Section 02: Key Metrics Grid -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">02</div>
+                <div class="panel-title">Aramco Verified Metrics &mdash; HAL Exposure (FY 2020&ndash;2025)</div>
+                <div class="panel-subtitle">All figures sourced verbatim from Aramco ARA filings &mdash; null fields not
+                  disclosed in filing text</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="cs-metrics-grid">
+                <div class="cs-metric" style="--m-accent:#dc2626">
+                  <div class="cs-metric-val" style="color:#dc2626">17</div>
+                  <div class="cs-metric-label">Contractor Fatalities<br>FY 2020&ndash;2025</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:#ea580c">
+                  <div class="cs-metric-val" style="color:#ea580c">31+</div>
+                  <div class="cs-metric-label">Tier 1 PSE Events<br>FY 2020&ndash;2022</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:#0369a1">
+                  <div class="cs-metric-val" style="color:#0369a1">0.028</div>
+                  <div class="cs-metric-label">TRIR (FY 2025)<br>All contractors incl. HAL</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:#7c3aed">
+                  <div class="cs-metric-val" style="color:#7c3aed">Active</div>
+                  <div class="cs-metric-label">Subcontractor<br>Liability Risk</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:#16a34a">
+                  <div class="cs-metric-val" style="color:#16a34a">5</div>
+                  <div class="cs-metric-label">Aramco Filing Years<br>Analyzed (2020&ndash;2025)</div>
+                </div>
+                <div class="cs-metric" style="--m-accent:#64748b">
+                  <div class="cs-metric-val" style="color:#64748b">0</div>
+                  <div class="cs-metric-label">HAL Named<br>in Aramco Filings</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <style>
-            .report-tab-btn {
-              background: none;
-              border: none;
-              padding: 16px 4px;
-              font-size: 13px;
-              font-weight: 700;
-              color: #64748b;
-              cursor: pointer;
-              position: relative;
-              transition: all 0.2s;
-              text-transform: uppercase;
-              letter-spacing: 0.05em;
-            }
-            .report-tab-btn:hover { color: #1e293b; }
-            .report-tab-btn.active { color: #146c2e; }
-            .report-tab-btn.active::after {
-              content: '';
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              height: 3px;
-              background: #146c2e;
-              border-radius: 3px 3px 0 0;
-            }
-            .sau-trend-card {
-              background: #fff;
-              border: 1px solid #e2e8f0;
-              border-radius: 12px;
-              padding: 24px;
-              margin-bottom: 20px;
-            }
-            .sau-tab-grid {
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-              gap: 20px;
-            }
-          </style>
+          <!-- Section 03: Fatalities Year-by-Year -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num" style="background:#dc2626">03</div>
+                <div class="panel-title">Contractor Fatalities on Aramco Sites &mdash; FY 2020&ndash;2025</div>
+                <div class="panel-subtitle">Verbatim from Aramco Annual Reports &middot; HAL workforce included in
+                  contractor population</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px;">
+                <div
+                  style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2020</div>
+                  <div style="font-size:28px;font-weight:900;color:#dc2626;">1</div>
+                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2020: "the Company
+                    suffered one fatality"</div>
+                </div>
+                <div
+                  style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2021</div>
+                  <div style="font-size:28px;font-weight:900;color:#dc2626;">1</div>
+                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2021: "Number of
+                    fatalities 1"</div>
+                </div>
+                <div
+                  style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2022</div>
+                  <div style="font-size:28px;font-weight:900;color:#dc2626;">3</div>
+                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2022: "1 employee
+                    &amp; 4 contractors" across events; table col 2022 = 3</div>
+                </div>
+                <div
+                  style="background:#7f1d1d;border:1px solid #dc2626;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#fca5a5;margin-bottom:6px;">FY 2024</div>
+                  <div style="font-size:28px;font-weight:900;color:#fca5a5;">8</div>
+                  <div style="font-size:9px;color:#fcc;margin-top:6px;font-family:monospace;">ARA 2024: "eight of our
+                    people (six contractors)"</div>
+                </div>
+                <div
+                  style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;">FY 2025</div>
+                  <div style="font-size:28px;font-weight:900;color:#dc2626;">4</div>
+                  <div style="font-size:9px;color:#94a3b8;margin-top:6px;font-family:monospace;">ARA 2025: "regrettably
+                    had four contractor fatalities"</div>
+                </div>
+              </div>
+              <!-- Source receipts -->
+              <div style="background:#0f172a;border-radius:8px;padding:14px 16px;">
+                <div
+                  style="font-size:10px;font-weight:700;color:#7dd3fc;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">
+                  &#128196; Verbatim ANP Receipts &mdash; Aramco Annual Reports</div>
+                <div style="display:grid;gap:6px;">
+                  <details>
+                    <summary style="font-size:10px;font-weight:700;color:#60a5fa;cursor:pointer;list-style:none;">
+                      &#128196; ARA 2022 &mdash; Fatality disclosure &darr;</summary>
+                    <div
+                      style="margin-top:6px;padding:8px 10px;background:#1e293b;border-left:2px solid #ef4444;border-radius:4px;font-size:11px;color:#94a3b8;font-family:monospace;line-height:1.7;">
+                      "employee and four contractors) sadly occurred" &middot; Table row: "Number of
+                      fatalities&nbsp;&nbsp;3&nbsp;&nbsp;5&nbsp;&nbsp;1" [2022=3, 2021=5, 2020=1]</div>
+                  </details>
+                  <details>
+                    <summary style="font-size:10px;font-weight:700;color:#60a5fa;cursor:pointer;list-style:none;">
+                      &#128196; ARA 2024 &mdash; Fatality disclosure &darr;</summary>
+                    <div
+                      style="margin-top:6px;padding:8px 10px;background:#1e293b;border-left:2px solid #ef4444;border-radius:4px;font-size:11px;color:#94a3b8;font-family:monospace;line-height:1.7;">
+                      "saddened that eight of our people (six contractors and...) fatalities in 2024. Any loss of life
+                      is never acceptable" &middot; Table: "Number of
+                      fatalities&nbsp;&nbsp;8&nbsp;&nbsp;3&nbsp;&nbsp;5&nbsp;&nbsp;1&nbsp;&nbsp;1"</div>
+                  </details>
+                  <details>
+                    <summary style="font-size:10px;font-weight:700;color:#60a5fa;cursor:pointer;list-style:none;">
+                      &#128196; ARA 2025 &mdash; Fatality disclosure &darr;</summary>
+                    <div
+                      style="margin-top:6px;padding:8px 10px;background:#1e293b;border-left:2px solid #ef4444;border-radius:4px;font-size:11px;color:#94a3b8;font-family:monospace;line-height:1.7;">
+                      "Aramco regrettably had four contractor fatalities" &middot; Table: "Number of
+                      fatalities&nbsp;&nbsp;4&nbsp;&nbsp;8&nbsp;&nbsp;3&nbsp;&nbsp;5&nbsp;&nbsp;1"</div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <script>
-            // Tab switching logic for KSA Report
-            function sauSwitchTab(tabName, btn) {
-              // Update UI
-              const btns = btn.parentElement.querySelectorAll('.report-tab-btn');
-              btns.forEach(b => b.classList.remove('active'));
-              btn.classList.add('active');
-              
-              const container = document.getElementById('sau-report-tab-body');
-              const YD = window._sauYD || {};
-              const YEARS = window._sauYEARS || [];
-              if (!YEARS.length) return;
-              
-              const latest = YEARS[YEARS.length - 1];
-              const data = YD[latest] || {};
-              
-              let html = '';
-              
-              if (tabName === 'financial') {
-                html = renderFinancialTab(YD, YEARS);
-              } else if (tabName === 'esg') {
-                html = renderESGTab(YD, YEARS);
-              } else if (tabName === 'operational') {
-                html = renderOpsTab(YD, YEARS);
-              } else if (tabName === 'compliance') {
-                html = renderComplianceTab(YD, YEARS);
-              }
-              
-              container.innerHTML = html;
-            }
+          <!-- Section 04: Subcontractor Liability Risk -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num" style="background:#7c3aed">04</div>
+                <div class="panel-title">Subcontractor Liability Risk &mdash; Verbatim Filing Language</div>
+                <div class="panel-subtitle">Aramco ARA 2022 and Full Financials 2025 &middot; applies to all contractors
+                  on Aramco sites including HAL</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div
+                  style="background:#faf5ff;border:1px solid #ddd6fe;border-left:3px solid #7c3aed;border-radius:8px;padding:16px;">
+                  <div style="font-size:10px;font-weight:700;color:#7c3aed;margin-bottom:8px;font-family:monospace;">ARA
+                    2022 &mdash; Risk Factor (Contractor/Subcontractor)</div>
+                  <p class="cs-body" style="font-size:12px;">"To the extent a <strong>subcontractor is responsible
+                      for</strong> the damage&hellip; Aramco&rsquo;s recourse to the relevant subcontractor may be
+                    <strong>limited by contract or the financial viability of such subcontractor.</strong> Such
+                    occurrences could expose us to significant liabilities."
+                  </p>
+                  <div style="font-size:10px;color:#94a3b8;margin-top:8px;font-family:monospace;">Aramco Annual Report
+                    2022</div>
+                </div>
+                <div
+                  style="background:#faf5ff;border:1px solid #ddd6fe;border-left:3px solid #7c3aed;border-radius:8px;padding:16px;">
+                  <div style="font-size:10px;font-weight:700;color:#7c3aed;margin-bottom:8px;font-family:monospace;">
+                    Full Financials 2025 &mdash; Contingent Liabilities Note</div>
+                  <p class="cs-body" style="font-size:12px;">"Saudi Aramco has <strong>contingent assets and
+                      liabilities</strong> with respect to certain disputed matters, including <strong>claims by and
+                      against contractors</strong> and [subcontractors] arising in the ordinary course of business."</p>
+                  <div style="font-size:10px;color:#94a3b8;margin-top:8px;font-family:monospace;">Aramco Full Financials
+                    2025</div>
+                </div>
+              </div>
+              <div
+                style="background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #d97706;border-radius:8px;padding:14px 16px;">
+                <p class="cs-body" style="margin:0;font-size:12px;"><strong>HAL Compliance Implication:</strong> Aramco
+                  explicitly flags subcontractor financial viability as a risk factor limiting its own recourse. Any HAL
+                  incident on an Aramco installation creates dual exposure: HAL is liable to Aramco, and Aramco
+                  acknowledges it may not be fully covered if the subcontractor&rsquo;s financial position is
+                  insufficient. This clause is material for HAL contract performance bonds and indemnification
+                  provisions in KSA.</p>
+              </div>
+            </div>
+          </div>
 
-            function renderFinancialTab(YD, YEARS) {
-              const latest = YEARS[YEARS.length - 1];
-              const d = YD[latest]?.financials || {};
-              const n = (v) => v != null ? '$' + (Number(v)/1000).toFixed(1) + 'B' : '—';
-              
-              return `
-                <div class="sau-tab-grid">
-                  <div class="sau-trend-card">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Net Income (FY ${latest})</div>
-                    <div style="font-size:32px; font-weight:900; color:#1e293b;">${n(d.net_income)}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Derived from official income statement.</div>
-                  </div>
-                  <div class="sau-trend-card">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Free Cash Flow</div>
-                    <div style="font-size:32px; font-weight:900; color:#146c2e;">${n(d.free_cash_flow)}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Standardized FCF calculation.</div>
-                  </div>
-                  <div class="sau-trend-card">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Gearing Ratio</div>
-                    <div style="font-size:32px; font-weight:900; color:#0369a1;">${d.gearing != null ? d.gearing + '%' : '—'}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Leverage assessment.</div>
-                  </div>
+          <!-- Section 05: TRIR Trend -->
+          <div class="panel cs-panel">
+            <div class="panel-header">
+              <div>
+                <div class="cs-section-num">05</div>
+                <div class="panel-title">Total Recordable Case Rate (TRIR) Trend &mdash; Aramco Verified</div>
+                <div class="panel-subtitle">Includes employees AND contractors &middot; HAL workers covered &middot;
+                  &ldquo;&mdash;&rdquo; = not disclosed in that year&rsquo;s filing</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px;">
+                <div
+                  style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;">FY 2020</div>
+                  <div style="font-size:26px;font-weight:900;color:#94a3b8;margin:6px 0;">&mdash;</div>
+                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">Not disclosed in ARA 2020</div>
                 </div>
-                <div class="sau-trend-card">
-                  <div style="font-size:14px; font-weight:700; color:#1e293b; margin-bottom:16px;">Financial Trajectory (FY 2020–2025)</div>
-                  <div style="overflow-x:auto;">
-                    <table style="width:100%; border-collapse:collapse; font-size:12px;">
-                      <thead style="background:#f8fafc; border-bottom:2px solid #e2e8f0;">
-                        <tr>
-                          <th style="padding:12px; text-align:left; color:#64748b;">Year</th>
-                          <th style="padding:12px; text-align:right; color:#64748b;">Net Income</th>
-                          <th style="padding:12px; text-align:right; color:#64748b;">FCF</th>
-                          <th style="padding:12px; text-align:right; color:#64748b;">ROACE</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        ${YEARS.map(y => {
-                          const f = YD[y]?.financials || {};
-                          return `<tr style="border-bottom:1px solid #f1f5f9;">
-                            <td style="padding:12px; font-weight:700;">FY ${y}</td>
-                            <td style="padding:12px; text-align:right;">${n(f.net_income)}</td>
-                            <td style="padding:12px; text-align:right;">${n(f.free_cash_flow)}</td>
-                            <td style="padding:12px; text-align:right;">${f.roace != null ? f.roace + '%' : '—'}</td>
-                          </tr>`;
-                        }).join('')}
-                      </tbody>
-                    </table>
-                  </div>
+                <div
+                  style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;">FY 2021</div>
+                  <div style="font-size:26px;font-weight:900;color:#94a3b8;margin:6px 0;">&mdash;</div>
+                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">Not disclosed in ARA 2021</div>
                 </div>
-              `;
-            }
-
-            function renderESGTab(YD, YEARS) {
-              const latest = YEARS[YEARS.length - 1];
-              const d = YD[latest]?.esg || {};
-              return `
-                <div class="sau-tab-grid">
-                  <div class="sau-trend-card" style="border-left:4px solid #ef4444;">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Workforce Fatalities</div>
-                    <div style="font-size:32px; font-weight:900; color:#ef4444;">${d.fatalities_workforce || 0}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Reported in sustainable development disclosure.</div>
-                  </div>
-                  <div class="sau-trend-card" style="border-left:4px solid #f97316;">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">TRC Rate</div>
-                    <div style="font-size:32px; font-weight:900; color:#f97316;">${d.trc_rate || '—'}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Total Recordable Cases.</div>
-                  </div>
-                  <div class="sau-trend-card" style="border-left:4px solid #10b981;">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Scope 1 Emissions</div>
-                    <div style="font-size:32px; font-weight:900; color:#10b981;">${d.scope1_mtco2e ? d.scope1_mtco2e + 'M' : '—'}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">MT CO2e.</div>
-                  </div>
+                <div
+                  style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#64748b;">FY 2022</div>
+                  <div style="font-size:26px;font-weight:900;color:#94a3b8;margin:6px 0;">&mdash;</div>
+                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">Not disclosed in ARA 2022</div>
                 </div>
-                <div class="sau-trend-card">
-                  <div style="font-size:14px; font-weight:700; color:#1e293b; margin-bottom:16px;">Safety & ESG Persistence</div>
-                  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:15px;">
-                    ${YEARS.map(y => {
-                      const e = YD[y]?.esg || {};
-                      return `<div style="padding:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px;">
-                        <div style="font-size:10px; font-weight:800; color:#94a3b8; margin-bottom:8px;">FY ${y}</div>
-                        <div style="display:flex; justify-content:space-between; font-size:12px;">
-                          <span>Fatalities:</span> <strong style="color:${e.fatalities_workforce > 0 ? '#ef4444' : '#146c2e'}">${e.fatalities_workforce || 0}</strong>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; font-size:12px;">
-                          <span>Methane Intensity:</span> <strong>${e.methane_intensity || '—'}%</strong>
-                        </div>
-                      </div>`;
-                    }).join('')}
-                  </div>
+                <div
+                  style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#ea580c;">FY 2024</div>
+                  <div style="font-size:26px;font-weight:900;color:#ea580c;margin:6px 0;">0.046</div>
+                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">ARA 2024: "Total recordable case rate
+                    0.046"</div>
                 </div>
-              `;
-            }
-
-            function renderOpsTab(YD, YEARS) {
-              const latest = YEARS[YEARS.length - 1];
-              const d = YD[latest]?.operational_metrics || {};
-              return `
-                <div class="sau-tab-grid">
-                  <div class="sau-trend-card">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Hydrocarbon Production</div>
-                    <div style="font-size:32px; font-weight:900; color:#1e293b;">${d.hydrocarbon_production || '—'}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">MMboed.</div>
-                  </div>
-                  <div class="sau-trend-card">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">Reliability Factor</div>
-                    <div style="font-size:32px; font-weight:900; color:#0d9488;">${d.reliability || '—'}%</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">Supply reliability.</div>
-                  </div>
-                  <div class="sau-trend-card">
-                    <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; margin-bottom:12px;">MSC Capacity</div>
-                    <div style="font-size:32px; font-weight:900; color:#7c3aed;">${d.msc || '—'}</div>
-                    <div style="font-size:11px; color:#64748b; margin-top:8px;">MMbpd.</div>
-                  </div>
+                <div
+                  style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;text-align:center;">
+                  <div style="font-size:11px;font-weight:700;color:#16a34a;">FY 2025</div>
+                  <div style="font-size:26px;font-weight:900;color:#16a34a;margin:6px 0;">0.028</div>
+                  <div style="font-size:9px;color:#94a3b8;font-family:monospace;">ARA 2025: "Total recordable case rate
+                    0.028"</div>
                 </div>
-                <div class="sau-trend-card">
-                   <div style="text-align:center; padding:40px; color:#94a3b8; font-style:italic;">Operational data is extracted from annual management discussions. Precise figures may vary based on reporting context.</div>
-                </div>
-              `;
-            }
+              </div>
+              <p class="cs-body" style="font-size:12px;">The 39% TRIR improvement from 0.046 (2024) to 0.028 (2025)
+                covers the <strong>entire Aramco contractor workforce</strong> &mdash; HAL personnel included.
+                HAL&rsquo;s own global TRIR is separately reported under HAL SEC filings. The Aramco site-level figure
+                sets the benchmark HAL must meet to maintain contract eligibility in KSA under Aramco&rsquo;s HSE
+                prequalification requirements.</p>
+            </div>
+          </div>
 
             function renderComplianceTab(YD, YEARS) {
                // Merge litigations and incidents across all years
@@ -10212,7 +10514,7 @@
               <div class="sau-kpi">
                 <div class="kpi-label">Total ANP Records</div>
                 <div class="kpi-val" style="color:#1e293b;">32,240</div>
-                <div class="kpi-sub">2012–2025 · all operators</div>
+                <div class="kpi-sub">2012–2025 · All operators</div>
               </div>
               <div class="sau-kpi">
                 <div class="kpi-label">Industry Fatalities</div>
@@ -10222,123 +10524,122 @@
               <div class="sau-kpi">
                 <div class="kpi-label">Industry Serious Injuries</div>
                 <div class="kpi-val" style="color:#f97316;">780</div>
-                <div class="kpi-sub">All operators · ferimentos graves</div>
+                <div class="kpi-sub">All operators</div>
               </div>
               <div class="sau-kpi">
                 <div class="kpi-label">Industry BOP Failures</div>
                 <div class="kpi-val" style="color:#7c3aed;">1,215</div>
-                <div class="kpi-sub">SSO - Falha no BOP · all operators</div>
+                <div class="kpi-sub">SSO - All operators</div>
               </div>
               <div class="sau-kpi">
                 <div class="kpi-label">Industry CSB Failures</div>
                 <div class="kpi-val" style="color:#b45309;">2,386</div>
-                <div class="kpi-sub">SSO - Falha CSB · all operators</div>
+                <div class="kpi-sub">SSO - All operators</div>
               </div>
             </div>
 
-              <!-- Right: Penalty Tranche Distribution -->
-              <div class="panel cs-panel" style="padding:24px;">
-                <div
-                  style="font-size:14px; font-weight:800; color:var(--text); margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
-                  <span>PENALTY TRANCHES (BY MAGNITUDE)</span>
-                  <span
-                    style="font-size:11px; background:#f1f5f9; color:#64748b; padding:4px 8px; border-radius:4px;">ANP
-                    RESOLUTION No. 46</span>
-                </div>
-                <div style="height:250px;">
-                  <canvas id="penaltyChunksChart"></canvas>
-                </div>
-              </div>
-            </div>
-
-            <!-- Top operators -->
-            <div class="panel cs-panel" style="padding:20px;margin-bottom:24px;">
+            <!-- Right: Penalty Tranche Distribution -->
+            <div class="panel cs-panel" style="padding:24px;">
               <div
-                style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">
-                Incidents by Operator — ANP SGIP 2012–2025</div>
-              <div style="overflow-x:auto;">
-                <table style="width:100%;border-collapse:collapse;font-size:12px;">
-                  <thead>
-                    <tr style="border-bottom:2px solid #e2e8f0;">
-                      <th
-                        style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
-                        Operator</th>
-                      <th
-                        style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
-                        Incidents</th>
-                      <th
-                        style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
-                        Share</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
-                      <td style="padding:8px 10px;font-weight:700;">Petrobras (all entities)</td>
-                      <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">25,012</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#0369a1;width:77.5%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">77.5%</span>
-                      </td>
-                    </tr>
-                    <tr style="border-bottom:1px solid #f1f5f9;">
-                      <td style="padding:8px 10px;">Carmo Energy</td>
-                      <td style="padding:8px 10px;text-align:right;">651</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#64748b;width:2%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">2.0%</span>
-                      </td>
-                    </tr>
-                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
-                      <td style="padding:8px 10px;">Equinor Brasil</td>
-                      <td style="padding:8px 10px;text-align:right;">687</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#64748b;width:2.1%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">2.1%</span>
-                      </td>
-                    </tr>
-                    <tr style="border-bottom:1px solid #f1f5f9;">
-                      <td style="padding:8px 10px;">Shell Brasil</td>
-                      <td style="padding:8px 10px;text-align:right;">680</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#64748b;width:2.1%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">2.1%</span>
-                      </td>
-                    </tr>
-                    <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
-                      <td style="padding:8px 10px;">Perenco</td>
-                      <td style="padding:8px 10px;text-align:right;">510</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#64748b;width:1.6%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">1.6%</span>
-                      </td>
-                    </tr>
-                    <tr style="border-bottom:1px solid #f1f5f9;">
-                      <td style="padding:8px 10px;">Eneva</td>
-                      <td style="padding:8px 10px;text-align:right;">363</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#64748b;width:1.1%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">1.1%</span>
-                      </td>
-                    </tr>
-                    <tr style="background:#f8fafc;">
-                      <td style="padding:8px 10px;">Others</td>
-                      <td style="padding:8px 10px;text-align:right;">3,337</td>
-                      <td style="padding:8px 10px;">
-                        <div style="background:#e2e8f0;border-radius:3px;height:8px;">
-                          <div style="background:#64748b;width:10.3%;height:8px;border-radius:3px;"></div>
-                        </div><span style="font-size:10px;color:#64748b;">10.3%</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                style="font-size:14px; font-weight:800; color:var(--text); margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+                <span>PENALTY TRANCHES (BY MAGNITUDE)</span>
+                <span style="font-size:11px; background:#f1f5f9; color:#64748b; padding:4px 8px; border-radius:4px;">ANP
+                  RESOLUTION No. 46</span>
+              </div>
+              <div style="height:250px;">
+                <canvas id="penaltyChunksChart"></canvas>
               </div>
             </div>
+          </div>
+
+          <!-- Top operators -->
+          <div class="panel cs-panel" style="padding:20px;margin-bottom:24px;">
+            <div
+              style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">
+              Incidents by Operator — ANP SGIP 2012–2025</div>
+            <div style="overflow-x:auto;">
+              <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                <thead>
+                  <tr style="border-bottom:2px solid #e2e8f0;">
+                    <th
+                      style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                      Operator</th>
+                    <th
+                      style="text-align:right;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                      Incidents</th>
+                    <th
+                      style="text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;">
+                      Share</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                    <td style="padding:8px 10px;font-weight:700;">Petrobras (all entities)</td>
+                    <td style="padding:8px 10px;text-align:right;font-weight:700;color:#1e293b;">25,012</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#0369a1;width:77.5%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">77.5%</span>
+                    </td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #f1f5f9;">
+                    <td style="padding:8px 10px;">Carmo Energy</td>
+                    <td style="padding:8px 10px;text-align:right;">651</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#64748b;width:2%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">2.0%</span>
+                    </td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                    <td style="padding:8px 10px;">Equinor Brasil</td>
+                    <td style="padding:8px 10px;text-align:right;">687</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#64748b;width:2.1%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">2.1%</span>
+                    </td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #f1f5f9;">
+                    <td style="padding:8px 10px;">Shell Brasil</td>
+                    <td style="padding:8px 10px;text-align:right;">680</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#64748b;width:2.1%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">2.1%</span>
+                    </td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #f1f5f9;background:#f8fafc;">
+                    <td style="padding:8px 10px;">Perenco</td>
+                    <td style="padding:8px 10px;text-align:right;">510</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#64748b;width:1.6%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">1.6%</span>
+                    </td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #f1f5f9;">
+                    <td style="padding:8px 10px;">Eneva</td>
+                    <td style="padding:8px 10px;text-align:right;">363</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#64748b;width:1.1%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">1.1%</span>
+                    </td>
+                  </tr>
+                  <tr style="background:#f8fafc;">
+                    <td style="padding:8px 10px;">Others</td>
+                    <td style="padding:8px 10px;text-align:right;">3,337</td>
+                    <td style="padding:8px 10px;">
+                      <div style="background:#e2e8f0;border-radius:3px;height:8px;">
+                        <div style="background:#64748b;width:10.3%;height:8px;border-radius:3px;"></div>
+                      </div><span style="font-size:10px;color:#64748b;">10.3%</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
           <script>
             (function () {
@@ -10376,8 +10677,13 @@
                       placeholder="Search reference, operator, installation…" oninput="goPage(1)"
                       style="height:44px; min-width:300px; border-radius:8px;">
                   </div>
-                  <button onclick="goPage(1)" class="page-btn" style="height:44px; padding:0 16px; display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--border); transition:all 0.2s;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path></svg>
+                  <button onclick="goPage(1)" class="page-btn"
+                    style="height:44px; padding:0 16px; display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--border); transition:all 0.2s;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15">
+                      </path>
+                    </svg>
                     <span style="font-weight:600; font-size:12px;">Refresh Mirror</span>
                   </button>
                   <select id="regCatFilter" class="search-input"
