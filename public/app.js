@@ -41,7 +41,7 @@ const SEV_REGS = {
 
 // ── Colour palette ────────────────────────────────────────────────────────────
 const CAT_COLORS = {
-  "CSB Failure": "#c0392b",
+  "CSB Failure": "#CC0000",
   "Kick (Primary Barrier)": "#e67e22",
   "Structural Failure": "#1a56a0",
   "Loss of Well Control": "#7c3aed",
@@ -52,7 +52,7 @@ const SEV_COLORS = {
   "SSO": "#8896ab",
   "Minor": "#16a34a",
   "Moderate": "#e67e22",
-  "Severe": "#c0392b",
+  "Severe": "#CC0000",
 };
 const CAT_CSS = {
   "CSB Failure": "bc-csb",
@@ -229,7 +229,7 @@ function renderKPIs(stats) {
     {
       label: "CSB Barrier Element Failures", value: csb.toLocaleString(),
       sub: "Barreira Solidarity Group",
-      accent: "#c0392b",
+      accent: "#CC0000",
       badge: "+39,000% since 2016",
       badgeUrl: LINKS.ANP_SGIP,
       srcUrl: LINKS.ANP_SGIP,
@@ -455,8 +455,8 @@ function renderCsbTrend(stats) {
         {
           label: "CSB Failures",
           data: series.map(y => y["CSB Failure"] || 0),
-          borderColor: "#c0392b", backgroundColor: "rgba(192,57,43,0.1)",
-          fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: "#c0392b",
+          borderColor: "#CC0000", backgroundColor: "rgba(192,57,43,0.1)",
+          fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: "#CC0000",
         },
         {
           label: "Kicks (Primary Barrier)",
@@ -495,8 +495,8 @@ function renderMonthChart(stats) {
       labels: MONTH_NAMES,
       datasets: [{
         label: "Incidents", data: vals,
-        borderColor: "#c0392b", backgroundColor: "rgba(192,57,43,0.12)",
-        pointBackgroundColor: "#c0392b", pointRadius: 3
+        borderColor: "#CC0000", backgroundColor: "rgba(192,57,43,0.12)",
+        pointBackgroundColor: "#CC0000", pointRadius: 3
       }]
     },
     options: {
@@ -769,7 +769,7 @@ function renderTable(data) {
     const injCount = parseInt(r.feridos) || 0;
     const fatCount = parseInt(r.fatalidades) || 0;
     const situacao = r.situacao || "—";
-    const sitColor = situacao === "Closed" || situacao === "Approved" ? "#16a34a" : situacao === "Awaiting Action" ? "#c0392b" : "#8896ab";
+    const sitColor = situacao === "Closed" || situacao === "Approved" ? "#16a34a" : situacao === "Awaiting Action" ? "#CC0000" : "#8896ab";
     return `
     <tr style="cursor:${hasDesc ? 'pointer' : 'default'}" onclick="${hasDesc ? `toggleDesc('${rowId}')` : ''}">
       <td class="num-cell" style="white-space:nowrap;">
@@ -794,7 +794,7 @@ function renderTable(data) {
           ${r.severity || "SSO"}
         </span>
       </td>
-      <td style="text-align:center;font-size:12px;font-weight:700;color:${injCount > 0 ? '#c0392b' : '#8896ab'};">${injCount > 0 ? injCount : '—'}</td>
+      <td style="text-align:center;font-size:12px;font-weight:700;color:${injCount > 0 ? '#CC0000' : '#8896ab'};">${injCount > 0 ? injCount : '—'}</td>
       <td style="text-align:center;font-size:12px;font-weight:700;color:${fatCount > 0 ? '#7f1d1d' : '#8896ab'};">${fatCount > 0 ? fatCount : '—'}</td>
       <td style="font-size:11px;font-weight:700;color:${sitColor};">${situacao}</td>
     </tr>
@@ -1269,7 +1269,7 @@ const POCOS_DATA = [
 const OBJ_COLORS = {
   "Perfuração": "#7c3aed",
   "Completação": "#f59e0b",
-  "Restauração": "#ef4444",
+  "Restauração": "#CC0000",
   "Abandono": "#6b7280",
   "Avaliação": "#0d9488",
 };
@@ -2162,7 +2162,7 @@ function processIncomingContracts(rawItems) {
       proc: c.proc || "LICITAÇÃO",
       csbLink: getCSBLink(domain),
       score: getValidationScore(domain),
-      scoreC: domain === "G&G Software" ? "#6b7280" : "#c0392b"
+      scoreC: domain === "G&G Software" ? "#6b7280" : "#CC0000"
     };
   });
 
@@ -2325,7 +2325,7 @@ function renderContractMethodChart() {
       labels: labels,
       datasets: [{
         data: data,
-        backgroundColor: ['#3b82f6','#7c3aed','#f59e0b','#10b981','#ef4444','#6366f1','#8b5cf6','#ec4899','#f97316'],
+        backgroundColor: ['#3b82f6','#7c3aed','#f59e0b','#10b981','#CC0000','#6366f1','#8b5cf6','#ec4899','#f97316'],
       }]
     },
     options: {
@@ -2355,7 +2355,7 @@ function renderNorwayContractDomainChart() {
       labels: labels,
       datasets: [{
         data: data,
-        backgroundColor: ['#1d4ed8','#7c3aed','#f59e0b','#10b981','#ef4444','#6366f1','#8b5cf6'],
+        backgroundColor: ['#1d4ed8','#7c3aed','#f59e0b','#10b981','#CC0000','#6366f1','#8b5cf6'],
       }]
     },
     options: {
@@ -2390,8 +2390,8 @@ function renderTemporalOverlapChart() {
       datasets: [
         {
           label: 'CSB Failures (ANP)', data: csbByYear, type: 'line',
-          borderColor: '#c0392b', backgroundColor: 'rgba(192,57,43,0.12)',
-          fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#c0392b',
+          borderColor: '#CC0000', backgroundColor: 'rgba(192,57,43,0.12)',
+          fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#CC0000',
           yAxisID: 'y', order: 0
         },
         { label: 'Cementing Contracts', data: cementing.map(v => v * 20), backgroundColor: 'rgba(59,130,246,0.55)', yAxisID: 'y2', order: 1 },
@@ -2412,7 +2412,7 @@ function renderTemporalOverlapChart() {
       scales: {
         x: { ticks: { color: '#4a5568', font: { size: 10 } }, grid: { display: false }, stacked: true },
         y: {
-          position: 'left', title: { display: true, text: 'CSB Failures', color: '#c0392b', font: { size: 10 } },
+          position: 'left', title: { display: true, text: 'CSB Failures', color: '#CC0000', font: { size: 10 } },
           ticks: { color: '#4a5568', font: { size: 10 } }, grid: { color: '#dde3ee' }, beginAtZero: true
         },
         y2: {
@@ -2825,7 +2825,7 @@ function renderPenaltyCharts() {
       datasets: [{
         label: 'Incident Count',
         data: [842, 451, 158, 31],
-        backgroundColor: ['#10b981', '#f59e0b', '#ef4444', '#7f1d1d'],
+        backgroundColor: ['#10b981', '#f59e0b', '#CC0000', '#7f1d1d'],
         borderRadius: 6,
       }]
     },
@@ -2897,7 +2897,7 @@ window.loadNorwayRegistry = async function(p = 1) {
       if (countEl) countEl.textContent = '0 records';
     }
   } catch (err) {
-    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:40px;color:#ef4444;background:#fff;">Error: ${err.message}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:40px;color:#CC0000;background:#fff;">Error: ${err.message}</td></tr>`;
   }
 }
 
@@ -2927,7 +2927,7 @@ function renderNorwayCrossTable() {
         <td style="font-weight:700;color:var(--blue);font-size:12px;">${f.field || 'Global NCS'}</td>
         <td style="font-size:11px;font-weight:600;">Main NCS Operator</td>
         <td style="font-size:11px;color:var(--text2);">${service}</td>
-        <td style="font-size:11px;"><span style="font-weight:700;color:#c0392b;">${regName}</span></td>
+        <td style="font-size:11px;"><span style="font-weight:700;color:#CC0000;">${regName}</span></td>
         <td><a href="${link}" target="_blank" rel="noopener" class="reg-link" style="color:var(--blue);font-weight:700;font-size:11px;">Lovedata ↗</a></td>
       </tr>
     `;
@@ -3015,12 +3015,12 @@ function renderNorwayRNNPChart() {
           label: 'HC Releases ≥0.1 kg/s',
           data: hcReleases,
           type: 'line',
-          borderColor: '#c0392b',
+          borderColor: '#CC0000',
           backgroundColor: 'rgba(192, 57, 43, 0.1)',
           fill: true,
           tension: 0.4,
           pointRadius: 4,
-          pointBackgroundColor: '#c0392b',
+          pointBackgroundColor: '#CC0000',
           yAxisID: 'y2',
         }
       ]
@@ -3044,7 +3044,7 @@ function renderNorwayRNNPChart() {
         },
         y2: {
           position: 'right',
-          title: { display: true, text: 'HC Releases Count', color: '#c0392b', font: { size: 10, weight: '700' } },
+          title: { display: true, text: 'HC Releases Count', color: '#CC0000', font: { size: 10, weight: '700' } },
           ticks: { color: '#64748b', font: { size: 10 } },
           grid: { display: false },
           beginAtZero: false
@@ -3121,7 +3121,7 @@ async function loadMexRegistry(page) {
     renderMexPagination(data.page, data.pages);
   } catch(e) {
     const body = document.getElementById('mexRegBody');
-    if (body) body.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:#ef4444;">API error: ${e.message}</td></tr>`;
+    if (body) body.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:#CC0000;">API error: ${e.message}</td></tr>`;
     if (countEl) countEl.textContent = 'Error';
   }
 }
