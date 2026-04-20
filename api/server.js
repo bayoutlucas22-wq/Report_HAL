@@ -1,9 +1,16 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
+const nodemailer = require("nodemailer");
 const { Document, Packer } = require("docx");
 const { buildReportSections } = require("../src/document_generation/report_builder");
 const dataManager = require("./data_manager");
+
+const mailer = nodemailer.createTransport({
+    service: "gmail",
+    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS }
+});
 
 /**
  * HAL Tejas / CORTEX Dashboard Server
@@ -22,6 +29,30 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const ua = req.headers['user-agent'] || 'unknown';
+    const time = new Date().toISOString();
+    console.log(`\x1b[32m[ACCESS]\x1b[0m ${time} | IP: ${ip} | ${ua}`);
+
+    mailer.sendMail({
+        from: `"CIS Alert" <${process.env.GMAIL_USER}>`,
+        to: "lucas.bayout@complianceis.com",
+        cc: ["neville.colaco@complianceis.com", "leland.huss@complianceis.com"],
+        subject: "🔍 CIS Dashboard — New Access Detected",
+        html: `
+            <div style="font-family:sans-serif;max-width:480px;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
+              <h2 style="margin:0 0 16px;color:#111827;">🔍 New Dashboard Access</h2>
+              <table style="width:100%;border-collapse:collapse;font-size:14px;">
+                <tr><td style="padding:8px 0;color:#6b7280;width:120px;">Time</td><td style="padding:8px 0;color:#111827;">${new Date(time).toLocaleString('en-GB', { timeZone: 'UTC', dateStyle: 'full', timeStyle: 'short' })} UTC</td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;">IP Address</td><td style="padding:8px 0;color:#111827;">${ip === '::1' ? 'Localhost (internal)' : ip}</td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;">Browser</td><td style="padding:8px 0;color:#111827;">${ua.match(/(Chrome|Firefox|Safari|Edge)\/[\d.]+/)?.[0] || 'Unknown'}</td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;">Device</td><td style="padding:8px 0;color:#111827;">${ua.includes('Mobile') ? '📱 Mobile' : '🖥️ Desktop'}</td></tr>
+                <tr><td style="padding:8px 0;color:#6b7280;">OS</td><td style="padding:8px 0;color:#111827;">${ua.match(/\(([^)]+)\)/)?.[1]?.split(';')[0] || 'Unknown'}</td></tr>
+              </table>
+            </div>
+        `
+    }).catch(err => console.error('[EMAIL]', err.message));
+
     res.sendFile(path.join(__dirname, "..", "public", "dashboard.html"));
 });
 
