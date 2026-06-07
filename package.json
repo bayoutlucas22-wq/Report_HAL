@@ -4,12 +4,9 @@
   "description": "HAL Tejas Incident Report — BV & ANP compliance analysis web app with DOCX export.",
   "main": "api/server.js",
   "scripts": {
+    "test": "node --test tests/smoke.test.js",
     "start": "node api/server.js",
-    "dev": "nodemon api/server.js",
-    "ingest": "node treat_data.js && node ingest_to_mongo.js",
-    "ingest:ksa": "node ingest_ksa_local.js",
-    "generate": "node main.js",
-    "build:static": "node main.js && cp HAL_Tejas_Incident_Report.docx docs/",
+    "dev": "node --watch api/server.js",
     "deploy": "./deploy/deploy_remote.sh"
   },
   "keywords": [
