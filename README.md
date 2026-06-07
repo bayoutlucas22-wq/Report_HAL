@@ -48,5 +48,21 @@ A premium, company-agnostic intelligence platform designed to monitor, verify, a
 *   Corrected global data counts for Norway to reflect a more realistic MSA-level footprint (~147 contracts).
 *   Verified and fixed all Brazil data source links to ensure direct access to SGIP/SGSO sets.
 
----
-*Confidential — Internal Strategy & Compliance Validation Platform*
+___________________________________________________________________________________________________
+
+Organization Access & Contributor Acceptance Form
+
+By submitting this form, I confirm that I have read, understood, and agree to the following:
+
+Access to the Organization, repositories, branches, documentation, and related materials is conditional upon acceptance of these terms.
+
+All non-public information related to the project is confidential and may not be disclosed, copied, published, or used outside the project without written authorization.
+
+Any code, pull requests, commits, reviews, documentation, notes, analyses, or other work product I create in connection with the project may be treated as project intellectual property and assigned to the project owner or designated entity, to the maximum extent permitted by law.
+
+My access may be suspended or revoked at any time if I breach these terms or stop complying with organizational requirements.
+
+Any future equity, profit-sharing, vesting, or participation program, if ever offered, will be governed only by a separate written agreement and is not granted automatically by my contribution or access.
+
+I understand that no partnership, joint venture, or employment relationship is created by this form alone.
+
