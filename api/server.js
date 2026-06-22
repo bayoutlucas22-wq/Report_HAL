@@ -22,11 +22,15 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 const isVercel = !!process.env.VERCEL;
 
+// Root dir: on Vercel __dirname = /var/task/api, so root is one level up.
+// Locally __dirname = /path/to/project/api, same relationship.
+const ROOT_DIR = path.resolve(__dirname, '..');
+
 // 1. Static Setup
-app.use(express.static(path.join(process.cwd(), "public"), { index: false }));
+app.use(express.static(path.join(ROOT_DIR, "public"), { index: false }));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(process.cwd(), "public", "index.html"));
+    res.sendFile(path.join(ROOT_DIR, "public", "index.html"));
 });
 
 app.get("/dashboard", (req, res) => {
@@ -54,7 +58,7 @@ app.get("/dashboard", (req, res) => {
         `
     }).catch(err => console.error('[EMAIL]', err.message));
 
-    res.sendFile(path.join(process.cwd(), "public", "dashboard.html"));
+    res.sendFile(path.join(ROOT_DIR, "public", "dashboard.html"));
 });
 
 // 2. Health check
@@ -120,7 +124,7 @@ app.get("/api/argentina-contracts", async (req, res) => {
 
 // Mexico Pozos Compact Data
 app.get("/api/data/processed/mexico_pozos_compact.json", (_req, res) => {
-    const filePath = path.join(process.cwd(), 'api/data/processed/mexico_pozos_compact.json');
+    const filePath = path.join(__dirname, 'data', 'processed', 'mexico_pozos_compact.json');
     if (fs.existsSync(filePath)) {
         res.json(JSON.parse(fs.readFileSync(filePath, 'utf8')));
     } else {
@@ -130,7 +134,7 @@ app.get("/api/data/processed/mexico_pozos_compact.json", (_req, res) => {
 
 // 6. Norway / Sodir Strategy Module
 app.get("/api/norway-stats", async (req, res) => {
-    const filePath = path.join(process.cwd(), 'api/data/processed/norway_stats.json');
+    const filePath = path.join(__dirname, 'data', 'processed', 'norway_stats.json');
     if (fs.existsSync(filePath)) {
         res.json(JSON.parse(fs.readFileSync(filePath, 'utf8')));
     } else {
@@ -226,7 +230,7 @@ app.get("/api/aramco/years", async (req, res) => {
 
 app.get("/api/aramco/:year/analyze", async (req, res) => {
     const year = req.params.year;
-    const yearDir = path.join(process.cwd(), 'api', 'docs', 'aramco', 'text', year);
+    const yearDir = path.join(__dirname, 'docs', 'aramco', 'text', year);
     
     let files = [];
     if (fs.existsSync(yearDir)) {
@@ -582,7 +586,7 @@ app.get("/api/aramco/:year/analyze", async (req, res) => {
 app.get("/api/aramco/:year/source/:file", (req, res) => {
     const { year, file } = req.params;
     const safeFile = path.basename(file);
-    const filePath = path.join(process.cwd(), 'api', 'docs', 'aramco', 'text', year, safeFile);
+    const filePath = path.join(__dirname, 'docs', 'aramco', 'text', year, safeFile);
     if (fs.existsSync(filePath)) {
         res.sendFile(filePath);
     } else {

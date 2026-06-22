@@ -14,8 +14,8 @@ const { getDb } = require('./mongo');
 
 class DataManager {
     constructor() {
-        this.dataDir = path.join(process.cwd(), 'api', 'data');
-        this.processedDir = path.join(process.cwd(), 'api', 'data', 'processed');
+        this.dataDir = path.join(__dirname, 'data');
+        this.processedDir = path.join(__dirname, 'data', 'processed');
         this.cache = new Map();
         this.isStaticMode = false;
     }
