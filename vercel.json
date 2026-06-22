@@ -7,6 +7,7 @@
     }
   },
   "rewrites": [
+    { "source": "/favicon.ico", "destination": "/logo.png" },
     { "source": "/api/:path*", "destination": "/api/server.js" },
     { "source": "/dashboard", "destination": "/api/server.js" }
   ]

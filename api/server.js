@@ -33,6 +33,10 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(ROOT_DIR, "public", "index.html"));
 });
 
+app.get("/favicon.ico", (req, res) => {
+    res.sendFile(path.join(ROOT_DIR, "public", "logo.png"));
+});
+
 app.get("/dashboard", (req, res) => {
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     const ua = req.headers['user-agent'] || 'unknown';
@@ -231,12 +235,11 @@ app.get("/api/aramco/years", async (req, res) => {
 app.get("/api/aramco/:year/analyze", async (req, res) => {
     const year = req.params.year;
     const yearDir = path.join(__dirname, 'docs', 'aramco', 'text', year);
+    const knownYears = new Set(["2020", "2021", "2022", "2024", "2025"]);
     
     let files = [];
     if (fs.existsSync(yearDir)) {
         files = fs.readdirSync(yearDir).filter(f => f.endsWith('.txt') || f.endsWith('.pdf'));
-    } else {
-        return res.status(404).json({ error: "No data for year " + year });
     }
     
     // ── VERIFIED DATA TABLE — all values sourced verbatim from Aramco annual filings ──────────
@@ -345,13 +348,20 @@ app.get("/api/aramco/:year/analyze", async (req, res) => {
         }
     };
 
+    if (!knownYears.has(year) && !verifiedData[year]) {
+        return res.status(404).json({ error: "No data for year " + year });
+    }
+
     const base = verifiedData[year] || {};
 
     // ── Live Text Extraction ────────────────────────────────────────────────
     let combinedText = '';
     files.forEach(f => {
         if (f.endsWith('.txt')) {
-            combinedText += fs.readFileSync(path.join(yearDir, f), 'utf-8') + '\n';
+            const sourcePath = path.join(yearDir, f);
+            if (fs.existsSync(sourcePath)) {
+                combinedText += fs.readFileSync(sourcePath, 'utf-8') + '\n';
+            }
         }
     });
 
