@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "HAL Tejas Incident Report — BV & ANP compliance analysis web app with DOCX export.",
   "main": "api/server.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node api/server.js",
     "dev": "nodemon api/server.js",
