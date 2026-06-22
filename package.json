@@ -1,0 +1,34 @@
+{
+  "name": "hal-tejas-incident-report-app",
+  "version": "1.0.0",
+  "description": "HAL Tejas Incident Report — BV & ANP compliance analysis web app with DOCX export.",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js",
+    "ingest": "node treat_data.js && node ingest_to_mongo.js",
+    "ingest:ksa": "node ingest_ksa_local.js",
+    "generate": "node main.js",
+    "build:static": "node main.js && cp HAL_Tejas_Incident_Report.docx docs/",
+    "deploy": "./deploy/deploy_remote.sh"
+  },
+  "keywords": [
+    "javascript",
+    "report-generation",
+    "docx",
+    "incident-report",
+    "hal-tejas",
+    "anp",
+    "bureau-veritas"
+  ],
+  "author": "Manus AI",
+  "license": "MIT",
+  "dependencies": {
+    "docx": "^7.8.2",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "dotenv": "^16.4.5",
+    "@upstash/redis": "^1.30.0",
+    "nodemailer": "^6.9.9"
+  }
+}

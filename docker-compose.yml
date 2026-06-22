@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    container_name: cortex-hub
+    ports:
+      - "3333:3333"
+    restart: unless-stopped
+    environment:
+      - PORT=3333
+      - NODE_ENV=production
+      - MONGO_URL=mongodb://mongodb:27017/hal_tejas_db
+      - GMAIL_USER=${GMAIL_USER:-}
+      - GMAIL_PASS=${GMAIL_PASS:-}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+  mongodb:
+    image: mongo:7.0
+    container_name: cortex-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mongo_data:

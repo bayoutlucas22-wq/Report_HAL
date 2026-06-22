@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Build / deploy
+.vercel/
+.vercel
+
+# Large binary files (Ignore only big PDFs and large datasets >100MB)
+docs/**/*.pdf
+api/docs/**/*.pdf
+*.pdf
+api/data/*.zip
+*.zip
+
+# Ignore specific large files that block GitHub
+api/data/PRODUCCION_POZOS*.csv
+api/data/PRODUCCION_POZOS*.zip
+
+# Generated output files (Ignore entire output directories)
+output/
+api/output/
+*.xlsx
+
+# Generated output files (Keep data files, ignore generated documents if needed)
+# !api/data/processed/*.json
+# !api/data/*.csv
+
+# Allow report artifacts if specific
+!docs/reports/*.docx
+api/data/POZOS_COMPILADO.csv
+api/data/POZOS_COMPILADO.csv

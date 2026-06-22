@@ -1,0 +1,13 @@
+{
+  "outputDirectory": "public",
+  "functions": {
+    "api/server.js": {
+      "includeFiles": "api/data/**,api/docs/**,public/**,src/document_generation/**",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/server.js" },
+    { "source": "/dashboard", "destination": "/api/server.js" }
+  ]
+}

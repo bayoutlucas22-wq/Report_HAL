@@ -1,0 +1,582 @@
+FECHA,CUENCA,CATEGORIA_POZO,UBICACION,OPERADOR,POZOS_PERFORADOS,POZOS_TERMINADOS,MISSING_COMPLETIONS,YEAR,Likely Subcontractors
+01/2015,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,6.0,4.0,2.0,2015,Halliburton / Constructora y Perforadora Latina
+01/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+01/2016,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,1.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+01/2016,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+01/2016,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+01/2017,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,2.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+01/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+01/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+01/2017,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+01/2018,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2018,Halliburton / Constructora y Perforadora Latina
+01/2018,Cuencas del Sureste,Desarrollo,Terrestre,"Diavaz Offshore, S.A.P.I. de C.V.",1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+01/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+01/2018,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,7.0,5.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+01/2018,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+01/2019,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,2.0,3.0,2019,Halliburton / Constructora y Perforadora Latina
+01/2019,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+01/2019,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"BHP Billiton Petróleo Operaciones de México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+01/2019,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+01/2019,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+01/2020,Burgos,Desarrollo,Terrestre,"GS Oil & Gas, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,2.0,3.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2020,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,9.0,8.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+01/2021,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,4.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+01/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,"PC Carigali Mexico Operations, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+01/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+01/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2021,Halliburton / Constructora y Perforadora Latina
+01/2021,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"China Offshore Oil Corporation E&P Mexico, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+01/2021,Veracruz,EXPLORACION,Terrestre,"Jaguar Exploración y Producción 2.3, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+01/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+01/2022,Cuencas del Sureste,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+01/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+01/2022,Veracruz,EXPLORACION,Terrestre,"Bloque VC 01, S.A.P.I. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+01/2022,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+01/2023,Burgos,Desarrollo,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,2.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,"Wintershall Dea México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+01/2024,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+01/2024,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,6.0,3.0,3.0,2024,Halliburton / Constructora y Perforadora Latina
+01/2024,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+01/2024,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+01/2024,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+02/2015,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,2.0,1.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+02/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+02/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,2.0,0.0,2.0,2015,Halliburton / Constructora y Perforadora Latina
+02/2016,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+02/2016,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,3.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+02/2016,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,6.0,5.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+02/2016,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+02/2016,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+02/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+02/2017,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+02/2018,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+02/2018,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+02/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+02/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,3.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+02/2019,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,0.0,5.0,2019,Halliburton / Constructora y Perforadora Latina
+02/2019,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+02/2019,Tampico-Misantla,EXPLORACION,Terrestre,"Servicios de Extracción Petrolera Lifting de México, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+02/2020,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,7.0,2.0,5.0,2020,Halliburton / Constructora y Perforadora Latina
+02/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+02/2020,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",4.0,2.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+02/2020,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+02/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Fieldwood Energy E&P México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+02/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+02/2021,Cuencas del Sureste,EXPLORACION,Terrestre,"Operadora Bloque 12, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+02/2021,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+02/2021,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+02/2022,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+02/2022,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+02/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+02/2022,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+02/2022,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+02/2023,Cuencas del Sureste,Desarrollo,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2023,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+02/2024,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+02/2024,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+02/2024,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+02/2024,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+02/2024,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2015,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,7.0,4.0,3.0,2015,Halliburton / Constructora y Perforadora Latina
+03/2015,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,15.0,12.0,3.0,2015,Halliburton / Constructora y Perforadora Latina
+03/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+03/2016,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+03/2016,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+03/2016,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+03/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+03/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2017,Halliburton / Constructora y Perforadora Latina
+03/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+03/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+03/2018,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+03/2019,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Murphy Sur, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+03/2019,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,6.0,4.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+03/2020,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+03/2020,Burgos,EXPLORACION,Terrestre,"Newpek Exploración y Extracción, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+03/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,"Capricorn Energy México, S. de R.L. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+03/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+03/2020,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+03/2021,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+03/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+03/2021,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+03/2021,Golfo de México Profundo,EXPLORACION,Aguas profundas,"China Offshore Oil Corporation E&P Mexico, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+03/2021,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+03/2021,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+03/2022,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+03/2022,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+03/2022,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,6.0,2.0,4.0,2022,Halliburton / Constructora y Perforadora Latina
+03/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+03/2022,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",3.0,2.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+03/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+03/2023,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,2.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,4.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Cuencas del Sureste,EXPLORACION,Terrestre,"Vista Energy Holding II, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Tampico-Misantla,Desarrollo,Terrestre,"Operadora de Campos DWF, S.A. de C.V.",2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+03/2024,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,3.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,"TotalEnergies EP México, S.A. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+03/2024,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+04/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+04/2015,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,10.0,9.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+04/2017,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,2.0,1.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+04/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+04/2017,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+04/2017,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+04/2017,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,0.0,3.0,2017,Halliburton / Constructora y Perforadora Latina
+04/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+04/2018,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+04/2018,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,12.0,4.0,8.0,2018,Halliburton / Constructora y Perforadora Latina
+04/2019,Burgos,Desarrollo,Terrestre,"Grupo Mareógrafo, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+04/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,0.0,4.0,2019,Halliburton / Constructora y Perforadora Latina
+04/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+04/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,"Talos Energy Offshore Mexico 7, S. de R.L. de C.V.",2.0,0.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+04/2019,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+04/2020,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Burgos,EXPLORACION,Terrestre,"Newpek Exploración y Extracción, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,2.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,3.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Repsol Exploración México, S.A. de C.V.",2.0,0.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2020,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+04/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Fieldwood Energy E&P México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,2.0,3.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2021,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+04/2022,Cuencas del Sureste,Desarrollo,Aguas someras,"Fieldwood Energy E&P México, S. de R.L. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+04/2022,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+04/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+04/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+04/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+04/2022,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,2.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+04/2023,Cuencas del Sureste,Desarrollo,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,8.0,6.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Cuencas del Sureste,EXPLORACION,Terrestre,"Vista Energy Holding II, S.A. de C.V.",2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+04/2024,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,6.0,3.0,3.0,2024,Halliburton / Constructora y Perforadora Latina
+04/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+04/2024,Cuencas del Sureste,EXPLORACION,Terrestre,"Jaguar Exploración y Producción 2.3, S.A.P.I. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+04/2024,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+04/2024,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+05/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+05/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+05/2015,Sabinas-Burro-Picachos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+05/2015,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,10.0,8.0,2.0,2015,Halliburton / Constructora y Perforadora Latina
+05/2016,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+05/2016,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,2.0,0.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+05/2016,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+05/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+05/2017,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+05/2017,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+05/2018,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+05/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+05/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+05/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+05/2018,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,8.0,6.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+05/2018,Tampico-Misantla,Desarrollo,Terrestre,"Tonalli Energía, S.A.P.I. de C.V.",1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+05/2019,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,6.0,2.0,4.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,4.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Cuencas del Sureste,EXPLORACION,Terrestre,"Mayacaste Oil & Gas, S.A.P.I. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"Total E&P Mexico, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2019,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+05/2020,Burgos,Desarrollo,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,6.0,3.0,3.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2020,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+05/2021,Burgos,EXPLORACION,Terrestre,"Newpek Exploración y Extracción, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Cuencas del Sureste,EXPLORACION,Terrestre,"Operadora Bloque 12, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2021,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+05/2022,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+05/2022,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+05/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+05/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+05/2022,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+05/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+05/2023,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,3.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Cuencas del Sureste,EXPLORACION,Terrestre,"Vista Energy Holding II, S.A. de C.V.",2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+05/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+05/2024,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+06/2015,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,10.0,8.0,2.0,2015,Halliburton / Constructora y Perforadora Latina
+06/2015,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2015,Halliburton / Constructora y Perforadora Latina
+06/2016,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,2.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+06/2017,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,2.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+06/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+06/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+06/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+06/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2017,Halliburton / Constructora y Perforadora Latina
+06/2017,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+06/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+06/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+06/2019,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",3.0,0.0,3.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,7.0,3.0,4.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Cuencas del Sureste,Desarrollo,Terrestre,"Perseus Fortuna Nacional, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Tampico-Misantla,Desarrollo,Terrestre,"Diavaz Offshore, S.A.P.I. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,8.0,5.0,3.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2019,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+06/2020,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+06/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,2.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+06/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+06/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+06/2020,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"Repsol Exploración México, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+06/2020,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+06/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+06/2021,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+06/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+06/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+06/2021,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+06/2021,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",2.0,1.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+06/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+06/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+06/2022,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+06/2023,Cuencas del Sureste,Desarrollo,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,3.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,4.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Cuencas del Sureste,EXPLORACION,Terrestre,"Vista Energy Holding II, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",3.0,1.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2023,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+06/2024,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+06/2024,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,2.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+06/2024,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+06/2024,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+07/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+07/2015,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+07/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Fieldwood Energy E&P México, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+07/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Talos Energy Offshore Mexico 7, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+07/2017,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+07/2017,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,1.0,3.0,2017,Halliburton / Constructora y Perforadora Latina
+07/2018,Burgos,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+07/2018,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,2.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+07/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+07/2018,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+07/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,1.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+07/2019,Cuencas del Sureste,Desarrollo,Terrestre,"Secadero Petróleo y Gas, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+07/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,4.0,0.0,4.0,2019,Halliburton / Constructora y Perforadora Latina
+07/2019,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+07/2019,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,8.0,7.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+07/2019,Tampico-Misantla,EXPLORACION,Terrestre,"Oleum del Norte, S.A.P.I. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+07/2020,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+07/2020,Cinturón Plegado de Chiapas,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+07/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+07/2021,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,4.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Repsol Exploración México, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2021,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+07/2022,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2022,Burgos,EXPLORACION,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2022,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+07/2023,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,9.0,4.0,5.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Cuencas del Sureste,Desarrollo,Terrestre,"Perenco México, S.A. de C.V.",2.0,1.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,"Wintershall Dea México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"PC Carigali Mexico Operations, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Shell Exploracion y Extraccion de Mexico, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",3.0,2.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+07/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+07/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,"TotalEnergies EP México, S.A. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+07/2024,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+07/2024,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+07/2024,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+08/2015,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,2.0,1.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+08/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2015,Halliburton / Constructora y Perforadora Latina
+08/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+08/2016,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+08/2016,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,4.0,0.0,4.0,2016,Halliburton / Constructora y Perforadora Latina
+08/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+08/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+08/2017,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2017,Halliburton / Constructora y Perforadora Latina
+08/2017,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,2.0,2.0,2017,Halliburton / Constructora y Perforadora Latina
+08/2017,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+08/2018,Burgos,Desarrollo,Terrestre,"CMM Calibrador, S.A. de C.V.",1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+08/2018,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,3.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+08/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,0.0,3.0,2018,Halliburton / Constructora y Perforadora Latina
+08/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+08/2018,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+08/2019,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+08/2019,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+08/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,7.0,4.0,3.0,2019,Halliburton / Constructora y Perforadora Latina
+08/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+08/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+08/2019,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"BHP Billiton Petróleo Operaciones de México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+08/2020,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",2.0,0.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Cuencas del Sureste,Desarrollo,Terrestre,"Perseus Tajón, S.A. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,1.0,3.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2020,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+08/2021,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,10.0,4.0,6.0,2021,Halliburton / Constructora y Perforadora Latina
+08/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+08/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+08/2021,Tampico-Misantla,Desarrollo,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",3.0,2.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+08/2022,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2022,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2022,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,4.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2022,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+08/2023,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+08/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+08/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+08/2023,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+08/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+08/2024,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+08/2024,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+09/2015,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,6.0,3.0,3.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2015,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,9.0,7.0,2.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2015,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2015,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+09/2016,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,2.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+09/2016,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2016,Halliburton / Constructora y Perforadora Latina
+09/2017,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,2.0,1.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+09/2017,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+09/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+09/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+09/2018,Golfo de México Profundo,EXPLORACION,Aguas profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+09/2019,Cinturón Plegado de Chiapas,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+09/2019,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+09/2019,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,0.0,5.0,2019,Halliburton / Constructora y Perforadora Latina
+09/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2019,Halliburton / Constructora y Perforadora Latina
+09/2019,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,11.0,9.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+09/2020,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+09/2020,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,3.0,2.0,2020,Halliburton / Constructora y Perforadora Latina
+09/2020,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2020,Halliburton / Constructora y Perforadora Latina
+09/2021,Cinturón Plegado de Chiapas,EXPLORACION,Terrestre,"Operadora Bloque 13, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Cuencas del Sureste,Desarrollo,Terrestre,"Servicios de Extracción Petrolera Lifting de México, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Cuencas del Sureste,EXPLORACION,Terrestre,"Operadora Bloque 12, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Cuencas del Sureste,EXPLORACION,Terrestre,"Operadora Bloque 13, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Cuencas del Sureste,EXPLORACION,Terrestre,"Vista Oil & Gas Holding II, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Repsol Exploración México, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Tampico-Misantla,Desarrollo,Terrestre,"Operadora de Campos DWF, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2021,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+09/2022,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2022,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2022,Cuencas del Sureste,Desarrollo,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2022,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2022,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2022,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,3.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+09/2023,Burgos,Desarrollo,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+09/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+09/2024,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+10/2015,Cinturón Plegado de Chiapas,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+10/2015,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,10.0,7.0,3.0,2015,Halliburton / Constructora y Perforadora Latina
+10/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+10/2016,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+10/2016,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+10/2017,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,1.0,2.0,2017,Halliburton / Constructora y Perforadora Latina
+10/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Fieldwood Energy E&P México, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+10/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+10/2017,Golfo de México Profundo,EXPLORACION,Aguas profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+10/2018,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+10/2018,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,3.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+10/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+10/2018,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+10/2019,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+10/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,2.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+10/2019,Cuencas del Sureste,Desarrollo,Terrestre,"Deutsche Erdoel México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+10/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,"Capricorn Energy México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+10/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+10/2019,Golfo de México Profundo,EXPLORACION,Aguas profundas,"PC Carigali Mexico Operations, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+10/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+10/2020,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,1.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+10/2021,Burgos,Desarrollo,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Hokchi Energy, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,"Lukoil Upstream México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,"PC Carigali Mexico Operations, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Tampico-Misantla,Desarrollo,Terrestre,"Operadora de Campos DWF, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Tampico-Misantla,EXPLORACION,Terrestre,"DS Servicios Petroleros, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2021,Veracruz,EXPLORACION,Terrestre,"Jaguar Exploración y Producción 2.3, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+10/2022,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,7.0,4.0,3.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Golfo de México Profundo,EXPLORACION,Aguas profundas,"China Offshore Oil Corporation E&P Mexico, S.A.P.I. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Tampico-Misantla,Desarrollo,Terrestre,"Operadora de Campos DWF, S.A. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2022,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+10/2023,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,10.0,5.0,5.0,2023,Halliburton / Constructora y Perforadora Latina
+10/2023,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,9.0,1.0,8.0,2023,Halliburton / Constructora y Perforadora Latina
+10/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+10/2023,Golfo de México Profundo,EXPLORACION,Aguas profundas,"PC Carigali Mexico Operations, S.A. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+10/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+10/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+10/2024,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,3.0,1.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+10/2024,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2024,Halliburton / Constructora y Perforadora Latina
+11/2015,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+11/2015,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,13.0,5.0,8.0,2015,Halliburton / Constructora y Perforadora Latina
+11/2016,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,2.0,1.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+11/2016,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+11/2016,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+11/2016,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2016,Halliburton / Constructora y Perforadora Latina
+11/2017,Tampico-Misantla,Desarrollo,Terrestre,"Diavaz Offshore, S.A.P.I. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+11/2017,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,7.0,2.0,5.0,2017,Halliburton / Constructora y Perforadora Latina
+11/2018,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,1.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+11/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+11/2018,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+11/2018,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+11/2018,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+11/2019,Burgos,Desarrollo,Terrestre,"GS Oil & Gas, S.A.P.I. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,3.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2019,Cuencas del Sureste,EXPLORACION,Terrestre,"Secadero Petróleo y Gas, S.A. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2019,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,11.0,10.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2019,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2019,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+11/2020,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+11/2020,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,8.0,3.0,5.0,2020,Halliburton / Constructora y Perforadora Latina
+11/2021,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2021,Burgos,EXPLORACION,Terrestre,"Pantera Exploración y Producción 2.2, S.A.P.I. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2021,Burgos,EXPLORACION,Terrestre,"Servicios Múltiples de Burgos, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2021,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,3.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2021,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+11/2022,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,2.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+11/2022,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,5.0,4.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+11/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+11/2022,Tampico-Misantla,Desarrollo,Terrestre,"Operadora de Campos DWF, S.A. de C.V.",2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+11/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+11/2022,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+11/2023,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,3.0,2.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+11/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+11/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+11/2023,Tampico-Misantla,EXPLORACION,Terrestre,"Jaguar Exploración y Producción 2.3, S.A.P.I. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+11/2023,Veracruz,Desarrollo,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+11/2024,Cuencas del Sureste,Desarrollo,Aguas someras,"Fieldwood Energy E&P México, S. de R.L. de C.V.",1.0,0.0,1.0,2024,Halliburton / Constructora y Perforadora Latina
+12/2015,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,1.0,3.0,2015,Halliburton / Constructora y Perforadora Latina
+12/2015,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+12/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+12/2015,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2015,Halliburton / Constructora y Perforadora Latina
+12/2015,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,18.0,10.0,8.0,2015,Halliburton / Constructora y Perforadora Latina
+12/2016,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+12/2016,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2016,Halliburton / Constructora y Perforadora Latina
+12/2016,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+12/2016,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,7.0,5.0,2.0,2016,Halliburton / Constructora y Perforadora Latina
+12/2017,Burgos,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2017,Cuencas del Sureste,EXPLORACION,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2017,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2017,Golfo de México Profundo,EXPLORACION,Aguas profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2017,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2017,Tampico-Misantla,Desarrollo,Terrestre,"Diavaz Offshore, S.A.P.I. de C.V.",1.0,0.0,1.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2017,Tampico-Misantla,Desarrollo,Terrestre,Pemex Exploración y Producción,7.0,5.0,2.0,2017,Halliburton / Constructora y Perforadora Latina
+12/2018,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,4.0,1.0,3.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Cuencas del Sureste,Desarrollo,Terrestre,"Secadero Petróleo y Gas, S.A. de C.V.",1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Golfo de México Profundo,EXPLORACION,Aguas ultra profundas,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Tampico-Misantla,Desarrollo,Terrestre,"Tonalli Energía, S.A.P.I. de C.V.",1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2018,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2018,Halliburton / Constructora y Perforadora Latina
+12/2019,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+12/2019,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,8.0,6.0,2.0,2019,Halliburton / Constructora y Perforadora Latina
+12/2019,Cuencas del Sureste,Desarrollo,Terrestre,"Deutsche Erdoel México, S. de R.L. de C.V.",1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+12/2019,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+12/2019,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2019,Halliburton / Constructora y Perforadora Latina
+12/2020,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+12/2020,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+12/2020,Tampico-Misantla,EXPLORACION,Terrestre,"Jaguar Exploración y Producción 2.3, S.A.P.I. de C.V.",1.0,0.0,1.0,2020,Halliburton / Constructora y Perforadora Latina
+12/2021,Cinturón Plegado de Chiapas,EXPLORACION,Terrestre,"Operadora Bloque 13, S.A. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2021,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2021,Cuencas del Sureste,Desarrollo,Aguas someras,Pemex Exploración y Producción,7.0,4.0,3.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2021,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,5.0,1.0,4.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2021,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2021,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2021,Halliburton / Constructora y Perforadora Latina
+12/2022,Cuencas del Sureste,Desarrollo,Aguas someras,"Eni México, S. de R.L. de C.V.",2.0,1.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+12/2022,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+12/2022,Golfo de México Profundo,EXPLORACION,Aguas profundas,"Murphy Sur, S. de R.L. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+12/2022,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2022,Halliburton / Constructora y Perforadora Latina
+12/2022,Veracruz,EXPLORACION,Terrestre,"Bloque VC 01, S.A.P.I. de C.V.",1.0,0.0,1.0,2022,Halliburton / Constructora y Perforadora Latina
+12/2023,Cuencas del Sureste,Desarrollo,Terrestre,Pemex Exploración y Producción,4.0,2.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+12/2023,Cuencas del Sureste,EXPLORACION,Aguas someras,Pemex Exploración y Producción,3.0,0.0,3.0,2023,Halliburton / Constructora y Perforadora Latina
+12/2023,Cuencas del Sureste,EXPLORACION,Terrestre,Pemex Exploración y Producción,4.0,0.0,4.0,2023,Halliburton / Constructora y Perforadora Latina
+12/2023,Tampico-Misantla,EXPLORACION,Terrestre,Pemex Exploración y Producción,2.0,0.0,2.0,2023,Halliburton / Constructora y Perforadora Latina
+12/2023,Veracruz,EXPLORACION,Terrestre,"Bloque VC 01, S.A.P.I. de C.V.",1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina
+12/2023,Veracruz,EXPLORACION,Terrestre,Pemex Exploración y Producción,1.0,0.0,1.0,2023,Halliburton / Constructora y Perforadora Latina

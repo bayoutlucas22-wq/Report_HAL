@@ -1,0 +1,613 @@
+--- Page 1 ---
+Hello and welcome to Saudi Aramco’s full-year 2025 earnings call.
+I am Peter Hutton, Head of Investor Relations at Aramco and I’m pleased to be joined
+today by Amin Nasser, President and CEO, and Ziad Al Murshed, Executive Vice
+President and CFO.
+‐
+Saudi Aramco: Company General Use 1
+
+--- Page 2 ---
+Cautionary notes
+Thispresentationmaycontaincertain forward-lookingstatements withrespecttotheSaudiArabian OilCompany’s("Aramco"orthe"Company"or"we")financialposition,resultsofoperationsand
+businessandcertain ofitsplans,intentions,expectations,assumptions,goalsandbeliefs regarding suchitems.Thesestatements includeallmatters thatarenothistoricalfactandgenerally, butnot
+always, may beidentified bytheuseofwordssuchas“believes”, “expects”,“are expected to”,“anticipates”,“intends”,“estimates”, “should”,“will”, “shall”,“may”, “islikely to”,“plans”,“outlook”or
+similarexpressions,includingvariations andthenegatives thereof orcomparableterminology.
+You shouldbeaware thatforward-lookingstatements arenotguarantees offutureperformanceandthatAramco’s actualfinancialposition,resultsofoperationsandbusinessandthedevelopment of
+theindustriesinwhichitoperates maydiffer significantlyfromthosemadeinorsuggestedbytheseforward-lookingstatements.Inaddition,even ifAramco’s financialposition,resultsofoperationsand
+businessandthedevelopment oftheindustriesinwhichitoperates areconsistentwiththeseforward-lookingstatements,thoseresultsordevelopments maynotbeindicativeofresultsor
+developments insubsequentperiods.
+Factors that could cause actual results to differ materially from Aramco’s expectations include, among other things, the following: global supply, demand and price fluctuations of oil, gas and
+petrochemicals;globaleconomicconditions;competitionintheindustriesinwhichSaudiAramco operates;climate changeconcerns,weather conditionsandrelated impactsontheglobaldemand for
+hydrocarbonsandhydrocarbon-basedproducts;risksrelated toSaudiAramco’s abilitytosuccessfullymeet itsESG targets, includingitsfailuretofullymeet itsGHGemissionsreductiontargets by2050;
+any riskrelated tothedigital transformation;conditionsaffecting thetransportationofproducts;operational riskand hazards commonintheoiland gas, refining and petrochemicals industries;the
+cyclical nature oftheoilandgas,refining andpetrochemicals industries;politicalandsocialinstabilityandunrestandactual orpotential armed conflictsintheMENA region andother areas;natural
+disastersandpublichealth pandemicsorepidemics;themanagement ofSaudiAramco’s growth;themanagement oftheCompany’ssubsidiaries,jointoperations,jointventures, associatesandentities
+in which it holdsa minority interest; Saudi Aramco’s exposure to inflation, interest rate risk and foreign exchange risk; risks related to operating in a regulated industryand changes to oil, gas,
+environmental orother regulations that impact theindustriesinwhich SaudiAramco operates;legal proceedings, international trade matters, and other disputesoragreements;and other risksand
+uncertainties thatcouldcauseactual resultstodiffer fromtheforward-lookingstatements inthispresentation, as setforthintheCompany’s latest periodic reports filed with theSaudiExchange.For
+additionalinformation onthepotential risksanduncertainties thatcouldcauseactual resultstodiffer fromtheresultspredicted please seetheCompany’s latest periodic reports filed with theSaudi
+Exchange.
+Ourforward-lookingstatements speakonlyasofthedateofthispresentationorasofthedatetheyaremade.Weundertakenoobligationtoupdateorreviseanyforward-lookingstatement, whether
+asaresultofnewinformation,futureevents orotherwise.Allsubsequentwritten andoralforward-lookingstatements attributabletousortopersonsactingonourbehalfareexpresslyqualifiedin
+theirentirety bythecautionarystatements referred toaboveandcontainedelsewhere inthispresentation.
+The numbers referenced throughoutthispresentation may notsumprecisely tothetotals provided, andpercentages may notprecisely reflect theabsolutefigures, duetorounding.In addition,this
+presentation includescertain “non-IFRSfinancialmeasures” (includingEBIT, adjustedEBIT, adjustednetincome,ROACE,freecashflowandgearing).Thesemeasures arenotrecognized measures under
+IFRS and donothave standard meanings prescribed byIFRS.Rather, thesemeasures are provided as additionalinformation tocomplement IFRS measures byprovidingfurther understandingofthe
+Company’sresultsofoperationsfrommanagement’s perspective.Accordingly,theyshouldnotbeconsideredinisolationorasasubstituteforanalysisoftheCompany’sfinancialinformationreported
+underIFRS.
+Certain market data and industrystatisticsin thispresentation are based oninformation fromthird party sourcesnotindependently verified bytheCompany.Market sizeestimates, includingtotal
+addressablemarket (TAM), orsimilarprojectionsbasedonsuchdata,areforillustrativepurposesonlyandarenotguarantees offutureperformance.Forareconciliationtothenearest comparableIFRS
+measures, see: https://www.aramco.com/en/investors/reports-and-presentations
+Ournon-IFRSfinancialmeasures may notbedirectly comparable tosimilarly titled measures presented byothercompanies.Theannualfinancialsfortheyear ended December 31,2025containedin
+thispresentationhavebeen audited.Theinterimfinancialstatements areunaudited.
+Saudi Aramco FY 2025 Result|s 2
+Saudi Aramco: Company General Use
+We have a lot to cover today, with a detailed update followed by a question and answer
+session. We expect the call to last around an hour.
+‐ ‐
+Please refer to this cautionary statement on forward-looking information, our regulatory
+filings, and our website for more details.
+With that, I will now hand the call over to Amin.
+Saudi Aramco: Company General Use 2
+
+--- Page 3 ---
+Amin Nasser
+President & CEO
+Thank you, Peter.
+Welcome everyone and we appreciate you joining us, especially at this time.
+Before I cover our 2025 performance, first, let me speak about the current events in the
+region since last week.
+The situation continues to evolve and the safety of our people and our operations remain
+our highest priorities.
+Aramco has a long track record dealing with such complex challenges, as a result of
+having comprehensive contingency plans and a highly capable and well-trained
+workforce.
+We remain vigilant while working in close coordination with government organizations
+and agencies on contingencies as and when required.
+Aramco is advantaged by having significant operational flexibility and optionality
+throughout our hydrocarbon operations network, allowing us to navigate through
+disruptions, which may not be the case for others. And for decades we have
+demonstrated our resilience and ability to deliver to our customers safely and reliably,
+and continue to do so.
+As we continue to deal with rapidly evolving events, we remain focused on safety and
+meeting our commitments, thanks to our highly capable Aramco employees, and also our
+stakeholders, including our customers, our partners and our government agencies during
+this crucial time.
+Saudi Aramco: Company General Use 3
+
+--- Page 4 ---
+With that, let me turn to our 2025 performance and our further growth prospects.
+In 2025, we delivered consistent operational performance in our major growth projects
+and industry-leading earnings while increasing shareholder returns. And we did all of this
+while achieving strong safety performance with the lowest total recordable case rates
+since our IPO.
+This is a testament to our strategy and focused execution, and I am grateful to the entire
+Aramco team who made this possible.
+Saudi Aramco: Company General Use 4
+
+--- Page 5 ---
+At the same time, Aramco delivered advantaged growth, strong cash generation and
+increased dividends, while reducing gearing year-on-year.
+Our adjusted net income was 105 billion dollars, more resilient than any of the 5 IOCs,
+and our ROACE was around 20%, twice their average.
+This benefited from operational excellence and flexibility. Fourth quarter 2025 liquids
+production was 11.1 million barrels per day, 1 million barrels per day higher than the
+fourth quarter of 2024, reflecting our strength and flexibility in execution, while in the
+Downstream we achieved record refining availability and throughput.
+During the year, we delivered 4 world-class upstream projects, including Marjan and Berri
+crude oil increments, Tanajib gas plant and Jafurah phase 1.
+Together these enhance our operational reliability and adaptability, further extending our
+production capacity in liquids and gas, and were delivered at a level of capital spending
+lower than last year.
+Since 2023, we have unlocked 11.3 billion dollars Technology Realized Value of which
+5.3 billion dollars was in 2025, all verified by a third-party.
+In 2025, operating cash flow was 136 billion dollars, which was slightly higher than 2024
+despite an 11 dollar drop in oil prices, and gearing was 3.8%. This makes our balance
+sheet the strongest in the sector and gives us the ability to capture value through the
+cycle.
+Saudi Aramco: Company General Use 5
+
+--- Page 6 ---
+We are on track with our plans to deliver further operating cash flows through our gas
+growth and downstream business, with up to a combined 25 billion dollars in 2030. We
+also have readily-available crude production capacity which could generate up to around
+22 billion dollars, based on 2025 average prices.
+In 2025, capital investments reached 52 billion dollars, 1 billion dollars lower than 2024,
+and 2026 guidance is 50-55 billion dollars.
+Today we have announced that we are growing our sustainable and progressive base
+dividend for the fourth time in a row by 3.5% in Q4 to around 22 billion dollars, which is
+now up 17% over the past 4 years. This is testament to the strength of our balance sheet
+and our confidence in the future.
+In addition, we have announced a 2-3 billion dollar share buy back program over the next
+18 months primarily to support our employee share purchase plan where participation
+levels continue to rise. The timing of this also reflects confidence in our growth strategy
+and the long-term value of the Company.
+Saudi Aramco: Company General Use 6
+
+--- Page 7 ---
+Turning to the macro environment, we have been clear and consistent that demand is
+strong.
+Despite geopolitical tensions and tariffs, the global economy in 2025 grew faster than
+most expected, up 3.1% year-on-year.
+2025 demand was over 106 million barrels a day, another record high, and we
+continue to see upward revisions in estimates. Notably, independent demand
+estimates since April last year for both 2024 and 2025 have been revised up by an
+average of 0.7 and 0.5 million barrels a day respectively, and we expect this trend to
+continue.
+2026 demand growth is expected to be 1.1 to 1.4 million barrels per day based on
+various forecasters, with S&P estimating it to be 107.3 million barrels per day.
+This fundamental strength is reflected in healthy physical and trading activity. As we
+approach the peak demand season in Q2 and Q3, markets are already tightening with
+refinery utilization rates climbing to meet demand. And the market continues to absorb
+OPEC+ unwinding, while inventories remain near five-year lows. Given the current
+geopolitical situation, we may see inventories eroding and being drawn down faster as
+shipments are being curtailed from the region. This is at a time when current global
+spare capacity remains extremely low.
+Saudi Aramco: Company General Use 7
+
+--- Page 8 ---
+Looking further ahead, underinvestment in new supply continues to shape a
+structurally tight market.
+According to external analysis, it is over a decade since the industry has approved
+resources for development to meet annual production. Last year, that level was just
+50%, and expected additional approved resources in 2026 come to lower than 20%.
+Near term supply has been supported by higher shale production, but this accelerates
+depletion and estimates for production this year are flat. The average reserves life of
+the industry majors is around 10 years and continues to decline.
+With conventional projects typically taking 5 to 7 years and exploration timelines even
+longer, we see the projects we are bringing onstream, the longevity and flexibility they
+bring, as key.
+Saudi Aramco: Company General Use 8
+
+--- Page 9 ---
+We are delivering advantaged growth across all our businesses.
+In Crude, our lowest cost and upstream carbon intensity among IOCs provides durable
+competitive advantage. With 2 million barrels per day of readily available spare capacity,
+we have unmatched flexibility to capture demand upside. Every 1 million barrels per day
+that we bring online has the potential to generate around 10 to 11 billion dollars in
+incremental operating cash flow, based on 2025 average prices.
+In Gas, our target of around 80% growth in sales gas production capacity by 2030,
+versus 2021 production levels is supported by our exclusive supplier position in the
+Kingdom, at attractive double-digit rates of return. Our 2030 gas production is expected
+to reach around 6 million barrels of oil equivalent per day, which is more than the total
+hydrocarbon output of any other IOC today. And this is expected to generate around 12
+to 15 billion dollars in incremental annual operating cash flow in 2030.
+In Downstream, we expect our transformation programs and integrated synergies to
+generate an incremental 8 to 10 billion dollars in annual operating cash flow in 2030,
+while we selectively re-pace liquids-to-chemicals investments, with low equity and high
+crude placement opportunities.
+In Transition Minerals, we achieved a strong 90% lithium recovery rate from our pilot
+projects, a critical milestone supporting our long-term ambitions where we expect to
+achieve 15-20 percent IRRs.
+Saudi Aramco: Company General Use 9
+
+--- Page 10 ---
+In New Energies we have unique competitive and cost advantages, and have made good
+progress with 7.8 gigawatts solar and wind capacity that are operational and under
+development. We have the potential to increase our current 12 gigawatts target to 15 to
+18 gigawatts equity capacity. Our disciplined approach to capital allocation is
+underscored in Hydrogen where we will only proceed with long-term offtake agreements.
+Saudi Aramco: Company General Use 10
+
+--- Page 11 ---
+We are bringing on 3 of the largest and lowest cost Upstream projects anywhere in the
+world.
+The Marjan crude oil increment is onstream, the Berri crude oil increment has completed
+construction and commenced water injection operations. Zuluf is on track for completion
+this year, and Dammam Phase II is also progressing on track for completion in 2027.
+These projects enhance our Upstream portfolio’s flexibility and resilience while
+maintaining our diversified crude mix.
+On the exploration front, we discovered six new fields and two new reservoirs of Arabian
+oil. These additions will further support our already industry-leading liquids reserve life of
+more than 50 years.
+Saudi Aramco: Company General Use 11
+
+--- Page 12 ---
+In our gas business, we have unrivalled advantages of being the exclusive gas supplier
+in what is now the 6th largest gas market globally.
+We made significant progress in 2025 in expanding our gas production. Jafurah Phase 1
+was successfully commissioned, with first gas in December 2025. The Tanajib Gas Plant
+also commenced operations. The two plants will provide about 1.3 billion standard cubic
+feet per day of combined sales gas production capacity.
+Looking ahead, we remain on track with our major gas projects. Jafurah Phase II and the
+Fadhili Gas Plant expansion are progressing well for 2027 completion, while the Master
+Gas System Phase III is advancing, set to add 3.15 billion standard cubic feet per day of
+transmission capacity by 2028.
+Our Jafurah midstream transaction unlocked 11 billion dollars in value, and is an indicator
+of the strong investor confidence in our assets and strategy. Internationally, we secured
+up to 3.2 million tonnes per annum of LNG volumes through offtake agreements,
+enhancing our access to high-growth markets.
+Saudi Aramco: Company General Use 12
+
+--- Page 13 ---
+Looking to Downstream, 2025 was a year of strong operational delivery.
+Our availability and throughput increased to record levels, allowing us to maintain an
+optimal proportion of our crude utilized within our downstream system, even with higher
+Upstream crude volumes, and capture stronger refining margins.
+Additionally, we have achieved our 2025 target of recurring SABIC synergies with 3.8
+billion dollars now delivered.
+Downstream’s transformation has been progressing well. From a 2021 baseline to 2025,
+the program captured around 5 billion dollars in incremental financial benefits. In 2025
+specifically, a new wave of initiatives were introduced to further enhance manufacturing
+efficiencies, implement innovative digital solutions, optimize molecules, and deploy cost-
+reduction initiatives, all of which generated approximately 1.2 billion dollars in EBIT
+versus 2024.
+We are expanding our global retail and branding footprint in the Philippines and Chile to
+capture more value.
+We are also progressing towards our long-term target of 4 million barrels per day of
+liquids-to-chemicals capacity, with Shaheen in South Korea, Amiral in Saudi Arabia and
+HAPCO projects in China, which are under development and on track for completion in
+2026 and 2027, potentially adding 400 thousand barrels per day of liquids-to-chemicals
+capacity. Our Gulei II investment in Fujian China reinforces our position at the heart of
+the world’s largest petrochemical market.
+Saudi Aramco: Company General Use 13
+
+--- Page 14 ---
+By the end of 2025 we had already achieved 45 percent of our long-term liquids-to-
+chemicals target. We continue to exercise discipline in a challenging petrochemical
+environment, by optimizing and extending the timeline of some of our Downstream
+projects. This means that our investments in downstream will be a smaller portion of our
+total future plans.
+In 2025, we took decisive steps to capture value across the entire hydrocarbon chain and
+we are on track to generate an incremental 8 to 10 billion in operating cash flow in 2030.
+Saudi Aramco: Company General Use 14
+
+--- Page 15 ---
+Aramco has already demonstrated that it is uniquely positioned to generate more
+shareholder value via our extensive data generated over nearly a century, and our
+industry-lowest cost advantage.
+Where many other companies describe the extent of their efforts, we are going a step
+further and showing quantifiable results, with 11.3 billion dollars of TRV generated over
+the last 3 years, mostly from capex avoidance. 5.3 billion dollars of this was generated in
+2025 with around half from AI solutions. In 2026, we are targeting an additional 3 to 5
+billion dollars in Technology Realized Value.
+The tangible outcomes of our 2025 TRV initiatives are evident in key areas.
+For example, we are able to lower project operating costs and capital expenditures
+through reduced drilling time and the use of AI and digitalization in upstream operations.
+We are growing new offerings through upgrading feedstock to higher-value chemical
+products, while launching new premium fuels with an in-house developed formula to
+capture higher margins.
+Finally, our plans to invest in HUMAIN will further stregnthen our AI capabilities.
+On that note, let me hand over to Ziad to provide more details about our 2025 financial
+performance.
+Saudi Aramco: Company General Use 15
+
+--- Page 16 ---
+Ziad Al -Murshed
+Executive Vice President & CFO
+Thank you Amin.
+2025 was another year of disciplined execution, operational momentum, and strong
+financial performance, all delivered against a backdrop of continued market volatility and
+lower crude oil prices.
+Despite these headwinds, we once again demonstrated the strength and resilience of our
+business model while boosting shareholder returns.
+Saudi Aramco: Company General Use 16
+
+--- Page 17 ---
+Our adjusted net income was $104.7 billion in 2025, and it is about the quality of earnings
+as well as the scale. These results are the most resilient when compared to our peers,
+down only 5% when Brent was down 14%, and our peers were down between 10% and
+26%.
+Our 12-month rolling ROACE was approximately 20%. This is indeed industry-leading
+and more than double the IOC average, even though this includes around $100 billion of
+assets under construction that are not yet operational. Excluding this, our ROACE would
+have been around 4 percentage points higher.
+Upstream adjusted EBIT was solid at $195.5 billion reflecting the contribution from higher
+volumes and continued strong cost focus, despite a 14% drop in oil prices.
+Downstream adjusted EBIT was $10 billion, up more than 4 times mainly due to our
+higher refining availability which captured higher refining margins during the year, and
+benefits from synergies and our transformation initiatives.
+We booked around $8.6 billion of impairments and fair value impacts from assets held-
+for-sale in 2025, mostly relating to our SABIC investment. These are non-cash items that
+do not affect our underlying financials.
+Operating cash flow was strong at $136.2 billion, which is higher than 2024.
+Saudi Aramco: Company General Use 17
+
+--- Page 18 ---
+Through our disciplined approach to capital management, our capital investments totaled
+$52.2 billion, at the bottom end of the guidance we provided at Q3 of $52 to 55bn, and
+around $1 billion lower than 2024.
+Despite lower crude oil prices, free cash flow remained strong at $85.4 billion.
+Our balance sheet remains a key market differentiator, with gearing improved to 3.8%,
+reflecting our prudent financial management and capital discipline.
+In 2025 we also successfully issued a total of $8 billion in new bonds and Sukuk, at
+advantaged rates, reaffirming our disciplined access to global capital markets and further
+strengthening our liquidity position.
+Saudi Aramco: Company General Use 18
+
+--- Page 19 ---
+Now zooming into our quarterly performance.
+Our adjusted net income was $25.1 billion in Q4, robust and consistent year-on-year.
+Again, this reflects more resilience than the IOC’s average drop of 7% over the same
+period.
+Our Upstream adjusted EBIT was $47.9 billion in Q4. This is a resilient result, again
+driven by higher volumes despite a decline in realized oil prices of 12% year-on-year and
+9% quarter-on-quarter.
+In Downstream, adjusted EBIT was $3 billion, continuing its improving trend over the last
+5 quarters, mainly driven by our higher availability, which gives us the ability to capture
+higher refining margins, as well as ongoing synergy and transformation initiatives.
+Despite a drop of about $9 per barrel year-on-year in crude oil prices, our operating cash
+flow of $40.8 billion in Q4 was up by 14% year-on-year, and it was also up 13% quarter-
+on-quarter, reflecting the strength of our underlying business.
+Capital discipline continues to be a hallmark of our approach. Capital investments for the
+fourth quarter totaled $15.3 billion, to finish the year at the lower end of our guidance,
+and we generated some $27.5 billion of free cash flow, up 27% year-on-year and up 17%
+quarter-on-quarter.
+Saudi Aramco: Company General Use 19
+
+--- Page 20 ---
+Strong cash generation driven by advantaged growth programs
+Incremental future OCF
++$10-11bn per 1mmbpd > Growth programs on track
+Potential crude production growth from readily available capacity 2 and building momentum to generate
+higher future OCF
++$8-10bn
++$12-15bn
+Up from $9-10bn
+Downstream > Delivered $11bn OCF uplift
++$11bn
+business4
+in 20251 vs 2024 price-normalized
+$136bn vs 20241 $136bn baseline driven by higher crude
+Gas growth production
+program3
+$125bn
+> Ongoing focus on shareholder
+value maximization supports
+future distribution capacity
+2024 2024 2025 2030 Expected
+Actual Baseline Actual excl. crude
+price-normalized1 production upside
+1. 2024 OCF of $135.7bn ($80.2/bbl average realized crude oil prices) adjusted to create 202p4r ice-normalized baseline (based on 2025 3. Incremental OCF uplift from higher sales gas production capacity growth target by 2030 (versus 2021 sales gas production) wchhi was
+$69.2/bbl average realized crude oil prices) in line with Aramco’s Rule of Thumb revised from over 60% to around 80% in Q3 2025; subject to future sales gas demand and liquids prices
+S
+2.
+a
+I
+au
+n
+nd
+l
+d
+in
+i b
+e
+Aa
+w
+sre
+it
+ad
+h
+m o
+A
+n
+ra
+c2
+m
+0o2
+c
+:5
+o
+C
+’
+a
+s
+v o
+R
+e
+u
+mra
+le
+g p
+o
+e
+f
+a B
+T
+nr
+h
+ey
+u
+n
+m
+tG p
+b
+r e
+a
+ic
+n
+ne
+a
+,e
+l y
+er
+s
+va
+is
+e l
+w
+r yU
+h
+1
+ic
+ms
+h
+e m
+is i
+b
+n
+p
+d
+d
+ic
+o
+a
+f
+ti
+s
+v
+p
+e
+a
+,
+r
+m
+e c
+a
+a
+y
+p
+c
+a
+h
+c
+a
+it
+n
+y
+g
+u
+e
+ti
+o
+liz
+v
+e
+e
+d
+r
+c
+ti
+o
+m
+u
+e
+ld
+a
+t
+n
+ra
+d
+n
+m
+sla
+a
+t
+y
+e
+n
+t
+o
+o
+t
+$
+b
+-1
+e
+10 1
+p
+b
+re
+n
+c
+in
+is e
+in
+.
+c
+A
+r
+c
+e
+c
+m
+o
+e
+rd
+n
+i
+t
+n
+a
+g
+l O
+tou
+C
+lR
+F
+eof Thumb, 4. Based on 5-year historical average refining and chemicals margins, expected upside from transformation programs and SABIC synieersg Saudi Aramco FY 2025 Result|s 14
+As Amin mentioned earlier, our growth programs are firmly on track, and we are building
+momentum across our portfolio with resilience and ability to generate strong cash flows in
+differerent macro environments.
+Our operating cash generating ability is ahead of our peers and we expect significant
+further upside based on both our growth and transformation programs.
+We delivered a significant operating cashflow uplift of $11 billion in 2025, when
+normalizing our 2024 operating cash flows for 2025 average oil prices. This takes our
+2025 total operating cash flow to $136 billion, which was mainly driven by higher crude oil
+production.
+We have the ability to develop strong incremental operating cashflow to achieve our
+targets in 2030. In liquids, for illustration, if we were to use half of our available spare
+crude oil capacity in 2030, at 2025 average oil prices, that would generate an additional
+$10 to 11 billion.
+Combined with the incremental $20 to $25 billion from gas and downstream businesses,
+that would equate to around $30 to 36 billion of additional operating cash flows, which
+would be 22 to 25% higher annualized operating cashflows, providing further upside
+potential to future distributions.
+Saudi Aramco: Company General Use 20
+
+--- Page 21 ---
+Our approach to capital allocation has always been focused on long-term growth in
+underlying free cash flow.
+We have provided guidance on capex and external investments at the start of each year
+and have demonstrated an excellent track record of delivering at the low end of our
+guidance range.
+We also said that you should expect capex to peak around the middle of the decade. Our
+capex was $53.3bn in 2024, $52.2bn in 2025, and we are guiding $50-55bn for 2026.
+We also said that if we found value-accretive additional opportunities we would look at
+these with financial discipline if they expanded our advantaged opportunity set. The
+partnership in HUMAIN is such an opportunity where we are progressing negotiations,
+and we expect to come back to you in due course with more details.
+Our new capex mix aligns directly with our medium-term growth priorities: around 65 to
+70% to Upstream oil and gas where we see strong growth and visible returns, around 20
+to 25% to downstream reflecting a large reduction from previous plans mainly resulting
+from re-paced liquids-to-chemicals investments, and approximately 5 to 10% in new
+energies and other areas. This excludes our planned investment in HUMAIN.
+Our capital focus is always about investing in the right things, at the right time and at the
+right level.
+Saudi Aramco: Company General Use 21
+
+--- Page 22 ---
+We have unmatched cash flow generation capability across cycles. More than 60% of our
+operating cash flow was available for shareholder distributions and external investments,
+representing the highest cash availability compared with IOCs, while maintaining the
+lowest gearing in the peer group with strong investment-grade credit ratings. This unique
+combination of financial strength and flexibility enables our world-class distributions.
+Today we announced an increase in our quarterly base dividends by 3.5% to $21.9 billion
+to be distributed later this month, projecting an annual base dividend of around $88
+billion.
+This reflects a 17% increase over 4 years, demonstrating Aramco’s ability to deliver a
+sustainable and progressive base dividend.
+As mentioned, we have also announced a share buy back program of up to $3 billion
+supporting the rising demand for our employee share purchase plan, the timing of which
+reflects confidence in our growth strategy and value.
+As always, dividends to be paid in the rest of the year remain subject to board approval.
+On that note, let me hand you back to Amin.
+Saudi Aramco: Company General Use 22
+
+--- Page 23 ---
+Thank you Ziad.
+Before we move into Q&A, I want to leave you with a clear message. We aim to
+maximize shareholder value through our unique ability to consistently implement our
+strategy.
+• Our 2025 results demonstrated once again the quality and high returns across
+cycles.
+• We are delivering growth, increasing shareholder returns, with reduced gearing.
+• Our upstream production growth is on track and we are re-pacing liquids-to-
+chemicals investments with capital discipline.
+• Our gas growth target is designed to capture greater value in a captive market, with
+demand upside from the Kingdom’s build-up of data centers.
+We are delivering strong operational and financial momentum in the near term and
+accelerating value growth into the longer term.
+With that, thank you for your attention. Ziad, Peter and I are pleased to take your
+questions.
+Saudi Aramco: Company General Use 23
